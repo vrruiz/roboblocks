@@ -1,0 +1,18 @@
+{
+	"category":"Math",
+	"helpUrl": "http://github.com/bq/roboblock/tree/master/lib/blocks/math-random",
+	"inputsInLine": true,
+	"output": true,
+	"inputs": {
+		"NUM" : {
+			"type": "Number",
+			"title": "Random between",
+			"check": "Number"
+		},
+		"DMAX" : {
+			"type": "Number",
+			"title": " and ",
+			"check": "Number"
+		}
+	}
+}

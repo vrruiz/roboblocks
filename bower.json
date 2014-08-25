@@ -1,0 +1,14 @@
+{
+  "name": "roboblocks",
+  "version": "0.0.0",
+  "dependencies": {
+    "blockly": "*",
+    "requirejs": "~2.1.14",
+    "mocha": "~1.21.4",
+    "jquery": "~2.1.1",
+    "sinonjs": "~1.10.2",
+    "chai-as-promised": "~4.1.1",
+    "chai": "~1.9.1"
+  },
+  "devDependencies": {}
+}
