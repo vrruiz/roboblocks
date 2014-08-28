@@ -1,5 +1,6 @@
 {
     "node": true,
+    "browser": true,
     "esnext": true,
     "bitwise": true,
     "camelcase": false,
@@ -10,11 +11,12 @@
     "latedef": true,
     "newcap": true,
     "noarg": true,
+    "quotmark": "single",
     "regexp": true,
-    "undef": false,
+    "undef": true,
     "unused": true,
     "strict": true,
     "trailing": true,
     "smarttabs": true,
-    "white": true
+    "sub": true
 }

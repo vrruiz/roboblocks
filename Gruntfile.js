@@ -1,13 +1,10 @@
+'use strict';
 /*global module:false*/
 module.exports = function(grunt) {
     var LIVERELOAD_PORT = 35729;
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-    require('load-grunt-tasks')(grunt);
 
-    var lrSnippet = require('connect-livereload')({
-        port: LIVERELOAD_PORT
-    });
     var mountFolder = function(connect, dir) {
         return connect.static(require('path').resolve(dir));
     };
@@ -21,15 +18,61 @@ module.exports = function(grunt) {
             '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
             '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
             ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+        clean: {
+            tmp: ['tmp'],
+            dist: ['dist']
+        },
+        underscore_jst: {
+            options: {
+                templateSettings: {
+                    evaluate:    /\{\{#([\s\S]+?)\}\}/g,        // {{# console.log("blah") }}
+                    interpolate : /\{\{\{(\s*\w+?\s*)\}\}\}/g,  // {{ title }}
+                    escape : /\{\{(\s*\w+?\s*)\}\}(?!\})/g      // {{{ title }}}
+                },
+                outputSettings: {
+                    style: {
+                        namespace: 'JST',
+                    },
+                    processName: function(filepath) {
+                        console.log(filepath);
+                        filepath = filepath.split('/');
+                        return filepath[filepath.length - 1].replace('.c.tpl', '');
+                    }
+                }
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    src: 'src/blocks/*/*.tpl',
+                    rename: function(dest, src) {
+                        return src.replace('src/blocks', 'tmp/templates') + '.js';
+                    }
+                }]
+            }
+        },
+        copy: {
+            img: {
+                expand: true,
+                src: 'src/blocks/*/img/*',
+                dest: 'dist/img',
+                flatten: true,
+                filter: 'isFile',
+            }
+        },
         // Task configuration.
         concat: {
             options: {
-                banner: '<%= banner %>',
-                stripBanners: true
+                banner: '<%= banner %>\n(function (factory) { if (typeof define === \'function\' && define.amd) {define([\'blockly\',\'blockly.blocks\',\'blockly.lang\'], factory);} else {factory(window.Blockly, window.Blocks, window.BlocklyLang);}}(function (Blockly, Blocks, BlocklyLang) {\nvar load = function(options) {\n',
+                footer: '\n}\nvar RoboBlocks = {load: load};if (typeof define === \'function\' && define.amd) {return RoboBlocks;} else {window.RoboBlocks = RoboBlocks;}\n}));',
+                stripBanners: true,
+                // Only on 'use_strict' in file
+                process: function(src, filepath) {
+                    return '// Source: ' + filepath + '\n' + src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
+                }
             },
             dist: {
-                src: ['lib/{,*/}*.js'],
-                dest: 'dist/<%= pkg.name %>.v<%= pkg.version %>.js'
+                src: ['src/*.js', 'tmp/**/*.js', 'src/blocks/**/*.js'],
+                dest: 'dist/<%= pkg.name %>.js'
             }
         },
         uglify: {
@@ -38,13 +81,16 @@ module.exports = function(grunt) {
             },
             dist: {
                 src: '<%= concat.dist.dest %>',
-                dest: 'dist/<%= pkg.name %>.v<%= pkg.version %>.min.js'
+                dest: 'dist/<%= pkg.name %>.min.js'
             }
+        },
+        jsbeautifier : {
+            files : ['dist/roboblocks.js']
         },
         jshint: {
             options: grunt.file.readJSON('.jshintrc'),
-            lib_test: {
-                src: ['lib/{,*/}*.js']
+            src_test: {
+                src: ['src/**/*.js']
             }
         },
         mochaTest: {
@@ -66,9 +112,9 @@ module.exports = function(grunt) {
                 files: '<%= jshint.gruntfile.src %>',
                 tasks: ['jshint:gruntfile']
             },
-            lib_test: {
-                files: '<%= jshint.lib_test.src %>',
-                tasks: ['jshint:lib_test', 'qunit']
+            src_test: {
+                files: '<%= jshint.src_test.src %>',
+                tasks: ['jshint:src_test', 'qunit']
             }
         },
         connect: {
@@ -94,10 +140,18 @@ module.exports = function(grunt) {
         }
     });
 
-
-
     // Default task.
-    grunt.registerTask('default', ['bower', 'mochaTest', 'concat', 'uglify']);
+    grunt.registerTask('default', [
+        'clean',
+        // 'mochaTest', 
+        'jshint',
+        'underscore_jst',
+        'concat',
+        'copy',
+        'jsbeautifier',
+        'uglify',
+        'clean:tmp'
+    ]);
 
     grunt.registerTask('server:test', 'Runs server for tests development', [
         'connect:test',
@@ -107,6 +161,6 @@ module.exports = function(grunt) {
 
     // Specific tasks
     grunt.registerTask('test', ['mochaTest']);
-    grunt.registerTask('hint', ['jshint']);
 
+    grunt.loadNpmTasks('grunt-underscore-jst');
 };

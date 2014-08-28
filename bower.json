@@ -1,14 +1,27 @@
 {
-  "name": "roboblocks",
-  "version": "0.0.0",
-  "dependencies": {
-    "blockly": "*",
-    "requirejs": "~2.1.14",
-    "mocha": "~1.21.4",
-    "jquery": "~2.1.1",
-    "sinonjs": "~1.10.2",
-    "chai-as-promised": "~4.1.1",
-    "chai": "~1.9.1"
-  },
-  "devDependencies": {}
+    "name": "roboblocks",
+    "description": "Blockly blocks repository used in bitbloq",
+    "description": "",
+    "version": "0.0.1",
+    "main": "dist/roboblocks.js",
+    "license": "MIT",
+    "keywords": "roboblocks blockly arduino bitbloq bq",
+    "author": {
+        "name": "bq"
+    },
+    "homepage": "http://github.com/bq/roboblock",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/bq/roboblock.git"
+    },
+    "dependencies": {
+        "blockly": "*",
+        "requirejs": "~2.1.14",
+        "mocha": "~1.21.4",
+        "sinonjs": "~1.10.2",
+        "chai-as-promised": "~4.1.1",
+        "chai": "~1.9.1"
+    },
+    "main": "dist/roboblocks.js",
+    "devDependencies": {}
 }
