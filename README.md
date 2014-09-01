@@ -23,102 +23,102 @@ This project requires [blocklybq](https://github.com/blocklybq/blockly) or [bloc
 
 - Declare in RequireJS
 
-    ```
-    <!doctype html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>RoboBlocks</title>
-    </head>
-    <body>
-        <script src="bower_components/requirejs/require.js"></script>
-        <script src="scripts/define.js"></script>
-        <script>
-            'use strict';
-            /* global require */
-            require.config({
-                deps: [
-                    'main'
-                ],
-                paths: {
-                    'blockly': '../bower_components/blockly/blockly_compressed',
-                    'blockly.blocks': '../bower_components/blockly/blocks_compressed',
-                    'blockly.lang': '../bower_components/blockly/msg/js/en',
-                    'blockly.arduino': '../bower_components/blockly/arduino_compressed',
-                    roboblocks: '../bower_components/roboblocks/dist/roboblocks'
+```html
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RoboBlocks</title>
+</head>
+<body>
+    <script src="bower_components/requirejs/require.js"></script>
+    <script src="scripts/define.js"></script>
+    <script>
+        'use strict';
+        /* global require */
+        require.config({
+            deps: [
+                'main'
+            ],
+            paths: {
+                'blockly': '../bower_components/blockly/blockly_compressed',
+                'blockly.blocks': '../bower_components/blockly/blocks_compressed',
+                'blockly.lang': '../bower_components/blockly/msg/js/en',
+                'blockly.arduino': '../bower_components/blockly/arduino_compressed',
+                roboblocks: '../bower_components/roboblocks/dist/roboblocks'
+            },
+            shim: {
+                blockly: {
+                    exports: 'Blockly'
                 },
-                shim: {
-                    blockly: {
-                        exports: 'Blockly'
-                    },
-                    'blockly.blocks': [
-                        'blockly'
-                    ],
-                    'blockly.lang': [
-                        'blockly'
-                    ],
-                    'blockly.arduino': [
-                        'blockly'
-                    ],
-                    'roboblocks': [
-                        'blockly'
-                    ]
-                }
-            });
+                'blockly.blocks': [
+                    'blockly'
+                ],
+                'blockly.lang': [
+                    'blockly'
+                ],
+                'blockly.arduino': [
+                    'blockly'
+                ],
+                'roboblocks': [
+                    'blockly'
+                ]
+            }
+        });
 
-            define(['blockly', 'roboblocks'], function(Blockly, RoboBlocks) {
-                // RoboBlocks loader
-                RoboBlocks.load({
-                    zoom: 1,
-                    otherParameter: true
-                });
-                var target = document.querySelector('.blockly');
-                Blockly.inject(target, {
-                    trashcan: true,
-                    toolbox: Blockly.createToolbox(),
-                    scrollbars: false
-                });
-    
-            });
-
-        </script>
-    </body>
-    </html>
-    ```
-    
-#### **Manual**
-
-- Index example
-
-    ```
-    <!doctype html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>RoboBlocks</title>
-    </head>
-    <body>
-        <script type="text/javascript" src="js/bitbloq.js"></script>
-        <script type="text/javascript" src="js/roboblocks.js"></script>
-        <script>
-        
+        define(['blockly', 'roboblocks'], function(Blockly, RoboBlocks) {
             // RoboBlocks loader
             RoboBlocks.load({
                 zoom: 1,
                 otherParameter: true
             });
-            
             var target = document.querySelector('.blockly');
             Blockly.inject(target, {
                 trashcan: true,
                 toolbox: Blockly.createToolbox(),
                 scrollbars: false
             });
+
+        });
+
+    </script>
+</body>
+</html>
+```
     
-        </script>
-    </body>
-    </html>
-    ```
+#### **Manual**
+
+- Index example
+
+```html
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RoboBlocks</title>
+</head>
+<body>
+    <script type="text/javascript" src="js/bitbloq.js"></script>
+    <script type="text/javascript" src="js/roboblocks.js"></script>
+    <script>
+    
+        // RoboBlocks loader
+        RoboBlocks.load({
+            zoom: 1,
+            otherParameter: true
+        });
+        
+        var target = document.querySelector('.blockly');
+        Blockly.inject(target, {
+            trashcan: true,
+            toolbox: Blockly.createToolbox(),
+            scrollbars: false
+        });
+
+    </script>
+</body>
+</html>
+```
 
 ## Blockly Extensions
 
@@ -132,41 +132,42 @@ When Blockly has its blocks loaded, this method generates the XML file that defi
 
 - Clone project
 
-    ```
+    ```bash
     git clone http://github.com/bq/roboblock.git
     ```
     
 - Initialize
 
-    ```
+    ```bash
     npm install && bower install
     ```
 - Create blocks (see next point)
 
 - Test
 
-    ```
+    ```bash
     grunt test
     ```
     
 - Build
 
-    ```
+    ```bash
     grunt
     ```
     
 ## Creating new blocks
 
 ### Block structure
+
 ```
 src
 ├── blocks                      // blocks folder
-│   └── servo_move             // block name
-│       ├── img                 // block image
-│       │   └── *.png
-│       ├── servo_move.c.tpl   // c code template
-│       ├── servo_move.js      // block definition & code generation
-│       └── README.md           // block documentation
+│   └── servo_move             // block name
+│       ├── img                 // block image
+│       │   └── *.png
+│       ├── servo_move.c.tpl   // c code template
+│       ├── servo_move.js      // block definition & code generation
+│       └── README.md           // block documentation
 ├── profiles.js                 // supported profiles
 └── utils.js                    // some utils and Blockly extensions
 ```
@@ -175,7 +176,7 @@ src
 
 #### **servo_move.js example**
 
-```
+```javascript
 'use strict';
 /* global Blockly, options, profiles */
 /* jshint sub:true */
@@ -241,7 +242,7 @@ Blockly.Blocks.servo_move = {
 #### **Parameters**
 
 Blocks can be initialized with parameters when loaded with `RoboBlocks.load({...});`, and this parameters are available in `options` variable.
-```
+```javascript
 this.appendDummyInput('')
     .appendTitle('Servo')
     .appendTitle(new Blockly.FieldImage(
@@ -254,7 +255,7 @@ this.appendDummyInput('')
 #### **Profiles**
 
 Default profiles are available and defined in `src/profiles.js`. This profiles are available in `profiles` variable.
-```
+```javascript
 this.appendDummyInput('')
     .appendTitle('Servo')
     .appendTitle('PIN#')
@@ -267,7 +268,7 @@ this.appendDummyInput('')
 #### **Block image**
 
 Blocks images should be defined like this:
-```
+```javascript
 this.appendDummyInput('')
     .appendTitle(new Blockly.FieldImage(
         'img/blocks/bqservo01.png',
@@ -281,7 +282,7 @@ When the project is compiled, all images are located in `dist/img/*.png`.
 ### Code template
 
 Blocks code are defined in `*.c.tpl` files as an [underscore](http://underscorejs.org/) templates but with following settings:
-```
+```javascript
 templateSettings: {
     evaluate:    /\{\{#([\s\S]+?)\}\}/g,        // {{# console.log("blah") }}
     interpolate : /\{\{\{(\s*\w+?\s*)\}\}\}/g,  // {{ title }}
@@ -294,7 +295,7 @@ servo_{{ dropdown_pin }}.write({{ value_degree }});
 delay({{ delay_time }});
 ```
 When evaluated like this:
-```
+```javascript
 var code = this.JST['servo_move']({
     'dropdown_pin': 3,
     'value_degree': 180,
@@ -309,4 +310,3 @@ delay(1000);
 
 
 ### Testing (@todo)
-
