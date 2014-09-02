@@ -32,7 +32,7 @@ Blockly.Arduino.servo_cont = function() {
  */
 Blockly.Blocks.servo_cont = {
     category: 'Math',
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/lib/blocks/servo_cont',
+    helpUrl: 'https://github.com/bq/roboblock/tree/master/lib/blocks/servo_cont',
     init: function() {
         this.setColour('25');
         this.appendDummyInput('')
