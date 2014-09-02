@@ -13,6 +13,10 @@
         "type": "git",
         "url": "http://github.com/bq/roboblock.git"
     },
+    "scripts": {
+        "bower": "bower install",
+        "build": "grunt"
+    },
     "dependencies": {},
     "devDependencies": {
         "bower": "~1.3.9",
