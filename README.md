@@ -122,6 +122,8 @@ This project requires [blocklybq](https://github.com/blocklybq/blockly) or [bloc
 
 ## Blockly Extensions
 
+Extensions added to Blockly and located in `src/blockly.extensions.js`.
+
 ### Blockly.createToolbox
 
 When Blockly has its blocks loaded, this method generates the XML file that defines the Blockly toolbox.
@@ -132,26 +134,36 @@ When Blockly has its blocks loaded, this method generates the XML file that defi
 
 - Clone project
 
-    ```bash
+    ```
     git clone http://github.com/bq/roboblock.git
     ```
     
 - Initialize
 
-    ```bash
+    ```
     npm install && bower install
     ```
 - Create blocks (see next point)
 
+- Show playground
+
+    ```
+    grunt server:test
+    ```
+
 - Test
 
-    ```bash
+    ```
+    grunt server:test
+    ```
+    or
+    ```
     grunt test
     ```
     
 - Build
 
-    ```bash
+    ```
     grunt
     ```
     
@@ -164,7 +176,8 @@ src
 ├── blocks                      // blocks folder
 │   └── servo_move             // block name
 │       ├── img                 // block image
-│       │   └── *.png
+│       │   └── blocks
+│       │       └── *.png
 │       ├── servo_move.c.tpl   // c code template
 │       ├── servo_move.js      // block definition & code generation
 │       └── README.md           // block documentation
@@ -198,7 +211,7 @@ Blockly.Arduino.servo_move = function() {
     Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = 'servo_' + dropdown_pin + '.attach(' + dropdown_pin + ');\n';
 
     // Code generation with compiled template
-    var code = this.JST['servo_move']({
+    var code = JST['servo_move']({
         'dropdown_pin': dropdown_pin,
         'value_degree': value_degree,
         'delay_time': delay_time
@@ -277,7 +290,7 @@ this.appendDummyInput('')
     );
 ```
 And its images stored in `src/blocks/[block_name]/img/[filename].png`.
-When the project is compiled, all images are located in `dist/img/*.png`.
+When the project is compiled, all images are located in `dist/img/blocks/*.png`.
 
 ### Code template
 
@@ -307,6 +320,3 @@ Will generate the following code:
 servo_3.write(180);
 delay(1000);
 ```
-
-
-### Testing (@todo)

@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RoboBlocks PlayGround</title>
+</head>
+<body>
+    <div id="blockly"></div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/blockly/blockly_compressed.js"></script>
+    <script src="bower_components/blockly/blocks_compressed.js"></script>
+    <script src="bower_components/blockly/arduino_compressed.js"></script>
+    <script src="bower_components/blockly/msg/js/en.js"></script>
+    <script src="roboblocks.js" data-main="define.js"></script>
+    <script>
+
+        RoboBlocks.load({
+            zoom:1
+        });
+
+        // New workspace for each test case
+        var el = document.getElementById('blockly');
+        Blockly.inject(document.body.appendChild(el), {
+            toolbox: Blockly.createToolbox()
+        });
+
+        $('.blocklySvg, #blockly').height('95%');
+
+
+        // LiveReload
+        (function() {
+            var po = document.createElement('script');
+            po.type = 'text/javascript';
+            po.async = true;
+            po.src = '//' + window.location.host.split(':')[0] + ':35729/livereload.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+</body>
+</html>

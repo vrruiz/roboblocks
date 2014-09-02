@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles */
+/* global Blockly, options, profiles, JST */
 /* jshint sub:true */
 
 /**
@@ -18,7 +18,7 @@ Blockly.Arduino.servo_move = function() {
     Blockly.Arduino.definitions_['var_servo' + dropdown_pin] = 'Servo servo_' + dropdown_pin + ';\n';
     Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = 'servo_' + dropdown_pin + '.attach(' + dropdown_pin + ');\n';
 
-    var code = this.JST['servo_move']({
+    var code = JST['servo_move']({
         'dropdown_pin': dropdown_pin,
         'value_degree': value_degree,
         'delay_time': delay_time
@@ -40,18 +40,18 @@ Blockly.Blocks.servo_move = {
     init: function() {
         this.setColour('25');
         this.appendDummyInput('')
-            .appendTitle('Servo')
-            .appendTitle(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom))
-            .appendTitle('PIN#')
-            .appendTitle(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+            .appendField('Servo')
+            .appendField(new Blockly.FieldImage('img/blocks/bqmod01.png', 208 * options.zoom, 126 * options.zoom))
+            .appendField('PIN#')
+            .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
         this.appendValueInput('DEGREE', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendTitle('Degrees (0~180)');
+            .appendField('Degrees (0~180)');
         this.appendValueInput('DELAY_TIME', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendTitle('Delay');
+            .appendField('Delay');
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip('Move between 0~180 degree');

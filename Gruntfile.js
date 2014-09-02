@@ -22,39 +22,30 @@ module.exports = function(grunt) {
             tmp: ['tmp'],
             dist: ['dist']
         },
-        underscore_jst: {
+        jst: {
             options: {
                 templateSettings: {
                     evaluate:    /\{\{#([\s\S]+?)\}\}/g,        // {{# console.log("blah") }}
                     interpolate : /\{\{\{(\s*\w+?\s*)\}\}\}/g,  // {{ title }}
                     escape : /\{\{(\s*\w+?\s*)\}\}(?!\})/g      // {{{ title }}}
                 },
-                outputSettings: {
-                    style: {
-                        namespace: 'JST',
-                    },
-                    processName: function(filepath) {
-                        console.log(filepath);
-                        filepath = filepath.split('/');
-                        return filepath[filepath.length - 1].replace('.c.tpl', '');
-                    }
+                processName: function(filepath) {
+                    console.log(filepath);
+                    filepath = filepath.split('/');
+                    return filepath[filepath.length - 1].replace('.c.tpl', '');
                 }
             },
             dist: {
-                files: [{
-                    expand: true,
-                    src: 'src/blocks/*/*.tpl',
-                    rename: function(dest, src) {
-                        return src.replace('src/blocks', 'tmp/templates') + '.js';
-                    }
-                }]
+                files: {
+                    'tmp/jst.js': 'src/blocks/*/*.tpl'
+                }
             }
         },
         copy: {
             img: {
                 expand: true,
                 src: 'src/blocks/*/img/*',
-                dest: 'dist/img',
+                dest: 'dist/img/blocks/',
                 flatten: true,
                 filter: 'isFile',
             }
@@ -62,7 +53,7 @@ module.exports = function(grunt) {
         // Task configuration.
         concat: {
             options: {
-                banner: '<%= banner %>\n(function (factory) { if (typeof define === \'function\' && define.amd) {define([\'blockly\',\'blockly.blocks\',\'blockly.lang\'], factory);} else {factory(window.Blockly, window.Blocks, window.BlocklyLang);}}(function (Blockly, Blocks, BlocklyLang) {\nvar load = function(options) {\n',
+                banner: '<%= banner %>\n(function (factory) { if (typeof define === \'function\' && define.amd) {define([\'underscore\',\'blockly\',\'blockly.blocks\',\'blockly.lang\'], factory);} else {factory(_, window.Blockly, window.Blocks, window.BlocklyLang);}}(function (_, Blockly, Blocks, BlocklyLang) {\nvar load = function(options) {\n',
                 footer: '\n}\nvar RoboBlocks = {load: load};if (typeof define === \'function\' && define.amd) {return RoboBlocks;} else {window.RoboBlocks = RoboBlocks;}\n}));',
                 stripBanners: true,
                 // Only on 'use_strict' in file
@@ -73,6 +64,14 @@ module.exports = function(grunt) {
             dist: {
                 src: ['src/*.js', 'tmp/**/*.js', 'src/blocks/**/*.js'],
                 dest: 'dist/<%= pkg.name %>.js'
+            },
+            jst: {
+                options: {
+                    banner: '',
+                    footer: '\nvar JST = this.JST;\n'
+                },
+                src: ['tmp/jst.js'],
+                dest: 'tmp/jst.js'
             }
         },
         uglify: {
@@ -93,12 +92,29 @@ module.exports = function(grunt) {
                 src: ['src/**/*.js']
             }
         },
-        mochaTest: {
-            test: {
+        'mocha_phantomjs': {
+            options: {
+                urls: [
+                    'http://localhost:<%= connect.test.options.port %>'
+                ],
+                setting: 'webSecurityEnabled=false'
+            },
+            standard: {
                 options: {
-                    reporter: 'nyan'
-                },
-                src: ['test/*.js']
+                    reporter: 'spec'
+                }
+            },
+            tap: {
+                options: {
+                    reporter: 'tap',
+                    output: 'target/test_results.tap'
+                }
+            },
+            xunit: {
+                options: {
+                    reporter: 'xunit',
+                    output: 'target/test_results.xml.dirty'
+                }
             }
         },
         watch: {
@@ -108,24 +124,40 @@ module.exports = function(grunt) {
                 debounceDelay: 250,
                 livereload: LIVERELOAD_PORT
             },
-            gruntfile: {
-                files: '<%= jshint.gruntfile.src %>',
-                tasks: ['jshint:gruntfile']
-            },
-            src_test: {
-                files: '<%= jshint.src_test.src %>',
-                tasks: ['jshint:src_test', 'qunit']
+            src: {
+                files: [
+                    'src/**/*.js',
+                    'test/**/*.js',
+                    'src/**/*.tpl',
+                ],
+                tasks: ['build']
             }
         },
         connect: {
             options: {
-                port: 9000,
                 hostname: '0.0.0.0'
+            },
+            dev: {
+                options: {
+                    port: 9000,
+                    middleware: function(connect) {
+                        return [
+                            // Prevent anoying 404 errors from Blockly.workspace media resources
+                            mountFolder(connect, 'bower_components/blockly'),
+                            mountFolder(connect, 'src'),
+                            mountFolder(connect, 'dist'),
+                            mountFolder(connect, '.')
+                        ];
+                    }
+                }
             },
             test: {
                 options: {
+                    port: 9001,
                     middleware: function(connect) {
                         return [
+                            // Prevent anoying 404 errors from Blockly.workspace media resources
+                            mountFolder(connect, 'bower_components/blockly'),
                             mountFolder(connect, 'test'),
                             mountFolder(connect, '.')
                         ];
@@ -134,8 +166,11 @@ module.exports = function(grunt) {
             }
         },
         open: {
+            dev: {
+                path: 'http://localhost:<%= connect.dev.options.port %>'
+            },
             test: {
-                path: 'http://localhost:<%= connect.options.port %>'
+                path: 'http://localhost:<%= connect.test.options.port %>'
             }
         }
     });
@@ -143,24 +178,52 @@ module.exports = function(grunt) {
     // Default task.
     grunt.registerTask('default', [
         'clean',
-        // 'mochaTest', 
+        'test:tap',
+        'build'
+    ]);
+
+    grunt.registerTask('build', [
         'jshint',
-        'underscore_jst',
-        'concat',
+        'jst',
+        'concat:jst',
+        'concat:dist',
         'copy',
         'jsbeautifier',
         'uglify',
         'clean:tmp'
     ]);
 
+    grunt.registerTask('server', [
+        'build',
+        'connect:dev',
+        'open:dev',
+        'watch'
+    ]);
+
     grunt.registerTask('server:test', 'Runs server for tests development', [
+        'build',
         'connect:test',
-        'open',
+        'open:test',
         'watch'
     ]);
 
     // Specific tasks
-    grunt.registerTask('test', ['mochaTest']);
+    grunt.registerTask('test', [
+        'build',
+        'connect:test',
+        'mocha_phantomjs:standard'
+    ]);
 
-    grunt.loadNpmTasks('grunt-underscore-jst');
+    grunt.registerTask('test:tap', [
+        'build',
+        'connect:test',
+        'mocha_phantomjs:tap'
+    ]);
+
+    grunt.registerTask('test:xunit', [
+        'build',
+        'connect:test',
+        'mocha_phantomjs:xunit'
+    ]);
+
 };

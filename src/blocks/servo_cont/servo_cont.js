@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles */
+/* global Blockly, options, profiles, JST */
 /* jshint sub:true */
 
 /**
@@ -18,7 +18,7 @@ Blockly.Arduino.servo_cont = function() {
     Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = 'servo_' + dropdown_pin + '.attach(' + dropdown_pin + ');\n';
 
 
-    var code = this.JST['servo_cont']({
+    var code = JST['servo_cont']({
         'dropdown_pin': dropdown_pin,
         'value_degree': value_degree,
         'delay_time': delay_time
@@ -36,12 +36,12 @@ Blockly.Blocks.servo_cont = {
     init: function() {
         this.setColour('25');
         this.appendDummyInput('')
-            .appendTitle('Servo')
-            .appendTitle(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom))
-            .appendTitle('PIN#')
-            .appendTitle(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-            .appendTitle('ROT')
-            .appendTitle(new Blockly.FieldDropdown([
+            .appendField('Servo')
+            .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 126 * options.zoom))
+            .appendField('PIN#')
+            .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
+            .appendField('ROT')
+            .appendField(new Blockly.FieldDropdown([
                 ['TURN CLOCKWISE', '0'],
                 ['TURN COUNTERCLOCKWISE', '180'],
                 ['STOPPED', '90']
@@ -49,7 +49,7 @@ Blockly.Blocks.servo_cont = {
         this.appendValueInput('DELAY_TIME', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendTitle('Delay');
+            .appendField('Delay');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Continuous rotation servo');
