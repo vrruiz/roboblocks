@@ -143,7 +143,7 @@ module.exports = function(grunt) {
                     middleware: function(connect) {
                         return [
                             // Prevent anoying 404 errors from Blockly.workspace media resources
-                            mountFolder(connect, 'bower_components/blockly'),
+                            mountFolder(connect, 'bower_components/blockly-bq'),
                             mountFolder(connect, 'src'),
                             mountFolder(connect, 'dist'),
                             mountFolder(connect, '.')
@@ -157,7 +157,7 @@ module.exports = function(grunt) {
                     middleware: function(connect) {
                         return [
                             // Prevent anoying 404 errors from Blockly.workspace media resources
-                            mountFolder(connect, 'bower_components/blockly'),
+                            mountFolder(connect, 'bower_components/blockly-bq'),
                             mountFolder(connect, 'test'),
                             mountFolder(connect, '.')
                         ];
