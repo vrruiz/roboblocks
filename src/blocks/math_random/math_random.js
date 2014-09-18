@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, JST */
+/* global Blockly, JST, RoboBlocks */
 
 //register with blockly arduino
 Blockly.Arduino.math_random = function() {
@@ -15,7 +15,7 @@ Blockly.Arduino.math_random = function() {
 
 Blockly.Blocks.math_random = {
     category: 'Math',
-    helpUrl: 'https://github.com/bq/roboblock/tree/master/lib/blocks/math_random',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_random',
     init: function() {
         this.appendValueInput('NUM', Number)
             .appendField('Random between')

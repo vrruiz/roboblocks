@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -33,12 +33,11 @@ Blockly.Arduino.servo_move = function() {
  */
 Blockly.Blocks.servo_move = {
     category: 'Math',
-    helpUrl: 'https://github.com/bq/roboblock/tree/master/src/blocks/servo_move',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/servo_move',
     /**
      * servo_move initialization
      */
     init: function() {
-        this.setColour('25');
         this.appendDummyInput('')
             .appendField('Servo')
             .appendField(new Blockly.FieldImage('img/blocks/bqmod01.png', 208 * options.zoom, 126 * options.zoom))
