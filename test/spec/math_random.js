@@ -9,9 +9,10 @@
 		describe('In Roboblocks.Blocks.math_random block', function () {
 
 			it('generates expected default Arduino code', function () {
+				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'math_random');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), '#include <Servo.h>\n#include <Sumorobot.h>\n\nvoid setup() {\n  start();\n}\nvoid loop() {\n  random(0, 10);\n\n}\n');
+				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n\n}\n\n\nvoid loop()\n{\n  random(0, 10);\n\n}');
 			});
 		});
 

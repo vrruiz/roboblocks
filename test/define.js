@@ -9,11 +9,11 @@ require.config({
         roboblocks: '../dist/roboblocks',
         underscore: '../bower_components/underscore/underscore',
 
-        blockly: '../bower_components/blockly/blockly_compressed',
+        blockly: '../bower_components/blockly-bq/blockly_compressed',
         'blockly.extensions': '../src/blockly.extensions',
-        'blockly.blocks': '../bower_components/blockly/blocks_compressed',
-        'blockly.lang': '../bower_components/blockly/msg/js/en',
-        'blockly.arduino': '../bower_components/blockly/arduino_compressed',
+        'blockly.blocks': '../bower_components/blockly-bq/blocks_compressed',
+        'blockly.lang': '../bower_components/blockly-bq/msg/js/en',
+        'blockly.arduino': '../bower_components/blockly-bq/arduino_compressed',
 
         jquery: '../bower_components/jquery/dist/jquery',
         mocha: '../bower_components/mocha/mocha',

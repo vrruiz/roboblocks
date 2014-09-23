@@ -1,0 +1,1 @@
+digitalRead({{ dropdown_pin }})

@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, profiles, JST */
 /* jshint sub:true */
 
 /**
@@ -7,15 +7,20 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.servo_cont = function() {
-    var dropdown_pin = this.getTitleValue('PIN');
-    var value_degree = this.getTitleValue('ROT');
+    var dropdown_pin = this.getFieldValue('PIN');
+    var value_degree = this.getFieldValue('ROT');
     var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '10';
 
     delay_time = delay_time.replace('(', '').replace(')', '');
 
-    Blockly.Arduino.definitions_['define_servo'] = '#include <Servo.h>\n';
-    Blockly.Arduino.definitions_['var_servo' + dropdown_pin] = 'Servo servo_' + dropdown_pin + ';\n';
-    Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = 'servo_' + dropdown_pin + '.attach(' + dropdown_pin + ');\n';
+    Blockly.Arduino.definitions_['define_servo'] = JST['servo_cont_definitions']({
+        'dropdown_pin': dropdown_pin
+    });
+    
+    
+    Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] =JST['servo_cont_setups']({
+        'dropdown_pin': dropdown_pin
+    });
 
 
     var code = JST['servo_cont']({
@@ -31,13 +36,13 @@ Blockly.Arduino.servo_cont = function() {
  * @type {Object}
  */
 Blockly.Blocks.servo_cont = {
-    category: 'Math',
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/servo_cont',
+    category: Blockly.LANG_CATEGORY_SERVO,
+    helpUrl: 'http://github.com/bq/roboblock/tree/master/lib/blocks/servo_cont',
     init: function() {
-        this.setColour('25');
+        this.setColour(Blockly.LANG_COLOUR_SERVO);
         this.appendDummyInput('')
             .appendField('Servo')
-            .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 126 * options.zoom))
+            .appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom))
             .appendField('PIN#')
             .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
             .appendField('ROT')

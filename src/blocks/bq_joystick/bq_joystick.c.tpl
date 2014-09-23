@@ -1,0 +1,1 @@
+analogRead({{dropdown_pin}})
