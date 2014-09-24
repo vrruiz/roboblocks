@@ -42,7 +42,7 @@ Blockly.Blocks.bq_buttons = {
 		this.setColour(Blockly.LANG_COLOUR_BQ);
 		this.appendDummyInput('')
 			.appendField('Buttons')
-			.appendTitle(new Blockly.FieldImage('img/blocks/bqmod10.png', 336*options.zoom, 176*options.zoom))
+			.appendField(new Blockly.FieldImage('img/blocks/bqmod10.png', 336*options.zoom, 176*options.zoom))
 			.appendField('PIN#')
 			.appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
 		this.appendStatementInput('BUTN1')

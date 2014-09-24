@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.1 - 2014-09-23
+/*! roboblocks - v0.0.1 - 2014-09-24
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -55,6 +55,7 @@
         /* global RoboBlocks */
 
         RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
+
         // Source: src/profiles.js
         /*
          * Arduino Board profiles
@@ -1349,7 +1350,7 @@
                 this.setColour(Blockly.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
                     .appendField('Buttons')
-                    .appendTitle(new Blockly.FieldImage('img/blocks/bqmod10.png', 336 * options.zoom, 176 * options.zoom))
+                    .appendField(new Blockly.FieldImage('img/blocks/bqmod10.png', 336 * options.zoom, 176 * options.zoom))
                     .appendField('PIN#')
                     .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
                 this.appendStatementInput('BUTN1')
