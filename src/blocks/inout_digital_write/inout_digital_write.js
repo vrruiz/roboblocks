@@ -21,7 +21,7 @@ Blockly.Arduino.inout_digital_write = function() {
 		'dropdown_stat': dropdown_stat
 	});
 
-	return code,;
+	return code;
 };
 
 /**
