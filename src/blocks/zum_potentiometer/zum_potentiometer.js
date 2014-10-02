@@ -6,7 +6,7 @@
  * zum_potentiometer code generation
  * @return {String} Code generated with block parameters
  */
- 
+
 
 Blockly.Arduino.zum_potentiometer = function() {
 	var dropdown_pin = this.getFieldValue('PIN');

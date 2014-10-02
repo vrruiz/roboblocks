@@ -6,7 +6,7 @@
  * bq_piezo_buzzer code generation
  * @return {String} Code generated with block parameters
  */
- 
+
 
 Blockly.Arduino.bq_piezo_buzzer = function() {
 	var dropdown_pin = this.getFieldValue('PIN');
@@ -17,7 +17,7 @@ Blockly.Arduino.bq_piezo_buzzer = function() {
 //		'dropdown_pin': dropdown_pin,
 //		'dropdown_stat': dropdown_stat
 //	});
-	
+
 
 	var code = JST['bq_piezo_buzzer']({
 		'dropdown_pin': dropdown_pin,
@@ -26,7 +26,7 @@ Blockly.Arduino.bq_piezo_buzzer = function() {
 	});
 
 	code = 'tone(' + dropdown_pin + ',' + dropdown_stat + ',' + delay_time + ');\ndelay(' + delay_time + ');\n';
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 

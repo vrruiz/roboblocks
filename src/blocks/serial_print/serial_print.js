@@ -6,7 +6,7 @@
  * serial_print code generation
  * @return {String} Code generated with block parameters
  */
- 
+
 
 Blockly.Arduino.serial_print = function() {
 	var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0';
@@ -17,7 +17,7 @@ Blockly.Arduino.serial_print = function() {
 		'content': content
 	});
 
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 /**

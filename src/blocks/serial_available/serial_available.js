@@ -11,7 +11,7 @@ Blockly.Arduino.serial_available = function() {
 	var code = JST['serial_available']({
 		'branch' : branch
 	});
-	return [code];
+	return code;
 };
 
 /**

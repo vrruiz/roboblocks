@@ -11,12 +11,12 @@ Blockly.Arduino.inout_builtin_led = function() {
 	var dropdown_stat = this.getFieldValue('STAT');
 
 	Blockly.Arduino.setups_['setup_green_led_13'] = JST['inout_builtin_led_setups']({});
-	 
+
 	var code = JST['inout_builtin_led']({
 		'dropdown_stat': dropdown_stat
 	});
 
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 /**

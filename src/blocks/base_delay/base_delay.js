@@ -8,7 +8,7 @@ Blockly.Arduino.base_delay = function() {
 	var code = JST['base_delay']({
 		'delay_time': delay_time
 	});
-	return [code, Blockly.Arduino.ORDER_NONE];
+	return code;
 };
 
 Blockly.Blocks.base_delay = {

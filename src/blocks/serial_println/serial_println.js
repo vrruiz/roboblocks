@@ -15,7 +15,7 @@ Blockly.Arduino.serial_println = function() {
 		'content': content
 	});
 
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 /**

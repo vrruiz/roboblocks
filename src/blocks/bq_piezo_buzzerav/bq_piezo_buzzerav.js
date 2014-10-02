@@ -6,7 +6,7 @@
  * bq_piezo_buzzerav code generation
  * @return {String} Code generated with block parameters
  */
- 
+
 
 Blockly.Arduino.bq_piezo_buzzerav = function() {
 
@@ -20,7 +20,7 @@ Blockly.Arduino.bq_piezo_buzzerav = function() {
 		'delay_time': delay_time
 	});
 
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 

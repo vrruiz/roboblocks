@@ -6,7 +6,7 @@
  * bq_buttons code generation
  * @return {String} Code generated with block parameters
  */
- 
+
 
 Blockly.Arduino.bq_buttons = function() {
 	var dropdown_pin = this.getFieldValue('PIN');
@@ -25,7 +25,7 @@ Blockly.Arduino.bq_buttons = function() {
 		'dropdown_pin': dropdown_pin,
 	});
 
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 /**
