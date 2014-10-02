@@ -58,10 +58,12 @@ This project requires [blocklybq](https://github.com/blocklybq/blockly) or [bloc
                     'blockly'
                 ],
                 'blockly.arduino': [
-                    'blockly'
+                    'blockly',
+                    'blockly.blocks'
                 ],
                 'roboblocks': [
-                    'blockly'
+                    'blockly',
+                    'blockly.arduino'
                 ]
             }
         });
@@ -85,7 +87,7 @@ This project requires [blocklybq](https://github.com/blocklybq/blockly) or [bloc
 </body>
 </html>
 ```
-    
+
 #### **Manual**
 
 - Index example
@@ -101,13 +103,13 @@ This project requires [blocklybq](https://github.com/blocklybq/blockly) or [bloc
     <script type="text/javascript" src="js/bitbloq.js"></script>
     <script type="text/javascript" src="js/roboblocks.js"></script>
     <script>
-    
+
         // RoboBlocks loader
         RoboBlocks.load({
             zoom: 1,
             otherParameter: true
         });
-        
+
         var target = document.querySelector('.blockly');
         Blockly.inject(target, {
             trashcan: true,
@@ -137,7 +139,7 @@ When Blockly has its blocks loaded, this method generates the XML file that defi
     ```
     git clone http://github.com/bq/roboblock.git
     ```
-    
+
 - Initialize
 
     ```
@@ -160,13 +162,13 @@ When Blockly has its blocks loaded, this method generates the XML file that defi
     ```
     grunt test
     ```
-    
+
 - Build
 
     ```
     grunt
     ```
-    
+
 ## Creating new blocks
 
 ### Block structure
