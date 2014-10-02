@@ -1,7 +1,7 @@
 {
     "name": "roboblocks",
     "description": "Blockly blocks repository used in bitbloq",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "main": "dist/roboblocks.min.js",
     "license": "MIT",
     "keywords": "roboblocks blockly arduino bitbloq bq",
@@ -14,7 +14,7 @@
         "url": "http://github.com/bq/roboblocks.git"
     },
     "dependencies": {
-        "blockly-bq": "0.0.4",
+        "blockly-bq": "0.0.3",
         "underscore": "~1.5.2"
     },
     "devDependencies": {
