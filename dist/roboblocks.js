@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.1 - 2014-09-24
+/*! roboblocks - v0.0.1 - 2014-10-02
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -149,7 +149,7 @@
             with(obj) {
                 __p += 'delay(' +
                     __e(delay_time) +
-                    ');';
+                    ');\n';
 
             }
             return __p
@@ -1090,7 +1090,7 @@
             var code = JST['base_delay']({
                 'delay_time': delay_time
             });
-            return [code, Blockly.Arduino.ORDER_NONE];
+            return code;
         };
 
         Blockly.Blocks.base_delay = {
@@ -1333,7 +1333,7 @@
                 'dropdown_pin': dropdown_pin,
             });
 
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
         /**
@@ -1489,7 +1489,7 @@
                 'dropdown_stat': dropdown_stat
             });
 
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
         /**
@@ -1597,7 +1597,7 @@
             });
 
             code = 'tone(' + dropdown_pin + ',' + dropdown_stat + ',' + delay_time + ');\ndelay(' + delay_time + ');\n';
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
 
@@ -1662,7 +1662,7 @@
                 'delay_time': delay_time
             });
 
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
 
@@ -1806,7 +1806,7 @@
                 'value_num': value_num
             });
 
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
 
@@ -1853,7 +1853,7 @@
                 'dropdown_stat': dropdown_stat
             });
 
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
         /**
@@ -1870,10 +1870,10 @@
                 this.setColour(Blockly.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
                     .appendField('BUILTIN LED')
-                //			.appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
-                //			.appendField('PIN#')
-                //			.appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-                .appendField('state')
+                    //			.appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
+                    //			.appendField('PIN#')
+                    //			.appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
+                    .appendField('state')
                     .appendField(new Blockly.FieldDropdown([
                         ['ON', 'HIGH'],
                         ['OFF', 'LOW']
@@ -1949,7 +1949,7 @@
                 'dropdown_stat': dropdown_stat
             });
 
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
         /**
@@ -2064,7 +2064,7 @@
             var code = JST['serial_available']({
                 'branch': branch
             });
-            return [code];
+            return code;
         };
 
         /**
@@ -2108,7 +2108,7 @@
                 'content': content
             });
 
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
         /**
@@ -2148,7 +2148,7 @@
                 'content': content
             });
 
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
         /**
@@ -2607,7 +2607,7 @@
                 'dropdown_stat': dropdown_stat
             });
 
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
         /**
@@ -2711,7 +2711,7 @@
             });
 
             code = 'tone(' + dropdown_pin + ',' + dropdown_stat + ',' + delay_time + ');\ndelay(' + delay_time + ');\n';
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
 
@@ -2775,7 +2775,7 @@
                 'delay_time': delay_time
             });
 
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+            return code;
         };
 
 
