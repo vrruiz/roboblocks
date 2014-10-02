@@ -6,31 +6,31 @@
  * bq_led code generation
  * @return {String} Code generated with block parameters
  */
- 
+
 
 Blockly.Arduino.bq_led = function() {
 	var dropdown_pin = this.getFieldValue('PIN');
 	var dropdown_stat = this.getFieldValue('STAT');
-	
+
 
 	Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
 		'dropdown_pin': dropdown_pin,
 		'dropdown_stat': dropdown_stat
 	});
-	 
+
 	var code = JST['bq_led']({
 		'dropdown_pin': dropdown_pin,
 		'dropdown_stat': dropdown_stat
 	});
 
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 /**
  * bq_led block definition
  * @type {Object}
  */
- 
+
 
 
 Blockly.Blocks.bq_led = {

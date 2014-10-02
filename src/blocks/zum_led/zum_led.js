@@ -6,31 +6,31 @@
  * zum_led code generation
  * @return {String} Code generated with block parameters
  */
- 
+
 
 Blockly.Arduino.zum_led = function() {
 	var dropdown_pin = this.getFieldValue('PIN');
 	var dropdown_stat = this.getFieldValue('STAT');
-	
+
 
 	Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['zum_led_setups']({
 		'dropdown_pin': dropdown_pin,
 		'dropdown_stat': dropdown_stat
 	});
-	 
+
 	var code = JST['zum_led']({
 		'dropdown_pin': dropdown_pin,
 		'dropdown_stat': dropdown_stat
 	});
 
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 /**
  * zum_led block definition
  * @type {Object}
  */
- 
+
 
 
 Blockly.Blocks.zum_led = {

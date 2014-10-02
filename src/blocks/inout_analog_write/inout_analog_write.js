@@ -15,13 +15,13 @@ Blockly.Arduino.inout_analog_write = function() {
 		'dropdown_pin': dropdown_pin,
 		'value_num': value_num
 	});
-	
+
 	var code = JST['inout_analog_write']({
 		'dropdown_pin': dropdown_pin,
 		'value_num': value_num
 	});
 
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 
