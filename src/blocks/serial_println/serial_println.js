@@ -7,7 +7,7 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.serial_println = function() {
-	var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0';
+	var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC);
 	Blockly.Arduino.setups_['setup_serial_println'] = JST['serial_println_setups']({
 		'bitrate': profiles.default.serial
 	});

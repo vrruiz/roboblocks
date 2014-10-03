@@ -10,7 +10,7 @@ Blockly.Arduino.servo_move = function() {
     var dropdown_pin = this.getFieldValue('PIN');
     var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
     value_degree = value_degree.replace('(', '').replace(')', '');
-    var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '10';
+    var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
 
     delay_time = delay_time.replace('(', '').replace(')', '');
 

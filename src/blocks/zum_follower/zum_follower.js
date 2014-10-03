@@ -7,8 +7,8 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.zum_follower = function() {
-	var dropdown_pin = this.getFieldValue('PIN')||1;
-	var NextPIN = this.getFieldValue('PIN2')||2;
+	var dropdown_pin = this.getFieldValue('PIN');
+	var NextPIN = this.getFieldValue('PIN2');
 	var code_btn1 = Blockly.Arduino.statementToCode(this, 'SENS1');
 	var code_btn2 = Blockly.Arduino.statementToCode(this, 'SENS2');
   

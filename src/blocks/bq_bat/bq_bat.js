@@ -7,8 +7,8 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.bq_bat = function() {
-	var red_pin = this.getFieldValue('RED PIN')||1;
-	var blue_pin = this.getFieldValue('BLUE PIN')||2;
+	var red_pin = this.getFieldValue('RED PIN');
+	var blue_pin = this.getFieldValue('BLUE PIN');
 
 	Blockly.Arduino.setups_['setup_bq_bat_']=JST['bq_bat_setups']({
 		'red_pin': red_pin,

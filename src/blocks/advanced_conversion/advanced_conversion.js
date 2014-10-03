@@ -7,7 +7,7 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.advanced_conversion = function() {
-	var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE) || '10';
+	var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
 	var convertion=this.getFieldValue('CONV');
 	var code = JST['advanced_conversion']({
 		'value_num' : value_num,

@@ -8,8 +8,8 @@
  */
 Blockly.Arduino.inout_analog_write = function() {
 
-	var dropdown_pin = this.getFieldValue('PIN') || 1;
-	var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC)||100;
+	var dropdown_pin = this.getFieldValue('PIN');
+	var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
 
 	Blockly.Arduino.setups_['setup_green_analog_write_13'] = JST['inout_analog_write_setups']({
 		'dropdown_pin': dropdown_pin,

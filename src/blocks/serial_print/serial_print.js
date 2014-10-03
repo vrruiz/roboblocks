@@ -9,7 +9,7 @@
 
 
 Blockly.Arduino.serial_print = function() {
-	var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0';
+	var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC);
 	Blockly.Arduino.setups_['setup_serial_print'] = JST['serial_print_setups']({
 		'bitrate': profiles.default.serial
 	});
