@@ -33,7 +33,7 @@ Blockly.Arduino.bq_bat = function() {
  */
 Blockly.Blocks.bq_bat = {
     category: Blockly.LANG_CATEGORY_BQ,
-    tag: 'bat',
+    tags: ['bq', 'bat'],
     helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_bat',
     init: function() {
         this.setColour(Blockly.LANG_COLOUR_BQ);
