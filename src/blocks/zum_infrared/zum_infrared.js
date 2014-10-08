@@ -11,7 +11,7 @@ Blockly.Arduino.zum_infrared = function() {
 	Blockly.Arduino.setups_['setup_infrared_' + dropdown_pin] = JST['zum_infrared_setups']({
 		'dropdown_pin': dropdown_pin
 	});
-	
+
 	var code = JST['zum_infrared']({
 		'dropdown_pin': dropdown_pin
 	});
@@ -26,6 +26,7 @@ Blockly.Arduino.zum_infrared = function() {
  */
 Blockly.Blocks.zum_infrared = {
     category: Blockly.LANG_CATEGORY_ZUM,
+    tags: ['bq', 'zum', 'infrared'],
     helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_infrared',
     /**
      * zum_infrared initialization

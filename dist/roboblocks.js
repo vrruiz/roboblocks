@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.1 - 2014-10-08
+/*! roboblocks - v0.0.5 - 2014-10-08
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -1064,7 +1064,7 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.advanced_conversion = function() {
-            var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
+            var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE) || '10';
             var convertion = this.getFieldValue('CONV');
             var code = JST['advanced_conversion']({
                 'value_num': value_num,
@@ -1168,7 +1168,7 @@
 
         //register with blockly arduino
         Blockly.Arduino.base_delay = function() {
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000';
 
             var code = JST['base_delay']({
                 'delay_time': delay_time
@@ -1200,8 +1200,8 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.bq_bat = function() {
-            var red_pin = this.getFieldValue('RED PIN');
-            var blue_pin = this.getFieldValue('BLUE PIN');
+            var red_pin = this.getFieldValue('RED PIN') || 1;
+            var blue_pin = this.getFieldValue('BLUE PIN') || 2;
 
             Blockly.Arduino.setups_['setup_bq_bat_'] = JST['bq_bat_setups']({
                 'red_pin': red_pin,
@@ -1224,9 +1224,9 @@
          * bq_bat block definition
          * @type {Object}
          */
-
         Blockly.Blocks.bq_bat = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tags: ['bq', 'bat'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_bat',
             init: function() {
                 this.setColour(Blockly.LANG_COLOUR_BQ);
@@ -1311,6 +1311,7 @@
          */
         Blockly.Blocks.bq_bluetooth_slave = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tags: ['bq', 'bluetooth'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_bluetooth_slave',
             /**
              * bq_bluetooth_slave initialization
@@ -1373,10 +1374,11 @@
          */
         Blockly.Blocks.bq_button = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tags: ['bq', 'button'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_button',
             /**
              * bq_button initialization
-             */
+             **/
             init: function() {
                 this.setColour(Blockly.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
@@ -1401,11 +1403,11 @@
 
         Blockly.Arduino.bq_buttons = function() {
             var dropdown_pin = this.getFieldValue('PIN');
-            //	var code_btn1 = Blockly.Arduino.statementToCode(this, 'BUTN1');
-            //	var code_btn2 = Blockly.Arduino.statementToCode(this, 'BUTN2');
-            //	var code_btn3 = Blockly.Arduino.statementToCode(this, 'BUTN3');
-            //	var code_btn4 = Blockly.Arduino.statementToCode(this, 'BUTN4');
-            //	var code_btn5 = Blockly.Arduino.statementToCode(this, 'BUTN5');
+            //  var code_btn1 = Blockly.Arduino.statementToCode(this, 'BUTN1');
+            //  var code_btn2 = Blockly.Arduino.statementToCode(this, 'BUTN2');
+            //  var code_btn3 = Blockly.Arduino.statementToCode(this, 'BUTN3');
+            //  var code_btn4 = Blockly.Arduino.statementToCode(this, 'BUTN4');
+            //  var code_btn5 = Blockly.Arduino.statementToCode(this, 'BUTN5');
 
             Blockly.Arduino.definitions_['define_buttons'] = JST['bq_buttons_definitions']({
                 'dropdown_pin': dropdown_pin,
@@ -1425,6 +1427,7 @@
          */
         Blockly.Blocks.bq_buttons = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tags: ['bq', 'buttons'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_buttons',
             /**
              * bq_buttons initialization
@@ -1475,7 +1478,7 @@
                 'dropdown_pin': dropdown_pin
             });
 
-            //	code=code.substring(0,code.length-1);
+            //  code=code.substring(0,code.length-1);
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
@@ -1485,6 +1488,7 @@
          */
         Blockly.Blocks.bq_infrared = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tags: ['bq', 'infrared'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_infrared',
             /**
              * bq_infrared initialization
@@ -1509,13 +1513,11 @@
          * bq_joystick code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.bq_joystick = function() {
             var dropdown_pin = this.getFieldValue('PIN');
-            //		  var dropdown_pin = this.getFieldValue('PIN');
-            //		  var code = 'analogRead('+dropdown_pin+')';
-            //		  return [code, Blockly.Arduino.ORDER_ATOMIC];
+            //  var dropdown_pin = this.getFieldValue('PIN');
+            //  var code = 'analogRead('+dropdown_pin+')';
+            //  return [code, Blockly.Arduino.ORDER_ATOMIC];
 
 
             var code = JST['bq_joystick']({
@@ -1531,6 +1533,7 @@
          */
         Blockly.Blocks.bq_joystick = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tags: ['bq', 'joystick'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_joystick',
             /**
              * bq_joystick initialization
@@ -1555,8 +1558,6 @@
          * bq_led code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.bq_led = function() {
             var dropdown_pin = this.getFieldValue('PIN');
             var dropdown_stat = this.getFieldValue('STAT');
@@ -1579,11 +1580,9 @@
          * bq_led block definition
          * @type {Object}
          */
-
-
-
         Blockly.Blocks.bq_led = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tag: ['bq', 'led'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_led',
             /**
              * bq_led initialization
@@ -1614,10 +1613,7 @@
          * bq_photoresistor code generation
          * @return {String} Code generated with block parameters
          */
-
-
         //        var code = 'analogRead(' + dropdown_pin + ')';
-
         Blockly.Arduino.bq_photoresistor = function() {
             var dropdown_pin = this.getFieldValue('PIN');
 
@@ -1625,7 +1621,7 @@
                 'dropdown_pin': dropdown_pin
             });
 
-            //	code=code.substring(0,code.length-1);
+            //  code=code.substring(0,code.length-1);
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
@@ -1636,6 +1632,7 @@
          */
         Blockly.Blocks.bq_photoresistor = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tags: ['bq', 'photoresistor'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_photoresistor',
             /**
              * bq_photoresistor initialization
@@ -1660,18 +1657,15 @@
          * bq_piezo_buzzer code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.bq_piezo_buzzer = function() {
             var dropdown_pin = this.getFieldValue('PIN');
             var dropdown_stat = this.getFieldValue('STAT');
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC) || '100';
 
-            //	Blockly.Arduino.setups_['setup_piezo_buzzer_' + dropdown_pin] = JST['bq_piezo_buzzer_setups']({
-            //		'dropdown_pin': dropdown_pin,
-            //		'dropdown_stat': dropdown_stat
-            //	});
-
+            //  Blockly.Arduino.setups_['setup_piezo_buzzer_' + dropdown_pin] = JST['bq_piezo_buzzer_setups']({
+            //      'dropdown_pin': dropdown_pin,
+            //      'dropdown_stat': dropdown_stat
+            //  });
 
             var code = JST['bq_piezo_buzzer']({
                 'dropdown_pin': dropdown_pin,
@@ -1690,6 +1684,7 @@
          */
         Blockly.Blocks.bq_piezo_buzzer = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tags: ['bq', 'buzzer'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_piezo_buzzer',
             /**
              * bq_piezo_buzzer initialization
@@ -1731,13 +1726,10 @@
          * bq_piezo_buzzerav code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.bq_piezo_buzzerav = function() {
-
             var dropdown_pin = this.getFieldValue('PIN');
-            var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC);
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
+            var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC) || '261';
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC) || '100';
 
             var code = JST['bq_piezo_buzzerav']({
                 'dropdown_pin': dropdown_pin,
@@ -1755,6 +1747,7 @@
          */
         Blockly.Blocks.bq_piezo_buzzerav = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tags: ['bq', 'advanced buzzer'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_piezo_buzzerav',
             /**
              * bq_piezo_buzzerav initialization
@@ -1791,8 +1784,6 @@
          * bq_potentiometer code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.bq_potentiometer = function() {
             var dropdown_pin = this.getFieldValue('PIN');
             var code = JST['bq_potentiometer']({
@@ -1808,6 +1799,7 @@
          */
         Blockly.Blocks.bq_potentiometer = {
             category: Blockly.LANG_CATEGORY_BQ,
+            tags: ['bq', 'potentiometer'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_potentiometer',
             /**
              * bq_potentiometer initialization
@@ -2371,6 +2363,7 @@
          */
         Blockly.Blocks.servo_cont = {
             category: Blockly.LANG_CATEGORY_SERVO,
+            tags: ['servo continuous'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/lib/blocks/servo_cont',
             init: function() {
                 this.setColour(Blockly.LANG_COLOUR_SERVO);
@@ -2434,6 +2427,7 @@
          */
         Blockly.Blocks.servo_move = {
             category: Blockly.LANG_CATEGORY_SERVO,
+            tags: ['servo move'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/servo_move',
             /**
              * servo_move initialization
@@ -2490,6 +2484,7 @@
          */
         Blockly.Blocks.servo_read_degrees = {
             category: Blockly.LANG_CATEGORY_SERVO,
+            tags: ['servo read degrees'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/servo_read_degrees',
             /**
              * servo_read_degrees initialization
@@ -2517,10 +2512,7 @@
          * zum_button code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.zum_button = function() {
-
             var dropdown_pin = this.getFieldValue('PIN');
 
             Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['zum_button_setups']({
@@ -2540,6 +2532,7 @@
          */
         Blockly.Blocks.zum_button = {
             category: Blockly.LANG_CATEGORY_ZUM,
+            tags: ['bq', 'zum', 'button'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_button',
             /**
              * zum_button initialization
@@ -2565,8 +2558,8 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.zum_follower = function() {
-            var dropdown_pin = this.getFieldValue('PIN');
-            var NextPIN = this.getFieldValue('PIN2');
+            var dropdown_pin = this.getFieldValue('PIN') || 1;
+            var NextPIN = this.getFieldValue('PIN2') || 2;
             var code_btn1 = Blockly.Arduino.statementToCode(this, 'SENS1');
             var code_btn2 = Blockly.Arduino.statementToCode(this, 'SENS2');
 
@@ -2582,7 +2575,7 @@
                 'code_btn2': code_btn2
             });
 
-            //	code=code.substring(0,code.length-1);
+            //  code=code.substring(0,code.length-1);
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
@@ -2592,6 +2585,7 @@
          */
         Blockly.Blocks.zum_follower = {
             category: Blockly.LANG_CATEGORY_ZUM,
+            tags: ['bq', 'zum', 'follower'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_follower',
             /**
              * zum_follower initialization
@@ -2649,6 +2643,7 @@
          */
         Blockly.Blocks.zum_infrared = {
             category: Blockly.LANG_CATEGORY_ZUM,
+            tags: ['bq', 'zum', 'infrared'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_infrared',
             /**
              * zum_infrared initialization
@@ -2673,8 +2668,6 @@
          * zum_led code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.zum_led = function() {
             var dropdown_pin = this.getFieldValue('PIN');
             var dropdown_stat = this.getFieldValue('STAT');
@@ -2697,11 +2690,9 @@
          * zum_led block definition
          * @type {Object}
          */
-
-
-
         Blockly.Blocks.zum_led = {
             category: Blockly.LANG_CATEGORY_ZUM,
+            tags: ['bq', 'zum', 'led'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_led',
             /**
              * zum_led initialization
@@ -2739,7 +2730,7 @@
                 'dropdown_pin': dropdown_pin
             });
 
-            //	code=code.substring(0,code.length-1);
+            //  code=code.substring(0,code.length-1);
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
@@ -2750,6 +2741,7 @@
          */
         Blockly.Blocks.zum_photoresistor = {
             category: Blockly.LANG_CATEGORY_ZUM,
+            tags: ['bq', 'zum', 'photoresistor'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_photoresistor',
             /**
              * zum_photoresistor initialization
@@ -2774,17 +2766,15 @@
          * zum_piezo_buzzer code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.zum_piezo_buzzer = function() {
             var dropdown_pin = this.getFieldValue('PIN');
             var dropdown_stat = this.getFieldValue('STAT');
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC) || '100';
 
-            //	Blockly.Arduino.setups_['setup_piezo_buzzer_' + dropdown_pin] = JST['zum_piezo_buzzer_setups']({
-            //		'dropdown_pin': dropdown_pin,
-            //		'dropdown_stat': dropdown_stat
-            //	});
+            //  Blockly.Arduino.setups_['setup_piezo_buzzer_' + dropdown_pin] = JST['zum_piezo_buzzer_setups']({
+            //      'dropdown_pin': dropdown_pin,
+            //      'dropdown_stat': dropdown_stat
+            //  });
 
 
             var code = JST['zum_piezo_buzzer']({
@@ -2804,6 +2794,7 @@
          */
         Blockly.Blocks.zum_piezo_buzzer = {
             category: Blockly.LANG_CATEGORY_ZUM,
+            tags: ['bq', 'zum', 'buzzer'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_piezo_buzzer',
             /**
              * zum_piezo_buzzer initialization
@@ -2844,13 +2835,10 @@
          * zum_piezo_buzzerav code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.zum_piezo_buzzerav = function() {
-
             var dropdown_pin = this.getFieldValue('PIN');
-            var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC);
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
+            var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC) || '261';
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC) || '100';
 
             var code = JST['zum_piezo_buzzerav']({
                 'dropdown_pin': dropdown_pin,
@@ -2868,6 +2856,7 @@
          */
         Blockly.Blocks.zum_piezo_buzzerav = {
             category: Blockly.LANG_CATEGORY_ZUM,
+            tags: ['bq', 'zum', 'advanced buzzer'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_piezo_buzzerav',
             /**
              * zum_piezo_buzzerav initialization
@@ -2904,8 +2893,6 @@
          * zum_potentiometer code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.zum_potentiometer = function() {
             var dropdown_pin = this.getFieldValue('PIN');
             var code = JST['zum_potentiometer']({
@@ -2921,6 +2908,7 @@
          */
         Blockly.Blocks.zum_potentiometer = {
             category: Blockly.LANG_CATEGORY_ZUM,
+            tags: ['bq', 'zum', 'potentiometer'],
             helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_potentiometer',
             /**
              * zum_potentiometer initialization

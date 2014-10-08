@@ -16,8 +16,8 @@ Blockly.Arduino.servo_cont = function() {
     Blockly.Arduino.definitions_['define_servo'] = JST['servo_cont_definitions']({
         'dropdown_pin': dropdown_pin
     });
-    
-    
+
+
     Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] =JST['servo_cont_setups']({
         'dropdown_pin': dropdown_pin
     });
@@ -37,6 +37,7 @@ Blockly.Arduino.servo_cont = function() {
  */
 Blockly.Blocks.servo_cont = {
     category: Blockly.LANG_CATEGORY_SERVO,
+    tags: ['servo continuous'],
     helpUrl: 'http://github.com/bq/roboblock/tree/master/lib/blocks/servo_cont',
     init: function() {
         this.setColour(Blockly.LANG_COLOUR_SERVO);
