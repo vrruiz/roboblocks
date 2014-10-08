@@ -45,6 +45,7 @@ return {
 		'spec/math_number',
 		'spec/math_random',
 		'spec/base_map',
+		'spec/advanced_map',
 		'spec/math_arithmetic',
 		'spec/math_modulo',
 		'spec/text',
