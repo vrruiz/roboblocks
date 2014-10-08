@@ -15,8 +15,8 @@
     },
     "dependencies": {
         "blockly-bq": "0.0.4",
-        "underscore": "~1.7.0",
-        "requirejs": "~2.1.14"
+        "underscore": "~1.6.0",
+        "requirejs": "~2.1.15"
     },
     "devDependencies": {
         "jquery": "~2.1.1",
