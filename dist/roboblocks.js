@@ -149,7 +149,7 @@
             with(obj) {
                 __p += 'map(' +
                     __e(num) +
-                    ', ' +
+                    ',' +
                     __e(from_min) +
                     ',' +
                     __e(from_max) +
@@ -157,7 +157,7 @@
                     __e(to_min) +
                     ',' +
                     __e(to_max) +
-                    ');\n';
+                    ')';
 
             }
             return __p
@@ -1064,7 +1064,7 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.advanced_conversion = function() {
-            var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE) || '10';
+            var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
             var convertion = this.getFieldValue('CONV');
             var code = JST['advanced_conversion']({
                 'value_num': value_num,
@@ -1168,7 +1168,7 @@
 
         //register with blockly arduino
         Blockly.Arduino.base_delay = function() {
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000';
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
 
             var code = JST['base_delay']({
                 'delay_time': delay_time
@@ -1200,8 +1200,8 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.bq_bat = function() {
-            var red_pin = this.getFieldValue('RED PIN') || 1;
-            var blue_pin = this.getFieldValue('BLUE PIN') || 2;
+            var red_pin = this.getFieldValue('RED PIN');
+            var blue_pin = this.getFieldValue('BLUE PIN');
 
             Blockly.Arduino.setups_['setup_bq_bat_'] = JST['bq_bat_setups']({
                 'red_pin': red_pin,
@@ -1660,7 +1660,7 @@
         Blockly.Arduino.bq_piezo_buzzer = function() {
             var dropdown_pin = this.getFieldValue('PIN');
             var dropdown_stat = this.getFieldValue('STAT');
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC) || '100';
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
 
             //  Blockly.Arduino.setups_['setup_piezo_buzzer_' + dropdown_pin] = JST['bq_piezo_buzzer_setups']({
             //      'dropdown_pin': dropdown_pin,
@@ -1728,8 +1728,8 @@
          */
         Blockly.Arduino.bq_piezo_buzzerav = function() {
             var dropdown_pin = this.getFieldValue('PIN');
-            var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC) || '261';
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC) || '100';
+            var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC);
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
 
             var code = JST['bq_piezo_buzzerav']({
                 'dropdown_pin': dropdown_pin,
@@ -1945,10 +1945,10 @@
                 this.setColour(Blockly.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
                     .appendField('BUILTIN LED')
-                //			.appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
-                //			.appendField('PIN#')
-                //			.appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-                .appendField('state')
+                    //			.appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
+                    //			.appendField('PIN#')
+                    //			.appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
+                    .appendField('state')
                     .appendField(new Blockly.FieldDropdown([
                         ['ON', 'HIGH'],
                         ['OFF', 'LOW']
@@ -2769,7 +2769,7 @@
         Blockly.Arduino.zum_piezo_buzzer = function() {
             var dropdown_pin = this.getFieldValue('PIN');
             var dropdown_stat = this.getFieldValue('STAT');
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC) || '100';
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
 
             //  Blockly.Arduino.setups_['setup_piezo_buzzer_' + dropdown_pin] = JST['zum_piezo_buzzer_setups']({
             //      'dropdown_pin': dropdown_pin,
@@ -2837,8 +2837,8 @@
          */
         Blockly.Arduino.zum_piezo_buzzerav = function() {
             var dropdown_pin = this.getFieldValue('PIN');
-            var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC) || '261';
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC) || '100';
+            var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC);
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
 
             var code = JST['zum_piezo_buzzerav']({
                 'dropdown_pin': dropdown_pin,

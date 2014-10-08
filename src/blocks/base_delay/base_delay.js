@@ -3,7 +3,7 @@
 
 //register with blockly arduino
 Blockly.Arduino.base_delay = function() {
-    var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000';
+    var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
 
     var code = JST['base_delay']({
         'delay_time': delay_time
