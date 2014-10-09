@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, profiles, JST */
+/* global Blockly, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -25,17 +25,17 @@ Blockly.Arduino.inout_digital_read = function() {
  * @type {Object}
  */
 Blockly.Blocks.inout_digital_read = {
-	category: Blockly.LANG_CATEGORY_ADVANCED,
-	helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/inout_digital_read',
+	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/inout_digital_read',
 	 /**
 	  * inout_digital_read initialization
 	  */
 	init: function() {
-		this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput('')
-			.appendField('DigitalRead PIN#')
+			.appendField(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_READ)
 			.appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
 		this.setOutput(true, Boolean);
-		this.setTooltip('Reads the value from a specified digital pin');
+		this.setTooltip(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_READ_TOOLTIP);
 	}
 };

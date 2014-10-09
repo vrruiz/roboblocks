@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -61,35 +61,35 @@ Blockly.Arduino.bq_bluetooth_slave = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_bluetooth_slave = {
-    category: Blockly.LANG_CATEGORY_BQ,
+    category: RoboBlocks.LANG_CATEGORY_BQ,
     tags: ['bq', 'bluetooth'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_bluetooth_slave',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_bluetooth_slave',
     /**
 	  * bq_bluetooth_slave initialization
 	  */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_BQ);
+        this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendDummyInput('')
-        .appendField('Bluetooth')
+        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE)
         .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom))
-        .appendField('PIN#')
+        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN)
         .appendField(new Blockly.FieldDropdown(profiles.default.bluetooth), 'PIN');
         this.appendDummyInput('')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Name')
+        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME)
         .appendField(new Blockly.FieldTextInput('zum'), 'NAME');
         this.appendDummyInput('')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('PinCode')
+        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE)
         .appendField(new Blockly.FieldTextInput('0000'), 'PINCODE');
         this.appendStatementInput('RCV')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Receive');
+        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE);
         this.appendStatementInput('SNT')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Send');
+        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_SEND);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('bq Bluetooth');
+        this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_TOOLTIP);
     }
 };

@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, JST */
+/* global Blockly, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -19,21 +19,21 @@ Blockly.Arduino.serial_special = function() {
  * @type {Object}
  */
 Blockly.Blocks.serial_special = {
-	category: Blockly.LANG_CATEGORY_ADVANCED,
-	helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/serial_println',
+	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_special',
 	 /**
 	  * serial_special initialization
 	  */
 	init: function() {
-		this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput('')
-			.appendField('Special Chars')
+			.appendField(RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL)
 			.appendField(new Blockly.FieldDropdown([
-				['Tab', '\\t'],
-				['Carriage Return', '\\r'],
-				['Line Feed', '\\n']
+				[RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TAB, '\\t'],
+				[RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN, '\\r'],
+				[RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED, '\\n']
 			]), 'CHAR');
 		this.setOutput(true, String);
-		this.setTooltip('Write special Chars');
+		this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP);
 	}
 };

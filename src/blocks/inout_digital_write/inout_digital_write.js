@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, profiles, JST */
+/* global Blockly, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -29,24 +29,24 @@ Blockly.Arduino.inout_digital_write = function() {
  * @type {Object}
  */
 Blockly.Blocks.inout_digital_write = {
-	category: Blockly.LANG_CATEGORY_ADVANCED,
-	helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/inout_digital_write',
+	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/inout_digital_write',
 	 /**
 	  * inout_digital_write initialization
 	  */
 	init: function() {
-		this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput('')
-			.appendField('DigitalWrite')
-			.appendField('PIN#')
+			.appendField(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE)
+			.appendField(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN)
 			.appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-			.appendField('state')
+			.appendField(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE)
 			.appendField(new Blockly.FieldDropdown([
-				['HIGH', 'HIGH'],
-				['LOW', 'LOW']
+				[RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH, 'HIGH'],
+				[RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW, 'LOW']
 			]), 'STAT');
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setTooltip('bq digital_write');
+		this.setTooltip(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP);
 	}
 };

@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, profiles, JST */
+/* global Blockly, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -23,17 +23,17 @@ Blockly.Arduino.serial_println = function() {
  * @type {Object}
  */
 Blockly.Blocks.serial_println = {
-	category: Blockly.LANG_CATEGORY_ADVANCED,
-	helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/serial_println',
+	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_println',
 	 /**
 	  * serial_println initialization
 	  */
 	init: function() {
-		this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendValueInput('CONTENT', String)
-			.appendField('Serial Println');
+			.appendField(RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setTooltip('Prints data to the console/serial port as human-readable ASCII text and add CR.');
+		this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP);
 	}
 };

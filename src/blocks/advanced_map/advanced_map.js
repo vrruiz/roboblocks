@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, JST */
+/* global Blockly, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -28,34 +28,34 @@ Blockly.Arduino.advanced_map = function() {
  * @type {Object}
  */
 Blockly.Blocks.advanced_map = {
-    category: Blockly.LANG_CATEGORY_MATH,
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/advanced_map',
+    category: RoboBlocks.LANG_CATEGORY_MATH,
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/advanced_map',
      /**
       * advanced_map initialization
       */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_MATH);
+        this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.appendValueInput('NUM', Number)
-          .appendField('Map ')
+          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_MAP )
           .setCheck(Number);
         this.appendValueInput('FROM_MIN', Number)
-          .appendField('From [')
+          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_FROM )
           .setCheck(Number);
         this.appendValueInput('FROM_MAX', Number)
-          .appendField('-')
+          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_HYPHEN)
           .setCheck(Number);
         this.appendDummyInput('')
-          .appendField(']');
+          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_BRACKET);
         this.appendValueInput('TO_MIN', Number)
-          .appendField('to [')
+          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_TO)
           .setCheck(Number);
         this.appendValueInput('TO_MAX', Number)
-          .appendField('-')
+          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_HYPHEN)
           .setCheck(Number);
         this.appendDummyInput('')
-          .appendField(']');
+          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_BRACKET);
         this.setInputsInline(true);
         this.setOutput(true);
-        this.setTooltip('Re-maps a number from [0-1024] to another.');
+        this.setTooltip(RoboBlocks.LANG_MATH_ADVANCED_MAP_TOOLTIP);
     }
 };

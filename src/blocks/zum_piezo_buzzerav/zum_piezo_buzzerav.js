@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -26,32 +26,32 @@ Blockly.Arduino.zum_piezo_buzzerav = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_piezo_buzzerav = {
-    category: Blockly.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.LANG_CATEGORY_ZUM,
     tags: ['bq', 'zum', 'advanced buzzer'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_piezo_buzzerav',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_piezo_buzzerav',
     /**
       * zum_piezo_buzzerav initialization
       */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_ZUM);
+        this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendDummyInput('')
-            .appendField('Advanced Buzzer')
+            .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV)
             .appendField(new Blockly.FieldImage('img/blocks/zum01.png', 208 * options.zoom, 140 * options.zoom))
-            .appendField('PIN#')
+            .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_PIN)
             .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
 
         this.appendValueInput('TONE', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField('TONE');
+            .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_TONE);
 
         this.appendValueInput('DURA', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField('Duration');
+            .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_DURATION);
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('Piezo Buzzer Advanced');
+        this.setTooltip(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP);
     }
 };

@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -25,20 +25,20 @@ Blockly.Arduino.bq_infrared = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_infrared = {
-    category: Blockly.LANG_CATEGORY_BQ,
+    category: RoboBlocks.LANG_CATEGORY_BQ,
     tags: ['bq', 'infrared'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_infrared',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_infrared',
     /**
      * bq_infrared initialization
      */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_BQ);
+        this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendDummyInput('')
-        .appendField('Infrared Sensor')
+        .appendField(RoboBlocks.LANG_BQ_INFRARED)
         .appendField(new Blockly.FieldImage('img/blocks/bqmod04.png', 208 * options.zoom, 126 * options.zoom))
-        .appendField('PIN#')
+        .appendField(RoboBlocks.LANG_BQ_INFRARED_PIN)
         .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
         this.setOutput(true);
-        this.setTooltip('bq Infrared Sensor');
+        this.setTooltip(RoboBlocks.LANG_BQ_INFRARED_TOOLTIP);
     }
 };

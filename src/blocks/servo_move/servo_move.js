@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -36,29 +36,29 @@ Blockly.Arduino.servo_move = function() {
  * @type {Object}
  */
 Blockly.Blocks.servo_move = {
-    category: Blockly.LANG_CATEGORY_SERVO,
+    category: RoboBlocks.LANG_CATEGORY_SERVO,
     tags: ['servo move'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/servo_move',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/servo_move',
     /**
      * servo_move initialization
      */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_SERVO);
+        this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
         this.appendDummyInput('')
-            .appendField('Servo')
+            .appendField(RoboBlocks.LANG_SERVO_MOVE)
             .appendField(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom))
-            .appendField('PIN#')
+            .appendField(RoboBlocks.LANG_SERVO_MOVE_PIN)
             .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
         this.appendValueInput('DEGREE', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField('Degrees (0~180)');
+            .appendField(RoboBlocks.LANG_SERVO_MOVE_DEGREES);
         this.appendValueInput('DELAY_TIME', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField('Delay');
+            .appendField(RoboBlocks.LANG_SERVO_MOVE_DELAY);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip('Move between 0~180 degree');
+        this.setTooltip(RoboBlocks.LANG_SERVO_MOVE_TOOLTIP);
     }
 };

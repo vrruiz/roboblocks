@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -33,36 +33,36 @@ Blockly.Arduino.bq_buttons = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_buttons = {
-    category: Blockly.LANG_CATEGORY_BQ,
+    category: RoboBlocks.LANG_CATEGORY_BQ,
     tags: ['bq', 'buttons'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_buttons',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_buttons',
     /**
     * bq_buttons initialization
     */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_BQ);
+        this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendDummyInput('')
-        .appendField('Buttons')
+        .appendField(RoboBlocks.LANG_BQ_BUTTONS)
         .appendField(new Blockly.FieldImage('img/blocks/bqmod10.png', 336*options.zoom, 176*options.zoom))
-        .appendField('PIN#')
+        .appendField(RoboBlocks.LANG_BQ_BUTTONS_PIN)
         .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
         this.appendStatementInput('BUTN1')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Button #A');
+        .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_A);
         this.appendStatementInput('BUTN2')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Button #B');
+        .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_B);
         this.appendStatementInput('BUTN3')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Button #C');
+        .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_C);
         this.appendStatementInput('BUTN4')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Button #D');
+        .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_D);
         this.appendStatementInput('BUTN5')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Button #E');
+        .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_E);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('bq Buttons');
+        this.setTooltip(RoboBlocks.LANG_BQ_BUTTONS_TOOLTIP);
     }
 };

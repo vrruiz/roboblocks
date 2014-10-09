@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -20,20 +20,20 @@ Blockly.Arduino.zum_potentiometer = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_potentiometer = {
-    category: Blockly.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.LANG_CATEGORY_ZUM,
     tags: ['bq', 'zum', 'potentiometer'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_potentiometer',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_potentiometer',
     /**
     * zum_potentiometer initialization
     */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_ZUM);
+        this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendDummyInput('')
-        .appendField('Potentiometer')
+        .appendField(RoboBlocks.LANG_ZUM_POTENTIOMETER)
         .appendField(new Blockly.FieldImage('img/blocks/zum03.png', 208 * options.zoom, 139 * options.zoom))
-        .appendField('PIN#')
+        .appendField(RoboBlocks.LANG_ZUM_POTENTIOMETER_PIN)
         .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
         this.setOutput(true, Number);
-        this.setTooltip('bq Potentiometer');
+        this.setTooltip(RoboBlocks.LANG_ZUM_POTENTIOMETER_TOOLTIP);
     }
 };

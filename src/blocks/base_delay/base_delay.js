@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, JST */
+/* global Blockly, JST, RoboBlocks */
 
 //register with blockly arduino
 Blockly.Arduino.base_delay = function() {
@@ -12,16 +12,16 @@ Blockly.Arduino.base_delay = function() {
 };
 
 Blockly.Blocks.base_delay = {
-    category: Blockly.LANG_CATEGORY_CONTROLS,
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/lib/blocks/base_delay',
+    category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/base_delay',
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_CONTROL);
+        this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendValueInput('DELAY_TIME', Number)
-        .appendField('Wait (ms)')
+        .appendField(RoboBlocks.LANG_CONTROLS_BASE_DELAY_WAIT)
         .setCheck(Number);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('Delay specific time (in ms)');
+        this.setTooltip(RoboBlocks.LANG_CONTROLS_BASE_DELAY_TOOLTIP);
     }
 };

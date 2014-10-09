@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, JST */
+/* global Blockly, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -24,25 +24,22 @@ Blockly.Arduino.inout_builtin_led = function() {
  * @type {Object}
  */
 Blockly.Blocks.inout_builtin_led = {
-	category: Blockly.LANG_CATEGORY_ADVANCED,
-	helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/inout_builtin_led',
+	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/inout_builtin_led',
 	 /**
 	  * inout_builtin_led initialization
 	  */
 	init: function() {
-		this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput('')
-			.appendField('BUILTIN LED')
-//			.appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
-//			.appendField('PIN#')
-//			.appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-			.appendField('state')
+			.appendField(RoboBlocks.LANG_ADVANCED_BUILTIN_LED)
+			.appendField(RoboBlocks.LANG_ADVANCED_BUILTIN_LED_STATE)
 			.appendField(new Blockly.FieldDropdown([
-				['ON', 'HIGH'],
-				['OFF', 'LOW']
+				[RoboBlocks.LANG_ADVANCED_BUILTIN_LED_ON , 'HIGH'],
+				[RoboBlocks.LANG_ADVANCED_BUILTIN_LED_OFF , 'LOW']
 			]), 'STAT');
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setTooltip('bq LED');
+		this.setTooltip(RoboBlocks.LANG_ADVANCED_BUILTIN_LED_TOOLTIP);
 	}
 };

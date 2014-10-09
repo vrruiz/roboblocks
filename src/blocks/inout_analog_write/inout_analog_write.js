@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, profiles, JST */
+/* global Blockly, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -30,22 +30,22 @@ Blockly.Arduino.inout_analog_write = function() {
  * @type {Object}
  */
 Blockly.Blocks.inout_analog_write = {
-	category: Blockly.LANG_CATEGORY_ADVANCED,
-	helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/inout_analog_write',
+	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/inout_analog_write',
 	 /**
 	  * inout_analog_write initialization
 	  */
 	init: function() {
-		this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput('')
-			.appendField('AnalogWrite PIN#')
+			.appendField(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE)
 			.appendField(new Blockly.FieldDropdown(profiles.default.pwm), 'PIN');
 		this.appendValueInput('NUM', Number)
-			.appendField('value')
+			.appendField(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE_VALUE)
 			.setCheck(Number);
 		this.setInputsInline(true);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setTooltip('Write analog value between 0 and 255 to a specific Port');
+		this.setTooltip(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE_TOOLTIP);
 	}
 };

@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -11,7 +11,7 @@ Blockly.Arduino.zum_button = function() {
 
     Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['zum_button_setups']({
         'dropdown_pin': dropdown_pin,
-    });//'pinMode(' + dropdown_pin + ', INPUT_PULLUP);';
+    });
 
     var code = JST['zum_button']({
         'dropdown_pin': dropdown_pin,
@@ -25,20 +25,20 @@ Blockly.Arduino.zum_button = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_button = {
-    category: Blockly.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.LANG_CATEGORY_ZUM,
     tags: ['bq', 'zum', 'button'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_button',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_button',
     /**
     * zum_button initialization
     */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_ZUM);
+        this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendDummyInput('')
-        .appendField('Button')
+        .appendField(RoboBlocks.LANG_ZUM_BUTTON)
         .appendField(new Blockly.FieldImage('img/blocks/zum02.png', 212 * options.zoom, 139 * options.zoom))
-        .appendField('PIN#')
+        .appendField(RoboBlocks.LANG_ZUM_BUTTON_PIN)
         .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
         this.setOutput(true, Boolean);
-        this.setTooltip('bq Button');
+        this.setTooltip(RoboBlocks.LANG_ZUM_BUTTON_TOOLTIP);
     }
 };

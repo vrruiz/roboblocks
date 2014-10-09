@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.6 - 2014-10-08
+/*! roboblocks - v0.0.6 - 2014-10-09
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -55,6 +55,256 @@
         /* global RoboBlocks */
 
         RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
+
+        RoboBlocks.LANG_COLOUR_BQ = '10';
+        RoboBlocks.LANG_COLOUR_ZUM = '336';
+        RoboBlocks.LANG_COLOUR_SERVO = '30';
+        RoboBlocks.LANG_COLOUR_TEXT = '200';
+        RoboBlocks.LANG_COLOUR_LOGIC = '120';
+        RoboBlocks.LANG_COLOUR_ADVANCED = '260';
+        RoboBlocks.LANG_COLOUR_VARIABLES = '300';
+        RoboBlocks.LANG_COLOUR_PROCEDURES = '320';
+        RoboBlocks.LANG_COLOUR_CONTROL = '80';
+        RoboBlocks.LANG_COLOUR_MATH = '180';
+
+
+
+
+        ///////////// COPY TO EN.JS
+
+        //bq blocks : 
+        RoboBlocks.LANG_CATEGORY_BQ = 'bq bloqs';
+
+        RoboBlocks.LANG_BQ_BAT = 'BAT';
+        RoboBlocks.LANG_BQ_BAT_RED_PIN = 'RED PIN#';
+        RoboBlocks.LANG_BQ_BAT_BLUE_PIN = 'BLUE PIN#';
+        RoboBlocks.LANG_BQ_BAT_TOOLTIP = 'Output the measured distance';
+
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE = 'Bluetooth';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME = 'Name';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE = 'PinCode';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE = 'Receive';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_SEND = 'Send';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_TOOLTIP = 'bq Bluetooth';
+
+        RoboBlocks.LANG_BQ_BUTTON = 'Button';
+        RoboBlocks.LANG_BQ_BUTTON_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_BUTTON_TOOLTIP = 'bq Button';
+
+        RoboBlocks.LANG_BQ_BUTTONS = 'Buttons';
+        RoboBlocks.LANG_BQ_BUTTONS_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_BUTTONS_BUTTON_A = 'Button #A';
+        RoboBlocks.LANG_BQ_BUTTONS_BUTTON_B = 'Button #B';
+        RoboBlocks.LANG_BQ_BUTTONS_BUTTON_C = 'Button #C';
+        RoboBlocks.LANG_BQ_BUTTONS_BUTTON_D = 'Button #D';
+        RoboBlocks.LANG_BQ_BUTTONS_BUTTON_E = 'Button #E';
+        RoboBlocks.LANG_BQ_BUTTONS_TOOLTIP = 'bq Buttons';
+
+
+        RoboBlocks.LANG_BQ_INFRARED = 'Infrared Sensor';
+        RoboBlocks.LANG_BQ_INFRARED_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_INFRARED_TOOLTIP = 'bq Infrared Sensor';
+
+        RoboBlocks.LANG_BQ_JOYSTICK = 'Joystick';
+        RoboBlocks.LANG_BQ_JOYSTICK_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_JOYSTICK_TOOLTIP = 'bq Joystick';
+
+        RoboBlocks.LANG_BQ_LED = 'LED';
+        RoboBlocks.LANG_BQ_LED_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_LED_ON = 'ON';
+        RoboBlocks.LANG_BQ_LED_OFF = 'OFF';
+        RoboBlocks.LANG_BQ_LED_TOOLTIP = 'bq LED';
+
+        RoboBlocks.LANG_BQ_PHOTORESISTOR = 'Photoresistor';
+        RoboBlocks.LANG_BQ_PHOTORESISTOR_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_PHOTORESISTOR_TOOLTIP = 'Output the value of the photoresistor.';
+
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER = 'Buzzer';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_TONE = 'TONE';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_DO = 'DO';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_RE = 'RE';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_MI = 'MI';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_FA = 'FA';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_SOL = 'SOL';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_LA = 'LA';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_SI = 'SI';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_DURATION = 'Duration';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZER_TOOLTIP = 'Piezo Buzzer';
+
+        RoboBlocks.LANG_BQ_PIEZO_BUZZERAV = 'Advanced Buzzer';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_TONE = 'TONE';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_DURATION = 'Duration';
+        RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_TOOLTIP = 'Piezo Buzzer Advanced';
+
+        RoboBlocks.LANG_BQ_POTENTIOMETER = 'Potentiometer';
+        RoboBlocks.LANG_BQ_POTENTIOMETER_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_POTENTIOMETER_TOOLTIP = 'bq Potentiometer';
+
+
+        //controls blocks : 
+        RoboBlocks.LANG_CATEGORY_CONTROLS = 'Control';
+
+        RoboBlocks.LANG_CONTROLS_BASE_DELAY_WAIT = 'Wait (ms)';
+        RoboBlocks.LANG_CONTROLS_BASE_DELAY_TOOLTIP = 'Delay specific time (in ms)';
+
+
+
+        //math blocks : 
+        RoboBlocks.LANG_CATEGORY_MATH = 'Math';
+
+        RoboBlocks.LANG_MATH_ADVANCED_MAP_MAP = 'Map ';
+        RoboBlocks.LANG_MATH_ADVANCED_MAP_FROM = 'From [';
+        RoboBlocks.LANG_MATH_ADVANCED_MAP_HYPHEN = '-';
+        RoboBlocks.LANG_MATH_ADVANCED_MAP_BRACKET = ']';
+        RoboBlocks.LANG_MATH_ADVANCED_MAP_TO = 'to [';
+        RoboBlocks.LANG_MATH_ADVANCED_MAP_TOOLTIP = 'Re-maps a number from a certain range to another.';
+
+
+        //advanced blocks : 
+        RoboBlocks.LANG_CATEGORY_ADVANCED = 'Advanced';
+
+        RoboBlocks.LANG_ADVANCED_CONVERSION_CONVERT = 'Convert';
+        RoboBlocks.LANG_ADVANCED_CONVERSION_DECIMAL = 'Decimal';
+        RoboBlocks.LANG_ADVANCED_CONVERSION_HEXADECIMAL = 'Hexadecimal';
+        RoboBlocks.LANG_ADVANCED_CONVERSION_OCTAL = 'Octal';
+        RoboBlocks.LANG_ADVANCED_CONVERSION_BINARY = 'Binary';
+        RoboBlocks.LANG_ADVANCED_CONVERSION_VALUE = 'value';
+        RoboBlocks.LANG_ADVANCED_CONVERSION_TOOLTIP = 'Base convert a number';
+
+        RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_READ = 'AnalogRead PIN#';
+        RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP = 'Reads the value from a specified digital pin';
+
+        RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE = 'AnalogWrite PIN#';
+        RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE_VALUE = 'value';
+        RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE_TOOLTIP = 'Write analog value between 0 and 255 to a specific Port';
+
+        RoboBlocks.LANG_ADVANCED_BUILTIN_LED = 'BUILTIN LED';
+        RoboBlocks.LANG_ADVANCED_BUILTIN_LED_STATE = 'state';
+        RoboBlocks.LANG_ADVANCED_BUILTIN_LED_ON = 'ON';
+        RoboBlocks.LANG_ADVANCED_BUILTIN_LED_OFF = 'OFF';
+        RoboBlocks.LANG_ADVANCED_BUILTIN_LED_TOOLTIP = 'bq LED';
+
+        RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_READ = 'DigitalRead PIN#';
+        RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_READ_TOOLTIP = 'Reads the value from a specified digital pin';
+
+        RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE = 'DigitalWrite';
+        RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN = 'PIN#';
+        RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE = 'state';
+        RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH = 'HIGH';
+        RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW = 'LOW';
+        RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP = 'bq digital_write';
+
+
+        RoboBlocks.LANG_ADVANCED_HIGHLOW_HIGH = 'HIGH';
+        RoboBlocks.LANG_ADVANCED_HIGHLOW_LOW = 'LOW';
+        RoboBlocks.LANG_ADVANCED_HIGHLOW_TOOLTIP = 'HIGH OR LOW';
+
+        RoboBlocks.LANG_ADVANCED_MATH_RANDOM = 'Random between';
+        RoboBlocks.LANG_ADVANCED_MATH_RANDOM_AND = ' and ';
+        RoboBlocks.LANG_ADVANCED_MATH_RANDOM_TOOLTIP = 'Assign a random number';
+
+        RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE = 'Serial Available';
+        RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP = 'Check wether the serial port is available or not';
+
+        RoboBlocks.LANG_ADVANCED_SERIAL_PRINT = 'Serial Print';
+        RoboBlocks.LANG_ADVANCED_SERIAL_PRINT_TOOLTIP = 'Prints data to the console/serial port as human-readable ASCII text.';
+
+        RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN = 'Serial Println';
+        RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP = 'Prints data to the console/serial port as human-readable ASCII text and add CR.';
+
+        RoboBlocks.LANG_ADVANCED_SERIAL_READ = 'Serial Read';
+        RoboBlocks.LANG_ADVANCED_SERIAL_READ_TOOLTIP = 'Reads incoming serial data from serial port as human-readable ASCII text.';
+
+        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL = 'Special Chars';
+        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TAB = 'Tab';
+        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN = 'Carriage Return';
+        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED = 'Line Feed';
+        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP = 'Write special Chars';
+
+
+        //procedures blocks
+        RoboBlocks.LANG_CATEGORY_PROCEDURES = 'Procedures';
+        //variables blocks : 
+        RoboBlocks.LANG_CATEGORY_VARIABLES = 'Variables';
+
+        //zum blocks : 
+        RoboBlocks.LANG_CATEGORY_ZUM = 'zum';
+
+        RoboBlocks.LANG_ZUM_BUTTON = 'Button';
+        RoboBlocks.LANG_ZUM_BUTTON_PIN = 'PIN#';
+        RoboBlocks.LANG_ZUM_BUTTON_TOOLTIP = 'bq Button';
+
+        RoboBlocks.LANG_ZUM_FOLLOWER = 'Infrared Sensor';
+        RoboBlocks.LANG_ZUM_FOLLOWER_PIN_LEFT = 'PIN LEFT#';
+        RoboBlocks.LANG_ZUM_FOLLOWER_PIN_RIGHT = 'PIN RIGHT#';
+        RoboBlocks.LANG_ZUM_FOLLOWER_LEFT = 'Left';
+        RoboBlocks.LANG_ZUM_FOLLOWER_RIGHT = 'Right';
+        RoboBlocks.LANG_ZUM_FOLLOWER_TOOLTIP = 'bq Infrared Sensor';
+
+        RoboBlocks.LANG_ZUM_INFRARED = 'Infrared Sensor';
+        RoboBlocks.LANG_ZUM_INFRARED_PIN = 'PIN#';
+        RoboBlocks.LANG_ZUM_INFRARED_TOOLTIP = 'bq Infrared Sensor';
+
+        RoboBlocks.LANG_ZUM_LED = 'LED';
+        RoboBlocks.LANG_ZUM_LED_PIN = 'PIN#';
+        RoboBlocks.LANG_ZUM_LED_ON = 'ON';
+        RoboBlocks.LANG_ZUM_LED_OFF = 'OFF';
+        RoboBlocks.LANG_ZUM_LED_TOOLTIP = 'bq LED';
+
+        RoboBlocks.LANG_ZUM_PHOTORESISTOR = 'Photoresistor';
+        RoboBlocks.LANG_ZUM_PHOTORESISTOR_PIN = 'PIN#';
+        RoboBlocks.LANG_ZUM_PHOTORESISTOR_TOOLTIP = 'Output the value of the photoresistor.';
+
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER = 'Buzzer';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_PIN = 'PIN#';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_TONE = 'TONE';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_DO = 'DO';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_RE = 'RE';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_MI = 'MI';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_FA = 'FA';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_SOL = 'SOL';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_LA = 'LA';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_SI = 'SI';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_DURATION = 'Duration';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZER_TOOLTIP = 'Piezo Buzzer';
+
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV = 'Advanced Buzzer';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_PIN = 'PIN#';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_TONE = 'TONE';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_DURATION = 'Duration';
+        RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP = 'Piezo Buzzer Advanced';
+
+        RoboBlocks.LANG_ZUM_POTENTIOMETER = 'Potentiometer';
+        RoboBlocks.LANG_ZUM_POTENTIOMETER_PIN = 'PIN#';
+        RoboBlocks.LANG_ZUM_POTENTIOMETER_TOOLTIP = 'zum Potentiometer';
+
+
+
+        //servo blocks : 
+        RoboBlocks.LANG_CATEGORY_SERVO = 'Servo';
+
+        RoboBlocks.LANG_SERVO_CONT = 'Servo';
+        RoboBlocks.LANG_SERVO_CONT_PIN = 'PIN#';
+        RoboBlocks.LANG_SERVO_CONT_ROT = 'ROT';
+        RoboBlocks.LANG_SERVO_CONT_TURN_CLOCKWISE = 'TURN CLOCKWISE';
+        RoboBlocks.LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE = 'TURN COUNTERCLOCKWISE';
+        RoboBlocks.LANG_SERVO_CONT_STOPPED = 'STOPPED';
+        RoboBlocks.LANG_SERVO_CONT_DELAY = 'Delay';
+        RoboBlocks.LANG_SERVO_CONT_TOOLTIP = 'Continuous rotation servo';
+
+        RoboBlocks.LANG_SERVO_MOVE = 'Servo';
+        RoboBlocks.LANG_SERVO_MOVE_PIN = 'PIN#';
+        RoboBlocks.LANG_SERVO_MOVE_DEGREES = 'Degrees (0~180)';
+        RoboBlocks.LANG_SERVO_MOVE_DELAY = 'Delay';
+        RoboBlocks.LANG_SERVO_MOVE_TOOLTIP = 'Move between 0~180 degree';
+
+        RoboBlocks.LANG_SERVO_READ_DEGREES = 'Read Degrees';
+        RoboBlocks.LANG_SERVO_READ_DEGREES_PIN = 'PIN#';
+        RoboBlocks.LANG_SERVO_READ_DEGREES_SERVO = 'Servo';
+        RoboBlocks.LANG_SERVO_READ_DEGREES_TOOLTIP = 'Returns that degree with the last servo move.';
 
         // Source: src/profiles.js
         /*
@@ -1056,7 +1306,7 @@
         var JST = this.JST;
 
         // Source: src/blocks/advanced_conversion/advanced_conversion.js
-        /* global Blockly, JST */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1078,31 +1328,31 @@
          * @type {Object}
          */
         Blockly.Blocks.advanced_conversion = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/serial_println',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/advanced_conversion',
             /**
              * advanced_conversion initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
-                    .appendField('Convert')
+                    .appendField(RoboBlocks.LANG_ADVANCED_CONVERSION_CONVERT)
                     .appendField(new Blockly.FieldDropdown([
-                        ['Decimal', 'DEC'],
-                        ['Hexadecimal', 'HEX'],
-                        ['Octal', 'OCT'],
-                        ['Binary', 'BIN']
+                        [RoboBlocks.LANG_ADVANCED_CONVERSION_DECIMAL, 'DEC'],
+                        [RoboBlocks.LANG_ADVANCED_CONVERSION_HEXADECIMAL, 'HEX'],
+                        [RoboBlocks.LANG_ADVANCED_CONVERSION_OCTAL, 'OCT'],
+                        [RoboBlocks.LANG_ADVANCED_CONVERSION_BINARY, 'BIN']
                     ]), 'CONV');
                 this.appendValueInput('NUM', Number)
-                    .appendField('value')
+                    .appendField(RoboBlocks.LANG_ADVANCED_CONVERSION_VALUE)
                     .setCheck(Number);
                 this.setOutput(true, Number);
-                this.setTooltip('Base convert a number');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_CONVERSION_TOOLTIP);
             }
         };
 
         // Source: src/blocks/advanced_map/advanced_map.js
-        /* global Blockly, JST */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1131,40 +1381,40 @@
          * @type {Object}
          */
         Blockly.Blocks.advanced_map = {
-            category: Blockly.LANG_CATEGORY_MATH,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/advanced_map',
+            category: RoboBlocks.LANG_CATEGORY_MATH,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/advanced_map',
             /**
              * advanced_map initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_MATH);
+                this.setColour(RoboBlocks.LANG_COLOUR_MATH);
                 this.appendValueInput('NUM', Number)
-                    .appendField('Map ')
+                    .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_MAP)
                     .setCheck(Number);
                 this.appendValueInput('FROM_MIN', Number)
-                    .appendField('From [')
+                    .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_FROM)
                     .setCheck(Number);
                 this.appendValueInput('FROM_MAX', Number)
-                    .appendField('-')
+                    .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_HYPHEN)
                     .setCheck(Number);
                 this.appendDummyInput('')
-                    .appendField(']');
+                    .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_BRACKET);
                 this.appendValueInput('TO_MIN', Number)
-                    .appendField('to [')
+                    .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_TO)
                     .setCheck(Number);
                 this.appendValueInput('TO_MAX', Number)
-                    .appendField('-')
+                    .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_HYPHEN)
                     .setCheck(Number);
                 this.appendDummyInput('')
-                    .appendField(']');
+                    .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_BRACKET);
                 this.setInputsInline(true);
                 this.setOutput(true);
-                this.setTooltip('Re-maps a number from [0-1024] to another.');
+                this.setTooltip(RoboBlocks.LANG_MATH_ADVANCED_MAP_TOOLTIP);
             }
         };
 
         // Source: src/blocks/base_delay/base_delay.js
-        /* global Blockly, JST */
+        /* global Blockly, JST, RoboBlocks */
 
         //register with blockly arduino
         Blockly.Arduino.base_delay = function() {
@@ -1177,22 +1427,22 @@
         };
 
         Blockly.Blocks.base_delay = {
-            category: Blockly.LANG_CATEGORY_CONTROLS,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/lib/blocks/base_delay',
+            category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/base_delay',
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_CONTROL);
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendValueInput('DELAY_TIME', Number)
-                    .appendField('Wait (ms)')
+                    .appendField(RoboBlocks.LANG_CONTROLS_BASE_DELAY_WAIT)
                     .setCheck(Number);
                 this.setInputsInline(true);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('Delay specific time (in ms)');
+                this.setTooltip(RoboBlocks.LANG_CONTROLS_BASE_DELAY_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_bat/bq_bat.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1225,30 +1475,30 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_bat = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tags: ['bq', 'bat'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_bat',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_bat',
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('BAT')
+                    .appendField(RoboBlocks.LANG_BQ_BAT)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));
                 this.appendDummyInput('')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('RED PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_BAT_RED_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.arduino.bluetooth), 'PIN');
                 this.appendDummyInput('')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('BLUE PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_BAT_BLUE_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.arduino.bluetooth), 'PIN');
 
                 this.setOutput(true, Number);
-                this.setTooltip('Output the measured distance');
+                this.setTooltip(RoboBlocks.LANG_BQ_BAT_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_bluetooth_slave/bq_bluetooth_slave.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1310,41 +1560,41 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_bluetooth_slave = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tags: ['bq', 'bluetooth'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_bluetooth_slave',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_bluetooth_slave',
             /**
              * bq_bluetooth_slave initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('Bluetooth')
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.bluetooth), 'PIN');
                 this.appendDummyInput('')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Name')
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME)
                     .appendField(new Blockly.FieldTextInput('zum'), 'NAME');
                 this.appendDummyInput('')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('PinCode')
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE)
                     .appendField(new Blockly.FieldTextInput('0000'), 'PINCODE');
                 this.appendStatementInput('RCV')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Receive');
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE);
                 this.appendStatementInput('SNT')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Send');
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_SEND);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('bq Bluetooth');
+                this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_button/bq_button.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1359,7 +1609,7 @@
 
             Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['bq_button_setups']({
                 'dropdown_pin': dropdown_pin,
-            }); //'pinMode(' + dropdown_pin + ', INPUT_PULLUP);';
+            });
 
             var code = JST['bq_button']({
                 'dropdown_pin': dropdown_pin,
@@ -1373,26 +1623,26 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_button = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tags: ['bq', 'button'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_button',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_button',
             /**
              * bq_button initialization
              **/
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('Button')
+                    .appendField(RoboBlocks.LANG_BQ_BUTTON)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod05.png', 212 * options.zoom, 139 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_BUTTON_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
                 this.setOutput(true, Boolean);
-                this.setTooltip('bq Button');
+                this.setTooltip(RoboBlocks.LANG_BQ_BUTTON_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_buttons/bq_buttons.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1426,42 +1676,42 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_buttons = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tags: ['bq', 'buttons'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_buttons',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_buttons',
             /**
              * bq_buttons initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('Buttons')
+                    .appendField(RoboBlocks.LANG_BQ_BUTTONS)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod10.png', 336 * options.zoom, 176 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_BUTTONS_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
                 this.appendStatementInput('BUTN1')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Button #A');
+                    .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_A);
                 this.appendStatementInput('BUTN2')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Button #B');
+                    .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_B);
                 this.appendStatementInput('BUTN3')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Button #C');
+                    .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_C);
                 this.appendStatementInput('BUTN4')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Button #D');
+                    .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_D);
                 this.appendStatementInput('BUTN5')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Button #E');
+                    .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_E);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('bq Buttons');
+                this.setTooltip(RoboBlocks.LANG_BQ_BUTTONS_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_infrared/bq_infrared.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1487,26 +1737,26 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_infrared = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tags: ['bq', 'infrared'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_infrared',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_infrared',
             /**
              * bq_infrared initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('Infrared Sensor')
+                    .appendField(RoboBlocks.LANG_BQ_INFRARED)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod04.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_INFRARED_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
                 this.setOutput(true);
-                this.setTooltip('bq Infrared Sensor');
+                this.setTooltip(RoboBlocks.LANG_BQ_INFRARED_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_joystick/bq_joystick.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1515,15 +1765,9 @@
          */
         Blockly.Arduino.bq_joystick = function() {
             var dropdown_pin = this.getFieldValue('PIN');
-            //  var dropdown_pin = this.getFieldValue('PIN');
-            //  var code = 'analogRead('+dropdown_pin+')';
-            //  return [code, Blockly.Arduino.ORDER_ATOMIC];
-
-
             var code = JST['bq_joystick']({
                 'dropdown_pin': dropdown_pin,
             });
-
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
@@ -1532,26 +1776,26 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_joystick = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tags: ['bq', 'joystick'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_joystick',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_joystick',
             /**
              * bq_joystick initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('Joystick')
+                    .appendField(RoboBlocks.LANG_BQ_JOYSTICK)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_JOYSTICK_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
                 this.setOutput(true, Number);
-                this.setTooltip('bq Joystick');
+                this.setTooltip(RoboBlocks.LANG_BQ_JOYSTICK_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_led/bq_led.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1561,7 +1805,6 @@
         Blockly.Arduino.bq_led = function() {
             var dropdown_pin = this.getFieldValue('PIN');
             var dropdown_stat = this.getFieldValue('STAT');
-
 
             Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
                 'dropdown_pin': dropdown_pin,
@@ -1581,32 +1824,32 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_led = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tag: ['bq', 'led'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_led',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_led',
             /**
              * bq_led initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('LED')
+                    .appendField(RoboBlocks.LANG_BQ_LED)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_LED_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
                     .appendField('state')
                     .appendField(new Blockly.FieldDropdown([
-                        ['ON', 'HIGH'],
-                        ['OFF', 'LOW']
+                        [RoboBlocks.LANG_BQ_LED_ON, 'HIGH'],
+                        [RoboBlocks.LANG_BQ_LED_OFF, 'LOW']
                     ]), 'STAT');
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('bq LED');
+                this.setTooltip(RoboBlocks.LANG_BQ_LED_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_photoresistor/bq_photoresistor.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1631,26 +1874,26 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_photoresistor = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tags: ['bq', 'photoresistor'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_photoresistor',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_photoresistor',
             /**
              * bq_photoresistor initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('Photoresistor')
+                    .appendField(RoboBlocks.LANG_BQ_PHOTORESISTOR)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod01.png', 208 * options.zoom, 140 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_PHOTORESISTOR_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
                 this.setOutput(true, Number);
-                this.setTooltip('Output the value of the photoresistor.');
+                this.setTooltip(RoboBlocks.LANG_BQ_PHOTORESISTOR_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_piezo_buzzer/bq_piezo_buzzer.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1661,11 +1904,6 @@
             var dropdown_pin = this.getFieldValue('PIN');
             var dropdown_stat = this.getFieldValue('STAT');
             var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
-
-            //  Blockly.Arduino.setups_['setup_piezo_buzzer_' + dropdown_pin] = JST['bq_piezo_buzzer_setups']({
-            //      'dropdown_pin': dropdown_pin,
-            //      'dropdown_stat': dropdown_stat
-            //  });
 
             var code = JST['bq_piezo_buzzer']({
                 'dropdown_pin': dropdown_pin,
@@ -1683,43 +1921,43 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_piezo_buzzer = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tags: ['bq', 'buzzer'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_piezo_buzzer',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_piezo_buzzer',
             /**
              * bq_piezo_buzzer initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('Buzzer')
+                    .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-                    .appendField('TONE')
+                    .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_TONE)
                     .appendField(new Blockly.FieldDropdown([
-                        ['DO', '261'],
-                        ['RE', '293'],
-                        ['MI', '329'],
-                        ['FA', '349'],
-                        ['SOL', '392'],
-                        ['LA', '440'],
-                        ['SI', '494']
+                        [RoboBlocks.LANG_BQ_PIEZO_BUZZER_DO, '261'],
+                        [RoboBlocks.LANG_BQ_PIEZO_BUZZER_RE, '293'],
+                        [RoboBlocks.LANG_BQ_PIEZO_BUZZER_MI, '329'],
+                        [RoboBlocks.LANG_BQ_PIEZO_BUZZER_FA, '349'],
+                        [RoboBlocks.LANG_BQ_PIEZO_BUZZER_SOL, '392'],
+                        [RoboBlocks.LANG_BQ_PIEZO_BUZZER_LA, '440'],
+                        [RoboBlocks.LANG_BQ_PIEZO_BUZZER_SI, '494']
                     ]), 'STAT'); //523
                 this.appendValueInput('DURA', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Duration');
+                    .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_DURATION);
 
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('Piezo Buzzer');
+                this.setTooltip(RoboBlocks.LANG_BQ_PIEZO_BUZZER_TOOLTIP);
             }
         };
 
 
         // Source: src/blocks/bq_piezo_buzzerav/bq_piezo_buzzerav.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1746,38 +1984,38 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_piezo_buzzerav = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tags: ['bq', 'advanced buzzer'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_piezo_buzzerav',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_piezo_buzzerav',
             /**
              * bq_piezo_buzzerav initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('Advanced Buzzer')
+                    .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod08.png', 208 * options.zoom, 140 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
 
                 this.appendValueInput('TONE', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('TONE');
+                    .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_TONE);
 
                 this.appendValueInput('DURA', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Duration');
+                    .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_DURATION);
 
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('Piezo Buzzer Advanced');
+                this.setTooltip(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_potentiometer/bq_potentiometer.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1798,26 +2036,286 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_potentiometer = {
-            category: Blockly.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_BQ,
             tags: ['bq', 'potentiometer'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_potentiometer',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_potentiometer',
             /**
              * bq_potentiometer initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
-                    .appendField('Potentiometer')
+                    .appendField(RoboBlocks.LANG_BQ_POTENTIOMETER)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod06.png', 208 * options.zoom, 139 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_BQ_POTENTIOMETER_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
                 this.setOutput(true, Number);
-                this.setTooltip('bq Potentiometer');
+                this.setTooltip(RoboBlocks.LANG_BQ_POTENTIOMETER_TOOLTIP);
             }
         };
 
+        // Source: src/blocks/controls_if/controls_if.js
+        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * controls_if code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.controls_if = function() {
+            var dropdown_pin = this.getFieldValue('PIN');
+
+            Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['controls_if_setups']({
+                'dropdown_pin': dropdown_pin,
+            });
+
+            var code = JST['controls_if']({
+                'dropdown_pin': dropdown_pin,
+            });
+            code = 'digitalRead(' + dropdown_pin + ')';
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+
+        // Blockly.Arduino.controls_if = function() {
+        //   // If/elseif/else condition.
+        //   var n = 0;
+        //   var argument = Blockly.Arduino.valueToCode(this, 'IF' + n,
+        //       Blockly.Arduino.ORDER_NONE) || 'false';
+        //   var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
+        //   var code = 'if (' + argument + ') {\n' + branch + '\n}';
+        //   for (n = 1; n <= this.elseifCount_; n++) {
+        //     argument = Blockly.Arduino.valueToCode(this, 'IF' + n,
+        //       Blockly.Arduino.ORDER_NONE) || 'false';
+        //     branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
+        //     code += ' else if (' + argument + ') {\n' + branch + '}';
+        //   }
+        //   if (this.elseCount_) {
+        //     branch = Blockly.Arduino.statementToCode(this, 'ELSE');
+        //     code += ' else {\n' + branch + '\n}';
+        //   }
+        //   return code + '\n';
+        // };
+
+        /**
+         * controls_if block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.controls_if = {
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
+            tags: ['bq', 'zum', 'button'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_if',
+            /**
+             * controls_if initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.LANG_controls_if)
+                    .appendField(new Blockly.FieldImage('img/blocks/zum02.png', 212 * options.zoom, 139 * options.zoom))
+                    .appendField(RoboBlocks.LANG_controls_if_PIN)
+                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+                this.setOutput(true, Boolean);
+                this.setTooltip(RoboBlocks.LANG_controls_if_TOOLTIP);
+            }
+        };
+
+
+        Blockly.Blocks.controls_if = {
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
+            tags: ['bq', 'zum', 'button'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_if',
+            init: function() {
+                this.setColour(Blockly.LANG_COLOUR_CONTROL);
+                this.appendValueInput('IF0')
+                    .setCheck(Boolean)
+                    .appendField(Blockly.LANG_CONTROLS_IF_MSG_IF);
+                this.appendStatementInput('DO0')
+                    .appendField(Blockly.LANG_CONTROLS_IF_MSG_THEN);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setMutator(new Blockly.Mutator(['controls_if_elseif',
+                    'controls_if_else'
+                ]));
+                // Assign 'this' to a variable for use in the tooltip closure below.
+                var thisBlock = this;
+                this.setTooltip(function() {
+                    if (!thisBlock.elseifCount_ && !thisBlock.elseCount_) {
+                        return Blockly.LANG_CONTROLS_IF_TOOLTIP_1;
+                    } else if (!thisBlock.elseifCount_ && thisBlock.elseCount_) {
+                        return Blockly.LANG_CONTROLS_IF_TOOLTIP_2;
+                    } else if (thisBlock.elseifCount_ && !thisBlock.elseCount_) {
+                        return Blockly.LANG_CONTROLS_IF_TOOLTIP_3;
+                    } else if (thisBlock.elseifCount_ && thisBlock.elseCount_) {
+                        return Blockly.LANG_CONTROLS_IF_TOOLTIP_4;
+                    }
+                    return '';
+                });
+                this.elseifCount_ = 0;
+                this.elseCount_ = 0;
+            },
+            mutationToDom: function() {
+                if (!this.elseifCount_ && !this.elseCount_) {
+                    return null;
+                }
+                var container = document.createElement('mutation');
+                if (this.elseifCount_) {
+                    container.setAttribute('elseif', this.elseifCount_);
+                }
+                if (this.elseCount_) {
+                    container.setAttribute('else', 1);
+                }
+                return container;
+            },
+            domToMutation: function(xmlElement) {
+                this.elseifCount_ = window.parseInt(xmlElement.getAttribute('elseif'), 10);
+                this.elseCount_ = window.parseInt(xmlElement.getAttribute('else'), 10);
+                for (var x = 1; x <= this.elseifCount_; x++) {
+                    this.appendValueInput('IF' + x)
+                        .setCheck(Boolean)
+                        .appendField(Blockly.LANG_CONTROLS_IF_MSG_ELSEIF);
+                    this.appendStatementInput('DO' + x)
+                        .appendField(Blockly.LANG_CONTROLS_IF_MSG_THEN);
+                }
+                if (this.elseCount_) {
+                    this.appendStatementInput('ELSE')
+                        .appendField(Blockly.LANG_CONTROLS_IF_MSG_ELSE);
+                }
+            },
+            decompose: function(workspace) {
+                var containerBlock = Blockly.Block.obtain(workspace, 'controls_if_if');
+                containerBlock.initSvg();
+                var connection = containerBlock.getInput('STACK').connection;
+                for (var x = 1; x <= this.elseifCount_; x++) {
+                    var elseifBlock = Blockly.Block.obtain(workspace, 'controls_if_elseif');
+                    elseifBlock.initSvg();
+                    connection.connect(elseifBlock.previousConnection);
+                    connection = elseifBlock.nextConnection;
+                }
+                if (this.elseCount_) {
+                    var elseBlock = Blockly.Block.obtain(workspace, 'controls_if_else');
+                    elseBlock.initSvg();
+                    connection.connect(elseBlock.previousConnection);
+                }
+                return containerBlock;
+            },
+            compose: function(containerBlock) {
+                // Disconnect the else input blocks and remove the inputs.
+                if (this.elseCount_) {
+                    this.removeInput('ELSE');
+                }
+                this.elseCount_ = 0;
+                // Disconnect all the elseif input blocks and remove the inputs.
+                for (var x = this.elseifCount_; x > 0; x--) {
+                    this.removeInput('IF' + x);
+                    this.removeInput('DO' + x);
+                }
+                this.elseifCount_ = 0;
+                // Rebuild the block's optional inputs.
+                var clauseBlock = containerBlock.getInputTargetBlock('STACK');
+                while (clauseBlock) {
+                    switch (clauseBlock.type) {
+                        case 'controls_if_elseif':
+                            this.elseifCount_++;
+                            var ifInput = this.appendValueInput('IF' + this.elseifCount_)
+                                .setCheck(Boolean)
+                                .appendField(Blockly.LANG_CONTROLS_IF_MSG_ELSEIF);
+                            var doInput = this.appendStatementInput('DO' + this.elseifCount_);
+                            doInput.appendField(Blockly.LANG_CONTROLS_IF_MSG_THEN);
+                            // Reconnect any child blocks.
+                            if (clauseBlock.valueConnection_) {
+                                ifInput.connection.connect(clauseBlock.valueConnection_);
+                            }
+                            if (clauseBlock.statementConnection_) {
+                                doInput.connection.connect(clauseBlock.statementConnection_);
+                            }
+                            break;
+                        case 'controls_if_else':
+                            this.elseCount_++;
+                            var elseInput = this.appendStatementInput('ELSE');
+                            elseInput.appendField(Blockly.LANG_CONTROLS_IF_MSG_ELSE);
+                            // Reconnect any child blocks.
+                            if (clauseBlock.statementConnection_) {
+                                elseInput.connection.connect(clauseBlock.statementConnection_);
+                            }
+                            break;
+                        default:
+                            throw 'Unknown block type.';
+                    }
+                    clauseBlock = clauseBlock.nextConnection &&
+                        clauseBlock.nextConnection.targetBlock();
+                }
+            },
+            saveConnections: function(containerBlock) {
+                // Store a pointer to any connected child blocks.
+                var clauseBlock = containerBlock.getInputTargetBlock('STACK');
+                var x = 1;
+                while (clauseBlock) {
+                    switch (clauseBlock.type) {
+                        case 'controls_if_elseif':
+                            var inputIf = this.getInput('IF' + x);
+                            var inputDo = this.getInput('DO' + x);
+                            clauseBlock.valueConnection_ =
+                                inputIf && inputIf.connection.targetConnection;
+                            clauseBlock.statementConnection_ =
+                                inputDo && inputDo.connection.targetConnection;
+                            x++;
+                            break;
+                        case 'controls_if_else':
+                            inputDo = this.getInput('ELSE');
+                            clauseBlock.statementConnection_ =
+                                inputDo && inputDo.connection.targetConnection;
+                            break;
+                        default:
+                            throw 'Unknown block type.';
+                    }
+                    clauseBlock = clauseBlock.nextConnection &&
+                        clauseBlock.nextConnection.targetBlock();
+                }
+            }
+        };
+
+        Blockly.Blocks.controls_if_if = {
+            // If condition.
+            init: function() {
+                this.setColour(Blockly.LANG_COLOUR_CONTROL);
+                this.appendDummyInput()
+                    .appendField(Blockly.LANG_CONTROLS_IF_IF_Field_IF);
+                this.appendStatementInput('STACK');
+                this.setTooltip(Blockly.LANG_CONTROLS_IF_IF_TOOLTIP);
+                this.contextMenu = false;
+            }
+        };
+
+        Blockly.Blocks.controls_if_elseif = {
+            // Else-If condition.
+            init: function() {
+                this.setColour(Blockly.LANG_COLOUR_CONTROL);
+                this.appendDummyInput()
+                    .appendField(Blockly.LANG_CONTROLS_IF_ELSEIF_Field_ELSEIF);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setTooltip(Blockly.LANG_CONTROLS_IF_ELSEIF_TOOLTIP);
+                this.contextMenu = false;
+            }
+        };
+
+        Blockly.Blocks.controls_if_else = {
+            // Else condition.
+            init: function() {
+                this.setColour(Blockly.LANG_COLOUR_CONTROL);
+                this.appendDummyInput()
+                    .appendField(Blockly.LANG_CONTROLS_IF_ELSE_Field_ELSE);
+                this.setPreviousStatement(true);
+                this.setTooltip(Blockly.LANG_CONTROLS_IF_ELSE_TOOLTIP);
+                this.contextMenu = false;
+            }
+        };
+
+
+
         // Source: src/blocks/inout_analog_read/inout_analog_read.js
-        /* global Blockly, profiles, JST */
+        /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1843,23 +2341,23 @@
          * @type {Object}
          */
         Blockly.Blocks.inout_analog_read = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/inout_analog_read',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_analog_read',
             /**
              * inout_analog_read initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
-                    .appendField('AnalogRead PIN#')
+                    .appendField(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_READ)
                     .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
                 this.setOutput(true, Boolean);
-                this.setTooltip('Reads the value from a specified digital pin');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP);
             }
         };
 
         // Source: src/blocks/inout_analog_write/inout_analog_write.js
-        /* global Blockly, profiles, JST */
+        /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1890,28 +2388,28 @@
          * @type {Object}
          */
         Blockly.Blocks.inout_analog_write = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/inout_analog_write',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_analog_write',
             /**
              * inout_analog_write initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
-                    .appendField('AnalogWrite PIN#')
+                    .appendField(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE)
                     .appendField(new Blockly.FieldDropdown(profiles.default.pwm), 'PIN');
                 this.appendValueInput('NUM', Number)
-                    .appendField('value')
+                    .appendField(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE_VALUE)
                     .setCheck(Number);
                 this.setInputsInline(true);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('Write analog value between 0 and 255 to a specific Port');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE_TOOLTIP);
             }
         };
 
         // Source: src/blocks/inout_builtin_led/inout_builtin_led.js
-        /* global Blockly, JST */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1936,31 +2434,28 @@
          * @type {Object}
          */
         Blockly.Blocks.inout_builtin_led = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/inout_builtin_led',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_builtin_led',
             /**
              * inout_builtin_led initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
-                    .appendField('BUILTIN LED')
-                    //			.appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
-                    //			.appendField('PIN#')
-                    //			.appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-                    .appendField('state')
+                    .appendField(RoboBlocks.LANG_ADVANCED_BUILTIN_LED)
+                    .appendField(RoboBlocks.LANG_ADVANCED_BUILTIN_LED_STATE)
                     .appendField(new Blockly.FieldDropdown([
-                        ['ON', 'HIGH'],
-                        ['OFF', 'LOW']
+                        [RoboBlocks.LANG_ADVANCED_BUILTIN_LED_ON, 'HIGH'],
+                        [RoboBlocks.LANG_ADVANCED_BUILTIN_LED_OFF, 'LOW']
                     ]), 'STAT');
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('bq LED');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_BUILTIN_LED_TOOLTIP);
             }
         };
 
         // Source: src/blocks/inout_digital_read/inout_digital_read.js
-        /* global Blockly, profiles, JST */
+        /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -1986,23 +2481,23 @@
          * @type {Object}
          */
         Blockly.Blocks.inout_digital_read = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/inout_digital_read',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_digital_read',
             /**
              * inout_digital_read initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
-                    .appendField('DigitalRead PIN#')
+                    .appendField(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_READ)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
                 this.setOutput(true, Boolean);
-                this.setTooltip('Reads the value from a specified digital pin');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_READ_TOOLTIP);
             }
         };
 
         // Source: src/blocks/inout_digital_write/inout_digital_write.js
-        /* global Blockly, profiles, JST */
+        /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2032,30 +2527,30 @@
          * @type {Object}
          */
         Blockly.Blocks.inout_digital_write = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/inout_digital_write',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_digital_write',
             /**
              * inout_digital_write initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
-                    .appendField('DigitalWrite')
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE)
+                    .appendField(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-                    .appendField('state')
+                    .appendField(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE)
                     .appendField(new Blockly.FieldDropdown([
-                        ['HIGH', 'HIGH'],
-                        ['LOW', 'LOW']
+                        [RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH, 'HIGH'],
+                        [RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW, 'LOW']
                     ]), 'STAT');
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('bq digital_write');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP);
             }
         };
 
         // Source: src/blocks/inout_highlow/inout_highlow.js
-        /* global Blockly, JST */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2077,25 +2572,25 @@
          * @type {Object}
          */
         Blockly.Blocks.inout_highlow = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/inout_highlow',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_highlow',
             /**
              * inout_highlow initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
                     .appendField(new Blockly.FieldDropdown([
-                        ['HIGH', 'HIGH'],
-                        ['LOW', 'LOW']
+                        [RoboBlocks.LANG_ADVANCED_HIGHLOW_HIGH, 'HIGH'],
+                        [RoboBlocks.LANG_ADVANCED_HIGHLOW_LOW, 'LOW']
                     ]), 'BOOL');
                 this.setOutput(true, Boolean);
-                this.setTooltip(Blockly.LANG_LOGIC_BOOLEAN_TOOLTIP_1);
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_HIGHLOW_TOOLTIP);
             }
         };
 
         // Source: src/blocks/math_random/math_random.js
-        /* global Blockly, JST */
+        /* global Blockly, JST, RoboBlocks */
 
         //register with blockly arduino
         Blockly.Arduino.math_random = function() {
@@ -2110,24 +2605,24 @@
         };
 
         Blockly.Blocks.math_random = {
-            category: Blockly.LANG_CATEGORY_MATH,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/lib/blocks/math_random',
+            category: RoboBlocks.LANG_CATEGORY_MATH,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_random',
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_MATH);
+                this.setColour(RoboBlocks.LANG_COLOUR_MATH);
                 this.appendValueInput('NUM', Number)
-                    .appendField('Random between')
+                    .appendField(RoboBlocks.LANG_ADVANCED_MATH_RANDOM)
                     .setCheck(Number);
                 this.appendValueInput('DMAX', Number)
-                    .appendField(' and ')
+                    .appendField(RoboBlocks.LANG_ADVANCED_MATH_RANDOM_AND)
                     .setCheck(Number);
                 this.setInputsInline(true);
                 this.setOutput(true);
-                this.setTooltip('Assign a random number');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_MATH_RANDOM_TOOLTIP);
             }
         };
 
         // Source: src/blocks/serial_available/serial_available.js
-        /* global Blockly, JST */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2147,25 +2642,25 @@
          * @type {Object}
          */
         Blockly.Blocks.serial_available = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/serial_println',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_available',
             /**
              * serial_available initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput()
-                    .appendField('Serial Available');
+                    .appendField(RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE);
                 this.appendStatementInput('DO')
-                    .appendField(Blockly.LANG_CONTROLS_REPEAT_INPUT_DO);
+                    .appendField(RoboBlocks.LANG_CONTROLS_REPEAT_INPUT_DO);
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
-                this.setTooltip(Blockly.LANG_CONTROLS_REPEAT_TOOLTIP);
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP);
             }
         };
 
         // Source: src/blocks/serial_print/serial_print.js
-        /* global Blockly, profiles, JST */
+        /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2191,23 +2686,23 @@
          * @type {Object}
          */
         Blockly.Blocks.serial_print = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/serial_print',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_print',
             /**
              * serial_print initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendValueInput('CONTENT', String)
-                    .appendField('Serial Print');
+                    .appendField(RoboBlocks.LANG_ADVANCED_SERIAL_PRINT);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('Prints data to the console/serial port as human-readable ASCII text.');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_PRINT_TOOLTIP);
             }
         };
 
         // Source: src/blocks/serial_println/serial_println.js
-        /* global Blockly, profiles, JST */
+        /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2231,23 +2726,23 @@
          * @type {Object}
          */
         Blockly.Blocks.serial_println = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/serial_println',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_println',
             /**
              * serial_println initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendValueInput('CONTENT', String)
-                    .appendField('Serial Println');
+                    .appendField(RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('Prints data to the console/serial port as human-readable ASCII text and add CR.');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP);
             }
         };
 
         // Source: src/blocks/serial_read/serial_read.js
-        /* global Blockly, profiles, JST */
+        /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2270,22 +2765,22 @@
          * @type {Object}
          */
         Blockly.Blocks.serial_read = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/serial_read',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_read',
             /**
              * serial_read initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
-                    .appendField('Serial Read');
+                    .appendField(RoboBlocks.LANG_ADVANCED_SERIAL_READ);
                 this.setOutput(true, String);
-                this.setTooltip('Reads incoming serial data from serial port as human-readable ASCII text.');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_READ_TOOLTIP);
             }
         };
 
         // Source: src/blocks/serial_special/serial_special.js
-        /* global Blockly, JST */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2305,27 +2800,27 @@
          * @type {Object}
          */
         Blockly.Blocks.serial_special = {
-            category: Blockly.LANG_CATEGORY_ADVANCED,
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/serial_println',
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_special',
             /**
              * serial_special initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
-                    .appendField('Special Chars')
+                    .appendField(RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL)
                     .appendField(new Blockly.FieldDropdown([
-                        ['Tab', '\\t'],
-                        ['Carriage Return', '\\r'],
-                        ['Line Feed', '\\n']
+                        [RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TAB, '\\t'],
+                        [RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN, '\\r'],
+                        [RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED, '\\n']
                     ]), 'CHAR');
                 this.setOutput(true, String);
-                this.setTooltip('Write special Chars');
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP);
             }
         };
 
         // Source: src/blocks/servo_cont/servo_cont.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2362,34 +2857,34 @@
          * @type {Object}
          */
         Blockly.Blocks.servo_cont = {
-            category: Blockly.LANG_CATEGORY_SERVO,
+            category: RoboBlocks.LANG_CATEGORY_SERVO,
             tags: ['servo continuous'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/lib/blocks/servo_cont',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_cont',
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_SERVO);
+                this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
                 this.appendDummyInput('')
-                    .appendField('Servo')
+                    .appendField(RoboBlocks.LANG_SERVO_CONT)
                     .appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_SERVO_CONT_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-                    .appendField('ROT')
+                    .appendField(RoboBlocks.LANG_SERVO_CONT_ROT)
                     .appendField(new Blockly.FieldDropdown([
-                        ['TURN CLOCKWISE', '0'],
-                        ['TURN COUNTERCLOCKWISE', '180'],
-                        ['STOPPED', '90']
+                        [RoboBlocks.LANG_SERVO_CONT_TURN_CLOCKWISE, '0'],
+                        [RoboBlocks.LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE, '180'],
+                        [RoboBlocks.LANG_SERVO_CONT_STOPPED, '90']
                     ]), 'ROT');
                 this.appendValueInput('DELAY_TIME', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Delay');
+                    .appendField(RoboBlocks.LANG_SERVO_CONT_DELAY);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('Continuous rotation servo');
+                this.setTooltip(RoboBlocks.LANG_SERVO_CONT_TOOLTIP);
             }
         };
 
         // Source: src/blocks/servo_move/servo_move.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2426,35 +2921,35 @@
          * @type {Object}
          */
         Blockly.Blocks.servo_move = {
-            category: Blockly.LANG_CATEGORY_SERVO,
+            category: RoboBlocks.LANG_CATEGORY_SERVO,
             tags: ['servo move'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/servo_move',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_move',
             /**
              * servo_move initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_SERVO);
+                this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
                 this.appendDummyInput('')
-                    .appendField('Servo')
+                    .appendField(RoboBlocks.LANG_SERVO_MOVE)
                     .appendField(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_SERVO_MOVE_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
                 this.appendValueInput('DEGREE', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Degrees (0~180)');
+                    .appendField(RoboBlocks.LANG_SERVO_MOVE_DEGREES);
                 this.appendValueInput('DELAY_TIME', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Delay');
+                    .appendField(RoboBlocks.LANG_SERVO_MOVE_DELAY);
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
-                this.setTooltip('Move between 0~180 degree');
+                this.setTooltip(RoboBlocks.LANG_SERVO_MOVE_TOOLTIP);
             }
         };
 
         // Source: src/blocks/servo_read_degrees/servo_read_degrees.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2483,29 +2978,29 @@
          * @type {Object}
          */
         Blockly.Blocks.servo_read_degrees = {
-            category: Blockly.LANG_CATEGORY_SERVO,
+            category: RoboBlocks.LANG_CATEGORY_SERVO,
             tags: ['servo read degrees'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/servo_read_degrees',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_read_degrees',
             /**
              * servo_read_degrees initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_SERVO);
+                this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
                 this.appendDummyInput('')
-                    .appendField('Servo')
+                    .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES_SERVO)
                     .appendField(new Blockly.FieldImage('img/blocks/bqservo02.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
                 this.appendDummyInput('')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Read Degrees');
+                    .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES);
                 this.setOutput(true, Number);
-                this.setTooltip('Returns that degree with the last servo move.');
+                this.setTooltip(RoboBlocks.LANG_SERVO_READ_DEGREES_TOOLTIP);
             }
         };
 
         // Source: src/blocks/zum_button/zum_button.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2517,7 +3012,7 @@
 
             Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['zum_button_setups']({
                 'dropdown_pin': dropdown_pin,
-            }); //'pinMode(' + dropdown_pin + ', INPUT_PULLUP);';
+            });
 
             var code = JST['zum_button']({
                 'dropdown_pin': dropdown_pin,
@@ -2531,26 +3026,26 @@
          * @type {Object}
          */
         Blockly.Blocks.zum_button = {
-            category: Blockly.LANG_CATEGORY_ZUM,
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
             tags: ['bq', 'zum', 'button'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_button',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_button',
             /**
              * zum_button initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ZUM);
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendDummyInput('')
-                    .appendField('Button')
+                    .appendField(RoboBlocks.LANG_ZUM_BUTTON)
                     .appendField(new Blockly.FieldImage('img/blocks/zum02.png', 212 * options.zoom, 139 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_ZUM_BUTTON_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
                 this.setOutput(true, Boolean);
-                this.setTooltip('bq Button');
+                this.setTooltip(RoboBlocks.LANG_ZUM_BUTTON_TOOLTIP);
             }
         };
 
         // Source: src/blocks/zum_follower/zum_follower.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2584,39 +3079,39 @@
          * @type {Object}
          */
         Blockly.Blocks.zum_follower = {
-            category: Blockly.LANG_CATEGORY_ZUM,
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
             tags: ['bq', 'zum', 'follower'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_follower',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_follower',
             /**
              * zum_follower initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ZUM);
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendDummyInput('')
-                    .appendField('Infrared Sensor')
+                    .appendField(RoboBlocks.LANG_ZUM_FOLLOWER)
                     .appendField(new Blockly.FieldImage('img/blocks/zum06.png', 203 * options.zoom, 165 * options.zoom));
                 this.appendDummyInput('')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('PIN LEFT#')
+                    .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_PIN_LEFT)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
                 this.appendDummyInput('')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('PIN RIGHT#')
+                    .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_PIN_RIGHT)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN2');
                 this.appendStatementInput('SENS1')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Left');
+                    .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_LEFT);
                 this.appendStatementInput('SENS2')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Right');
+                    .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_RIGHT);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('bq Infrared Sensor');
+                this.setTooltip(RoboBlocks.LANG_ZUM_FOLLOWER_TOOLTIP);
             }
         };
 
         // Source: src/blocks/zum_infrared/zum_infrared.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2642,26 +3137,26 @@
          * @type {Object}
          */
         Blockly.Blocks.zum_infrared = {
-            category: Blockly.LANG_CATEGORY_ZUM,
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
             tags: ['bq', 'zum', 'infrared'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_infrared',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_infrared',
             /**
              * zum_infrared initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ZUM);
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendDummyInput('')
-                    .appendField('Infrared Sensor')
+                    .appendField(RoboBlocks.LANG_ZUM_INFRARED)
                     .appendField(new Blockly.FieldImage('img/blocks/zum07.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_ZUM_INFRARED_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
                 this.setOutput(true);
-                this.setTooltip('bq Infrared Sensor');
+                this.setTooltip(RoboBlocks.LANG_ZUM_INFRARED_TOOLTIP);
             }
         };
 
         // Source: src/blocks/zum_led/zum_led.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2691,32 +3186,32 @@
          * @type {Object}
          */
         Blockly.Blocks.zum_led = {
-            category: Blockly.LANG_CATEGORY_ZUM,
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
             tags: ['bq', 'zum', 'led'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_led',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_led',
             /**
              * zum_led initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ZUM);
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendDummyInput('')
-                    .appendField('LED')
+                    .appendField(RoboBlocks.LANG_ZUM_LED)
                     .appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_ZUM_LED_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
                     .appendField('state')
                     .appendField(new Blockly.FieldDropdown([
-                        ['ON', 'HIGH'],
-                        ['OFF', 'LOW']
+                        [RoboBlocks.LANG_ZUM_LED_ON, 'HIGH'],
+                        [RoboBlocks.LANG_ZUM_LED_OFF, 'LOW']
                     ]), 'STAT');
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('bq LED');
+                this.setTooltip(RoboBlocks.LANG_ZUM_LED_TOOLTIP);
             }
         };
 
         // Source: src/blocks/zum_photoresistor/zum_photoresistor.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2740,26 +3235,26 @@
          * @type {Object}
          */
         Blockly.Blocks.zum_photoresistor = {
-            category: Blockly.LANG_CATEGORY_ZUM,
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
             tags: ['bq', 'zum', 'photoresistor'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_photoresistor',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_photoresistor',
             /**
              * zum_photoresistor initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ZUM);
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendDummyInput('')
-                    .appendField('Photoresistor')
+                    .appendField(RoboBlocks.LANG_ZUM_PHOTORESISTOR)
                     .appendField(new Blockly.FieldImage('img/blocks/zum05.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_ZUM_PHOTORESISTOR_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
                 this.setOutput(true, Number);
-                this.setTooltip('Output the value of the photoresistor.');
+                this.setTooltip(RoboBlocks.LANG_ZUM_PHOTORESISTOR_TOOLTIP);
             }
         };
 
         // Source: src/blocks/zum_piezo_buzzer/zum_piezo_buzzer.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2793,42 +3288,42 @@
          * @type {Object}
          */
         Blockly.Blocks.zum_piezo_buzzer = {
-            category: Blockly.LANG_CATEGORY_ZUM,
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
             tags: ['bq', 'zum', 'buzzer'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_piezo_buzzer',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_piezo_buzzer',
             /**
              * zum_piezo_buzzer initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ZUM);
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendDummyInput('')
-                    .appendField('Buzzer')
+                    .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZER)
                     .appendField(new Blockly.FieldImage('img/blocks/zum01.png', 208 * options.zoom, 140 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZER_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-                    .appendField('TONE')
+                    .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZER_TONE)
                     .appendField(new Blockly.FieldDropdown([
-                        ['DO', '261'],
-                        ['RE', '293'],
-                        ['MI', '329'],
-                        ['FA', '349'],
-                        ['SOL', '392'],
-                        ['LA', '440'],
-                        ['SI', '494']
+                        [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_DO, '261'],
+                        [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_RE, '293'],
+                        [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_MI, '329'],
+                        [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_FA, '349'],
+                        [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_SOL, '392'],
+                        [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_LA, '440'],
+                        [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_SI, '494']
                     ]), 'STAT'); //523
                 this.appendValueInput('DURA', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Duration');
+                    .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZER_DURATION);
 
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('Piezo Buzzer');
+                this.setTooltip(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP);
             }
         };
 
         // Source: src/blocks/zum_piezo_buzzerav/zum_piezo_buzzerav.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2855,38 +3350,38 @@
          * @type {Object}
          */
         Blockly.Blocks.zum_piezo_buzzerav = {
-            category: Blockly.LANG_CATEGORY_ZUM,
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
             tags: ['bq', 'zum', 'advanced buzzer'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_piezo_buzzerav',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_piezo_buzzerav',
             /**
              * zum_piezo_buzzerav initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ZUM);
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendDummyInput('')
-                    .appendField('Advanced Buzzer')
+                    .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV)
                     .appendField(new Blockly.FieldImage('img/blocks/zum01.png', 208 * options.zoom, 140 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
 
                 this.appendValueInput('TONE', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('TONE');
+                    .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_TONE);
 
                 this.appendValueInput('DURA', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField('Duration');
+                    .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_DURATION);
 
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip('Piezo Buzzer Advanced');
+                this.setTooltip(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP);
             }
         };
 
         // Source: src/blocks/zum_potentiometer/zum_potentiometer.js
-        /* global Blockly, options, profiles, JST */
+        /* global Blockly, options, profiles, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2907,21 +3402,21 @@
          * @type {Object}
          */
         Blockly.Blocks.zum_potentiometer = {
-            category: Blockly.LANG_CATEGORY_ZUM,
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
             tags: ['bq', 'zum', 'potentiometer'],
-            helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_potentiometer',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_potentiometer',
             /**
              * zum_potentiometer initialization
              */
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_ZUM);
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendDummyInput('')
-                    .appendField('Potentiometer')
+                    .appendField(RoboBlocks.LANG_ZUM_POTENTIOMETER)
                     .appendField(new Blockly.FieldImage('img/blocks/zum03.png', 208 * options.zoom, 139 * options.zoom))
-                    .appendField('PIN#')
+                    .appendField(RoboBlocks.LANG_ZUM_POTENTIOMETER_PIN)
                     .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
                 this.setOutput(true, Number);
-                this.setTooltip('bq Potentiometer');
+                this.setTooltip(RoboBlocks.LANG_ZUM_POTENTIOMETER_TOOLTIP);
             }
         };
 

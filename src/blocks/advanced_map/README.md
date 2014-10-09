@@ -1,7 +1,7 @@
-Advanced_conversion
+Advanced_map
 ==========
 
-Advanced_conversion description
+Advanced_map description
 
 Parameters
 ----------

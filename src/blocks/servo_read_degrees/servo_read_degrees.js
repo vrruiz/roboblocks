@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -28,23 +28,23 @@ Blockly.Arduino.servo_read_degrees = function() {
  * @type {Object}
  */
 Blockly.Blocks.servo_read_degrees = {
-    category: Blockly.LANG_CATEGORY_SERVO,
+    category: RoboBlocks.LANG_CATEGORY_SERVO,
     tags: ['servo read degrees'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/servo_read_degrees',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/servo_read_degrees',
     /**
     * servo_read_degrees initialization
     */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_SERVO);
+        this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
         this.appendDummyInput('')
-        .appendField('Servo')
+        .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES_SERVO)
         .appendField(new Blockly.FieldImage('img/blocks/bqservo02.png', 208 * options.zoom, 126 * options.zoom))
-        .appendField('PIN#')
+        .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES_PIN)
         .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
         this.appendDummyInput('')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Read Degrees');
+        .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES);
         this.setOutput(true, Number);
-        this.setTooltip('Returns that degree with the last servo move.');
+        this.setTooltip(RoboBlocks.LANG_SERVO_READ_DEGREES_TOOLTIP);
     }
 };

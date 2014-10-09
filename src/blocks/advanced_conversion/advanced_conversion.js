@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, JST */
+/* global Blockly, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -21,25 +21,25 @@ Blockly.Arduino.advanced_conversion = function() {
  * @type {Object}
  */
 Blockly.Blocks.advanced_conversion = {
-    category: Blockly.LANG_CATEGORY_ADVANCED,
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/serial_println',
+    category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/advanced_conversion',
     /**
      * advanced_conversion initialization
      */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+        this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
         this.appendDummyInput('')
-        .appendField('Convert')
+        .appendField(RoboBlocks.LANG_ADVANCED_CONVERSION_CONVERT)
         .appendField(new Blockly.FieldDropdown([
-            ['Decimal', 'DEC'],
-            ['Hexadecimal', 'HEX'],
-            ['Octal', 'OCT'],
-            ['Binary', 'BIN']
+            [RoboBlocks.LANG_ADVANCED_CONVERSION_DECIMAL, 'DEC'],
+            [RoboBlocks.LANG_ADVANCED_CONVERSION_HEXADECIMAL, 'HEX'],
+            [RoboBlocks.LANG_ADVANCED_CONVERSION_OCTAL, 'OCT'],
+            [RoboBlocks.LANG_ADVANCED_CONVERSION_BINARY, 'BIN']
         ]), 'CONV');
         this.appendValueInput('NUM', Number)
-        .appendField('value')
+        .appendField(RoboBlocks.LANG_ADVANCED_CONVERSION_VALUE)
         .setCheck(Number);
         this.setOutput(true, Number);
-        this.setTooltip('Base convert a number');
+        this.setTooltip(RoboBlocks.LANG_ADVANCED_CONVERSION_TOOLTIP);
     }
 };

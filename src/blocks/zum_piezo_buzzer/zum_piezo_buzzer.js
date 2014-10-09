@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -33,36 +33,36 @@ Blockly.Arduino.zum_piezo_buzzer = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_piezo_buzzer = {
-    category: Blockly.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.LANG_CATEGORY_ZUM,
     tags: ['bq', 'zum', 'buzzer'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_piezo_buzzer',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_piezo_buzzer',
     /**
     * zum_piezo_buzzer initialization
     */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_ZUM);
+        this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendDummyInput('')
-        .appendField('Buzzer')
+        .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZER)
         .appendField(new Blockly.FieldImage('img/blocks/zum01.png', 208 * options.zoom, 140 * options.zoom))
-        .appendField('PIN#')
+        .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZER_PIN)
         .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-        .appendField('TONE')
+        .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZER_TONE)
         .appendField(new Blockly.FieldDropdown([
-            ['DO', '261'],
-            ['RE', '293'],
-            ['MI', '329'],
-            ['FA', '349'],
-            ['SOL', '392'],
-            ['LA', '440'],
-            ['SI', '494']
+            [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_DO, '261'],
+            [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_RE, '293'],
+            [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_MI, '329'],
+            [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_FA, '349'],
+            [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_SOL, '392'],
+            [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_LA, '440'],
+            [RoboBlocks.LANG_ZUM_PIEZO_BUZZER_SI, '494']
         ]), 'STAT'); //523
         this.appendValueInput('DURA', Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Duration');
+        .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZER_DURATION);
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('Piezo Buzzer');
+        this.setTooltip(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP);
     }
 };

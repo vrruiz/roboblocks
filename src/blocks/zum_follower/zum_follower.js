@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -33,33 +33,33 @@ Blockly.Arduino.zum_follower = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_follower = {
-    category: Blockly.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.LANG_CATEGORY_ZUM,
     tags: ['bq', 'zum', 'follower'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_follower',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_follower',
     /**
     * zum_follower initialization
     */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_ZUM);
+        this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendDummyInput('')
-        .appendField('Infrared Sensor')
+        .appendField(RoboBlocks.LANG_ZUM_FOLLOWER)
         .appendField(new Blockly.FieldImage('img/blocks/zum06.png', 203*options.zoom, 165*options.zoom));
         this.appendDummyInput('')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('PIN LEFT#')
+        .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_PIN_LEFT)
         .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
         this.appendDummyInput('')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('PIN RIGHT#')
+        .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_PIN_RIGHT)
         .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN2');
         this.appendStatementInput('SENS1')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Left');
+        .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_LEFT);
         this.appendStatementInput('SENS2')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Right');
+        .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_RIGHT);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('bq Infrared Sensor');
+        this.setTooltip(RoboBlocks.LANG_ZUM_FOLLOWER_TOOLTIP);
     }
 };

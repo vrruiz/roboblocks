@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -32,24 +32,24 @@ Blockly.Arduino.bq_bat = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_bat = {
-    category: Blockly.LANG_CATEGORY_BQ,
+    category: RoboBlocks.LANG_CATEGORY_BQ,
     tags: ['bq', 'bat'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/bq_bat',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_bat',
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_BQ);
+        this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendDummyInput('')
-        .appendField('BAT')
+        .appendField(RoboBlocks.LANG_BQ_BAT)
         .appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));
         this.appendDummyInput('')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('RED PIN#')
+        .appendField(RoboBlocks.LANG_BQ_BAT_RED_PIN)
         .appendField(new Blockly.FieldDropdown(profiles.arduino.bluetooth), 'PIN');
         this.appendDummyInput('')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('BLUE PIN#')
+        .appendField(RoboBlocks.LANG_BQ_BAT_BLUE_PIN)
         .appendField(new Blockly.FieldDropdown(profiles.arduino.bluetooth), 'PIN');
 
         this.setOutput(true, Number);
-        this.setTooltip('Output the measured distance');
+        this.setTooltip(RoboBlocks.LANG_BQ_BAT_TOOLTIP);
     }
 };

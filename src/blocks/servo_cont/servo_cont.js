@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -36,28 +36,28 @@ Blockly.Arduino.servo_cont = function() {
  * @type {Object}
  */
 Blockly.Blocks.servo_cont = {
-    category: Blockly.LANG_CATEGORY_SERVO,
+    category: RoboBlocks.LANG_CATEGORY_SERVO,
     tags: ['servo continuous'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/lib/blocks/servo_cont',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/servo_cont',
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_SERVO);
+        this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
         this.appendDummyInput('')
-            .appendField('Servo')
+            .appendField(RoboBlocks.LANG_SERVO_CONT)
             .appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom))
-            .appendField('PIN#')
+            .appendField(RoboBlocks.LANG_SERVO_CONT_PIN)
             .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-            .appendField('ROT')
+            .appendField(RoboBlocks.LANG_SERVO_CONT_ROT)
             .appendField(new Blockly.FieldDropdown([
-                ['TURN CLOCKWISE', '0'],
-                ['TURN COUNTERCLOCKWISE', '180'],
-                ['STOPPED', '90']
+                [RoboBlocks.LANG_SERVO_CONT_TURN_CLOCKWISE, '0'],
+                [RoboBlocks.LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE, '180'],
+                [RoboBlocks.LANG_SERVO_CONT_STOPPED, '90']
             ]), 'ROT');
         this.appendValueInput('DELAY_TIME', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField('Delay');
+            .appendField(RoboBlocks.LANG_SERVO_CONT_DELAY);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('Continuous rotation servo');
+        this.setTooltip(RoboBlocks.LANG_SERVO_CONT_TOOLTIP);
     }
 };

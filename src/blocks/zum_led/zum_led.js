@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST */
+/* global Blockly, options, profiles, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -29,26 +29,26 @@ Blockly.Arduino.zum_led = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_led = {
-    category: Blockly.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.LANG_CATEGORY_ZUM,
     tags: ['bq', 'zum', 'led'],
-    helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/zum_led',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_led',
     /**
     * zum_led initialization
     */
     init: function() {
-        this.setColour(Blockly.LANG_COLOUR_ZUM);
+        this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendDummyInput('')
-        .appendField('LED')
+        .appendField(RoboBlocks.LANG_ZUM_LED)
         .appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom))
-        .appendField('PIN#')
+        .appendField(RoboBlocks.LANG_ZUM_LED_PIN)
         .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
         .appendField('state')
         .appendField(new Blockly.FieldDropdown([
-            ['ON', 'HIGH'],
-            ['OFF', 'LOW']
+            [RoboBlocks.LANG_ZUM_LED_ON, 'HIGH'],
+            [RoboBlocks.LANG_ZUM_LED_OFF, 'LOW']
         ]), 'STAT');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('bq LED');
+        this.setTooltip(RoboBlocks.LANG_ZUM_LED_TOOLTIP);
     }
 };

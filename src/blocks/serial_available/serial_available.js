@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, JST */
+/* global Blockly, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -19,19 +19,19 @@ Blockly.Arduino.serial_available = function() {
  * @type {Object}
  */
 Blockly.Blocks.serial_available = {
-	category: Blockly.LANG_CATEGORY_ADVANCED,
-	helpUrl: 'http://github.com/bq/roboblock/tree/master/src/blocks/serial_println',
+	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_available',
 	 /**
 	  * serial_available initialization
 	  */
 	init: function() {
-		this.setColour(Blockly.LANG_COLOUR_ADVANCED);
+		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput()
-			.appendField('Serial Available');
+			.appendField(RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE);
 		this.appendStatementInput('DO')
-			.appendField(Blockly.LANG_CONTROLS_REPEAT_INPUT_DO);
+			.appendField(RoboBlocks.LANG_CONTROLS_REPEAT_INPUT_DO);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		this.setTooltip(Blockly.LANG_CONTROLS_REPEAT_TOOLTIP);
+		this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP);
 	}
 };
