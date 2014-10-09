@@ -114,6 +114,13 @@ RoboBlocks.LANG_CONTROLS_IF_ELSE_TOOLTIP = 'Add a final, catch-all condition to 
 RoboBlocks.LANG_CONTROLS_IF_IF_Field_IF = 'if';
 RoboBlocks.LANG_CONTROLS_IF_IF_TOOLTIP = 'Add, remove, or reorder sections to reconfigure this if block.';
 
+RoboBlocks.LANG_CONTROLS_FOR_INPUT_WITH = 'count with';
+RoboBlocks.LANG_CONTROLS_FOR_INPUT_VAR = 'x';
+RoboBlocks.LANG_CONTROLS_FOR_INPUT_FROM = 'from';
+RoboBlocks.LANG_CONTROLS_FOR_INPUT_TO = 'to';
+RoboBlocks.LANG_CONTROLS_FOR_INPUT_DO = 'do';
+RoboBlocks.LANG_CONTROLS_FOR_TOOLTIP = 'Count from a start number to an end number. For each count, set the current count number to variable %1, and then do some statements.';
+
 
 //math blocks : 
 RoboBlocks.LANG_CATEGORY_MATH = 'Math';
