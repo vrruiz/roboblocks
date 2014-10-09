@@ -150,6 +150,22 @@
         RoboBlocks.LANG_CONTROLS_BASE_DELAY_WAIT = 'Wait (ms)';
         RoboBlocks.LANG_CONTROLS_BASE_DELAY_TOOLTIP = 'Delay specific time (in ms)';
 
+        RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_1 = 'If a value is true, then do some statements.';
+        RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_2 = 'If a value is true, then do the first block of statements. Otherwise, do the second block of statements.';
+        RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_3 = 'If the first value is true, then do the first block of statements. Otherwise, if the second value is true, do the second block of statements.';
+        RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_4 = 'If the first value is true, then do the first block of statements. Otherwise, if the second value is true, do the second block of statements. If none of the values are true, do the last block of statements.';
+        RoboBlocks.LANG_CONTROLS_IF_MSG_IF = 'if';
+        RoboBlocks.LANG_CONTROLS_IF_MSG_ELSEIF = 'else if';
+        RoboBlocks.LANG_CONTROLS_IF_MSG_ELSE = 'else';
+        RoboBlocks.LANG_CONTROLS_IF_MSG_THEN = 'do';
+        RoboBlocks.LANG_CONTROLS_IF_IF_Field_IF = 'if';
+        RoboBlocks.LANG_CONTROLS_IF_IF_TOOLTIP = 'Add, remove, or reorder sections to reconfigure this if block.';
+        RoboBlocks.LANG_CONTROLS_IF_ELSEIF_Field_ELSEIF = 'else if';
+        RoboBlocks.LANG_CONTROLS_IF_ELSEIF_TOOLTIP = 'Add a condition to the if block.';
+        RoboBlocks.LANG_CONTROLS_IF_ELSE_Field_ELSE = 'else';
+        RoboBlocks.LANG_CONTROLS_IF_ELSE_TOOLTIP = 'Add a final, catch-all condition to the if block.';
+        RoboBlocks.LANG_CONTROLS_IF_IF_Field_IF = 'if';
+        RoboBlocks.LANG_CONTROLS_IF_IF_TOOLTIP = 'Add, remove, or reorder sections to reconfigure this if block.';
 
 
         //math blocks : 
@@ -736,6 +752,49 @@
                 __p += 'analogRead(' +
                     __e(dropdown_pin) +
                     ')';
+
+            }
+            return __p
+        };
+
+        this["JST"]["controls_else"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'else {\n' +
+                    __e(branch) +
+                    '\n}';
+
+            }
+            return __p
+        };
+
+        this["JST"]["controls_elseif"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'else if (' +
+                    __e(argument) +
+                    ') {\n' +
+                    __e(branch) +
+                    '\n}';
+
+            }
+            return __p
+        };
+
+        this["JST"]["controls_if"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'if (' +
+                    __e(argument) +
+                    ') {\n' +
+                    __e(branch) +
+                    '\n}';
 
             }
             return __p
@@ -2054,8 +2113,10 @@
             }
         };
 
+        // Source: src/blocks/controls_for/controls_for.js
+
         // Source: src/blocks/controls_if/controls_if.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, JST,  RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2063,75 +2124,48 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.controls_if = function() {
-            var dropdown_pin = this.getFieldValue('PIN');
-
-            Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['controls_if_setups']({
-                'dropdown_pin': dropdown_pin,
-            });
-
+            // If/elseif/else condition.
+            var n = 0;
+            var argument = Blockly.Arduino.valueToCode(this, 'IF' + n, Blockly.Arduino.ORDER_NONE);
+            var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
             var code = JST['controls_if']({
-                'dropdown_pin': dropdown_pin,
+                'argument': argument,
+                'branch': branch
             });
-            code = 'digitalRead(' + dropdown_pin + ')';
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+
+            for (n = 1; n <= this.elseifCount_; n++) {
+                argument = Blockly.Arduino.valueToCode(this, 'IF' + n, Blockly.Arduino.ORDER_NONE);
+                branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
+                code = JST['controls_elseif']({
+                    'argument': argument,
+                    'branch': branch
+                });
+            }
+            if (this.elseCount_) {
+                branch = Blockly.Arduino.statementToCode(this, 'ELSE');
+                code = JST['controls_else']({
+                    'argument': argument,
+                    'branch': branch
+                });
+            }
+            return code + '\n';
         };
-
-
-        // Blockly.Arduino.controls_if = function() {
-        //   // If/elseif/else condition.
-        //   var n = 0;
-        //   var argument = Blockly.Arduino.valueToCode(this, 'IF' + n,
-        //       Blockly.Arduino.ORDER_NONE) || 'false';
-        //   var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-        //   var code = 'if (' + argument + ') {\n' + branch + '\n}';
-        //   for (n = 1; n <= this.elseifCount_; n++) {
-        //     argument = Blockly.Arduino.valueToCode(this, 'IF' + n,
-        //       Blockly.Arduino.ORDER_NONE) || 'false';
-        //     branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-        //     code += ' else if (' + argument + ') {\n' + branch + '}';
-        //   }
-        //   if (this.elseCount_) {
-        //     branch = Blockly.Arduino.statementToCode(this, 'ELSE');
-        //     code += ' else {\n' + branch + '\n}';
-        //   }
-        //   return code + '\n';
-        // };
 
         /**
          * controls_if block definition
          * @type {Object}
          */
         Blockly.Blocks.controls_if = {
-            category: RoboBlocks.LANG_CATEGORY_ZUM,
-            tags: ['bq', 'zum', 'button'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_if',
-            /**
-             * controls_if initialization
-             */
-            init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
-                this.appendDummyInput('')
-                    .appendField(RoboBlocks.LANG_controls_if)
-                    .appendField(new Blockly.FieldImage('img/blocks/zum02.png', 212 * options.zoom, 139 * options.zoom))
-                    .appendField(RoboBlocks.LANG_controls_if_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
-                this.setOutput(true, Boolean);
-                this.setTooltip(RoboBlocks.LANG_controls_if_TOOLTIP);
-            }
-        };
-
-
-        Blockly.Blocks.controls_if = {
-            category: RoboBlocks.LANG_CATEGORY_ZUM,
-            tags: ['bq', 'zum', 'button'],
+            category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+            tags: ['bq'],
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_if',
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_CONTROL);
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendValueInput('IF0')
                     .setCheck(Boolean)
-                    .appendField(Blockly.LANG_CONTROLS_IF_MSG_IF);
+                    .appendField(RoboBlocks.LANG_CONTROLS_IF_MSG_IF);
                 this.appendStatementInput('DO0')
-                    .appendField(Blockly.LANG_CONTROLS_IF_MSG_THEN);
+                    .appendField(RoboBlocks.LANG_CONTROLS_IF_MSG_THEN);
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
                 this.setMutator(new Blockly.Mutator(['controls_if_elseif',
@@ -2141,13 +2175,13 @@
                 var thisBlock = this;
                 this.setTooltip(function() {
                     if (!thisBlock.elseifCount_ && !thisBlock.elseCount_) {
-                        return Blockly.LANG_CONTROLS_IF_TOOLTIP_1;
+                        return RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_1;
                     } else if (!thisBlock.elseifCount_ && thisBlock.elseCount_) {
-                        return Blockly.LANG_CONTROLS_IF_TOOLTIP_2;
+                        return RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_2;
                     } else if (thisBlock.elseifCount_ && !thisBlock.elseCount_) {
-                        return Blockly.LANG_CONTROLS_IF_TOOLTIP_3;
+                        return RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_3;
                     } else if (thisBlock.elseifCount_ && thisBlock.elseCount_) {
-                        return Blockly.LANG_CONTROLS_IF_TOOLTIP_4;
+                        return RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_4;
                     }
                     return '';
                 });
@@ -2173,13 +2207,13 @@
                 for (var x = 1; x <= this.elseifCount_; x++) {
                     this.appendValueInput('IF' + x)
                         .setCheck(Boolean)
-                        .appendField(Blockly.LANG_CONTROLS_IF_MSG_ELSEIF);
+                        .appendField(RoboBlocks.LANG_CONTROLS_IF_MSG_ELSEIF);
                     this.appendStatementInput('DO' + x)
-                        .appendField(Blockly.LANG_CONTROLS_IF_MSG_THEN);
+                        .appendField(RoboBlocks.LANG_CONTROLS_IF_MSG_THEN);
                 }
                 if (this.elseCount_) {
                     this.appendStatementInput('ELSE')
-                        .appendField(Blockly.LANG_CONTROLS_IF_MSG_ELSE);
+                        .appendField(RoboBlocks.LANG_CONTROLS_IF_MSG_ELSE);
                 }
             },
             decompose: function(workspace) {
@@ -2219,9 +2253,9 @@
                             this.elseifCount_++;
                             var ifInput = this.appendValueInput('IF' + this.elseifCount_)
                                 .setCheck(Boolean)
-                                .appendField(Blockly.LANG_CONTROLS_IF_MSG_ELSEIF);
+                                .appendField(RoboBlocks.LANG_CONTROLS_IF_MSG_ELSEIF);
                             var doInput = this.appendStatementInput('DO' + this.elseifCount_);
-                            doInput.appendField(Blockly.LANG_CONTROLS_IF_MSG_THEN);
+                            doInput.appendField(RoboBlocks.LANG_CONTROLS_IF_MSG_THEN);
                             // Reconnect any child blocks.
                             if (clauseBlock.valueConnection_) {
                                 ifInput.connection.connect(clauseBlock.valueConnection_);
@@ -2233,7 +2267,7 @@
                         case 'controls_if_else':
                             this.elseCount_++;
                             var elseInput = this.appendStatementInput('ELSE');
-                            elseInput.appendField(Blockly.LANG_CONTROLS_IF_MSG_ELSE);
+                            elseInput.appendField(RoboBlocks.LANG_CONTROLS_IF_MSG_ELSE);
                             // Reconnect any child blocks.
                             if (clauseBlock.statementConnection_) {
                                 elseInput.connection.connect(clauseBlock.statementConnection_);
@@ -2278,11 +2312,11 @@
         Blockly.Blocks.controls_if_if = {
             // If condition.
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_CONTROL);
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendDummyInput()
-                    .appendField(Blockly.LANG_CONTROLS_IF_IF_Field_IF);
+                    .appendField(RoboBlocks.LANG_CONTROLS_IF_IF_Field_IF);
                 this.appendStatementInput('STACK');
-                this.setTooltip(Blockly.LANG_CONTROLS_IF_IF_TOOLTIP);
+                this.setTooltip(RoboBlocks.LANG_CONTROLS_IF_IF_TOOLTIP);
                 this.contextMenu = false;
             }
         };
@@ -2290,12 +2324,12 @@
         Blockly.Blocks.controls_if_elseif = {
             // Else-If condition.
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_CONTROL);
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendDummyInput()
-                    .appendField(Blockly.LANG_CONTROLS_IF_ELSEIF_Field_ELSEIF);
+                    .appendField(RoboBlocks.LANG_CONTROLS_IF_ELSEIF_Field_ELSEIF);
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
-                this.setTooltip(Blockly.LANG_CONTROLS_IF_ELSEIF_TOOLTIP);
+                this.setTooltip(RoboBlocks.LANG_CONTROLS_IF_ELSEIF_TOOLTIP);
                 this.contextMenu = false;
             }
         };
@@ -2303,11 +2337,11 @@
         Blockly.Blocks.controls_if_else = {
             // Else condition.
             init: function() {
-                this.setColour(Blockly.LANG_COLOUR_CONTROL);
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendDummyInput()
-                    .appendField(Blockly.LANG_CONTROLS_IF_ELSE_Field_ELSE);
+                    .appendField(RoboBlocks.LANG_CONTROLS_IF_ELSE_Field_ELSE);
                 this.setPreviousStatement(true);
-                this.setTooltip(Blockly.LANG_CONTROLS_IF_ELSE_TOOLTIP);
+                this.setTooltip(RoboBlocks.LANG_CONTROLS_IF_ELSE_TOOLTIP);
                 this.contextMenu = false;
             }
         };

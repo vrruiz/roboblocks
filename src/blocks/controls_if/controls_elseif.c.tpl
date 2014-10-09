@@ -1,0 +1,3 @@
+else if ({{argument}}) {
+{{branch}}
+}

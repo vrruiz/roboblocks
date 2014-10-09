@@ -97,6 +97,22 @@ RoboBlocks.LANG_CATEGORY_CONTROLS = 'Control';
 RoboBlocks.LANG_CONTROLS_BASE_DELAY_WAIT='Wait (ms)';
 RoboBlocks.LANG_CONTROLS_BASE_DELAY_TOOLTIP='Delay specific time (in ms)';
 
+RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_1 = 'If a value is true, then do some statements.';
+RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_2 = 'If a value is true, then do the first block of statements. Otherwise, do the second block of statements.';
+RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_3 = 'If the first value is true, then do the first block of statements. Otherwise, if the second value is true, do the second block of statements.';
+RoboBlocks.LANG_CONTROLS_IF_TOOLTIP_4 = 'If the first value is true, then do the first block of statements. Otherwise, if the second value is true, do the second block of statements. If none of the values are true, do the last block of statements.';
+RoboBlocks.LANG_CONTROLS_IF_MSG_IF = 'if';
+RoboBlocks.LANG_CONTROLS_IF_MSG_ELSEIF = 'else if';
+RoboBlocks.LANG_CONTROLS_IF_MSG_ELSE = 'else';
+RoboBlocks.LANG_CONTROLS_IF_MSG_THEN = 'do';
+RoboBlocks.LANG_CONTROLS_IF_IF_Field_IF = 'if';
+RoboBlocks.LANG_CONTROLS_IF_IF_TOOLTIP = 'Add, remove, or reorder sections to reconfigure this if block.';
+RoboBlocks.LANG_CONTROLS_IF_ELSEIF_Field_ELSEIF = 'else if';
+RoboBlocks.LANG_CONTROLS_IF_ELSEIF_TOOLTIP = 'Add a condition to the if block.';
+RoboBlocks.LANG_CONTROLS_IF_ELSE_Field_ELSE = 'else';
+RoboBlocks.LANG_CONTROLS_IF_ELSE_TOOLTIP = 'Add a final, catch-all condition to the if block.';
+RoboBlocks.LANG_CONTROLS_IF_IF_Field_IF = 'if';
+RoboBlocks.LANG_CONTROLS_IF_IF_TOOLTIP = 'Add, remove, or reorder sections to reconfigure this if block.';
 
 
 //math blocks : 
