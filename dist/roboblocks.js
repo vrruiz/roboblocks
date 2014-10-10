@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.6 - 2014-10-09
+/*! roboblocks - v0.0.6 - 2014-10-10
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -71,6 +71,8 @@
 
 
         ///////////// COPY TO EN.JS
+        //random : 
+        RoboBlocks.LANG_VARIABLES_SET_ITEM = 'item';
 
         //bq blocks : 
         RoboBlocks.LANG_CATEGORY_BQ = 'bq bloqs';
@@ -185,6 +187,7 @@
         RoboBlocks.LANG_MATH_ADVANCED_MAP_TO = 'to [';
         RoboBlocks.LANG_MATH_ADVANCED_MAP_TOOLTIP = 'Re-maps a number from a certain range to another.';
 
+        RoboBlocks.LANG_MATH_NUMBER_TOOLTIP = 'Number';
 
         //advanced blocks : 
         RoboBlocks.LANG_CATEGORY_ADVANCED = 'Advanced';
@@ -250,8 +253,26 @@
 
         //procedures blocks
         RoboBlocks.LANG_CATEGORY_PROCEDURES = 'Procedures';
+
+
         //variables blocks : 
         RoboBlocks.LANG_CATEGORY_VARIABLES = 'Variables';
+
+        RoboBlocks.LANG_VARIABLES_DECLARE = 'Declare a variable ';
+        RoboBlocks.LANG_VARIABLES_DECLARE_TYPE = 'of type ';
+        RoboBlocks.LANG_VARIABLES_DECLARE_TOOLTIP = 'Declare a variable of type int or String';
+
+        RoboBlocks.LANG_VARIABLES_DEFINE = 'Define variable ';
+        RoboBlocks.LANG_VARIABLES_DEFINE_AS = 'as';
+        RoboBlocks.LANG_VARIABLES_DEFINE_TOOLTIP = 'Define the value of a variable';
+
+
+        RoboBlocks.LANG_VARIABLES_SET = 'Set variable ';
+        RoboBlocks.LANG_VARIABLES_SET_AS = 'as';
+        RoboBlocks.LANG_VARIABLES_SET_TOOLTIP = 'Set the value of a variable';
+
+        RoboBlocks.LANG_VARIABLES_GET = 'Get variable ';
+        RoboBlocks.LANG_VARIABLES_GET_TOOLTIP = 'Get the value of a variable';
 
         //zum blocks : 
         RoboBlocks.LANG_CATEGORY_ZUM = 'zum';
@@ -1193,6 +1214,51 @@
                     '.attach(' +
                     __e(dropdown_pin) +
                     ');';
+
+            }
+            return __p
+        };
+
+        this["JST"]["variables_declare"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    __e(varType) +
+                    ' ' +
+                    __e(varName) +
+                    ';\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["variables_define"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    __e(varName) +
+                    '=' +
+                    __e(varValue) +
+                    ';\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["variables_set"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    __e(varName) +
+                    '=' +
+                    __e(varValue) +
+                    ';';
 
             }
             return __p
@@ -2720,6 +2786,44 @@
             }
         };
 
+        // Source: src/blocks/math_number/math_number.js
+        /* global Blockly, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * math_number code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Blocks.math_number.validator = function(text) {
+            // Ensure that only a number may be entered.
+            // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
+            var n = window.parseFloat(text || 0);
+            return window.isNaN(n) ? null : String(n);
+        };
+
+        Blockly.Arduino.math_number = function() {
+            // Numeric value.
+            var code = window.parseFloat(this.getFieldValue('NUM'));
+            // -4.abs() returns -4 in Dart due to strange order of operation choices.
+            // -4 is actually an operator and a number.  Reflect this in the order.
+            var order = code < 0 ? Blockly.Arduino.ORDER_UNARY_PREFIX : Blockly.Arduino.ORDER_ATOMIC;
+            return [code, order];
+        };
+
+        Blockly.Blocks.math_number = {
+            // Numeric value.
+            category: RoboBlocks.LANG_CATEGORY_MATH, // Variables are handled specially.
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_number',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MATH);
+                this.appendDummyInput()
+                    .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.math_number.validator), 'NUM');
+                this.setOutput(true, Number);
+                this.setTooltip(RoboBlocks.LANG_MATH_NUMBER_TOOLTIP);
+            }
+        };
+
         // Source: src/blocks/math_random/math_random.js
         /* global Blockly, JST, RoboBlocks */
 
@@ -3130,9 +3234,211 @@
             }
         };
 
-        // Source: src/blocks/variables_set/variables_set.js
+        // Source: src/blocks/variables_declare/variables_declare.js
+
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * variables_declare code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.variables_declare = function() {
+            // Variable setter.
+            var varType = Blockly.Arduino.valueToCode(this, 'TYPE', Blockly.Arduino.ORDER_ASSIGNMENT) || '';
+            var varName = this.getFieldValue('VAR') || '';
+            Blockly.Arduino.definitions_['define_var' + varName] = JST['variables_declare']({
+                'varType': varType,
+                'varName': varName
+            });
+
+            return '';
+        };
+
+        Blockly.Blocks.variables_declare = {
+            // Variable setter.
+            category: RoboBlocks.LANG_CATEGORY_VARIABLES, // Variables are handled specially.
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_declare',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_VARIABLES_DECLARE)
+                    // .appendField(new Blockly.FieldVariable(Blockly.LANG_VARIABLES_SET_ITEM), 'VAR');
+                    .appendField(new Blockly.FieldTextInput(''), 'VAR');
+
+
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_VARIABLES_DECLARE_TYPE)
+                    .appendField(new Blockly.FieldDropdown([
+                        ['int', 'int'],
+                        ['String', 'String']
+                    ]), 'TYPE');
+
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setTooltip(RoboBlocks.LANG_VARIABLES_DECLARE_TOOLTIP);
+            },
+            getVars: function() {
+                return [this.getFieldValue('VAR')];
+            },
+            renameVar: function(oldName, newName) {
+                if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+                    this.setFieldValue(newName, 'VAR');
+                }
+            }
+        };
+        // Source: src/blocks/variables_define/variables_define.js
+
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * variables_define code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.variables_define = function() {
+            // Variable setter.
+            var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT) || '';
+            var varName = this.getFieldValue('VAR') || '';
+
+            Blockly.Arduino.setups_['setup_var' + varName] = JST['variables_define']({
+                'varName': varName,
+                'varValue': varValue
+            });
+
+            return '';
+        };
+
+        Blockly.Blocks.variables_define = {
+            // Variable setter.
+            category: RoboBlocks.LANG_CATEGORY_VARIABLES, // Variables are handled specially.
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_define',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
+                this.appendDummyInput('DUMMY')
+                    .appendField(RoboBlocks.LANG_VARIABLES_DEFINE)
+                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                this.appendValueInput('VALUE')
+                    .appendField(RoboBlocks.LANG_VARIABLES_DEFINE_AS)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+                this.setInputsInline(true);
+
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setTooltip(RoboBlocks.LANG_VARIABLES_DEFINE_TOOLTIP);
+            },
+            getVariables: function() {
+                var variables = Blockly.Variables.allVariables();
+                var dropdown = [];
+                if (variables.length > 0) {
+                    for (var i in variables) {
+                        dropdown.push([variables[i], variables[i]]);
+                    }
+                } else {
+                    dropdown.push(['', '']);
+                }
+                return dropdown;
+            },
+            onchange: function() {
+                if (!this.last_variables) {
+                    this.last_variables = Blockly.Variables.allVariables();
+                }
+                var variables = Blockly.Variables.allVariables();
+
+                for (var i in variables) {
+                    if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
+                        this.removeInput('DUMMY');
+                        this.removeInput('VALUE');
+
+                        this.appendDummyInput('DUMMY')
+                            .appendField(RoboBlocks.LANG_VARIABLES_DEFINE)
+                            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                        this.appendValueInput('VALUE')
+                            .appendField(RoboBlocks.LANG_VARIABLES_DEFINE_AS)
+                            .setAlign(Blockly.ALIGN_RIGHT);
+                        this.setInputsInline(true);
+
+                        this.last_variables = Blockly.Variables.allVariables();
+                    }
+                }
+            },
+            renameVar: function(oldName, newName) {
+                if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+                    this.setTitleValue(newName, 'VAR');
+                }
+            }
+        };
+        // Source: src/blocks/variables_get/variables_get.js
 
         /* global Blockly, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * variables_get code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.variables_get = function() {
+            // Variable setter.
+            var varName = this.getFieldValue('VAR') || '';
+
+            return [varName, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        Blockly.Blocks.variables_get = {
+            // Variable setter.
+            category: RoboBlocks.LANG_CATEGORY_VARIABLES, // Variables are handled specially.
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_get',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
+                this.appendDummyInput('DUMMY')
+                    .appendField(RoboBlocks.LANG_VARIABLES_GET)
+                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                this.setOutput(true);
+                this.setTooltip(RoboBlocks.LANG_VARIABLES_GET_TOOLTIP);
+            },
+            getVariables: function() {
+                var variables = Blockly.Variables.allVariables();
+                var dropdown = [];
+                if (variables.length > 0) {
+                    for (var i in variables) {
+                        dropdown.push([variables[i], variables[i]]);
+                    }
+                } else {
+                    dropdown.push(['', '']);
+                }
+                return dropdown;
+            },
+            onchange: function() {
+                if (!this.last_variables) {
+                    this.last_variables = Blockly.Variables.allVariables();
+                }
+                var variables = Blockly.Variables.allVariables();
+
+                for (var i in variables) {
+                    if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
+                        this.removeInput('DUMMY');
+
+                        this.appendDummyInput('DUMMY')
+                            .appendField(RoboBlocks.LANG_VARIABLES_GET)
+                            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                        this.last_variables = Blockly.Variables.allVariables();
+                    }
+                }
+            },
+            renameVar: function(oldName, newName) {
+                if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+                    this.setTitleValue(newName, 'VAR');
+                }
+            }
+        };
+        // Source: src/blocks/variables_set/variables_set.js
+
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -3141,32 +3447,76 @@
          */
         Blockly.Arduino.variables_set = function() {
             // Variable setter.
-            var argument0 = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
-            var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-            return varName.substring(0, varName.length - 1) + ' = ' + argument0 + ';\n';
-        };
+            var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT) || '';
+            var varName = this.getFieldValue('VAR') || '';
 
+            var code = JST['variables_set']({
+                'varName': varName,
+                'varValue': varValue
+            });
+
+
+            return code;
+        };
 
         Blockly.Blocks.variables_set = {
             // Variable setter.
             category: RoboBlocks.LANG_CATEGORY_VARIABLES, // Variables are handled specially.
-            helpUrl: RoboBlocks.LANG_VARIABLES_SET_HELPURL,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_set',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
+                this.appendDummyInput('DUMMY')
+                    .appendField(RoboBlocks.LANG_VARIABLES_SET)
+                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
                 this.appendValueInput('VALUE')
-                    .appendField(RoboBlocks.LANG_VARIABLES_SET_Field_1)
-                    .appendField(new Blockly.FieldVariable(
-                        RoboBlocks.LANG_VARIABLES_SET_ITEM), 'VAR');
+                    .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+                this.setInputsInline(true);
+
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
-                this.setTooltip(RoboBlocks.LANG_VARIABLES_SET_TOOLTIP_1);
+                this.setTooltip(RoboBlocks.LANG_VARIABLES_SET_TOOLTIP);
             },
-            getVars: function() {
-                return [this.getFieldValue('VAR')];
+            getVariables: function() {
+                var variables = Blockly.Variables.allVariables();
+                var dropdown = [];
+                if (variables.length > 0) {
+                    for (var i in variables) {
+                        dropdown.push([variables[i], variables[i]]);
+                    }
+                } else {
+                    dropdown.push(['', '']);
+                }
+                return dropdown;
+            },
+            onchange: function() {
+                if (!this.last_variables) {
+                    this.last_variables = Blockly.Variables.allVariables();
+                }
+                var variables = Blockly.Variables.allVariables();
+
+                for (var i in variables) {
+                    if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
+                        this.removeInput('DUMMY');
+                        this.removeInput('VALUE');
+
+                        this.appendDummyInput('DUMMY')
+                            .appendField(RoboBlocks.LANG_VARIABLES_SET)
+                            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                        this.appendValueInput('VALUE')
+                            .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
+                            .setAlign(Blockly.ALIGN_RIGHT);
+                        this.setInputsInline(true);
+
+                        this.last_variables = Blockly.Variables.allVariables();
+                    }
+                }
             },
             renameVar: function(oldName, newName) {
                 if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-                    this.setFieldValue(newName, 'VAR');
+                    this.setTitleValue(newName, 'VAR');
                 }
             }
         };

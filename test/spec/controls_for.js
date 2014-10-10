@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'controls_for');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), 'int i;\n\nvoid setup()\n{\n\n}\n\n\nvoid loop()\n{\n  for (i = 0; i <= 0; i++) {\n  }\n\n}' );
+				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n\n}\n\n\nvoid loop()\n{\n  for ( = 0;  <= 0; ++) {\n  }\n\n}' );
 			});
 		});
 	});

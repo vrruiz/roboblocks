@@ -18,6 +18,8 @@ RoboBlocks.LANG_COLOUR_MATH='180';
 
 
 ///////////// COPY TO EN.JS
+//random : 
+RoboBlocks.LANG_VARIABLES_SET_ITEM='item';
 
 //bq blocks : 
 RoboBlocks.LANG_CATEGORY_BQ='bq bloqs';
@@ -132,6 +134,7 @@ RoboBlocks.LANG_MATH_ADVANCED_MAP_BRACKET = ']';
 RoboBlocks.LANG_MATH_ADVANCED_MAP_TO = 'to [';
 RoboBlocks.LANG_MATH_ADVANCED_MAP_TOOLTIP = 'Re-maps a number from a certain range to another.';
 
+RoboBlocks.LANG_MATH_NUMBER_TOOLTIP='Number';
 
 //advanced blocks : 
 RoboBlocks.LANG_CATEGORY_ADVANCED='Advanced';
@@ -197,8 +200,26 @@ RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP='Write special Chars';
 
 //procedures blocks
 RoboBlocks.LANG_CATEGORY_PROCEDURES='Procedures';
+
+
 //variables blocks : 
 RoboBlocks.LANG_CATEGORY_VARIABLES='Variables';
+
+RoboBlocks.LANG_VARIABLES_DECLARE='Declare a variable ';
+RoboBlocks.LANG_VARIABLES_DECLARE_TYPE='of type ';
+RoboBlocks.LANG_VARIABLES_DECLARE_TOOLTIP='Declare a variable of type int or String';
+
+RoboBlocks.LANG_VARIABLES_DEFINE='Define variable ';
+RoboBlocks.LANG_VARIABLES_DEFINE_AS='as';
+RoboBlocks.LANG_VARIABLES_DEFINE_TOOLTIP='Define the value of a variable';
+
+
+RoboBlocks.LANG_VARIABLES_SET='Set variable ';
+RoboBlocks.LANG_VARIABLES_SET_AS='as';
+RoboBlocks.LANG_VARIABLES_SET_TOOLTIP='Set the value of a variable';
+
+RoboBlocks.LANG_VARIABLES_GET='Get variable ';
+RoboBlocks.LANG_VARIABLES_GET_TOOLTIP='Get the value of a variable';
 
 //zum blocks : 
 RoboBlocks.LANG_CATEGORY_ZUM='zum';

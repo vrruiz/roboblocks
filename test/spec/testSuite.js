@@ -30,6 +30,7 @@ return {
 		'spec/variables_get',
 		'spec/variables_set',
 		'spec/variables_declare',
+		'spec/variables_define',
 		'spec/controls_if',
 		'spec/controls_switch',
 		'spec/controls_whileUntil',

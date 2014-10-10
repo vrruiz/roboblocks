@@ -1,44 +1,31 @@
 
 'use strict';
-/* global Blockly, JST, RoboBlocks */
+/* global Blockly, RoboBlocks */
 /* jshint sub:true */
 
   /**
-  * variables_set code generation
+  * variables_get code generation
   * @return {String} Code generated with block parameters
   */
-Blockly.Arduino.variables_set = function() {
+Blockly.Arduino.variables_get = function() {
   // Variable setter.
-    var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT)||'';
     var varName = this.getFieldValue('VAR')||'';
-
-    var code = JST['variables_set']({
-        'varName' : varName,
-        'varValue': varValue
-    });
-
-
-    return code;
+    
+    return [varName , Blockly.Arduino.ORDER_ATOMIC];
 };
 
-Blockly.Blocks.variables_set = {
+Blockly.Blocks.variables_get = {
   // Variable setter.
     category: RoboBlocks.LANG_CATEGORY_VARIABLES,  // Variables are handled specially.
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/variables_set',
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/variables_get',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
         this.appendDummyInput('DUMMY')
-            .appendField(RoboBlocks.LANG_VARIABLES_SET)
+            .appendField(RoboBlocks.LANG_VARIABLES_GET)
             .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
-        this.appendValueInput('VALUE')
-            .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
-            .setAlign(Blockly.ALIGN_RIGHT);
-        this.setInputsInline(true);
-
-        this.setPreviousStatement(true);
-        this.setNextStatement(true);
-        this.setTooltip(RoboBlocks.LANG_VARIABLES_SET_TOOLTIP);
+        this.setOutput(true);
+        this.setTooltip(RoboBlocks.LANG_VARIABLES_GET_TOOLTIP);
     },
     getVariables: function(){
         var variables= Blockly.Variables.allVariables();
@@ -62,16 +49,10 @@ Blockly.Blocks.variables_set = {
         for (var i in variables){
             if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
                 this.removeInput('DUMMY');
-                this.removeInput('VALUE');
 
                 this.appendDummyInput('DUMMY')
-                    .appendField(RoboBlocks.LANG_VARIABLES_SET)
+                    .appendField(RoboBlocks.LANG_VARIABLES_GET)
                     .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
-                this.appendValueInput('VALUE')
-                    .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
-                    .setAlign(Blockly.ALIGN_RIGHT);
-                this.setInputsInline(true);
 
                 this.last_variables=Blockly.Variables.allVariables();
             }
