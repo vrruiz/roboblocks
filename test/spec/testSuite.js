@@ -34,6 +34,7 @@ return {
 		'spec/controls_if',
 		'spec/controls_switch',
 		'spec/controls_whileUntil',
+		'spec/controls_repeat',
 		'spec/base_delay',
 		'spec/controls_for',
 		'spec/controls_forEach',

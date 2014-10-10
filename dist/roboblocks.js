@@ -176,6 +176,31 @@
         RoboBlocks.LANG_CONTROLS_FOR_INPUT_DO = 'do';
         RoboBlocks.LANG_CONTROLS_FOR_TOOLTIP = 'Count from a start number to an end number. For each count, set the current count number to variable %1, and then do some statements.';
 
+        RoboBlocks.LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE = 'while';
+        RoboBlocks.LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = 'until';
+        RoboBlocks.LANG_CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = 'While a value is true, then do some statements.';
+        RoboBlocks.LANG_CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = 'While a value is false, then do some statements.';
+
+        RoboBlocks.LANG_CONTROLS_REPEAT_TITLE_REPEAT = 'Repeat';
+        RoboBlocks.LANG_CONTROLS_REPEAT_TITLE_TIMES = 'times';
+        RoboBlocks.LANG_CONTROLS_REPEAT_INPUT_DO = 'do';
+        RoboBlocks.LANG_CONTROLS_REPEAT_TOOLTIP = 'Repeat the code a certain number of times';
+
+        RoboBlocks.LANG_CONTROLS_FOREACH_HELPURL = '';
+        RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_ITEM = 'for each item';
+        RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_VAR = 'x';
+        RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_INLIST = 'in list';
+        RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_DO = 'do';
+        RoboBlocks.LANG_CONTROLS_FOREACH_TOOLTIP = 'For each item in a list, set the item to variable %1, and then do some statements.';
+
+        RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_HELPURL = '';
+        RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP = 'of loop';
+        RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK = 'break out';
+        RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE = 'continue with next iteration';
+        RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK = 'Break out of the containing loop.';
+        RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE = 'Skip the rest of this loop, and continue with the next iteration.';
+        RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_WARNING = 'Warning: This block may only be used within a loop.';
+
 
         //math blocks : 
         RoboBlocks.LANG_CATEGORY_MATH = 'Math';
@@ -188,6 +213,14 @@
         RoboBlocks.LANG_MATH_ADVANCED_MAP_TOOLTIP = 'Re-maps a number from a certain range to another.';
 
         RoboBlocks.LANG_MATH_NUMBER_TOOLTIP = 'Number';
+
+        RoboBlocks.LANG_MATH_BASE_MAP = 'Map ';
+        RoboBlocks.LANG_MATH_BASE_MAP_VALUE_TO = 'Value to [0-';
+        RoboBlocks.LANG_MATH_BASE_MAP_BRACKET = ']';
+        RoboBlocks.LANG_MATH_BASE_MAP_TOOLTIP = 'Re-maps a number from [0-1024] to another.';
+
+
+
 
         //advanced blocks : 
         RoboBlocks.LANG_CATEGORY_ADVANCED = 'Advanced';
@@ -465,6 +498,21 @@
                 __p += 'delay(' +
                     __e(delay_time) +
                     ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["base_map"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'map(' +
+                    __e(value_num) +
+                    ',0,1024,0,' +
+                    __e(value_dmax) +
+                    ',)';
 
             }
             return __p
@@ -785,6 +833,23 @@
             return __p
         };
 
+        this["JST"]["controls_forEach"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'for (var ' +
+                    __e(variable0) +
+                    ' in ' +
+                    __e(argument0) +
+                    ') {\n ' +
+                    __e(branch) +
+                    ' }\n';
+
+            }
+            return __p
+        };
+
         this["JST"]["controls_else"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -823,6 +888,42 @@
                     ') {\n' +
                     __e(branch) +
                     '\n}';
+
+            }
+            return __p
+        };
+
+        this["JST"]["controls_repeat"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'for(' +
+                    __e(loopVar) +
+                    '=0; ' +
+                    __e(loopVar) +
+                    '<' +
+                    __e(repeats) +
+                    '; ' +
+                    __e(loopVar) +
+                    '++){\n ' +
+                    __e(branch) +
+                    ' }\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["controls_whileUntil"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'while (' +
+                    __e(argument0) +
+                    ') {\n  ' +
+                    __e(branch) +
+                    ' }\n';
 
             }
             return __p
@@ -967,6 +1068,52 @@
             with(obj) {
                 __p +=
                     __e(bool_value);
+
+            }
+            return __p
+        };
+
+        this["JST"]["math_modulo"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    __e(argument0) +
+                    '%' +
+                    __e(argument1);
+
+            }
+            return __p
+        };
+
+        this["JST"]["math_arithmetic"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '(' +
+                    __e(argument0) +
+                    '' +
+                    __e(operator) +
+                    '' +
+                    __e(argument1) +
+                    ')';
+
+            }
+            return __p
+        };
+
+        this["JST"]["math_arithmetic_pow"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'Math.pow(' +
+                    __e(argument0) +
+                    ',' +
+                    __e(argument1) +
+                    ')';
 
             }
             return __p
@@ -1570,6 +1717,46 @@
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.LANG_CONTROLS_BASE_DELAY_TOOLTIP);
+            }
+        };
+
+        // Source: src/blocks/base_map/base_map.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * base_map code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.base_map = function() {
+            var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
+            var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
+
+            var code = JST['base_map']({
+                'value_num': value_num,
+                'value_dmax': value_dmax
+            });
+
+            return [code, Blockly.Arduino.ORDER_NONE];
+        };
+
+        Blockly.Blocks.base_map = {
+            category: RoboBlocks.LANG_CATEGORY_MATH,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/base_map',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MATH);
+                this.appendValueInput('NUM', Number)
+                    .appendField(RoboBlocks.LANG_MATH_BASE_MAP)
+                    .setCheck(Number);
+                this.appendValueInput('DMAX', Number)
+                    .appendField(RoboBlocks.LANG_MATH_BASE_MAP_VALUE_TO)
+                    .setCheck(Number);
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.LANG_MATH_BASE_MAP_BRACKET);
+                this.setInputsInline(true);
+                this.setOutput(true);
+                this.setTooltip(RoboBlocks.LANG_MATH_BASE_MAP_TOOLTIP);
             }
         };
 
@@ -2186,6 +2373,83 @@
             }
         };
 
+        // Source: src/blocks/controls_flow_statements/controls_flow_statements.js
+        /* global Blockly, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * controls_flow_statements code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.controls_flow_statements = function() {
+            // Flow statements: continue, break.
+            switch (this.getFieldValue('FLOW')) {
+                case 'BREAK':
+                    return 'break;\n';
+                case 'CONTINUE':
+                    return 'continue;\n';
+            }
+            throw 'Unknown flow statement.';
+        };
+
+
+        Blockly.Blocks.controls_flow_statements = {
+            // Flow statements: continue, break.
+            category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_flow_statements',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
+                var dropdown = new Blockly.FieldDropdown(
+                    [
+                        [RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK, 'BREAK'],
+                        [RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE, 'CONTINUE']
+                    ]);
+                this.appendDummyInput()
+                    .appendField(dropdown, 'FLOW')
+                    .appendField(RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP);
+                this.setPreviousStatement(true);
+                // Assign 'this' to a variable for use in the tooltip closure below.
+                var thisBlock = this;
+                this.setTooltip(function() {
+                    var op = thisBlock.getFieldValue('FLOW');
+                    return Blockly.Blocks.controls_flow_statements.TOOLTIPS[op];
+                });
+            },
+            onchange: function() {
+                if (!this.workspace) {
+                    // Block has been deleted.
+                    return;
+                }
+                var legal = false;
+                // Is the block nested in a control statement?
+                var block = this;
+                do {
+                    if (block.type === 'controls_repeat' ||
+                        block.type === 'controls_forEach' ||
+                        block.type === 'controls_for' ||
+                        block.type === 'controls_whileUntil') {
+                        legal = true;
+                        break;
+                    }
+                    block = block.getSurroundParent();
+                } while (block);
+                if (legal) {
+                    this.setWarningText(null);
+                } else {
+                    try {
+                        this.setWarningText(RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_WARNING);
+                    } catch (err) {
+                        console.log('Captured error: ', err);
+                    }
+                }
+            }
+        };
+
+        Blockly.Blocks.controls_flow_statements.TOOLTIPS = {
+            BREAK: RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK,
+            CONTINUE: RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE
+        };
+
         // Source: src/blocks/controls_for/controls_for.js
         /* global Blockly, RoboBlocks */
         /* jshint sub:true */
@@ -2277,6 +2541,68 @@
             }
         };
 
+
+        // Source: src/blocks/controls_forEach/controls_forEach.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * controls_forEach code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.controls_forEach = function() {
+            // For each loop.
+            var variable0 = Blockly.Arduino.variableDB_.getName(
+                this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+            variable0 = variable0.substring(0, variable0.length - 1);
+            var argument0 = Blockly.Arduino.valueToCode(this, 'LIST',
+                Blockly.Arduino.ORDER_ASSIGNMENT) || '[]';
+            var branch = Blockly.Arduino.statementToCode(this, 'DO');
+            if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+                branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
+            }
+            var code = JST['controls_forEach']({
+                'variable0': variable0,
+                'argument0': argument0,
+                'branch': branch
+            });
+
+            //'for (var ' + variable0 + ' in  ' + argument0 + ') {\n' +branch + '}\n';
+            return code;
+        };
+
+
+        Blockly.Blocks.controls_forEach = {
+            // For each loop.
+            category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_forEach',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
+                this.appendValueInput('LIST')
+                    .setCheck(Array)
+                    .appendField(RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_ITEM)
+                    .appendField(new Blockly.FieldVariable(null), 'VAR')
+                    .appendField(RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_INLIST);
+                this.appendStatementInput('DO')
+                    .appendField(RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_DO);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                // Assign 'this' to a variable for use in the tooltip closure below.
+                var thisBlock = this;
+                this.setTooltip(function() {
+                    return RoboBlocks.LANG_CONTROLS_FOREACH_TOOLTIP.replace('%1', thisBlock.getTitleValue('VAR'));
+                });
+            },
+            getVars: function() {
+                return [this.getTitleValue('VAR')];
+            },
+            renameVar: function(oldName, newName) {
+                if (Blockly.Names.equals(oldName, this.getTitleValue('VAR'))) {
+                    this.setTitleValue(newName, 'VAR');
+                }
+            }
+        };
 
         // Source: src/blocks/controls_if/controls_if.js
         /* global Blockly, JST,  RoboBlocks */
@@ -2510,6 +2836,114 @@
         };
 
 
+
+        // Source: src/blocks/controls_repeat/controls_repeat.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * controls_repeat code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.controls_repeat = function() {
+            // Repeat n times.
+            var repeats = Number(this.getFieldValue('TIMES'));
+            var branch = Blockly.Arduino.statementToCode(this, 'DO');
+            if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+                branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
+            }
+            var loopVar = Blockly.Arduino.variableDB_.getDistinctName('count', Blockly.Variables.NAME_TYPE);
+
+            var code = JST['controls_repeat']({
+                'repeats': repeats,
+                'branch': branch,
+                'loopVar': loopVar
+            });
+
+            return code;
+        };
+
+        Blockly.Blocks.controls_repeat = {
+            // Repeat n times.
+            category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_repeat',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_CONTROLS_REPEAT_TITLE_REPEAT)
+                    .appendField(new Blockly.FieldTextInput('', Blockly.Blocks.math_number.validator), 'TIMES')
+                    .appendField(RoboBlocks.LANG_CONTROLS_REPEAT_TITLE_TIMES);
+                this.appendStatementInput('DO')
+                    .appendField(RoboBlocks.LANG_CONTROLS_REPEAT_INPUT_DO);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setTooltip(RoboBlocks.LANG_CONTROLS_REPEAT_TOOLTIP);
+            }
+        };
+        // Source: src/blocks/controls_whileUntil/controls_whileUntil.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * controls_whileUntil code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.controls_whileUntil = function() {
+            // Do while/until loop.
+            var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL', Blockly.Arduino.ORDER_NONE) || '';
+            var branch = Blockly.Arduino.statementToCode(this, 'DO');
+            if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+                branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
+            }
+            if (this.getFieldValue('MODE') === 'UNTIL') {
+                if (!argument0.match(/^\w+$/)) {
+                    argument0 = '(' + argument0 + ')';
+                }
+                argument0 = '!' + argument0;
+            }
+            var code = JST['controls_whileUntil']({
+                'argument0': argument0,
+                'branch': branch
+            });
+
+            return code;
+        };
+
+
+        Blockly.Blocks.controls_whileUntil = {
+            // Do while/until loop.
+            category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_whileUntil',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
+                this.appendValueInput('BOOL')
+                    .setCheck(Boolean)
+                    .appendField(RoboBlocks.LANG_CONTROLS_WHILEUNTIL_TITLE_REPEAT)
+                    .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'MODE');
+                this.appendStatementInput('DO')
+                    .appendField(RoboBlocks.LANG_CONTROLS_WHILEUNTIL_INPUT_DO);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                // Assign 'this' to a variable for use in the tooltip closure below.
+                var thisBlock = this;
+                this.setTooltip(function() {
+                    var op = thisBlock.getFieldValue('MODE');
+                    return Blockly.Blocks.controls_whileUntil.TOOLTIPS[op];
+                });
+            }
+        };
+
+        Blockly.Blocks.controls_whileUntil.OPERATORS = [
+            [RoboBlocks.LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE, 'WHILE'],
+            [RoboBlocks.LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL, 'UNTIL']
+        ];
+
+        Blockly.Blocks.controls_whileUntil.TOOLTIPS = {
+            WHILE: RoboBlocks.LANG_CONTROLS_WHILEUNTIL_TOOLTIP_WHILE,
+            UNTIL: RoboBlocks.LANG_CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL
+        };
 
         // Source: src/blocks/inout_analog_read/inout_analog_read.js
         /* global Blockly, profiles, JST, RoboBlocks */
@@ -2783,6 +3217,132 @@
                     ]), 'BOOL');
                 this.setOutput(true, Boolean);
                 this.setTooltip(RoboBlocks.LANG_ADVANCED_HIGHLOW_TOOLTIP);
+            }
+        };
+
+        // Source: src/blocks/math_arithmetic/math_arithmetic.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * math_arithmetic code generation
+         * @return {String} Code generated with block parameters
+         */
+
+
+        Blockly.Arduino.math_arithmetic = function() {
+            // Basic arithmetic operators, and power.
+            var mode = this.getFieldValue('OP');
+            var tuple = Blockly.Arduino.math_arithmetic.OPERATORS[mode];
+            var operator = tuple[0];
+            var order = tuple[1];
+            var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '';
+            var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '';
+            var code;
+            if (!operator) {
+                code = JST['math_arithmetic_pow']({
+                    'argument0': argument0,
+                    'argument1': argument1
+                });
+                return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
+            }
+            code = JST['math_arithmetic_pow']({
+                'argument0': argument0,
+                'argument1': argument1,
+                'operator': operator
+            });
+            return [code, order];
+        };
+
+        Blockly.Arduino.math_arithmetic.OPERATORS = {
+            ADD: [' + ', Blockly.Arduino.ORDER_ADDITIVE],
+            MINUS: [' - ', Blockly.Arduino.ORDER_ADDITIVE],
+            MULTIPLY: [' * ', Blockly.Arduino.ORDER_MULTIPLICATIVE],
+            DIVIDE: [' / ', Blockly.Arduino.ORDER_MULTIPLICATIVE],
+            POWER: [null, Blockly.Arduino.ORDER_NONE]
+        };
+
+
+
+
+        Blockly.Blocks.math_arithmetic = {
+            // Basic arithmetic operator.
+            category: RoboBlocks.LANG_CATEGORY_MATH,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_arithmetic',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MATH);
+                this.setOutput(true, Number);
+                this.appendValueInput('A')
+                    .setCheck(Number);
+                this.appendValueInput('B')
+                    .setCheck(Number)
+                    .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+                this.setInputsInline(true);
+                // Assign 'this' to a variable for use in the tooltip closure below.
+                var thisBlock = this;
+                this.setTooltip(function() {
+                    var mode = thisBlock.getFieldValue('OP');
+                    return Blockly.Blocks.math_arithmetic.TOOLTIPS[mode];
+                });
+            }
+        };
+
+        Blockly.Blocks.math_arithmetic.OPERATORS = [
+            ['+', 'ADD'],
+            ['-', 'MINUS'],
+            ['\u00D7', 'MULTIPLY'],
+            ['\u00F7', 'DIVIDE'],
+            ['^', 'POWER']
+        ];
+
+        Blockly.Blocks.math_arithmetic.TOOLTIPS = {
+            ADD: RoboBlocks.LANG_MATH_ARITHMETIC_TOOLTIP_ADD,
+            MINUS: RoboBlocks.LANG_MATH_ARITHMETIC_TOOLTIP_MINUS,
+            MULTIPLY: RoboBlocks.LANG_MATH_ARITHMETIC_TOOLTIP_MULTIPLY,
+            DIVIDE: RoboBlocks.LANG_MATH_ARITHMETIC_TOOLTIP_DIVIDE,
+            POWER: RoboBlocks.LANG_MATH_ARITHMETIC_TOOLTIP_POWER
+        };
+
+        // Source: src/blocks/math_modulo/math_modulo.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * math_modulo code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.math_modulo = function() {
+            // Remainder computation.
+            var argument0 = Blockly.Arduino.valueToCode(this, 'DIVIDEND',
+                Blockly.Arduino.ORDER_MULTIPLICATIVE) || '';
+            var argument1 = Blockly.Arduino.valueToCode(this, 'DIVISOR',
+                Blockly.Arduino.ORDER_MULTIPLICATIVE) || '';
+            var code = JST['math_modulo']({
+                'argument0': argument0,
+                'argument1': argument1
+            });
+
+            //argument0 + ' % ' + argument1;
+            return [code, Blockly.Arduino.ORDER_MULTIPLICATIVE];
+        };
+
+        Blockly.Blocks.math_modulo = {
+            // Remainder of a division.
+            category: RoboBlocks.LANG_CATEGORY_MATH,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_modulo',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MATH);
+                this.setOutput(true, Number);
+                this.appendValueInput('DIVIDEND')
+                    .setCheck(Number)
+                    .appendField(RoboBlocks.LANG_MATH_MODULO_INPUT_DIVIDEND);
+                this.appendValueInput('DIVISOR')
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField('%');
+                this.setInputsInline(true);
+                this.setTooltip(RoboBlocks.LANG_MATH_MODULO_TOOLTIP);
             }
         };
 

@@ -123,6 +123,31 @@ RoboBlocks.LANG_CONTROLS_FOR_INPUT_TO = 'to';
 RoboBlocks.LANG_CONTROLS_FOR_INPUT_DO = 'do';
 RoboBlocks.LANG_CONTROLS_FOR_TOOLTIP = 'Count from a start number to an end number. For each count, set the current count number to variable %1, and then do some statements.';
 
+RoboBlocks.LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE='while';
+RoboBlocks.LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL='until';
+RoboBlocks.LANG_CONTROLS_WHILEUNTIL_TOOLTIP_WHILE= 'While a value is true, then do some statements.';
+RoboBlocks.LANG_CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL= 'While a value is false, then do some statements.';
+
+RoboBlocks.LANG_CONTROLS_REPEAT_TITLE_REPEAT='Repeat';
+RoboBlocks.LANG_CONTROLS_REPEAT_TITLE_TIMES='times';
+RoboBlocks.LANG_CONTROLS_REPEAT_INPUT_DO='do';
+RoboBlocks.LANG_CONTROLS_REPEAT_TOOLTIP='Repeat the code a certain number of times';
+
+RoboBlocks.LANG_CONTROLS_FOREACH_HELPURL = '';
+RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_ITEM = 'for each item';
+RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_VAR = 'x';
+RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_INLIST = 'in list';
+RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_DO = 'do';
+RoboBlocks.LANG_CONTROLS_FOREACH_TOOLTIP = 'For each item in a list, set the item to variable %1, and then do some statements.';
+
+RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_HELPURL = '';
+RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP = 'of loop';
+RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK = 'break out';
+RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE = 'continue with next iteration';
+RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK = 'Break out of the containing loop.';
+RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE = 'Skip the rest of this loop, and continue with the next iteration.';
+RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_WARNING = 'Warning: This block may only be used within a loop.';
+
 
 //math blocks : 
 RoboBlocks.LANG_CATEGORY_MATH = 'Math';
@@ -135,6 +160,14 @@ RoboBlocks.LANG_MATH_ADVANCED_MAP_TO = 'to [';
 RoboBlocks.LANG_MATH_ADVANCED_MAP_TOOLTIP = 'Re-maps a number from a certain range to another.';
 
 RoboBlocks.LANG_MATH_NUMBER_TOOLTIP='Number';
+
+RoboBlocks.LANG_MATH_BASE_MAP='Map ';
+RoboBlocks.LANG_MATH_BASE_MAP_VALUE_TO='Value to [0-';
+RoboBlocks.LANG_MATH_BASE_MAP_BRACKET = ']';
+RoboBlocks.LANG_MATH_BASE_MAP_TOOLTIP='Re-maps a number from [0-1024] to another.';
+
+
+
 
 //advanced blocks : 
 RoboBlocks.LANG_CATEGORY_ADVANCED='Advanced';

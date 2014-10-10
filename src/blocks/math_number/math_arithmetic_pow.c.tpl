@@ -1,0 +1,1 @@
+Math.pow({{argument0}},{{argument1}})
