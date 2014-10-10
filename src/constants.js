@@ -148,6 +148,15 @@ RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK = 'Break out of the conta
 RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE = 'Skip the rest of this loop, and continue with the next iteration.';
 RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_WARNING = 'Warning: This block may only be used within a loop.';
 
+RoboBlocks.LANG_CONTROLS_SWITCH_HELPURL = '';
+RoboBlocks.LANG_CONTROLS_SWITCH_TOOLTIP_1 = 'Use the switch statement to select one of many blocks of code to be executed.';
+RoboBlocks.LANG_CONTROLS_SWITCH_TOOLTIP_2 = 'Use the switch statement to select one of many blocks of code to be executed.';
+RoboBlocks.LANG_CONTROLS_SWITCH_TOOLTIP_3 = 'Use the switch statement to select one of many blocks of code to be executed.';
+RoboBlocks.LANG_CONTROLS_SWITCH_TOOLTIP_4 = 'Use the switch statement to select one of many blocks of code to be executed.';
+RoboBlocks.LANG_CONTROLS_SWITCH_SWITCH_TOOLTIP = 'The switch expression is evaluated once';
+RoboBlocks.LANG_CONTROLS_SWITCH_CASE_TOOLTIP = 'case';
+RoboBlocks.LANG_CONTROLS_SWITCH_DEFAULT_TOOLTIP = 'The default keyword specifies the code to run if there is no case match';
+
 
 //math blocks : 
 RoboBlocks.LANG_CATEGORY_MATH = 'Math';
