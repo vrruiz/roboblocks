@@ -71,8 +71,37 @@
 
 
         ///////////// COPY TO EN.JS
+
         //random : 
         RoboBlocks.LANG_VARIABLES_SET_ITEM = 'item';
+
+        //logic blocks:
+        RoboBlocks.LANG_CATEGORY_LOGIC = 'Logic';
+
+        RoboBlocks.LANG_LOGIC_OPERATION_AND = 'and';
+        RoboBlocks.LANG_LOGIC_OPERATION_OR = 'or';
+        RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_EQ = 'Returns true if both inputs equal each other.';
+        RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_NEQ = 'Returns true if both inputs are not equal to each other.';
+        RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_LT = 'Returns true if the first input is smaller than the second input.';
+        RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_LTE = 'Returns true if the first input is smaller than or equal to the second input.';
+        RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_GT = 'Returns true if the first input is greater than the second input.';
+        RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_GTE = 'Returns true if the first input is greater than or equal to the second input.';
+
+        RoboBlocks.LANG_LOGIC_OPERATION_AND = 'and';
+        RoboBlocks.LANG_LOGIC_OPERATION_OR = 'or';
+        RoboBlocks.LANG_LOGIC_OPERATION_TOOLTIP_AND = 'Returns true if both inputs are true.';
+        RoboBlocks.LANG_LOGIC_OPERATION_TOOLTIP_OR = 'Returns true if either inputs are true.';
+
+        RoboBlocks.LANG_LOGIC_NEGATE_INPUT_NOT = 'not';
+        RoboBlocks.LANG_LOGIC_NEGATE_TOOLTIP = 'Returns true if the input is false. Returns false if the input is true.';
+
+        RoboBlocks.LANG_LOGIC_BOOLEAN_TRUE = 'true';
+        RoboBlocks.LANG_LOGIC_BOOLEAN_FALSE = 'false';
+        RoboBlocks.LANG_LOGIC_BOOLEAN_TOOLTIP = 'Returns either true or false.';
+
+        RoboBlocks.LANG_LOGIC_NULL = 'null';
+        RoboBlocks.LANG_LOGIC_NULL_TOOLTIP = 'Returns null.';
+
 
         //bq blocks : 
         RoboBlocks.LANG_CATEGORY_BQ = 'bq bloqs';
@@ -1077,6 +1106,22 @@
             with(obj) {
                 __p +=
                     __e(bool_value);
+
+            }
+            return __p
+        };
+
+        this["JST"]["logic_compare"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    __e(argument0) +
+                    ' ' +
+                    __e(operator) +
+                    ' ' +
+                    __e(argument1);
 
             }
             return __p
@@ -3446,6 +3491,80 @@
                 this.setOutput(true, Boolean);
                 this.setTooltip(RoboBlocks.LANG_ADVANCED_HIGHLOW_TOOLTIP);
             }
+        };
+
+        // Source: src/blocks/logic_compare/logic_compare.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * logic_compare code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.logic_compare = function() {
+            // Comparison operator.
+            var mode = this.getFieldValue('OP');
+            var operator = Blockly.Arduino.logic_compare.OPERATORS[mode];
+            var order = (operator === '==' || operator === '!=') ?
+                Blockly.Arduino.ORDER_EQUALITY : Blockly.Arduino.ORDER_RELATIONAL;
+            var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '0';
+            var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '0';
+            var code = JST['logic_compare']({
+                'argument0': argument0,
+                'argument1': argument1,
+                'operator': operator
+            });
+
+            return [code, order];
+        };
+
+        Blockly.Arduino.logic_compare.OPERATORS = {
+            EQ: '==',
+            NEQ: '!=',
+            LT: '<',
+            LTE: '<=',
+            GT: '>',
+            GTE: '>='
+        };
+
+
+        Blockly.Blocks.logic_compare = {
+            // Comparison operator.
+            category: RoboBlocks.LANG_CATEGORY_LOGIC,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/logic_compare',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
+                this.setOutput(true, Boolean);
+                this.appendValueInput('A');
+                this.appendValueInput('B')
+                    .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+                this.setInputsInline(true);
+                // Assign 'this' to a variable for use in the tooltip closure below.
+                var thisBlock = this;
+                this.setTooltip(function() {
+                    var op = thisBlock.getFieldValue('OP');
+                    return Blockly.Blocks.logic_compare.TOOLTIPS[op];
+                });
+            }
+        };
+
+        Blockly.Blocks.logic_compare.OPERATORS = [
+            ['=', 'EQ'],
+            ['\u2260', 'NEQ'],
+            ['<', 'LT'],
+            ['\u2264', 'LTE'],
+            ['>', 'GT'],
+            ['\u2265', 'GTE']
+        ];
+
+        Blockly.Blocks.logic_compare.TOOLTIPS = {
+            EQ: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_EQ,
+            NEQ: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_NEQ,
+            LT: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_LT,
+            LTE: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_LTE,
+            GT: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_GT,
+            GTE: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_GTE
         };
 
         // Source: src/blocks/math_arithmetic/math_arithmetic.js

@@ -18,8 +18,37 @@ RoboBlocks.LANG_COLOUR_MATH='180';
 
 
 ///////////// COPY TO EN.JS
+
 //random : 
 RoboBlocks.LANG_VARIABLES_SET_ITEM='item';
+
+//logic blocks:
+RoboBlocks.LANG_CATEGORY_LOGIC='Logic';
+
+RoboBlocks.LANG_LOGIC_OPERATION_AND = 'and';
+RoboBlocks.LANG_LOGIC_OPERATION_OR = 'or';
+RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_EQ = 'Returns true if both inputs equal each other.';
+RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_NEQ = 'Returns true if both inputs are not equal to each other.';
+RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_LT = 'Returns true if the first input is smaller than the second input.';
+RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_LTE = 'Returns true if the first input is smaller than or equal to the second input.';
+RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_GT = 'Returns true if the first input is greater than the second input.';
+RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_GTE = 'Returns true if the first input is greater than or equal to the second input.';
+
+RoboBlocks.LANG_LOGIC_OPERATION_AND = 'and';
+RoboBlocks.LANG_LOGIC_OPERATION_OR = 'or';
+RoboBlocks.LANG_LOGIC_OPERATION_TOOLTIP_AND = 'Returns true if both inputs are true.';
+RoboBlocks.LANG_LOGIC_OPERATION_TOOLTIP_OR = 'Returns true if either inputs are true.';
+
+RoboBlocks.LANG_LOGIC_NEGATE_INPUT_NOT = 'not';
+RoboBlocks.LANG_LOGIC_NEGATE_TOOLTIP = 'Returns true if the input is false. Returns false if the input is true.';
+
+RoboBlocks.LANG_LOGIC_BOOLEAN_TRUE = 'true';
+RoboBlocks.LANG_LOGIC_BOOLEAN_FALSE = 'false';
+RoboBlocks.LANG_LOGIC_BOOLEAN_TOOLTIP = 'Returns either true or false.';
+
+RoboBlocks.LANG_LOGIC_NULL = 'null';
+RoboBlocks.LANG_LOGIC_NULL_TOOLTIP = 'Returns null.';
+
 
 //bq blocks : 
 RoboBlocks.LANG_CATEGORY_BQ='bq bloqs';
