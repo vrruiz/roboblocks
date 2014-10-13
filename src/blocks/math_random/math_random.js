@@ -1,7 +1,10 @@
 'use strict';
 /* global Blockly, JST, RoboBlocks */
 
-//register with blockly arduino
+/**
+  * math_random code generation
+  * @return {String} Code generated with block parameters
+  */
 Blockly.Arduino.math_random = function() {
     var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
     var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);

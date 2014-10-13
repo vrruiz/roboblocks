@@ -39,8 +39,15 @@ RoboBlocks.LANG_LOGIC_OPERATION_OR = 'or';
 RoboBlocks.LANG_LOGIC_OPERATION_TOOLTIP_AND = 'Returns true if both inputs are true.';
 RoboBlocks.LANG_LOGIC_OPERATION_TOOLTIP_OR = 'Returns true if either inputs are true.';
 
+RoboBlocks.LANG_LOGIC_OPERATION_TOOLTIP_AND='Returns true if both conditions are fulfilled';
+RoboBlocks.LANG_LOGIC_OPERATION_TOOLTIP_OR='Returns true if one of the conditions is true';
+
 RoboBlocks.LANG_LOGIC_NEGATE_INPUT_NOT = 'not';
 RoboBlocks.LANG_LOGIC_NEGATE_TOOLTIP = 'Returns true if the input is false. Returns false if the input is true.';
+RoboBlocks.LANG_LOGIC_NEGATE_HELPURL = '';
+RoboBlocks.LANG_LOGIC_NEGATE_INPUT_NOT = 'not';
+RoboBlocks.LANG_LOGIC_NEGATE_TOOLTIP = 'Returns true if the input is false. Returns false if the input is true.';
+
 
 RoboBlocks.LANG_LOGIC_BOOLEAN_TRUE = 'true';
 RoboBlocks.LANG_LOGIC_BOOLEAN_FALSE = 'false';
@@ -271,6 +278,37 @@ RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP='Write special Chars';
 
 //procedures blocks
 RoboBlocks.LANG_CATEGORY_PROCEDURES='Procedures';
+
+RoboBlocks.LANG_PROCEDURES_DEFNORETURN_HELPURL = '';
+RoboBlocks.LANG_PROCEDURES_DEFNORETURN_PROCEDURE = 'procedure';
+RoboBlocks.LANG_PROCEDURES_DEFNORETURN_DO = 'do';
+RoboBlocks.LANG_PROCEDURES_DEFNORETURN_TOOLTIP = 'A procedure with no return value.';
+
+RoboBlocks.LANG_PROCEDURES_DEFRETURN_HELPURL = '';
+RoboBlocks.LANG_PROCEDURES_DEFRETURN_PROCEDURE = RoboBlocks.LANG_PROCEDURES_DEFNORETURN_PROCEDURE;
+RoboBlocks.LANG_PROCEDURES_DEFRETURN_DO = RoboBlocks.LANG_PROCEDURES_DEFNORETURN_DO;
+RoboBlocks.LANG_PROCEDURES_DEFRETURN_RETURN = 'return';
+RoboBlocks.LANG_PROCEDURES_DEFRETURN_TOOLTIP = 'A procedure with a return value.';
+
+RoboBlocks.LANG_PROCEDURES_DEF_DUPLICATE_WARNING = 'Warning: This procedure has duplicate parameters.';
+
+RoboBlocks.LANG_PROCEDURES_CALLNORETURN_HELPURL = '';
+RoboBlocks.LANG_PROCEDURES_CALLNORETURN_CALL = 'do';
+RoboBlocks.LANG_PROCEDURES_CALLNORETURN_PROCEDURE = 'procedure';
+RoboBlocks.LANG_PROCEDURES_CALLNORETURN_TOOLTIP = 'Call a procedure with no return value.';
+
+RoboBlocks.LANG_PROCEDURES_CALLRETURN_HELPURL = '';
+RoboBlocks.LANG_PROCEDURES_CALLRETURN_CALL = RoboBlocks.LANG_PROCEDURES_CALLNORETURN_CALL;
+RoboBlocks.LANG_PROCEDURES_CALLRETURN_PROCEDURE = RoboBlocks.LANG_PROCEDURES_CALLNORETURN_PROCEDURE;
+RoboBlocks.LANG_PROCEDURES_CALLRETURN_TOOLTIP = 'Call a procedure with a return value.';
+
+RoboBlocks.LANG_PROCEDURES_MUTATORCONTAINER_Field = 'parameters';
+RoboBlocks.LANG_PROCEDURES_MUTATORARG_Field = 'variable:';
+
+RoboBlocks.LANG_PROCEDURES_HIGHLIGHT_DEF = 'Highlight Procedure';
+
+RoboBlocks.LANG_PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then returns a value.';
+RoboBlocks.LANG_PROCEDURES_IFRETURN_WARNING = 'Warning: This block may only be used within a procedure.';
 
 
 //variables blocks : 

@@ -1,0 +1,218 @@
+'use strict';
+/* global Blockly, JST, RoboBlocks */
+
+/**
+  * procedures_defnoreturn code generation
+  * @return {String} Code generated with block parameters
+  */
+
+
+// Defining a procedure without a return value uses the same generator as
+// a procedure with a return value.
+Blockly.Arduino.procedures_defnoreturn = function(){
+    // Define a procedure with a return value.
+    var funcName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('NAME'),
+        Blockly.Procedures.NAME_TYPE);
+    var branch = Blockly.Arduino.statementToCode(this, 'STACK');
+    if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+        branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,'\'' + this.id + '\'') + branch;
+    }
+    var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN',
+        Blockly.Arduino.ORDER_NONE) || '';
+    if (returnValue) {
+        returnValue = '  return ' + returnValue + ';\n';
+    }
+    var returnType = returnValue ? 'int' : 'void';
+    var funcArgs = [];
+    for (var x = 0; x < this.arguments_.length; x++) {
+        funcArgs[x] = 'int '+Blockly.Arduino.variableDB_.getName(this.arguments_[x],Blockly.Variables.NAME_TYPE);
+        funcArgs[x]=funcArgs[x].substr(0,funcArgs[x].length-1);
+    }
+    var args=funcArgs.join(', ');
+
+    var code = JST ['procedures_defnoreturn']({
+        'returnType':returnType,
+        'funcName':funcName,
+        'args':args,
+        'branch':branch,
+        'returnValue':returnValue
+    });
+
+
+    code = Blockly.Arduino.scrub_(this, code);
+    Blockly.Arduino.definitions_[funcName] = code;
+    return null;
+};
+
+
+
+
+Blockly.Blocks.procedures_defnoreturn = {
+    // Define a procedure with no return value.
+    category: RoboBlocks.LANG_CATEGORY_PROCEDURES,
+    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/procedures_defnoreturn',
+    init: function() {
+        this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
+        var name = Blockly.Procedures.findLegalName(
+            RoboBlocks.LANG_PROCEDURES_DEFNORETURN_PROCEDURE, this);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput(name,
+            Blockly.Procedures.rename), 'NAME')
+            .appendField('', 'PARAMS');
+        this.appendStatementInput('STACK')
+            .appendField(RoboBlocks.LANG_PROCEDURES_DEFNORETURN_DO);
+        this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
+        this.setTooltip(RoboBlocks.LANG_PROCEDURES_DEFNORETURN_TOOLTIP);
+        this.arguments_ = [];
+    },
+    updateParams_: function() {
+        // Check for duplicated arguments.
+        var badArg = false;
+        var hash = {};
+        for (var x = 0; x < this.arguments_.length; x++) {
+            if (hash['arg_' + this.arguments_[x].toLowerCase()]) {
+                badArg = true;
+                break;
+            }
+            hash['arg_' + this.arguments_[x].toLowerCase()] = true;
+        }
+        if (badArg) {
+            try{
+                this.setWarningText(RoboBlocks.LANG_PROCEDURES_DEF_DUPLICATE_WARNING);
+            }catch(err){
+                console.log('Captured error: ', err);
+            }
+        } else {
+            this.setWarningText(null);
+        }
+        // Merge the arguments into a human-readable list.
+        var paramString = this.arguments_.join(', ');
+        this.setFieldValue(paramString, 'PARAMS');
+    },
+    mutationToDom: function() {
+        var container = document.createElement('mutation');
+        for (var x = 0; x < this.arguments_.length; x++) {
+            var parameter = document.createElement('arg');
+            parameter.setAttribute('name', this.arguments_[x]);
+            container.appendChild(parameter);
+        }
+        return container;
+    },
+    domToMutation: function(xmlElement) {
+        this.arguments_ = [];
+        var childNode;
+        for (var x = 0; xmlElement.childNodes.length ; x++) {
+            childNode = xmlElement.childNodes[x];
+            if (childNode.nodeName.toLowerCase() === 'arg') {
+                this.arguments_.push(childNode.getAttribute('name'));
+            }
+        }
+        this.updateParams_();
+    },
+    decompose: function(workspace) {
+        var containerBlock = Blockly.Block.obtain(workspace,'procedures_mutatorcontainer');
+        containerBlock.initSvg();
+        var connection = containerBlock.getInput('STACK').connection;
+        for (var x = 0; x < this.arguments_.length; x++) {
+            var paramBlock = Blockly.Block.obtain(workspace, 'procedures_mutatorarg');
+            paramBlock.initSvg();
+            paramBlock.setFieldValue(this.arguments_[x], 'NAME');
+            // Store the old location.
+            paramBlock.oldLocation = x;
+            connection.connect(paramBlock.previousConnection);
+            connection = paramBlock.nextConnection;
+        }
+        // Initialize procedure's callers with blank IDs.
+        Blockly.Procedures.mutateCallers(this.getFieldValue('NAME'),this.workspace, this.arguments_, null);
+        return containerBlock;
+    },
+    compose: function(containerBlock) {
+        this.arguments_ = [];
+        this.paramIds_ = [];
+        var paramBlock = containerBlock.getInputTargetBlock('STACK');
+        while (paramBlock) {
+            this.arguments_.push(paramBlock.getFieldValue('NAME'));
+            this.paramIds_.push(paramBlock.id);
+            paramBlock = paramBlock.nextConnection &&paramBlock.nextConnection.targetBlock();
+        }
+        this.updateParams_();
+        Blockly.Procedures.mutateCallers(this.getFieldValue('NAME'),this.workspace, this.arguments_, this.paramIds_);
+    },
+    dispose: function() {
+        var name = this.getFieldValue('NAME');
+        var editable = this.editable;
+        var workspace = this.workspace;
+        // Call parent's destructor.
+        Blockly.Block.prototype.dispose.apply(this, arguments);
+        if (editable) {
+            // Dispose of any callers.
+            Blockly.Procedures.disposeCallers(name, workspace);
+        }
+    },
+    getProcedureDef: function() {
+        // Return the name of the defined procedure,
+        // a list of all its arguments,
+        // and that it DOES NOT have a return value.
+        return [this.getFieldValue('NAME'), this.arguments_, false];
+    },
+    getVars: function() {
+        return this.arguments_;
+    },
+    renameVar: function(oldName, newName) {
+        var change = false;
+        for (var x = 0; x < this.arguments_.length; x++) {
+            if (Blockly.Names.equals(oldName, this.arguments_[x])) {
+                this.arguments_[x] = newName;
+                change = true;
+            }
+        }
+        if (change) {
+            this.updateParams_();
+            // Update the mutator's variables if the mutator is open.
+            if (this.mutator.isVisible_()) {
+                var blocks = this.mutator.workspace_.getAllBlocks();
+                var block;
+                for (x = 0; blocks.length; x++) {
+                    block = blocks[x];
+                    if (block.type === 'procedures_mutatorarg' && Blockly.Names.equals(oldName, block.getFieldValue('NAME'))) {
+                        block.setFieldValue(newName, 'NAME');
+                    }
+                }
+            }
+        }
+    }
+};
+
+Blockly.Blocks.procedures_mutatorcontainer = {
+    // Procedure container (for mutator dialog).
+    init: function() {
+        this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
+        this.appendDummyInput()
+            .appendField(RoboBlocks.LANG_PROCEDURES_MUTATORCONTAINER_Field);
+        this.appendStatementInput('STACK');
+        this.setTooltip('');
+        this.contextMenu = false;
+    }
+};
+
+Blockly.Blocks.procedures_mutatorarg = {
+    // Procedure argument (for mutator dialog).
+    init: function() {
+        this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
+        this.appendDummyInput()
+            .appendField(RoboBlocks.LANG_PROCEDURES_MUTATORARG_Field)
+            .appendField(new Blockly.FieldTextInput('x',
+            Blockly.Blocks.procedures_mutatorarg.validator), 'NAME');
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('');
+        this.contextMenu = false;
+    }
+};
+
+Blockly.Blocks.procedures_mutatorarg.validator = function(newVar) {
+    // Merge runs of whitespace.  Strip leading and trailing whitespace.
+    // Beyond this, all names are legal.
+    newVar = newVar.replace(/[\s\xa0]+/g, ' ').replace(/^ | $/g, '');
+    return newVar || null;
+};
