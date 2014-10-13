@@ -21,6 +21,7 @@ Blockly.Arduino.procedures_callreturn = function() {
         'funcArgs':funcArgs
     });
 
+    //funcName + '(' + args.join(', ') + ')';
     return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
 };
 

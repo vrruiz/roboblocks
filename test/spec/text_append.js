@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'text_append');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), 'int item;\n\nvoid setup()\n{\n\n}\n\n\nvoid loop()\n{\n  item2 = new StringBuffer(item2).add(\'\').toString();\n\n}');
+				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n\n}\n\n\nvoid loop()\n{\n  item = item + String();\n\n}');
 			});
 		});
 	});

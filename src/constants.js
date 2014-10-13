@@ -211,7 +211,85 @@ RoboBlocks.LANG_MATH_BASE_MAP_VALUE_TO='Value to [0-';
 RoboBlocks.LANG_MATH_BASE_MAP_BRACKET = ']';
 RoboBlocks.LANG_MATH_BASE_MAP_TOOLTIP='Re-maps a number from [0-1024] to another.';
 
+//text blocks: 
+RoboBlocks.LANG_CATEGORY_TEXT='Text';
 
+RoboBlocks.LANG_TEXT_TEXT_HELPURL = '';
+RoboBlocks.LANG_TEXT_TEXT_TOOLTIP = 'A letter, word, or line of text.';
+
+RoboBlocks.LANG_TEXT_JOIN_HELPURL = '';
+RoboBlocks.LANG_TEXT_JOIN_Field_CREATEWITH = 'create text with';
+RoboBlocks.LANG_TEXT_JOIN_TOOLTIP = 'Create a piece of text by joining together any number of items.';
+
+RoboBlocks.LANG_TEXT_CREATE_JOIN_Field_JOIN = 'join';
+RoboBlocks.LANG_TEXT_CREATE_JOIN_TOOLTIP = 'Add, remove, or reorder sections to reconfigure this text block.';
+RoboBlocks.LANG_TEXT_CREATE_JOIN_ITEM_Field_ITEM = 'item';
+RoboBlocks.LANG_TEXT_CREATE_JOIN_ITEM_TOOLTIP = 'Add an item to the text.';
+RoboBlocks.LANG_TEXT_CREATE_JOIN_TITLE_JOIN='join';
+RoboBlocks.LANG_TEXT_CREATE_JOIN_ITEM_TITLE_ITEM='element';
+
+RoboBlocks.LANG_TEXT_APPEND_HELPURL = '';
+RoboBlocks.LANG_TEXT_APPEND_TO = 'to';
+RoboBlocks.LANG_TEXT_APPEND_APPENDTEXT = 'append text';
+RoboBlocks.LANG_TEXT_APPEND_VARIABLE = 'item';
+RoboBlocks.LANG_TEXT_APPEND_TOOLTIP = 'Append some text to variable %1.';
+
+RoboBlocks.LANG_TEXT_LENGTH_HELPURL = '';
+RoboBlocks.LANG_TEXT_LENGTH_INPUT_LENGTH = 'length';
+RoboBlocks.LANG_TEXT_LENGTH_TOOLTIP = 'Returns number of letters (including spaces) in the provided text.';
+
+RoboBlocks.LANG_TEXT_ISEMPTY_HELPURL = '';
+RoboBlocks.LANG_TEXT_ISEMPTY_INPUT_ISEMPTY = 'is empty';
+RoboBlocks.LANG_TEXT_ISEMPTY_TOOLTIP = 'Returns true if the provided text is empty.';
+
+RoboBlocks.LANG_TEXT_ENDSTRING_HELPURL = '';
+RoboBlocks.LANG_TEXT_ENDSTRING_INPUT = 'letters in text';
+RoboBlocks.LANG_TEXT_ENDSTRING_TOOLTIP = 'Returns specified number of letters at the beginning or end of the text.';
+RoboBlocks.LANG_TEXT_ENDSTRING_OPERATOR_FIRST = 'first';
+RoboBlocks.LANG_TEXT_ENDSTRING_OPERATOR_LAST = 'last';
+
+RoboBlocks.LANG_TEXT_INDEXOF_HELPURL = '';
+RoboBlocks.LANG_TEXT_INDEXOF_Field_FIND = 'find';
+RoboBlocks.LANG_TEXT_INDEXOF_INPUT_OCCURRENCE = 'occurrence of text';
+RoboBlocks.LANG_TEXT_INDEXOF_INPUT_INTEXT = 'in text';
+RoboBlocks.LANG_TEXT_INDEXOF_TOOLTIP = 'Returns the index of the first/last occurrence of first text in the second text. Returns 0 if text is not found.';
+RoboBlocks.LANG_TEXT_INDEXOF_OPERATOR_FIRST = 'first';
+RoboBlocks.LANG_TEXT_INDEXOF_OPERATOR_LAST = 'last';
+
+RoboBlocks.LANG_TEXT_CHARAT_HELPURL = '';
+RoboBlocks.LANG_TEXT_CHARAT_INPUT_AT = 'letter at';
+RoboBlocks.LANG_TEXT_CHARAT_INPUT_INTEXT = 'in text';
+RoboBlocks.LANG_TEXT_CHARAT_TOOLTIP = 'Returns the letter at the specified position.';
+
+RoboBlocks.LANG_TEXT_CHANGECASE_HELPURL = '';
+RoboBlocks.LANG_TEXT_CHANGECASE_Field_TO = 'to';
+RoboBlocks.LANG_TEXT_CHANGECASE_TOOLTIP = 'Returns a copy of the text in a different case.';
+RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_UPPERCASE = 'UPPER CASE';
+RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_LOWERCASE = 'lower case';
+RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_FieldCASE = 'Field Case';
+RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_TITLECASE = 'Title Case';
+
+
+RoboBlocks.LANG_TEXT_TRIM_HELPURL = '';
+RoboBlocks.LANG_TEXT_TRIM_Field_SPACE = 'trim spaces from';
+RoboBlocks.LANG_TEXT_TRIM_Field_SIDES = 'sides';
+RoboBlocks.LANG_TEXT_TRIM_TOOLTIP = 'Returns a copy of the text with spaces removed from one or both ends.';
+RoboBlocks.LANG_TEXT_TRIM_Field_SIDES = 'sides';
+RoboBlocks.LANG_TEXT_TRIM_Field_SIDE = 'side';
+RoboBlocks.LANG_TEXT_TRIM_OPERATOR_BOTH = 'both';
+RoboBlocks.LANG_TEXT_TRIM_OPERATOR_LEFT = 'left';
+RoboBlocks.LANG_TEXT_TRIM_OPERATOR_RIGHT = 'right';
+
+RoboBlocks.LANG_TEXT_PRINT_HELPURL = '';
+RoboBlocks.LANG_TEXT_PRINT_Field_PRINT = 'print';
+RoboBlocks.LANG_TEXT_PRINT_TOOLTIP = 'Print the specified text, number or other value.';
+
+RoboBlocks.LANG_TEXT_PROMPT_HELPURL = '';
+RoboBlocks.LANG_TEXT_PROMPT_Field_PROMPT_FOR = 'prompt for';
+RoboBlocks.LANG_TEXT_PROMPT_TITILE_WITH_MESSAGE = 'with message';
+RoboBlocks.LANG_TEXT_PROMPT_TOOLTIP = 'Prompt for user input with the specified text.';
+RoboBlocks.LANG_TEXT_PROMPT_TYPE_TEXT = 'text';
+RoboBlocks.LANG_TEXT_PROMPT_TYPE_NUMBER = 'number';
 
 
 //advanced blocks : 
