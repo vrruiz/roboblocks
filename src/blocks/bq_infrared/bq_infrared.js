@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options,  JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -33,11 +33,11 @@ Blockly.Blocks.bq_infrared = {
      */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-        this.appendDummyInput('')
-        .appendField(RoboBlocks.LANG_BQ_INFRARED)
-        .appendField(new Blockly.FieldImage('img/blocks/bqmod04.png', 208 * options.zoom, 126 * options.zoom))
-        .appendField(RoboBlocks.LANG_BQ_INFRARED_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+        this.appendValueInput('PIN')
+            .appendField(RoboBlocks.LANG_BQ_INFRARED)
+            .appendField(new Blockly.FieldImage('img/blocks/bqmod04.png', 208 * options.zoom, 126 * options.zoom))
+            .appendField(RoboBlocks.LANG_BQ_INFRARED_PIN)
+            .setCheck(Number);
         this.setOutput(true);
         this.setTooltip(RoboBlocks.LANG_BQ_INFRARED_TOOLTIP);
     }

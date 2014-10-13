@@ -9,7 +9,7 @@ Blockly.Arduino.text_append = function() {
     // Append to a variable in place.
     var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
     var argument0 = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
-    return varName + ' = '+varName+' + String(' + argument0 + ');\n';
+    return varName + ' += String(' + argument0 + ');\n';
 };
 
 

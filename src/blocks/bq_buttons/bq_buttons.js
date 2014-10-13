@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -41,11 +41,11 @@ Blockly.Blocks.bq_buttons = {
     */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-        this.appendDummyInput('')
+        this.appendValueInput('PIN')
         .appendField(RoboBlocks.LANG_BQ_BUTTONS)
         .appendField(new Blockly.FieldImage('img/blocks/bqmod10.png', 336*options.zoom, 176*options.zoom))
         .appendField(RoboBlocks.LANG_BQ_BUTTONS_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
+        .setCheck(Number);
         this.appendStatementInput('BUTN1')
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_A);

@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -36,16 +36,18 @@ Blockly.Blocks.bq_led = {
     */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-        this.appendDummyInput('')
+        this.appendValueInput('PIN')
         .appendField(RoboBlocks.LANG_BQ_LED)
         .appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
         .appendField(RoboBlocks.LANG_BQ_LED_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-        .appendField('state')
-        .appendField(new Blockly.FieldDropdown([
-            [RoboBlocks.LANG_BQ_LED_ON, 'HIGH'],
-            [RoboBlocks.LANG_BQ_LED_OFF, 'LOW']
-        ]), 'STAT');
+        .setCheck(Number);
+        this.appendDummyInput('')
+            .appendField(RoboBlocks.LANG_BQ_LED_STATE)
+            .appendField(new Blockly.FieldDropdown([
+                [RoboBlocks.LANG_BQ_LED_ON, 'HIGH'],
+                [RoboBlocks.LANG_BQ_LED_OFF, 'LOW']
+            ]), 'STAT')
+            .setAlign(Blockly.ALIGN_RIGHT);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.LANG_BQ_LED_TOOLTIP);

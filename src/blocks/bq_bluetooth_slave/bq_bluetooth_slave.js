@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -7,27 +7,27 @@
  * @return {String} Code generated with block parameters
  */
 
-var _get_next_pin = function(dropdown_pin) {
-    var NextPIN = dropdown_pin;
-    if(parseInt(NextPIN,2)){
-        NextPIN = parseInt(dropdown_pin,2)+1;
-    } else {
-        NextPIN = 'A'+(parseInt(NextPIN.slice(1,NextPIN.length),2)+1);
-    }
-    //check if NextPIN in bound
-    var pinlen = profiles.default.digital.length;
-    var notExist=true;
-    for(var i=0;i<pinlen;i++){
-        if(profiles.default.digital[i][1] === NextPIN){
-            notExist=false;
-        }
-    }
-    return NextPIN;
-};
+// var _get_next_pin = function(dropdown_pin) {
+//     var NextPIN = dropdown_pin;
+//     if(parseInt(NextPIN,2)){
+//         NextPIN = parseInt(dropdown_pin,2)+1;
+//     } else {
+//         NextPIN = 'A'+(parseInt(NextPIN.slice(1,NextPIN.length),2)+1);
+//     }
+//     //check if NextPIN in bound
+//     var pinlen = profiles.default.digital.length;
+//     var notExist=true;
+//     for(var i=0;i<pinlen;i++){
+//         if(profiles.default.digital[i][1] === NextPIN){
+//             notExist=false;
+//         }
+//     }
+//     return NextPIN;
+// };
 
 Blockly.Arduino.bq_bluetooth_slave = function() {
     var dropdown_pin = this.getFieldValue('PIN');
-    var NextPIN = _get_next_pin(dropdown_pin);
+    var NextPIN = this.getFieldValue('PIN2');
     var name = this.getFieldValue('NAME');
     var pincode = this.getFieldValue('PINCODE');
     var statement_receive = Blockly.Arduino.statementToCode(this, 'RCV');
@@ -69,25 +69,37 @@ Blockly.Blocks.bq_bluetooth_slave = {
 	  */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
+        this.appendValueInput('PIN')
+            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE)
+            .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom))
+            .setCheck(Number)
+            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1);
+        this.appendValueInput('PIN2')
+            .setCheck(Number)
+            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2)
+            .setAlign(Blockly.ALIGN_RIGHT);
+
         this.appendDummyInput('')
-        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE)
-        .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom))
-        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.bluetooth), 'PIN');
+            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME)
+            .appendField(new Blockly.FieldTextInput('zum'), 'NAME')
+            .setAlign(Blockly.ALIGN_RIGHT);
+
         this.appendDummyInput('')
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME)
-        .appendField(new Blockly.FieldTextInput('zum'), 'NAME');
-        this.appendDummyInput('')
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE)
-        .appendField(new Blockly.FieldTextInput('0000'), 'PINCODE');
+            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE)
+            .appendField(new Blockly.FieldTextInput('0000'), 'PINCODE')
+            .setAlign(Blockly.ALIGN_RIGHT);
+
         this.appendStatementInput('RCV')
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE);
+            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE)
+            .setAlign(Blockly.ALIGN_RIGHT);
+
         this.appendStatementInput('SNT')
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_SEND);
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_SEND);
+
+        this.setInputsInline(false);
+
+
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_TOOLTIP);

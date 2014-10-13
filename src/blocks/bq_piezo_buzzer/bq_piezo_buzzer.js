@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -37,9 +37,11 @@ Blockly.Blocks.bq_piezo_buzzer = {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendDummyInput('')
         .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER)
-        .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom))
-        .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
+        .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom));
+        this.appendValueInput('PIN')
+            .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_PIN)
+            .setCheck(Number);
+        this.appendDummyInput('')
         .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_TONE)
         .appendField(new Blockly.FieldDropdown([
             [RoboBlocks.LANG_BQ_PIEZO_BUZZER_DO, '261'],

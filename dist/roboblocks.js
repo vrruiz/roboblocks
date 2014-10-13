@@ -119,7 +119,8 @@
         RoboBlocks.LANG_BQ_BAT_TOOLTIP = 'Output the measured distance';
 
         RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE = 'Bluetooth';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1 = 'PIN 1#';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2 = 'PIN 2#';
         RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME = 'Name';
         RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE = 'PinCode';
         RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE = 'Receive';
@@ -150,6 +151,7 @@
 
         RoboBlocks.LANG_BQ_LED = 'LED';
         RoboBlocks.LANG_BQ_LED_PIN = 'PIN#';
+        RoboBlocks.LANG_BQ_LED_STATE = 'state';
         RoboBlocks.LANG_BQ_LED_ON = 'ON';
         RoboBlocks.LANG_BQ_LED_OFF = 'OFF';
         RoboBlocks.LANG_BQ_LED_TOOLTIP = 'bq LED';
@@ -291,59 +293,18 @@
         RoboBlocks.LANG_TEXT_LENGTH_INPUT_LENGTH = 'length';
         RoboBlocks.LANG_TEXT_LENGTH_TOOLTIP = 'Returns number of letters (including spaces) in the provided text.';
 
-        RoboBlocks.LANG_TEXT_ISEMPTY_HELPURL = '';
-        RoboBlocks.LANG_TEXT_ISEMPTY_INPUT_ISEMPTY = 'is empty';
-        RoboBlocks.LANG_TEXT_ISEMPTY_TOOLTIP = 'Returns true if the provided text is empty.';
+        RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_IS = 'Is ';
+        RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_EQUAL = ' equal to';
+        RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_QUESTION = '?';
+        RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_TOOLTIP = 'Returns true if both input strings are equal, regardless of the case.';
 
-        RoboBlocks.LANG_TEXT_ENDSTRING_HELPURL = '';
-        RoboBlocks.LANG_TEXT_ENDSTRING_INPUT = 'letters in text';
-        RoboBlocks.LANG_TEXT_ENDSTRING_TOOLTIP = 'Returns specified number of letters at the beginning or end of the text.';
-        RoboBlocks.LANG_TEXT_ENDSTRING_OPERATOR_FIRST = 'first';
-        RoboBlocks.LANG_TEXT_ENDSTRING_OPERATOR_LAST = 'last';
+        RoboBlocks.LANG_text_getBytes = 'get bytes of';
+        RoboBlocks.LANG_TEXT_GETBYTES_TOOLTIP = 'Returns the number of bytes of the input string';
 
-        RoboBlocks.LANG_TEXT_INDEXOF_HELPURL = '';
-        RoboBlocks.LANG_TEXT_INDEXOF_Field_FIND = 'find';
-        RoboBlocks.LANG_TEXT_INDEXOF_INPUT_OCCURRENCE = 'occurrence of text';
-        RoboBlocks.LANG_TEXT_INDEXOF_INPUT_INTEXT = 'in text';
-        RoboBlocks.LANG_TEXT_INDEXOF_TOOLTIP = 'Returns the index of the first/last occurrence of first text in the second text. Returns 0 if text is not found.';
-        RoboBlocks.LANG_TEXT_INDEXOF_OPERATOR_FIRST = 'first';
-        RoboBlocks.LANG_TEXT_INDEXOF_OPERATOR_LAST = 'last';
-
-        RoboBlocks.LANG_TEXT_CHARAT_HELPURL = '';
-        RoboBlocks.LANG_TEXT_CHARAT_INPUT_AT = 'letter at';
-        RoboBlocks.LANG_TEXT_CHARAT_INPUT_INTEXT = 'in text';
-        RoboBlocks.LANG_TEXT_CHARAT_TOOLTIP = 'Returns the letter at the specified position.';
-
-        RoboBlocks.LANG_TEXT_CHANGECASE_HELPURL = '';
-        RoboBlocks.LANG_TEXT_CHANGECASE_Field_TO = 'to';
-        RoboBlocks.LANG_TEXT_CHANGECASE_TOOLTIP = 'Returns a copy of the text in a different case.';
-        RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_UPPERCASE = 'UPPER CASE';
-        RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_LOWERCASE = 'lower case';
-        RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_FieldCASE = 'Field Case';
-        RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_TITLECASE = 'Title Case';
-
-
-        RoboBlocks.LANG_TEXT_TRIM_HELPURL = '';
-        RoboBlocks.LANG_TEXT_TRIM_Field_SPACE = 'trim spaces from';
-        RoboBlocks.LANG_TEXT_TRIM_Field_SIDES = 'sides';
-        RoboBlocks.LANG_TEXT_TRIM_TOOLTIP = 'Returns a copy of the text with spaces removed from one or both ends.';
-        RoboBlocks.LANG_TEXT_TRIM_Field_SIDES = 'sides';
-        RoboBlocks.LANG_TEXT_TRIM_Field_SIDE = 'side';
-        RoboBlocks.LANG_TEXT_TRIM_OPERATOR_BOTH = 'both';
-        RoboBlocks.LANG_TEXT_TRIM_OPERATOR_LEFT = 'left';
-        RoboBlocks.LANG_TEXT_TRIM_OPERATOR_RIGHT = 'right';
-
-        RoboBlocks.LANG_TEXT_PRINT_HELPURL = '';
-        RoboBlocks.LANG_TEXT_PRINT_Field_PRINT = 'print';
-        RoboBlocks.LANG_TEXT_PRINT_TOOLTIP = 'Print the specified text, number or other value.';
-
-        RoboBlocks.LANG_TEXT_PROMPT_HELPURL = '';
-        RoboBlocks.LANG_TEXT_PROMPT_Field_PROMPT_FOR = 'prompt for';
-        RoboBlocks.LANG_TEXT_PROMPT_TITILE_WITH_MESSAGE = 'with message';
-        RoboBlocks.LANG_TEXT_PROMPT_TOOLTIP = 'Prompt for user input with the specified text.';
-        RoboBlocks.LANG_TEXT_PROMPT_TYPE_TEXT = 'text';
-        RoboBlocks.LANG_TEXT_PROMPT_TYPE_NUMBER = 'number';
-
+        RoboBlocks.LANG_TEXT_SUBSTRING = 'Crop ';
+        RoboBlocks.LANG_TEXT_SUBSTRING_FROM = 'from';
+        RoboBlocks.LANG_TEXT_SUBSTRING_TO = 'to';
+        RoboBlocks.LANG_TEXT_SUBSTRING_TOOLTIP = 'Obtain a substring from the input string with the caracters between the two input numbers.';
 
         //advanced blocks : 
         RoboBlocks.LANG_CATEGORY_ADVANCED = 'Advanced';
@@ -458,7 +419,7 @@
         RoboBlocks.LANG_VARIABLES_SET_AS = 'as';
         RoboBlocks.LANG_VARIABLES_SET_TOOLTIP = 'Set the value of a variable';
 
-        RoboBlocks.LANG_VARIABLES_GET = 'Get variable ';
+        RoboBlocks.LANG_VARIABLES_GET = 'Variable ';
         RoboBlocks.LANG_VARIABLES_GET_TOOLTIP = 'Get the value of a variable';
 
         //zum blocks : 
@@ -817,7 +778,7 @@
             with(obj) {
                 __p += 'digitalRead(' +
                     __e(dropdown_pin) +
-                    ')\n';
+                    ')';
 
             }
             return __p
@@ -1636,6 +1597,21 @@
             return __p
         };
 
+        this["JST"]["text_equalsIgnoreCase"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    __e(string1) +
+                    '.equalsIgnoreCase(' +
+                    __e(string2) +
+                    ')';
+
+            }
+            return __p
+        };
+
         this["JST"]["text_length"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -1644,6 +1620,23 @@
                 __p +=
                     __e(argument0) +
                     ' .length()';
+
+            }
+            return __p
+        };
+
+        this["JST"]["text_substring"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    __e(string1) +
+                    '.substring(' +
+                    __e(from) +
+                    ',' +
+                    __e(to) +
+                    ')';
 
             }
             return __p
@@ -2044,7 +2037,7 @@
         };
 
         // Source: src/blocks/bq_bat/bq_bat.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2085,22 +2078,25 @@
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.LANG_BQ_BAT)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));
-                this.appendDummyInput('')
-                    .setAlign(Blockly.ALIGN_RIGHT)
+                this.appendValueInput('RED PIN')
                     .appendField(RoboBlocks.LANG_BQ_BAT_RED_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.arduino.bluetooth), 'PIN');
-                this.appendDummyInput('')
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.LANG_BQ_BAT_BLUE_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.arduino.bluetooth), 'PIN');
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT);
 
+                this.appendValueInput('BLUE PIN')
+                    .appendField(RoboBlocks.LANG_BQ_BAT_BLUE_PIN)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
+
+                this.setInputsInline(false);
                 this.setOutput(true, Number);
                 this.setTooltip(RoboBlocks.LANG_BQ_BAT_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_bluetooth_slave/bq_bluetooth_slave.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2108,27 +2104,27 @@
          * @return {String} Code generated with block parameters
          */
 
-        var _get_next_pin = function(dropdown_pin) {
-            var NextPIN = dropdown_pin;
-            if (parseInt(NextPIN, 2)) {
-                NextPIN = parseInt(dropdown_pin, 2) + 1;
-            } else {
-                NextPIN = 'A' + (parseInt(NextPIN.slice(1, NextPIN.length), 2) + 1);
-            }
-            //check if NextPIN in bound
-            var pinlen = profiles.default.digital.length;
-            var notExist = true;
-            for (var i = 0; i < pinlen; i++) {
-                if (profiles.default.digital[i][1] === NextPIN) {
-                    notExist = false;
-                }
-            }
-            return NextPIN;
-        };
+        // var _get_next_pin = function(dropdown_pin) {
+        //     var NextPIN = dropdown_pin;
+        //     if(parseInt(NextPIN,2)){
+        //         NextPIN = parseInt(dropdown_pin,2)+1;
+        //     } else {
+        //         NextPIN = 'A'+(parseInt(NextPIN.slice(1,NextPIN.length),2)+1);
+        //     }
+        //     //check if NextPIN in bound
+        //     var pinlen = profiles.default.digital.length;
+        //     var notExist=true;
+        //     for(var i=0;i<pinlen;i++){
+        //         if(profiles.default.digital[i][1] === NextPIN){
+        //             notExist=false;
+        //         }
+        //     }
+        //     return NextPIN;
+        // };
 
         Blockly.Arduino.bq_bluetooth_slave = function() {
             var dropdown_pin = this.getFieldValue('PIN');
-            var NextPIN = _get_next_pin(dropdown_pin);
+            var NextPIN = this.getFieldValue('PIN2');
             var name = this.getFieldValue('NAME');
             var pincode = this.getFieldValue('PINCODE');
             var statement_receive = Blockly.Arduino.statementToCode(this, 'RCV');
@@ -2170,25 +2166,37 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendDummyInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom))
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.bluetooth), 'PIN');
+                    .setCheck(Number)
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1);
+                this.appendValueInput('PIN2')
+                    .setCheck(Number)
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
                 this.appendDummyInput('')
-                    .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME)
-                    .appendField(new Blockly.FieldTextInput('zum'), 'NAME');
+                    .appendField(new Blockly.FieldTextInput('zum'), 'NAME')
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
                 this.appendDummyInput('')
-                    .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE)
-                    .appendField(new Blockly.FieldTextInput('0000'), 'PINCODE');
+                    .appendField(new Blockly.FieldTextInput('0000'), 'PINCODE')
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
                 this.appendStatementInput('RCV')
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE);
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
                 this.appendStatementInput('SNT')
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_SEND);
+
+                this.setInputsInline(false);
+
+
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_TOOLTIP);
@@ -2196,15 +2204,13 @@
         };
 
         // Source: src/blocks/bq_button/bq_button.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
          * bq_button code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.bq_button = function() {
 
             var dropdown_pin = this.getFieldValue('PIN');
@@ -2216,7 +2222,6 @@
             var code = JST['bq_button']({
                 'dropdown_pin': dropdown_pin,
             });
-            code = 'digitalRead(' + dropdown_pin + ')';
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
@@ -2233,18 +2238,20 @@
              **/
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendDummyInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_BUTTON)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod05.png', 212 * options.zoom, 139 * options.zoom))
+                    .setCheck(Number)
                     .appendField(RoboBlocks.LANG_BQ_BUTTON_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
                 this.setOutput(true, Boolean);
                 this.setTooltip(RoboBlocks.LANG_BQ_BUTTON_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_buttons/bq_buttons.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2286,11 +2293,11 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendDummyInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_BUTTONS)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod10.png', 336 * options.zoom, 176 * options.zoom))
                     .appendField(RoboBlocks.LANG_BQ_BUTTONS_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
+                    .setCheck(Number);
                 this.appendStatementInput('BUTN1')
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField(RoboBlocks.LANG_BQ_BUTTONS_BUTTON_A);
@@ -2313,7 +2320,7 @@
         };
 
         // Source: src/blocks/bq_infrared/bq_infrared.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options,  JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2347,18 +2354,18 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendDummyInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_INFRARED)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod04.png', 208 * options.zoom, 126 * options.zoom))
                     .appendField(RoboBlocks.LANG_BQ_INFRARED_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+                    .setCheck(Number);
                 this.setOutput(true);
                 this.setTooltip(RoboBlocks.LANG_BQ_INFRARED_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_joystick/bq_joystick.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options,JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2386,18 +2393,18 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendDummyInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_JOYSTICK)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom))
                     .appendField(RoboBlocks.LANG_BQ_JOYSTICK_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
+                    .setCheck(Number);
                 this.setOutput(true, Number);
                 this.setTooltip(RoboBlocks.LANG_BQ_JOYSTICK_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_led/bq_led.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2434,16 +2441,18 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendDummyInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_LED)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
                     .appendField(RoboBlocks.LANG_BQ_LED_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-                    .appendField('state')
+                    .setCheck(Number);
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.LANG_BQ_LED_STATE)
                     .appendField(new Blockly.FieldDropdown([
                         [RoboBlocks.LANG_BQ_LED_ON, 'HIGH'],
                         [RoboBlocks.LANG_BQ_LED_OFF, 'LOW']
-                    ]), 'STAT');
+                    ]), 'STAT')
+                    .setAlign(Blockly.ALIGN_RIGHT);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.LANG_BQ_LED_TOOLTIP);
@@ -2451,7 +2460,7 @@
         };
 
         // Source: src/blocks/bq_photoresistor/bq_photoresistor.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2484,18 +2493,18 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendDummyInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_PHOTORESISTOR)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod01.png', 208 * options.zoom, 140 * options.zoom))
                     .appendField(RoboBlocks.LANG_BQ_PHOTORESISTOR_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
+                    .setCheck(Number);
                 this.setOutput(true, Number);
                 this.setTooltip(RoboBlocks.LANG_BQ_PHOTORESISTOR_TOOLTIP);
             }
         };
 
         // Source: src/blocks/bq_piezo_buzzer/bq_piezo_buzzer.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2533,9 +2542,11 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER)
-                    .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom))
+                    .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom));
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
+                    .setCheck(Number);
+                this.appendDummyInput('')
                     .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_TONE)
                     .appendField(new Blockly.FieldDropdown([
                         [RoboBlocks.LANG_BQ_PIEZO_BUZZER_DO, '261'],
@@ -4144,6 +4155,32 @@
             }
         };
 
+        // Source: src/blocks/pin/pin.js
+        /* global Blockly, profiles, RoboBlocks */
+
+        /**
+         * pin code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.pin = function() {
+            var pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_NONE);
+            return [pin, Blockly.Arduino.ORDER_NONE];
+        };
+
+        Blockly.Blocks.pin = {
+            category: RoboBlocks.LANG_CATEGORY_VARIABLES,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/pin',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
+                this.appendDummyInput('')
+                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+
+                this.setInputsInline(true);
+                this.setOutput(true, Number);
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_pin_TOOLTIP);
+            }
+        };
+
         // Source: src/blocks/procedures_callnoreturn/procedures_callnoreturn.js
         /* global Blockly, JST, RoboBlocks */
 
@@ -5205,7 +5242,7 @@
             // Append to a variable in place.
             var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
             var argument0 = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
-            return varName + ' = ' + varName + ' + String(' + argument0 + ');\n';
+            return varName + ' += String(' + argument0 + ');\n';
         };
 
 
@@ -5235,6 +5272,45 @@
                 if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
                     this.setTitleValue(newName, 'VAR');
                 }
+            }
+        };
+        // Source: src/blocks/text_equalsIgnoreCase/text_equalsIgnoreCase.js
+        /* global Blockly, JST, RoboBlocks */
+
+        /**
+         * text_equalsIgnoreCase code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.text_equalsIgnoreCase = function() {
+            var string1 = Blockly.Arduino.valueToCode(this, 'STRING1', Blockly.Arduino.ORDER_NONE);
+            var string2 = Blockly.Arduino.valueToCode(this, 'STRING2', Blockly.Arduino.ORDER_NONE);
+
+            var code = JST['text_equalsIgnoreCase']({
+                'string1': string1,
+                'string2': string2
+            });
+
+            return [code, Blockly.Arduino.ORDER_NONE];
+        };
+
+        Blockly.Blocks.text_equalsIgnoreCase = {
+            category: RoboBlocks.LANG_CATEGORY_TEXT,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text_equalsIgnoreCase',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
+                this.appendValueInput('STRING1')
+                    .appendField(RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_IS);
+
+                this.appendValueInput('STRING2')
+                    .appendField(RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_EQUAL)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_QUESTION);
+
+                this.setInputsInline(true);
+
+                this.setOutput(true);
+                this.setTooltip(RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_TOOLTIP);
             }
         };
         // Source: src/blocks/text_join/text_join.js
@@ -5443,6 +5519,55 @@
                     .appendField(RoboBlocks.LANG_TEXT_LENGTH_INPUT_LENGTH);
                 this.setOutput(true, Number);
                 this.setTooltip(RoboBlocks.LANG_TEXT_LENGTH_TOOLTIP);
+            }
+        };
+        // Source: src/blocks/text_substring/text_substring.js
+        /* global Blockly, JST, RoboBlocks */
+
+        /**
+         * text_substring code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.text_substring = function() {
+            var string1 = Blockly.Arduino.valueToCode(this, 'STRING1', Blockly.Arduino.ORDER_NONE);
+            var from = Blockly.Arduino.valueToCode(this, 'FROM', Blockly.Arduino.ORDER_NONE);
+            var to = Blockly.Arduino.valueToCode(this, 'TO', Blockly.Arduino.ORDER_NONE);
+
+
+            var code = JST['text_substring']({
+                'string1': string1,
+                'from': from,
+                'to': to
+            });
+
+            return code;
+        };
+
+        Blockly.Blocks.text_substring = {
+            category: RoboBlocks.LANG_CATEGORY_TEXT,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text_substring',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
+                this.appendValueInput('STRING1')
+                    // .setCheck(String)
+                    .appendField(RoboBlocks.LANG_TEXT_SUBSTRING);
+
+                this.appendValueInput('FROM')
+                    .appendField(RoboBlocks.LANG_TEXT_SUBSTRING_FROM)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
+                this.appendValueInput('TO')
+                    .appendField(RoboBlocks.LANG_TEXT_SUBSTRING_TO)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+                // this.appendDummyInput()
+                //     .appendField(RoboBlocks.LANG_TEXT_SUBSTRING_QUESTION);
+
+                this.setInputsInline(true);
+
+                this.setOutput(true);
+                this.setTooltip(RoboBlocks.LANG_TEXT_SUBSTRING_TOOLTIP);
             }
         };
         // Source: src/blocks/variables_declare/variables_declare.js

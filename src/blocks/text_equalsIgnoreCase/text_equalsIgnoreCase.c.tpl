@@ -1,0 +1,1 @@
+{{string1}}.equalsIgnoreCase({{string2}})

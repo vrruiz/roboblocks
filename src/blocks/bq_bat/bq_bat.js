@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -40,15 +40,18 @@ Blockly.Blocks.bq_bat = {
         this.appendDummyInput('')
         .appendField(RoboBlocks.LANG_BQ_BAT)
         .appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));
-        this.appendDummyInput('')
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField(RoboBlocks.LANG_BQ_BAT_RED_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.arduino.bluetooth), 'PIN');
-        this.appendDummyInput('')
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField(RoboBlocks.LANG_BQ_BAT_BLUE_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.arduino.bluetooth), 'PIN');
+        this.appendValueInput('RED PIN')
+            .appendField(RoboBlocks.LANG_BQ_BAT_RED_PIN)
+            .setCheck(Number)
+            .setAlign(Blockly.ALIGN_RIGHT);
 
+        this.appendValueInput('BLUE PIN')
+            .appendField(RoboBlocks.LANG_BQ_BAT_BLUE_PIN)
+            .setCheck(Number)
+            .setAlign(Blockly.ALIGN_RIGHT);
+
+
+        this.setInputsInline(false);
         this.setOutput(true, Number);
         this.setTooltip(RoboBlocks.LANG_BQ_BAT_TOOLTIP);
     }

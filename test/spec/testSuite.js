@@ -54,13 +54,16 @@ return {
 		'spec/text_join',
 		'spec/text_append',
 		'spec/text_length',
-		'spec/text_isEmpty',
-		'spec/text_indexOf',
-		'spec/text_charAt',
-		'spec/text_changeCase',
-		'spec/text_trim',
-		'spec/text_print',
-		'spec/text_prompt',
+		// 'spec/text_isEmpty',
+		// 'spec/text_indexOf',
+		// 'spec/text_charAt',
+		// 'spec/text_changeCase',
+		// 'spec/text_trim',
+		// 'spec/text_print',
+		// 'spec/text_prompt',
+		'spec/text_equalsIgnoreCase',
+		// 'spec/text_getBytes',
+		'spec/text_substring',
 		'spec/inout_builtin_led',
 		'spec/inout_digital_write',
 		'spec/inout_digital_read',
@@ -73,11 +76,12 @@ return {
 		'spec/serial_special',
 		'spec/advanced_conversion',
 		'spec/serial_available',
-		'spec/procedures_defreturn', 
+		'spec/procedures_defreturn',
 		'spec/procedures_defnoreturn',
 		'spec/procedures_ifreturn',
 		'spec/procedures_callreturn',
-		'spec/procedures_callnoreturn'
+		'spec/procedures_callnoreturn',
+		'spec/pin'
 		]
 	};
 });

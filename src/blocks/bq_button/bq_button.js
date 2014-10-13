@@ -1,13 +1,11 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
  * bq_button code generation    
  * @return {String} Code generated with block parameters
  */
-
-
 Blockly.Arduino.bq_button = function() {
 
     var dropdown_pin = this.getFieldValue('PIN');
@@ -19,7 +17,6 @@ Blockly.Arduino.bq_button = function() {
     var code = JST['bq_button']({
         'dropdown_pin': dropdown_pin,
     });
-    code = 'digitalRead(' + dropdown_pin + ')';
     return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -36,11 +33,13 @@ Blockly.Blocks.bq_button = {
     **/
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-        this.appendDummyInput('')
-        .appendField(RoboBlocks.LANG_BQ_BUTTON)
-        .appendField(new Blockly.FieldImage('img/blocks/bqmod05.png', 212 * options.zoom, 139 * options.zoom))
-        .appendField(RoboBlocks.LANG_BQ_BUTTON_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+        this.appendValueInput('PIN')
+            .appendField(RoboBlocks.LANG_BQ_BUTTON)
+            .appendField(new Blockly.FieldImage('img/blocks/bqmod05.png', 212 * options.zoom, 139 * options.zoom))
+            .setCheck(Number)
+            .appendField(RoboBlocks.LANG_BQ_BUTTON_PIN)
+            .setAlign(Blockly.ALIGN_RIGHT);
+
         this.setOutput(true, Boolean);
         this.setTooltip(RoboBlocks.LANG_BQ_BUTTON_TOOLTIP);
     }

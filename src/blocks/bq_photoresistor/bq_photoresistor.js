@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -32,11 +32,11 @@ Blockly.Blocks.bq_photoresistor = {
     */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-        this.appendDummyInput('')
+        this.appendValueInput('PIN')
         .appendField(RoboBlocks.LANG_BQ_PHOTORESISTOR)
         .appendField(new Blockly.FieldImage('img/blocks/bqmod01.png', 208 * options.zoom, 140 * options.zoom))
         .appendField(RoboBlocks.LANG_BQ_PHOTORESISTOR_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
+        .setCheck(Number);
         this.setOutput(true, Number);
         this.setTooltip(RoboBlocks.LANG_BQ_PHOTORESISTOR_TOOLTIP);
     }

@@ -66,7 +66,8 @@ RoboBlocks.LANG_BQ_BAT_BLUE_PIN='BLUE PIN#';
 RoboBlocks.LANG_BQ_BAT_TOOLTIP='Output the measured distance';
 
 RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE='Bluetooth';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN='PIN#';
+RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1='PIN 1#';
+RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2='PIN 2#';
 RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME='Name';
 RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE='PinCode';
 RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE='Receive';
@@ -97,6 +98,7 @@ RoboBlocks.LANG_BQ_JOYSTICK_TOOLTIP='bq Joystick';
 
 RoboBlocks.LANG_BQ_LED='LED';
 RoboBlocks.LANG_BQ_LED_PIN='PIN#';
+RoboBlocks.LANG_BQ_LED_STATE='state';
 RoboBlocks.LANG_BQ_LED_ON='ON';
 RoboBlocks.LANG_BQ_LED_OFF='OFF';
 RoboBlocks.LANG_BQ_LED_TOOLTIP='bq LED';
@@ -238,59 +240,18 @@ RoboBlocks.LANG_TEXT_LENGTH_HELPURL = '';
 RoboBlocks.LANG_TEXT_LENGTH_INPUT_LENGTH = 'length';
 RoboBlocks.LANG_TEXT_LENGTH_TOOLTIP = 'Returns number of letters (including spaces) in the provided text.';
 
-RoboBlocks.LANG_TEXT_ISEMPTY_HELPURL = '';
-RoboBlocks.LANG_TEXT_ISEMPTY_INPUT_ISEMPTY = 'is empty';
-RoboBlocks.LANG_TEXT_ISEMPTY_TOOLTIP = 'Returns true if the provided text is empty.';
+RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_IS='Is ';
+RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_EQUAL=' equal to';
+RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_QUESTION='?';
+RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_TOOLTIP='Returns true if both input strings are equal, regardless of the case.';
 
-RoboBlocks.LANG_TEXT_ENDSTRING_HELPURL = '';
-RoboBlocks.LANG_TEXT_ENDSTRING_INPUT = 'letters in text';
-RoboBlocks.LANG_TEXT_ENDSTRING_TOOLTIP = 'Returns specified number of letters at the beginning or end of the text.';
-RoboBlocks.LANG_TEXT_ENDSTRING_OPERATOR_FIRST = 'first';
-RoboBlocks.LANG_TEXT_ENDSTRING_OPERATOR_LAST = 'last';
+RoboBlocks.LANG_text_getBytes='get bytes of';
+RoboBlocks.LANG_TEXT_GETBYTES_TOOLTIP='Returns the number of bytes of the input string';
 
-RoboBlocks.LANG_TEXT_INDEXOF_HELPURL = '';
-RoboBlocks.LANG_TEXT_INDEXOF_Field_FIND = 'find';
-RoboBlocks.LANG_TEXT_INDEXOF_INPUT_OCCURRENCE = 'occurrence of text';
-RoboBlocks.LANG_TEXT_INDEXOF_INPUT_INTEXT = 'in text';
-RoboBlocks.LANG_TEXT_INDEXOF_TOOLTIP = 'Returns the index of the first/last occurrence of first text in the second text. Returns 0 if text is not found.';
-RoboBlocks.LANG_TEXT_INDEXOF_OPERATOR_FIRST = 'first';
-RoboBlocks.LANG_TEXT_INDEXOF_OPERATOR_LAST = 'last';
-
-RoboBlocks.LANG_TEXT_CHARAT_HELPURL = '';
-RoboBlocks.LANG_TEXT_CHARAT_INPUT_AT = 'letter at';
-RoboBlocks.LANG_TEXT_CHARAT_INPUT_INTEXT = 'in text';
-RoboBlocks.LANG_TEXT_CHARAT_TOOLTIP = 'Returns the letter at the specified position.';
-
-RoboBlocks.LANG_TEXT_CHANGECASE_HELPURL = '';
-RoboBlocks.LANG_TEXT_CHANGECASE_Field_TO = 'to';
-RoboBlocks.LANG_TEXT_CHANGECASE_TOOLTIP = 'Returns a copy of the text in a different case.';
-RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_UPPERCASE = 'UPPER CASE';
-RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_LOWERCASE = 'lower case';
-RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_FieldCASE = 'Field Case';
-RoboBlocks.LANG_TEXT_CHANGECASE_OPERATOR_TITLECASE = 'Title Case';
-
-
-RoboBlocks.LANG_TEXT_TRIM_HELPURL = '';
-RoboBlocks.LANG_TEXT_TRIM_Field_SPACE = 'trim spaces from';
-RoboBlocks.LANG_TEXT_TRIM_Field_SIDES = 'sides';
-RoboBlocks.LANG_TEXT_TRIM_TOOLTIP = 'Returns a copy of the text with spaces removed from one or both ends.';
-RoboBlocks.LANG_TEXT_TRIM_Field_SIDES = 'sides';
-RoboBlocks.LANG_TEXT_TRIM_Field_SIDE = 'side';
-RoboBlocks.LANG_TEXT_TRIM_OPERATOR_BOTH = 'both';
-RoboBlocks.LANG_TEXT_TRIM_OPERATOR_LEFT = 'left';
-RoboBlocks.LANG_TEXT_TRIM_OPERATOR_RIGHT = 'right';
-
-RoboBlocks.LANG_TEXT_PRINT_HELPURL = '';
-RoboBlocks.LANG_TEXT_PRINT_Field_PRINT = 'print';
-RoboBlocks.LANG_TEXT_PRINT_TOOLTIP = 'Print the specified text, number or other value.';
-
-RoboBlocks.LANG_TEXT_PROMPT_HELPURL = '';
-RoboBlocks.LANG_TEXT_PROMPT_Field_PROMPT_FOR = 'prompt for';
-RoboBlocks.LANG_TEXT_PROMPT_TITILE_WITH_MESSAGE = 'with message';
-RoboBlocks.LANG_TEXT_PROMPT_TOOLTIP = 'Prompt for user input with the specified text.';
-RoboBlocks.LANG_TEXT_PROMPT_TYPE_TEXT = 'text';
-RoboBlocks.LANG_TEXT_PROMPT_TYPE_NUMBER = 'number';
-
+RoboBlocks.LANG_TEXT_SUBSTRING='Crop ';
+RoboBlocks.LANG_TEXT_SUBSTRING_FROM='from';
+RoboBlocks.LANG_TEXT_SUBSTRING_TO='to';
+RoboBlocks.LANG_TEXT_SUBSTRING_TOOLTIP='Obtain a substring from the input string with the caracters between the two input numbers.';
 
 //advanced blocks : 
 RoboBlocks.LANG_CATEGORY_ADVANCED='Advanced';
@@ -405,7 +366,7 @@ RoboBlocks.LANG_VARIABLES_SET='Set variable ';
 RoboBlocks.LANG_VARIABLES_SET_AS='as';
 RoboBlocks.LANG_VARIABLES_SET_TOOLTIP='Set the value of a variable';
 
-RoboBlocks.LANG_VARIABLES_GET='Get variable ';
+RoboBlocks.LANG_VARIABLES_GET='Variable ';
 RoboBlocks.LANG_VARIABLES_GET_TOOLTIP='Get the value of a variable';
 
 //zum blocks : 
