@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -36,11 +36,10 @@ Blockly.Blocks.servo_read_degrees = {
     */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-        this.appendDummyInput('')
+        this.appendValueInput('PIN')
         .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES_SERVO)
         .appendField(new Blockly.FieldImage('img/blocks/bqservo02.png', 208 * options.zoom, 126 * options.zoom))
-        .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+        .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES_PIN);
         this.appendDummyInput('')
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES);

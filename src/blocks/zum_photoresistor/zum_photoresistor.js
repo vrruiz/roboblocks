@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -31,11 +31,10 @@ Blockly.Blocks.zum_photoresistor = {
     */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
-        this.appendDummyInput('')
-        .appendField(RoboBlocks.LANG_ZUM_PHOTORESISTOR)
-        .appendField(new Blockly.FieldImage('img/blocks/zum05.png', 208 * options.zoom, 126 * options.zoom))
-        .appendField(RoboBlocks.LANG_ZUM_PHOTORESISTOR_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
+        this.appendValueInput('PIN')
+            .appendField(RoboBlocks.LANG_ZUM_PHOTORESISTOR)
+            .appendField(new Blockly.FieldImage('img/blocks/zum05.png', 208 * options.zoom, 126 * options.zoom))
+            .appendField(RoboBlocks.LANG_ZUM_PHOTORESISTOR_PIN);
         this.setOutput(true, Number);
         this.setTooltip(RoboBlocks.LANG_ZUM_PHOTORESISTOR_TOOLTIP);
     }

@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -33,11 +33,10 @@ Blockly.Blocks.zum_infrared = {
      */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
-        this.appendDummyInput('')
+        this.appendValueInput('PIN')
             .appendField(RoboBlocks.LANG_ZUM_INFRARED)
             .appendField(new Blockly.FieldImage('img/blocks/zum07.png', 208 * options.zoom, 126 * options.zoom))
-            .appendField(RoboBlocks.LANG_ZUM_INFRARED_PIN)
-            .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+            .appendField(RoboBlocks.LANG_ZUM_INFRARED_PIN);
         this.setOutput(true);
         this.setTooltip(RoboBlocks.LANG_ZUM_INFRARED_TOOLTIP);
     }

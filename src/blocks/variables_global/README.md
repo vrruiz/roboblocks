@@ -1,7 +1,7 @@
-variable
+variables_global
 ===========
 
-variable description
+variables_global description
 
 Parameters
 ----------

@@ -82,6 +82,10 @@ Blockly.Blocks.procedures_callnoreturn = {
             this.addVariables();
             this.no_last_procedure=this.getFieldValue('PROCEDURES');
         }
+        if(this.getVariables(this.getFieldValue('PROCEDURES'))!==this.last_variables){
+            this.addVariables();
+            this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
+        }
     },
     addVariables: function(){
         var func_variables=this.getVariables(this.getFieldValue('PROCEDURES')); //get the variables of the actual function

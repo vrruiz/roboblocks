@@ -29,9 +29,11 @@ return {
 		'spec/servo_read_degrees',
 		'spec/variables_get',
 		'spec/variables_set',
+		'spec/variables_global',
+		'spec/variables_local',
 		// 'spec/variables_declare',
 		// 'spec/variables_define',
-		'spec/variable',
+		// 'spec/variable',
 		'spec/controls_if',
 		'spec/controls_switch',
 		'spec/controls_whileUntil',
@@ -83,7 +85,8 @@ return {
 		'spec/procedures_ifreturn',
 		'spec/procedures_callreturn',
 		'spec/procedures_callnoreturn',
-		'spec/pin'
+		'spec/pin_analog',
+		'spec/pin_digital'
 		]
 	};
 });

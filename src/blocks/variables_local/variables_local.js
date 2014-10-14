@@ -9,7 +9,7 @@
   */
 function isNumber(obj) { return !isNaN(parseFloat(obj)); }
 
-Blockly.Arduino.variable = function() {
+Blockly.Arduino.variables_local = function() {
   // Variable setter.
     var varType;
     var varValue=Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
@@ -25,30 +25,30 @@ Blockly.Arduino.variable = function() {
     //     'varType': varType,
     //     'varName': varName
     // });
-    Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName;
-    Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue;
+    // Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';';
+    var code= varType+' '+varName+';\n'+varName+'='+varValue+';';
     
-    return '';
+    return code;
 };
 
 
-Blockly.Blocks.variable = {
+Blockly.Blocks.variables_local = {
   // Variable setter.
     category: RoboBlocks.LANG_CATEGORY_VARIABLES,  // Variables are handled specially.
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/variable',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_VARIABLE)
+            .appendField(RoboBlocks.LANG_VARIABLES_LOCAL)
             .appendField(new Blockly.FieldTextInput(''), 'VAR');
 
         this.appendValueInput('VALUE')
-            .appendField(RoboBlocks.LANG_VARIABLE_EQUALS);
+            .appendField(RoboBlocks.LANG_VARIABLES_LOCAL_EQUALS);
 
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip(RoboBlocks.LANG_VARIABLE_TOOLTIP);
+        this.setTooltip(RoboBlocks.LANG_VARIABLES_LOCAL_TOOLTIP);
     },
     getVars: function() {
         return [this.getFieldValue('VAR')];

@@ -367,10 +367,15 @@ RoboBlocks.LANG_VARIABLES_DECLARE='Declare a variable ';
 RoboBlocks.LANG_VARIABLES_DECLARE_TYPE='of type ';
 RoboBlocks.LANG_VARIABLES_DECLARE_TOOLTIP='Declare a variable of type int or String';
 
-RoboBlocks.LANG_VARIABLE='New variable ';
-RoboBlocks.LANG_VARIABLE_TYPE='of type ';
-RoboBlocks.LANG_VARIABLE_EQUALS='equals';
-RoboBlocks.LANG_VARIABLE_TOOLTIP='Declare and define a variable of type int or String';
+RoboBlocks.LANG_VARIABLES_GLOBAL='New variable ';
+RoboBlocks.LANG_VARIABLES_GLOBAL_TYPE='of type ';
+RoboBlocks.LANG_VARIABLES_GLOBAL_EQUALS='equals';
+RoboBlocks.LANG_VARIABLES_GLOBAL_TOOLTIP='Declare and define a GLOBAL variable of type int or String';
+
+RoboBlocks.LANG_VARIABLES_LOCAL='New LOCAL variable ';
+RoboBlocks.LANG_VARIABLES_LOCAL_TYPE='of type ';
+RoboBlocks.LANG_VARIABLES_LOCAL_EQUALS='equals';
+RoboBlocks.LANG_VARIABLES_LOCAL_TOOLTIP='Declare and define a LOCAL variable of type int or String';
 
 RoboBlocks.LANG_VARIABLES_DEFINE='Define variable ';
 RoboBlocks.LANG_VARIABLES_DEFINE_AS='as';

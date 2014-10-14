@@ -6,13 +6,13 @@
 
 	root.define([], function() {
 
-		describe('In Roboblocks.Blocks.variable block', function () {
+		describe('In Roboblocks.Blocks.pin_analog block', function () {
 
 			it('generates expected default Arduino code', function () {
 				expect( true ).to.equal( true );
-				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'variable');
+				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'pin_analog');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), 'String\nvoid setup()\n{\n  =\n}\n\n\nvoid loop()\n{\n\n}' );
+				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n\n}\n\n\nvoid loop()\n{\n\n}');
 			});
 		});
 	});

@@ -1,7 +1,7 @@
-variable
+variables_local
 ===========
 
-variable description
+variables_local description
 
 Parameters
 ----------

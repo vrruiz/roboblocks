@@ -86,28 +86,12 @@ Blockly.Blocks.procedures_defnoreturn = {
             this.setWarningText(null);
         }
         // Merge the arguments into a human-readable list.
-        var paramString = this.arguments_.join(', ');
+        var params=[];
+        for (var i in this.arguments_){
+            params.push(this.type_arguments_[i]+' '+this.arguments_[i]);
+        }
+        var paramString = params.join(', ');
         this.setFieldValue(paramString, 'PARAMS');
-    },
-    mutationToDom: function() {
-        var container = document.createElement('mutation');
-        for (var x = 0; x < this.arguments_.length; x++) {
-            var parameter = document.createElement('arg');
-            parameter.setAttribute('name', this.arguments_[x]);
-            container.appendChild(parameter);
-        }
-        return container;
-    },
-    domToMutation: function(xmlElement) {
-        this.arguments_ = [];
-        var childNode;
-        for (var x = 0; xmlElement.childNodes.length ; x++) {
-            childNode = xmlElement.childNodes[x];
-            if (childNode.nodeName.toLowerCase() === 'arg') {
-                this.arguments_.push(childNode.getAttribute('name'));
-            }
-        }
-        this.updateParams_();
     },
     decompose: function(workspace) {
         var containerBlock = Blockly.Block.obtain(workspace,'procedures_mutatorcontainer');
@@ -116,6 +100,7 @@ Blockly.Blocks.procedures_defnoreturn = {
         for (var x = 0; x < this.arguments_.length; x++) {
             var paramBlock = Blockly.Block.obtain(workspace, 'procedures_mutatorarg');
             paramBlock.initSvg();
+            paramBlock.setFieldValue(this.type_arguments_[x], 'TYPE');
             paramBlock.setFieldValue(this.arguments_[x], 'NAME');
             // Store the old location.
             paramBlock.oldLocation = x;
@@ -129,9 +114,13 @@ Blockly.Blocks.procedures_defnoreturn = {
     compose: function(containerBlock) {
         this.arguments_ = [];
         this.paramIds_ = [];
+        this.type_arguments_=[];
         var paramBlock = containerBlock.getInputTargetBlock('STACK');
+        var varName;
         while (paramBlock) {
-            this.arguments_.push(paramBlock.getFieldValue('NAME'));
+            varName=paramBlock.getFieldValue('NAME');
+            this.type_arguments_.push(paramBlock.getFieldValue('TYPE'));
+            this.arguments_.push(varName);
             this.paramIds_.push(paramBlock.id);
             paramBlock = paramBlock.nextConnection &&paramBlock.nextConnection.targetBlock();
         }
@@ -201,8 +190,8 @@ Blockly.Blocks.procedures_mutatorarg = {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         this.appendDummyInput()
             .appendField(RoboBlocks.LANG_PROCEDURES_MUTATORARG_Field)
-            .appendField(new Blockly.FieldTextInput('x',
-            Blockly.Blocks.procedures_mutatorarg.validator), 'NAME');
+            .appendField(new Blockly.FieldDropdown([['int','int'],['String','String']]),'TYPE')
+            .appendField(new Blockly.FieldTextInput('x',Blockly.Blocks.procedures_mutatorarg.validator), 'NAME');
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip('');
@@ -214,5 +203,6 @@ Blockly.Blocks.procedures_mutatorarg.validator = function(newVar) {
     // Merge runs of whitespace.  Strip leading and trailing whitespace.
     // Beyond this, all names are legal.
     newVar = newVar.replace(/[\s\xa0]+/g, ' ').replace(/^ | $/g, '');
+
     return newVar || null;
 };

@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options,JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -41,12 +41,13 @@ Blockly.Blocks.servo_cont = {
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/servo_cont',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-        this.appendDummyInput('')
+        this.appendValueInput('PIN')
             .appendField(RoboBlocks.LANG_SERVO_CONT)
             .appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom))
-            .appendField(RoboBlocks.LANG_SERVO_CONT_PIN)
-            .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
+            .appendField(RoboBlocks.LANG_SERVO_CONT_PIN);
+        this.appendDummyInput()
             .appendField(RoboBlocks.LANG_SERVO_CONT_ROT)
+            .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldDropdown([
                 [RoboBlocks.LANG_SERVO_CONT_TURN_CLOCKWISE, '0'],
                 [RoboBlocks.LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE, '180'],

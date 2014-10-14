@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -34,12 +34,10 @@ Blockly.Blocks.zum_piezo_buzzerav = {
       */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
-        this.appendDummyInput('')
+        this.appendValueInput('PIN')
             .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV)
             .appendField(new Blockly.FieldImage('img/blocks/zum01.png', 208 * options.zoom, 140 * options.zoom))
-            .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_PIN)
-            .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
-
+            .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_PIN);
         this.appendValueInput('TONE', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)

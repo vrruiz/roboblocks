@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -33,11 +33,10 @@ Blockly.Blocks.zum_button = {
     */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
-        this.appendDummyInput('')
-        .appendField(RoboBlocks.LANG_ZUM_BUTTON)
-        .appendField(new Blockly.FieldImage('img/blocks/zum02.png', 212 * options.zoom, 139 * options.zoom))
-        .appendField(RoboBlocks.LANG_ZUM_BUTTON_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+        this.appendValueInput('PIN')
+            .appendField(RoboBlocks.LANG_ZUM_BUTTON)
+            .appendField(new Blockly.FieldImage('img/blocks/zum02.png', 212 * options.zoom, 139 * options.zoom))
+            .appendField(RoboBlocks.LANG_ZUM_BUTTON_PIN);
         this.setOutput(true, Boolean);
         this.setTooltip(RoboBlocks.LANG_ZUM_BUTTON_TOOLTIP);
     }

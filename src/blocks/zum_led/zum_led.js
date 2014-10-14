@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, profiles, JST, RoboBlocks */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -37,16 +37,17 @@ Blockly.Blocks.zum_led = {
     */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
-        this.appendDummyInput('')
-        .appendField(RoboBlocks.LANG_ZUM_LED)
-        .appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom))
-        .appendField(RoboBlocks.LANG_ZUM_LED_PIN)
-        .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-        .appendField('state')
-        .appendField(new Blockly.FieldDropdown([
-            [RoboBlocks.LANG_ZUM_LED_ON, 'HIGH'],
-            [RoboBlocks.LANG_ZUM_LED_OFF, 'LOW']
-        ]), 'STAT');
+        this.appendValueInput('PIN')
+            .appendField(RoboBlocks.LANG_ZUM_LED)
+            .appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom))
+            .appendField(RoboBlocks.LANG_ZUM_LED_PIN);
+        this.appendDummyInput()
+            .appendField('state')
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(new Blockly.FieldDropdown([
+                [RoboBlocks.LANG_ZUM_LED_ON, 'HIGH'],
+                [RoboBlocks.LANG_ZUM_LED_OFF, 'LOW']
+            ]), 'STAT');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.LANG_ZUM_LED_TOOLTIP);
