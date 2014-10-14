@@ -1,1 +1,0 @@
-{{varType}} {{varName}};

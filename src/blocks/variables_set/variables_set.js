@@ -61,18 +61,22 @@ Blockly.Blocks.variables_set = {
 
         for (var i in variables){
             if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
-                this.removeInput('DUMMY');
-                this.removeInput('VALUE');
+                try{
+                    this.removeInput('DUMMY');
+                    this.removeInput('VALUE');
 
-                this.appendDummyInput('DUMMY')
-                    .appendField(RoboBlocks.LANG_VARIABLES_SET)
-                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
-                this.appendValueInput('VALUE')
-                    .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
-                    .setAlign(Blockly.ALIGN_RIGHT);
-                this.setInputsInline(true);
 
+                    this.appendDummyInput('DUMMY')
+                        .appendField(RoboBlocks.LANG_VARIABLES_SET)
+                        .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                    this.appendValueInput('VALUE')
+                        .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
+                        .setAlign(Blockly.ALIGN_RIGHT);
+                    this.setInputsInline(true);
+
+                }catch(e){}
                 this.last_variables=Blockly.Variables.allVariables();
             }
         }

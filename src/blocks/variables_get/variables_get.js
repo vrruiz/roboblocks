@@ -48,7 +48,9 @@ Blockly.Blocks.variables_get = {
 
         for (var i in variables){
             if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
-                this.removeInput('DUMMY');
+                try{
+                    this.removeInput('DUMMY');
+                }catch(e){}
 
                 this.appendDummyInput('DUMMY')
                     .appendField(RoboBlocks.LANG_VARIABLES_GET)

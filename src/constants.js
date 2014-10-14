@@ -213,6 +213,16 @@ RoboBlocks.LANG_MATH_BASE_MAP_VALUE_TO='Value to [0-';
 RoboBlocks.LANG_MATH_BASE_MAP_BRACKET = ']';
 RoboBlocks.LANG_MATH_BASE_MAP_TOOLTIP='Re-maps a number from [0-1024] to another.';
 
+RoboBlocks.LANG_MATH_SINGLE_OP_ROOT = 'square root';
+RoboBlocks.LANG_MATH_SINGLE_OP_ABSOLUTE = 'absolute';
+RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_ROOT = 'Returns the square root of a number.';
+RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_ABS = 'Returns the absolute value of a number.';
+RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_NEG = 'Returns the negation of a number.';
+RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_LN = 'Returns the natural logarithm of a number.';
+RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_LOG10 = 'Returns the base 10 logarithm of a number.';
+RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_EXP = 'Returns e to the power of a number.';
+RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_POW10 = 'Returns 10 to the power of a number.';
+
 //text blocks: 
 RoboBlocks.LANG_CATEGORY_TEXT='Text';
 
@@ -357,6 +367,11 @@ RoboBlocks.LANG_VARIABLES_DECLARE='Declare a variable ';
 RoboBlocks.LANG_VARIABLES_DECLARE_TYPE='of type ';
 RoboBlocks.LANG_VARIABLES_DECLARE_TOOLTIP='Declare a variable of type int or String';
 
+RoboBlocks.LANG_VARIABLE='New variable ';
+RoboBlocks.LANG_VARIABLE_TYPE='of type ';
+RoboBlocks.LANG_VARIABLE_EQUALS='equals';
+RoboBlocks.LANG_VARIABLE_TOOLTIP='Declare and define a variable of type int or String';
+
 RoboBlocks.LANG_VARIABLES_DEFINE='Define variable ';
 RoboBlocks.LANG_VARIABLES_DEFINE_AS='as';
 RoboBlocks.LANG_VARIABLES_DEFINE_TOOLTIP='Define the value of a variable';
@@ -368,6 +383,8 @@ RoboBlocks.LANG_VARIABLES_SET_TOOLTIP='Set the value of a variable';
 
 RoboBlocks.LANG_VARIABLES_GET='Variable ';
 RoboBlocks.LANG_VARIABLES_GET_TOOLTIP='Get the value of a variable';
+
+RoboBlocks.LANG_VARIABLES_PIN_TOOLTIP='Select the PIN';
 
 //zum blocks : 
 RoboBlocks.LANG_CATEGORY_ZUM='zum';

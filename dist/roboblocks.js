@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.6 - 2014-10-13
+/*! roboblocks - v0.0.6 - 2014-10-14
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -266,6 +266,16 @@
         RoboBlocks.LANG_MATH_BASE_MAP_BRACKET = ']';
         RoboBlocks.LANG_MATH_BASE_MAP_TOOLTIP = 'Re-maps a number from [0-1024] to another.';
 
+        RoboBlocks.LANG_MATH_SINGLE_OP_ROOT = 'square root';
+        RoboBlocks.LANG_MATH_SINGLE_OP_ABSOLUTE = 'absolute';
+        RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_ROOT = 'Returns the square root of a number.';
+        RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_ABS = 'Returns the absolute value of a number.';
+        RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_NEG = 'Returns the negation of a number.';
+        RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_LN = 'Returns the natural logarithm of a number.';
+        RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_LOG10 = 'Returns the base 10 logarithm of a number.';
+        RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_EXP = 'Returns e to the power of a number.';
+        RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_POW10 = 'Returns 10 to the power of a number.';
+
         //text blocks: 
         RoboBlocks.LANG_CATEGORY_TEXT = 'Text';
 
@@ -410,6 +420,11 @@
         RoboBlocks.LANG_VARIABLES_DECLARE_TYPE = 'of type ';
         RoboBlocks.LANG_VARIABLES_DECLARE_TOOLTIP = 'Declare a variable of type int or String';
 
+        RoboBlocks.LANG_VARIABLE = 'New variable ';
+        RoboBlocks.LANG_VARIABLE_TYPE = 'of type ';
+        RoboBlocks.LANG_VARIABLE_EQUALS = 'equals';
+        RoboBlocks.LANG_VARIABLE_TOOLTIP = 'Declare and define a variable of type int or String';
+
         RoboBlocks.LANG_VARIABLES_DEFINE = 'Define variable ';
         RoboBlocks.LANG_VARIABLES_DEFINE_AS = 'as';
         RoboBlocks.LANG_VARIABLES_DEFINE_TOOLTIP = 'Define the value of a variable';
@@ -421,6 +436,8 @@
 
         RoboBlocks.LANG_VARIABLES_GET = 'Variable ';
         RoboBlocks.LANG_VARIABLES_GET_TOOLTIP = 'Get the value of a variable';
+
+        RoboBlocks.LANG_VARIABLES_PIN_TOOLTIP = 'Select the PIN';
 
         //zum blocks : 
         RoboBlocks.LANG_CATEGORY_ZUM = 'zum';
@@ -518,13 +535,7 @@
                     ['10', '10'],
                     ['11', '11'],
                     ['12', '12'],
-                    ['13', '13'],
-                    ['A0', 'A0'],
-                    ['A1', 'A1'],
-                    ['A2', 'A2'],
-                    ['A3', 'A3'],
-                    ['A4', 'A4'],
-                    ['A5', 'A5']
+                    ['13', '13']
                 ],
                 bluetooth: [
                     ['1', '1'],
@@ -1232,32 +1243,17 @@
             return __p
         };
 
-        this["JST"]["math_modulo"] = function(obj) {
+        this["JST"]["math_arithmetic"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
                 __p +=
                     __e(argument0) +
-                    '%' +
-                    __e(argument1);
-
-            }
-            return __p
-        };
-
-        this["JST"]["math_arithmetic"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '(' +
-                    __e(argument0) +
-                    '' +
+                    ' ' +
                     __e(operator) +
-                    '' +
-                    __e(argument1) +
-                    ')';
+                    ' ' +
+                    __e(argument1);
 
             }
             return __p
@@ -1268,11 +1264,25 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'Math.pow(' +
+                __p += 'pow(' +
                     __e(argument0) +
                     ',' +
                     __e(argument1) +
                     ')';
+
+            }
+            return __p
+        };
+
+        this["JST"]["math_modulo"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    __e(argument0) +
+                    '%' +
+                    __e(argument1);
 
             }
             return __p
@@ -1637,36 +1647,6 @@
                     ',' +
                     __e(to) +
                     ')';
-
-            }
-            return __p
-        };
-
-        this["JST"]["variables_declare"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p +=
-                    __e(varType) +
-                    ' ' +
-                    __e(varName) +
-                    ';\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["variables_define"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p +=
-                    __e(varName) +
-                    '=' +
-                    __e(varValue) +
-                    ';\n';
 
             }
             return __p
@@ -2166,11 +2146,15 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendValueInput('PIN')
+                this.appendDummyInput()
                     .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE)
-                    .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom))
+                    .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+
+                this.appendValueInput('PIN')
                     .setCheck(Number)
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1);
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
                 this.appendValueInput('PIN2')
                     .setCheck(Number)
                     .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2)
@@ -2512,9 +2496,9 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.bq_piezo_buzzer = function() {
-            var dropdown_pin = this.getFieldValue('PIN');
-            var dropdown_stat = this.getFieldValue('STAT');
-            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
+            var dropdown_pin = this.getFieldValue('PIN') || '';
+            var dropdown_stat = this.getFieldValue('STAT') || '';
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC) || '';
 
             var code = JST['bq_piezo_buzzer']({
                 'dropdown_pin': dropdown_pin,
@@ -2545,7 +2529,9 @@
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom));
                 this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_PIN)
-                    .setCheck(Number);
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_TONE)
                     .appendField(new Blockly.FieldDropdown([
@@ -2556,7 +2542,9 @@
                         [RoboBlocks.LANG_BQ_PIEZO_BUZZER_SOL, '392'],
                         [RoboBlocks.LANG_BQ_PIEZO_BUZZER_LA, '440'],
                         [RoboBlocks.LANG_BQ_PIEZO_BUZZER_SI, '494']
-                    ]), 'STAT'); //523
+                    ]), 'STAT') //523
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
                 this.appendValueInput('DURA', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
@@ -2570,7 +2558,7 @@
 
 
         // Source: src/blocks/bq_piezo_buzzerav/bq_piezo_buzzerav.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2605,11 +2593,11 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendDummyInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod08.png', 208 * options.zoom, 140 * options.zoom))
                     .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+                    .setCheck(Number);
 
                 this.appendValueInput('TONE', Number)
                     .setCheck(Number)
@@ -2628,7 +2616,7 @@
         };
 
         // Source: src/blocks/bq_potentiometer/bq_potentiometer.js
-        /* global Blockly, options, profiles, JST, RoboBlocks */
+        /* global Blockly, options,JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -2657,11 +2645,11 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendDummyInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.LANG_BQ_POTENTIOMETER)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod06.png', 208 * options.zoom, 139 * options.zoom))
                     .appendField(RoboBlocks.LANG_BQ_POTENTIOMETER_PIN)
-                    .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
+                    .setCheck(Number);
                 this.setOutput(true, Number);
                 this.setTooltip(RoboBlocks.LANG_BQ_POTENTIOMETER_TOOLTIP);
             }
@@ -3458,6 +3446,44 @@
             UNTIL: RoboBlocks.LANG_CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL
         };
 
+        // Source: src/blocks/datum/datum.js
+        /* global Blockly, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * datum code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        // Blockly.Blocks.datum.validator = function(text) {
+        //   // Ensure that only a number may be entered.
+        //   // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
+        //     var n = window.parseFloat(text || 0);
+        //     return window.isNaN(n) ? null : String(n);
+        // };
+
+        Blockly.Arduino.datum = function() {
+            // Numeric value.
+            var code = window.parseFloat(this.getFieldValue('NUM'));
+            // -4.abs() returns -4 in Dart due to strange order of operation choices.
+            // -4 is actually an operator and a number.  Reflect this in the order.
+            var order = code < 0 ? Blockly.Arduino.ORDER_UNARY_PREFIX : Blockly.Arduino.ORDER_ATOMIC;
+            return [code, order];
+        };
+
+        Blockly.Blocks.datum = {
+            // Numeric value.
+            category: RoboBlocks.LANG_CATEGORY_MATH, // Variables are handled specially.
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/datum',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MATH);
+                // this.appendDummyInput()
+                // .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.datum.validator), 'NUM');
+                this.setOutput(true, Number);
+                this.setTooltip(RoboBlocks.LANG_DATUM_TOOLTIP);
+            }
+        };
+
         // Source: src/blocks/inout_analog_read/inout_analog_read.js
         /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
@@ -3982,7 +4008,7 @@
                 });
                 return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
             }
-            code = JST['math_arithmetic_pow']({
+            code = JST['math_arithmetic']({
                 'argument0': argument0,
                 'argument1': argument1,
                 'operator': operator
@@ -4155,29 +4181,179 @@
             }
         };
 
-        // Source: src/blocks/pin/pin.js
+        // Source: src/blocks/math_single/math_single.js
+        /* global Blockly, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * math_single code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.math_single = function() {
+            // Math operators with single operand.
+            var operator = this.getTitleValue('OP');
+            var code;
+            var arg;
+            if (operator === 'NEG') {
+                // Negation is a special case given its different operator precedents.
+                arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_UNARY_PREFIX) || '';
+                if (arg[0] === '-') {
+                    // --3 is not legal in Dart.
+                    arg = ' ' + arg;
+                }
+                code = '-' + arg;
+                return [code, Blockly.Arduino.ORDER_UNARY_PREFIX];
+            }
+            if (operator === 'ABS)') {
+                arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
+            } else if (operator === 'SIN' || operator === 'COS' || operator === 'TAN') {
+                arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_MULTIPLICATIVE) || '';
+            } else {
+                arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE) || '';
+            }
+            var PI = 3.14159;
+            // First, handle cases which generate values that don't need parentheses.
+            switch (operator) {
+                case 'ABS':
+                    code = arg + '.abs()';
+                    break;
+                case 'ROOT':
+                    code = 'sqrt(' + arg + ')';
+                    break;
+                case 'LN':
+                    code = 'log(' + arg + ')';
+                    break;
+                case 'EXP':
+                    code = 'exp(' + arg + ')';
+                    break;
+                case 'POW10':
+                    code = 'pow(10,' + arg + ')';
+                    break;
+                case 'SIN':
+                    code = 'sin(' + arg + ' / 180 * ' + PI + ')';
+                    break;
+                case 'COS':
+                    code = 'cos(' + arg + ' / 180 * ' + PI + ')';
+                    break;
+                case 'TAN':
+                    code = 'tan(' + arg + ' / 180 * ' + PI + ')';
+                    break;
+            }
+            if (code) {
+                return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
+            }
+            // Second, handle cases which generate values that may need parentheses.
+            switch (operator) {
+                case 'LOG10':
+                    code = 'log(' + arg + ') / log(10)';
+                    break;
+                case 'ASIN':
+                    code = 'asin(' + arg + ') / ' + PI + ' * 180';
+                    break;
+                case 'ACOS':
+                    code = 'acos(' + arg + ') / ' + PI + ' * 180';
+                    break;
+                case 'ATAN':
+                    code = 'atan(' + arg + ') / ' + PI + ' * 180';
+                    break;
+                default:
+                    throw 'Unknown math operator: ' + operator;
+            }
+            return [code, Blockly.Arduino.ORDER_MULTIPLICATIVE];
+        };
+
+
+        Blockly.Blocks.math_single = {
+            // Advanced math operators with single operand.
+            category: RoboBlocks.LANG_CATEGORY_MATH,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_single',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MATH);
+                this.setOutput(true, Number);
+                this.appendValueInput('NUM')
+                    .setCheck(Number)
+                    .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+                // Assign 'this' to a variable for use in the tooltip closure below.
+                var thisBlock = this;
+                this.setTooltip(function() {
+                    var mode = thisBlock.getTitleValue('OP');
+                    return Blockly.Blocks.math_single.TOOLTIPS[mode];
+                });
+            }
+        };
+
+        Blockly.Blocks.math_single.OPERATORS = [
+            [RoboBlocks.LANG_MATH_SINGLE_OP_ROOT, 'ROOT'],
+            [RoboBlocks.LANG_MATH_SINGLE_OP_ABSOLUTE, 'ABS'],
+            ['-', 'NEG'],
+            ['ln', 'LN'],
+            ['log10', 'LOG10'],
+            ['e^', 'EXP'],
+            ['10^', 'POW10']
+        ];
+
+        Blockly.Blocks.math_single.TOOLTIPS = {
+            ROOT: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_ROOT,
+            ABS: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_ABS,
+            NEG: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_NEG,
+            LN: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_LN,
+            LOG10: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_LOG10,
+            EXP: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_EXP,
+            POW10: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_POW10
+        };
+
+        // Source: src/blocks/pin_analog/pin_analog.js
         /* global Blockly, profiles, RoboBlocks */
 
         /**
          * pin code generation
          * @return {String} Code generated with block parameters
          */
-        Blockly.Arduino.pin = function() {
+        Blockly.Arduino.pin_analog = function() {
             var pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_NONE);
             return [pin, Blockly.Arduino.ORDER_NONE];
         };
 
-        Blockly.Blocks.pin = {
+        Blockly.Blocks.pin_analog = {
             category: RoboBlocks.LANG_CATEGORY_VARIABLES,
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/pin',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendDummyInput('')
+                    .appendField('Analog pin')
+                    .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
+
+                this.setInputsInline(true);
+                this.setOutput(true, Number);
+                this.setTooltip(RoboBlocks.LANG_VARIABLES_PIN_TOOLTIP);
+            }
+        };
+
+        // Source: src/blocks/pin_digital/pin_digital.js
+        /* global Blockly, profiles, RoboBlocks */
+
+        /**
+         * pin code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.pin_digital = function() {
+            var pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_NONE);
+            return [pin, Blockly.Arduino.ORDER_NONE];
+        };
+
+        Blockly.Blocks.pin_digital = {
+            category: RoboBlocks.LANG_CATEGORY_VARIABLES,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/pin',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
+                this.appendDummyInput('')
+                    .appendField('Digital pin')
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
 
                 this.setInputsInline(true);
                 this.setOutput(true, Number);
-                this.setTooltip(RoboBlocks.LANG_ADVANCED_pin_TOOLTIP);
+                this.setTooltip(RoboBlocks.LANG_VARIABLES_PIN_TOOLTIP);
             }
         };
 
@@ -5570,50 +5746,58 @@
                 this.setTooltip(RoboBlocks.LANG_TEXT_SUBSTRING_TOOLTIP);
             }
         };
-        // Source: src/blocks/variables_declare/variables_declare.js
+        // Source: src/blocks/variable/variable.js
 
-        /* global Blockly, JST, RoboBlocks */
+        /* global Blockly,  RoboBlocks */
         /* jshint sub:true */
 
         /**
-         * variables_declare code generation
+         * variable code generation
          * @return {String} Code generated with block parameters
          */
-        Blockly.Arduino.variables_declare = function() {
+        function isNumber(obj) {
+            return !isNaN(parseFloat(obj));
+        }
+
+        Blockly.Arduino.variable = function() {
             // Variable setter.
-            var varType = Blockly.Arduino.valueToCode(this, 'TYPE', Blockly.Arduino.ORDER_ASSIGNMENT) || '';
+            var varType;
+            var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
+            if (isNumber(varValue)) {
+                varType = 'int';
+            } else {
+                varType = 'String';
+            }
             var varName = this.getFieldValue('VAR') || '';
-            Blockly.Arduino.definitions_['define_var' + varName] = JST['variables_declare']({
-                'varType': varType,
-                'varName': varName
-            });
+
+            // Blockly.Arduino.definitions_['declare_var'+varName] = JST['variable']({
+            //     'varType': varType,
+            //     'varName': varName
+            // });
+            Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName;
+            Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue;
 
             return '';
         };
 
-        Blockly.Blocks.variables_declare = {
+
+        Blockly.Blocks.variable = {
             // Variable setter.
             category: RoboBlocks.LANG_CATEGORY_VARIABLES, // Variables are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_declare',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variable',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendDummyInput()
-                    .appendField(RoboBlocks.LANG_VARIABLES_DECLARE)
-                    // .appendField(new Blockly.FieldVariable(Blockly.LANG_VARIABLES_SET_ITEM), 'VAR');
+                    .appendField(RoboBlocks.LANG_VARIABLE)
                     .appendField(new Blockly.FieldTextInput(''), 'VAR');
 
-
-                this.appendDummyInput()
-                    .appendField(RoboBlocks.LANG_VARIABLES_DECLARE_TYPE)
-                    .appendField(new Blockly.FieldDropdown([
-                        ['int', 'int'],
-                        ['String', 'String']
-                    ]), 'TYPE');
+                this.appendValueInput('VALUE')
+                    .appendField(RoboBlocks.LANG_VARIABLE_EQUALS);
 
                 this.setInputsInline(true);
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
-                this.setTooltip(RoboBlocks.LANG_VARIABLES_DECLARE_TOOLTIP);
+                this.setTooltip(RoboBlocks.LANG_VARIABLE_TOOLTIP);
             },
             getVars: function() {
                 return [this.getFieldValue('VAR')];
@@ -5622,91 +5806,9 @@
                 if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
                     this.setFieldValue(newName, 'VAR');
                 }
-            }
-        };
-        // Source: src/blocks/variables_define/variables_define.js
-
-        /* global Blockly, JST, RoboBlocks */
-        /* jshint sub:true */
-
-        /**
-         * variables_define code generation
-         * @return {String} Code generated with block parameters
-         */
-        Blockly.Arduino.variables_define = function() {
-            // Variable setter.
-            var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT) || '';
-            var varName = this.getFieldValue('VAR') || '';
-
-            Blockly.Arduino.setups_['setup_var' + varName] = JST['variables_define']({
-                'varName': varName,
-                'varValue': varValue
-            });
-
-            return '';
+            },
         };
 
-        Blockly.Blocks.variables_define = {
-            // Variable setter.
-            category: RoboBlocks.LANG_CATEGORY_VARIABLES, // Variables are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_define',
-            init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
-                this.appendDummyInput('DUMMY')
-                    .appendField(RoboBlocks.LANG_VARIABLES_DEFINE)
-                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
-                this.appendValueInput('VALUE')
-                    .appendField(RoboBlocks.LANG_VARIABLES_DEFINE_AS)
-                    .setAlign(Blockly.ALIGN_RIGHT);
-                this.setInputsInline(true);
-
-                this.setPreviousStatement(true);
-                this.setNextStatement(true);
-                this.setTooltip(RoboBlocks.LANG_VARIABLES_DEFINE_TOOLTIP);
-            },
-            getVariables: function() {
-                var variables = Blockly.Variables.allVariables();
-                var dropdown = [];
-                if (variables.length > 0) {
-                    for (var i in variables) {
-                        dropdown.push([variables[i], variables[i]]);
-                    }
-                } else {
-                    dropdown.push(['', '']);
-                }
-                return dropdown;
-            },
-            onchange: function() {
-                if (!this.last_variables) {
-                    this.last_variables = Blockly.Variables.allVariables();
-                }
-                var variables = Blockly.Variables.allVariables();
-
-                for (var i in variables) {
-                    if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
-                        this.removeInput('DUMMY');
-                        this.removeInput('VALUE');
-
-                        this.appendDummyInput('DUMMY')
-                            .appendField(RoboBlocks.LANG_VARIABLES_DEFINE)
-                            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
-                        this.appendValueInput('VALUE')
-                            .appendField(RoboBlocks.LANG_VARIABLES_DEFINE_AS)
-                            .setAlign(Blockly.ALIGN_RIGHT);
-                        this.setInputsInline(true);
-
-                        this.last_variables = Blockly.Variables.allVariables();
-                    }
-                }
-            },
-            renameVar: function(oldName, newName) {
-                if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-                    this.setTitleValue(newName, 'VAR');
-                }
-            }
-        };
         // Source: src/blocks/variables_get/variables_get.js
 
         /* global Blockly, RoboBlocks */
@@ -5756,7 +5858,9 @@
 
                 for (var i in variables) {
                     if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
-                        this.removeInput('DUMMY');
+                        try {
+                            this.removeInput('DUMMY');
+                        } catch (e) {}
 
                         this.appendDummyInput('DUMMY')
                             .appendField(RoboBlocks.LANG_VARIABLES_GET)
@@ -5834,18 +5938,22 @@
 
                 for (var i in variables) {
                     if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
-                        this.removeInput('DUMMY');
-                        this.removeInput('VALUE');
+                        try {
+                            this.removeInput('DUMMY');
+                            this.removeInput('VALUE');
 
-                        this.appendDummyInput('DUMMY')
-                            .appendField(RoboBlocks.LANG_VARIABLES_SET)
-                            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
-                        this.appendValueInput('VALUE')
-                            .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
-                            .setAlign(Blockly.ALIGN_RIGHT);
-                        this.setInputsInline(true);
 
+                            this.appendDummyInput('DUMMY')
+                                .appendField(RoboBlocks.LANG_VARIABLES_SET)
+                                .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                            this.appendValueInput('VALUE')
+                                .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
+                                .setAlign(Blockly.ALIGN_RIGHT);
+                            this.setInputsInline(true);
+
+                        } catch (e) {}
                         this.last_variables = Blockly.Variables.allVariables();
                     }
                 }

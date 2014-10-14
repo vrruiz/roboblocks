@@ -69,11 +69,15 @@ Blockly.Blocks.bq_bluetooth_slave = {
 	  */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-        this.appendValueInput('PIN')
+        this.appendDummyInput()
             .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE)
-            .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom))
+            .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+
+        this.appendValueInput('PIN')
             .setCheck(Number)
-            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1);
+            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1)
+            .setAlign(Blockly.ALIGN_RIGHT);
+
         this.appendValueInput('PIN2')
             .setCheck(Number)
             .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2)

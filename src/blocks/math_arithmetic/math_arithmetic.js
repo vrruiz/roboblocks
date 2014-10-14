@@ -24,7 +24,7 @@ Blockly.Arduino.math_arithmetic = function() {
         });
         return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
     }
-    code = JST['math_arithmetic_pow']({
+    code = JST['math_arithmetic']({
             'argument0':argument0,
             'argument1':argument1,
             'operator':operator

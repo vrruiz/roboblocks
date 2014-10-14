@@ -1,7 +1,7 @@
-variables_declare
-==========
+pin_analog
+===========
 
-variables_declare description
+pin_analog description
 
 Parameters
 ----------

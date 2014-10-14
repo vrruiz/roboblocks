@@ -1,7 +1,7 @@
-variables_define
-==========
+math_single
+===========
 
-variables_define description
+math_single description
 
 Parameters
 ----------
