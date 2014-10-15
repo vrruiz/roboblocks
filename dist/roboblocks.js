@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.6 - 2014-10-14
+/*! roboblocks - v0.0.6 - 2014-10-15
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -4613,8 +4613,9 @@
             var returnType = returnValue ? 'int' : 'void';
             var funcArgs = [];
             for (var x = 0; x < this.arguments_.length; x++) {
-                funcArgs[x] = 'int ' + Blockly.Arduino.variableDB_.getName(this.arguments_[x], Blockly.Variables.NAME_TYPE);
-                funcArgs[x] = funcArgs[x].substr(0, funcArgs[x].length - 1);
+                funcArgs[x] = this.type_arguments_ + ' ' + this.arguments_;
+                // funcArgs[x] = 'int '+Blockly.Arduino.variableDB_.getName(this.arguments_[x],Blockly.Variables.NAME_TYPE);
+                // funcArgs[x]=funcArgs[x].substr(0,funcArgs[x].length-1);
             }
             var args = funcArgs.join(', ');
 
@@ -5870,7 +5871,7 @@
             //     'varName': varName
             // });
             // Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';';
-            var code = varType + ' ' + varName + ';\n' + varName + '=' + varValue + ';';
+            var code = varType + ' ' + varName + ';\n' + varName + '=' + varValue + ';\n';
 
             return code;
         };
