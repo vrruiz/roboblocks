@@ -1,9 +1,9 @@
-  adc_key_in =analogRead(+dropdown_pin+);
+  adc_key_in =analogRead({{dropdown_pin}});
   key = get_key(adc_key_in);
   if (key != oldkey)
   {
     delay(50);
-    adc_key_in = analogRead(+dropdown_pin+);
+    adc_key_in = analogRead({{dropdown_pin}});
     key = get_key(adc_key_in);
     if (key != oldkey)
     {

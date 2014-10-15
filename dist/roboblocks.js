@@ -818,7 +818,11 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '  adc_key_in =analogRead(+dropdown_pin+);\n  key = get_key(adc_key_in);\n  if (key != oldkey)\n  {\n    delay(50);\n    adc_key_in = analogRead(+dropdown_pin+);\n    key = get_key(adc_key_in);\n    if (key != oldkey)\n    {\n      oldkey = key;\n      if (key >=0){\n        switch(key)\n        {\n          case 0:\n           code_btn1\n          break;\n          case 1:\n           code_btn2\n          break;\n          case 2:\n           code_btn3\n          break;\n          case 3:\n           code_btn4\n          break;  \n          case 4:\n           code_btn5\n          break;\n        }      \n      }\n    }\n  }\n';
+                __p += '  adc_key_in =analogRead(' +
+                    __e(dropdown_pin) +
+                    ');\n  key = get_key(adc_key_in);\n  if (key != oldkey)\n  {\n    delay(50);\n    adc_key_in = analogRead(' +
+                    __e(dropdown_pin) +
+                    ');\n    key = get_key(adc_key_in);\n    if (key != oldkey)\n    {\n      oldkey = key;\n      if (key >=0){\n        switch(key)\n        {\n          case 0:\n           code_btn1\n          break;\n          case 1:\n           code_btn2\n          break;\n          case 2:\n           code_btn3\n          break;\n          case 3:\n           code_btn4\n          break;  \n          case 4:\n           code_btn5\n          break;\n        }      \n      }\n    }\n  }\n';
 
             }
             return __p
