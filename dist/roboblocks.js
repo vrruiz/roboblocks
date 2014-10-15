@@ -5321,7 +5321,7 @@
                 'dropdown_pin': dropdown_pin
             });
 
-            return code;
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
         /**

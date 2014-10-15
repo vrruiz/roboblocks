@@ -20,7 +20,7 @@ Blockly.Arduino.servo_read_degrees = function() {
         'dropdown_pin': dropdown_pin
     });
 
-    return code;
+    return [code,Blockly.Arduino.ORDER_ATOMIC];
 };
 
 /**
