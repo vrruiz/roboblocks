@@ -7,7 +7,14 @@
   * variable code generation
   * @return {String} Code generated with block parameters
   */
-function isNumber(obj) { return !isNaN(parseFloat(obj)); }
+function isNumber(obj) {
+    if (obj.search('read')!==-1){
+        return true;
+    }
+    else {
+        return !isNaN(parseFloat(obj));
+    }
+}
 
 Blockly.Arduino.variables_global = function() {
   // Variable setter.
@@ -21,10 +28,6 @@ Blockly.Arduino.variables_global = function() {
     }
     var varName = this.getFieldValue('VAR')||'';
 
-    // Blockly.Arduino.definitions_['declare_var'+varName] = JST['variable']({
-    //     'varType': varType,
-    //     'varName': varName
-    // });
     Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';';
     Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';';
     
@@ -57,5 +60,5 @@ Blockly.Blocks.variables_global = {
         if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
             this.setFieldValue(newName, 'VAR');
         }
-    },
+    }
 };
