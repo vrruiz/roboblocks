@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'zum_photoresistor');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n\n}\n\n\nvoid loop()\n{\n  analogRead(A0);\n\n}');
+				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n\n}\n\n\nvoid loop()\n{\n  analogRead();\n\n}');
 			});
 		});
 	});

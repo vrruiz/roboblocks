@@ -7,7 +7,7 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.zum_photoresistor = function() {
-    var dropdown_pin = this.getFieldValue('PIN');
+    var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC)||'';
 
     var code = JST['zum_photoresistor']({
         'dropdown_pin': dropdown_pin

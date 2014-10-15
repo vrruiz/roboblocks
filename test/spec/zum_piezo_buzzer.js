@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'zum_piezo_buzzer');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n\n}\n\n\nvoid loop()\n{\n  tone(1,261,);\n  delay();\n\n}');
+				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n\n}\n\n\nvoid loop()\n{\n  tone(,261,);\n  delay();\n\n}');
 			});
 		});
 

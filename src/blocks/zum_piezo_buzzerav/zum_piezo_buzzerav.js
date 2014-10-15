@@ -7,7 +7,7 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.zum_piezo_buzzerav = function() {
-    var dropdown_pin = this.getFieldValue('PIN');
+    var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC)||'';
     var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC);
     var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
 

@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'zum_button');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n  pinMode(1,INPUT_PULLUP);\n\n}\n\n\nvoid loop()\n{\n  digitalRead(1);\n\n}');
+				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n  pinMode(,INPUT_PULLUP);\n\n}\n\n\nvoid loop()\n{\n  digitalRead();\n\n}');
 			});
 		});
 	});

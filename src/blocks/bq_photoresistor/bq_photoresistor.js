@@ -8,7 +8,7 @@
  */
 //        var code = 'analogRead(' + dropdown_pin + ')';
 Blockly.Arduino.bq_photoresistor = function() {
-    var dropdown_pin = this.getFieldValue('PIN');
+    var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
 
     var code = JST['bq_photoresistor']({
         'dropdown_pin': dropdown_pin

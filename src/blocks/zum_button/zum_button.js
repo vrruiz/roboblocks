@@ -7,7 +7,7 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.zum_button = function() {
-    var dropdown_pin = this.getFieldValue('PIN');
+    var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
 
     Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['zum_button_setups']({
         'dropdown_pin': dropdown_pin,

@@ -26,8 +26,8 @@
 // };
 
 Blockly.Arduino.bq_bluetooth_slave = function() {
-    var dropdown_pin = this.getFieldValue('PIN');
-    var NextPIN = this.getFieldValue('PIN2');
+    var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+    var NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
     var name = this.getFieldValue('NAME');
     var pincode = this.getFieldValue('PINCODE');
     var statement_receive = Blockly.Arduino.statementToCode(this, 'RCV');

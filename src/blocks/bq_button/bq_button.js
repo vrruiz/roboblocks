@@ -8,7 +8,7 @@
  */
 Blockly.Arduino.bq_button = function() {
 
-    var dropdown_pin = this.getFieldValue('PIN');
+    var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
 
     Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['bq_button_setups']({
         'dropdown_pin': dropdown_pin,

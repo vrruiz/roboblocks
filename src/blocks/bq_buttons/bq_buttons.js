@@ -9,7 +9,7 @@
 
 
 Blockly.Arduino.bq_buttons = function() {
-    var dropdown_pin = this.getFieldValue('PIN');
+    var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
 //  var code_btn1 = Blockly.Arduino.statementToCode(this, 'BUTN1');
 //  var code_btn2 = Blockly.Arduino.statementToCode(this, 'BUTN2');
 //  var code_btn3 = Blockly.Arduino.statementToCode(this, 'BUTN3');
