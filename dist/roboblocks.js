@@ -2030,8 +2030,8 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.bq_bat = function() {
-            var red_pin = Blockly.Arduino.valueToCode(this, 'RED PIN');
-            var blue_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN');
+            var red_pin = Blockly.Arduino.valueToCode(this, 'RED PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var blue_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN', Blockly.Arduino.ORDER_ATOMIC);
 
             Blockly.Arduino.setups_['setup_bq_bat_'] = JST['bq_bat_setups']({
                 'red_pin': red_pin,
