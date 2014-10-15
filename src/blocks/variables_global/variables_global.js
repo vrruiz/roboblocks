@@ -26,6 +26,7 @@ Blockly.Arduino.variables_global = function() {
   // Variable setter.
     var varType;
     var varValue=Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
+    console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('read'));
     if(isNumber(varValue)){
         varType='int';
     }
