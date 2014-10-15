@@ -19,12 +19,8 @@ Blockly.Arduino.procedures_defreturn = function(){
         returnValue = '  return ' + returnValue + ';\n';
     }
     var returnType = returnValue ? 'int' : 'void';
-    var funcArgs = [];
-    for (var x = 0; x < this.arguments_.length; x++) {
-        funcArgs[x] = 'int '+Blockly.Arduino.variableDB_.getName(this.arguments_[x],Blockly.Variables.NAME_TYPE);
-        funcArgs[x]=funcArgs[x].substr(0,funcArgs[x].length-1);
-    }
-    var args=funcArgs.join(', ');
+
+    var args=this.paramString;
 
     var code = JST ['procedures_defreturn']({
         'returnType':returnType,

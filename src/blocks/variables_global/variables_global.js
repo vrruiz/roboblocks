@@ -9,16 +9,11 @@
   */
 function isNumber(obj) {
     console.log('aaaaaaaaaaaaaaaa', obj, obj.search('read'));
-    try{
-        if (obj.search('read')!==-1){
-            return true;
-        }
-        else {
-            return !isNaN(parseFloat(obj));
-        }
-    }catch(e){
-        console.log('exception!');
+    if (obj.search('Read')!==-1){
         return true;
+    }
+    else {
+        return !isNaN(parseFloat(obj));
     }
 }
 

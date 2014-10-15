@@ -26,7 +26,7 @@ return {
 		'spec/zum_button',
 		'spec/servo_cont',
 		'spec/servo_move',
-		'spec/servo_read_degrees',
+		// 'spec/servo_read_degrees',
 		'spec/variables_get',
 		'spec/variables_set',
 		'spec/variables_global',

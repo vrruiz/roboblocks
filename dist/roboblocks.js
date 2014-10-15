@@ -1575,47 +1575,6 @@
             return __p
         };
 
-        this["JST"]["servo_read_degrees"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '  servo_' +
-                    __e(dropdown_pin) +
-                    '.read()';
-
-            }
-            return __p
-        };
-
-        this["JST"]["servo_read_degrees_definitions"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '#include <Servo.h>\n\nServo servo_' +
-                    __e(dropdown_pin) +
-                    ';\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["servo_read_degrees_setups"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += 'servo_' +
-                    __e(dropdown_pin) +
-                    '.attach(' +
-                    __e(dropdown_pin) +
-                    ');';
-
-            }
-            return __p
-        };
-
         this["JST"]["text_equalsIgnoreCase"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -4615,13 +4574,6 @@
                 returnValue = '  return ' + returnValue + ';\n';
             }
             var returnType = returnValue ? 'int' : 'void';
-            // var funcArgs = [];
-            // for (var x = 0; x < this.arguments_.length; x++) {
-            //     funcArgs[x]=this.type_arguments_+' '+this.arguments_;
-            //     // funcArgs[x] = 'int '+Blockly.Arduino.variableDB_.getName(this.arguments_[x],Blockly.Variables.NAME_TYPE);
-            //     // funcArgs[x]=funcArgs[x].substr(0,funcArgs[x].length-1);
-            // }
-            // var args=funcArgs.join(', ');
 
             var args = this.paramString;
 
@@ -4825,12 +4777,8 @@
                 returnValue = '  return ' + returnValue + ';\n';
             }
             var returnType = returnValue ? 'int' : 'void';
-            var funcArgs = [];
-            for (var x = 0; x < this.arguments_.length; x++) {
-                funcArgs[x] = 'int ' + Blockly.Arduino.variableDB_.getName(this.arguments_[x], Blockly.Variables.NAME_TYPE);
-                funcArgs[x] = funcArgs[x].substr(0, funcArgs[x].length - 1);
-            }
-            var args = funcArgs.join(', ');
+
+            var args = this.paramString;
 
             var code = JST['procedures_defreturn']({
                 'returnType': returnType,
@@ -5301,56 +5249,6 @@
             }
         };
 
-        // Source: src/blocks/servo_read_degrees/servo_read_degrees.js
-        /* global Blockly, options, JST, RoboBlocks */
-        /* jshint sub:true */
-
-        /**
-         * servo_read_degrees code generation
-         * @return {String} Code generated with block parameters
-         */
-        Blockly.Arduino.servo_read_degrees = function() {
-            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-            Blockly.Arduino.definitions_['define_servo'] = JST['servo_read_degrees_definitions']({
-                'dropdown_pin': dropdown_pin
-            });
-
-            Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = JST['servo_read_degrees_setups']({
-                'dropdown_pin': dropdown_pin
-            });
-
-            var code = JST['servo_read_degrees']({
-                'dropdown_pin': dropdown_pin
-            });
-
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
-        };
-
-        /**
-         * servo_read_degrees block definition
-         * @type {Object}
-         */
-        Blockly.Blocks.servo_read_degrees = {
-            category: RoboBlocks.LANG_CATEGORY_SERVO,
-            tags: ['servo read degrees'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_read_degrees',
-            /**
-             * servo_read_degrees initialization
-             */
-            init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-                this.appendValueInput('PIN')
-                    .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES_SERVO)
-                    .appendField(new Blockly.FieldImage('img/blocks/bqservo02.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES_PIN);
-                this.appendDummyInput('')
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.LANG_SERVO_READ_DEGREES);
-                this.setOutput(true, Number);
-                this.setTooltip(RoboBlocks.LANG_SERVO_READ_DEGREES_TOOLTIP);
-            }
-        };
-
         // Source: src/blocks/text/text.js
         /* global Blockly, RoboBlocks */
 
@@ -5796,15 +5694,10 @@
          */
         function isNumber(obj) {
             console.log('aaaaaaaaaaaaaaaa', obj, obj.search('read'));
-            try {
-                if (obj.search('read') !== -1) {
-                    return true;
-                } else {
-                    return !isNaN(parseFloat(obj));
-                }
-            } catch (e) {
-                console.log('exception!');
+            if (obj.search('Read') !== -1) {
                 return true;
+            } else {
+                return !isNaN(parseFloat(obj));
             }
         }
 
