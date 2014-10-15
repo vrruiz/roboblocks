@@ -8,12 +8,16 @@
   * @return {String} Code generated with block parameters
   */
 function isNumber(obj) {
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa', obj, obj.search('read'));
-    if (obj.search('read')!==-1){
+    try{
+        if (obj.search('read')!==-1){
+            return true;
+        }
+        else {
+            return !isNaN(parseFloat(obj));
+        }
+    }catch(e){
+        console.log('exception!');
         return true;
-    }
-    else {
-        return !isNaN(parseFloat(obj));
     }
 }
 
