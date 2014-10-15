@@ -56,7 +56,7 @@ Blockly.Blocks.controls_for = {
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/controls_for',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
-        this.appendDummyInput()
+        this.appendDummyInput('DUMMY')
             .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_WITH)
             .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
         this.appendValueInput('FROM')
@@ -105,16 +105,10 @@ Blockly.Blocks.controls_for = {
             if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
                 try{
                     this.removeInput('DUMMY');
-                    this.removeInput('VALUE');
 
                     this.appendDummyInput('DUMMY')
-                        .appendField(RoboBlocks.LANG_VARIABLES_SET)
+                        .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_WITH)
                         .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
-                    this.appendValueInput('VALUE')
-                        .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
-                        .setAlign(Blockly.ALIGN_RIGHT);
-                    this.setInputsInline(true);
 
                 }catch(e){}
                 this.last_variables=Blockly.Variables.allVariables();

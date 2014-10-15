@@ -2758,7 +2758,7 @@
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_for',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
-                this.appendDummyInput()
+                this.appendDummyInput('DUMMY')
                     .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_WITH)
                     .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
                 this.appendValueInput('FROM')
@@ -2806,16 +2806,10 @@
                     if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
                         try {
                             this.removeInput('DUMMY');
-                            this.removeInput('VALUE');
 
                             this.appendDummyInput('DUMMY')
-                                .appendField(RoboBlocks.LANG_VARIABLES_SET)
+                                .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_WITH)
                                 .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
-                            this.appendValueInput('VALUE')
-                                .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
-                                .setAlign(Blockly.ALIGN_RIGHT);
-                            this.setInputsInline(true);
 
                         } catch (e) {}
                         this.last_variables = Blockly.Variables.allVariables();
@@ -5766,25 +5760,33 @@
          * variable code generation
          * @return {String} Code generated with block parameters
          */
-        function isNumber(obj) {
-            if (obj.search('ead') !== -1) {
-                return true;
-            } else {
-                return !isNaN(parseFloat(obj));
-            }
-        }
+        // function isNumber(obj) {
+        //     if (obj.search('ead')>0){
+        //         return true;
+        //     }
+        //     else {
+        //         return !isNaN(parseFloat(obj));
+        //     }
+        // }
 
         Blockly.Arduino.variables_global = function() {
             // Variable setter.
             var varType;
             var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
-            // varValue='analogRead';
-            console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('ead'));
-            if (isNumber(varValue)) {
+            // varValue='digitalRead(';
+            console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('digitalRead'));
+            console.log(varValue.search('digitalRead'), varValue.search('digitalRead') > 0);
+
+            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)))) {
+                console.log('true!');
                 varType = 'int';
             } else {
+                console.log('false!');
                 varType = 'String';
             }
+
+            console.log('vartyyyyyyyyyype', varType);
+
             var varName = this.getFieldValue('VAR') || '';
 
             Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
