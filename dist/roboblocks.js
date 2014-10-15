@@ -5244,7 +5244,7 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.servo_move = function() {
-            var dropdown_pin = this.getFieldValue('PIN');
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
             value_degree = value_degree.replace('(', '').replace(')', '');
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
@@ -5308,7 +5308,7 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.servo_read_degrees = function() {
-            var dropdown_pin = this.getFieldValue('PIN');
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             Blockly.Arduino.definitions_['define_servo'] = JST['servo_read_degrees_definitions']({
                 'dropdown_pin': dropdown_pin
             });

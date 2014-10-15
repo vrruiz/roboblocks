@@ -7,7 +7,7 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.servo_read_degrees = function() {
-    var dropdown_pin = this.getFieldValue('PIN');
+    var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
     Blockly.Arduino.definitions_['define_servo'] = JST['servo_read_degrees_definitions']({
         'dropdown_pin': dropdown_pin
     });
