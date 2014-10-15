@@ -65,8 +65,6 @@ Blockly.Blocks.variables_set = {
                     this.removeInput('DUMMY');
                     this.removeInput('VALUE');
 
-
-
                     this.appendDummyInput('DUMMY')
                         .appendField(RoboBlocks.LANG_VARIABLES_SET)
                         .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');

@@ -8,8 +8,7 @@
   * @return {String} Code generated with block parameters
   */
 function isNumber(obj) {
-    console.log('aaaaaaaaaaaaaaaa', obj, obj.search('read'));
-    if (obj.search('Read')!==-1){
+    if (obj.search('ead')!==-1){
         return true;
     }
     else {
@@ -21,7 +20,8 @@ Blockly.Arduino.variables_global = function() {
   // Variable setter.
     var varType;
     var varValue=Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
-    console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('read'));
+    // varValue='analogRead';
+    // console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('ead'));
     if(isNumber(varValue)){
         varType='int';
     }

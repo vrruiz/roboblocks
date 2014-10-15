@@ -9,9 +9,7 @@
 
 Blockly.Arduino.controls_forEach = function() {
     // For each loop.
-    var variable0 = Blockly.Arduino.variableDB_.getName(
-        this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-    variable0=variable0.substring(0,variable0.length-1);
+    var variable0 = this.getFieldValue('VAR')||'';
     var argument0 = Blockly.Arduino.valueToCode(this, 'LIST',
         Blockly.Arduino.ORDER_ASSIGNMENT) || '[]';
     var branch = Blockly.Arduino.statementToCode(this, 'DO');
@@ -38,7 +36,7 @@ Blockly.Blocks.controls_forEach = {
         this.appendValueInput('LIST')
             .setCheck(Array)
             .appendField(RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_ITEM)
-            .appendField(new Blockly.FieldVariable(null), 'VAR')
+            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
             .appendField(RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_INLIST);
         this.appendStatementInput('DO')
             .appendField(RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_DO);
@@ -53,8 +51,47 @@ Blockly.Blocks.controls_forEach = {
     getVars: function() {
         return [this.getTitleValue('VAR')];
     },
+    getVariables: function(){
+        var variables= Blockly.Variables.allVariables();
+        var dropdown=[];
+        if (variables.length>0){
+            for (var i in variables){
+                dropdown.push([variables[i],variables[i]]);
+            }
+        }
+        else{
+            dropdown.push(['', '']);
+        }
+        return dropdown;
+    },
+    onchange: function(){
+        if (!this.last_variables){
+            this.last_variables=Blockly.Variables.allVariables();
+        }
+        var variables=Blockly.Variables.allVariables();
+
+        for (var i in variables){
+            if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
+                try{
+                    this.removeInput('DUMMY');
+                    this.removeInput('VALUE');
+
+                    this.appendDummyInput('DUMMY')
+                        .appendField(RoboBlocks.LANG_VARIABLES_SET)
+                        .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                    this.appendValueInput('VALUE')
+                        .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
+                        .setAlign(Blockly.ALIGN_RIGHT);
+                    this.setInputsInline(true);
+
+                }catch(e){}
+                this.last_variables=Blockly.Variables.allVariables();
+            }
+        }
+    },
     renameVar: function(oldName, newName) {
-        if (Blockly.Names.equals(oldName, this.getTitleValue('VAR'))) {
+        if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
             this.setTitleValue(newName, 'VAR');
         }
     }
