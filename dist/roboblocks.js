@@ -4615,13 +4615,15 @@
                 returnValue = '  return ' + returnValue + ';\n';
             }
             var returnType = returnValue ? 'int' : 'void';
-            var funcArgs = [];
-            for (var x = 0; x < this.arguments_.length; x++) {
-                funcArgs[x] = this.type_arguments_ + ' ' + this.arguments_;
-                // funcArgs[x] = 'int '+Blockly.Arduino.variableDB_.getName(this.arguments_[x],Blockly.Variables.NAME_TYPE);
-                // funcArgs[x]=funcArgs[x].substr(0,funcArgs[x].length-1);
-            }
-            var args = funcArgs.join(', ');
+            // var funcArgs = [];
+            // for (var x = 0; x < this.arguments_.length; x++) {
+            //     funcArgs[x]=this.type_arguments_+' '+this.arguments_;
+            //     // funcArgs[x] = 'int '+Blockly.Arduino.variableDB_.getName(this.arguments_[x],Blockly.Variables.NAME_TYPE);
+            //     // funcArgs[x]=funcArgs[x].substr(0,funcArgs[x].length-1);
+            // }
+            // var args=funcArgs.join(', ');
+
+            var args = this.paramString;
 
             var code = JST['procedures_defnoreturn']({
                 'returnType': returnType,
@@ -4683,8 +4685,8 @@
                 for (var i in this.arguments_) {
                     params.push(this.type_arguments_[i] + ' ' + this.arguments_[i]);
                 }
-                var paramString = params.join(', ');
-                this.setFieldValue(paramString, 'PARAMS');
+                this.paramString = params.join(', ');
+                this.setFieldValue(this.paramString, 'PARAMS');
             },
             decompose: function(workspace) {
                 var containerBlock = Blockly.Block.obtain(workspace, 'procedures_mutatorcontainer');
