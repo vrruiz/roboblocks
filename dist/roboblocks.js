@@ -872,7 +872,7 @@
             with(obj) {
                 __p += 'analogRead(' +
                     __e(dropdown_pin) +
-                    ')\n';
+                    ')';
 
             }
             return __p
