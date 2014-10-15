@@ -5793,6 +5793,7 @@
          * @return {String} Code generated with block parameters
          */
         function isNumber(obj) {
+            console.log('aaaaaaaaaaaaaaaa', obj, obj.search('read'));
             try {
                 if (obj.search('read') !== -1) {
                     return true;
