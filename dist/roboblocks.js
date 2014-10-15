@@ -5793,6 +5793,7 @@
          * @return {String} Code generated with block parameters
          */
         function isNumber(obj) {
+            console.log('aaaaaaaaaaaaaaaaaaaaaaaaa', obj, obj.search('read'));
             if (obj.search('read') !== -1) {
                 return true;
             } else {
@@ -5843,6 +5844,10 @@
                 if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
                     this.setFieldValue(newName, 'VAR');
                 }
+            },
+            onchange: function() {
+                console.log('aaaaaaaaaa', Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT));
+                isNumber(Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT));
             }
         };
 
