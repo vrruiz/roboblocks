@@ -65,9 +65,5 @@ Blockly.Blocks.variables_global = {
         if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
             this.setFieldValue(newName, 'VAR');
         }
-    },
-    onchange: function(){
-        console.log('aaaaaaaaaa', Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT));
-        isNumber(Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT));
     }
 };
