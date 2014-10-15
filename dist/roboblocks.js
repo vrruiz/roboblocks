@@ -5779,7 +5779,7 @@
             var varType;
             var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
             // varValue='analogRead';
-            // console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('ead'));
+            console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('ead'));
             if (isNumber(varValue)) {
                 varType = 'int';
             } else {
