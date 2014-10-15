@@ -6,7 +6,7 @@
   * @return {String} Code generated with block parameters
   */
 Blockly.Arduino.pin_analog = function() {
-    var pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_NONE);
+    var pin = this.getFieldValue('PIN')||'';
     return [pin, Blockly.Arduino.ORDER_NONE];
 };
 

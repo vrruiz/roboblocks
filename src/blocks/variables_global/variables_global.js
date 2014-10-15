@@ -21,19 +21,17 @@ Blockly.Arduino.variables_global = function() {
     var varType;
     var varValue=Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
     // varValue='digitalRead(';
-    console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('digitalRead'));
-    console.log(varValue.search('digitalRead'),varValue.search('digitalRead')>0);
+    // console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('digitalRead'));
+    // console.log(varValue.search('digitalRead'),varValue.search('digitalRead')>0);
 
     if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue))) ){
-        console.log('true!');
         varType='int';
     }
     else {
-        console.log('false!');
         varType='String';
     }
 
-    console.log('vartyyyyyyyyyype', varType);
+    // console.log('varType', varType);
 
     var varName = this.getFieldValue('VAR')||'';
 
