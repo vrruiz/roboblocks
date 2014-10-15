@@ -25,8 +25,9 @@ Blockly.Arduino.procedures_defnoreturn = function(){
     var returnType = returnValue ? 'int' : 'void';
     var funcArgs = [];
     for (var x = 0; x < this.arguments_.length; x++) {
-        funcArgs[x] = 'int '+Blockly.Arduino.variableDB_.getName(this.arguments_[x],Blockly.Variables.NAME_TYPE);
-        funcArgs[x]=funcArgs[x].substr(0,funcArgs[x].length-1);
+        funcArgs[x]=this.type_arguments_+' '+this.arguments_;
+        // funcArgs[x] = 'int '+Blockly.Arduino.variableDB_.getName(this.arguments_[x],Blockly.Variables.NAME_TYPE);
+        // funcArgs[x]=funcArgs[x].substr(0,funcArgs[x].length-1);
     }
     var args=funcArgs.join(', ');
 

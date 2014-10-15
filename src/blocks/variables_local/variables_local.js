@@ -26,7 +26,7 @@ Blockly.Arduino.variables_local = function() {
     //     'varName': varName
     // });
     // Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';';
-    var code= varType+' '+varName+';\n'+varName+'='+varValue+';';
+    var code= varType+' '+varName+';\n'+varName+'='+varValue+';\n';
     
     return code;
 };
