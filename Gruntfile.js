@@ -54,7 +54,7 @@ module.exports = function(grunt) {
         concat: {
             options: {
                 banner: '<%= banner %>\n(function (factory) { if (typeof define === \'function\' && define.amd) {define([\'underscore\',\'blockly\',\'blockly.blocks\',\'blockly.lang\'], factory);} else {factory(_, window.Blockly, window.Blocks, window.BlocklyLang);}}(function (_, Blockly, Blocks, BlocklyLang) {\nvar load = function(options) {\n',
-                footer: '\n}\nvar RoboBlocks = {load: load};if (typeof define === \'function\' && define.amd) {return RoboBlocks;} else {window.RoboBlocks = RoboBlocks;}\n}));',
+                footer: 'return Blockly.Blocks;\n}\nvar RoboBlocks = {load: load};if (typeof define === \'function\' && define.amd) {return RoboBlocks;} else {window.RoboBlocks = RoboBlocks;}\n}));',
                 stripBanners: true,
                 // Only on 'use_strict' in file
                 process: function(src, filepath) {

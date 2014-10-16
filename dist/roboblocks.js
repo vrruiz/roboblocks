@@ -6408,7 +6408,7 @@
                 this.setTooltip(RoboBlocks.LANG_ZUM_POTENTIOMETER_TOOLTIP);
             }
         };
-
+        return Blockly.Blocks;
     }
     var RoboBlocks = {
         load: load
