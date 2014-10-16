@@ -21,13 +21,13 @@ Blockly.Arduino.advanced_conversion = function() {
  * @type {Object}
  */
 Blockly.Blocks.advanced_conversion = {
-    category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+    category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/advanced_conversion',
     /**
      * advanced_conversion initialization
      */
     init: function() {
-        this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
+        this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
         this.appendDummyInput('')
         .appendField(RoboBlocks.LANG_ADVANCED_CONVERSION_CONVERT)
         .appendField(new Blockly.FieldDropdown([

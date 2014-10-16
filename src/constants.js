@@ -14,6 +14,11 @@ RoboBlocks.LANG_COLOUR_PROCEDURES='320';
 RoboBlocks.LANG_COLOUR_CONTROL='80';
 RoboBlocks.LANG_COLOUR_MATH='180';
 
+RoboBlocks.LANG_COLOUR_COMMUNICATION='88';
+
+
+
+RoboBlocks.bluetooth=[];
 
 
 
@@ -56,6 +61,48 @@ RoboBlocks.LANG_LOGIC_BOOLEAN_TOOLTIP = 'Returns either true or false.';
 RoboBlocks.LANG_LOGIC_NULL = 'null';
 RoboBlocks.LANG_LOGIC_NULL_TOOLTIP = 'Returns null.';
 
+//communication blocks: 
+RoboBlocks.LANG_CATEGORY_COMMUNICATION='Communication';
+
+RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE='Bluetooth receive data';
+RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE_BLUETOOTH='Bluetooth';
+RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE_TOOLTIP='Returns the data received by the bq Bluetooth module';
+
+RoboBlocks.LANG_BQ_BLUETOOTH_SEND='Bluetooth send data';
+RoboBlocks.LANG_BQ_BLUETOOTH_SEND_SEND='Send';
+RoboBlocks.LANG_BQ_BLUETOOTH_SEND_TOOLTIP='Sends the input data using the bq Bluetooth module';
+
+
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF='Bluetooth definition';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_BAUD_RATE='Baud rate';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN1='RX';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN2='TX';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_NAME='Name';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PINCODE='PinCode';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_RECEIVE='Receive';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_SEND='Send';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_TOOLTIP='bq Bluetooth';
+
+RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE='Bluetooth Serial Available';
+RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP='Check wether the bluetooth is available or not';
+
+RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE='Serial Available';
+RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP='Check wether the serial port is available or not';
+
+RoboBlocks.LANG_ADVANCED_SERIAL_PRINT='Serial Print';
+RoboBlocks.LANG_ADVANCED_SERIAL_PRINT_TOOLTIP='Prints data to the console/serial port as human-readable ASCII text.';
+
+RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN='Serial Println';
+RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP='Prints data to the console/serial port as human-readable ASCII text and add CR.';
+
+RoboBlocks.LANG_ADVANCED_SERIAL_READ='Serial Read';
+RoboBlocks.LANG_ADVANCED_SERIAL_READ_TOOLTIP='Reads incoming serial data from serial port as human-readable ASCII text.';
+
+RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL='Special Chars';
+RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TAB='Tab';
+RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN='Carriage Return';
+RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED='Line Feed';
+RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP='Write special Chars';
 
 //bq blocks : 
 RoboBlocks.LANG_CATEGORY_BQ='bq bloqs';
@@ -65,15 +112,6 @@ RoboBlocks.LANG_BQ_BAT_RED_PIN='RED PIN#';
 RoboBlocks.LANG_BQ_BAT_BLUE_PIN='BLUE PIN#';
 RoboBlocks.LANG_BQ_BAT_TOOLTIP='Output the measured distance';
 
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE='Bluetooth';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_BAUD_RATE='Baud rate';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1='RX';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2='TX';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME='Name';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE='PinCode';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE='Receive';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_SEND='Send';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_TOOLTIP='bq Bluetooth';
 
 RoboBlocks.LANG_BQ_BUTTON='Button';
 RoboBlocks.LANG_BQ_BUTTON_PIN='PIN#';
@@ -268,7 +306,7 @@ RoboBlocks.LANG_TEXT_SUBSTRING_TO='to';
 RoboBlocks.LANG_TEXT_SUBSTRING_TOOLTIP='Obtain a substring from the input string with the caracters between the two input numbers.';
 
 //advanced blocks : 
-RoboBlocks.LANG_CATEGORY_ADVANCED='Advanced';
+RoboBlocks.LANG_CATEGORY_ADVANCED='Pin functions';
 
 RoboBlocks.LANG_ADVANCED_CONVERSION_CONVERT= 'Convert';
 RoboBlocks.LANG_ADVANCED_CONVERSION_DECIMAL='Decimal';
@@ -310,23 +348,6 @@ RoboBlocks.LANG_ADVANCED_MATH_RANDOM='Random between';
 RoboBlocks.LANG_ADVANCED_MATH_RANDOM_AND=' and ';
 RoboBlocks.LANG_ADVANCED_MATH_RANDOM_TOOLTIP='Assign a random number';
 
-RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE='Serial Available';
-RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP='Check wether the serial port is available or not';
-
-RoboBlocks.LANG_ADVANCED_SERIAL_PRINT='Serial Print';
-RoboBlocks.LANG_ADVANCED_SERIAL_PRINT_TOOLTIP='Prints data to the console/serial port as human-readable ASCII text.';
-
-RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN='Serial Println';
-RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP='Prints data to the console/serial port as human-readable ASCII text and add CR.';
-
-RoboBlocks.LANG_ADVANCED_SERIAL_READ='Serial Read';
-RoboBlocks.LANG_ADVANCED_SERIAL_READ_TOOLTIP='Reads incoming serial data from serial port as human-readable ASCII text.';
-
-RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL='Special Chars';
-RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TAB='Tab';
-RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN='Carriage Return';
-RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED='Line Feed';
-RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP='Write special Chars';
 
 
 //procedures blocks

@@ -1,7 +1,7 @@
-controls_repeat
-===========
+bq_bluetooth_receive
+==========
 
-controls_repeat description
+bq_bluetooth_receive description
 
 Parameters
 ----------

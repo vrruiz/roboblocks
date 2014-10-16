@@ -1,7 +1,7 @@
-controls_forEach
-===========
+bt_serial_available
+==========
 
-controls_forEach description
+bt_serial_available description
 
 Parameters
 ----------

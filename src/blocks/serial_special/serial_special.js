@@ -19,13 +19,13 @@ Blockly.Arduino.serial_special = function() {
  * @type {Object}
  */
 Blockly.Blocks.serial_special = {
-	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_special',
 	 /**
 	  * serial_special initialization
 	  */
 	init: function() {
-		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
+		this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
 		this.appendDummyInput('')
 			.appendField(RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL)
 			.appendField(new Blockly.FieldDropdown([

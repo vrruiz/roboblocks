@@ -25,13 +25,13 @@ Blockly.Arduino.serial_print = function() {
  * @type {Object}
  */
 Blockly.Blocks.serial_print = {
-	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_print',
 	 /**
 	  * serial_print initialization
 	  */
 	init: function() {
-		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
+		this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
 		this.appendValueInput('CONTENT', String)
 			.appendField(RoboBlocks.LANG_ADVANCED_SERIAL_PRINT);
 		this.setPreviousStatement(true, null);
