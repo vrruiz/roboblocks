@@ -15,10 +15,19 @@ Blockly.Arduino.procedures_defreturn = function(){
     }
     var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN',
         Blockly.Arduino.ORDER_NONE) || '';
+    var returnType;
     if (returnValue) {
         returnValue = '  return ' + returnValue + ';\n';
     }
-    var returnType = returnValue ? 'int' : 'void';
+    else if (!returnValue){
+        returnType = 'void';
+    }
+    else if ( !isNaN(parseFloat(returnValue)) ){
+        returnType='int';
+    }
+    else {
+        returnType='String';
+    }
 
     var args=this.paramString;
 

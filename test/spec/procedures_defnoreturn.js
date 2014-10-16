@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'procedures_defnoreturn');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), 'void procedure () {\n    }\n\nvoid setup()\n{\n\n}\n\n\nvoid loop()\n{\n\n}');
+				assert.equal(Blockly.Arduino.workspaceToCode(), 'void procedure () {\n\n}\n\nvoid setup()\n{\n\n}\n\n\nvoid loop()\n{\n\n}');
 			});
 		});
 	});

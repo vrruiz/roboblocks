@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.6 - 2014-10-15
+/*! roboblocks - v0.0.6 - 2014-10-16
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -1353,11 +1353,9 @@
                     __e(funcName) +
                     ' (' +
                     __e(args) +
-                    ') {\n  ' +
+                    ') {\n' +
                     __e(branch) +
-                    ' ' +
-                    __e(returnValue) +
-                    ' }\n';
+                    '\n}\n';
 
             }
             return __p
@@ -4636,21 +4634,14 @@
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
-            var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN',
-                Blockly.Arduino.ORDER_NONE) || '';
-            if (returnValue) {
-                returnValue = '  return ' + returnValue + ';\n';
-            }
-            var returnType = returnValue ? 'int' : 'void';
-
+            var returnType = 'void';
             var args = this.paramString;
 
             var code = JST['procedures_defnoreturn']({
                 'returnType': returnType,
                 'funcName': funcName,
                 'args': args,
-                'branch': branch,
-                'returnValue': returnValue
+                'branch': branch
             });
 
 
@@ -4784,6 +4775,20 @@
                         }
                     }
                 }
+            },
+            mutationToDom: function() {
+                // Save whether this block has a return value.
+                var container = document.createElement('mutation');
+                container.setAttribute('value', Number(this.hasReturnValue_));
+                return container;
+            },
+            domToMutation: function(xmlElement) {
+                // Restore whether this block has a return value.
+                var value = xmlElement.getAttribute('value');
+                this.hasReturnValue_ = (value === 1);
+                if (!this.hasReturnValue_) {
+                    this.removeInput('VALUE');
+                }
             }
         };
 
@@ -4841,10 +4846,16 @@
             }
             var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN',
                 Blockly.Arduino.ORDER_NONE) || '';
+            var returnType;
             if (returnValue) {
                 returnValue = '  return ' + returnValue + ';\n';
+            } else if (!returnValue) {
+                returnType = 'void';
+            } else if (!isNaN(parseFloat(returnValue))) {
+                returnType = 'int';
+            } else {
+                returnType = 'String';
             }
-            var returnType = returnValue ? 'int' : 'void';
 
             var args = this.paramString;
 
@@ -4964,7 +4975,7 @@
                 // Is the block nested in a procedure?
                 var block = this;
                 do {
-                    if (block.type === 'procedures_defnoreturn' || block.type === 'procedures_defreturn') {
+                    if (block.type === 'procedures_defreturn') {
                         legal = true;
                         break;
                     }
@@ -5831,26 +5842,19 @@
          * variable code generation
          * @return {String} Code generated with block parameters
          */
-        function isNumber(obj) {
-            return !isNaN(parseFloat(obj));
-        }
-
         Blockly.Arduino.variables_local = function() {
             // Variable setter.
             var varType;
             var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
-            if (isNumber(varValue)) {
+
+            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)))) {
                 varType = 'int';
             } else {
                 varType = 'String';
             }
+
             var varName = this.getFieldValue('VAR') || '';
 
-            // Blockly.Arduino.definitions_['declare_var'+varName] = JST['variable']({
-            //     'varType': varType,
-            //     'varName': varName
-            // });
-            // Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';';
             var code = varType + ' ' + varName + ';\n' + varName + '=' + varValue + ';\n';
 
             return code;

@@ -7,25 +7,20 @@
   * variable code generation
   * @return {String} Code generated with block parameters
   */
-function isNumber(obj) { return !isNaN(parseFloat(obj)); }
-
 Blockly.Arduino.variables_local = function() {
   // Variable setter.
     var varType;
     var varValue=Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
-    if(isNumber(varValue)){
+
+    if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue))) ){
         varType='int';
     }
-    else{
+    else {
         varType='String';
     }
+    
     var varName = this.getFieldValue('VAR')||'';
 
-    // Blockly.Arduino.definitions_['declare_var'+varName] = JST['variable']({
-    //     'varType': varType,
-    //     'varName': varName
-    // });
-    // Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';';
     var code= varType+' '+varName+';\n'+varName+'='+varValue+';\n';
     
     return code;

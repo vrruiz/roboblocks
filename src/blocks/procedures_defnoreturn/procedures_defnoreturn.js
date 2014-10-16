@@ -17,21 +17,14 @@ Blockly.Arduino.procedures_defnoreturn = function(){
     if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,'\'' + this.id + '\'') + branch;
     }
-    var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN',
-        Blockly.Arduino.ORDER_NONE) || '';
-    if (returnValue) {
-        returnValue = '  return ' + returnValue + ';\n';
-    }
-    var returnType = returnValue ? 'int' : 'void';
-
+    var returnType='void';
     var args=this.paramString;
 
     var code = JST ['procedures_defnoreturn']({
         'returnType':returnType,
         'funcName':funcName,
         'args':args,
-        'branch':branch,
-        'returnValue':returnValue
+        'branch':branch
     });
 
 
@@ -164,6 +157,20 @@ Blockly.Blocks.procedures_defnoreturn = {
                     }
                 }
             }
+        }
+    },
+    mutationToDom: function() {
+        // Save whether this block has a return value.
+        var container = document.createElement('mutation');
+        container.setAttribute('value', Number(this.hasReturnValue_));
+        return container;
+    },
+    domToMutation: function(xmlElement) {
+        // Restore whether this block has a return value.
+        var value = xmlElement.getAttribute('value');
+        this.hasReturnValue_ = (value === 1);
+        if (!this.hasReturnValue_) {
+            this.removeInput('VALUE');
         }
     }
 };
