@@ -4850,7 +4850,7 @@
             var returnType;
             if (!returnValue) {
                 returnType = 'void';
-            } else if (!isNaN(parseFloat(returnValue))) {
+            } else if ((returnValue.search('analogRead') >= 0) || (returnValue.search('digitalRead') >= 0) || (returnValue.search('Distanc') >= 0) || (!isNaN(parseFloat(returnValue)))) {
                 returnType = 'int';
             } else {
                 returnType = 'String';
