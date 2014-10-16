@@ -105,10 +105,26 @@ Blockly.Blocks.controls_for = {
             if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
                 try{
                     this.removeInput('DUMMY');
+                    this.removeInput('FROM');
+                    this.removeInput('TO');
+                    this.removeInput('DO');
+
 
                     this.appendDummyInput('DUMMY')
                         .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_WITH)
                         .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+
+                    this.appendValueInput('FROM')
+                        .setCheck(Number)
+                        .setAlign(Blockly.ALIGN_RIGHT)
+                        .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_FROM);
+                    this.appendValueInput('TO')
+                        .setCheck(Number)
+                        .setAlign(Blockly.ALIGN_RIGHT)
+                        .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_TO);
+                    this.appendStatementInput('DO')
+                        .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_DO);
 
                 }catch(e){}
                 this.last_variables=Blockly.Variables.allVariables();

@@ -7,37 +7,18 @@
  * @return {String} Code generated with block parameters
  */
 
-// var _get_next_pin = function(dropdown_pin) {
-//     var NextPIN = dropdown_pin;
-//     if(parseInt(NextPIN,2)){
-//         NextPIN = parseInt(dropdown_pin,2)+1;
-//     } else {
-//         NextPIN = 'A'+(parseInt(NextPIN.slice(1,NextPIN.length),2)+1);
-//     }
-//     //check if NextPIN in bound
-//     var pinlen = profiles.default.digital.length;
-//     var notExist=true;
-//     for(var i=0;i<pinlen;i++){
-//         if(profiles.default.digital[i][1] === NextPIN){
-//             notExist=false;
-//         }
-//     }
-//     return NextPIN;
-// };
-
 Blockly.Arduino.bq_bluetooth_slave = function() {
+    var baud_rate= Blockly.Arduino.valueToCode(this, 'BAUD_RATE', Blockly.Arduino.ORDER_ATOMIC);
     var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
     var NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
-    var name = this.getFieldValue('NAME');
-    var pincode = this.getFieldValue('PINCODE');
+
     var statement_receive = Blockly.Arduino.statementToCode(this, 'RCV');
     var statement_send = Blockly.Arduino.statementToCode(this, 'SNT');
 
     Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_slave_definitions']({
+        'baud_rate': baud_rate,
         'dropdown_pin': dropdown_pin,
-        'NextPIN': NextPIN,
-        'name' : name,
-        'pincode' : pincode
+        'NextPIN': NextPIN
     });
 
     Blockly.Arduino.setups_['setup_bluetooth_']= JST['bq_bluetooth_slave_setups']({
@@ -48,8 +29,6 @@ Blockly.Arduino.bq_bluetooth_slave = function() {
     var code = JST['bq_bluetooth_slave']({
         'dropdown_pin': dropdown_pin,
         'NextPIN': NextPIN,
-        'name' : name,
-        'pincode' : pincode,
         'statement_send' : statement_send,
         'statement_receive' : statement_receive
     });
@@ -73,6 +52,11 @@ Blockly.Blocks.bq_bluetooth_slave = {
             .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE)
             .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
 
+        this.appendValueInput('BAUD_RATE')
+            .setCheck(Number)
+            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_BAUD_RATE)
+            .setAlign(Blockly.ALIGN_RIGHT);
+
         this.appendValueInput('PIN')
             .setCheck(Number)
             .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1)
@@ -81,16 +65,6 @@ Blockly.Blocks.bq_bluetooth_slave = {
         this.appendValueInput('PIN2')
             .setCheck(Number)
             .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2)
-            .setAlign(Blockly.ALIGN_RIGHT);
-
-        this.appendDummyInput('')
-            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME)
-            .appendField(new Blockly.FieldTextInput('zum'), 'NAME')
-            .setAlign(Blockly.ALIGN_RIGHT);
-
-        this.appendDummyInput('')
-            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE)
-            .appendField(new Blockly.FieldTextInput('0000'), 'PINCODE')
             .setAlign(Blockly.ALIGN_RIGHT);
 
         this.appendStatementInput('RCV')

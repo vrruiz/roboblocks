@@ -51,6 +51,7 @@
 
             return toolbox;
         };
+
         // Source: src/constants.js
         /* global RoboBlocks */
 
@@ -119,8 +120,9 @@
         RoboBlocks.LANG_BQ_BAT_TOOLTIP = 'Output the measured distance';
 
         RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE = 'Bluetooth';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1 = 'PIN 1#';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2 = 'PIN 2#';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_BAUD_RATE = 'Baud rate';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1 = 'RX';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2 = 'TX';
         RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME = 'Name';
         RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE = 'PinCode';
         RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE = 'Receive';
@@ -747,25 +749,9 @@
                     __e(dropdown_pin) +
                     '()\n{\n  blueToothSerial_' +
                     __e(dropdown_pin) +
-                    '.begin(38400); //Set Bluetooth BaudRate to default baud rate 38400\n  blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.print(\'\\\\r\\\\n+STWMOD=0\\\\r\\\\n\'); //Set the bluetooth work in slave mode\n  blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.print(\'\\\\r\\\\n+STNA=' +
-                    __e(name) +
-                    '\\\\r\\\\n\'); //Set the bluetooth name as ' +
-                    __e(name) +
-                    '\n  blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.print(\'\\\\r\\\\n+STPIN=' +
-                    __e(pincode) +
-                    '\\\\r\\\\n\'); //Set SLAVE pincode\n  blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.print(\'\\\\r\\\\n+STOAUT=1\\\\r\\\\n\'); //Auto-connection should be forbidden\n  blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.print(\'\\\\r\\\\n+STAUTO=0\\\\r\\\\n\');\n  delay(2000); //This delay is required\n  blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.print(\'\\\\r\\\\n+INQ=1\\\\r\\\\n\'); //Make the slave bluetooth inquirable\n  Serial.println(\'The slave bluetooth is inquirable!\');\n  delay(2000); //This delay is required\n  blueToothSerial_' +
+                    '.begin(' +
+                    __e(baud_rate) +
+                    ');  \n  blueToothSerial_' +
                     __e(dropdown_pin) +
                     '.flush();\n}\n';
 
@@ -2053,37 +2039,18 @@
          * @return {String} Code generated with block parameters
          */
 
-        // var _get_next_pin = function(dropdown_pin) {
-        //     var NextPIN = dropdown_pin;
-        //     if(parseInt(NextPIN,2)){
-        //         NextPIN = parseInt(dropdown_pin,2)+1;
-        //     } else {
-        //         NextPIN = 'A'+(parseInt(NextPIN.slice(1,NextPIN.length),2)+1);
-        //     }
-        //     //check if NextPIN in bound
-        //     var pinlen = profiles.default.digital.length;
-        //     var notExist=true;
-        //     for(var i=0;i<pinlen;i++){
-        //         if(profiles.default.digital[i][1] === NextPIN){
-        //             notExist=false;
-        //         }
-        //     }
-        //     return NextPIN;
-        // };
-
         Blockly.Arduino.bq_bluetooth_slave = function() {
+            var baud_rate = Blockly.Arduino.valueToCode(this, 'BAUD_RATE', Blockly.Arduino.ORDER_ATOMIC);
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
-            var name = this.getFieldValue('NAME');
-            var pincode = this.getFieldValue('PINCODE');
+
             var statement_receive = Blockly.Arduino.statementToCode(this, 'RCV');
             var statement_send = Blockly.Arduino.statementToCode(this, 'SNT');
 
             Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_slave_definitions']({
+                'baud_rate': baud_rate,
                 'dropdown_pin': dropdown_pin,
-                'NextPIN': NextPIN,
-                'name': name,
-                'pincode': pincode
+                'NextPIN': NextPIN
             });
 
             Blockly.Arduino.setups_['setup_bluetooth_'] = JST['bq_bluetooth_slave_setups']({
@@ -2094,8 +2061,6 @@
             var code = JST['bq_bluetooth_slave']({
                 'dropdown_pin': dropdown_pin,
                 'NextPIN': NextPIN,
-                'name': name,
-                'pincode': pincode,
                 'statement_send': statement_send,
                 'statement_receive': statement_receive
             });
@@ -2119,6 +2084,11 @@
                     .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
 
+                this.appendValueInput('BAUD_RATE')
+                    .setCheck(Number)
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_BAUD_RATE)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
                 this.appendValueInput('PIN')
                     .setCheck(Number)
                     .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1)
@@ -2127,16 +2097,6 @@
                 this.appendValueInput('PIN2')
                     .setCheck(Number)
                     .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2)
-                    .setAlign(Blockly.ALIGN_RIGHT);
-
-                this.appendDummyInput('')
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME)
-                    .appendField(new Blockly.FieldTextInput('zum'), 'NAME')
-                    .setAlign(Blockly.ALIGN_RIGHT);
-
-                this.appendDummyInput('')
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE)
-                    .appendField(new Blockly.FieldTextInput('0000'), 'PINCODE')
                     .setAlign(Blockly.ALIGN_RIGHT);
 
                 this.appendStatementInput('RCV')
@@ -2807,10 +2767,26 @@
                     if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
                         try {
                             this.removeInput('DUMMY');
+                            this.removeInput('FROM');
+                            this.removeInput('TO');
+                            this.removeInput('DO');
+
 
                             this.appendDummyInput('DUMMY')
                                 .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_WITH)
                                 .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+
+                            this.appendValueInput('FROM')
+                                .setCheck(Number)
+                                .setAlign(Blockly.ALIGN_RIGHT)
+                                .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_FROM);
+                            this.appendValueInput('TO')
+                                .setCheck(Number)
+                                .setAlign(Blockly.ALIGN_RIGHT)
+                                .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_TO);
+                            this.appendStatementInput('DO')
+                                .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_DO);
 
                         } catch (e) {}
                         this.last_variables = Blockly.Variables.allVariables();
@@ -5425,16 +5401,13 @@
                 for (var i in variables) {
                     if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
                         try {
-                            this.removeInput('DUMMY');
-                            this.removeInput('VALUE');
+                            this.removeInput('TEXT');
 
-                            this.appendDummyInput('DUMMY')
-                                .appendField(RoboBlocks.LANG_VARIABLES_SET)
-                                .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+                            this.appendValueInput('TEXT')
+                                .appendField(RoboBlocks.LANG_TEXT_APPEND_TO)
+                                .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
+                                .appendField(RoboBlocks.LANG_TEXT_APPEND_APPENDTEXT);
 
-                            this.appendValueInput('VALUE')
-                                .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
-                                .setAlign(Blockly.ALIGN_RIGHT);
                             this.setInputsInline(true);
 
                         } catch (e) {}

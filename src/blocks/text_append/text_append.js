@@ -61,16 +61,13 @@ Blockly.Blocks.text_append = {
         for (var i in variables){
             if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
                 try{
-                    this.removeInput('DUMMY');
-                    this.removeInput('VALUE');
+                    this.removeInput('TEXT');
 
-                    this.appendDummyInput('DUMMY')
-                        .appendField(RoboBlocks.LANG_VARIABLES_SET)
-                        .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
-                    this.appendValueInput('VALUE')
-                        .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
-                        .setAlign(Blockly.ALIGN_RIGHT);
+                    this.appendValueInput('TEXT')
+                        .appendField(RoboBlocks.LANG_TEXT_APPEND_TO)
+                        .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
+                        .appendField(RoboBlocks.LANG_TEXT_APPEND_APPENDTEXT);
+                        
                     this.setInputsInline(true);
 
                 }catch(e){}
