@@ -10,7 +10,7 @@
 Blockly.Arduino.bq_bluetooth_receive = function() {
     var code = JST['bq_bluetooth_receive']({
     });
-    return code;
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 /**

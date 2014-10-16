@@ -140,6 +140,24 @@
         RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE = 'Bluetooth Serial Available';
         RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP = 'Check wether the bluetooth is available or not';
 
+        RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE = 'Serial Available';
+        RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP = 'Check wether the serial port is available or not';
+
+        RoboBlocks.LANG_ADVANCED_SERIAL_PRINT = 'Serial Print';
+        RoboBlocks.LANG_ADVANCED_SERIAL_PRINT_TOOLTIP = 'Prints data to the console/serial port as human-readable ASCII text.';
+
+        RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN = 'Serial Println';
+        RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP = 'Prints data to the console/serial port as human-readable ASCII text and add CR.';
+
+        RoboBlocks.LANG_ADVANCED_SERIAL_READ = 'Serial Read';
+        RoboBlocks.LANG_ADVANCED_SERIAL_READ_TOOLTIP = 'Reads incoming serial data from serial port as human-readable ASCII text.';
+
+        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL = 'Special Chars';
+        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TAB = 'Tab';
+        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN = 'Carriage Return';
+        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED = 'Line Feed';
+        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP = 'Write special Chars';
+
         //bq blocks : 
         RoboBlocks.LANG_CATEGORY_BQ = 'bq bloqs';
 
@@ -342,7 +360,7 @@
         RoboBlocks.LANG_TEXT_SUBSTRING_TOOLTIP = 'Obtain a substring from the input string with the caracters between the two input numbers.';
 
         //advanced blocks : 
-        RoboBlocks.LANG_CATEGORY_ADVANCED = 'Advanced';
+        RoboBlocks.LANG_CATEGORY_ADVANCED = 'Pin functions';
 
         RoboBlocks.LANG_ADVANCED_CONVERSION_CONVERT = 'Convert';
         RoboBlocks.LANG_ADVANCED_CONVERSION_DECIMAL = 'Decimal';
@@ -384,23 +402,6 @@
         RoboBlocks.LANG_ADVANCED_MATH_RANDOM_AND = ' and ';
         RoboBlocks.LANG_ADVANCED_MATH_RANDOM_TOOLTIP = 'Assign a random number';
 
-        RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE = 'Serial Available';
-        RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP = 'Check wether the serial port is available or not';
-
-        RoboBlocks.LANG_ADVANCED_SERIAL_PRINT = 'Serial Print';
-        RoboBlocks.LANG_ADVANCED_SERIAL_PRINT_TOOLTIP = 'Prints data to the console/serial port as human-readable ASCII text.';
-
-        RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN = 'Serial Println';
-        RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP = 'Prints data to the console/serial port as human-readable ASCII text and add CR.';
-
-        RoboBlocks.LANG_ADVANCED_SERIAL_READ = 'Serial Read';
-        RoboBlocks.LANG_ADVANCED_SERIAL_READ_TOOLTIP = 'Reads incoming serial data from serial port as human-readable ASCII text.';
-
-        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL = 'Special Chars';
-        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TAB = 'Tab';
-        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN = 'Carriage Return';
-        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED = 'Line Feed';
-        RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP = 'Write special Chars';
 
 
         //procedures blocks
@@ -747,7 +748,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '  pinMode(' +
+                __p += 'pinMode(' +
                     __e(dropdown_pin) +
                     ',INPUT);\n  pinMode(' +
                     __e(NextPIN) +
@@ -2091,7 +2092,7 @@
 
         Blockly.Arduino.bq_bluetooth_receive = function() {
             var code = JST['bq_bluetooth_receive']({});
-            return code;
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
         /**
