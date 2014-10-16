@@ -13,12 +13,12 @@ Blockly.Arduino.bq_bluetooth_def = function() {
     var NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
 
     Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_def_definitions']({
-        'baud_rate': baud_rate,
         'dropdown_pin': dropdown_pin,
         'NextPIN': NextPIN
     });
 
     Blockly.Arduino.setups_['setup_bluetooth_']= JST['bq_bluetooth_def_setups']({
+        'baud_rate': baud_rate,
         'dropdown_pin': dropdown_pin,
         'NextPIN': NextPIN
     });

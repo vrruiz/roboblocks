@@ -8,7 +8,7 @@
  */
 
 Blockly.Arduino.bq_bluetooth_receive = function() {
-    var code = JST['bq_bluetooth_slave']({
+    var code = JST['bq_bluetooth_receive']({
     });
     return code;
 };

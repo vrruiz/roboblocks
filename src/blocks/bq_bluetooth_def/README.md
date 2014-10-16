@@ -1,7 +1,7 @@
-bq_bluetooth_slave
+bq_bluetooth_def
 ==========
 
-bq_bluetooth_slave description
+bq_bluetooth_def description
 
 Parameters
 ----------

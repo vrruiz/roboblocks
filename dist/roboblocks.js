@@ -732,21 +732,11 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '#include <SoftwareSerial.h>\n\nSoftwareSerial blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '(' +
+                __p += '#include <SoftwareSerial.h>\n\nSoftwareSerial blueToothSerial(' +
                     __e(dropdown_pin) +
                     ',' +
                     __e(NextPIN) +
-                    ');\n\nvoid setupBlueToothConnection_' +
-                    __e(dropdown_pin) +
-                    '()\n{\n  blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.begin(' +
-                    __e(baud_rate) +
-                    ');  \n  blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.flush();\n}\n';
+                    ');';
 
             }
             return __p
@@ -757,13 +747,13 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'Serial.begin(9600);\n  pinMode(' +
+                __p += '  pinMode(' +
                     __e(dropdown_pin) +
                     ',INPUT);\n  pinMode(' +
                     __e(NextPIN) +
-                    ', OUTPUT);\n  setupBlueToothConnection_' +
-                    __e(dropdown_pin) +
-                    '();\n\n';
+                    ', OUTPUT);\n  blueToothSerial.begin(' +
+                    __e(baud_rate) +
+                    ');\n  blueToothSerial.flush();\n';
 
             }
             return __p
@@ -785,11 +775,9 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.write(recvChar_' +
-                    __e(dropdown_pin) +
-                    ');\n\n\n';
+                __p += 'blueToothSerial.write( ' +
+                    __e(statement_send) +
+                    ' );';
 
             }
             return __p
@@ -2039,12 +2027,12 @@
             var NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
 
             Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_def_definitions']({
-                'baud_rate': baud_rate,
                 'dropdown_pin': dropdown_pin,
                 'NextPIN': NextPIN
             });
 
             Blockly.Arduino.setups_['setup_bluetooth_'] = JST['bq_bluetooth_def_setups']({
+                'baud_rate': baud_rate,
                 'dropdown_pin': dropdown_pin,
                 'NextPIN': NextPIN
             });
@@ -2102,7 +2090,7 @@
          */
 
         Blockly.Arduino.bq_bluetooth_receive = function() {
-            var code = JST['bq_bluetooth_slave']({});
+            var code = JST['bq_bluetooth_receive']({});
             return code;
         };
 
@@ -2143,7 +2131,7 @@
         Blockly.Arduino.bq_bluetooth_send = function() {
             var statement_send = Blockly.Arduino.statementToCode(this, 'SNT');
 
-            var code = JST['bq_bluetooth_slave']({
+            var code = JST['bq_bluetooth_send']({
                 'statement_send': statement_send
             });
             return code;

@@ -10,7 +10,7 @@
 Blockly.Arduino.bq_bluetooth_send = function() {
     var statement_send = Blockly.Arduino.statementToCode(this, 'SNT');
 
-    var code = JST['bq_bluetooth_slave']({
+    var code = JST['bq_bluetooth_send']({
         'statement_send' : statement_send
     });
     return code;
