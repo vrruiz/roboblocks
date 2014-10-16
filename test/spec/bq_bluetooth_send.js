@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'bq_bluetooth_send');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n\n}\n\n\nvoid loop()\n{\n  blueToothSerial.write(  );\n}');
+				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n\n}\n\n\nvoid loop()\n{\n  blueToothSerial.write(  );\n\n}');
 			});
 		});
 	});
