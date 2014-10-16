@@ -68,6 +68,11 @@
         RoboBlocks.LANG_COLOUR_CONTROL = '80';
         RoboBlocks.LANG_COLOUR_MATH = '180';
 
+        RoboBlocks.LANG_COLOUR_COMMUNICATION = '88';
+
+
+
+        RoboBlocks.bluetooth = [];
 
 
 
@@ -110,6 +115,30 @@
         RoboBlocks.LANG_LOGIC_NULL = 'null';
         RoboBlocks.LANG_LOGIC_NULL_TOOLTIP = 'Returns null.';
 
+        //communication blocks: 
+        RoboBlocks.LANG_CATEGORY_COMMUNICATION = 'Communication';
+
+        RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE = 'Bluetooth receive data';
+        RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE_BLUETOOTH = 'Bluetooth';
+        RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE_TOOLTIP = 'Returns the data received by the bq Bluetooth module';
+
+        RoboBlocks.LANG_BQ_BLUETOOTH_SEND = 'Bluetooth send data';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SEND_SEND = 'Send';
+        RoboBlocks.LANG_BQ_BLUETOOTH_SEND_TOOLTIP = 'Sends the input data using the bq Bluetooth module';
+
+
+        RoboBlocks.LANG_BQ_BLUETOOTH_DEF = 'Bluetooth definition';
+        RoboBlocks.LANG_BQ_BLUETOOTH_DEF_BAUD_RATE = 'Baud rate';
+        RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN1 = 'RX';
+        RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN2 = 'TX';
+        RoboBlocks.LANG_BQ_BLUETOOTH_DEF_NAME = 'Name';
+        RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PINCODE = 'PinCode';
+        RoboBlocks.LANG_BQ_BLUETOOTH_DEF_RECEIVE = 'Receive';
+        RoboBlocks.LANG_BQ_BLUETOOTH_DEF_SEND = 'Send';
+        RoboBlocks.LANG_BQ_BLUETOOTH_DEF_TOOLTIP = 'bq Bluetooth';
+
+        RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE = 'Bluetooth Serial Available';
+        RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP = 'Check wether the bluetooth is available or not';
 
         //bq blocks : 
         RoboBlocks.LANG_CATEGORY_BQ = 'bq bloqs';
@@ -119,15 +148,6 @@
         RoboBlocks.LANG_BQ_BAT_BLUE_PIN = 'BLUE PIN#';
         RoboBlocks.LANG_BQ_BAT_TOOLTIP = 'Output the measured distance';
 
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE = 'Bluetooth';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_BAUD_RATE = 'Baud rate';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1 = 'RX';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2 = 'TX';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME = 'Name';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE = 'PinCode';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE = 'Receive';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_SEND = 'Send';
-        RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_TOOLTIP = 'bq Bluetooth';
 
         RoboBlocks.LANG_BQ_BUTTON = 'Button';
         RoboBlocks.LANG_BQ_BUTTON_PIN = 'PIN#';
@@ -707,34 +727,7 @@
             return __p
         };
 
-        this["JST"]["bq_bluetooth_slave"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += 'char recvChar_' +
-                    __e(dropdown_pin) +
-                    ';\n while(1) {\n  if(blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.available()) { //Check if there is any data sent from the remote bluetooth\n    recvChar_' +
-                    __e(dropdown_pin) +
-                    ' = blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.read();\n    Serial.print(recvChar_' +
-                    __e(dropdown_pin) +
-                    ');\n}\n  if(Serial.available()){ //Check if there is any data sent from the local serial terminal\n    recvChar_' +
-                    __e(dropdown_pin) +
-                    ' = Serial.read();\n    blueToothSerial_' +
-                    __e(dropdown_pin) +
-                    '.print(recvChar_' +
-                    __e(dropdown_pin) +
-                    ');\n\t}\n }\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["bq_bluetooth_slave_definitions"] = function(obj) {
+        this["JST"]["bq_bluetooth_def_definitions"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
                 __e = _.escape;
@@ -759,18 +752,44 @@
             return __p
         };
 
-        this["JST"]["bq_bluetooth_slave_setups"] = function(obj) {
+        this["JST"]["bq_bluetooth_def_setups"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
                 __p += 'Serial.begin(9600);\n  pinMode(' +
                     __e(dropdown_pin) +
-                    ',OUTPUT);\n  pinMode(' +
+                    ',INPUT);\n  pinMode(' +
                     __e(NextPIN) +
                     ', OUTPUT);\n  setupBlueToothConnection_' +
                     __e(dropdown_pin) +
                     '();\n\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_bluetooth_receive"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'blueToothSerial.read()';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_bluetooth_send"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'blueToothSerial_' +
+                    __e(dropdown_pin) +
+                    '.write(recvChar_' +
+                    __e(dropdown_pin) +
+                    ');\n\n\n';
 
             }
             return __p
@@ -957,18 +976,14 @@
             return __p
         };
 
-        this["JST"]["controls_forEach"] = function(obj) {
+        this["JST"]["bt_serial_available"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'for (var ' +
-                    __e(variable0) +
-                    ' in ' +
-                    __e(argument0) +
-                    ') {\n ' +
+                __p += 'if (blueToothSerial.available()>0){\n' +
                     __e(branch) +
-                    ' }\n';
+                    '\n}\n';
 
             }
             return __p
@@ -1012,27 +1027,6 @@
                     ') {\n' +
                     __e(branch) +
                     '\n}';
-
-            }
-            return __p
-        };
-
-        this["JST"]["controls_repeat"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += 'for(' +
-                    __e(loopVar) +
-                    '=0; ' +
-                    __e(loopVar) +
-                    '<' +
-                    __e(repeats) +
-                    '; ' +
-                    __e(loopVar) +
-                    '++){\n ' +
-                    __e(branch) +
-                    ' }\n';
 
             }
             return __p
@@ -1818,13 +1812,13 @@
          * @type {Object}
          */
         Blockly.Blocks.advanced_conversion = {
-            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/advanced_conversion',
             /**
              * advanced_conversion initialization
              */
             init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.LANG_ADVANCED_CONVERSION_CONVERT)
                     .appendField(new Blockly.FieldDropdown([
@@ -2030,7 +2024,75 @@
             }
         };
 
-        // Source: src/blocks/bq_bluetooth_slave/bq_bluetooth_slave.js
+        // Source: src/blocks/bq_bluetooth_def/bq_bluetooth_def.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * bq_bluetooth_def code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.bq_bluetooth_def = function() {
+            var baud_rate = Blockly.Arduino.valueToCode(this, 'BAUD_RATE', Blockly.Arduino.ORDER_ATOMIC);
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
+
+            Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_def_definitions']({
+                'baud_rate': baud_rate,
+                'dropdown_pin': dropdown_pin,
+                'NextPIN': NextPIN
+            });
+
+            Blockly.Arduino.setups_['setup_bluetooth_'] = JST['bq_bluetooth_def_setups']({
+                'dropdown_pin': dropdown_pin,
+                'NextPIN': NextPIN
+            });
+
+            return '';
+        };
+
+        /**
+         * bq_bluetooth__def block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.bq_bluetooth_def = {
+            category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
+            tags: ['bq', 'bluetooth'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_bluetooth_def',
+            /**
+             * bq_bluetooth_slave initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF)
+                    .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+
+                this.appendValueInput('BAUD_RATE')
+                    .setCheck(Number)
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_BAUD_RATE)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
+                this.appendValueInput('PIN')
+                    .setCheck(Number)
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN1)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
+                this.appendValueInput('PIN2')
+                    .setCheck(Number)
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN2)
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
+                this.setInputsInline(false);
+
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_TOOLTIP);
+            }
+        };
+
+        // Source: src/blocks/bq_bluetooth_receive/bq_bluetooth_receive.js
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
 
@@ -2039,31 +2101,8 @@
          * @return {String} Code generated with block parameters
          */
 
-        Blockly.Arduino.bq_bluetooth_slave = function() {
-            var baud_rate = Blockly.Arduino.valueToCode(this, 'BAUD_RATE', Blockly.Arduino.ORDER_ATOMIC);
-            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-            var NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
-
-            var statement_receive = Blockly.Arduino.statementToCode(this, 'RCV');
-            var statement_send = Blockly.Arduino.statementToCode(this, 'SNT');
-
-            Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_slave_definitions']({
-                'baud_rate': baud_rate,
-                'dropdown_pin': dropdown_pin,
-                'NextPIN': NextPIN
-            });
-
-            Blockly.Arduino.setups_['setup_bluetooth_'] = JST['bq_bluetooth_slave_setups']({
-                'dropdown_pin': dropdown_pin,
-                'NextPIN': NextPIN
-            });
-
-            var code = JST['bq_bluetooth_slave']({
-                'dropdown_pin': dropdown_pin,
-                'NextPIN': NextPIN,
-                'statement_send': statement_send,
-                'statement_receive': statement_receive
-            });
+        Blockly.Arduino.bq_bluetooth_receive = function() {
+            var code = JST['bq_bluetooth_slave']({});
             return code;
         };
 
@@ -2071,48 +2110,72 @@
          * bq_bluetooth_slave block definition
          * @type {Object}
          */
-        Blockly.Blocks.bq_bluetooth_slave = {
-            category: RoboBlocks.LANG_CATEGORY_BQ,
+        Blockly.Blocks.bq_bluetooth_receive = {
+            category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
             tags: ['bq', 'bluetooth'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_bluetooth_slave',
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_bluetooth_receive',
             /**
              * bq_bluetooth_slave initialization
              */
             init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
                 this.appendDummyInput()
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE)
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
 
-                this.appendValueInput('BAUD_RATE')
-                    .setCheck(Number)
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_BAUD_RATE)
-                    .setAlign(Blockly.ALIGN_RIGHT);
+                this.setInputsInline(false);
 
-                this.appendValueInput('PIN')
-                    .setCheck(Number)
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1)
-                    .setAlign(Blockly.ALIGN_RIGHT);
 
-                this.appendValueInput('PIN2')
-                    .setCheck(Number)
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2)
-                    .setAlign(Blockly.ALIGN_RIGHT);
+                this.setOutput(true, null);
+                this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE_TOOLTIP);
+            }
+        };
 
-                this.appendStatementInput('RCV')
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE)
-                    .setAlign(Blockly.ALIGN_RIGHT);
+        // Source: src/blocks/bq_bluetooth_send/bq_bluetooth_send.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
 
-                this.appendStatementInput('SNT')
+        /**
+         * bq_bluetooth_slave code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.bq_bluetooth_send = function() {
+            var statement_send = Blockly.Arduino.statementToCode(this, 'SNT');
+
+            var code = JST['bq_bluetooth_slave']({
+                'statement_send': statement_send
+            });
+            return code;
+        };
+
+        /**
+         * bq_bluetooth_send block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.bq_bluetooth_send = {
+            category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
+            tags: ['bq', 'bluetooth'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_bluetooth_send',
+            /**
+             * bq_bluetooth_send initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SEND)
+                    .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+
+                this.appendValueInput('SNT')
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_SEND);
+                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_SEND_SEND);
 
                 this.setInputsInline(false);
 
 
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_TOOLTIP);
+                this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_SEND_TOOLTIP);
             }
         };
 
@@ -2584,6 +2647,44 @@
             }
         };
 
+        // Source: src/blocks/bt_serial_available/bt_serial_available.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * serial_available code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.bt_serial_available = function() {
+            var branch = Blockly.Arduino.statementToCode(this, 'DO');
+            var code = JST['bt_serial_available']({
+                'branch': branch
+            });
+            return code;
+        };
+
+        /**
+         * serial_available block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.bt_serial_available = {
+            category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bt_serial_available',
+            /**
+             * bt_serial_available initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE);
+                this.appendStatementInput('DO')
+                    .appendField(RoboBlocks.LANG_CONTROLS_REPEAT_INPUT_DO);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setTooltip(RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP);
+            }
+        };
+
         // Source: src/blocks/controls_flow_statements/controls_flow_statements.js
         /* global Blockly, RoboBlocks */
         /* jshint sub:true */
@@ -2800,104 +2901,6 @@
             }
         };
 
-
-        // Source: src/blocks/controls_forEach/controls_forEach.js
-        /* global Blockly, JST, RoboBlocks */
-        /* jshint sub:true */
-
-        /**
-         * controls_forEach code generation
-         * @return {String} Code generated with block parameters
-         */
-
-        Blockly.Arduino.controls_forEach = function() {
-            // For each loop.
-            var variable0 = this.getFieldValue('VAR') || '';
-            var argument0 = Blockly.Arduino.valueToCode(this, 'LIST',
-                Blockly.Arduino.ORDER_ASSIGNMENT) || '[]';
-            var branch = Blockly.Arduino.statementToCode(this, 'DO');
-            if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
-                branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
-            }
-            var code = JST['controls_forEach']({
-                'variable0': variable0,
-                'argument0': argument0,
-                'branch': branch
-            });
-
-            //'for (var ' + variable0 + ' in  ' + argument0 + ') {\n' +branch + '}\n';
-            return code;
-        };
-
-
-        Blockly.Blocks.controls_forEach = {
-            // For each loop.
-            category: RoboBlocks.LANG_CATEGORY_CONTROLS,
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_forEach',
-            init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
-                this.appendValueInput('LIST')
-                    .setCheck(Array)
-                    .appendField(RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_ITEM)
-                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
-                    .appendField(RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_INLIST);
-                this.appendStatementInput('DO')
-                    .appendField(RoboBlocks.LANG_CONTROLS_FOREACH_INPUT_DO);
-                this.setPreviousStatement(true);
-                this.setNextStatement(true);
-                // Assign 'this' to a variable for use in the tooltip closure below.
-                var thisBlock = this;
-                this.setTooltip(function() {
-                    return RoboBlocks.LANG_CONTROLS_FOREACH_TOOLTIP.replace('%1', thisBlock.getFieldValue('VAR'));
-                });
-            },
-            getVars: function() {
-                return [this.getFieldValue('VAR')];
-            },
-            getVariables: function() {
-                var variables = Blockly.Variables.allVariables();
-                var dropdown = [];
-                if (variables.length > 0) {
-                    for (var i in variables) {
-                        dropdown.push([variables[i], variables[i]]);
-                    }
-                } else {
-                    dropdown.push(['', '']);
-                }
-                return dropdown;
-            },
-            onchange: function() {
-                if (!this.last_variables) {
-                    this.last_variables = Blockly.Variables.allVariables();
-                }
-                var variables = Blockly.Variables.allVariables();
-
-                for (var i in variables) {
-                    if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
-                        try {
-                            this.removeInput('DUMMY');
-                            this.removeInput('VALUE');
-
-                            this.appendDummyInput('DUMMY')
-                                .appendField(RoboBlocks.LANG_VARIABLES_SET)
-                                .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
-                            this.appendValueInput('VALUE')
-                                .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
-                                .setAlign(Blockly.ALIGN_RIGHT);
-                            this.setInputsInline(true);
-
-                        } catch (e) {}
-                        this.last_variables = Blockly.Variables.allVariables();
-                    }
-                }
-            },
-            renameVar: function(oldName, newName) {
-                if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-                    this.setTitleValue(newName, 'VAR');
-                }
-            }
-        };
 
         // Source: src/blocks/controls_if/controls_if.js
         /* global Blockly, JST,  RoboBlocks */
@@ -3132,50 +3135,6 @@
 
 
 
-        // Source: src/blocks/controls_repeat/controls_repeat.js
-        /* global Blockly, JST, RoboBlocks */
-        /* jshint sub:true */
-
-        /**
-         * controls_repeat code generation
-         * @return {String} Code generated with block parameters
-         */
-
-        Blockly.Arduino.controls_repeat = function() {
-            // Repeat n times.
-            var repeats = Number(this.getFieldValue('TIMES'));
-            var branch = Blockly.Arduino.statementToCode(this, 'DO');
-            if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
-                branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
-            }
-            var loopVar = Blockly.Arduino.variableDB_.getDistinctName('count', Blockly.Variables.NAME_TYPE);
-
-            var code = JST['controls_repeat']({
-                'repeats': repeats,
-                'branch': branch,
-                'loopVar': loopVar
-            });
-
-            return code;
-        };
-
-        Blockly.Blocks.controls_repeat = {
-            // Repeat n times.
-            category: RoboBlocks.LANG_CATEGORY_CONTROLS,
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_repeat',
-            init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
-                this.appendDummyInput()
-                    .appendField(RoboBlocks.LANG_CONTROLS_REPEAT_TITLE_REPEAT)
-                    .appendField(new Blockly.FieldTextInput('', Blockly.Blocks.math_number.validator), 'TIMES')
-                    .appendField(RoboBlocks.LANG_CONTROLS_REPEAT_TITLE_TIMES);
-                this.appendStatementInput('DO')
-                    .appendField(RoboBlocks.LANG_CONTROLS_REPEAT_INPUT_DO);
-                this.setPreviousStatement(true);
-                this.setNextStatement(true);
-                this.setTooltip(RoboBlocks.LANG_CONTROLS_REPEAT_TOOLTIP);
-            }
-        };
         // Source: src/blocks/controls_switch/controls_switch.js
         /* global Blockly, RoboBlocks */
         /* jshint sub:true */
@@ -5005,13 +4964,13 @@
          * @type {Object}
          */
         Blockly.Blocks.serial_available = {
-            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_available',
             /**
              * serial_available initialization
              */
             init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
                 this.appendDummyInput()
                     .appendField(RoboBlocks.LANG_ADVANCED_SERIAL_AVAILABLE);
                 this.appendStatementInput('DO')
@@ -5049,13 +5008,13 @@
          * @type {Object}
          */
         Blockly.Blocks.serial_print = {
-            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_print',
             /**
              * serial_print initialization
              */
             init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
                 this.appendValueInput('CONTENT', String)
                     .appendField(RoboBlocks.LANG_ADVANCED_SERIAL_PRINT);
                 this.setPreviousStatement(true, null);
@@ -5089,13 +5048,13 @@
          * @type {Object}
          */
         Blockly.Blocks.serial_println = {
-            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_println',
             /**
              * serial_println initialization
              */
             init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
                 this.appendValueInput('CONTENT', String)
                     .appendField(RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN);
                 this.setPreviousStatement(true, null);
@@ -5128,13 +5087,13 @@
          * @type {Object}
          */
         Blockly.Blocks.serial_read = {
-            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_read',
             /**
              * serial_read initialization
              */
             init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.LANG_ADVANCED_SERIAL_READ);
                 this.setOutput(true, String);
@@ -5163,13 +5122,13 @@
          * @type {Object}
          */
         Blockly.Blocks.serial_special = {
-            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+            category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_special',
             /**
              * serial_special initialization
              */
             init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
+                this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL)
                     .appendField(new Blockly.FieldDropdown([

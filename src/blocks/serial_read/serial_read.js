@@ -22,13 +22,13 @@ Blockly.Arduino.serial_read = function() {
  * @type {Object}
  */
 Blockly.Blocks.serial_read = {
-	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_read',
 	 /**
 	  * serial_read initialization
 	  */
 	init: function() {
-		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
+		this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
 		this.appendDummyInput('')
 			.appendField(RoboBlocks.LANG_ADVANCED_SERIAL_READ);
 		this.setOutput(true, String);

@@ -14,6 +14,11 @@ RoboBlocks.LANG_COLOUR_PROCEDURES='320';
 RoboBlocks.LANG_COLOUR_CONTROL='80';
 RoboBlocks.LANG_COLOUR_MATH='180';
 
+RoboBlocks.LANG_COLOUR_COMMUNICATION='88';
+
+
+
+RoboBlocks.bluetooth=[];
 
 
 
@@ -56,6 +61,30 @@ RoboBlocks.LANG_LOGIC_BOOLEAN_TOOLTIP = 'Returns either true or false.';
 RoboBlocks.LANG_LOGIC_NULL = 'null';
 RoboBlocks.LANG_LOGIC_NULL_TOOLTIP = 'Returns null.';
 
+//communication blocks: 
+RoboBlocks.LANG_CATEGORY_COMMUNICATION='Communication';
+
+RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE='Bluetooth receive data';
+RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE_BLUETOOTH='Bluetooth';
+RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE_TOOLTIP='Returns the data received by the bq Bluetooth module';
+
+RoboBlocks.LANG_BQ_BLUETOOTH_SEND='Bluetooth send data';
+RoboBlocks.LANG_BQ_BLUETOOTH_SEND_SEND='Send';
+RoboBlocks.LANG_BQ_BLUETOOTH_SEND_TOOLTIP='Sends the input data using the bq Bluetooth module';
+
+
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF='Bluetooth definition';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_BAUD_RATE='Baud rate';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN1='RX';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN2='TX';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_NAME='Name';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PINCODE='PinCode';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_RECEIVE='Receive';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_SEND='Send';
+RoboBlocks.LANG_BQ_BLUETOOTH_DEF_TOOLTIP='bq Bluetooth';
+
+RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE='Bluetooth Serial Available';
+RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP='Check wether the bluetooth is available or not';
 
 //bq blocks : 
 RoboBlocks.LANG_CATEGORY_BQ='bq bloqs';
@@ -65,15 +94,6 @@ RoboBlocks.LANG_BQ_BAT_RED_PIN='RED PIN#';
 RoboBlocks.LANG_BQ_BAT_BLUE_PIN='BLUE PIN#';
 RoboBlocks.LANG_BQ_BAT_TOOLTIP='Output the measured distance';
 
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE='Bluetooth';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_BAUD_RATE='Baud rate';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN1='RX';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PIN2='TX';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_NAME='Name';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_PINCODE='PinCode';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_RECEIVE='Receive';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_SEND='Send';
-RoboBlocks.LANG_BQ_BLUETOOTH_SLAVE_TOOLTIP='bq Bluetooth';
 
 RoboBlocks.LANG_BQ_BUTTON='Button';
 RoboBlocks.LANG_BQ_BUTTON_PIN='PIN#';

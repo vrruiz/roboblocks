@@ -1,7 +1,7 @@
-controls_forEach
-===========
+bq_bluetooth_slave
+==========
 
-controls_forEach description
+bq_bluetooth_slave description
 
 Parameters
 ----------
