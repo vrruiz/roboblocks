@@ -13,13 +13,9 @@ Blockly.Arduino.procedures_defreturn = function(){
     if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,'\'' + this.id + '\'') + branch;
     }
-    var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN',
-        Blockly.Arduino.ORDER_NONE) || '';
+    var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
     var returnType;
-    if (returnValue) {
-        returnValue = '  return ' + returnValue + ';\n';
-    }
-    else if (!returnValue){
+    if (!returnValue){
         returnType = 'void';
     }
     else if ( !isNaN(parseFloat(returnValue)) ){
@@ -27,6 +23,9 @@ Blockly.Arduino.procedures_defreturn = function(){
     }
     else {
         returnType='String';
+    }
+    if (returnValue) {
+        returnValue = '  return ' + returnValue + ';\n';
     }
 
     var args=this.paramString;
@@ -79,5 +78,7 @@ Blockly.Blocks.procedures_defreturn = {
         return [this.getFieldValue('NAME'), this.arguments_, true];
     },
     getVars: Blockly.Blocks.procedures_defnoreturn.getVars,
-    renameVar: Blockly.Blocks.procedures_defnoreturn.renameVar
+    renameVar: Blockly.Blocks.procedures_defnoreturn.renameVar,
+    mutationToDom: Blockly.Blocks.procedures_defnoreturn.mutationToDom,
+    domToMutation: Blockly.Blocks.procedures_defnoreturn.domToMutation
 };

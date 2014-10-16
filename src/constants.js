@@ -357,7 +357,7 @@ RoboBlocks.LANG_PROCEDURES_MUTATORARG_Field = 'variable:';
 RoboBlocks.LANG_PROCEDURES_HIGHLIGHT_DEF = 'Highlight Procedure';
 
 RoboBlocks.LANG_PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then returns a value.';
-RoboBlocks.LANG_PROCEDURES_IFRETURN_WARNING = 'Warning: This block may only be used within a procedure.';
+RoboBlocks.LANG_PROCEDURES_IFRETURN_WARNING = 'Warning: This block may only be used within a procedure with a return value.';
 
 
 //variables blocks : 

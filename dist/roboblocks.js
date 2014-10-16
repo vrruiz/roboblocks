@@ -410,7 +410,7 @@
         RoboBlocks.LANG_PROCEDURES_HIGHLIGHT_DEF = 'Highlight Procedure';
 
         RoboBlocks.LANG_PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then returns a value.';
-        RoboBlocks.LANG_PROCEDURES_IFRETURN_WARNING = 'Warning: This block may only be used within a procedure.';
+        RoboBlocks.LANG_PROCEDURES_IFRETURN_WARNING = 'Warning: This block may only be used within a procedure with a return value.';
 
 
         //variables blocks : 
@@ -4787,7 +4787,9 @@
                 var value = xmlElement.getAttribute('value');
                 this.hasReturnValue_ = (value === 1);
                 if (!this.hasReturnValue_) {
-                    this.removeInput('VALUE');
+                    try {
+                        this.removeInput('VALUE');
+                    } catch (e) {}
                 }
             }
         };
@@ -4844,17 +4846,17 @@
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
-            var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN',
-                Blockly.Arduino.ORDER_NONE) || '';
+            var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
             var returnType;
-            if (returnValue) {
-                returnValue = '  return ' + returnValue + ';\n';
-            } else if (!returnValue) {
+            if (!returnValue) {
                 returnType = 'void';
             } else if (!isNaN(parseFloat(returnValue))) {
                 returnType = 'int';
             } else {
                 returnType = 'String';
+            }
+            if (returnValue) {
+                returnValue = '  return ' + returnValue + ';\n';
             }
 
             var args = this.paramString;
@@ -4907,7 +4909,9 @@
                 return [this.getFieldValue('NAME'), this.arguments_, true];
             },
             getVars: Blockly.Blocks.procedures_defnoreturn.getVars,
-            renameVar: Blockly.Blocks.procedures_defnoreturn.renameVar
+            renameVar: Blockly.Blocks.procedures_defnoreturn.renameVar,
+            mutationToDom: Blockly.Blocks.procedures_defnoreturn.mutationToDom,
+            domToMutation: Blockly.Blocks.procedures_defnoreturn.domToMutation
         };
 
         // Source: src/blocks/procedures_ifreturn/procedures_ifreturn.js

@@ -170,7 +170,9 @@ Blockly.Blocks.procedures_defnoreturn = {
         var value = xmlElement.getAttribute('value');
         this.hasReturnValue_ = (value === 1);
         if (!this.hasReturnValue_) {
-            this.removeInput('VALUE');
+            try{
+                this.removeInput('VALUE');
+            }catch(e){}
         }
     }
 };
