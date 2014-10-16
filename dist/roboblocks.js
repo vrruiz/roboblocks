@@ -303,9 +303,12 @@
         RoboBlocks.LANG_TEXT_LENGTH_INPUT_LENGTH = 'length';
         RoboBlocks.LANG_TEXT_LENGTH_TOOLTIP = 'Returns number of letters (including spaces) in the provided text.';
 
-        RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_IS = 'Is ';
-        RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_EQUAL = ' equal to';
-        RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_QUESTION = '?';
+        // RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_IS='Is ';
+        // RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_EQUAL=' equal to';
+        // RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_QUESTION='?';
+        RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_IS = '';
+        RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_EQUAL = ' ==';
+        RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_QUESTION = '';
         RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_TOOLTIP = 'Returns true if both input strings are equal, regardless of the case.';
 
         RoboBlocks.LANG_text_getBytes = 'get bytes of';
@@ -2869,11 +2872,11 @@
                 // Assign 'this' to a variable for use in the tooltip closure below.
                 var thisBlock = this;
                 this.setTooltip(function() {
-                    return RoboBlocks.LANG_CONTROLS_FOREACH_TOOLTIP.replace('%1', thisBlock.getTitleValue('VAR'));
+                    return RoboBlocks.LANG_CONTROLS_FOREACH_TOOLTIP.replace('%1', thisBlock.getFieldValue('VAR'));
                 });
             },
             getVars: function() {
-                return [this.getTitleValue('VAR')];
+                return [this.getFieldValue('VAR')];
             },
             getVariables: function() {
                 var variables = Blockly.Variables.allVariables();
@@ -3843,7 +3846,7 @@
         };
 
         Blockly.Blocks.logic_compare.OPERATORS = [
-            ['=', 'EQ'],
+            ['==', 'EQ'],
             ['\u2260', 'NEQ'],
             ['<', 'LT'],
             ['\u2264', 'LTE'],
@@ -4188,7 +4191,7 @@
 
         Blockly.Arduino.math_single = function() {
             // Math operators with single operand.
-            var operator = this.getTitleValue('OP');
+            var operator = this.getFieldValue('OP');
             var code;
             var arg;
             if (operator === 'NEG') {
@@ -4273,7 +4276,7 @@
                 // Assign 'this' to a variable for use in the tooltip closure below.
                 var thisBlock = this;
                 this.setTooltip(function() {
-                    var mode = thisBlock.getTitleValue('OP');
+                    var mode = thisBlock.getFieldValue('OP');
                     return Blockly.Blocks.math_single.TOOLTIPS[mode];
                 });
             }
@@ -5412,7 +5415,9 @@
          */
         Blockly.Arduino.text_equalsIgnoreCase = function() {
             var string1 = Blockly.Arduino.valueToCode(this, 'STRING1', Blockly.Arduino.ORDER_NONE);
+            string1 = string1.replace(/&quot;/g, '"');
             var string2 = Blockly.Arduino.valueToCode(this, 'STRING2', Blockly.Arduino.ORDER_NONE);
+            string2 = string2.replace(/&quot;/g, '"');
 
             var code = JST['text_equalsIgnoreCase']({
                 'string1': string1,

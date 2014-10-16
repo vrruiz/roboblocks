@@ -7,7 +7,9 @@
   */
 Blockly.Arduino.text_equalsIgnoreCase = function() {
     var string1 = Blockly.Arduino.valueToCode(this, 'STRING1', Blockly.Arduino.ORDER_NONE);
+    string1=string1.replace(/&quot;/g,'"');
     var string2 = Blockly.Arduino.valueToCode(this, 'STRING2', Blockly.Arduino.ORDER_NONE);
+    string2=string2.replace(/&quot;/g,'"');
 
     var code = JST['text_equalsIgnoreCase']({
         'string1': string1,

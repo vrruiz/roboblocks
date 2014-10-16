@@ -45,11 +45,11 @@ Blockly.Blocks.controls_forEach = {
         // Assign 'this' to a variable for use in the tooltip closure below.
         var thisBlock = this;
         this.setTooltip(function() {
-            return RoboBlocks.LANG_CONTROLS_FOREACH_TOOLTIP.replace('%1',thisBlock.getTitleValue('VAR'));
+            return RoboBlocks.LANG_CONTROLS_FOREACH_TOOLTIP.replace('%1',thisBlock.getFieldValue('VAR'));
         });
     },
     getVars: function() {
-        return [this.getTitleValue('VAR')];
+        return [this.getFieldValue('VAR')];
     },
     getVariables: function(){
         var variables= Blockly.Variables.allVariables();

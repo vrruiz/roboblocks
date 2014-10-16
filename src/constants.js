@@ -250,9 +250,12 @@ RoboBlocks.LANG_TEXT_LENGTH_HELPURL = '';
 RoboBlocks.LANG_TEXT_LENGTH_INPUT_LENGTH = 'length';
 RoboBlocks.LANG_TEXT_LENGTH_TOOLTIP = 'Returns number of letters (including spaces) in the provided text.';
 
-RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_IS='Is ';
-RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_EQUAL=' equal to';
-RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_QUESTION='?';
+// RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_IS='Is ';
+// RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_EQUAL=' equal to';
+// RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_QUESTION='?';
+RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_IS='';
+RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_EQUAL=' ==';
+RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_QUESTION='';
 RoboBlocks.LANG_TEXT_EQUALSIGNORECASE_TOOLTIP='Returns true if both input strings are equal, regardless of the case.';
 
 RoboBlocks.LANG_text_getBytes='get bytes of';

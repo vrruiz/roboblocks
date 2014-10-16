@@ -9,7 +9,7 @@
 
 Blockly.Arduino.math_single = function() {
     // Math operators with single operand.
-    var operator = this.getTitleValue('OP');
+    var operator = this.getFieldValue('OP');
     var code;
     var arg;
     if (operator === 'NEG') {
@@ -94,7 +94,7 @@ Blockly.Blocks.math_single = {
         // Assign 'this' to a variable for use in the tooltip closure below.
         var thisBlock = this;
         this.setTooltip(function() {
-            var mode = thisBlock.getTitleValue('OP');
+            var mode = thisBlock.getFieldValue('OP');
             return Blockly.Blocks.math_single.TOOLTIPS[mode];
         });
     }
