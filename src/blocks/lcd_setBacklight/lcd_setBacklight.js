@@ -29,9 +29,9 @@ Blockly.Blocks.lcd_setBacklight = {
 	  */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LCD);
-        this.appendDummyInput('STATE')
+        this.appendDummyInput()
             .appendField(RoboBlocks.LANG_LCD_SETBACKLIGHT)
-            .appendField(new Blockly.FieldDropdown([['LOW','LOW'],['HIGH','HIGH']]))
+            .appendField(new Blockly.FieldDropdown([['LOW','LOW'],['HIGH','HIGH']]),'STATE')
             .appendField(RoboBlocks.LANG_LCD_SETBACKLIGHT_CLOSE);
             // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
 

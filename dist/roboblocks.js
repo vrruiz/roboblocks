@@ -1236,7 +1236,7 @@
             with(obj) {
                 __p += 'lcd.print(' +
                     __e(val) +
-                    ');';
+                    ');\n';
 
             }
             return __p
@@ -1266,7 +1266,7 @@
             with(obj) {
                 __p += 'lcd.setBacklight(' +
                     __e(state) +
-                    ');';
+                    ');\n';
 
             }
             return __p
@@ -3903,7 +3903,7 @@
          */
 
         Blockly.Arduino.lcd_print = function() {
-            var val = Blockly.Arduino.valueToCode(this, '', Blockly.Arduino.ORDER_ATOMIC);
+            var val = Blockly.Arduino.valueToCode(this, 'VAL', Blockly.Arduino.ORDER_ATOMIC);
             var xcoor = Blockly.Arduino.valueToCode(this, 'XCOOR', Blockly.Arduino.ORDER_ATOMIC);
             var ycoor = Blockly.Arduino.valueToCode(this, 'YCOOR', Blockly.Arduino.ORDER_ATOMIC);
 
@@ -4012,12 +4012,12 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_LCD);
-                this.appendDummyInput('STATE')
+                this.appendDummyInput()
                     .appendField(RoboBlocks.LANG_LCD_SETBACKLIGHT)
                     .appendField(new Blockly.FieldDropdown([
                         ['LOW', 'LOW'],
                         ['HIGH', 'HIGH']
-                    ]))
+                    ]), 'STATE')
                     .appendField(RoboBlocks.LANG_LCD_SETBACKLIGHT_CLOSE);
                 // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
 

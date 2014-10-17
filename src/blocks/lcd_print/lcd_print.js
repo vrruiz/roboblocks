@@ -8,7 +8,7 @@
  */
 
 Blockly.Arduino.lcd_print = function() {
-    var val=Blockly.Arduino.valueToCode(this,'', Blockly.Arduino.ORDER_ATOMIC);
+    var val=Blockly.Arduino.valueToCode(this,'VAL', Blockly.Arduino.ORDER_ATOMIC);
     var xcoor=Blockly.Arduino.valueToCode(this,'XCOOR', Blockly.Arduino.ORDER_ATOMIC);
     var ycoor=Blockly.Arduino.valueToCode(this,'YCOOR', Blockly.Arduino.ORDER_ATOMIC);
 
