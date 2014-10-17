@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.6 - 2014-10-16
+/*! roboblocks - v0.0.6 - 2014-10-17
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -57,18 +57,31 @@
 
         RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
 
-        RoboBlocks.LANG_COLOUR_BQ = '10';
-        RoboBlocks.LANG_COLOUR_ZUM = '336';
-        RoboBlocks.LANG_COLOUR_SERVO = '30';
-        RoboBlocks.LANG_COLOUR_TEXT = '200';
-        RoboBlocks.LANG_COLOUR_LOGIC = '120';
-        RoboBlocks.LANG_COLOUR_ADVANCED = '260';
-        RoboBlocks.LANG_COLOUR_VARIABLES = '300';
-        RoboBlocks.LANG_COLOUR_PROCEDURES = '320';
-        RoboBlocks.LANG_COLOUR_CONTROL = '80';
-        RoboBlocks.LANG_COLOUR_MATH = '180';
+        // RoboBlocks.LANG_COLOUR_BQ='10';
+        // RoboBlocks.LANG_COLOUR_ZUM='336';
+        // RoboBlocks.LANG_COLOUR_SERVO='30';
+        // RoboBlocks.LANG_COLOUR_TEXT='200';
+        // RoboBlocks.LANG_COLOUR_LOGIC='120';
+        // RoboBlocks.LANG_COLOUR_ADVANCED='260';
+        // RoboBlocks.LANG_COLOUR_VARIABLES='300';
+        // RoboBlocks.LANG_COLOUR_PROCEDURES='320';
+        // RoboBlocks.LANG_COLOUR_CONTROL='80';
+        // RoboBlocks.LANG_COLOUR_MATH='180';
 
-        RoboBlocks.LANG_COLOUR_COMMUNICATION = '88';
+        // RoboBlocks.LANG_COLOUR_COMMUNICATION='88';
+        //
+        RoboBlocks.LANG_COLOUR_BQ = '#C32B32';
+        RoboBlocks.LANG_COLOUR_ZUM = '#C66732';
+        RoboBlocks.LANG_COLOUR_SERVO = '#C0C933';
+        RoboBlocks.LANG_COLOUR_TEXT = '#82CA32';
+        RoboBlocks.LANG_COLOUR_LOGIC = '#3ACB3A';
+        RoboBlocks.LANG_COLOUR_ADVANCED = '#CD853D';
+        RoboBlocks.LANG_COLOUR_VARIABLES = '#7623C7';
+        RoboBlocks.LANG_COLOUR_PROCEDURES = '#C222B0';
+        RoboBlocks.LANG_COLOUR_CONTROL = '#C222B0';
+        RoboBlocks.LANG_COLOUR_MATH = '#C222B0';
+
+        RoboBlocks.LANG_COLOUR_COMMUNICATION = '#C222B0';
 
 
 
@@ -78,7 +91,7 @@
 
         ///////////// COPY TO EN.JS
 
-        //random : 
+        //random :
         RoboBlocks.LANG_VARIABLES_SET_ITEM = 'item';
 
         //logic blocks:
@@ -115,7 +128,7 @@
         RoboBlocks.LANG_LOGIC_NULL = 'null';
         RoboBlocks.LANG_LOGIC_NULL_TOOLTIP = 'Returns null.';
 
-        //communication blocks: 
+        //communication blocks:
         RoboBlocks.LANG_CATEGORY_COMMUNICATION = 'Communication';
 
         RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE = 'Bluetooth receive data';
@@ -158,7 +171,7 @@
         RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED = 'Line Feed';
         RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP = 'Write special Chars';
 
-        //bq blocks : 
+        //bq blocks :
         RoboBlocks.LANG_CATEGORY_BQ = 'bq bloqs';
 
         RoboBlocks.LANG_BQ_BAT = 'BAT';
@@ -224,7 +237,7 @@
         RoboBlocks.LANG_BQ_POTENTIOMETER_TOOLTIP = 'bq Potentiometer';
 
 
-        //controls blocks : 
+        //controls blocks :
         RoboBlocks.LANG_CATEGORY_CONTROLS = 'Control';
 
         RoboBlocks.LANG_CONTROLS_BASE_DELAY_WAIT = 'Wait (ms)';
@@ -289,7 +302,7 @@
         RoboBlocks.LANG_CONTROLS_SWITCH_DEFAULT_TOOLTIP = 'The default keyword specifies the code to run if there is no case match';
 
 
-        //math blocks : 
+        //math blocks :
         RoboBlocks.LANG_CATEGORY_MATH = 'Math';
 
         RoboBlocks.LANG_MATH_ADVANCED_MAP_MAP = 'Map ';
@@ -316,7 +329,7 @@
         RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_EXP = 'Returns e to the power of a number.';
         RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_POW10 = 'Returns 10 to the power of a number.';
 
-        //text blocks: 
+        //text blocks:
         RoboBlocks.LANG_CATEGORY_TEXT = 'Text';
 
         RoboBlocks.LANG_TEXT_TEXT_HELPURL = '';
@@ -359,7 +372,7 @@
         RoboBlocks.LANG_TEXT_SUBSTRING_TO = 'to';
         RoboBlocks.LANG_TEXT_SUBSTRING_TOOLTIP = 'Obtain a substring from the input string with the caracters between the two input numbers.';
 
-        //advanced blocks : 
+        //advanced blocks :
         RoboBlocks.LANG_CATEGORY_ADVANCED = 'Pin functions';
 
         RoboBlocks.LANG_ADVANCED_CONVERSION_CONVERT = 'Convert';
@@ -439,7 +452,7 @@
         RoboBlocks.LANG_PROCEDURES_IFRETURN_WARNING = 'Warning: This block may only be used within a procedure with a return value.';
 
 
-        //variables blocks : 
+        //variables blocks :
         RoboBlocks.LANG_CATEGORY_VARIABLES = 'Variables';
 
         RoboBlocks.LANG_VARIABLES_DECLARE = 'Declare a variable ';
@@ -470,7 +483,7 @@
 
         RoboBlocks.LANG_VARIABLES_PIN_TOOLTIP = 'Select the PIN';
 
-        //zum blocks : 
+        //zum blocks :
         RoboBlocks.LANG_CATEGORY_ZUM = 'zum';
 
         RoboBlocks.LANG_ZUM_BUTTON = 'Button';
@@ -523,7 +536,7 @@
 
 
 
-        //servo blocks : 
+        //servo blocks :
         RoboBlocks.LANG_CATEGORY_SERVO = 'Servo';
 
         RoboBlocks.LANG_SERVO_CONT = 'Servo';
