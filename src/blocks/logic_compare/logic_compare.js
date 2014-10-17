@@ -13,8 +13,8 @@ Blockly.Arduino.logic_compare = function() {
     var operator = Blockly.Arduino.logic_compare.OPERATORS[mode];
     var order = (operator === '==' || operator === '!=') ?
         Blockly.Arduino.ORDER_EQUALITY : Blockly.Arduino.ORDER_RELATIONAL;
-    var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '0';
-    var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '0';
+    var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '';
+    var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '';
     var code = JST['logic_compare']({
         'argument0':argument0,
         'argument1':argument1,

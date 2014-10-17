@@ -11,10 +11,10 @@ Blockly.Arduino.pin_analog = function() {
 };
 
 Blockly.Blocks.pin_analog = {
-    category: RoboBlocks.LANG_CATEGORY_VARIABLES,
+    category: RoboBlocks.LANG_CATEGORY_ADVANCED,
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/pin',
     init: function() {
-        this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
+        this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
         this.appendDummyInput('')
             .appendField('Analog pin')
             .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
