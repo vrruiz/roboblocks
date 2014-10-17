@@ -1,5 +1,9 @@
 'use strict';
-/* global RoboBlocks */
+/* global RoboBlocks, options */
+
+options.zoom = 0.3;
+
+
 
 RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
 
@@ -28,12 +32,6 @@ RoboBlocks.LANG_COLOUR_CONTROL = '#C222B0';
 RoboBlocks.LANG_COLOUR_MATH = '#C222B0';
 
 RoboBlocks.LANG_COLOUR_COMMUNICATION = '#C222B0';
-
-
-
-RoboBlocks.bluetooth = [];
-
-
 
 ///////////// COPY TO EN.JS
 
@@ -118,11 +116,11 @@ RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED = 'Line Feed';
 RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP = 'Write special Chars';
 
 //bq blocks :
-RoboBlocks.LANG_CATEGORY_BQ = 'bq bloqs';
+RoboBlocks.LANG_CATEGORY_BQ = 'Octopus';
 
 RoboBlocks.LANG_BQ_BAT = 'BAT';
-RoboBlocks.LANG_BQ_BAT_RED_PIN = 'RED PIN#';
-RoboBlocks.LANG_BQ_BAT_BLUE_PIN = 'BLUE PIN#';
+RoboBlocks.LANG_BQ_BAT_RED_PIN = 'ECHO PIN#';
+RoboBlocks.LANG_BQ_BAT_BLUE_PIN = 'TRIGGER PIN#';
 RoboBlocks.LANG_BQ_BAT_TOOLTIP = 'Output the measured distance';
 
 
@@ -183,7 +181,24 @@ RoboBlocks.LANG_BQ_POTENTIOMETER_PIN = 'PIN#';
 RoboBlocks.LANG_BQ_POTENTIOMETER_TOOLTIP = 'bq Potentiometer';
 
 
+//LCD blocks:
+RoboBlocks.LANG_CATEGORY_LCD = 'LCD blocks';
+RoboBlocks.LANG_LCD_DEF = 'LCD';
+RoboBlocks.LANG_LCD_DEF_TOOLTIP = 'Block that defines the LCD';
+
+RoboBlocks.LANG_LCD_SETBACKLIGHT = 'LCD: setBacklight(';
+RoboBlocks.LANG_LCD_SETBACKLIGHT_CLOSE = ')';
+RoboBlocks.LANG_LCD_SETBACKLIGHT_TOOLTIP = 'Set the backlight of the LCD screen';
+
+RoboBlocks.LANG_LCD_PRINT = 'LCD: print ';
+RoboBlocks.LANG_LCD_PRINT_POSITION = 'set position?';
+RoboBlocks.LANG_LCD_PRINT_TOOLTIP = 'Print a String in the LCD';
+
+RoboBlocks.LANG_LCD_CLEAR = 'LCD clear';
+RoboBlocks.LANG_LCD_CLEAR_TOOLTIP = 'LCD clear';
+
 //controls blocks :
+
 RoboBlocks.LANG_CATEGORY_CONTROLS = 'Control';
 
 RoboBlocks.LANG_CONTROLS_BASE_DELAY_WAIT = 'Wait (ms)';
@@ -430,7 +445,7 @@ RoboBlocks.LANG_VARIABLES_GET_TOOLTIP = 'Get the value of a variable';
 RoboBlocks.LANG_VARIABLES_PIN_TOOLTIP = 'Select the PIN';
 
 //zum blocks :
-RoboBlocks.LANG_CATEGORY_ZUM = 'zum';
+RoboBlocks.LANG_CATEGORY_ZUM = 'zum blocks';
 
 RoboBlocks.LANG_ZUM_BUTTON = 'Button';
 RoboBlocks.LANG_ZUM_BUTTON_PIN = 'PIN#';

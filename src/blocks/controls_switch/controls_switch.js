@@ -11,11 +11,11 @@ Blockly.Arduino.controls_switch = function() {
     // switch condition.
     var n = 0;
     var argument = Blockly.Arduino.valueToCode(this, 'IF0' ,
-        Blockly.Arduino.ORDER_NONE) || 'false';
+        Blockly.Arduino.ORDER_NONE) || '';
     var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
     var code = 'switch (' + argument + ')\n{';
     for (n = 1; n <= this.switchCount_; n++) {
-        argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n,Blockly.Arduino.ORDER_NONE) || 'false';
+        argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n,Blockly.Arduino.ORDER_NONE) || '';
         branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
         code += ' \n  case ' + argument + ': \n  {\n' + branch + '  break;\n  }';
     }

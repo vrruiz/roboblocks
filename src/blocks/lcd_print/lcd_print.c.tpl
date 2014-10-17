@@ -1,0 +1,1 @@
+lcd.print({{val}});

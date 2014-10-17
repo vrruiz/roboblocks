@@ -53,7 +53,11 @@
         };
 
         // Source: src/constants.js
-        /* global RoboBlocks */
+        /* global RoboBlocks, options */
+
+        options.zoom = 0.3;
+
+
 
         RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
 
@@ -82,12 +86,6 @@
         RoboBlocks.LANG_COLOUR_MATH = '#C222B0';
 
         RoboBlocks.LANG_COLOUR_COMMUNICATION = '#C222B0';
-
-
-
-        RoboBlocks.bluetooth = [];
-
-
 
         ///////////// COPY TO EN.JS
 
@@ -172,11 +170,11 @@
         RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP = 'Write special Chars';
 
         //bq blocks :
-        RoboBlocks.LANG_CATEGORY_BQ = 'bq bloqs';
+        RoboBlocks.LANG_CATEGORY_BQ = 'Octopus';
 
         RoboBlocks.LANG_BQ_BAT = 'BAT';
-        RoboBlocks.LANG_BQ_BAT_RED_PIN = 'RED PIN#';
-        RoboBlocks.LANG_BQ_BAT_BLUE_PIN = 'BLUE PIN#';
+        RoboBlocks.LANG_BQ_BAT_RED_PIN = 'ECHO PIN#';
+        RoboBlocks.LANG_BQ_BAT_BLUE_PIN = 'TRIGGER PIN#';
         RoboBlocks.LANG_BQ_BAT_TOOLTIP = 'Output the measured distance';
 
 
@@ -237,7 +235,24 @@
         RoboBlocks.LANG_BQ_POTENTIOMETER_TOOLTIP = 'bq Potentiometer';
 
 
+        //LCD blocks:
+        RoboBlocks.LANG_CATEGORY_LCD = 'LCD blocks';
+        RoboBlocks.LANG_LCD_DEF = 'LCD';
+        RoboBlocks.LANG_LCD_DEF_TOOLTIP = 'Block that defines the LCD';
+
+        RoboBlocks.LANG_LCD_SETBACKLIGHT = 'LCD: setBacklight(';
+        RoboBlocks.LANG_LCD_SETBACKLIGHT_CLOSE = ')';
+        RoboBlocks.LANG_LCD_SETBACKLIGHT_TOOLTIP = 'Set the backlight of the LCD screen';
+
+        RoboBlocks.LANG_LCD_PRINT = 'LCD: print ';
+        RoboBlocks.LANG_LCD_PRINT_POSITION = 'set position?';
+        RoboBlocks.LANG_LCD_PRINT_TOOLTIP = 'Print a String in the LCD';
+
+        RoboBlocks.LANG_LCD_CLEAR = 'LCD clear';
+        RoboBlocks.LANG_LCD_CLEAR_TOOLTIP = 'LCD clear';
+
         //controls blocks :
+
         RoboBlocks.LANG_CATEGORY_CONTROLS = 'Control';
 
         RoboBlocks.LANG_CONTROLS_BASE_DELAY_WAIT = 'Wait (ms)';
@@ -484,7 +499,7 @@
         RoboBlocks.LANG_VARIABLES_PIN_TOOLTIP = 'Select the PIN';
 
         //zum blocks :
-        RoboBlocks.LANG_CATEGORY_ZUM = 'zum';
+        RoboBlocks.LANG_CATEGORY_ZUM = 'zum blocks';
 
         RoboBlocks.LANG_ZUM_BUTTON = 'Button';
         RoboBlocks.LANG_ZUM_BUTTON_PIN = 'PIN#';
@@ -1188,6 +1203,82 @@
             with(obj) {
                 __p +=
                     __e(bool_value);
+
+            }
+            return __p
+        };
+
+        this["JST"]["lcd_clear"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'lcd.clear();';
+
+            }
+            return __p
+        };
+
+        this["JST"]["lcd_def_definitions"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#include <Wire.h>\n#include <LiquidCrystal.h>\nLiquidCrystal lcd(0);\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["lcd_def_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'lcd.begin(20, 4);\n  lcd.clear(); \n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["lcd_print"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'lcd.print(' +
+                    __e(val) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["lcd_print_pos"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'lcd.setCursor(' +
+                    __e(ycoor) +
+                    ',' +
+                    __e(xcoor) +
+                    ');\nlcd.print(' +
+                    __e(val) +
+                    ');';
+
+            }
+            return __p
+        };
+
+        this["JST"]["lcd_setBacklight"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'lcd.setBacklight(' +
+                    __e(state) +
+                    ');\n';
 
             }
             return __p
@@ -2036,9 +2127,16 @@
          */
 
         Blockly.Arduino.bq_bluetooth_def = function() {
+            var dropdown_pin, NextPIN;
+            if (this.getFieldValue('TOGGLE') === 'FALSE') {
+                dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+                NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
+            } else {
+                dropdown_pin = 0;
+                NextPIN = 1;
+            }
+
             var baud_rate = Blockly.Arduino.valueToCode(this, 'BAUD_RATE', Blockly.Arduino.ORDER_ATOMIC);
-            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-            var NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
 
             Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_def_definitions']({
                 'dropdown_pin': dropdown_pin,
@@ -2076,21 +2174,48 @@
                     .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_BAUD_RATE)
                     .setAlign(Blockly.ALIGN_RIGHT);
 
-                this.appendValueInput('PIN')
-                    .setCheck(Number)
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN1)
+                this.appendDummyInput()
+                    .appendField('zum?')
+                    .appendField(new Blockly.FieldCheckbox('TRUE'), 'TOGGLE')
                     .setAlign(Blockly.ALIGN_RIGHT);
 
-                this.appendValueInput('PIN2')
-                    .setCheck(Number)
-                    .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN2)
-                    .setAlign(Blockly.ALIGN_RIGHT);
+                this.checkBT();
+                this.last_toogle = this.getFieldValue('TOGGLE');
 
                 this.setInputsInline(false);
 
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_TOOLTIP);
+            },
+            checkBT: function() {
+                if (this.getFieldValue('TOGGLE') === 'FALSE') {
+                    try {
+                        this.removeInput('PIN');
+                        this.removeInput('PIN2');
+                    } catch (e) {}
+
+                    this.appendValueInput('PIN')
+                        .setCheck(Number)
+                        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN1)
+                        .setAlign(Blockly.ALIGN_RIGHT);
+
+                    this.appendValueInput('PIN2')
+                        .setCheck(Number)
+                        .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN2)
+                        .setAlign(Blockly.ALIGN_RIGHT);
+                } else {
+                    try {
+                        this.removeInput('PIN');
+                        this.removeInput('PIN2');
+                    } catch (e) {}
+                }
+            },
+            onchange: function() {
+                if (this.getFieldValue('TOGGLE') !== this.last_toogle) {
+                    this.checkBT();
+                    this.last_toogle = this.getFieldValue('TOGGLE');
+                }
             }
         };
 
@@ -2144,7 +2269,8 @@
 
         Blockly.Arduino.bq_bluetooth_send = function() {
             var statement_send = Blockly.Arduino.valueToCode(this, 'SNT', Blockly.Arduino.ORDER_ATOMIC);
-            statement_send = statement_send.replace('&quot;', '"');
+            statement_send = statement_send.replace(/&quot;/g, '"');
+
             var code = JST['bq_bluetooth_send']({
                 'statement_send': statement_send
             });
@@ -3151,11 +3277,11 @@
             // switch condition.
             var n = 0;
             var argument = Blockly.Arduino.valueToCode(this, 'IF0',
-                Blockly.Arduino.ORDER_NONE) || 'false';
+                Blockly.Arduino.ORDER_NONE) || '';
             var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
             var code = 'switch (' + argument + ')\n{';
             for (n = 1; n <= this.switchCount_; n++) {
-                argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n, Blockly.Arduino.ORDER_NONE) || 'false';
+                argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n, Blockly.Arduino.ORDER_NONE) || '';
                 branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
                 code += ' \n  case ' + argument + ': \n  {\n' + branch + '  break;\n  }';
             }
@@ -3696,6 +3822,226 @@
             }
         };
 
+        // Source: src/blocks/lcd_clear/lcd_clear.js
+
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * lcd_clear code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.lcd_clear = function() {
+            var code = JST['lcd_clear']({});
+            return code;
+        };
+
+        /**
+         * lcd_clear block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.lcd_clear = {
+            category: RoboBlocks.LANG_CATEGORY_LCD,
+            tags: ['bq', 'bluetooth'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/lcd_clear',
+            /**
+             * lcd_slave initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_LCD);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_LCD_CLEAR);
+                // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+
+
+
+                this.setInputsInline(false);
+
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.LANG_LCD_CLEAR_TOOLTIP);
+            }
+        };
+
+        // Source: src/blocks/lcd_def/lcd_def.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * lcd_def code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.lcd_def = function() {
+            Blockly.Arduino.definitions_['define_softwareserial'] = JST['lcd_def_definitions']({});
+            Blockly.Arduino.setups_['setup_bluetooth_'] = JST['lcd_def_setups']({});
+            return '';
+        };
+
+        /**
+         * lcd_def block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.lcd_def = {
+            category: RoboBlocks.LANG_CATEGORY_LCD,
+            tags: ['bq', 'bluetooth'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/lcd_def',
+            /**
+             * lcd_slave initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_LCD);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_LCD_DEF);
+                // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+
+
+                this.setInputsInline(false);
+
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.LANG_LCD_DEF_TOOLTIP);
+            }
+        };
+
+        // Source: src/blocks/lcd_print/lcd_print.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * lcd_print code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.lcd_print = function() {
+            var val = Blockly.Arduino.valueToCode(this, 'VAL', Blockly.Arduino.ORDER_ATOMIC);
+            var xcoor = Blockly.Arduino.valueToCode(this, 'XCOOR', Blockly.Arduino.ORDER_ATOMIC);
+            var ycoor = Blockly.Arduino.valueToCode(this, 'YCOOR', Blockly.Arduino.ORDER_ATOMIC);
+
+            var code;
+            if (this.getFieldValue('POS') === 'TRUE') {
+                code = JST['lcd_print_pos']({
+                    'val': val,
+                    'xcoor': xcoor,
+                    'ycoor': ycoor
+                });
+            } else {
+                code = JST['lcd_print']({
+                    'val': val
+                });
+            }
+
+            return code;
+        };
+
+        /**
+         * lcd_print block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.lcd_print = {
+            category: RoboBlocks.LANG_CATEGORY_LCD,
+            tags: ['bq', 'bluetooth'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/lcd_print',
+            /**
+             * lcd_slave initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_LCD);
+                this.appendValueInput('VAL')
+                    .appendField(RoboBlocks.LANG_LCD_PRINT);
+                // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_LCD_PRINT_POSITION)
+                    .appendField(new Blockly.FieldCheckbox('FALSE'), 'POS')
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
+                this.last_pos = this.getFieldValue('POS');
+
+                this.getPosition();
+
+                this.setInputsInline(false);
+
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.LANG_LCD_PRINT_TOOLTIP);
+            },
+            getPosition: function() {
+                try {
+                    this.removeInput('XCOOR');
+                    this.removeInput('YCOOR');
+                } catch (e) {}
+
+                if (this.getFieldValue('POS') === 'TRUE') {
+                    this.appendValueInput('XCOOR')
+                        .appendField('row: ')
+                        .setAlign(Blockly.ALIGN_RIGHT);
+
+                    this.appendValueInput('YCOOR')
+                        .appendField('column: ')
+                        .setAlign(Blockly.ALIGN_RIGHT);
+
+                }
+
+            },
+            onchange: function() {
+
+                if (this.getFieldValue('POS') !== this.last_pos) {
+                    this.getPosition();
+                    this.last_pos = this.getFieldValue('POS');
+                }
+            }
+        };
+
+        // Source: src/blocks/lcd_setBacklight/lcd_setBacklight.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * lcd_setBacklight code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.lcd_setBacklight = function() {
+            // Blockly.Arduino.definitions_['define_softwareserial'] = JST['lcd_setBacklight_definitions']({});
+            // Blockly.Arduino.setups_['setup_bluetooth_']= JST['lcd_setBacklight_setups']({});
+            var state = this.getFieldValue('STATE');
+            var code = JST['lcd_setBacklight']({
+                'state': state
+            });
+            return code;
+        };
+
+        /**
+         * lcd_setBacklight block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.lcd_setBacklight = {
+            category: RoboBlocks.LANG_CATEGORY_LCD,
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/lcd_setBacklight',
+            /**
+             * lcd_slave initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_LCD);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.LANG_LCD_SETBACKLIGHT)
+                    .appendField(new Blockly.FieldDropdown([
+                        ['LOW', 'LOW'],
+                        ['HIGH', 'HIGH']
+                    ]), 'STATE')
+                    .appendField(RoboBlocks.LANG_LCD_SETBACKLIGHT_CLOSE);
+                // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+
+
+                this.setInputsInline(false);
+
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.LANG_LCD_SETBACKLIGHT_TOOLTIP);
+            }
+        };
+
         // Source: src/blocks/logic_boolean/logic_boolean.js
         /* global Blockly, RoboBlocks */
 
@@ -3742,8 +4088,8 @@
             var operator = Blockly.Arduino.logic_compare.OPERATORS[mode];
             var order = (operator === '==' || operator === '!=') ?
                 Blockly.Arduino.ORDER_EQUALITY : Blockly.Arduino.ORDER_RELATIONAL;
-            var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '0';
-            var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '0';
+            var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '';
+            var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '';
             var code = JST['logic_compare']({
                 'argument0': argument0,
                 'argument1': argument1,
@@ -4253,10 +4599,10 @@
         };
 
         Blockly.Blocks.pin_analog = {
-            category: RoboBlocks.LANG_CATEGORY_VARIABLES,
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/pin',
             init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
                     .appendField('Analog pin')
                     .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
@@ -4280,10 +4626,10 @@
         };
 
         Blockly.Blocks.pin_digital = {
-            category: RoboBlocks.LANG_CATEGORY_VARIABLES,
+            category: RoboBlocks.LANG_CATEGORY_ADVANCED,
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/pin',
             init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
+                this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
                     .appendField('Digital pin')
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
