@@ -10,6 +10,8 @@ Blockly.Arduino.procedures_defreturn = function(){
     var funcName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('NAME'),
         Blockly.Procedures.NAME_TYPE);
     var branch = Blockly.Arduino.statementToCode(this, 'STACK');
+    branch=branch.replace(/&quot;/g,'"');
+
     if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,'\'' + this.id + '\'') + branch;
     }

@@ -11,6 +11,9 @@ Blockly.Arduino.controls_whileUntil = function() {
     // Do while/until loop.
     var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL',Blockly.Arduino.ORDER_NONE) || '';
     var branch = Blockly.Arduino.statementToCode(this, 'DO');
+    branch=branch.replace(/&quot;/g,'"');
+    
+    
     if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,'\'' + this.id + '\'') + branch;
     }

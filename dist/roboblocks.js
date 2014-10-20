@@ -1461,7 +1461,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'if (Serial.available()>0){' +
+                __p += 'if (Serial.available()>0){\n' +
                     __e(branch) +
                     '\n}\n';
 
@@ -2266,8 +2266,7 @@
          */
 
         Blockly.Arduino.bq_bluetooth_send = function() {
-            var statement_send = Blockly.Arduino.valueToCode(this, 'SNT', Blockly.Arduino.ORDER_ATOMIC);
-            statement_send = statement_send.replace(/&quot;/g, '"');
+            var statement_send = Blockly.Arduino.valueToCode(this, 'SNT', Blockly.Arduino.ORDER_ATOMIC) || '';
 
             var code = JST['bq_bluetooth_send']({
                 'statement_send': statement_send
@@ -2784,6 +2783,8 @@
          */
         Blockly.Arduino.bt_serial_available = function() {
             var branch = Blockly.Arduino.statementToCode(this, 'DO');
+            branch = branch.replace(/&quot;/g, '"');
+
             var code = JST['bt_serial_available']({
                 'branch': branch
             });
@@ -3042,6 +3043,8 @@
             var n = 0;
             var argument = Blockly.Arduino.valueToCode(this, 'IF' + n, Blockly.Arduino.ORDER_NONE);
             var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
+            branch = branch.replace(/&quot;/g, '"');
+
             var code = JST['controls_if']({
                 'argument': argument,
                 'branch': branch
@@ -3494,6 +3497,9 @@
             // Do while/until loop.
             var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL', Blockly.Arduino.ORDER_NONE) || '';
             var branch = Blockly.Arduino.statementToCode(this, 'DO');
+            branch = branch.replace(/&quot;/g, '"');
+
+
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
@@ -3892,7 +3898,7 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_LCD);
                 this.appendDummyInput()
                     .appendField(RoboBlocks.LANG_LCD_DEF)
-                    .appendField(new Blockly.FieldImage('img/blocks/lcd16x4.png', 208 * options.zoom, 100 * options.zoom));
+                    .appendField(new Blockly.FieldImage('img/blocks/lcd.png', 208 * options.zoom, 100 * options.zoom));
 
 
                 this.setInputsInline(false);
@@ -4916,6 +4922,8 @@
             var funcName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('NAME'),
                 Blockly.Procedures.NAME_TYPE);
             var branch = Blockly.Arduino.statementToCode(this, 'STACK');
+            branch = branch.replace(/&quot;/g, '"');
+
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
@@ -5128,6 +5136,8 @@
             var funcName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('NAME'),
                 Blockly.Procedures.NAME_TYPE);
             var branch = Blockly.Arduino.statementToCode(this, 'STACK');
+            branch = branch.replace(/&quot;/g, '"');
+
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
@@ -5300,6 +5310,8 @@
          */
         Blockly.Arduino.serial_available = function() {
             var branch = Blockly.Arduino.statementToCode(this, 'DO');
+            branch = branch.replace(/&quot;/g, '"');
+
             var code = JST['serial_available']({
                 'branch': branch
             });

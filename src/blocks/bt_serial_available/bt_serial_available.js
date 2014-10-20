@@ -8,6 +8,8 @@
  */
 Blockly.Arduino.bt_serial_available = function() {
 	var branch = Blockly.Arduino.statementToCode(this, 'DO');
+	branch=branch.replace(/&quot;/g,'"');
+
 	var code = JST['bt_serial_available']({
 		'branch' : branch
 	});

@@ -11,6 +11,8 @@ Blockly.Arduino.controls_if = function() {
     var n=0;
     var argument=Blockly.Arduino.valueToCode(this, 'IF' + n, Blockly.Arduino.ORDER_NONE);
     var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
+    branch=branch.replace(/&quot;/g,'"');
+    
     var code = JST['controls_if']({
         'argument': argument,
         'branch' : branch

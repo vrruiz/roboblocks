@@ -28,7 +28,7 @@ Blockly.Blocks.lcd_def = {
         this.setColour(RoboBlocks.LANG_COLOUR_LCD);
         this.appendDummyInput()
             .appendField(RoboBlocks.LANG_LCD_DEF)
-            .appendField(new Blockly.FieldImage('img/blocks/lcd16x4.png', 208 * options.zoom, 100 * options.zoom));
+            .appendField(new Blockly.FieldImage('img/blocks/lcd.png', 208 * options.zoom, 100 * options.zoom));
 
 
         this.setInputsInline(false);

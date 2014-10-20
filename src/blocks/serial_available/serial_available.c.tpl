@@ -1,2 +1,3 @@
-if (Serial.available()>0){{{branch}}
+if (Serial.available()>0){
+{{branch}}
 }
