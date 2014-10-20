@@ -53,10 +53,7 @@
         };
 
         // Source: src/constants.js
-        /* global RoboBlocks, options */
-
-        options.zoom = 0.3;
-
+        /* global RoboBlocks*/
 
 
         RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
@@ -85,7 +82,7 @@
         RoboBlocks.LANG_COLOUR_CONTROL = '#C222B0';
         RoboBlocks.LANG_COLOUR_MATH = '#C222B0';
         RoboBlocks.LANG_COLOUR_COMMUNICATION = '#C222B0';
-        RoboBlocks.LANG_COLOUR_LCD = '#C225B0';
+        RoboBlocks.LANG_COLOUR_LCD = '#C222B0';
 
 
         ///////////// COPY TO EN.JS
@@ -2093,11 +2090,11 @@
          * @type {Object}
          */
         Blockly.Blocks.bq_bat = {
-            category: RoboBlocks.LANG_CATEGORY_BQ,
+            category: RoboBlocks.LANG_CATEGORY_ZUM,
             tags: ['bq', 'bat'],
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_bat',
             init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_BQ);
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.LANG_BQ_BAT)
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));

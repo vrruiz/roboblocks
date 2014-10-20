@@ -1,8 +1,5 @@
 'use strict';
-/* global RoboBlocks, options */
-
-options.zoom = 0.3;
-
+/* global RoboBlocks*/
 
 
 RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
@@ -31,7 +28,7 @@ RoboBlocks.LANG_COLOUR_PROCEDURES = '#C222B0';
 RoboBlocks.LANG_COLOUR_CONTROL = '#C222B0';
 RoboBlocks.LANG_COLOUR_MATH = '#C222B0';
 RoboBlocks.LANG_COLOUR_COMMUNICATION = '#C222B0';
-RoboBlocks.LANG_COLOUR_LCD = '#C225B0';
+RoboBlocks.LANG_COLOUR_LCD = '#C222B0';
 
 
 ///////////// COPY TO EN.JS
