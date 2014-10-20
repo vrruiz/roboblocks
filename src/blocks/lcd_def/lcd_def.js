@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, JST, RoboBlocks */
+/* global Blockly, JST, options, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -27,8 +27,8 @@ Blockly.Blocks.lcd_def = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LCD);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_LCD_DEF);
-            // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+            .appendField(RoboBlocks.LANG_LCD_DEF)
+            .appendField(new Blockly.FieldImage('img/blocks/lcd16x4.png', 208 * options.zoom, 100 * options.zoom));
 
 
         this.setInputsInline(false);

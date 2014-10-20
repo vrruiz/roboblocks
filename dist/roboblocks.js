@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.6 - 2014-10-17
+/*! roboblocks - v0.0.6 - 2014-10-20
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -3853,7 +3853,7 @@
         };
 
         // Source: src/blocks/lcd_def/lcd_def.js
-        /* global Blockly, JST, RoboBlocks */
+        /* global Blockly, JST, options, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -3881,8 +3881,8 @@
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_LCD);
                 this.appendDummyInput()
-                    .appendField(RoboBlocks.LANG_LCD_DEF);
-                // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+                    .appendField(RoboBlocks.LANG_LCD_DEF)
+                    .appendField(new Blockly.FieldImage('img/blocks/lcd16x4.png', 208 * options.zoom, 100 * options.zoom));
 
 
                 this.setInputsInline(false);
