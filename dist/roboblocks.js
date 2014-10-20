@@ -845,7 +845,17 @@
                     __e(dropdown_pin) +
                     ');\n  key = get_key(adc_key_in);\n  if (key != oldkey)\n  {\n    delay(50);\n    adc_key_in = analogRead(' +
                     __e(dropdown_pin) +
-                    ');\n    key = get_key(adc_key_in);\n    if (key != oldkey)\n    {\n      oldkey = key;\n      if (key >=0){\n        switch(key)\n        {\n          case 0:\n           code_btn1\n          break;\n          case 1:\n           code_btn2\n          break;\n          case 2:\n           code_btn3\n          break;\n          case 3:\n           code_btn4\n          break;  \n          case 4:\n           code_btn5\n          break;\n        }      \n      }\n    }\n  }\n';
+                    ');\n    key = get_key(adc_key_in);\n    if (key != oldkey)\n    {\n      oldkey = key;\n      if (key >=0){\n        switch(key)\n        {\n          case 0:\n           ' +
+                    __e(code_btn1) +
+                    '\n          break;\n          case 1:\n           ' +
+                    __e(code_btn2) +
+                    '\n          break;\n          case 2:\n           ' +
+                    __e(code_btn3) +
+                    '\n          break;\n          case 3:\n           ' +
+                    __e(code_btn4) +
+                    '\n          break;  \n          case 4:\n           ' +
+                    __e(code_btn5) +
+                    '\n          break;\n        }      \n      }\n    }\n  }\n';
 
             }
             return __p
@@ -1740,9 +1750,13 @@
             with(obj) {
                 __p += 'if(digitalRead(' +
                     __e(dropdown_pin) +
-                    ')==HIGH)\n{\n  code_btn1\n}\nif(digitalRead(' +
+                    ')==HIGH)\n{\n  ' +
+                    __e(code_btn1) +
+                    '\n}\nif(digitalRead(' +
                     __e(NextPIN) +
-                    ')==HIGH)\n{\n  code_btn2\n}\n';
+                    ')==HIGH)\n{\n  ' +
+                    __e(code_btn2) +
+                    '\n}\n';
 
             }
             return __p
@@ -2364,19 +2378,30 @@
 
         Blockly.Arduino.bq_buttons = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-            //  var code_btn1 = Blockly.Arduino.statementToCode(this, 'BUTN1');
-            //  var code_btn2 = Blockly.Arduino.statementToCode(this, 'BUTN2');
-            //  var code_btn3 = Blockly.Arduino.statementToCode(this, 'BUTN3');
-            //  var code_btn4 = Blockly.Arduino.statementToCode(this, 'BUTN4');
-            //  var code_btn5 = Blockly.Arduino.statementToCode(this, 'BUTN5');
+            var code_btn1 = Blockly.Arduino.statementToCode(this, 'BUTN1');
+            var code_btn2 = Blockly.Arduino.statementToCode(this, 'BUTN2');
+            var code_btn3 = Blockly.Arduino.statementToCode(this, 'BUTN3');
+            var code_btn4 = Blockly.Arduino.statementToCode(this, 'BUTN4');
+            var code_btn5 = Blockly.Arduino.statementToCode(this, 'BUTN5');
+
+            code_btn1 = code_btn1.replace(/&quot;/g, '"');
+            code_btn2 = code_btn2.replace(/&quot;/g, '"');
+            code_btn3 = code_btn3.replace(/&quot;/g, '"');
+            code_btn4 = code_btn4.replace(/&quot;/g, '"');
+            code_btn5 = code_btn5.replace(/&quot;/g, '"');
 
             Blockly.Arduino.definitions_['define_buttons'] = JST['bq_buttons_definitions']({
-                'dropdown_pin': dropdown_pin,
+                'dropdown_pin': dropdown_pin
             });
 
 
             var code = JST['bq_buttons']({
                 'dropdown_pin': dropdown_pin,
+                'code_btn1': code_btn1,
+                'code_btn2': code_btn2,
+                'code_btn3': code_btn3,
+                'code_btn4': code_btn4,
+                'code_btn5': code_btn5
             });
 
             return code;
@@ -6367,8 +6392,11 @@
         Blockly.Arduino.zum_follower = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
             var NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC) || '';
+
             var code_btn1 = Blockly.Arduino.statementToCode(this, 'SENS1');
+            code_btn1 = code_btn1.replace(/&quot;/g, '"');
             var code_btn2 = Blockly.Arduino.statementToCode(this, 'SENS2');
+            code_btn2 = code_btn2.replace(/&quot;/g, '"');
 
             Blockly.Arduino.setups_['setup_follower_' + dropdown_pin] = JST['zum_follower_setups']({
                 'dropdown_pin': dropdown_pin,

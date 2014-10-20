@@ -9,8 +9,11 @@
 Blockly.Arduino.zum_follower = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC)||'';
     var NextPIN = Blockly.Arduino.valueToCode(this,'PIN2', Blockly.Arduino.ORDER_ATOMIC)||'';
+    
     var code_btn1 = Blockly.Arduino.statementToCode(this, 'SENS1');
+    code_btn1=code_btn1.replace(/&quot;/g,'"');
     var code_btn2 = Blockly.Arduino.statementToCode(this, 'SENS2');
+    code_btn2=code_btn2.replace(/&quot;/g,'"');
 
     Blockly.Arduino.setups_['setup_follower_' + dropdown_pin] = JST['zum_follower_setups']({
         'dropdown_pin': dropdown_pin,
