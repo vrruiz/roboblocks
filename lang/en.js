@@ -10,6 +10,7 @@
 
         LANG_LOGIC_OPERATION_AND : 'and',
         LANG_LOGIC_OPERATION_OR : 'or',
+
         LANG_LOGIC_COMPARE_TOOLTIP_EQ : 'Returns true if both inputs equal each other.',
         LANG_LOGIC_COMPARE_TOOLTIP_NEQ : 'Returns true if both inputs are not equal to each other.',
         LANG_LOGIC_COMPARE_TOOLTIP_LT : 'Returns true if the first input is smaller than the second input.',
@@ -147,11 +148,11 @@
 
         LANG_LCD_SETBACKLIGHT : 'LCD: setBacklight(',
         LANG_LCD_SETBACKLIGHT_CLOSE : ')',
-        LANG_LCD_SETBACKLIGHT_TOOLTIP : 'Set the backlight of the LCD screen',
+        LANG_LCD_SETBACKLIGHT_TOOLTIP : 'Sets the backlight of the LCD screen',
 
         LANG_LCD_PRINT : 'LCD: print ',
         LANG_LCD_PRINT_POSITION : 'set position?',
-        LANG_LCD_PRINT_TOOLTIP : 'Print a String in the LCD',
+        LANG_LCD_PRINT_TOOLTIP : 'Prints a String in the LCD',
 
         LANG_LCD_CLEAR : 'LCD clear',
         LANG_LCD_CLEAR_TOOLTIP : 'LCD clear',

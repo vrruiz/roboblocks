@@ -1,13 +1,11 @@
 logic_boolean
 ===========
 
-logic_boolean description
+Returns either true or false.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| State     | Dropdown to select "true" or "false" | `Dropdown` |

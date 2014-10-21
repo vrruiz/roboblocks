@@ -1,13 +1,11 @@
 logic_negate
 ===========
 
-logic_negate description
+Returns true if the input is false. Returns false if the input is true.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| param1     | Input that is negated | `Boolean` |
