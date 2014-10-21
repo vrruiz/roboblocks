@@ -3,14 +3,14 @@
 (function () {
     var language = {
 //random :
-        LANG_VARIABLES_SET_ITEM : 'item',
+        LANG_VARIABLES_SET_ITEM : 'elemento',
 
         //logic blocks:
-        LANG_CATEGORY_LOGIC : 'Logic',
+        LANG_CATEGORY_LOGIC : 'Lógica',
 
-        LANG_LOGIC_OPERATION_AND : 'and',
-        LANG_LOGIC_OPERATION_OR : 'or',
-        LANG_LOGIC_COMPARE_TOOLTIP_EQ : 'Returns true if both inputs equal each other.',
+        LANG_LOGIC_OPERATION_AND : 'y',
+        LANG_LOGIC_OPERATION_OR : 'o',
+        LANG_LOGIC_COMPARE_TOOLTIP_EQ : 'Devuelve verdadero si los dos valores de entrada son iguales.',
         LANG_LOGIC_COMPARE_TOOLTIP_NEQ : 'Returns true if both inputs are not equal to each other.',
         LANG_LOGIC_COMPARE_TOOLTIP_LT : 'Returns true if the first input is smaller than the second input.',
         LANG_LOGIC_COMPARE_TOOLTIP_LTE : 'Returns true if the first input is smaller than or equal to the second input.',
@@ -20,26 +20,26 @@
         LANG_LOGIC_OPERATION_TOOLTIP_AND : 'Returns true if both inputs are true.',
         LANG_LOGIC_OPERATION_TOOLTIP_OR : 'Returns true if either inputs are true.',
 
-        LANG_LOGIC_NEGATE_INPUT_NOT : 'not',
+        LANG_LOGIC_NEGATE_INPUT_NOT : 'no',
         LANG_LOGIC_NEGATE_TOOLTIP : 'Returns true if the input is false. Returns false if the input is true.',
         LANG_LOGIC_NEGATE_HELPURL : '',
 
-        LANG_LOGIC_BOOLEAN_TRUE : 'true',
-        LANG_LOGIC_BOOLEAN_FALSE : 'false',
+        LANG_LOGIC_BOOLEAN_TRUE : 'verdadero',
+        LANG_LOGIC_BOOLEAN_FALSE : 'falso',
         LANG_LOGIC_BOOLEAN_TOOLTIP : 'Returns either true or false.',
 
         LANG_LOGIC_NULL : 'null',
         LANG_LOGIC_NULL_TOOLTIP : 'Returns null.',
 
         //communication blocks:
-        LANG_CATEGORY_COMMUNICATION : 'Communication',
+        LANG_CATEGORY_COMMUNICATION : 'Comunicación',
 
         LANG_BQ_BLUETOOTH_RECEIVE : 'Bluetooth receive data',
         LANG_BQ_BLUETOOTH_RECEIVE_BLUETOOTH : 'Bluetooth',
         LANG_BQ_BLUETOOTH_RECEIVE_TOOLTIP : 'Returns the data received by the bq Bluetooth module',
 
         LANG_BQ_BLUETOOTH_SEND : 'Bluetooth send data',
-        LANG_BQ_BLUETOOTH_SEND_SEND : 'Send',
+        LANG_BQ_BLUETOOTH_SEND_SEND : 'Enviar',
         LANG_BQ_BLUETOOTH_SEND_TOOLTIP : 'Sends the input data using the bq Bluetooth module',
 
 
@@ -50,7 +50,7 @@
         LANG_BQ_BLUETOOTH_DEF_NAME : 'Name',
         LANG_BQ_BLUETOOTH_DEF_PINCODE : 'PinCode',
         LANG_BQ_BLUETOOTH_DEF_RECEIVE : 'Receive',
-        LANG_BQ_BLUETOOTH_DEF_SEND : 'Send',
+        LANG_BQ_BLUETOOTH_DEF_SEND : 'Enviar',
         LANG_BQ_BLUETOOTH_DEF_TOOLTIP : 'bq Bluetooth',
 
         LANG_ADVANCED_BT_SERIAL_AVAILABLE : 'Bluetooth Serial Available',
@@ -484,7 +484,7 @@
     }
     // Browser
     if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
-        this.RoboBlocks.locales.add('en', language);
+        this.RoboBlocks.locales.add('es', language);
     }
 }());
 
