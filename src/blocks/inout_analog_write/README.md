@@ -1,13 +1,11 @@
 inout_analog_write
 ==========
 
-inout_analog_write description
+Sends an analog value to a certain analog pin.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| PIN     | Pin to which we are writing | `Number` |

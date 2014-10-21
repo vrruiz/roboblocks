@@ -238,7 +238,7 @@
                 LANG_CONTROLS_FOR_INPUT_FROM: 'from',
                 LANG_CONTROLS_FOR_INPUT_TO: 'to',
                 LANG_CONTROLS_FOR_INPUT_DO: 'do',
-                LANG_CONTROLS_FOR_TOOLTIP: 'Count from a start number to an end number. For each count, set the current count number to variable %1, and then do some statements.',
+                LANG_CONTROLS_FOR_TOOLTIP: 'Count from a start number to an end number. In each loop, set the current count number to variable %1, and execute the statements inside the block.',
 
                 LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE: 'while',
                 LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL: 'until',
@@ -249,13 +249,6 @@
                 LANG_CONTROLS_REPEAT_TITLE_TIMES: 'times',
                 LANG_CONTROLS_REPEAT_INPUT_DO: 'do',
                 LANG_CONTROLS_REPEAT_TOOLTIP: 'Repeat the code a certain number of times',
-
-                LANG_CONTROLS_FOREACH_HELPURL: '',
-                LANG_CONTROLS_FOREACH_INPUT_ITEM: 'for each item',
-                LANG_CONTROLS_FOREACH_INPUT_VAR: 'x',
-                LANG_CONTROLS_FOREACH_INPUT_INLIST: 'in list',
-                LANG_CONTROLS_FOREACH_INPUT_DO: 'do',
-                LANG_CONTROLS_FOREACH_TOOLTIP: 'For each item in a list, set the item to variable %1, and then do some statements.',
 
                 LANG_CONTROLS_FLOW_STATEMENTS_HELPURL: '',
                 LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP: 'of loop',
@@ -283,14 +276,14 @@
                 LANG_MATH_ADVANCED_MAP_HYPHEN: '-',
                 LANG_MATH_ADVANCED_MAP_BRACKET: ']',
                 LANG_MATH_ADVANCED_MAP_TO: 'to [',
-                LANG_MATH_ADVANCED_MAP_TOOLTIP: 'Re-maps a number from a certain range to another.',
+                LANG_MATH_ADVANCED_MAP_TOOLTIP: 'Re-map a number from a certain range to another.',
 
                 LANG_MATH_NUMBER_TOOLTIP: 'Number',
 
                 LANG_MATH_BASE_MAP: 'Map ',
                 LANG_MATH_BASE_MAP_VALUE_TO: 'Value to [0-',
                 LANG_MATH_BASE_MAP_BRACKET: ']',
-                LANG_MATH_BASE_MAP_TOOLTIP: 'Re-maps a number from [0-1024] to another.',
+                LANG_MATH_BASE_MAP_TOOLTIP: 'Re-map a number from [0-1024] to another.',
 
                 LANG_MATH_SINGLE_OP_ROOT: 'square root',
                 LANG_MATH_SINGLE_OP_ABSOLUTE: 'absolute',
@@ -354,7 +347,7 @@
                 LANG_ADVANCED_CONVERSION_OCTAL: 'Octal',
                 LANG_ADVANCED_CONVERSION_BINARY: 'Binary',
                 LANG_ADVANCED_CONVERSION_VALUE: 'value',
-                LANG_ADVANCED_CONVERSION_TOOLTIP: 'Base convert a number',
+                LANG_ADVANCED_CONVERSION_TOOLTIP: 'Convert a number from one base to another.',
 
                 LANG_ADVANCED_INOUT_ANALOG_READ: 'AnalogRead PIN#',
                 LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP: 'Reads the value from a specified digital pin',
@@ -391,7 +384,7 @@
 
 
                 //procedures blocks
-                LANG_CATEGORY_PROCEDURES: 'Procedures',
+                LANG_CATEGORY_PROCEDURES: 'Functions',
 
                 LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
                 LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'function',
@@ -4102,7 +4095,7 @@
         };
 
         // Source: src/blocks/inout_analog_read/inout_analog_read.js
-        /* global Blockly, profiles, JST, RoboBlocks */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -4110,7 +4103,7 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.inout_analog_read = function() {
-            var dropdown_pin = this.getFieldValue('PIN');
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
 
             Blockly.Arduino.setups_['setup_green_analog_read' + dropdown_pin] = JST['inout_analog_read_setups']({
                 'dropdown_pin': dropdown_pin,
@@ -4135,16 +4128,16 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
-                this.appendDummyInput('')
-                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ'))
-                    .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ'));
                 this.setOutput(true, Boolean);
+                this.setInputsInline(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP'));
             }
         };
 
         // Source: src/blocks/inout_analog_write/inout_analog_write.js
-        /* global Blockly, profiles, JST, RoboBlocks */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -4153,7 +4146,7 @@
          */
         Blockly.Arduino.inout_analog_write = function() {
 
-            var dropdown_pin = this.getFieldValue('PIN');
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
 
             Blockly.Arduino.setups_['setup_green_analog_write_13'] = JST['inout_analog_write_setups']({
@@ -4182,9 +4175,8 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
-                this.appendDummyInput('')
-                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_WRITE'))
-                    .appendField(new Blockly.FieldDropdown(profiles.default.pwm), 'PIN');
+                this.appendValueInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_WRITE'));
                 this.appendValueInput('NUM', Number)
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_WRITE_VALUE'))
                     .setCheck(Number);
@@ -4242,7 +4234,7 @@
         };
 
         // Source: src/blocks/inout_digital_read/inout_digital_read.js
-        /* global Blockly, profiles, JST, RoboBlocks */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -4250,7 +4242,7 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.inout_digital_read = function() {
-            var dropdown_pin = this.getFieldValue('PIN');
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
 
             Blockly.Arduino.setups_['setup_green_digital_read' + dropdown_pin] = JST['inout_digital_read_setups']({
                 'dropdown_pin': dropdown_pin,
@@ -4275,16 +4267,16 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
-                this.appendDummyInput('')
-                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_READ'))
-                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_READ'));
                 this.setOutput(true, Boolean);
+                this.setInputsInline(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_READ_TOOLTIP'));
             }
         };
 
         // Source: src/blocks/inout_digital_write/inout_digital_write.js
-        /* global Blockly, profiles, JST, RoboBlocks */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -4293,7 +4285,7 @@
          */
         Blockly.Arduino.inout_digital_write = function() {
 
-            var dropdown_pin = this.getFieldValue('PIN');
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var dropdown_stat = this.getFieldValue('STAT');
 
             Blockly.Arduino.setups_['setup_green_digital_write_13'] = JST['inout_digital_write_setups']({
@@ -4321,16 +4313,17 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
-                this.appendDummyInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE'))
-                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN'))
-                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN'));
+                this.appendDummyInput()
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE'))
                     .appendField(new Blockly.FieldDropdown([
                         [RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH'), 'HIGH'],
                         [RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW'), 'LOW']
                     ]), 'STAT');
                 this.setPreviousStatement(true, null);
+                this.setInputsInline(true);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP'));
             }

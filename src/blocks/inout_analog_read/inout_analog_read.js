@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, profiles, JST, RoboBlocks */
+/* global Blockly, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -7,7 +7,7 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.inout_analog_read = function() {
-	var dropdown_pin = this.getFieldValue('PIN');
+	var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
 
 	Blockly.Arduino.setups_['setup_green_analog_read'+dropdown_pin] = JST['inout_analog_read_setups']({
 		'dropdown_pin': dropdown_pin,
@@ -32,10 +32,10 @@ Blockly.Blocks.inout_analog_read = {
 	  */
 	init: function() {
 		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
-		this.appendDummyInput('')
-			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ'))
-			.appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
+		this.appendValueInput('PIN')
+			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ'));
 		this.setOutput(true, Boolean);
+		this.setInputsInline(true);
 		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP'));
 	}
 };

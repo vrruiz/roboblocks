@@ -183,7 +183,7 @@
         LANG_CONTROLS_FOR_INPUT_FROM : 'from',
         LANG_CONTROLS_FOR_INPUT_TO : 'to',
         LANG_CONTROLS_FOR_INPUT_DO : 'do',
-        LANG_CONTROLS_FOR_TOOLTIP : 'Count from a start number to an end number. For each count, set the current count number to variable %1, and then do some statements.',
+        LANG_CONTROLS_FOR_TOOLTIP : 'Count from a start number to an end number. In each loop, set the current count number to variable %1, and execute the statements inside the block.',
 
         LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE : 'while',
         LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL : 'until',
@@ -194,13 +194,6 @@
         LANG_CONTROLS_REPEAT_TITLE_TIMES : 'times',
         LANG_CONTROLS_REPEAT_INPUT_DO : 'do',
         LANG_CONTROLS_REPEAT_TOOLTIP : 'Repeat the code a certain number of times',
-
-        LANG_CONTROLS_FOREACH_HELPURL : '',
-        LANG_CONTROLS_FOREACH_INPUT_ITEM : 'for each item',
-        LANG_CONTROLS_FOREACH_INPUT_VAR : 'x',
-        LANG_CONTROLS_FOREACH_INPUT_INLIST : 'in list',
-        LANG_CONTROLS_FOREACH_INPUT_DO : 'do',
-        LANG_CONTROLS_FOREACH_TOOLTIP : 'For each item in a list, set the item to variable %1, and then do some statements.',
 
         LANG_CONTROLS_FLOW_STATEMENTS_HELPURL : '',
         LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP : 'of loop',
@@ -336,7 +329,7 @@
 
 
         //procedures blocks
-        LANG_CATEGORY_PROCEDURES : 'Procedures',
+        LANG_CATEGORY_PROCEDURES : 'Functions',
 
         LANG_PROCEDURES_DEFNORETURN_HELPURL : '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE : 'function',

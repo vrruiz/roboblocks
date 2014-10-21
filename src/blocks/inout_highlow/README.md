@@ -1,13 +1,11 @@
 inout_highlow
 ==========
 
-inout_highlow description
+Prints a "HIGH" or a "LOW" string in the arduino code. 
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| Dropdown     | Dropdown used to select "HIGH" or "LOW" | `Dropdown` |

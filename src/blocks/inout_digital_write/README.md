@@ -1,13 +1,11 @@
 inout_digital_write
 ==========
 
-inout_digital_write description
+Writes the value (HIGH/LOW) to the specified PIN.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| PIN     | Pin to which we are writing | `Number` |
