@@ -24,7 +24,7 @@ Blockly.Arduino.bq_photoresistor = function() {
  * @type {Object}
 */
 Blockly.Blocks.bq_photoresistor = {
-    category: RoboBlocks.LANG_CATEGORY_BQ,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
     tags: ['bq', 'photoresistor'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_photoresistor',
     /**
@@ -33,11 +33,11 @@ Blockly.Blocks.bq_photoresistor = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendValueInput('PIN')
-        .appendField(RoboBlocks.LANG_BQ_PHOTORESISTOR)
+        .appendField(RoboBlocks.locales.getKey('LANG_BQ_PHOTORESISTOR'))
         .appendField(new Blockly.FieldImage('img/blocks/bqmod01.png', 208 * options.zoom, 140 * options.zoom))
-        .appendField(RoboBlocks.LANG_BQ_PHOTORESISTOR_PIN)
+        .appendField(RoboBlocks.locales.getKey('LANG_BQ_PHOTORESISTOR_PIN'))
         .setCheck(Number);
         this.setOutput(true, Number);
-        this.setTooltip(RoboBlocks.LANG_BQ_PHOTORESISTOR_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_PHOTORESISTOR_TOOLTIP'));
     }
 };

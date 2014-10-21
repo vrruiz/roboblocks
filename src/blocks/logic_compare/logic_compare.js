@@ -36,7 +36,7 @@ Blockly.Arduino.logic_compare.OPERATORS = {
 
 Blockly.Blocks.logic_compare = {
     // Comparison operator.
-    category: RoboBlocks.LANG_CATEGORY_LOGIC,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/logic_compare',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
@@ -63,10 +63,10 @@ Blockly.Blocks.logic_compare.OPERATORS =
      ['\u2265', 'GTE']];
 
 Blockly.Blocks.logic_compare.TOOLTIPS = {
-    EQ: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_EQ,
-    NEQ: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_NEQ,
-    LT: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_LT,
-    LTE: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_LTE,
-    GT: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_GT,
-    GTE: RoboBlocks.LANG_LOGIC_COMPARE_TOOLTIP_GTE
+    EQ: RoboBlocks.locales.getKey('LANG_LOGIC_COMPARE_TOOLTIP_EQ'),
+    NEQ: RoboBlocks.locales.getKey('LANG_LOGIC_COMPARE_TOOLTIP_NEQ'),
+    LT: RoboBlocks.locales.getKey('LANG_LOGIC_COMPARE_TOOLTIP_LT'),
+    LTE: RoboBlocks.locales.getKey('LANG_LOGIC_COMPARE_TOOLTIP_LTE'),
+    GT: RoboBlocks.locales.getKey('LANG_LOGIC_COMPARE_TOOLTIP_GT'),
+    GTE: RoboBlocks.locales.getKey('LANG_LOGIC_COMPARE_TOOLTIP_GTE')
 };

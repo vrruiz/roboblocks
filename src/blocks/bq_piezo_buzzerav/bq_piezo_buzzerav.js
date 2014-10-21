@@ -26,7 +26,7 @@ Blockly.Arduino.bq_piezo_buzzerav = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_piezo_buzzerav = {
-    category: RoboBlocks.LANG_CATEGORY_BQ,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
     tags: ['bq', 'advanced buzzer'],
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_piezo_buzzerav',
     /**
@@ -35,23 +35,23 @@ Blockly.Blocks.bq_piezo_buzzerav = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZERAV'))
             .appendField(new Blockly.FieldImage('img/blocks/bqmod08.png', 208 * options.zoom, 140 * options.zoom))
-            .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_PIN)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZERAV_PIN'))
             .setCheck(Number);
 
         this.appendValueInput('TONE', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_TONE);
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZERAV_TONE'));
 
         this.appendValueInput('DURA', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_DURATION);
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZERAV_DURATION'));
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_BQ_PIEZO_BUZZERAV_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZERAV_TOOLTIP'));
     }
 };

@@ -36,7 +36,7 @@ Blockly.Arduino.servo_move = function() {
  * @type {Object}
  */
 Blockly.Blocks.servo_move = {
-    category: RoboBlocks.LANG_CATEGORY_SERVO,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_SERVO'),
     tags: ['servo move'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/servo_move',
     /**
@@ -45,19 +45,19 @@ Blockly.Blocks.servo_move = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_SERVO_MOVE)
+            .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE'))
             .appendField(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom))
-            .appendField(RoboBlocks.LANG_SERVO_MOVE_PIN);
+            .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_PIN'));
         this.appendValueInput('DEGREE', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_SERVO_MOVE_DEGREES);
+            .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_DEGREES'));
         this.appendValueInput('DELAY_TIME', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_SERVO_MOVE_DELAY);
+            .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_DELAY'));
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip(RoboBlocks.LANG_SERVO_MOVE_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_TOOLTIP'));
     }
 };

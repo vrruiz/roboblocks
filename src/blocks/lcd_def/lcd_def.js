@@ -18,7 +18,7 @@ Blockly.Arduino.lcd_def = function() {
  * @type {Object}
  */
 Blockly.Blocks.lcd_def = {
-    category: RoboBlocks.LANG_CATEGORY_LCD,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
     tags: ['bq', 'bluetooth'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/lcd_def',
     /**
@@ -27,7 +27,7 @@ Blockly.Blocks.lcd_def = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LCD);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_LCD_DEF)
+            .appendField(RoboBlocks.locales.getKey('LANG_LCD_DEF'))
             .appendField(new Blockly.FieldImage('img/blocks/lcd.png', 208 * options.zoom, 100 * options.zoom));
 
 
@@ -35,6 +35,6 @@ Blockly.Blocks.lcd_def = {
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_LCD_DEF_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_LCD_DEF_TOOLTIP'));
     }
 };

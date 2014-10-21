@@ -24,7 +24,7 @@ Blockly.Arduino.inout_builtin_led = function() {
  * @type {Object}
  */
 Blockly.Blocks.inout_builtin_led = {
-	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/inout_builtin_led',
 	 /**
 	  * inout_builtin_led initialization
@@ -32,14 +32,14 @@ Blockly.Blocks.inout_builtin_led = {
 	init: function() {
 		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput('')
-			.appendField(RoboBlocks.LANG_ADVANCED_BUILTIN_LED)
-			.appendField(RoboBlocks.LANG_ADVANCED_BUILTIN_LED_STATE)
+			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED'))
+			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_STATE'))
 			.appendField(new Blockly.FieldDropdown([
-				[RoboBlocks.LANG_ADVANCED_BUILTIN_LED_ON , 'HIGH'],
-				[RoboBlocks.LANG_ADVANCED_BUILTIN_LED_OFF , 'LOW']
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_ON') , 'HIGH'],
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_OFF') , 'LOW']
 			]), 'STAT');
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setTooltip(RoboBlocks.LANG_ADVANCED_BUILTIN_LED_TOOLTIP);
+		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_TOOLTIP'));
 	}
 };

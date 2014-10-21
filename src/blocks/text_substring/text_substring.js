@@ -21,29 +21,29 @@ Blockly.Arduino.text_substring = function() {
 };
 
 Blockly.Blocks.text_substring = {
-    category: RoboBlocks.LANG_CATEGORY_TEXT,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/text_substring',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendValueInput('STRING1')
             // .setCheck(String)
-            .appendField(RoboBlocks.LANG_TEXT_SUBSTRING);
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_SUBSTRING'));
 
         this.appendValueInput('FROM')
-            .appendField(RoboBlocks.LANG_TEXT_SUBSTRING_FROM)
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_SUBSTRING_FROM'))
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT);
 
         this.appendValueInput('TO')
-            .appendField(RoboBlocks.LANG_TEXT_SUBSTRING_TO)
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_SUBSTRING_TO'))
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT);
         // this.appendDummyInput()
-        //     .appendField(RoboBlocks.LANG_TEXT_SUBSTRING_QUESTION);
+        //     .appendField(RoboBlocks.locales.getKey('LANG_TEXT_SUBSTRING_QUESTION'));
 
         this.setInputsInline(true);
 
         this.setOutput(true);
-        this.setTooltip(RoboBlocks.LANG_TEXT_SUBSTRING_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_TEXT_SUBSTRING_TOOLTIP'));
     }
 };

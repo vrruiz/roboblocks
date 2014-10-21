@@ -20,7 +20,7 @@ Blockly.Arduino.bq_potentiometer = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_potentiometer = {
-    category: RoboBlocks.LANG_CATEGORY_BQ,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
     tags: ['bq', 'potentiometer'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_potentiometer',
     /**
@@ -29,11 +29,11 @@ Blockly.Blocks.bq_potentiometer = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_BQ_POTENTIOMETER)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_POTENTIOMETER'))
             .appendField(new Blockly.FieldImage('img/blocks/bqmod06.png', 208 * options.zoom, 139 * options.zoom))
-            .appendField(RoboBlocks.LANG_BQ_POTENTIOMETER_PIN)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_POTENTIOMETER_PIN'))
             .setCheck(Number);
         this.setOutput(true, Number);
-        this.setTooltip(RoboBlocks.LANG_BQ_POTENTIOMETER_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_POTENTIOMETER_TOOLTIP'));
     }
 };

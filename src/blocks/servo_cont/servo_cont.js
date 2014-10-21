@@ -36,29 +36,29 @@ Blockly.Arduino.servo_cont = function() {
  * @type {Object}
  */
 Blockly.Blocks.servo_cont = {
-    category: RoboBlocks.LANG_CATEGORY_SERVO,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_SERVO'),
     tags: ['servo continuous'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/servo_cont',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_SERVO_CONT)
+            .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT'))
             .appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom))
-            .appendField(RoboBlocks.LANG_SERVO_CONT_PIN);
+            .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_PIN'));
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_SERVO_CONT_ROT)
+            .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_ROT'))
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldDropdown([
-                [RoboBlocks.LANG_SERVO_CONT_TURN_CLOCKWISE, '0'],
-                [RoboBlocks.LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE, '180'],
-                [RoboBlocks.LANG_SERVO_CONT_STOPPED, '90']
+                [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_CLOCKWISE'), '0'],
+                [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE'), '180'],
+                [RoboBlocks.locales.getKey('LANG_SERVO_CONT_STOPPED'), '90']
             ]), 'ROT');
         this.appendValueInput('DELAY_TIME', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_SERVO_CONT_DELAY);
+            .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_DELAY'));
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_SERVO_CONT_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_SERVO_CONT_TOOLTIP'));
     }
 };

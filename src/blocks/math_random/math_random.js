@@ -17,18 +17,18 @@ Blockly.Arduino.math_random = function() {
 };
 
 Blockly.Blocks.math_random = {
-    category: RoboBlocks.LANG_CATEGORY_MATH,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_random',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.appendValueInput('NUM', Number)
-            .appendField(RoboBlocks.LANG_ADVANCED_MATH_RANDOM)
+            .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_MATH_RANDOM'))
             .setCheck(Number);
         this.appendValueInput('DMAX', Number)
-            .appendField(RoboBlocks.LANG_ADVANCED_MATH_RANDOM_AND)
+            .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_MATH_RANDOM_AND'))
             .setCheck(Number);
         this.setInputsInline(true);
         this.setOutput(true);
-        this.setTooltip(RoboBlocks.LANG_ADVANCED_MATH_RANDOM_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_MATH_RANDOM_TOOLTIP'));
     }
 };

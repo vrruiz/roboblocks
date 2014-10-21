@@ -24,19 +24,19 @@ Blockly.Arduino.math_modulo = function() {
 
 Blockly.Blocks.math_modulo = {
   // Remainder of a division.
-    category: RoboBlocks.LANG_CATEGORY_MATH,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_modulo',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.setOutput(true, Number);
         this.appendValueInput('DIVIDEND')
               .setCheck(Number)
-              .appendField(RoboBlocks.LANG_MATH_MODULO_INPUT_DIVIDEND);
+              .appendField(RoboBlocks.locales.getKey('LANG_MATH_MODULO_INPUT_DIVIDEND'));
         this.appendValueInput('DIVISOR')
               .setCheck(Number)
               .setAlign(Blockly.ALIGN_RIGHT)
               .appendField('%');
         this.setInputsInline(true);
-        this.setTooltip(RoboBlocks.LANG_MATH_MODULO_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_MODULO_TOOLTIP'));
     }
 };

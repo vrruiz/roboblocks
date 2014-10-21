@@ -278,8 +278,8 @@
         // LANG_TEXT_EQUALSIGNORECASE_EQUAL:' equal to',
         // LANG_TEXT_EQUALSIGNORECASE_QUESTION:'?',
         LANG_TEXT_EQUALSIGNORECASE_IS : '',
-        LANG_TEXT_EQUALSIGNORECASE_EQUAL : ' ::',
-        LANG_TEXT_EQUALSIGNORECASE_QUESTION : '',
+        LANG_TEXT_EQUALSIGNORECASE_EQUAL : ' ==',
+        LANG_TEXT_EQUALSIGNORECASE_QUESTION : '?',
         LANG_TEXT_EQUALSIGNORECASE_TOOLTIP : 'Returns true if both input strings are equal, regardless of the case.',
 
         LANG_text_getBytes : 'get bytes of',

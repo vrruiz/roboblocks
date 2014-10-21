@@ -28,7 +28,7 @@ Blockly.Arduino.procedures_callnoreturn = function() {
 
 Blockly.Blocks.procedures_callnoreturn = {
     // Variable getter.
-    category: RoboBlocks.LANG_CATEGORY_PROCEDURES,  // Variables are handled specially.
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'),  // Variables are handled specially.
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/procedures_callnoreturn',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
@@ -43,7 +43,7 @@ Blockly.Blocks.procedures_callnoreturn = {
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         
-        this.setTooltip(RoboBlocks.LANG_PROCEDURES_CALLRETURN_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALLRETURN_TOOLTIP'));
         this.arguments_ = [];
         this.quarkConnections_ = null;
         this.quarkArguments_ = null;

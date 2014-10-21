@@ -20,14 +20,14 @@ Blockly.Arduino.logic_negate = function() {
 
 Blockly.Blocks.logic_negate = {
     // Negation.
-    category: RoboBlocks.LANG_CATEGORY_LOGIC,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/logic_negate',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
         this.setOutput(true, Boolean);
         this.appendValueInput('BOOL')
             .setCheck(Boolean)
-            .appendField(RoboBlocks.LANG_LOGIC_NEGATE_INPUT_NOT);
-        this.setTooltip(RoboBlocks.LANG_LOGIC_NEGATE_TOOLTIP);
+            .appendField(RoboBlocks.locales.getKey('LANG_LOGIC_NEGATE_INPUT_NOT'));
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_LOGIC_NEGATE_TOOLTIP'));
     }
 };

@@ -25,7 +25,7 @@ Blockly.Arduino.inout_analog_read = function() {
  * @type {Object}
  */
 Blockly.Blocks.inout_analog_read = {
-	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/inout_analog_read',
 	 /**
 	  * inout_analog_read initialization
@@ -33,9 +33,9 @@ Blockly.Blocks.inout_analog_read = {
 	init: function() {
 		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput('')
-			.appendField(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_READ)
+			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ'))
 			.appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
 		this.setOutput(true, Boolean);
-		this.setTooltip(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP);
+		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP'));
 	}
 };

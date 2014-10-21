@@ -22,7 +22,7 @@ Blockly.Arduino.serial_read = function() {
  * @type {Object}
  */
 Blockly.Blocks.serial_read = {
-	category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
+	category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_read',
 	 /**
 	  * serial_read initialization
@@ -30,8 +30,8 @@ Blockly.Blocks.serial_read = {
 	init: function() {
 		this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
 		this.appendDummyInput('')
-			.appendField(RoboBlocks.LANG_ADVANCED_SERIAL_READ);
+			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_READ'));
 		this.setOutput(true, String);
-		this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_READ_TOOLTIP);
+		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_READ_TOOLTIP'));
 	}
 };

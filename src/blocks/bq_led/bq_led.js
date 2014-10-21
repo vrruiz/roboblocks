@@ -28,7 +28,7 @@ Blockly.Arduino.bq_led = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_led = {
-    category: RoboBlocks.LANG_CATEGORY_BQ,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
     tag: ['bq', 'led'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_led',
     /**
@@ -37,19 +37,19 @@ Blockly.Blocks.bq_led = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendValueInput('PIN')
-        .appendField(RoboBlocks.LANG_BQ_LED)
+        .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED'))
         .appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
-        .appendField(RoboBlocks.LANG_BQ_LED_PIN)
+        .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_PIN'))
         .setCheck(Number);
         this.appendDummyInput('')
-            .appendField(RoboBlocks.LANG_BQ_LED_STATE)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_STATE'))
             .appendField(new Blockly.FieldDropdown([
-                [RoboBlocks.LANG_BQ_LED_ON, 'HIGH'],
-                [RoboBlocks.LANG_BQ_LED_OFF, 'LOW']
+                [RoboBlocks.locales.getKey('LANG_BQ_LED_ON'), 'HIGH'],
+                [RoboBlocks.locales.getKey('LANG_BQ_LED_OFF'), 'LOW']
             ]), 'STAT')
             .setAlign(Blockly.ALIGN_RIGHT);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_BQ_LED_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_LED_TOOLTIP'));
     }
 };

@@ -20,16 +20,16 @@ Blockly.Arduino.controls_flow_statements = function() {
 
 Blockly.Blocks.controls_flow_statements = {
     // Flow statements: continue, break.
-    category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/controls_flow_statements',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         var dropdown = new Blockly.FieldDropdown(
-        [[RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK, 'BREAK'],
-         [RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE, 'CONTINUE']]);
+        [[RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK'), 'BREAK'],
+         [RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE'), 'CONTINUE']]);
         this.appendDummyInput()
             .appendField(dropdown, 'FLOW')
-            .appendField(RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP);
+            .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP'));
         this.setPreviousStatement(true);
         // Assign 'this' to a variable for use in the tooltip closure below.
         var thisBlock = this;
@@ -60,7 +60,7 @@ Blockly.Blocks.controls_flow_statements = {
             this.setWarningText(null);
         } else {
             try{
-                this.setWarningText(RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_WARNING);
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_WARNING'));
             }catch(err){
                 console.log('Captured error: ', err);
             }
@@ -69,6 +69,6 @@ Blockly.Blocks.controls_flow_statements = {
 };
 
 Blockly.Blocks.controls_flow_statements.TOOLTIPS = {
-    BREAK: RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK,
-    CONTINUE: RoboBlocks.LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE
+    BREAK: RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK'),
+    CONTINUE: RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE')
 };

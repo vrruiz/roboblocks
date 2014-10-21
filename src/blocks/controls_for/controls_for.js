@@ -52,23 +52,23 @@ Blockly.Arduino.controls_for = function() {
 
 Blockly.Blocks.controls_for = {
   // For loop.
-    category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/controls_for',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendDummyInput('DUMMY')
-            .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_WITH)
+            .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_WITH'))
             .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
         this.appendValueInput('FROM')
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_FROM);
+            .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_FROM'));
         this.appendValueInput('TO')
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_TO);
+            .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_TO'));
         this.appendStatementInput('DO')
-            .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_DO);
+            .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_DO'));
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setInputsInline(true);
@@ -111,20 +111,20 @@ Blockly.Blocks.controls_for = {
 
 
                     this.appendDummyInput('DUMMY')
-                        .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_WITH)
+                        .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_WITH'))
                         .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
 
                     this.appendValueInput('FROM')
                         .setCheck(Number)
                         .setAlign(Blockly.ALIGN_RIGHT)
-                        .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_FROM);
+                        .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_FROM'));
                     this.appendValueInput('TO')
                         .setCheck(Number)
                         .setAlign(Blockly.ALIGN_RIGHT)
-                        .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_TO);
+                        .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_TO'));
                     this.appendStatementInput('DO')
-                        .appendField(RoboBlocks.LANG_CONTROLS_FOR_INPUT_DO);
+                        .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_DO'));
 
                 }catch(e){}
                 this.last_variables=Blockly.Variables.allVariables();

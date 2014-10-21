@@ -34,7 +34,7 @@ Blockly.Arduino.lcd_print = function() {
  * @type {Object}
  */
 Blockly.Blocks.lcd_print = {
-    category: RoboBlocks.LANG_CATEGORY_LCD,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
     tags: ['bq', 'bluetooth'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/lcd_print',
     /**
@@ -43,10 +43,10 @@ Blockly.Blocks.lcd_print = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LCD);
         this.appendValueInput('VAL')
-            .appendField(RoboBlocks.LANG_LCD_PRINT);
+            .appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT'));
             // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_LCD_PRINT_POSITION)
+            .appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT_POSITION'))
             .appendField(new Blockly.FieldCheckbox('FALSE'), 'POS')
             .setAlign(Blockly.ALIGN_RIGHT);
 
@@ -58,7 +58,7 @@ Blockly.Blocks.lcd_print = {
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_LCD_PRINT_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_LCD_PRINT_TOOLTIP'));
     },
     getPosition : function(){
         try{

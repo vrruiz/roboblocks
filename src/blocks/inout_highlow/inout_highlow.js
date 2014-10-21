@@ -21,7 +21,7 @@ Blockly.Arduino.inout_highlow = function() {
  * @type {Object}
  */
 Blockly.Blocks.inout_highlow = {
-	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/inout_highlow',
 	 /**
 	  * inout_highlow initialization
@@ -30,10 +30,10 @@ Blockly.Blocks.inout_highlow = {
 		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput('')
 			.appendField(new Blockly.FieldDropdown([
-				[RoboBlocks.LANG_ADVANCED_HIGHLOW_HIGH, 'HIGH'],
-				[RoboBlocks.LANG_ADVANCED_HIGHLOW_LOW, 'LOW']
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_HIGH'), 'HIGH'],
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_LOW'), 'LOW']
 			]), 'BOOL');
 		this.setOutput(true, Boolean);
-		this.setTooltip(RoboBlocks.LANG_ADVANCED_HIGHLOW_TOOLTIP);
+		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_TOOLTIP'));
 	}
 };

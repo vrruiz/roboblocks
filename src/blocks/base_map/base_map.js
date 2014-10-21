@@ -20,20 +20,20 @@ Blockly.Arduino.base_map = function() {
 };
 
 Blockly.Blocks.base_map = {
-    category: RoboBlocks.LANG_CATEGORY_MATH,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/base_map',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.appendValueInput('NUM', Number)
-            .appendField(RoboBlocks.LANG_MATH_BASE_MAP)
+            .appendField(RoboBlocks.locales.getKey('LANG_MATH_BASE_MAP'))
             .setCheck(Number);
         this.appendValueInput('DMAX', Number)
-            .appendField(RoboBlocks.LANG_MATH_BASE_MAP_VALUE_TO)
+            .appendField(RoboBlocks.locales.getKey('LANG_MATH_BASE_MAP_VALUE_TO'))
             .setCheck(Number);
         this.appendDummyInput('')
-            .appendField(RoboBlocks.LANG_MATH_BASE_MAP_BRACKET);
+            .appendField(RoboBlocks.locales.getKey('LANG_MATH_BASE_MAP_BRACKET'));
         this.setInputsInline(true);
         this.setOutput(true);
-        this.setTooltip(RoboBlocks.LANG_MATH_BASE_MAP_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_BASE_MAP_TOOLTIP'));
     }
 };

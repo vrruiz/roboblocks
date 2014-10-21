@@ -18,5 +18,8 @@
     "strict": true,
     "trailing": true,
     "smarttabs": true,
-    "sub": true
+    "sub": true,
+
+    "eqnull": true,
+    "devel": false
 }

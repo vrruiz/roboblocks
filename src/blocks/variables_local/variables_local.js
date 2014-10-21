@@ -29,21 +29,21 @@ Blockly.Arduino.variables_local = function() {
 
 Blockly.Blocks.variables_local = {
   // Variable setter.
-    category: RoboBlocks.LANG_CATEGORY_VARIABLES,  // Variables are handled specially.
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'),  // Variables are handled specially.
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/variable',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_VARIABLES_LOCAL)
+            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL'))
             .appendField(new Blockly.FieldTextInput(''), 'VAR');
 
         this.appendValueInput('VALUE')
-            .appendField(RoboBlocks.LANG_VARIABLES_LOCAL_EQUALS);
+            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL_EQUALS'));
 
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip(RoboBlocks.LANG_VARIABLES_LOCAL_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL_TOOLTIP'));
     },
     getVars: function() {
         return [this.getFieldValue('VAR')];

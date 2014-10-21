@@ -45,7 +45,7 @@ Blockly.Arduino.math_arithmetic.OPERATORS = {
 
 Blockly.Blocks.math_arithmetic = {
   // Basic arithmetic operator.
-    category: RoboBlocks.LANG_CATEGORY_MATH,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_arithmetic',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
@@ -73,9 +73,9 @@ Blockly.Blocks.math_arithmetic.OPERATORS =
      ['^', 'POWER']];
 
 Blockly.Blocks.math_arithmetic.TOOLTIPS = {
-    ADD: RoboBlocks.LANG_MATH_ARITHMETIC_TOOLTIP_ADD,
-    MINUS: RoboBlocks.LANG_MATH_ARITHMETIC_TOOLTIP_MINUS,
-    MULTIPLY: RoboBlocks.LANG_MATH_ARITHMETIC_TOOLTIP_MULTIPLY,
-    DIVIDE: RoboBlocks.LANG_MATH_ARITHMETIC_TOOLTIP_DIVIDE,
-    POWER: RoboBlocks.LANG_MATH_ARITHMETIC_TOOLTIP_POWER
+    ADD: RoboBlocks.locales.getKey('LANG_MATH_ARITHMETIC_TOOLTIP_ADD'),
+    MINUS: RoboBlocks.locales.getKey('LANG_MATH_ARITHMETIC_TOOLTIP_MINUS'),
+    MULTIPLY: RoboBlocks.locales.getKey('LANG_MATH_ARITHMETIC_TOOLTIP_MULTIPLY'),
+    DIVIDE: RoboBlocks.locales.getKey('LANG_MATH_ARITHMETIC_TOOLTIP_DIVIDE'),
+    POWER: RoboBlocks.locales.getKey('LANG_MATH_ARITHMETIC_TOOLTIP_POWER')
 };

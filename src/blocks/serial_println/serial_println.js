@@ -23,7 +23,7 @@ Blockly.Arduino.serial_println = function() {
  * @type {Object}
  */
 Blockly.Blocks.serial_println = {
-	category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
+	category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_println',
 	 /**
 	  * serial_println initialization
@@ -31,9 +31,9 @@ Blockly.Blocks.serial_println = {
 	init: function() {
 		this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
 		this.appendValueInput('CONTENT', String)
-			.appendField(RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN);
+			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_PRINTLN'));
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP);
+		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP'));
 	}
 };

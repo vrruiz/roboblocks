@@ -29,7 +29,6 @@ Blockly.Arduino.procedures_defnoreturn = function(){
         'branch':branch
     });
 
-
     code = Blockly.Arduino.scrub_(this, code);
     Blockly.Arduino.definitions_[funcName] = code;
     return null;
@@ -40,20 +39,20 @@ Blockly.Arduino.procedures_defnoreturn = function(){
 
 Blockly.Blocks.procedures_defnoreturn = {
     // Define a procedure with no return value.
-    category: RoboBlocks.LANG_CATEGORY_PROCEDURES,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/procedures_defnoreturn',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         var name = Blockly.Procedures.findLegalName(
-            RoboBlocks.LANG_PROCEDURES_DEFNORETURN_PROCEDURE, this);
+            RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'), this);
         this.appendDummyInput()
             .appendField(new Blockly.FieldTextInput(name,
             Blockly.Procedures.rename), 'NAME')
             .appendField('', 'PARAMS');
         this.appendStatementInput('STACK')
-            .appendField(RoboBlocks.LANG_PROCEDURES_DEFNORETURN_DO);
+            .appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_DO'));
         this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
-        this.setTooltip(RoboBlocks.LANG_PROCEDURES_DEFNORETURN_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_TOOLTIP'));
         this.arguments_ = [];
     },
     updateParams_: function() {
@@ -69,7 +68,7 @@ Blockly.Blocks.procedures_defnoreturn = {
         }
         if (badArg) {
             try{
-                this.setWarningText(RoboBlocks.LANG_PROCEDURES_DEF_DUPLICATE_WARNING);
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEF_DUPLICATE_WARNING'));
             }catch(err){
                 console.log('Captured error: ', err);
             }
@@ -83,6 +82,22 @@ Blockly.Blocks.procedures_defnoreturn = {
         }
         this.paramString = params.join(', ');
         this.setFieldValue(this.paramString, 'PARAMS');
+    },
+    mutationToDom: function() {
+        // Save whether this block has a return value.
+        var container = document.createElement('mutation');
+        container.setAttribute('value', Number(this.hasReturnValue_));
+        return container;
+    },
+    domToMutation: function(xmlElement) {
+        // Restore whether this block has a return value.
+        var value = xmlElement.getAttribute('value');
+        this.hasReturnValue_ = (value === 1);
+        if (!this.hasReturnValue_) {
+            try{
+                this.removeInput('VALUE');
+            }catch(e){}
+        }
     },
     decompose: function(workspace) {
         var containerBlock = Blockly.Block.obtain(workspace,'procedures_mutatorcontainer');
@@ -160,22 +175,6 @@ Blockly.Blocks.procedures_defnoreturn = {
                 }
             }
         }
-    },
-    mutationToDom: function() {
-        // Save whether this block has a return value.
-        var container = document.createElement('mutation');
-        container.setAttribute('value', Number(this.hasReturnValue_));
-        return container;
-    },
-    domToMutation: function(xmlElement) {
-        // Restore whether this block has a return value.
-        var value = xmlElement.getAttribute('value');
-        this.hasReturnValue_ = (value === 1);
-        if (!this.hasReturnValue_) {
-            try{
-                this.removeInput('VALUE');
-            }catch(e){}
-        }
     }
 };
 
@@ -184,7 +183,7 @@ Blockly.Blocks.procedures_mutatorcontainer = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_PROCEDURES_MUTATORCONTAINER_Field);
+            .appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_MUTATORCONTAINER_Field'));
         this.appendStatementInput('STACK');
         this.setTooltip('');
         this.contextMenu = false;
@@ -196,7 +195,7 @@ Blockly.Blocks.procedures_mutatorarg = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_PROCEDURES_MUTATORARG_Field)
+            .appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_MUTATORARG_Field'))
             .appendField(new Blockly.FieldDropdown([['int','int'],['String','String']]),'TYPE')
             .appendField(new Blockly.FieldTextInput('x',Blockly.Blocks.procedures_mutatorarg.validator), 'NAME');
         this.setPreviousStatement(true);

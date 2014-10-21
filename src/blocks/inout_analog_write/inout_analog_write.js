@@ -30,7 +30,7 @@ Blockly.Arduino.inout_analog_write = function() {
  * @type {Object}
  */
 Blockly.Blocks.inout_analog_write = {
-	category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+	category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/inout_analog_write',
 	 /**
 	  * inout_analog_write initialization
@@ -38,14 +38,14 @@ Blockly.Blocks.inout_analog_write = {
 	init: function() {
 		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput('')
-			.appendField(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE)
+			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_WRITE'))
 			.appendField(new Blockly.FieldDropdown(profiles.default.pwm), 'PIN');
 		this.appendValueInput('NUM', Number)
-			.appendField(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE_VALUE)
+			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_WRITE_VALUE'))
 			.setCheck(Number);
 		this.setInputsInline(true);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setTooltip(RoboBlocks.LANG_ADVANCED_INOUT_ANALOG_WRITE_TOOLTIP);
+		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_WRITE_TOOLTIP'));
 	}
 };

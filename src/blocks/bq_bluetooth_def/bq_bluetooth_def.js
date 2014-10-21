@@ -39,7 +39,7 @@ Blockly.Arduino.bq_bluetooth_def = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_bluetooth_def = {
-    category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
     tags: ['bq', 'bluetooth'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_bluetooth_def',
     /**
@@ -48,12 +48,12 @@ Blockly.Blocks.bq_bluetooth_def = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF'))
             .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
 
         this.appendValueInput('BAUD_RATE')
             .setCheck(Number)
-            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_BAUD_RATE)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_BAUD_RATE'))
             .setAlign(Blockly.ALIGN_RIGHT);
 
         this.appendDummyInput()
@@ -68,7 +68,7 @@ Blockly.Blocks.bq_bluetooth_def = {
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_TOOLTIP'));
     },
     checkBT : function(){
         if (this.getFieldValue('TOGGLE')==='FALSE'){
@@ -79,12 +79,12 @@ Blockly.Blocks.bq_bluetooth_def = {
 
             this.appendValueInput('PIN')
                 .setCheck(Number)
-                .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN1)
+                .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_PIN1'))
                 .setAlign(Blockly.ALIGN_RIGHT);
 
             this.appendValueInput('PIN2')
                 .setCheck(Number)
-                .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_DEF_PIN2)
+                .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_PIN2'))
                 .setAlign(Blockly.ALIGN_RIGHT);
         }
         else{
