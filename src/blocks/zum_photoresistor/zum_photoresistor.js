@@ -23,7 +23,7 @@ Blockly.Arduino.zum_photoresistor = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_photoresistor = {
-    category: RoboBlocks.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
     tags: ['bq', 'zum', 'photoresistor'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_photoresistor',
     /**
@@ -32,10 +32,10 @@ Blockly.Blocks.zum_photoresistor = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_ZUM_PHOTORESISTOR)
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PHOTORESISTOR'))
             .appendField(new Blockly.FieldImage('img/blocks/zum05.png', 208 * options.zoom, 126 * options.zoom))
-            .appendField(RoboBlocks.LANG_ZUM_PHOTORESISTOR_PIN);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PHOTORESISTOR_PIN'));
         this.setOutput(true, Number);
-        this.setTooltip(RoboBlocks.LANG_ZUM_PHOTORESISTOR_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_PHOTORESISTOR_TOOLTIP'));
     }
 };

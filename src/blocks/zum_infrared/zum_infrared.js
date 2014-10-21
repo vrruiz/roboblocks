@@ -25,7 +25,7 @@ Blockly.Arduino.zum_infrared = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_infrared = {
-    category: RoboBlocks.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
     tags: ['bq', 'zum', 'infrared'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_infrared',
     /**
@@ -34,10 +34,10 @@ Blockly.Blocks.zum_infrared = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_ZUM_INFRARED)
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_INFRARED'))
             .appendField(new Blockly.FieldImage('img/blocks/zum07.png', 208 * options.zoom, 126 * options.zoom))
-            .appendField(RoboBlocks.LANG_ZUM_INFRARED_PIN);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_INFRARED_PIN'));
         this.setOutput(true);
-        this.setTooltip(RoboBlocks.LANG_ZUM_INFRARED_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_INFRARED_TOOLTIP'));
     }
 };

@@ -26,7 +26,7 @@ Blockly.Arduino.zum_piezo_buzzerav = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_piezo_buzzerav = {
-    category: RoboBlocks.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
     tags: ['bq', 'zum', 'advanced buzzer'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_piezo_buzzerav',
     /**
@@ -35,21 +35,21 @@ Blockly.Blocks.zum_piezo_buzzerav = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV)
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV'))
             .appendField(new Blockly.FieldImage('img/blocks/zum01.png', 208 * options.zoom, 140 * options.zoom))
-            .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_PIN);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV_PIN'));
         this.appendValueInput('TONE', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_TONE);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV_TONE'));
 
         this.appendValueInput('DURA', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_DURATION);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV_DURATION'));
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP'));
     }
 };

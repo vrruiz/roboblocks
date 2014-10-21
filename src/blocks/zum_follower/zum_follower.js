@@ -36,7 +36,7 @@ Blockly.Arduino.zum_follower = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_follower = {
-    category: RoboBlocks.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
     tags: ['bq', 'zum', 'follower'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_follower',
     /**
@@ -45,22 +45,22 @@ Blockly.Blocks.zum_follower = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendDummyInput('')
-            .appendField(RoboBlocks.LANG_ZUM_FOLLOWER)
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER'))
             .appendField(new Blockly.FieldImage('img/blocks/zum06.png', 203*options.zoom, 165*options.zoom));
         this.appendValueInput('PIN')
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_PIN_LEFT);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER_PIN_LEFT'));
         this.appendValueInput('PIN2')
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_PIN_RIGHT);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER_PIN_RIGHT'));
         this.appendStatementInput('SENS1')
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_LEFT);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER_LEFT'));
         this.appendStatementInput('SENS2')
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_ZUM_FOLLOWER_RIGHT);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER_RIGHT'));
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_ZUM_FOLLOWER_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER_TOOLTIP'));
     }
 };

@@ -25,7 +25,7 @@ Blockly.Arduino.zum_button = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_button = {
-    category: RoboBlocks.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
     tags: ['bq', 'zum', 'button'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_button',
     /**
@@ -34,10 +34,10 @@ Blockly.Blocks.zum_button = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_ZUM_BUTTON)
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BUTTON'))
             .appendField(new Blockly.FieldImage('img/blocks/zum02.png', 212 * options.zoom, 139 * options.zoom))
-            .appendField(RoboBlocks.LANG_ZUM_BUTTON_PIN);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BUTTON_PIN'));
         this.setOutput(true, Boolean);
-        this.setTooltip(RoboBlocks.LANG_ZUM_BUTTON_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_BUTTON_TOOLTIP'));
     }
 };

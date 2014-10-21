@@ -2262,6 +2262,182 @@
             }
             return __p
         };
+
+        this["JST"]["zum_button"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'digitalRead(' +
+                    __e(dropdown_pin) +
+                    ')\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_button_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'pinMode(' +
+                    __e(dropdown_pin) +
+                    ',INPUT_PULLUP);\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_follower"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'if(digitalRead(' +
+                    __e(dropdown_pin) +
+                    ')==HIGH)\n{\n  ' +
+                    __e(code_btn1) +
+                    '\n}\nif(digitalRead(' +
+                    __e(NextPIN) +
+                    ')==HIGH)\n{\n  ' +
+                    __e(code_btn2) +
+                    '\n}\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_follower_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'pinMode( ' +
+                    __e(dropdown_pin) +
+                    ' , INPUT);\n  pinMode( ' +
+                    __e(NextPIN) +
+                    ' , INPUT);\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_infrared"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'digitalRead(' +
+                    __e(dropdown_pin) +
+                    ')';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_infrared_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'pinMode( ' +
+                    __e(dropdown_pin) +
+                    ' , INPUT);';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_led"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'digitalWrite(' +
+                    __e(dropdown_pin) +
+                    ',' +
+                    __e(dropdown_stat) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_led_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'pinMode(' +
+                    __e(dropdown_pin) +
+                    ',OUTPUT);\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_photoresistor"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'analogRead(' +
+                    __e(dropdown_pin) +
+                    ')';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_piezo_buzzer"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'tone(' +
+                    __e(dropdown_pin) +
+                    ',' +
+                    __e(dropdown_stat) +
+                    ',' +
+                    __e(delay_time) +
+                    ');\n\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_piezo_buzzerav"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'tone(' +
+                    __e(dropdown_pin) +
+                    ',' +
+                    __e(Buzztone) +
+                    ',' +
+                    __e(delay_time) +
+                    ');\ndelay(' +
+                    __e(delay_time) +
+                    ');\n\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_potentiometer"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'analogRead(' +
+                    __e(dropdown_pin) +
+                    ')';
+
+            }
+            return __p
+        };
         var JST = this.JST;
 
         // Source: src/blocks/advanced_conversion/advanced_conversion.js
@@ -6694,6 +6870,423 @@
                 if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
                     this.setTitleValue(newName, 'VAR');
                 }
+            }
+        };
+        // Source: src/blocks/zum_button/zum_button.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * zum_button code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_button = function() {
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+
+            Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['zum_button_setups']({
+                'dropdown_pin': dropdown_pin,
+            });
+
+            var code = JST['zum_button']({
+                'dropdown_pin': dropdown_pin,
+            });
+            code = 'digitalRead(' + dropdown_pin + ')';
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        /**
+         * zum_button block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_button = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['bq', 'zum', 'button'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_button',
+            /**
+             * zum_button initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BUTTON'))
+                    .appendField(new Blockly.FieldImage('img/blocks/zum02.png', 212 * options.zoom, 139 * options.zoom))
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BUTTON_PIN'));
+                this.setOutput(true, Boolean);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_BUTTON_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/zum_follower/zum_follower.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * zum_follower code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_follower = function() {
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC) || '';
+
+            var code_btn1 = Blockly.Arduino.statementToCode(this, 'SENS1');
+            code_btn1 = code_btn1.replace(/&quot;/g, '"');
+            var code_btn2 = Blockly.Arduino.statementToCode(this, 'SENS2');
+            code_btn2 = code_btn2.replace(/&quot;/g, '"');
+
+            Blockly.Arduino.setups_['setup_follower_' + dropdown_pin] = JST['zum_follower_setups']({
+                'dropdown_pin': dropdown_pin,
+                'NextPIN': NextPIN
+            });
+
+            var code = JST['zum_follower']({
+                'dropdown_pin': dropdown_pin,
+                'NextPIN': NextPIN,
+                'code_btn1': code_btn1,
+                'code_btn2': code_btn2
+            });
+
+            //  code=code.substring(0,code.length-1);
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        /**
+         * zum_follower block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_follower = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['bq', 'zum', 'follower'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_follower',
+            /**
+             * zum_follower initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER'))
+                    .appendField(new Blockly.FieldImage('img/blocks/zum06.png', 203 * options.zoom, 165 * options.zoom));
+                this.appendValueInput('PIN')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER_PIN_LEFT'));
+                this.appendValueInput('PIN2')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER_PIN_RIGHT'));
+                this.appendStatementInput('SENS1')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER_LEFT'));
+                this.appendStatementInput('SENS2')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER_RIGHT'));
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_FOLLOWER_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/zum_infrared/zum_infrared.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * zum_infrared code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_infrared = function() {
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
+            Blockly.Arduino.setups_['setup_infrared_' + dropdown_pin] = JST['zum_infrared_setups']({
+                'dropdown_pin': dropdown_pin
+            });
+
+            var code = JST['zum_infrared']({
+                'dropdown_pin': dropdown_pin
+            });
+
+            //	code=code.substring(0,code.length-1);
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        /**
+         * zum_infrared block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_infrared = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['bq', 'zum', 'infrared'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_infrared',
+            /**
+             * zum_infrared initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_INFRARED'))
+                    .appendField(new Blockly.FieldImage('img/blocks/zum07.png', 208 * options.zoom, 126 * options.zoom))
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_INFRARED_PIN'));
+                this.setOutput(true);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_INFRARED_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/zum_led/zum_led.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * zum_led code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_led = function() {
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var dropdown_stat = this.getFieldValue('STAT');
+
+
+            Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['zum_led_setups']({
+                'dropdown_pin': dropdown_pin,
+                'dropdown_stat': dropdown_stat
+            });
+
+            var code = JST['zum_led']({
+                'dropdown_pin': dropdown_pin,
+                'dropdown_stat': dropdown_stat
+            });
+
+            return code;
+        };
+
+        /**
+         * zum_led block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_led = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['bq', 'zum', 'led'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_led',
+            /**
+             * zum_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_LED'))
+                    .appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom))
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_LED_PIN'));
+                this.appendDummyInput()
+                    .appendField('state')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_ZUM_LED_ON'), 'HIGH'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_LED_OFF'), 'LOW']
+                    ]), 'STAT');
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_LED_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/zum_photoresistor/zum_photoresistor.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * zum_photoresistor code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_photoresistor = function() {
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
+
+            var code = JST['zum_photoresistor']({
+                'dropdown_pin': dropdown_pin
+            });
+
+            //  code=code.substring(0,code.length-1);
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+
+        /**
+         * zum_photoresistor block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_photoresistor = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['bq', 'zum', 'photoresistor'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_photoresistor',
+            /**
+             * zum_photoresistor initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PHOTORESISTOR'))
+                    .appendField(new Blockly.FieldImage('img/blocks/zum05.png', 208 * options.zoom, 126 * options.zoom))
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PHOTORESISTOR_PIN'));
+                this.setOutput(true, Number);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_PHOTORESISTOR_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/zum_piezo_buzzer/zum_piezo_buzzer.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * zum_piezo_buzzer code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_piezo_buzzer = function() {
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var dropdown_stat = this.getFieldValue('STAT');
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
+
+            //  Blockly.Arduino.setups_['setup_piezo_buzzer_' + dropdown_pin] = JST['zum_piezo_buzzer_setups']({
+            //      'dropdown_pin': dropdown_pin,
+            //      'dropdown_stat': dropdown_stat
+            //  });
+
+
+            var code = JST['zum_piezo_buzzer']({
+                'dropdown_pin': dropdown_pin,
+                'dropdown_stat': dropdown_stat,
+                'delay_time': delay_time
+            });
+
+            code = 'tone(' + dropdown_pin + ',' + dropdown_stat + ',' + delay_time + ');\ndelay(' + delay_time + ');\n';
+            return code;
+        };
+
+
+        /**
+         * zum_piezo_buzzer block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_piezo_buzzer = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['bq', 'zum', 'buzzer'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_piezo_buzzer',
+            /**
+             * zum_piezo_buzzer initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER'))
+                    .appendField(new Blockly.FieldImage('img/blocks/zum01.png', 208 * options.zoom, 140 * options.zoom))
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_PIN'));
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_TONE'))
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_DO'), '261'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_RE'), '293'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_MI'), '329'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_FA'), '349'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_SOL'), '392'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_LA'), '440'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_SI'), '494']
+                    ]), 'STAT'); //523
+                this.appendValueInput('DURA', Number)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_DURATION'));
+
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/zum_piezo_buzzerav/zum_piezo_buzzerav.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * zum_piezo_buzzerav code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_piezo_buzzerav = function() {
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC);
+            var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
+
+            var code = JST['zum_piezo_buzzerav']({
+                'dropdown_pin': dropdown_pin,
+                'Buzztone': Buzztone,
+                'delay_time': delay_time
+            });
+
+            return code;
+        };
+
+
+        /**
+         * zum_piezo_buzzerav block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_piezo_buzzerav = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['bq', 'zum', 'advanced buzzer'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_piezo_buzzerav',
+            /**
+             * zum_piezo_buzzerav initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV'))
+                    .appendField(new Blockly.FieldImage('img/blocks/zum01.png', 208 * options.zoom, 140 * options.zoom))
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV_PIN'));
+                this.appendValueInput('TONE', Number)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV_TONE'));
+
+                this.appendValueInput('DURA', Number)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV_DURATION'));
+
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/zum_potentiometer/zum_potentiometer.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * zum_potentiometer code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_potentiometer = function() {
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var code = JST['zum_potentiometer']({
+                'dropdown_pin': dropdown_pin
+            });
+
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        /**
+         * zum_potentiometer block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_potentiometer = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['bq', 'zum', 'potentiometer'],
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_potentiometer',
+            /**
+             * zum_potentiometer initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_POTENTIOMETER'))
+                    .appendField(new Blockly.FieldImage('img/blocks/zum03.png', 208 * options.zoom, 139 * options.zoom))
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_POTENTIOMETER_PIN'));
+                this.setOutput(true, Number);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_POTENTIOMETER_TOOLTIP'));
             }
         };
         return Blockly.Blocks;
