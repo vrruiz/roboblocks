@@ -1023,7 +1023,7 @@
         /* global RoboBlocks*/
 
         RoboBlocks.locales.initialize();
-        RoboBlocks.locales.setDefaultLang('es');
+        // RoboBlocks.locales.setDefaultLang('es');
 
 
         // help URLs
@@ -1055,8 +1055,6 @@
         RoboBlocks.LANG_COLOUR_MATH = '#C222B0';
         RoboBlocks.LANG_COLOUR_COMMUNICATION = '#C222B0';
         RoboBlocks.LANG_COLOUR_LCD = '#C222B0';
-
-
         // Source: src/profiles.js
         /*
          * Arduino Board profiles
@@ -2460,7 +2458,8 @@
                         [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_BINARY'), 'BIN']
                     ]), 'CONV');
                 this.appendValueInput('NUM', Number)
-                    .appendField(RoboBlocks.LANG_ADVANCED_CONVERSION_VALUE)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_VALUE'))
+                    .setAlign(Blockly.ALIGN_RIGHT)
                     .setCheck(Number);
                 this.setOutput(true, Number);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_TOOLTIP'));

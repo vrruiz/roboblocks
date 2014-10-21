@@ -2,7 +2,7 @@
 /* global RoboBlocks*/
 
 RoboBlocks.locales.initialize();
-RoboBlocks.locales.setDefaultLang('es');
+// RoboBlocks.locales.setDefaultLang('es');
 
 
 // help URLs
@@ -34,4 +34,3 @@ RoboBlocks.LANG_COLOUR_CONTROL = '#C222B0';
 RoboBlocks.LANG_COLOUR_MATH = '#C222B0';
 RoboBlocks.LANG_COLOUR_COMMUNICATION = '#C222B0';
 RoboBlocks.LANG_COLOUR_LCD = '#C222B0';
-

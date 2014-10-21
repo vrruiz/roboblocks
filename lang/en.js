@@ -228,14 +228,14 @@
         LANG_MATH_ADVANCED_MAP_HYPHEN : '-',
         LANG_MATH_ADVANCED_MAP_BRACKET : ']',
         LANG_MATH_ADVANCED_MAP_TO : 'to [',
-        LANG_MATH_ADVANCED_MAP_TOOLTIP : 'Re-maps a number from a certain range to another.',
+        LANG_MATH_ADVANCED_MAP_TOOLTIP : 'Re-map a number from a certain range to another.',
 
         LANG_MATH_NUMBER_TOOLTIP : 'Number',
 
         LANG_MATH_BASE_MAP : 'Map ',
         LANG_MATH_BASE_MAP_VALUE_TO : 'Value to [0-',
         LANG_MATH_BASE_MAP_BRACKET : ']',
-        LANG_MATH_BASE_MAP_TOOLTIP : 'Re-maps a number from [0-1024] to another.',
+        LANG_MATH_BASE_MAP_TOOLTIP : 'Re-map a number from [0-1024] to another.',
 
         LANG_MATH_SINGLE_OP_ROOT : 'square root',
         LANG_MATH_SINGLE_OP_ABSOLUTE : 'absolute',
@@ -299,7 +299,7 @@
         LANG_ADVANCED_CONVERSION_OCTAL : 'Octal',
         LANG_ADVANCED_CONVERSION_BINARY : 'Binary',
         LANG_ADVANCED_CONVERSION_VALUE : 'value',
-        LANG_ADVANCED_CONVERSION_TOOLTIP : 'Base convert a number',
+        LANG_ADVANCED_CONVERSION_TOOLTIP : 'Convert a number from one base to another.',
 
         LANG_ADVANCED_INOUT_ANALOG_READ : 'AnalogRead PIN#',
         LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP : 'Reads the value from a specified digital pin',

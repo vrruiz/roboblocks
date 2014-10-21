@@ -37,8 +37,9 @@ Blockly.Blocks.advanced_conversion = {
             [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_BINARY'), 'BIN']
         ]), 'CONV');
         this.appendValueInput('NUM', Number)
-        .appendField(RoboBlocks.LANG_ADVANCED_CONVERSION_VALUE)
-        .setCheck(Number);
+            .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_VALUE'))
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .setCheck(Number);
         this.setOutput(true, Number);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_TOOLTIP'));
     }
