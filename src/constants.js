@@ -2,7 +2,7 @@
 /* global RoboBlocks*/
 
 RoboBlocks.locales.initialize();
-// RoboBlocks.locales.setDefaultLang('es');
+RoboBlocks.locales.setDefaultLang('es');
 
 
 // help URLs

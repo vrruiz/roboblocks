@@ -339,35 +339,35 @@
         LANG_CATEGORY_PROCEDURES : 'Procedures',
 
         LANG_PROCEDURES_DEFNORETURN_HELPURL : '',
-        LANG_PROCEDURES_DEFNORETURN_PROCEDURE : 'procedure',
+        LANG_PROCEDURES_DEFNORETURN_PROCEDURE : 'function',
         LANG_PROCEDURES_DEFNORETURN_DO : 'do',
-        LANG_PROCEDURES_DEFNORETURN_TOOLTIP : 'A procedure with no return value.',
+        LANG_PROCEDURES_DEFNORETURN_TOOLTIP : 'A function with no return value.',
 
         LANG_PROCEDURES_DEFRETURN_HELPURL : '',
-        LANG_PROCEDURES_DEFRETURN_PROCEDURE : this.LANG_PROCEDURES_DEFNORETURN_PROCEDURE,
-        LANG_PROCEDURES_DEFRETURN_DO : this.LANG_PROCEDURES_DEFNORETURN_DO,
+        LANG_PROCEDURES_DEFRETURN_PROCEDURE : 'function',
+        LANG_PROCEDURES_DEFRETURN_DO : 'do',
         LANG_PROCEDURES_DEFRETURN_RETURN : 'return',
-        LANG_PROCEDURES_DEFRETURN_TOOLTIP : 'A procedure with a return value.',
+        LANG_PROCEDURES_DEFRETURN_TOOLTIP : 'A function with a return value.',
 
-        LANG_PROCEDURES_DEF_DUPLICATE_WARNING : 'Warning: This procedure has duplicate parameters.',
+        LANG_PROCEDURES_DEF_DUPLICATE_WARNING : 'Warning: This function has duplicate parameters.',
 
         LANG_PROCEDURES_CALLNORETURN_HELPURL : '',
         LANG_PROCEDURES_CALLNORETURN_CALL : 'do',
-        LANG_PROCEDURES_CALLNORETURN_PROCEDURE : 'procedure',
-        LANG_PROCEDURES_CALLNORETURN_TOOLTIP : 'Call a procedure with no return value.',
+        LANG_PROCEDURES_CALLNORETURN_PROCEDURE : 'function',
+        LANG_PROCEDURES_CALLNORETURN_TOOLTIP : 'Call a function with no return value.',
 
         LANG_PROCEDURES_CALLRETURN_HELPURL : '',
-        LANG_PROCEDURES_CALLRETURN_CALL : this.LANG_PROCEDURES_CALLNORETURN_CALL,
-        LANG_PROCEDURES_CALLRETURN_PROCEDURE : this.LANG_PROCEDURES_CALLNORETURN_PROCEDURE,
-        LANG_PROCEDURES_CALLRETURN_TOOLTIP : 'Call a procedure with a return value.',
+        LANG_PROCEDURES_CALLRETURN_CALL : 'do',
+        LANG_PROCEDURES_CALLRETURN_PROCEDURE : 'function',
+        LANG_PROCEDURES_CALLRETURN_TOOLTIP : 'Call a function with a return value.',
 
         LANG_PROCEDURES_MUTATORCONTAINER_Field : 'parameters',
         LANG_PROCEDURES_MUTATORARG_Field : 'variable:',
 
-        LANG_PROCEDURES_HIGHLIGHT_DEF : 'Highlight Procedure',
+        LANG_PROCEDURES_HIGHLIGHT_DEF : 'Highlight function',
 
         LANG_PROCEDURES_IFRETURN_TOOLTIP : 'If a value is true, then returns a value.',
-        LANG_PROCEDURES_IFRETURN_WARNING : 'Warning: This block may only be used within a procedure with a return value.',
+        LANG_PROCEDURES_IFRETURN_WARNING : 'Warning: This block may only be used within a function with a return value.',
 
 
         //variables blocks :
@@ -472,10 +472,6 @@
         LANG_SERVO_MOVE_DELAY : 'Delay',
         LANG_SERVO_MOVE_TOOLTIP : 'Move between 0~180 degree',
 
-        LANG_SERVO_READ_DEGREES : 'Read Degrees',
-        LANG_SERVO_READ_DEGREES_PIN : 'PIN#',
-        LANG_SERVO_READ_DEGREES_SERVO : 'Servo',
-        LANG_SERVO_READ_DEGREES_TOOLTIP : 'Returns that degree with the last servo move.',
     };
 
     // Node

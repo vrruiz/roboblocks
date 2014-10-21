@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, JST, RoboBlocks */
+/* global Blockly, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -31,8 +31,8 @@ Blockly.Blocks.bq_bluetooth_send = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
         this.appendDummyInput()
-            .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_SEND'))
-            .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_SEND'));
+            // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
 
         this.appendValueInput('SNT')
             .setAlign(Blockly.ALIGN_RIGHT)
