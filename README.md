@@ -8,7 +8,7 @@ Blockly blocks repository used in bitbloq
 Getting Started
 ---------------
 
-This project requires [blocklybq](https://github.com/blocklybq/blockly) or [blockly](https://code.google.com/p/blockly/) to work.
+This project requires [blockly-bq](https://github.com/bq/blockly) or [blockly](https://developers.google.com/blockly/) to work.
 
 ### Include Roboblocks in your project
 
