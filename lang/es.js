@@ -108,8 +108,8 @@
         LANG_BQ_LED : 'LED',
         LANG_BQ_LED_PIN : 'PIN#',
         LANG_BQ_LED_STATE : 'estado',
-        LANG_BQ_LED_ON : 'ON',
-        LANG_BQ_LED_OFF : 'OFF',
+        // LANG_BQ_LED_ON : 'ON',
+        // LANG_BQ_LED_OFF : 'OFF',
         LANG_BQ_LED_TOOLTIP : 'LED',
 
         LANG_BQ_PHOTORESISTOR : 'Fotorresistencia',

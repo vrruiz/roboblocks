@@ -41,6 +41,7 @@ Blockly.Blocks.bq_led = {
         .appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
         .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_PIN'))
         .setCheck(Number);
+
         this.appendDummyInput('')
             .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_STATE'))
             .appendField(new Blockly.FieldDropdown([

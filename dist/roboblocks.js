@@ -164,8 +164,8 @@
                 LANG_BQ_LED: 'LED',
                 LANG_BQ_LED_PIN: 'PIN#',
                 LANG_BQ_LED_STATE: 'state',
-                LANG_BQ_LED_ON: 'ON',
-                LANG_BQ_LED_OFF: 'OFF',
+                // LANG_BQ_LED_ON : 'ON',
+                // LANG_BQ_LED_OFF : 'OFF',
                 LANG_BQ_LED_TOOLTIP: 'bq LED',
 
                 LANG_BQ_PHOTORESISTOR: 'Photoresistor',
@@ -645,8 +645,8 @@
                 LANG_BQ_LED: 'LED',
                 LANG_BQ_LED_PIN: 'PIN#',
                 LANG_BQ_LED_STATE: 'estado',
-                LANG_BQ_LED_ON: 'ON',
-                LANG_BQ_LED_OFF: 'OFF',
+                // LANG_BQ_LED_ON : 'ON',
+                // LANG_BQ_LED_OFF : 'OFF',
                 LANG_BQ_LED_TOOLTIP: 'LED',
 
                 LANG_BQ_PHOTORESISTOR: 'Fotorresistencia',
@@ -3093,6 +3093,7 @@
                     .appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
                     .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_PIN'))
                     .setCheck(Number);
+
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_STATE'))
                     .appendField(new Blockly.FieldDropdown([

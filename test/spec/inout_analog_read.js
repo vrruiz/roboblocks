@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'inout_analog_read');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n  pinMode(A0,INPUT);\n\n}\n\n\nvoid loop()\n{\n  analogRead(A0);\n\n}');
+				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n  pinMode(,INPUT);\n\n}\n\n\nvoid loop()\n{\n  analogRead();\n\n}');
 			});
 		});
 	});
