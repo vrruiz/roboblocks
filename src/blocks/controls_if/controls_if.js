@@ -21,14 +21,14 @@ Blockly.Arduino.controls_if = function() {
     for (n = 1; n <= this.elseifCount_; n++) {
         argument = Blockly.Arduino.valueToCode(this, 'IF' + n,Blockly.Arduino.ORDER_NONE);
         branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-        code = JST['controls_elseif']({
+        code += JST['controls_elseif']({
             'argument': argument,
             'branch' : branch
         });
     }
     if (this.elseCount_) {
         branch = Blockly.Arduino.statementToCode(this, 'ELSE');
-        code = JST['controls_else']({
+        code += JST['controls_else']({
             'argument': argument,
             'branch' : branch
         });

@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.7 - 2014-10-21
+/*! roboblocks - v0.0.7 - 2014-10-22
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -65,6 +65,7 @@
 
                 LANG_LOGIC_OPERATION_AND: 'and',
                 LANG_LOGIC_OPERATION_OR: 'or',
+
                 LANG_LOGIC_COMPARE_TOOLTIP_EQ: 'Returns true if both inputs equal each other.',
                 LANG_LOGIC_COMPARE_TOOLTIP_NEQ: 'Returns true if both inputs are not equal to each other.',
                 LANG_LOGIC_COMPARE_TOOLTIP_LT: 'Returns true if the first input is smaller than the second input.',
@@ -202,11 +203,11 @@
 
                 LANG_LCD_SETBACKLIGHT: 'LCD: setBacklight(',
                 LANG_LCD_SETBACKLIGHT_CLOSE: ')',
-                LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Set the backlight of the LCD screen',
+                LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Sets the backlight of the LCD screen',
 
                 LANG_LCD_PRINT: 'LCD: print ',
                 LANG_LCD_PRINT_POSITION: 'set position?',
-                LANG_LCD_PRINT_TOOLTIP: 'Print a String in the LCD',
+                LANG_LCD_PRINT_TOOLTIP: 'Prints a String in the LCD',
 
                 LANG_LCD_CLEAR: 'LCD clear',
                 LANG_LCD_CLEAR_TOOLTIP: 'LCD clear',
@@ -3597,14 +3598,14 @@
             for (n = 1; n <= this.elseifCount_; n++) {
                 argument = Blockly.Arduino.valueToCode(this, 'IF' + n, Blockly.Arduino.ORDER_NONE);
                 branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-                code = JST['controls_elseif']({
+                code += JST['controls_elseif']({
                     'argument': argument,
                     'branch': branch
                 });
             }
             if (this.elseCount_) {
                 branch = Blockly.Arduino.statementToCode(this, 'ELSE');
-                code = JST['controls_else']({
+                code += JST['controls_else']({
                     'argument': argument,
                     'branch': branch
                 });
