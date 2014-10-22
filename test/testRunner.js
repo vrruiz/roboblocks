@@ -31,6 +31,7 @@ require([
 
         RoboBlocks.load(options);
 
+        RoboBlocks.locales.initialize();
 
         // New workspace for each test case
         var el;

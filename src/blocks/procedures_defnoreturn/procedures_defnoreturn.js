@@ -11,8 +11,7 @@
 // a procedure with a return value.
 Blockly.Arduino.procedures_defnoreturn = function(){
     // Define a procedure with a return value.
-    var funcName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('NAME'),
-        Blockly.Procedures.NAME_TYPE);
+    var funcName = this.getFieldValue('NAME');
     var branch = Blockly.Arduino.statementToCode(this, 'STACK');
     branch=branch.replace(/&quot;/g,'"');
     

@@ -101,8 +101,8 @@ Blockly.Blocks.math_single = {
 };
 
 Blockly.Blocks.math_single.OPERATORS =
-    [[RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ROOT'), 'ROOT'],
-     [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ABSOLUTE'), 'ABS'],
+    [[RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ROOT')||'SQR ROOT', 'ROOT'],
+     [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ABSOLUTE')||'ABS', 'ABS'],
      ['-', 'NEG'],
      ['ln', 'LN'],
      ['log10', 'LOG10'],

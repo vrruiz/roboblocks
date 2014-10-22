@@ -25,8 +25,8 @@ Blockly.Blocks.controls_flow_statements = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         var dropdown = new Blockly.FieldDropdown(
-        [[RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK'), 'BREAK'],
-         [RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE'), 'CONTINUE']]);
+        [[RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK')||'BREAK', 'BREAK'],
+         [RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE')||'CONTINUE', 'CONTINUE']]);
         this.appendDummyInput()
             .appendField(dropdown, 'FLOW')
             .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP'));

@@ -45,8 +45,8 @@ Blockly.Blocks.logic_operation = {
 };
 
 Blockly.Blocks.logic_operation.OPERATORS =
-    [[RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND'), 'AND'],
-     [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR'), 'OR']];
+    [[RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND')||'AND', 'AND'],
+     [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR')||'OR', 'OR']];
 
 Blockly.Blocks.logic_operation.TOOLTIPS = {
     AND: RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_TOOLTIP_AND'),

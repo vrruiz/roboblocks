@@ -42,8 +42,8 @@ Blockly.Blocks.inout_digital_write = {
 		this.appendDummyInput()
 			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE'))
 			.appendField(new Blockly.FieldDropdown([
-				[RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH'), 'HIGH'],
-				[RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW'), 'LOW']
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH')||'HIGH', 'HIGH'],
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW')||'LOW', 'LOW']
 			]), 'STAT');
 		this.setPreviousStatement(true, null);
 		this.setInputsInline(true);

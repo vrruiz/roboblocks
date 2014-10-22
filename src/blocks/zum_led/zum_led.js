@@ -45,8 +45,8 @@ Blockly.Blocks.zum_led = {
             .appendField('state')
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldDropdown([
-                [RoboBlocks.locales.getKey('LANG_ZUM_LED_ON'), 'HIGH'],
-                [RoboBlocks.locales.getKey('LANG_ZUM_LED_OFF'), 'LOW']
+                [RoboBlocks.locales.getKey('LANG_ZUM_LED_ON')||'ON', 'HIGH'],
+                [RoboBlocks.locales.getKey('LANG_ZUM_LED_OFF')||'OFF', 'LOW']
             ]), 'STAT');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);

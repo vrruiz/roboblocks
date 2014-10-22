@@ -30,8 +30,8 @@ Blockly.Blocks.inout_highlow = {
 		this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
 		this.appendDummyInput('')
 			.appendField(new Blockly.FieldDropdown([
-				[RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_HIGH'), 'HIGH'],
-				[RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_LOW'), 'LOW']
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_HIGH')||'HIGH', 'HIGH'],
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_LOW')||'LOW', 'LOW']
 			]), 'BOOL');
 		this.setOutput(true, Boolean);
 		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_TOOLTIP'));

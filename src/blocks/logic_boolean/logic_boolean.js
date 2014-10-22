@@ -25,5 +25,5 @@ Blockly.Blocks.logic_boolean = {
 };
 
 Blockly.Blocks.logic_boolean.OPERATORS =
-    [[RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TRUE'), 'TRUE'],
-     [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_FALSE'), 'FALSE']];
+    [[RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TRUE')||'TRUE', 'TRUE'],
+     [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_FALSE')||'FALSE', 'FALSE']];

@@ -35,8 +35,8 @@ Blockly.Blocks.inout_builtin_led = {
 			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED'))
 			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_STATE'))
 			.appendField(new Blockly.FieldDropdown([
-				[RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_ON') , 'HIGH'],
-				[RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_OFF') , 'LOW']
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_ON')||'ON' , 'HIGH'],
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_OFF')||'OFF' , 'LOW']
 			]), 'STAT');
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);

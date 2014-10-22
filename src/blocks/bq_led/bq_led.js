@@ -45,8 +45,8 @@ Blockly.Blocks.bq_led = {
         this.appendDummyInput('')
             .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_STATE'))
             .appendField(new Blockly.FieldDropdown([
-                [RoboBlocks.locales.getKey('LANG_BQ_LED_ON'), 'HIGH'],
-                [RoboBlocks.locales.getKey('LANG_BQ_LED_OFF'), 'LOW']
+                [RoboBlocks.locales.getKey('LANG_BQ_LED_ON')||'HIGH', 'HIGH'],
+                [RoboBlocks.locales.getKey('LANG_BQ_LED_OFF')||'LOW', 'LOW']
             ]), 'STAT')
             .setAlign(Blockly.ALIGN_RIGHT);
         this.setPreviousStatement(true, null);

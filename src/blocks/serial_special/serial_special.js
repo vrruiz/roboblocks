@@ -29,9 +29,9 @@ Blockly.Blocks.serial_special = {
 		this.appendDummyInput('')
 			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL'))
 			.appendField(new Blockly.FieldDropdown([
-				[RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_TAB'), '\\t'],
-				[RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN'), '\\r'],
-				[RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED'), '\\n']
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_TAB')||'TAB', '\\t'],
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN')||'CARRIAGE RETURN', '\\r'],
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED')||'LINE FEED', '\\n']
 			]), 'CHAR');
 		this.setOutput(true, String);
 		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP'));

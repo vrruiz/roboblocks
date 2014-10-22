@@ -2446,10 +2446,10 @@
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_CONVERT'))
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_DECIMAL'), 'DEC'],
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_HEXADECIMAL'), 'HEX'],
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_OCTAL'), 'OCT'],
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_BINARY'), 'BIN']
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_DECIMAL') || 'DEC', 'DEC'],
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_HEXADECIMAL') || 'HEX', 'HEX'],
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_OCTAL') || 'OCT', 'OCT'],
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_BINARY') || 'BIN', 'BIN']
                     ]), 'CONV');
                 this.appendValueInput('NUM', Number)
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_VALUE'))
@@ -3097,8 +3097,8 @@
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_STATE'))
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_BQ_LED_ON'), 'HIGH'],
-                        [RoboBlocks.locales.getKey('LANG_BQ_LED_OFF'), 'LOW']
+                        [RoboBlocks.locales.getKey('LANG_BQ_LED_ON') || 'HIGH', 'HIGH'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_LED_OFF') || 'LOW', 'LOW']
                     ]), 'STAT')
                     .setAlign(Blockly.ALIGN_RIGHT);
                 this.setPreviousStatement(true, null);
@@ -3199,13 +3199,13 @@
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_TONE'))
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_DO'), '261'],
-                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_RE'), '293'],
-                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_MI'), '329'],
-                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_FA'), '349'],
-                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SOL'), '392'],
-                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_LA'), '440'],
-                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SI'), '494']
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_DO') || 'DO', '261'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_RE') || 'RE', '293'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_MI') || 'MI', '329'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_FA') || 'FA', '349'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SOL') || 'SOL', '392'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_LA') || 'LA', '440'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SI') || 'SI', '494']
                     ]), 'STAT') //523
                     .setAlign(Blockly.ALIGN_RIGHT);
 
@@ -3387,8 +3387,8 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 var dropdown = new Blockly.FieldDropdown(
                     [
-                        [RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK'), 'BREAK'],
-                        [RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE'), 'CONTINUE']
+                        [RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK') || 'BREAK', 'BREAK'],
+                        [RoboBlocks.locales.getKey('LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE') || 'CONTINUE', 'CONTINUE']
                     ]);
                 this.appendDummyInput()
                     .appendField(dropdown, 'FLOW')
@@ -4087,8 +4087,8 @@
         };
 
         Blockly.Blocks.controls_whileUntil.OPERATORS = [
-            [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE'), 'WHILE'],
-            [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL'), 'UNTIL']
+            [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE') || 'WHILE', 'WHILE'],
+            [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL') || 'UNTIL', 'UNTIL']
         ];
 
         Blockly.Blocks.controls_whileUntil.TOOLTIPS = {
@@ -4226,8 +4226,8 @@
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED'))
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_STATE'))
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_ON'), 'HIGH'],
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_OFF'), 'LOW']
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_ON') || 'ON', 'HIGH'],
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_BUILTIN_LED_OFF') || 'OFF', 'LOW']
                     ]), 'STAT');
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
@@ -4321,8 +4321,8 @@
                 this.appendDummyInput()
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE'))
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH'), 'HIGH'],
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW'), 'LOW']
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH') || 'HIGH', 'HIGH'],
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW') || 'LOW', 'LOW']
                     ]), 'STAT');
                 this.setPreviousStatement(true, null);
                 this.setInputsInline(true);
@@ -4363,8 +4363,8 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_HIGH'), 'HIGH'],
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_LOW'), 'LOW']
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_HIGH') || 'HIGH', 'HIGH'],
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_LOW') || 'LOW', 'LOW']
                     ]), 'BOOL');
                 this.setOutput(true, Boolean);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_HIGHLOW_TOOLTIP'));
@@ -4618,8 +4618,8 @@
         };
 
         Blockly.Blocks.logic_boolean.OPERATORS = [
-            [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TRUE'), 'TRUE'],
-            [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_FALSE'), 'FALSE']
+            [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TRUE') || 'TRUE', 'TRUE'],
+            [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_FALSE') || 'FALSE', 'FALSE']
         ];
 
         // Source: src/blocks/logic_compare/logic_compare.js
@@ -4806,8 +4806,8 @@
         };
 
         Blockly.Blocks.logic_operation.OPERATORS = [
-            [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND'), 'AND'],
-            [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR'), 'OR']
+            [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND') || 'AND', 'AND'],
+            [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR') || 'OR', 'OR']
         ];
 
         Blockly.Blocks.logic_operation.TOOLTIPS = {
@@ -5116,8 +5116,8 @@
         };
 
         Blockly.Blocks.math_single.OPERATORS = [
-            [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ROOT'), 'ROOT'],
-            [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ABSOLUTE'), 'ABS'],
+            [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ROOT') || 'SQR ROOT', 'ROOT'],
+            [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ABSOLUTE') || 'ABS', 'ABS'],
             ['-', 'NEG'],
             ['ln', 'LN'],
             ['log10', 'LOG10'],
@@ -5464,8 +5464,7 @@
         // a procedure with a return value.
         Blockly.Arduino.procedures_defnoreturn = function() {
             // Define a procedure with a return value.
-            var funcName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('NAME'),
-                Blockly.Procedures.NAME_TYPE);
+            var funcName = this.getFieldValue('NAME');
             var branch = Blockly.Arduino.statementToCode(this, 'STACK');
             branch = branch.replace(/&quot;/g, '"');
 
@@ -5677,8 +5676,7 @@
          */
         Blockly.Arduino.procedures_defreturn = function() {
             // Define a procedure with a return value.
-            var funcName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('NAME'),
-                Blockly.Procedures.NAME_TYPE);
+            var funcName = this.getFieldValue('NAME');
             var branch = Blockly.Arduino.statementToCode(this, 'STACK');
             branch = branch.replace(/&quot;/g, '"');
 
@@ -6035,9 +6033,9 @@
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL'))
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_TAB'), '\\t'],
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN'), '\\r'],
-                        [RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED'), '\\n']
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_TAB') || 'TAB', '\\t'],
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN') || 'CARRIAGE RETURN', '\\r'],
+                        [RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED') || 'LINE FEED', '\\n']
                     ]), 'CHAR');
                 this.setOutput(true, String);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP'));
@@ -6095,9 +6093,9 @@
                     .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_ROT'))
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_CLOCKWISE'), '0'],
-                        [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE'), '180'],
-                        [RoboBlocks.locales.getKey('LANG_SERVO_CONT_STOPPED'), '90']
+                        [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_CLOCKWISE') || 'CLOCKWISE', '0'],
+                        [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE') || 'ANTICLOCKWISE', '180'],
+                        [RoboBlocks.locales.getKey('LANG_SERVO_CONT_STOPPED') || 'STOPPED', '90']
                     ]), 'ROT');
                 this.appendValueInput('DELAY_TIME', Number)
                     .setCheck(Number)
@@ -7049,8 +7047,8 @@
                     .appendField('state')
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_ZUM_LED_ON'), 'HIGH'],
-                        [RoboBlocks.locales.getKey('LANG_ZUM_LED_OFF'), 'LOW']
+                        [RoboBlocks.locales.getKey('LANG_ZUM_LED_ON') || 'ON', 'HIGH'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_LED_OFF') || 'OFF', 'LOW']
                     ]), 'STAT');
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
@@ -7151,13 +7149,13 @@
                     .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_TONE'))
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_DO'), '261'],
-                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_RE'), '293'],
-                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_MI'), '329'],
-                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_FA'), '349'],
-                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_SOL'), '392'],
-                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_LA'), '440'],
-                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_SI'), '494']
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_DO') || 'DO', '261'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_RE') || 'RE', '293'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_MI') || 'MI', '329'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_FA') || 'FA', '349'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_SOL') || 'SOL', '392'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_LA') || 'LA', '440'],
+                        [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_SI') || 'SI', '494']
                     ]), 'STAT'); //523
                 this.appendValueInput('DURA', Number)
                     .setCheck(Number)

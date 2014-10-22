@@ -49,9 +49,9 @@ Blockly.Blocks.servo_cont = {
             .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_ROT'))
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldDropdown([
-                [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_CLOCKWISE'), '0'],
-                [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE'), '180'],
-                [RoboBlocks.locales.getKey('LANG_SERVO_CONT_STOPPED'), '90']
+                [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_CLOCKWISE')||'CLOCKWISE', '0'],
+                [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE')||'ANTICLOCKWISE', '180'],
+                [RoboBlocks.locales.getKey('LANG_SERVO_CONT_STOPPED')||'STOPPED', '90']
             ]), 'ROT');
         this.appendValueInput('DELAY_TIME', Number)
             .setCheck(Number)

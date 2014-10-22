@@ -49,13 +49,13 @@ Blockly.Blocks.zum_piezo_buzzer = {
             .appendField(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_TONE'))
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldDropdown([
-                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_DO'), '261'],
-                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_RE'), '293'],
-                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_MI'), '329'],
-                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_FA'), '349'],
-                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_SOL'), '392'],
-                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_LA'), '440'],
-                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_SI'), '494']
+                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_DO')||'DO', '261'],
+                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_RE')||'RE', '293'],
+                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_MI')||'MI', '329'],
+                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_FA')||'FA', '349'],
+                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_SOL')||'SOL', '392'],
+                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_LA')||'LA', '440'],
+                [RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_SI')||'SI', '494']
             ]), 'STAT'); //523
         this.appendValueInput('DURA', Number)
             .setCheck(Number)

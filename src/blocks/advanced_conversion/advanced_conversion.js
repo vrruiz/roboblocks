@@ -31,10 +31,10 @@ Blockly.Blocks.advanced_conversion = {
         this.appendDummyInput('')
         .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_CONVERT'))
         .appendField(new Blockly.FieldDropdown([
-            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_DECIMAL'), 'DEC'],
-            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_HEXADECIMAL'), 'HEX'],
-            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_OCTAL'), 'OCT'],
-            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_BINARY'), 'BIN']
+            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_DECIMAL')||'DEC', 'DEC'],
+            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_HEXADECIMAL')||'HEX', 'HEX'],
+            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_OCTAL')||'OCT', 'OCT'],
+            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_BINARY')||'BIN', 'BIN']
         ]), 'CONV');
         this.appendValueInput('NUM', Number)
             .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_VALUE'))

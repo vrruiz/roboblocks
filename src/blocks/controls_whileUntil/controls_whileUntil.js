@@ -56,8 +56,8 @@ Blockly.Blocks.controls_whileUntil = {
 };
 
 Blockly.Blocks.controls_whileUntil.OPERATORS =
-    [[RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE'), 'WHILE'],
-     [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL'), 'UNTIL']];
+    [[RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE')||'WHILE', 'WHILE'],
+     [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL')||'UNTIL', 'UNTIL']];
 
 Blockly.Blocks.controls_whileUntil.TOOLTIPS = {
     WHILE: RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TOOLTIP_WHILE'),
