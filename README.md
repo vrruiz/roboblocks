@@ -3,7 +3,7 @@ RoboBlocks
 
 [![Build Status](https://secure.travis-ci.org/bq/roboblocks.png?branch=master)](http://travis-ci.org/bq/roboblocks)
 
-Blockly blocks repository used in bitbloq
+Blockly blocks repository used in [bitbloq](http://bitbloq.bq.com)
 
 Getting Started
 ---------------
