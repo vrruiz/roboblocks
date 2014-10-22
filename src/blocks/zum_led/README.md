@@ -1,13 +1,11 @@
 zum_led
 ==========
 
-zum_led description
+Turns the LED ON or OFF, depending on the value selected.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| state     | Dropdown that allows to select the state (ON/OFF) | `Dropdown` |

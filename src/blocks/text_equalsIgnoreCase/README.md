@@ -1,13 +1,12 @@
 text_equalsIgnoreCase
 ===========
 
-text_equalsIgnoreCase description
+Returns true if both input strings are equal, regardless of the case.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| param1     | First string | `String` |
+| param2     | Second string | `String` |

@@ -1,13 +1,13 @@
 servo_move
 ==========
 
-servo_move description
+Moves the servo to a certain position, described in degrees. 
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| PIN#     | Pin to which the servo is connected | `Number` |
+| Degrees     | Position to which the servo will move | `Number` |
+| Delay     | Amount of time in which the program execution is stopped | `Number` |

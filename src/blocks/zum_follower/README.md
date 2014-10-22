@@ -1,13 +1,12 @@
 zum_follower
 ==========
 
-zum_follower description
+Returns the value of both infrared distance sensors.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| PIN LEFT#     | Pin to which the left infrared sensor is connected | `Number` |
+| PIN RIGHT#     | Pin to which the right infrared sensor is connected | `Number` |

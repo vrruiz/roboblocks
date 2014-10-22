@@ -1,13 +1,12 @@
 variables_global
 ===========
 
-variables_global description
+Declares and defines a GLOBAL variable of type int or String.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| var_name     | Name of the new variable | `String` |
+| var_value     | Value of the variable | `String`/`Number` |

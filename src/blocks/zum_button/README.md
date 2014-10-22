@@ -1,13 +1,11 @@
 zum_button
 ==========
 
-zum_button description
+Reads the state of the connected button (HIGH/LOW).
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| PIN#     | Pin to which the button is connected | `Number` |

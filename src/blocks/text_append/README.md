@@ -1,13 +1,12 @@
 text_append
 ===========
 
-text_append description
+Append some text to variable %1.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| variables     | Dropdown to select to which variable the text is appended | `Dropdown` |
+| text     | Text to be appended | `String` |

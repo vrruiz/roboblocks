@@ -1,13 +1,13 @@
 text
 ===========
 
-text description
+A letter, word, or line of text.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
+| text     | The text | `String` |
 | param2     | Description | `String` |
 | param3     | Description | `Number` |

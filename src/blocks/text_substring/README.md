@@ -1,13 +1,13 @@
 text_substring
 ===========
 
-text_substring description
+Obtain a substring from the input string with the caracters between the two input numbers.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| string     | Initial string | `String` |
+| from     | Initial index from which the resulting string is created | `Number` |
+| to     | Final index of the substring | `Number` |

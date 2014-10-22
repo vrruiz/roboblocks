@@ -1,13 +1,11 @@
 zum_infrared
 ==========
 
-zum_infrared description
+Returns the value of the infrared distance sensor.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| PIN#     | Pin to which the infrared sensor is connected | `Number` |
