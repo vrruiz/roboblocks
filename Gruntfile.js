@@ -26,9 +26,9 @@ module.exports = function(grunt) {
         jst: {
             options: {
                 templateSettings: {
-                    evaluate:    /\{\{#([\s\S]+?)\}\}/g,        // {{# console.log("blah") }}
-                    interpolate : /\{\{\{(\s*\w+?\s*)\}\}\}/g,  // {{ title }}
-                    escape : /\{\{(\s*\w+?\s*)\}\}(?!\})/g      // {{{ title }}}
+                    evaluate: /\{\{#([\s\S]+?)\}\}/g, // {{# console.log("blah") }}
+                    interpolate: /\{\{\{(\s*\w+?\s*)\}\}\}/g, // {{ title }}
+                    escape: /\{\{(\s*\w+?\s*)\}\}(?!\})/g // {{{ title }}}
                 },
                 processName: function(filepath) {
                     console.log(filepath);
@@ -85,8 +85,8 @@ module.exports = function(grunt) {
                 dest: 'dist/<%= pkg.name %>.min.js'
             }
         },
-        jsbeautifier : {
-            files : ['dist/roboblocks.js']
+        jsbeautifier: {
+            files: ['dist/roboblocks.js']
         },
         jshint: {
             options: grunt.file.readJSON('.jshintrc'),
