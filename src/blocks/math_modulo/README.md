@@ -1,13 +1,12 @@
 math_modulo
 ===========
 
-math_modulo description
+Returns the remainder of the division of the two input numbers.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| param1     | Dividend | `Number` |
+| param2     | Divisor | `Number` |

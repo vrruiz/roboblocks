@@ -1,13 +1,12 @@
 math_random
 ===========
 
-math_random description
+Returns a random number between the given limits.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| min     | Lower limit | `Number` |
+| max     | Upper limit | `Number` |

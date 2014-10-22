@@ -1,13 +1,11 @@
 math_number
 ===========
 
-math_number description
+A number.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| param1     | Value | `Number` |

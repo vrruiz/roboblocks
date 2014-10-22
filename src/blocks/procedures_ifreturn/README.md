@@ -1,13 +1,12 @@
 procedures_ifreturn
 ===========
 
-procedures_ifreturn description
+If a value is true, then returns a value. It can only be used within functions.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| condition     | Condition | `Boolean` |
+| return_value     | Value that is returned if the condition is fulfilled. | `String`/`Number` |

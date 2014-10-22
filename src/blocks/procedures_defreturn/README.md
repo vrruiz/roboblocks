@@ -1,13 +1,11 @@
 procedures_defreturn
 ===========
 
-procedures_defreturn description
+A function with a return value.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| variables     | Variables used to pass values to the function | `String`/`Number`  |

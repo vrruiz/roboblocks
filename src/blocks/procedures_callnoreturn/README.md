@@ -1,13 +1,11 @@
 procedures_callnoreturn
 ===========
 
-procedures_callnoreturn description
+Calls a function with no return value.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| dropdown     | Dropdown used to select which function it is calling | `Dropdown` |

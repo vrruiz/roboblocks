@@ -1,13 +1,11 @@
 serial_special
 ==========
 
-serial_special description
+Writes special Chars.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| dropdown     | Dropdown used to select which character is printed | `Dropdown` |

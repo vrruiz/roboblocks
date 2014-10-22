@@ -1,13 +1,11 @@
 serial_println
 ==========
 
-serial_println description
+Prints data to the console/serial port as human-readable ASCII text and adds a CR.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| text     | Text that will be printed | `String` |

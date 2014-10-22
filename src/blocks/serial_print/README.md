@@ -1,13 +1,11 @@
 serial_print
 ==========
 
-serial_print description
+Prints data to the console/serial port as human-readable ASCII text.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| text     | Text that will be printed | `String` |

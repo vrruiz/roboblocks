@@ -1,13 +1,11 @@
 procedures_callreturn
 ===========
 
-procedures_callreturn description
+Calls a function with a return value.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| dropdown     | Dropdown used to select which function it is calling | `Dropdown` |

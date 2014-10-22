@@ -1,13 +1,13 @@
 math_single
 ===========
 
-math_single description
+Returns the result of the selected operation. 
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| param1     | First operand | `Number` |
+| param2     | Second operand | `Number` |
+| operation     | Dropdown to select the operation | `Dropdown` |

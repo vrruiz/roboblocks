@@ -281,6 +281,8 @@
 
                 LANG_MATH_NUMBER_TOOLTIP: 'Number',
 
+                LANG_MATH_MODULO_TOOLTIP: 'Returns the remainder of the division of the two input numbers.',
+
                 LANG_MATH_BASE_MAP: 'Map ',
                 LANG_MATH_BASE_MAP_VALUE_TO: 'Value to [0-',
                 LANG_MATH_BASE_MAP_BRACKET: ']',
@@ -380,7 +382,7 @@
 
                 LANG_ADVANCED_MATH_RANDOM: 'Random between',
                 LANG_ADVANCED_MATH_RANDOM_AND: ' and ',
-                LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Assign a random number',
+                LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Returns a random number.',
 
 
 
@@ -403,12 +405,12 @@
                 LANG_PROCEDURES_CALLNORETURN_HELPURL: '',
                 LANG_PROCEDURES_CALLNORETURN_CALL: 'do',
                 LANG_PROCEDURES_CALLNORETURN_PROCEDURE: 'function',
-                LANG_PROCEDURES_CALLNORETURN_TOOLTIP: 'Call a function with no return value.',
+                LANG_PROCEDURES_CALLNORETURN_TOOLTIP: 'Calls a function with no return value.',
 
                 LANG_PROCEDURES_CALLRETURN_HELPURL: '',
                 LANG_PROCEDURES_CALLRETURN_CALL: 'do',
                 LANG_PROCEDURES_CALLRETURN_PROCEDURE: 'function',
-                LANG_PROCEDURES_CALLRETURN_TOOLTIP: 'Call a function with a return value.',
+                LANG_PROCEDURES_CALLRETURN_TOOLTIP: 'Calls a function with a return value.',
 
                 LANG_PROCEDURES_MUTATORCONTAINER_Field: 'parameters',
                 LANG_PROCEDURES_MUTATORARG_Field: 'variable:',
@@ -448,7 +450,7 @@
                 LANG_VARIABLES_GET: 'Variable ',
                 LANG_VARIABLES_GET_TOOLTIP: 'Get the value of a variable',
 
-                LANG_VARIABLES_PIN_TOOLTIP: 'Select the PIN',
+                LANG_VARIABLES_PIN_TOOLTIP: 'Select the PIN.',
 
                 //zum blocks :
                 LANG_CATEGORY_ZUM: 'zum blocks',

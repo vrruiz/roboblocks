@@ -55,7 +55,7 @@
         LANG_BQ_BLUETOOTH_DEF_TOOLTIP : 'bq Bluetooth',
 
         LANG_ADVANCED_BT_SERIAL_AVAILABLE : 'Bluetooth Serial Available',
-        LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP : 'Check wether the bluetooth is available or not',
+        LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP : 'Check wether the bluetooth is available or not.',
 
         LANG_ADVANCED_SERIAL_AVAILABLE : 'Serial Available',
         LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP : 'Check wether the serial port is available or not',
@@ -64,7 +64,7 @@
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP : 'Prints data to the console/serial port as human-readable ASCII text.',
 
         LANG_ADVANCED_SERIAL_PRINTLN : 'Serial Println',
-        LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP : 'Prints data to the console/serial port as human-readable ASCII text and add CR.',
+        LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP : 'Prints data to the console/serial port as human-readable ASCII text and adds a CR.',
 
         LANG_ADVANCED_SERIAL_READ : 'Serial Read',
         LANG_ADVANCED_SERIAL_READ_TOOLTIP : 'Reads incoming serial data from serial port as human-readable ASCII text.',
@@ -73,7 +73,7 @@
         LANG_ADVANCED_SERIAL_SPECIAL_TAB : 'Tab',
         LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN : 'Carriage Return',
         LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED : 'Line Feed',
-        LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP : 'Write special Chars',
+        LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP : 'Writes special Chars.',
 
         //bq blocks :
         LANG_CATEGORY_BQ : 'Octopus',
@@ -226,6 +226,8 @@
 
         LANG_MATH_NUMBER_TOOLTIP : 'Number',
 
+        LANG_MATH_MODULO_TOOLTIP : 'Returns the remainder of the division of the two input numbers.',
+
         LANG_MATH_BASE_MAP : 'Map ',
         LANG_MATH_BASE_MAP_VALUE_TO : 'Value to [0-',
         LANG_MATH_BASE_MAP_BRACKET : ']',
@@ -325,7 +327,7 @@
 
         LANG_ADVANCED_MATH_RANDOM : 'Random between',
         LANG_ADVANCED_MATH_RANDOM_AND : ' and ',
-        LANG_ADVANCED_MATH_RANDOM_TOOLTIP : 'Assign a random number',
+        LANG_ADVANCED_MATH_RANDOM_TOOLTIP : 'Returns a random number.',
 
 
 
@@ -348,12 +350,12 @@
         LANG_PROCEDURES_CALLNORETURN_HELPURL : '',
         LANG_PROCEDURES_CALLNORETURN_CALL : 'do',
         LANG_PROCEDURES_CALLNORETURN_PROCEDURE : 'function',
-        LANG_PROCEDURES_CALLNORETURN_TOOLTIP : 'Call a function with no return value.',
+        LANG_PROCEDURES_CALLNORETURN_TOOLTIP : 'Calls a function with no return value.',
 
         LANG_PROCEDURES_CALLRETURN_HELPURL : '',
         LANG_PROCEDURES_CALLRETURN_CALL : 'do',
         LANG_PROCEDURES_CALLRETURN_PROCEDURE : 'function',
-        LANG_PROCEDURES_CALLRETURN_TOOLTIP : 'Call a function with a return value.',
+        LANG_PROCEDURES_CALLRETURN_TOOLTIP : 'Calls a function with a return value.',
 
         LANG_PROCEDURES_MUTATORCONTAINER_Field : 'parameters',
         LANG_PROCEDURES_MUTATORARG_Field : 'variable:',
@@ -393,7 +395,7 @@
         LANG_VARIABLES_GET : 'Variable ',
         LANG_VARIABLES_GET_TOOLTIP : 'Get the value of a variable',
 
-        LANG_VARIABLES_PIN_TOOLTIP : 'Select the PIN',
+        LANG_VARIABLES_PIN_TOOLTIP : 'Select the PIN.',
 
         //zum blocks :
         LANG_CATEGORY_ZUM : 'zum blocks',
