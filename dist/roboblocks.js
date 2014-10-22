@@ -110,7 +110,7 @@
                 LANG_BQ_BLUETOOTH_DEF_TOOLTIP: 'bq Bluetooth',
 
                 LANG_ADVANCED_BT_SERIAL_AVAILABLE: 'Bluetooth Serial Available',
-                LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP: 'Check wether the bluetooth is available or not',
+                LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP: 'Check wether the bluetooth is available or not.',
 
                 LANG_ADVANCED_SERIAL_AVAILABLE: 'Serial Available',
                 LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP: 'Check wether the serial port is available or not',
@@ -119,7 +119,7 @@
                 LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Prints data to the console/serial port as human-readable ASCII text.',
 
                 LANG_ADVANCED_SERIAL_PRINTLN: 'Serial Println',
-                LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP: 'Prints data to the console/serial port as human-readable ASCII text and add CR.',
+                LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP: 'Prints data to the console/serial port as human-readable ASCII text and adds a CR.',
 
                 LANG_ADVANCED_SERIAL_READ: 'Serial Read',
                 LANG_ADVANCED_SERIAL_READ_TOOLTIP: 'Reads incoming serial data from serial port as human-readable ASCII text.',
@@ -128,7 +128,7 @@
                 LANG_ADVANCED_SERIAL_SPECIAL_TAB: 'Tab',
                 LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN: 'Carriage Return',
                 LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Line Feed',
-                LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Write special Chars',
+                LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Writes special Chars.',
 
                 //bq blocks :
                 LANG_CATEGORY_BQ: 'Octopus',
@@ -530,8 +530,10 @@
                 module.exports = language;
             }
             // Browser
-            if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
-                this.RoboBlocks.locales.add('en', language);
+            // if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
+            //     this.RoboBlocks.locales.add('en', language);
+            if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
+                RoboBlocks.locales.add('en', language);
             }
         }());
 
@@ -1007,8 +1009,10 @@
                 module.exports = language;
             }
             // Browser
-            if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
-                this.RoboBlocks.locales.add('es', language);
+            // if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
+            //     this.RoboBlocks.locales.add('es', language);
+            if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
+                RoboBlocks.locales.add('es', language);
             }
         }());
 

@@ -468,8 +468,10 @@
         module.exports = language;
     }
     // Browser
-    if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
-        this.RoboBlocks.locales.add('es', language);
+    // if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
+    //     this.RoboBlocks.locales.add('es', language);
+    if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
+        RoboBlocks.locales.add('es', language);
     }
 }());
 
