@@ -10,6 +10,8 @@
 Blockly.Arduino.controls_whileUntil = function() {
     // Do while/until loop.
     var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL',Blockly.Arduino.ORDER_NONE) || '';
+    argument0=argument0.replace(/&quot;/g,'"');
+
     var branch = Blockly.Arduino.statementToCode(this, 'DO');
     branch=branch.replace(/&quot;/g,'"');
     

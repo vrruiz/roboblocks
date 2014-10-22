@@ -431,7 +431,7 @@
                 LANG_VARIABLES_GLOBAL: 'New variable ',
                 LANG_VARIABLES_GLOBAL_TYPE: 'of type ',
                 LANG_VARIABLES_GLOBAL_EQUALS: 'equals',
-                LANG_VARIABLES_GLOBAL_TOOLTIP: 'Declare and define a GLOBAL variable of type int or String',
+                LANG_VARIABLES_GLOBAL_TOOLTIP: 'Declares and defines a GLOBAL variable of type int or String.',
 
                 LANG_VARIABLES_LOCAL: 'New LOCAL variable ',
                 LANG_VARIABLES_LOCAL_TYPE: 'of type ',
@@ -445,10 +445,10 @@
 
                 LANG_VARIABLES_SET: 'Set variable ',
                 LANG_VARIABLES_SET_AS: 'as',
-                LANG_VARIABLES_SET_TOOLTIP: 'Set the value of a variable',
+                LANG_VARIABLES_SET_TOOLTIP: 'Sets the value of a variable.',
 
                 LANG_VARIABLES_GET: 'Variable ',
-                LANG_VARIABLES_GET_TOOLTIP: 'Get the value of a variable',
+                LANG_VARIABLES_GET_TOOLTIP: 'Returns the value of a variable.',
 
                 LANG_VARIABLES_PIN_TOOLTIP: 'Select the PIN.',
 
@@ -515,7 +515,7 @@
                 LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'TURN COUNTERCLOCKWISE',
                 LANG_SERVO_CONT_STOPPED: 'STOPPED',
                 LANG_SERVO_CONT_DELAY: 'Delay',
-                LANG_SERVO_CONT_TOOLTIP: 'Continuous rotation servo',
+                LANG_SERVO_CONT_TOOLTIP: 'Continuous rotation servo.',
 
                 LANG_SERVO_MOVE: 'Servo',
                 LANG_SERVO_MOVE_PIN: 'PIN#',
@@ -3594,6 +3594,8 @@
             // If/elseif/else condition.
             var n = 0;
             var argument = Blockly.Arduino.valueToCode(this, 'IF' + n, Blockly.Arduino.ORDER_NONE);
+            argument = argument.replace(/&quot;/g, '"');
+
             var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
             branch = branch.replace(/&quot;/g, '"');
 
@@ -4047,6 +4049,8 @@
         Blockly.Arduino.controls_whileUntil = function() {
             // Do while/until loop.
             var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL', Blockly.Arduino.ORDER_NONE) || '';
+            argument0 = argument0.replace(/&quot;/g, '"');
+
             var branch = Blockly.Arduino.statementToCode(this, 'DO');
             branch = branch.replace(/&quot;/g, '"');
 
