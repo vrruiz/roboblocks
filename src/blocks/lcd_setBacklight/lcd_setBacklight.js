@@ -22,7 +22,7 @@ Blockly.Arduino.lcd_setBacklight = function() {
  * @type {Object}
  */
 Blockly.Blocks.lcd_setBacklight = {
-    category: RoboBlocks.LANG_CATEGORY_LCD,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/lcd_setBacklight',
     /**
 	  * lcd_slave initialization
@@ -30,9 +30,9 @@ Blockly.Blocks.lcd_setBacklight = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LCD);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_LCD_SETBACKLIGHT)
+            .appendField(RoboBlocks.locales.getKey('LANG_LCD_SETBACKLIGHT'))
             .appendField(new Blockly.FieldDropdown([['LOW','LOW'],['HIGH','HIGH']]),'STATE')
-            .appendField(RoboBlocks.LANG_LCD_SETBACKLIGHT_CLOSE);
+            .appendField(RoboBlocks.locales.getKey('LANG_LCD_SETBACKLIGHT_CLOSE'));
             // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
 
 
@@ -40,6 +40,6 @@ Blockly.Blocks.lcd_setBacklight = {
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_LCD_SETBACKLIGHT_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_LCD_SETBACKLIGHT_TOOLTIP'));
     }
 };

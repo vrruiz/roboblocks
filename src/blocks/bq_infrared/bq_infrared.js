@@ -25,7 +25,7 @@ Blockly.Arduino.bq_infrared = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_infrared = {
-    category: RoboBlocks.LANG_CATEGORY_BQ,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
     tags: ['bq', 'infrared'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_infrared',
     /**
@@ -34,11 +34,11 @@ Blockly.Blocks.bq_infrared = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_BQ_INFRARED)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_INFRARED'))
             .appendField(new Blockly.FieldImage('img/blocks/bqmod04.png', 208 * options.zoom, 126 * options.zoom))
-            .appendField(RoboBlocks.LANG_BQ_INFRARED_PIN)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_INFRARED_PIN'))
             .setCheck(Number);
         this.setOutput(true);
-        this.setTooltip(RoboBlocks.LANG_BQ_INFRARED_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_INFRARED_TOOLTIP'));
     }
 };

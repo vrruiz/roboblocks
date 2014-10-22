@@ -25,13 +25,13 @@ Blockly.Arduino.math_number = function() {
 
 Blockly.Blocks.math_number = {
   // Numeric value.
-    category: RoboBlocks.LANG_CATEGORY_MATH,  // Variables are handled specially.
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),  // Variables are handled specially.
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_number',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.appendDummyInput()
             .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.math_number.validator), 'NUM');
         this.setOutput(true, Number);
-        this.setTooltip(RoboBlocks.LANG_MATH_NUMBER_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_NUMBER_TOOLTIP'));
     }
 };

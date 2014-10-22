@@ -83,7 +83,7 @@ Blockly.Arduino.math_single = function() {
 
 Blockly.Blocks.math_single = {
     // Advanced math operators with single operand.
-    category: RoboBlocks.LANG_CATEGORY_MATH,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_single',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
@@ -101,8 +101,8 @@ Blockly.Blocks.math_single = {
 };
 
 Blockly.Blocks.math_single.OPERATORS =
-    [[RoboBlocks.LANG_MATH_SINGLE_OP_ROOT, 'ROOT'],
-     [RoboBlocks.LANG_MATH_SINGLE_OP_ABSOLUTE, 'ABS'],
+    [[RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ROOT'), 'ROOT'],
+     [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ABSOLUTE'), 'ABS'],
      ['-', 'NEG'],
      ['ln', 'LN'],
      ['log10', 'LOG10'],
@@ -110,11 +110,11 @@ Blockly.Blocks.math_single.OPERATORS =
      ['10^', 'POW10']];
 
 Blockly.Blocks.math_single.TOOLTIPS = {
-    ROOT: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_ROOT,
-    ABS: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_ABS,
-    NEG: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_NEG,
-    LN: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_LN,
-    LOG10: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_LOG10,
-    EXP: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_EXP,
-    POW10: RoboBlocks.LANG_MATH_SINGLE_TOOLTIP_POW10
+    ROOT: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_ROOT'),
+    ABS: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_ABS'),
+    NEG: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_NEG'),
+    LN: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_LN'),
+    LOG10: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_LOG10'),
+    EXP: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_EXP'),
+    POW10: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_POW10')
 };

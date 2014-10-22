@@ -12,16 +12,16 @@ Blockly.Arduino.base_delay = function() {
 };
 
 Blockly.Blocks.base_delay = {
-    category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/base_delay',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendValueInput('DELAY_TIME', Number)
-        .appendField(RoboBlocks.LANG_CONTROLS_BASE_DELAY_WAIT)
+        .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_BASE_DELAY_WAIT'))
         .setCheck(Number);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_CONTROLS_BASE_DELAY_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_CONTROLS_BASE_DELAY_TOOLTIP'));
     }
 };

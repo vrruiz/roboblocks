@@ -25,7 +25,7 @@ Blockly.Arduino.bq_button = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_button = {
-    category: RoboBlocks.LANG_CATEGORY_BQ,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
     tags: ['bq', 'button'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_button',
     /**
@@ -34,13 +34,13 @@ Blockly.Blocks.bq_button = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_BQ_BUTTON)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_BUTTON'))
             .appendField(new Blockly.FieldImage('img/blocks/bqmod05.png', 212 * options.zoom, 139 * options.zoom))
             .setCheck(Number)
-            .appendField(RoboBlocks.LANG_BQ_BUTTON_PIN)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_BUTTON_PIN'))
             .setAlign(Blockly.ALIGN_RIGHT);
 
         this.setOutput(true, Boolean);
-        this.setTooltip(RoboBlocks.LANG_BQ_BUTTON_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_BUTTON_TOOLTIP'));
     }
 };

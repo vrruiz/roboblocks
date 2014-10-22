@@ -1,13 +1,11 @@
 bq_joystick
 ==========
 
-bq_joystick description
+Returns the analog value of the joystick.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| PIN#     | Pin to which the joystick is connected | `Number` |

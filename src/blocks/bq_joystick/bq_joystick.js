@@ -19,7 +19,7 @@ Blockly.Arduino.bq_joystick = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_joystick = {
-    category: RoboBlocks.LANG_CATEGORY_BQ,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
     tags: ['bq', 'joystick'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_joystick',
     /**
@@ -28,11 +28,11 @@ Blockly.Blocks.bq_joystick = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendValueInput('PIN')
-        .appendField(RoboBlocks.LANG_BQ_JOYSTICK)
+        .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK'))
         .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom))
-        .appendField(RoboBlocks.LANG_BQ_JOYSTICK_PIN)
+        .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN'))
         .setCheck(Number);
         this.setOutput(true, Number);
-        this.setTooltip(RoboBlocks.LANG_BQ_JOYSTICK_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_TOOLTIP'));
     }
 };

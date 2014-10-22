@@ -1,13 +1,13 @@
 logic_compare
 ===========
 
-logic_compare description
+Depending on the comparator used, returns true if the condition is fulfilled.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
+| param1     | One of the two variables that are compared | `Number` |
+| param2     | One of the two variables that are compared | `Number` |
 | param3     | Description | `Number` |

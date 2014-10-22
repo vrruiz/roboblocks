@@ -13,17 +13,17 @@ Blockly.Arduino.logic_boolean = function() {
 
 Blockly.Blocks.logic_boolean = {
     // Boolean data type: true and false.
-    category: RoboBlocks.LANG_CATEGORY_LOGIC,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/logic_boolean',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
         this.setOutput(true, Boolean);
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'BOOL');
-        this.setTooltip(RoboBlocks.LANG_LOGIC_BOOLEAN_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TOOLTIP'));
     }
 };
 
 Blockly.Blocks.logic_boolean.OPERATORS =
-    [[RoboBlocks.LANG_LOGIC_BOOLEAN_TRUE, 'TRUE'],
-     [RoboBlocks.LANG_LOGIC_BOOLEAN_FALSE, 'FALSE']];
+    [[RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TRUE'), 'TRUE'],
+     [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_FALSE'), 'FALSE']];

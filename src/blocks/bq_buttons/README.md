@@ -1,13 +1,11 @@
 bq_buttons
 ==========
 
-bq_buttons description
+Reads the state of the connected buttons (HIGH/LOW).
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| PIN#     | Pin to which the buttons are connected | `Number` |

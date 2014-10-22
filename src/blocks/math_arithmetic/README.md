@@ -1,13 +1,13 @@
 math_arithmetic
 ===========
 
-math_arithmetic description
+Returns the result of the arithmetic operation selected.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| param1     | First parameter of the operation | `Number` |
+| Dropdown     | Dropdown to select the arithmetic operation | `Dropdown` |
+| param2     | Second parameter of the operation | `Number` |

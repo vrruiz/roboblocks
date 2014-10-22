@@ -28,7 +28,7 @@ Blockly.Arduino.advanced_map = function() {
  * @type {Object}
  */
 Blockly.Blocks.advanced_map = {
-    category: RoboBlocks.LANG_CATEGORY_MATH,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/advanced_map',
      /**
       * advanced_map initialization
@@ -36,26 +36,26 @@ Blockly.Blocks.advanced_map = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.appendValueInput('NUM', Number)
-          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_MAP )
+          .appendField(RoboBlocks.locales.getKey('LANG_MATH_ADVANCED_MAP_MAP') )
           .setCheck(Number);
         this.appendValueInput('FROM_MIN', Number)
-          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_FROM )
+          .appendField(RoboBlocks.locales.getKey('LANG_MATH_ADVANCED_MAP_FROM') )
           .setCheck(Number);
         this.appendValueInput('FROM_MAX', Number)
-          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_HYPHEN)
+          .appendField(RoboBlocks.locales.getKey('LANG_MATH_ADVANCED_MAP_HYPHEN'))
           .setCheck(Number);
         this.appendDummyInput('')
-          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_BRACKET);
+          .appendField(RoboBlocks.locales.getKey('LANG_MATH_ADVANCED_MAP_BRACKET'));
         this.appendValueInput('TO_MIN', Number)
-          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_TO)
+          .appendField(RoboBlocks.locales.getKey('LANG_MATH_ADVANCED_MAP_TO'))
           .setCheck(Number);
         this.appendValueInput('TO_MAX', Number)
-          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_HYPHEN)
+          .appendField(RoboBlocks.locales.getKey('LANG_MATH_ADVANCED_MAP_HYPHEN'))
           .setCheck(Number);
         this.appendDummyInput('')
-          .appendField(RoboBlocks.LANG_MATH_ADVANCED_MAP_BRACKET);
+          .appendField(RoboBlocks.locales.getKey('LANG_MATH_ADVANCED_MAP_BRACKET'));
         this.setInputsInline(true);
         this.setOutput(true);
-        this.setTooltip(RoboBlocks.LANG_MATH_ADVANCED_MAP_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_ADVANCED_MAP_TOOLTIP'));
     }
 };

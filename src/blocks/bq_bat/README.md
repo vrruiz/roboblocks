@@ -1,13 +1,12 @@
 bq_bat
 ==========
 
-bq_bat description
+Returns the distance measured by the Ultrasonic sensor.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| ECHO PIN#     | Pin to which the echo of the sensor is connected | `Number` |
+| TRIGGER PIN#     | Pin to which the trigger of the sensor is connected | `Number` |

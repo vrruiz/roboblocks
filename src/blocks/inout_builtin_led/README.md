@@ -1,13 +1,11 @@
 inout_builtin_led
 ==========
 
-inout_builtin_led description
+Puts the builtin LED in ON or OFF state.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| state     | Dropdown to select the ON of OFF state | `Dropdown` |

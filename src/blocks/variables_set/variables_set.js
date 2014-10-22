@@ -23,22 +23,22 @@ Blockly.Arduino.variables_set = function() {
 
 Blockly.Blocks.variables_set = {
   // Variable setter.
-    category: RoboBlocks.LANG_CATEGORY_VARIABLES,  // Variables are handled specially.
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'),  // Variables are handled specially.
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/variables_set',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
         this.appendDummyInput('DUMMY')
-            .appendField(RoboBlocks.LANG_VARIABLES_SET)
+            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
             .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
         this.appendValueInput('VALUE')
-            .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
+            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.setInputsInline(true);
 
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip(RoboBlocks.LANG_VARIABLES_SET_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_TOOLTIP'));
     },
     getVariables: function(){
         var variables= Blockly.Variables.allVariables();
@@ -66,11 +66,11 @@ Blockly.Blocks.variables_set = {
                     this.removeInput('VALUE');
 
                     this.appendDummyInput('DUMMY')
-                        .appendField(RoboBlocks.LANG_VARIABLES_SET)
+                        .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
                         .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
                     this.appendValueInput('VALUE')
-                        .appendField(RoboBlocks.LANG_VARIABLES_SET_AS)
+                        .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
                         .setAlign(Blockly.ALIGN_RIGHT);
                     this.setInputsInline(true);
 

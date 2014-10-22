@@ -50,23 +50,23 @@ Blockly.Arduino.procedures_defreturn = function(){
 
 Blockly.Blocks.procedures_defreturn = {
     // Define a procedure with a return value.
-    category: RoboBlocks.LANG_CATEGORY_PROCEDURES,  // Procedures are handled specially.
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'),  // Procedures are handled specially.
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/procedures_defreturn',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         var name = Blockly.Procedures.findLegalName(
-            RoboBlocks.LANG_PROCEDURES_DEFRETURN_PROCEDURE, this);
+            RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_PROCEDURE'), this);
         this.appendDummyInput()
             .appendField(new Blockly.FieldTextInput(name,
             Blockly.Procedures.rename), 'NAME')
             .appendField('', 'PARAMS');
         this.appendStatementInput('STACK')
-            .appendField(RoboBlocks.LANG_PROCEDURES_DEFRETURN_DO);
+            .appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_DO'));
         this.appendValueInput('RETURN')
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.LANG_PROCEDURES_DEFRETURN_RETURN);
+            .appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_RETURN'));
         this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
-        this.setTooltip(RoboBlocks.LANG_PROCEDURES_DEFRETURN_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_TOOLTIP'));
         this.arguments_ = [];
     },
     updateParams_: Blockly.Blocks.procedures_defnoreturn.updateParams_,

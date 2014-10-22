@@ -15,14 +15,14 @@ Blockly.Arduino.text_append = function() {
 
 Blockly.Blocks.text_append = {
     // Append to a variable in place.
-    category: RoboBlocks.LANG_CATEGORY_TEXT,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/text_append',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendValueInput('TEXT')
-            .appendField(RoboBlocks.LANG_TEXT_APPEND_TO)
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'))
             .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
-            .appendField(RoboBlocks.LANG_TEXT_APPEND_APPENDTEXT);
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         // Assign 'this' to a variable for use in the tooltip closure below.
@@ -64,9 +64,9 @@ Blockly.Blocks.text_append = {
                     this.removeInput('TEXT');
 
                     this.appendValueInput('TEXT')
-                        .appendField(RoboBlocks.LANG_TEXT_APPEND_TO)
+                        .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'))
                         .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
-                        .appendField(RoboBlocks.LANG_TEXT_APPEND_APPENDTEXT);
+                        .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
                         
                     this.setInputsInline(true);
 

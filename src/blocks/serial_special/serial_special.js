@@ -19,7 +19,7 @@ Blockly.Arduino.serial_special = function() {
  * @type {Object}
  */
 Blockly.Blocks.serial_special = {
-	category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
+	category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_special',
 	 /**
 	  * serial_special initialization
@@ -27,13 +27,13 @@ Blockly.Blocks.serial_special = {
 	init: function() {
 		this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
 		this.appendDummyInput('')
-			.appendField(RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL)
+			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL'))
 			.appendField(new Blockly.FieldDropdown([
-				[RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TAB, '\\t'],
-				[RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN, '\\r'],
-				[RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED, '\\n']
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_TAB'), '\\t'],
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN'), '\\r'],
+				[RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED'), '\\n']
 			]), 'CHAR');
 		this.setOutput(true, String);
-		this.setTooltip(RoboBlocks.LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP);
+		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP'));
 	}
 };

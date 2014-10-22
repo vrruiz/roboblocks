@@ -1,13 +1,14 @@
 lcd_print
 ===========
 
-lcd_print description
+Print a String in the LCD.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| print     | String to be printed | `String` |
+| set position?     | Checkbox that is checked to set the position of the text | `Checkbox` |
+| row     | Row position | `Number` |
+| column     | Column position | `Number` |

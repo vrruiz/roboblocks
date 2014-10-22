@@ -21,7 +21,7 @@ Blockly.Arduino.advanced_conversion = function() {
  * @type {Object}
  */
 Blockly.Blocks.advanced_conversion = {
-    category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/advanced_conversion',
     /**
      * advanced_conversion initialization
@@ -29,17 +29,18 @@ Blockly.Blocks.advanced_conversion = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
         this.appendDummyInput('')
-        .appendField(RoboBlocks.LANG_ADVANCED_CONVERSION_CONVERT)
+        .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_CONVERT'))
         .appendField(new Blockly.FieldDropdown([
-            [RoboBlocks.LANG_ADVANCED_CONVERSION_DECIMAL, 'DEC'],
-            [RoboBlocks.LANG_ADVANCED_CONVERSION_HEXADECIMAL, 'HEX'],
-            [RoboBlocks.LANG_ADVANCED_CONVERSION_OCTAL, 'OCT'],
-            [RoboBlocks.LANG_ADVANCED_CONVERSION_BINARY, 'BIN']
+            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_DECIMAL'), 'DEC'],
+            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_HEXADECIMAL'), 'HEX'],
+            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_OCTAL'), 'OCT'],
+            [RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_BINARY'), 'BIN']
         ]), 'CONV');
         this.appendValueInput('NUM', Number)
-        .appendField(RoboBlocks.LANG_ADVANCED_CONVERSION_VALUE)
-        .setCheck(Number);
+            .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_VALUE'))
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .setCheck(Number);
         this.setOutput(true, Number);
-        this.setTooltip(RoboBlocks.LANG_ADVANCED_CONVERSION_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_CONVERSION_TOOLTIP'));
     }
 };

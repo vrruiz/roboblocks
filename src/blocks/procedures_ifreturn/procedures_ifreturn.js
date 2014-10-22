@@ -24,20 +24,20 @@ Blockly.Arduino.procedures_ifreturn = function() {
 
 Blockly.Blocks.procedures_ifreturn = {
     // Conditionally return value from a procedure.
-    category: RoboBlocks.LANG_CATEGORY_PROCEDURES,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/procedures_ifreturn',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         this.appendValueInput('CONDITION')
             .setCheck(Boolean)
-            .appendField(RoboBlocks.LANG_CONTROLS_IF_MSG_IF);
+            .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_IF'));
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_PROCEDURES_DEFRETURN_RETURN);
+            .appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_RETURN'));
         this.appendValueInput('VALUE');
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip(RoboBlocks.LANG_PROCEDURES_IFRETURN_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_IFRETURN_TOOLTIP'));
         this.hasReturnValue_ = true;
     },
     mutationToDom: function() {
@@ -81,7 +81,7 @@ Blockly.Blocks.procedures_ifreturn = {
             this.setWarningText(null);
         } else {
             try{
-                this.setWarningText(RoboBlocks.LANG_PROCEDURES_IFRETURN_WARNING);
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_IFRETURN_WARNING'));
             }catch(err){
                 console.log('Captured error: ', err);
             }

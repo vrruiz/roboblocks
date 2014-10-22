@@ -29,7 +29,7 @@ Blockly.Arduino.controls_switch = function() {
 
 Blockly.Blocks.controls_switch = {
     // switch condition.
-    category: RoboBlocks.LANG_CATEGORY_CONTROLS,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/controls_switch',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
@@ -44,17 +44,16 @@ Blockly.Blocks.controls_switch = {
         var thisBlock = this;
         this.setTooltip(function() {
             if (!thisBlock.switchCount_ && !thisBlock.defaultCount_) {
-                return RoboBlocks.LANG_CONTROLS_SWITCH_TOOLTIP_1;
+                return RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_TOOLTIP_1');
             } else if (!thisBlock.switchCount_ && thisBlock.defaultCount_) {
-                return RoboBlocks.LANG_CONTROLS_SWITCH_TOOLTIP_2;
+                return RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_TOOLTIP_2');
             } else if (thisBlock.switchCount_ && !thisBlock.defaultCount_) {
-                return RoboBlocks.LANG_CONTROLS_SWITCH_TOOLTIP_3;
+                return RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_TOOLTIP_3');
             } else if (thisBlock.switchCount_ && thisBlock.defaultCount_) {
-                return RoboBlocks.LANG_CONTROLS_SWITCH_TOOLTIP_4;
+                return RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_TOOLTIP_4');
             }
             return '';
         });
-        this.switchCount_ = 0;
         this.defaultCount_ = 0;
     },
     mutationToDom: function() {
@@ -79,7 +78,7 @@ Blockly.Blocks.controls_switch = {
                 .appendField('case');
             this.setInputsInline(true);
             this.appendStatementInput('DO' + x)
-                .appendField(RoboBlocks.LANG_CONTROLS_IF_MSG_THEN);
+                .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_THEN'));
         }
         if (this.defaultCount_) {
             this.appendStatementInput('DEFAULT')

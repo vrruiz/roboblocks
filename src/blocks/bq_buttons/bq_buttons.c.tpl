@@ -12,19 +12,19 @@
         switch(key)
         {
           case 0:
-           code_btn1
+           {{code_btn1}}
           break;
           case 1:
-           code_btn2
+           {{code_btn2}}
           break;
           case 2:
-           code_btn3
+           {{code_btn3}}
           break;
           case 3:
-           code_btn4
+           {{code_btn4}}
           break;  
           case 4:
-           code_btn5
+           {{code_btn5}}
           break;
         }      
       }

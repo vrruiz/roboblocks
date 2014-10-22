@@ -27,7 +27,7 @@ Blockly.Arduino.bq_piezo_buzzer = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_piezo_buzzer = {
-    category: RoboBlocks.LANG_CATEGORY_BQ,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
     tags: ['bq', 'buzzer'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_piezo_buzzer',
     /**
@@ -36,34 +36,34 @@ Blockly.Blocks.bq_piezo_buzzer = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
         this.appendDummyInput('')
-        .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER)
+        .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER'))
         .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom));
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_PIN)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_PIN'))
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT);
 
         this.appendDummyInput('')
-            .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_TONE)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_TONE'))
             .appendField(new Blockly.FieldDropdown([
-                [RoboBlocks.LANG_BQ_PIEZO_BUZZER_DO, '261'],
-                [RoboBlocks.LANG_BQ_PIEZO_BUZZER_RE, '293'],
-                [RoboBlocks.LANG_BQ_PIEZO_BUZZER_MI, '329'],
-                [RoboBlocks.LANG_BQ_PIEZO_BUZZER_FA, '349'],
-                [RoboBlocks.LANG_BQ_PIEZO_BUZZER_SOL, '392'],
-                [RoboBlocks.LANG_BQ_PIEZO_BUZZER_LA, '440'],
-                [RoboBlocks.LANG_BQ_PIEZO_BUZZER_SI, '494']
+                [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_DO'), '261'],
+                [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_RE'), '293'],
+                [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_MI'), '329'],
+                [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_FA'), '349'],
+                [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SOL'), '392'],
+                [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_LA'), '440'],
+                [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SI'), '494']
             ]), 'STAT') //523
             .setAlign(Blockly.ALIGN_RIGHT);
 
         this.appendValueInput('DURA', Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField(RoboBlocks.LANG_BQ_PIEZO_BUZZER_DURATION);
+        .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_DURATION'));
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_BQ_PIEZO_BUZZER_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_TOOLTIP'));
     }
 };
 

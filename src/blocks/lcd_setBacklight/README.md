@@ -1,13 +1,11 @@
 lcd_setBacklight
 ===========
 
-lcd_setBacklight description
+Sets the backlight of the LCD screen.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| Dropdown     | Dropdown to indicate the backligth value: "HIGH" or "LOW" | `Dropdown` |

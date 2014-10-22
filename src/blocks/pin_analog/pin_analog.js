@@ -11,7 +11,7 @@ Blockly.Arduino.pin_analog = function() {
 };
 
 Blockly.Blocks.pin_analog = {
-    category: RoboBlocks.LANG_CATEGORY_ADVANCED,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/pin',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
@@ -21,6 +21,6 @@ Blockly.Blocks.pin_analog = {
 
         this.setInputsInline(true);
         this.setOutput(true, Number);
-        this.setTooltip(RoboBlocks.LANG_VARIABLES_PIN_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_PIN_TOOLTIP'));
     }
 };

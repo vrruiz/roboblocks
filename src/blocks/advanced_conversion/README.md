@@ -1,13 +1,11 @@
 Advanced_conversion
 ==========
 
-Advanced_conversion description
+Returns the input number, converted from its original base to another.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| value      | Number to be converted | `Number` |

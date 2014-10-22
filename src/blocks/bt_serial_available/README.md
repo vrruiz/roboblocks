@@ -1,13 +1,11 @@
 bt_serial_available
 ==========
 
-bt_serial_available description
+Checks wether the serial port is available or not. If it is available, the commands inside the block are executed.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+|||

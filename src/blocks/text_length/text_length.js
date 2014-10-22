@@ -18,14 +18,14 @@ Blockly.Arduino.text_length = function() {
 
 Blockly.Blocks.text_length = {
     // String length.
-    category: RoboBlocks.LANG_CATEGORY_TEXT,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/text_length',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendValueInput('VALUE')
             .setCheck([String, Array])
-            .appendField(RoboBlocks.LANG_TEXT_LENGTH_INPUT_LENGTH);
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_LENGTH_INPUT_LENGTH'));
         this.setOutput(true, Number);
-        this.setTooltip(RoboBlocks.LANG_TEXT_LENGTH_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_TEXT_LENGTH_TOOLTIP'));
     }
 };

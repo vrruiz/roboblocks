@@ -1,13 +1,13 @@
 base_map
 ===========
 
-base_map description
+Re-map a number from a the 0 to 1023 range to another range.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| value     | Number that is going to be re-mapped | `Number` |
+| min     | Lower limit of the new range | `Number` |
+| max     | Upper limit of the new range | `Number` |

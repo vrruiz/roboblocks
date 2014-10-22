@@ -24,7 +24,7 @@ Blockly.Arduino.logic_operation = function() {
 
 Blockly.Blocks.logic_operation = {
     // Logical operations: 'and', 'or'.
-    category: RoboBlocks.LANG_CATEGORY_LOGIC,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/logic_operation',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
@@ -45,10 +45,10 @@ Blockly.Blocks.logic_operation = {
 };
 
 Blockly.Blocks.logic_operation.OPERATORS =
-    [[RoboBlocks.LANG_LOGIC_OPERATION_AND, 'AND'],
-     [RoboBlocks.LANG_LOGIC_OPERATION_OR, 'OR']];
+    [[RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND'), 'AND'],
+     [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR'), 'OR']];
 
 Blockly.Blocks.logic_operation.TOOLTIPS = {
-    AND: RoboBlocks.LANG_LOGIC_OPERATION_TOOLTIP_AND,
-    OR: RoboBlocks.LANG_LOGIC_OPERATION_TOOLTIP_OR
+    AND: RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_TOOLTIP_AND'),
+    OR: RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_TOOLTIP_OR')
 };

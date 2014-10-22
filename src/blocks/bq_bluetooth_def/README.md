@@ -1,13 +1,14 @@
 bq_bluetooth_def
 ==========
 
-bq_bluetooth_def description
+Bluetooth module definition. This blocks is needed in order to use the other bluetooth function blocks (send/write). 
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| Baud rate     | Bit rate or baud rate, speed at which the information is transmitted | `Number` |
+| zum?     | Checkbox that should be checked if the board being used is the zum | `Checkbox` |
+| RX     | Pin to which the RX of the bluetooth is connected | `Number` |
+| TX     | Pin to which the TX of the bluetooth is connected | `Number` |

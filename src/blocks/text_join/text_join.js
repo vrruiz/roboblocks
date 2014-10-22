@@ -28,16 +28,16 @@ Blockly.Arduino.text_join = function() {
 
 Blockly.Blocks.text_join = {
     // Create a string made up of any number of elements of any type.
-    category: RoboBlocks.LANG_CATEGORY_TEXT,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/text_join',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendValueInput('ADD0')
-            .appendField(RoboBlocks.LANG_TEXT_JOIN_Field_CREATEWITH);
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_JOIN_Field_CREATEWITH'));
         this.appendValueInput('ADD1');
         this.setOutput(true, String);
         this.setMutator(new Blockly.Mutator(['text_create_join_item']));
-        this.setTooltip(RoboBlocks.LANG_TEXT_JOIN_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_TEXT_JOIN_TOOLTIP'));
         this.itemCount_ = 2;
     },
     mutationToDom: function() {
@@ -53,7 +53,7 @@ Blockly.Blocks.text_join = {
         for (x = 0; x < this.itemCount_; x++) {
             var input = this.appendValueInput('ADD' + x);
             if (x === 0) {
-                input.appendField(RoboBlocks.LANG_TEXT_JOIN_Field_CREATEWITH);
+                input.appendField(RoboBlocks.locales.getKey('LANG_TEXT_JOIN_Field_CREATEWITH'));
             }
         }
         if (this.itemCount_ === 0) {
@@ -91,7 +91,7 @@ Blockly.Blocks.text_join = {
         while (itemBlock) {
             var input = this.appendValueInput('ADD' + this.itemCount_);
             if (this.itemCount_ === 0) {
-                input.appendField(RoboBlocks.LANG_TEXT_JOIN_Field_CREATEWITH);
+                input.appendField(RoboBlocks.locales.getKey('LANG_TEXT_JOIN_Field_CREATEWITH'));
             }
             // Reconnect any child blocks.
             if (itemBlock.valueConnection_) {
@@ -128,9 +128,9 @@ Blockly.Blocks.text_create_join_container = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_TEXT_CREATE_JOIN_Field_JOIN);
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_CREATE_JOIN_Field_JOIN'));
         this.appendStatementInput('STACK');
-        this.setTooltip(RoboBlocks.LANG_TEXT_CREATE_JOIN_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_TEXT_CREATE_JOIN_TOOLTIP'));
         this.contextMenu = false;
     }
 };
@@ -139,10 +139,10 @@ Blockly.Blocks.text_create_join_item = {
     // Add items.
     init: function() {
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_TEXT_CREATE_JOIN_ITEM_Field_ITEM);
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_CREATE_JOIN_ITEM_Field_ITEM'));
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip(RoboBlocks.LANG_TEXT_CREATE_JOIN_ITEM_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_TEXT_CREATE_JOIN_ITEM_TOOLTIP'));
         this.contextMenu = false;
     }
 };
@@ -153,9 +153,9 @@ Blockly.Blocks.text_create_join_container = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_TEXT_CREATE_JOIN_TITLE_JOIN);
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_CREATE_JOIN_TITLE_JOIN'));
         this.appendStatementInput('STACK');
-        this.setTooltip(RoboBlocks.LANG_TEXT_CREATE_JOIN_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_TEXT_CREATE_JOIN_TOOLTIP'));
         this.contextMenu = false;
     }
 };
@@ -165,10 +165,10 @@ Blockly.Blocks.text_create_join_item = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_TEXT_CREATE_JOIN_ITEM_TITLE_ITEM);
+            .appendField(RoboBlocks.locales.getKey('LANG_TEXT_CREATE_JOIN_ITEM_TITLE_ITEM'));
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip(RoboBlocks.LANG_TEXT_CREATE_JOIN_ITEM_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_TEXT_CREATE_JOIN_ITEM_TOOLTIP'));
         this.contextMenu = false;
     }
 };

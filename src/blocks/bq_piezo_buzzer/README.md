@@ -1,13 +1,13 @@
 bq_piezo_buzzer
 ==========
 
-bq_piezo_buzzer description
+Forces the piezobuzzer to produce a certain note.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| PIN#     | Pin to which the piezobuzzer is connected | `Number` |
+| TONE     | Dropdown that allows to select the note | `Dropdown` |
+| Duration     | Duration of the note | `Number` |

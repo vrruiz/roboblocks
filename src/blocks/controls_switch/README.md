@@ -1,13 +1,12 @@
 controls_switch
 ===========
 
-controls_switch description
+Use the switch statement to select one of the blocks of code to be executed depending on the value of a variable.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| VAR     | Variable that is used to select the block of code to be executed | `Number/String` |
+| CASE     | Value of the variable | `Number/String` |

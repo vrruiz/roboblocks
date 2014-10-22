@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, JST, RoboBlocks */
+/* global Blockly, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -18,7 +18,7 @@ Blockly.Arduino.bq_bluetooth_receive = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_bluetooth_receive = {
-    category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
     tags: ['bq', 'bluetooth'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_bluetooth_receive',
     /**
@@ -27,13 +27,13 @@ Blockly.Blocks.bq_bluetooth_receive = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE)
-            .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_RECEIVE'));
+            // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
 
         this.setInputsInline(false);
 
 
         this.setOutput(true, null);
-        this.setTooltip(RoboBlocks.LANG_BQ_BLUETOOTH_RECEIVE_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_RECEIVE_TOOLTIP'));
     }
 };

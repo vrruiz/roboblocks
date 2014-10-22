@@ -32,27 +32,27 @@ Blockly.Arduino.bq_bat = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_bat = {
-    category: RoboBlocks.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
     tags: ['bq', 'bat'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_bat',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendDummyInput('')
-        .appendField(RoboBlocks.LANG_BQ_BAT)
+        .appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT'))
         .appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));
         this.appendValueInput('RED PIN')
-            .appendField(RoboBlocks.LANG_BQ_BAT_RED_PIN)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT_RED_PIN'))
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT);
 
         this.appendValueInput('BLUE PIN')
-            .appendField(RoboBlocks.LANG_BQ_BAT_BLUE_PIN)
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT_BLUE_PIN'))
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT);
 
 
         this.setInputsInline(false);
         this.setOutput(true, Number);
-        this.setTooltip(RoboBlocks.LANG_BQ_BAT_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_BAT_TOOLTIP'));
     }
 };

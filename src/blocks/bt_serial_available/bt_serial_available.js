@@ -21,7 +21,7 @@ Blockly.Arduino.bt_serial_available = function() {
  * @type {Object}
  */
 Blockly.Blocks.bt_serial_available = {
-	category: RoboBlocks.LANG_CATEGORY_COMMUNICATION,
+	category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bt_serial_available',
 	 /**
 	  * bt_serial_available initialization
@@ -29,11 +29,11 @@ Blockly.Blocks.bt_serial_available = {
 	init: function() {
 		this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
 		this.appendDummyInput()
-			.appendField(RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE);
+			.appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_BT_SERIAL_AVAILABLE'));
 		this.appendStatementInput('DO')
-			.appendField(RoboBlocks.LANG_CONTROLS_REPEAT_INPUT_DO);
+			.appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_REPEAT_INPUT_DO'));
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
-		this.setTooltip(RoboBlocks.LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP);
+		this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP'));
 	}
 };

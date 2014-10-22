@@ -15,14 +15,14 @@ Blockly.Arduino.logic_null = function() {
 
 Blockly.Blocks.logic_null = {
     // Null data type.
-    category: RoboBlocks.LANG_CATEGORY_LOGIC,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/logic_null',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
         this.setOutput(true, null);
         this.appendDummyInput()
-            .appendField(RoboBlocks.LANG_LOGIC_NULL);
-        this.setTooltip(RoboBlocks.LANG_LOGIC_NULL_TOOLTIP);
+            .appendField(RoboBlocks.locales.getKey('LANG_LOGIC_NULL'));
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_LOGIC_NULL_TOOLTIP'));
     }
 };
 

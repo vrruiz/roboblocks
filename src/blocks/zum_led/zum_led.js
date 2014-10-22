@@ -29,7 +29,7 @@ Blockly.Arduino.zum_led = function() {
  * @type {Object}
  */
 Blockly.Blocks.zum_led = {
-    category: RoboBlocks.LANG_CATEGORY_ZUM,
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
     tags: ['bq', 'zum', 'led'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_led',
     /**
@@ -38,18 +38,18 @@ Blockly.Blocks.zum_led = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendValueInput('PIN')
-            .appendField(RoboBlocks.LANG_ZUM_LED)
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_LED'))
             .appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom))
-            .appendField(RoboBlocks.LANG_ZUM_LED_PIN);
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_LED_PIN'));
         this.appendDummyInput()
             .appendField('state')
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldDropdown([
-                [RoboBlocks.LANG_ZUM_LED_ON, 'HIGH'],
-                [RoboBlocks.LANG_ZUM_LED_OFF, 'LOW']
+                [RoboBlocks.locales.getKey('LANG_ZUM_LED_ON'), 'HIGH'],
+                [RoboBlocks.locales.getKey('LANG_ZUM_LED_OFF'), 'LOW']
             ]), 'STAT');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.LANG_ZUM_LED_TOOLTIP);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_LED_TOOLTIP'));
     }
 };
