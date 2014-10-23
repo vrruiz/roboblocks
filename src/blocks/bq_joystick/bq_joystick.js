@@ -19,10 +19,11 @@ Blockly.Arduino.bq_joystick = function() {
 
     var array= Blockly.Arduino.valueToCode(this,'POS', Blockly.Arduino.ORDER_ATOMIC);
     var code = JST['bq_joystick']({
+        'pinx': pinx,
         'array':array
     });
 
-    return code;
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 /**
@@ -42,10 +43,10 @@ Blockly.Blocks.bq_joystick = {
             .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK'))
             .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom));
 
-        this.appendValueInput('POS')
-            .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_POSITION'))
-            .setAlign(Blockly.ALIGN_RIGHT)
-            .setCheck(Number);
+        // this.appendValueInput('POS')
+        //     .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_POSITION'))
+        //     .setAlign(Blockly.ALIGN_RIGHT)
+        //     .setCheck(Number);
 
 
         this.appendValueInput('PINX')
@@ -63,9 +64,9 @@ Blockly.Blocks.bq_joystick = {
             .setAlign(Blockly.ALIGN_RIGHT)
             .setCheck(Number);
 
-        // this.setOutput(true, Number);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
+        this.setOutput(true, Number);
+        // this.setPreviousStatement(true, null);
+        // this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_TOOLTIP'));
     }
 };

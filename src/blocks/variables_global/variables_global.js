@@ -22,9 +22,19 @@ Blockly.Arduino.variables_global = function() {
         Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';';
         Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';';
     }
-    if (varValue[0]==='{'){
+    else if (varValue[0]==='{'){
         varType='int ';
-        Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+' []='+varValue+';';
+        varValue=varValue.replace('{','');
+        varValue=varValue.replace('}','');
+        varValue=varValue.split(',');
+        Blockly.Arduino.definitions_['declare_var'+varName]=varType+' * '+varName+';\n';
+        Blockly.Arduino.setups_['define_var'+varName]=varName+'[0]='+varValue[0]+';\n  '+varName+'[1]='+varValue[1]+';\n  '+varName+'[2]='+varValue[2]+';';
+
+    }
+    else if (varValue.search('readJoystick')>=0){
+        varType='int ';
+        Blockly.Arduino.definitions_['declare_var'+varName]=varType+' * '+varName+';\n';
+        Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';\n';
     }
     else {
         varType='String';

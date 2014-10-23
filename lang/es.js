@@ -103,10 +103,10 @@
         LANG_BQ_INFRARED_TOOLTIP : 'Sensor infrarrojo',
 
         LANG_BQ_JOYSTICK : 'Joystick',
-        LANG_BQ_JOYSTICK_PIN_X : 'Eje X',
-        LANG_BQ_JOYSTICK_PIN_Y : 'Eje Y',
+        LANG_BQ_JOYSTICK_PIN_X : 'Eje X PIN#',
+        LANG_BQ_JOYSTICK_PIN_Y : 'Eje Y PIN#',
         LANG_BQ_JOYSTICK_POSITION: 'Posición Joystick',
-        LANG_BQ_JOYSTICK_PIN_BUTTON : 'Pulsador',
+        LANG_BQ_JOYSTICK_PIN_BUTTON : 'Pulsador PIN#',
         LANG_BQ_JOYSTICK_TOOLTIP : 'Joystick bq',
 
         LANG_BQ_LED : 'LED',
@@ -234,6 +234,9 @@
         LANG_MATH_ARRAY_BRACKET4:'}',
         LANG_MATH_ARRAY_COMMA:',',
         LANG_MATH_ARRAY_TOOLTIP: 'Array',
+
+        LANG_ARRAY_GET_BRACKET1:'[',
+        LANG_ARRAY_GET_BRACKET2:']',
 
         LANG_MATH_BASE_MAP : 'Mapear ',
         LANG_MATH_BASE_MAP_VALUE_TO : 'Valor entre [0-',

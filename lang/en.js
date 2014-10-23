@@ -103,9 +103,9 @@
         LANG_BQ_INFRARED_TOOLTIP : 'bq Infrared Sensor',
 
         LANG_BQ_JOYSTICK : 'Joystick',
-        LANG_BQ_JOYSTICK_PIN_X : 'X axis',
-        LANG_BQ_JOYSTICK_PIN_Y : 'Y axis',
-        LANG_BQ_JOYSTICK_PIN_BUTTON : 'Button',
+        LANG_BQ_JOYSTICK_PIN_X : 'X axis PIN#',
+        LANG_BQ_JOYSTICK_PIN_Y : 'Y axis PIN#',
+        LANG_BQ_JOYSTICK_PIN_BUTTON : 'Button PIN#',
         LANG_BQ_JOYSTICK_POSITION: 'Joystick Position',
         LANG_BQ_JOYSTICK_TOOLTIP : 'Joystick bq',
 
@@ -234,6 +234,9 @@
         LANG_MATH_ARRAY_BRACKET4:'}',
         LANG_MATH_ARRAY_COMMA:',',
         LANG_MATH_ARRAY_TOOLTIP: 'Array',
+
+        LANG_ARRAY_GET_BRACKET1:'[',
+        LANG_ARRAY_GET_BRACKET2:']',
 
         LANG_MATH_MODULO_TOOLTIP : 'Returns the remainder of the division of the two input numbers.',
 

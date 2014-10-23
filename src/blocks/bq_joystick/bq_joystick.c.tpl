@@ -1,1 +1,1 @@
-readJoystick({{array}});
+readJoystick_{{pinx}}()
