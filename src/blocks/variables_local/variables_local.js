@@ -12,8 +12,13 @@ Blockly.Arduino.variables_local = function() {
     var varType;
     var varValue=Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
 
+    var sufix='';
     if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue))) ){
         varType='int';
+    }
+    if (varValue[0]==='{'){
+        varType='int ';
+        sufix='[]';
     }
     else {
         varType='String';
@@ -21,7 +26,7 @@ Blockly.Arduino.variables_local = function() {
     
     var varName = this.getFieldValue('VAR')||'';
 
-    var code= varType+' '+varName+';\n'+varName+'='+varValue+';\n';
+    var code= varType+' '+varName+ sufix+'='+varValue+';\n';
     
     return code;
 };
