@@ -7,13 +7,6 @@
   * @return {String} Code generated with block parameters
   */
 
-Blockly.Blocks.math_number.validator = function(text) {
-  // Ensure that only a number may be entered.
-  // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
-    var n = window.parseFloat(text || 0);
-    return window.isNaN(n) ? null : String(n);
-};
-
 Blockly.Arduino.math_number = function() {
     // Numeric value.
     var code = window.parseFloat(this.getFieldValue('NUM'));
@@ -34,4 +27,11 @@ Blockly.Blocks.math_number = {
         this.setOutput(true, Number);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_NUMBER_TOOLTIP'));
     }
+};
+
+Blockly.Blocks.math_number.validator = function(text) {
+  // Ensure that only a number may be entered.
+  // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
+    var n = window.parseFloat(text || 0);
+    return window.isNaN(n) ? null : String(n);
 };

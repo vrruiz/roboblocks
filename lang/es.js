@@ -10,6 +10,7 @@
 
         LANG_LOGIC_OPERATION_AND : 'y',
         LANG_LOGIC_OPERATION_OR : 'o',
+
         LANG_LOGIC_COMPARE_TOOLTIP_EQ: 'Devuelve verdadero si las dos entradas son iguales.',
         LANG_LOGIC_COMPARE_TOOLTIP_NEQ: 'Devuelve verdadero si las dos entradas no son iguales entre sí.',
         LANG_LOGIC_COMPARE_TOOLTIP_LT: 'Devuelve verdadero si la primera entrada es menor que la segunda entrada.',
@@ -102,7 +103,10 @@
         LANG_BQ_INFRARED_TOOLTIP : 'Sensor infrarrojo',
 
         LANG_BQ_JOYSTICK : 'Joystick',
-        LANG_BQ_JOYSTICK_PIN : 'PIN#',
+        LANG_BQ_JOYSTICK_PIN_X : 'Eje X',
+        LANG_BQ_JOYSTICK_PIN_Y : 'Eje Y',
+        LANG_BQ_JOYSTICK_POSITION: 'Posición Joystick',
+        LANG_BQ_JOYSTICK_PIN_BUTTON : 'Pulsador',
         LANG_BQ_JOYSTICK_TOOLTIP : 'Joystick bq',
 
         LANG_BQ_LED : 'LED',
@@ -224,6 +228,12 @@
         LANG_MATH_ADVANCED_MAP_TOOLTIP : 'Re-maps a number from a certain range to another.',
 
         LANG_MATH_NUMBER_TOOLTIP : 'Number',
+
+        LANG_MATH_ARRAY_ARRAY3:'[3]',
+        LANG_MATH_ARRAY_BRACKET3:'{',
+        LANG_MATH_ARRAY_BRACKET4:'}',
+        LANG_MATH_ARRAY_COMMA:',',
+        LANG_MATH_ARRAY_TOOLTIP: 'Array',
 
         LANG_MATH_BASE_MAP : 'Mapear ',
         LANG_MATH_BASE_MAP_VALUE_TO : 'Valor entre [0-',

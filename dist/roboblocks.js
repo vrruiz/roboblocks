@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.7 - 2014-10-22
+/*! roboblocks - v0.0.7 - 2014-10-23
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -158,8 +158,11 @@
                 LANG_BQ_INFRARED_TOOLTIP: 'bq Infrared Sensor',
 
                 LANG_BQ_JOYSTICK: 'Joystick',
-                LANG_BQ_JOYSTICK_PIN: 'PIN#',
-                LANG_BQ_JOYSTICK_TOOLTIP: 'bq Joystick',
+                LANG_BQ_JOYSTICK_PIN_X: 'X axis',
+                LANG_BQ_JOYSTICK_PIN_Y: 'Y axis',
+                LANG_BQ_JOYSTICK_PIN_BUTTON: 'Button',
+                LANG_BQ_JOYSTICK_POSITION: 'Joystick Position',
+                LANG_BQ_JOYSTICK_TOOLTIP: 'Joystick bq',
 
                 LANG_BQ_LED: 'LED',
                 LANG_BQ_LED_PIN: 'PIN#',
@@ -280,6 +283,12 @@
                 LANG_MATH_ADVANCED_MAP_TOOLTIP: 'Re-map a number from a certain range to another.',
 
                 LANG_MATH_NUMBER_TOOLTIP: 'Number',
+
+                LANG_MATH_ARRAY_ARRAY3: '[3]',
+                LANG_MATH_ARRAY_BRACKET3: '{',
+                LANG_MATH_ARRAY_BRACKET4: '}',
+                LANG_MATH_ARRAY_COMMA: ',',
+                LANG_MATH_ARRAY_TOOLTIP: 'Array',
 
                 LANG_MATH_MODULO_TOOLTIP: 'Returns the remainder of the division of the two input numbers.',
 
@@ -551,6 +560,7 @@
 
                 LANG_LOGIC_OPERATION_AND: 'y',
                 LANG_LOGIC_OPERATION_OR: 'o',
+
                 LANG_LOGIC_COMPARE_TOOLTIP_EQ: 'Devuelve verdadero si las dos entradas son iguales.',
                 LANG_LOGIC_COMPARE_TOOLTIP_NEQ: 'Devuelve verdadero si las dos entradas no son iguales entre sí.',
                 LANG_LOGIC_COMPARE_TOOLTIP_LT: 'Devuelve verdadero si la primera entrada es menor que la segunda entrada.',
@@ -643,7 +653,10 @@
                 LANG_BQ_INFRARED_TOOLTIP: 'Sensor infrarrojo',
 
                 LANG_BQ_JOYSTICK: 'Joystick',
-                LANG_BQ_JOYSTICK_PIN: 'PIN#',
+                LANG_BQ_JOYSTICK_PIN_X: 'Eje X',
+                LANG_BQ_JOYSTICK_PIN_Y: 'Eje Y',
+                LANG_BQ_JOYSTICK_POSITION: 'Posición Joystick',
+                LANG_BQ_JOYSTICK_PIN_BUTTON: 'Pulsador',
                 LANG_BQ_JOYSTICK_TOOLTIP: 'Joystick bq',
 
                 LANG_BQ_LED: 'LED',
@@ -765,6 +778,12 @@
                 LANG_MATH_ADVANCED_MAP_TOOLTIP: 'Re-maps a number from a certain range to another.',
 
                 LANG_MATH_NUMBER_TOOLTIP: 'Number',
+
+                LANG_MATH_ARRAY_ARRAY3: '[3]',
+                LANG_MATH_ARRAY_BRACKET3: '{',
+                LANG_MATH_ARRAY_BRACKET4: '}',
+                LANG_MATH_ARRAY_COMMA: ',',
+                LANG_MATH_ARRAY_TOOLTIP: 'Array',
 
                 LANG_MATH_BASE_MAP: 'Mapear ',
                 LANG_MATH_BASE_MAP_VALUE_TO: 'Valor entre [0-',
@@ -1428,9 +1447,26 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'analogRead(' +
-                    __e(dropdown_pin) +
-                    ')';
+                __p += 'readJoystick(' +
+                    __e(array) +
+                    ');';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_joystick_definitions"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'void readJoystick(int a[3]){\n  a[0]=analogRead(' +
+                    __e(pinx) +
+                    ');\n  a[1]=analogRead(' +
+                    __e(piny) +
+                    ');\n  a[2]=digitalRead(' +
+                    __e(pinbutton) +
+                    ');\n}';
 
             }
             return __p
@@ -3026,11 +3062,22 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.bq_joystick = function() {
-            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-            var code = JST['bq_joystick']({
-                'dropdown_pin': dropdown_pin,
+            var pinx = Blockly.Arduino.valueToCode(this, 'PINX', Blockly.Arduino.ORDER_ATOMIC);
+            var piny = Blockly.Arduino.valueToCode(this, 'PINY', Blockly.Arduino.ORDER_ATOMIC);
+            var pinbutton = Blockly.Arduino.valueToCode(this, 'PINBUTTON', Blockly.Arduino.ORDER_ATOMIC);
+
+            Blockly.Arduino.definitions_['define_joystick'] = JST['bq_joystick_definitions']({
+                'pinx': pinx,
+                'piny': piny,
+                'pinbutton': pinbutton
             });
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
+
+            var array = Blockly.Arduino.valueToCode(this, 'POS', Blockly.Arduino.ORDER_ATOMIC);
+            var code = JST['bq_joystick']({
+                'array': array
+            });
+
+            return code;
         };
 
         /**
@@ -3046,12 +3093,34 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendValueInput('PIN')
+                this.appendDummyInput()
                     .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK'))
-                    .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom))
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN'))
+                    .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom));
+
+                this.appendValueInput('POS')
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_POSITION'))
+                    .setAlign(Blockly.ALIGN_RIGHT)
                     .setCheck(Number);
-                this.setOutput(true, Number);
+
+
+                this.appendValueInput('PINX')
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_X'))
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .setCheck(Number);
+
+                this.appendValueInput('PINY')
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_Y'))
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .setCheck(Number);
+
+                this.appendValueInput('PINBUTTON')
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_BUTTON'))
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .setCheck(Number);
+
+                // this.setOutput(true, Number);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_TOOLTIP'));
             }
         };
@@ -4907,6 +4976,65 @@
             POWER: RoboBlocks.locales.getKey('LANG_MATH_ARITHMETIC_TOOLTIP_POWER')
         };
 
+        // Source: src/blocks/math_array/math_array.js
+        /* global Blockly, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * math_array code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.math_array = function() {
+            // Numeric value.
+            var code = '{';
+            code += window.parseFloat(this.getFieldValue('NUM0'));
+            code += ',';
+            code += window.parseFloat(this.getFieldValue('NUM1'));
+            code += ',';
+            code += window.parseFloat(this.getFieldValue('NUM2'));
+            code += '}';
+
+            // -4.abs() returns -4 in Dart due to strange order of operation choices.
+            // -4 is actually an operator and a number.  Reflect this in the order.
+            // var order = code < 0 ? Blockly.Arduino.ORDER_UNARY_PREFIX : Blockly.Arduino.ORDER_ATOMIC;
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        Blockly.Blocks.math_array = {
+            // Numeric value.
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'), // Variables are handled specially.
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_array',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MATH);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_ARRAY3'))
+                    .appendField(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_BRACKET3'))
+                    .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.math_array.validator), 'NUM0')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_COMMA'));
+
+
+                this.appendDummyInput()
+                    .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.math_array.validator), 'NUM1')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_COMMA'));
+
+                this.appendDummyInput()
+                    .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.math_array.validator), 'NUM2')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_BRACKET4'));
+
+                this.setOutput(true, Number);
+                this.setInputsInline(true);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_TOOLTIP'));
+            }
+        };
+
+
+        Blockly.Blocks.math_array.validator = function(text) {
+            // Ensure that only a number may be entered.
+            // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
+            var n = window.parseFloat(text || 0);
+            return window.isNaN(n) ? null : String(n);
+        };
         // Source: src/blocks/math_modulo/math_modulo.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
@@ -4959,13 +5087,6 @@
          * @return {String} Code generated with block parameters
          */
 
-        Blockly.Blocks.math_number.validator = function(text) {
-            // Ensure that only a number may be entered.
-            // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
-            var n = window.parseFloat(text || 0);
-            return window.isNaN(n) ? null : String(n);
-        };
-
         Blockly.Arduino.math_number = function() {
             // Numeric value.
             var code = window.parseFloat(this.getFieldValue('NUM'));
@@ -4986,6 +5107,13 @@
                 this.setOutput(true, Number);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_NUMBER_TOOLTIP'));
             }
+        };
+
+        Blockly.Blocks.math_number.validator = function(text) {
+            // Ensure that only a number may be entered.
+            // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
+            var n = window.parseFloat(text || 0);
+            return window.isNaN(n) ? null : String(n);
         };
 
         // Source: src/blocks/math_random/math_random.js
@@ -6667,19 +6795,28 @@
             // varValue='digitalRead(';
             // console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('digitalRead'));
             // console.log(varValue.search('digitalRead'),varValue.search('digitalRead')>0);
+            var varName = this.getFieldValue('VAR') || '';
+
 
             if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)))) {
                 varType = 'int';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+            }
+            if (varValue[0] === '{') {
+                varType = 'int ';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ' []=' + varValue + ';';
             } else {
                 varType = 'String';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
             }
 
             // console.log('varType', varType);
 
-            var varName = this.getFieldValue('VAR') || '';
 
-            Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
-            Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+
+
 
             return '';
         };
