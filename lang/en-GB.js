@@ -43,7 +43,6 @@
         LANG_BQ_BLUETOOTH_SEND_SEND : 'Send',
         LANG_BQ_BLUETOOTH_SEND_TOOLTIP : 'Sends the input data using the bq Bluetooth module',
 
-
         LANG_BQ_BLUETOOTH_DEF : 'Bluetooth definition',
         LANG_BQ_BLUETOOTH_DEF_BAUD_RATE : 'Baud rate',
         LANG_BQ_BLUETOOTH_DEF_PIN1 : 'RX',
@@ -83,7 +82,6 @@
         LANG_BQ_BAT_BLUE_PIN : 'TRIGGER PIN#',
         LANG_BQ_BAT_TOOLTIP : 'Output the measured distance',
 
-
         LANG_BQ_BUTTON : 'Button',
         LANG_BQ_BUTTON_PIN : 'PIN#',
         LANG_BQ_BUTTON_TOOLTIP : 'bq Button',
@@ -96,7 +94,6 @@
         LANG_BQ_BUTTONS_BUTTON_D : 'Button #D',
         LANG_BQ_BUTTONS_BUTTON_E : 'Button #E',
         LANG_BQ_BUTTONS_TOOLTIP : 'bq Buttons',
-
 
         LANG_BQ_INFRARED : 'Infrared Sensor',
         LANG_BQ_INFRARED_PIN : 'PIN#',
@@ -112,8 +109,6 @@
         LANG_BQ_LED : 'LED',
         LANG_BQ_LED_PIN : 'PIN#',
         LANG_BQ_LED_STATE : 'state',
-        // LANG_BQ_LED_ON : 'ON',
-        // LANG_BQ_LED_OFF : 'OFF',
         LANG_BQ_LED_TOOLTIP : 'bq LED',
 
         LANG_BQ_PHOTORESISTOR : 'Photoresistor',
@@ -143,7 +138,6 @@
         LANG_BQ_POTENTIOMETER_PIN : 'PIN#',
         LANG_BQ_POTENTIOMETER_TOOLTIP : 'bq Potentiometer',
 
-
         //LCD blocks:
         LANG_CATEGORY_LCD : 'LCD blocks',
         LANG_LCD_DEF : 'LCD',
@@ -161,7 +155,6 @@
         LANG_LCD_CLEAR_TOOLTIP : 'LCD clear',
 
         //controls blocks :
-
         LANG_CATEGORY_CONTROLS : 'Control',
 
         LANG_CONTROLS_BASE_DELAY_WAIT : 'Wait (ms)',
@@ -215,7 +208,6 @@
         LANG_CONTROLS_SWITCH_SWITCH_TOOLTIP : 'The switch expression is evaluated once',
         LANG_CONTROLS_SWITCH_CASE_TOOLTIP : 'case',
         LANG_CONTROLS_SWITCH_DEFAULT_TOOLTIP : 'The default keyword specifies the code to run if there is no case match',
-
 
         //math blocks :
         LANG_CATEGORY_MATH : 'Math',
@@ -282,16 +274,10 @@
         LANG_TEXT_LENGTH_INPUT_LENGTH : 'length',
         LANG_TEXT_LENGTH_TOOLTIP : 'Returns number of letters (including spaces) in the provided text.',
 
-        // LANG_TEXT_EQUALSIGNORECASE_IS:'Is ',
-        // LANG_TEXT_EQUALSIGNORECASE_EQUAL:' equal to',
-        // LANG_TEXT_EQUALSIGNORECASE_QUESTION:'?',
         LANG_TEXT_EQUALSIGNORECASE_IS : '',
         LANG_TEXT_EQUALSIGNORECASE_EQUAL : ' ==',
         LANG_TEXT_EQUALSIGNORECASE_QUESTION : '?',
         LANG_TEXT_EQUALSIGNORECASE_TOOLTIP : 'Returns true if both input strings are equal, regardless of the case.',
-
-        LANG_text_getBytes : 'get bytes of',
-        LANG_TEXT_GETBYTES_TOOLTIP : 'Returns the number of bytes of the input string',
 
         LANG_TEXT_SUBSTRING : 'Crop ',
         LANG_TEXT_SUBSTRING_FROM : 'from',
@@ -332,7 +318,6 @@
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW : 'LOW',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP : 'bq digital_write',
 
-
         LANG_ADVANCED_HIGHLOW_HIGH : 'HIGH',
         LANG_ADVANCED_HIGHLOW_LOW : 'LOW',
         LANG_ADVANCED_HIGHLOW_TOOLTIP : 'HIGH OR LOW',
@@ -340,8 +325,6 @@
         LANG_ADVANCED_MATH_RANDOM : 'Random between',
         LANG_ADVANCED_MATH_RANDOM_AND : ' and ',
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP : 'Returns a random number.',
-
-
 
         //procedures blocks
         LANG_CATEGORY_PROCEDURES : 'Functions',
@@ -377,7 +360,6 @@
         LANG_PROCEDURES_IFRETURN_TOOLTIP : 'If a value is true, then returns a value.',
         LANG_PROCEDURES_IFRETURN_WARNING : 'Warning: This block may only be used within a function with a return value.',
 
-
         //variables blocks :
         LANG_CATEGORY_VARIABLES : 'Variables',
 
@@ -398,7 +380,6 @@
         LANG_VARIABLES_DEFINE : 'Define variable ',
         LANG_VARIABLES_DEFINE_AS : 'as',
         LANG_VARIABLES_DEFINE_TOOLTIP : 'Define the value of a variable',
-
 
         LANG_VARIABLES_SET : 'Set variable ',
         LANG_VARIABLES_SET_AS : 'as',
@@ -460,8 +441,6 @@
         LANG_ZUM_POTENTIOMETER_PIN : 'PIN#',
         LANG_ZUM_POTENTIOMETER_TOOLTIP : 'zum Potentiometer',
 
-
-
         //servo blocks :
         LANG_CATEGORY_SERVO : 'Servo',
 
@@ -479,7 +458,6 @@
         LANG_SERVO_MOVE_DEGREES : 'Degrees (0~180)',
         LANG_SERVO_MOVE_DELAY : 'Delay',
         LANG_SERVO_MOVE_TOOLTIP : 'Move between 0~180 degree',
-
     };
 
     // Node
@@ -493,6 +471,3 @@
         RoboBlocks.locales.add('en-GB', language);
     }
 }());
-
-
-
