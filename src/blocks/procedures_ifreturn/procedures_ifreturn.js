@@ -50,9 +50,9 @@ Blockly.Blocks.procedures_ifreturn = {
         // Restore whether this block has a return value.
         var value = xmlElement.getAttribute('value');
         this.hasReturnValue_ = (value === 1);
-        if (!this.hasReturnValue_) {
-            this.removeInput('VALUE');
-        }
+        // if (!this.hasReturnValue_) {
+        //     this.removeInput('VALUE');
+        // }
     },
     onchange: function() {
         if (!this.workspace) {
@@ -64,6 +64,7 @@ Blockly.Blocks.procedures_ifreturn = {
         var block = this;
         do {
             if (block.type === 'procedures_defreturn') {
+                console.log('aaaaaaaaaaaa', block.type);
                 legal = true;
                 break;
             }
@@ -71,13 +72,13 @@ Blockly.Blocks.procedures_ifreturn = {
         } while (block);
         if (legal) {
             // If needed, toggle whether this block has a return value.
-            if (block.type === 'procedures_defnoreturn' && this.hasReturnValue_) {
-                this.removeInput('VALUE');
-                this.hasReturnValue_ = false;
-            } else if (block.type === 'procedures_defreturn' && !this.hasReturnValue_) {
-                this.appendValueInput('VALUE');
-                this.hasReturnValue_ = true;
-            }
+            // if (block.type === 'procedures_defnoreturn' && this.hasReturnValue_) {
+            //     this.removeInput('VALUE');
+            //     this.hasReturnValue_ = false;
+            // } else if (block.type === 'procedures_defreturn' && !this.hasReturnValue_) {
+            //     this.appendValueInput('VALUE');
+            //     this.hasReturnValue_ = true;
+            // }
             this.setWarningText(null);
         } else {
             try{

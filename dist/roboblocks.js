@@ -1068,18 +1068,18 @@
         // RoboBlocks.LANG_COLOUR_COMMUNICATION='88';
 
         // RGB block colors
-        RoboBlocks.LANG_COLOUR_BQ = '#C32B32';
-        RoboBlocks.LANG_COLOUR_ZUM = '#C66732';
-        RoboBlocks.LANG_COLOUR_SERVO = '#C0C933';
-        RoboBlocks.LANG_COLOUR_TEXT = '#82CA32';
-        RoboBlocks.LANG_COLOUR_LOGIC = '#3ACB3A';
-        RoboBlocks.LANG_COLOUR_ADVANCED = '#CD853D';
-        RoboBlocks.LANG_COLOUR_VARIABLES = '#7623C7';
-        RoboBlocks.LANG_COLOUR_PROCEDURES = '#C222B0';
-        RoboBlocks.LANG_COLOUR_CONTROL = '#C222B0';
-        RoboBlocks.LANG_COLOUR_MATH = '#C222B0';
-        RoboBlocks.LANG_COLOUR_COMMUNICATION = '#C222B0';
-        RoboBlocks.LANG_COLOUR_LCD = '#C222B0';
+        RoboBlocks.LANG_COLOUR_BQ = '#D04141';
+        RoboBlocks.LANG_COLOUR_ZUM = '#CC7B44';
+        RoboBlocks.LANG_COLOUR_SERVO = '#CECE42';
+        RoboBlocks.LANG_COLOUR_LCD = '#ACCE42';
+        RoboBlocks.LANG_COLOUR_CONTROL = '#44CC44';
+        RoboBlocks.LANG_COLOUR_LOGIC = '#42CE91';
+        RoboBlocks.LANG_COLOUR_MATH = '#42CBCE';
+        RoboBlocks.LANG_COLOUR_TEXT = '#42A3CE';
+        RoboBlocks.LANG_COLOUR_COMMUNICATION = '#4263CE';
+        RoboBlocks.LANG_COLOUR_ADVANCED = '#9142CE';
+        RoboBlocks.LANG_COLOUR_VARIABLES = '#B244CC';
+        RoboBlocks.LANG_COLOUR_PROCEDURES = '#CE42B3';
         // Source: src/profiles.js
         /*
          * Arduino Board profiles
@@ -5712,7 +5712,6 @@
          * @return {String} Code generated with block parameters
          */
 
-
         // Defining a procedure without a return value uses the same generator as
         // a procedure with a return value.
         Blockly.Arduino.procedures_defnoreturn = function() {
@@ -5747,6 +5746,7 @@
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'),
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_defnoreturn',
             init: function() {
+                this.paramString = [];
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
                 var name = Blockly.Procedures.findLegalName(
                     RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'), this);
@@ -5789,20 +5789,24 @@
                 this.setFieldValue(this.paramString, 'PARAMS');
             },
             mutationToDom: function() {
-                // Save whether this block has a return value.
                 var container = document.createElement('mutation');
-                container.setAttribute('value', Number(this.hasReturnValue_));
+                for (var x = 0; x < this.arguments_.length; x++) {
+                    var parameter = document.createElement('arg');
+                    parameter.setAttribute('name', this.paramString[x]);
+                    container.appendChild(parameter);
+                }
                 return container;
             },
             domToMutation: function(xmlElement) {
-                // Restore whether this block has a return value.
-                var value = xmlElement.getAttribute('value');
-                this.hasReturnValue_ = (value === 1);
-                if (!this.hasReturnValue_) {
-                    try {
-                        this.removeInput('VALUE');
-                    } catch (e) {}
+                this.arguments_ = [];
+                var childNode;
+                for (var x = 0; x < xmlElement.childNodes.length; x++) {
+                    childNode = xmlElement.childNodes[x];
+                    if (childNode.nodeName.toLowerCase() === 'arg') {
+                        this.paramString.push(childNode.getAttribute('name'));
+                    }
                 }
+                this.updateParams_();
             },
             decompose: function(workspace) {
                 var containerBlock = Blockly.Block.obtain(workspace, 'procedures_mutatorcontainer');
@@ -5937,6 +5941,8 @@
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
             var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
+            returnValue = returnValue.replace(/&quot;/g, '"');
+
             var returnType;
             if (!returnValue) {
                 returnType = 'void';
@@ -6056,9 +6062,9 @@
                 // Restore whether this block has a return value.
                 var value = xmlElement.getAttribute('value');
                 this.hasReturnValue_ = (value === 1);
-                if (!this.hasReturnValue_) {
-                    this.removeInput('VALUE');
-                }
+                // if (!this.hasReturnValue_) {
+                //     this.removeInput('VALUE');
+                // }
             },
             onchange: function() {
                 if (!this.workspace) {
@@ -6070,6 +6076,7 @@
                 var block = this;
                 do {
                     if (block.type === 'procedures_defreturn') {
+                        console.log('aaaaaaaaaaaa', block.type);
                         legal = true;
                         break;
                     }
@@ -6077,13 +6084,13 @@
                 } while (block);
                 if (legal) {
                     // If needed, toggle whether this block has a return value.
-                    if (block.type === 'procedures_defnoreturn' && this.hasReturnValue_) {
-                        this.removeInput('VALUE');
-                        this.hasReturnValue_ = false;
-                    } else if (block.type === 'procedures_defreturn' && !this.hasReturnValue_) {
-                        this.appendValueInput('VALUE');
-                        this.hasReturnValue_ = true;
-                    }
+                    // if (block.type === 'procedures_defnoreturn' && this.hasReturnValue_) {
+                    //     this.removeInput('VALUE');
+                    //     this.hasReturnValue_ = false;
+                    // } else if (block.type === 'procedures_defreturn' && !this.hasReturnValue_) {
+                    //     this.appendValueInput('VALUE');
+                    //     this.hasReturnValue_ = true;
+                    // }
                     this.setWarningText(null);
                 } else {
                     try {
