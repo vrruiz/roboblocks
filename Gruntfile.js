@@ -64,7 +64,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 // src: ['src/*.js', 'lang/*.js', 'tmp/**/*.js', 'src/blocks/**/*.js'],
-                src: ['src/lang.js', 'lang/*.js','src/constants.js', 'src/profiles.js', 'src/blockly.extensions.js', 'tmp/**/*.js', 'src/blocks/**/*.js'],
+                src: ['src/lang.js', 'lang/*.js', 'src/constants.js', 'src/profiles.js', 'src/blockly.extensions.js', 'tmp/**/*.js', 'src/blocks/**/*.js'],
                 dest: 'dist/<%= pkg.name %>.js'
             },
             jst: {
