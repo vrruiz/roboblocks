@@ -43,8 +43,7 @@
         LANG_BQ_BLUETOOTH_SEND_SEND : ' datos',
         LANG_BQ_BLUETOOTH_SEND_TOOLTIP : 'Toma los datos de la entrada y los envía usando el módulo de Bluetooth',
 
-
-        LANG_BQ_BLUETOOTH_DEF : 'Bluetooth definición',
+        LANG_BQ_BLUETOOTH_DEF : 'Bluetooth',
         LANG_BQ_BLUETOOTH_DEF_BAUD_RATE : 'Baud rate',
         LANG_BQ_BLUETOOTH_DEF_PIN1 : 'RX',
         LANG_BQ_BLUETOOTH_DEF_PIN2 : 'TX',
@@ -83,7 +82,6 @@
         LANG_BQ_BAT_BLUE_PIN : 'TRIGGER PIN#',
         LANG_BQ_BAT_TOOLTIP : 'Devuelve la distancia medida por el sensor.',
 
-
         LANG_BQ_BUTTON : 'Botón',
         LANG_BQ_BUTTON_PIN : 'PIN#',
         LANG_BQ_BUTTON_TOOLTIP : 'Botón bq',
@@ -96,7 +94,6 @@
         LANG_BQ_BUTTONS_BUTTON_D : 'Botón #D',
         LANG_BQ_BUTTONS_BUTTON_E : 'Botón #E',
         LANG_BQ_BUTTONS_TOOLTIP : 'Botones bq',
-
 
         LANG_BQ_INFRARED : 'Sensor infrarrojo',
         LANG_BQ_INFRARED_PIN : 'PIN#',
@@ -112,8 +109,6 @@
         LANG_BQ_LED : 'LED',
         LANG_BQ_LED_PIN : 'PIN#',
         LANG_BQ_LED_STATE : 'estado',
-        // LANG_BQ_LED_ON : 'ON',
-        // LANG_BQ_LED_OFF : 'OFF',
         LANG_BQ_LED_TOOLTIP : 'LED',
 
         LANG_BQ_PHOTORESISTOR : 'Fotorresistencia',
@@ -143,7 +138,6 @@
         LANG_BQ_POTENTIOMETER_PIN : 'PIN#',
         LANG_BQ_POTENTIOMETER_TOOLTIP : 'Potenciómetro',
 
-
         //LCD blocks:
         LANG_CATEGORY_LCD : 'Bloques LCD',
         LANG_LCD_DEF : 'LCD',
@@ -161,7 +155,6 @@
         LANG_LCD_CLEAR_TOOLTIP : 'LCD: Borrar',
 
         //controls blocks :
-
         LANG_CATEGORY_CONTROLS : 'Control',
 
         LANG_CONTROLS_BASE_DELAY_WAIT : 'Espera (ms)',
@@ -216,16 +209,15 @@
         LANG_CONTROLS_SWITCH_CASE_TOOLTIP : 'caso ',
         LANG_CONTROLS_SWITCH_DEFAULT_TOOLTIP : 'El bloque "default" especifica el código que se va a ejecutar si no existe una coincidencia con alguno de los casos descritos.',
 
-
         //math blocks :
         LANG_CATEGORY_MATH : 'Matemáticas',
 
-        LANG_MATH_ADVANCED_MAP_MAP : 'Map ',
-        LANG_MATH_ADVANCED_MAP_FROM : 'From [',
+        LANG_MATH_ADVANCED_MAP_MAP : 'Mapear ',
+        LANG_MATH_ADVANCED_MAP_FROM : 'De [',
         LANG_MATH_ADVANCED_MAP_HYPHEN : '-',
         LANG_MATH_ADVANCED_MAP_BRACKET : ']',
-        LANG_MATH_ADVANCED_MAP_TO : 'to [',
-        LANG_MATH_ADVANCED_MAP_TOOLTIP : 'Re-maps a number from a certain range to another.',
+        LANG_MATH_ADVANCED_MAP_TO : 'a [',
+        LANG_MATH_ADVANCED_MAP_TOOLTIP : 'Mapea un número desde un rango de origen a otro rango de valores.',
 
         LANG_MATH_NUMBER_TOOLTIP : 'Number',
 
@@ -237,6 +229,8 @@
 
         LANG_ARRAY_GET_BRACKET1:'[',
         LANG_ARRAY_GET_BRACKET2:']',
+
+        LANG_MATH_MODULO_TOOLTIP : 'Returns the remainder of the division of the two input numbers.',
 
         LANG_MATH_BASE_MAP : 'Mapear ',
         LANG_MATH_BASE_MAP_VALUE_TO : 'Valor entre [0-',
@@ -280,9 +274,6 @@
         LANG_TEXT_LENGTH_INPUT_LENGTH : 'longitud',
         LANG_TEXT_LENGTH_TOOLTIP : 'Devuelve el número de letras (incluyendo los espacios) en el texto introducido.',
 
-        // LANG_TEXT_EQUALSIGNORECASE_IS:'Is ',
-        // LANG_TEXT_EQUALSIGNORECASE_EQUAL:' equal to',
-        // LANG_TEXT_EQUALSIGNORECASE_QUESTION:'?',
         LANG_TEXT_EQUALSIGNORECASE_IS : '',
         LANG_TEXT_EQUALSIGNORECASE_EQUAL : ' ==',
         LANG_TEXT_EQUALSIGNORECASE_QUESTION : '',
@@ -327,7 +318,6 @@
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW : 'BAJO',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP : 'Escribe un valor en un pin digital.',
 
-
         LANG_ADVANCED_HIGHLOW_HIGH : 'ALTO',
         LANG_ADVANCED_HIGHLOW_LOW : 'BAJO',
         LANG_ADVANCED_HIGHLOW_TOOLTIP : 'Escribe "ALTO" o "BAJO" en función de lo seleccionado.',
@@ -335,8 +325,6 @@
         LANG_ADVANCED_MATH_RANDOM : 'Aleatorio entre',
         LANG_ADVANCED_MATH_RANDOM_AND : ' y ',
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP : 'Crea un número aleatorio entre los dos límites introducidos.',
-
-
 
         //procedures blocks
         LANG_CATEGORY_PROCEDURES : 'Funciones',
@@ -372,7 +360,6 @@
         LANG_PROCEDURES_IFRETURN_TOOLTIP : 'Si un valor es verdadero, devuelve un valor.',
         LANG_PROCEDURES_IFRETURN_WARNING : 'Atención: Este bloque sólo puede ser usado dentro de una función con un valor de retorno.',
 
-
         //variables blocks :
         LANG_CATEGORY_VARIABLES : 'Variables',
 
@@ -393,7 +380,6 @@
         LANG_VARIABLES_DEFINE : 'Definir variable ',
         LANG_VARIABLES_DEFINE_AS : 'como',
         LANG_VARIABLES_DEFINE_TOOLTIP : 'Definir el valor de una variable.',
-
 
         LANG_VARIABLES_SET : 'Variable ',
         LANG_VARIABLES_SET_AS : '=',
@@ -455,8 +441,6 @@
         LANG_ZUM_POTENTIOMETER_PIN : 'PIN#',
         LANG_ZUM_POTENTIOMETER_TOOLTIP : 'Potenciómetro zum.',
 
-
-
         //servo blocks :
         LANG_CATEGORY_SERVO : 'Servo',
 
@@ -487,6 +471,3 @@
         RoboBlocks.locales.add('es-ES', language);
     }
 }());
-
-
-

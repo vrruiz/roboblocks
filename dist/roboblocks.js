@@ -51,7 +51,7 @@
         };
 
         RoboBlocks.locales.initialize = function() {
-            this.setDefaultLang('en');
+            this.setDefaultLang('en-GB');
             return this;
         };
         // Source: lang/en-GB.js
@@ -98,7 +98,6 @@
                 LANG_BQ_BLUETOOTH_SEND_SEND: 'Send',
                 LANG_BQ_BLUETOOTH_SEND_TOOLTIP: 'Sends the input data using the bq Bluetooth module',
 
-
                 LANG_BQ_BLUETOOTH_DEF: 'Bluetooth definition',
                 LANG_BQ_BLUETOOTH_DEF_BAUD_RATE: 'Baud rate',
                 LANG_BQ_BLUETOOTH_DEF_PIN1: 'RX',
@@ -138,7 +137,6 @@
                 LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
                 LANG_BQ_BAT_TOOLTIP: 'Output the measured distance',
 
-
                 LANG_BQ_BUTTON: 'Button',
                 LANG_BQ_BUTTON_PIN: 'PIN#',
                 LANG_BQ_BUTTON_TOOLTIP: 'bq Button',
@@ -151,7 +149,6 @@
                 LANG_BQ_BUTTONS_BUTTON_D: 'Button #D',
                 LANG_BQ_BUTTONS_BUTTON_E: 'Button #E',
                 LANG_BQ_BUTTONS_TOOLTIP: 'bq Buttons',
-
 
                 LANG_BQ_INFRARED: 'Infrared Sensor',
                 LANG_BQ_INFRARED_PIN: 'PIN#',
@@ -167,8 +164,6 @@
                 LANG_BQ_LED: 'LED',
                 LANG_BQ_LED_PIN: 'PIN#',
                 LANG_BQ_LED_STATE: 'state',
-                // LANG_BQ_LED_ON : 'ON',
-                // LANG_BQ_LED_OFF : 'OFF',
                 LANG_BQ_LED_TOOLTIP: 'bq LED',
 
                 LANG_BQ_PHOTORESISTOR: 'Photoresistor',
@@ -198,7 +193,6 @@
                 LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'bq Potentiometer',
 
-
                 //LCD blocks:
                 LANG_CATEGORY_LCD: 'LCD blocks',
                 LANG_LCD_DEF: 'LCD',
@@ -216,7 +210,6 @@
                 LANG_LCD_CLEAR_TOOLTIP: 'LCD clear',
 
                 //controls blocks :
-
                 LANG_CATEGORY_CONTROLS: 'Control',
 
                 LANG_CONTROLS_BASE_DELAY_WAIT: 'Wait (ms)',
@@ -270,7 +263,6 @@
                 LANG_CONTROLS_SWITCH_SWITCH_TOOLTIP: 'The switch expression is evaluated once',
                 LANG_CONTROLS_SWITCH_CASE_TOOLTIP: 'case',
                 LANG_CONTROLS_SWITCH_DEFAULT_TOOLTIP: 'The default keyword specifies the code to run if there is no case match',
-
 
                 //math blocks :
                 LANG_CATEGORY_MATH: 'Math',
@@ -337,16 +329,10 @@
                 LANG_TEXT_LENGTH_INPUT_LENGTH: 'length',
                 LANG_TEXT_LENGTH_TOOLTIP: 'Returns number of letters (including spaces) in the provided text.',
 
-                // LANG_TEXT_EQUALSIGNORECASE_IS:'Is ',
-                // LANG_TEXT_EQUALSIGNORECASE_EQUAL:' equal to',
-                // LANG_TEXT_EQUALSIGNORECASE_QUESTION:'?',
                 LANG_TEXT_EQUALSIGNORECASE_IS: '',
                 LANG_TEXT_EQUALSIGNORECASE_EQUAL: ' ==',
                 LANG_TEXT_EQUALSIGNORECASE_QUESTION: '?',
                 LANG_TEXT_EQUALSIGNORECASE_TOOLTIP: 'Returns true if both input strings are equal, regardless of the case.',
-
-                LANG_text_getBytes: 'get bytes of',
-                LANG_TEXT_GETBYTES_TOOLTIP: 'Returns the number of bytes of the input string',
 
                 LANG_TEXT_SUBSTRING: 'Crop ',
                 LANG_TEXT_SUBSTRING_FROM: 'from',
@@ -387,7 +373,6 @@
                 LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW: 'LOW',
                 LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP: 'bq digital_write',
 
-
                 LANG_ADVANCED_HIGHLOW_HIGH: 'HIGH',
                 LANG_ADVANCED_HIGHLOW_LOW: 'LOW',
                 LANG_ADVANCED_HIGHLOW_TOOLTIP: 'HIGH OR LOW',
@@ -395,8 +380,6 @@
                 LANG_ADVANCED_MATH_RANDOM: 'Random between',
                 LANG_ADVANCED_MATH_RANDOM_AND: ' and ',
                 LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Returns a random number.',
-
-
 
                 //procedures blocks
                 LANG_CATEGORY_PROCEDURES: 'Functions',
@@ -432,7 +415,6 @@
                 LANG_PROCEDURES_IFRETURN_TOOLTIP: 'If a value is true, then returns a value.',
                 LANG_PROCEDURES_IFRETURN_WARNING: 'Warning: This block may only be used within a function with a return value.',
 
-
                 //variables blocks :
                 LANG_CATEGORY_VARIABLES: 'Variables',
 
@@ -453,7 +435,6 @@
                 LANG_VARIABLES_DEFINE: 'Define variable ',
                 LANG_VARIABLES_DEFINE_AS: 'as',
                 LANG_VARIABLES_DEFINE_TOOLTIP: 'Define the value of a variable',
-
 
                 LANG_VARIABLES_SET: 'Set variable ',
                 LANG_VARIABLES_SET_AS: 'as',
@@ -515,8 +496,6 @@
                 LANG_ZUM_POTENTIOMETER_PIN: 'PIN#',
                 LANG_ZUM_POTENTIOMETER_TOOLTIP: 'zum Potentiometer',
 
-
-
                 //servo blocks :
                 LANG_CATEGORY_SERVO: 'Servo',
 
@@ -534,7 +513,6 @@
                 LANG_SERVO_MOVE_DEGREES: 'Degrees (0~180)',
                 LANG_SERVO_MOVE_DELAY: 'Delay',
                 LANG_SERVO_MOVE_TOOLTIP: 'Move between 0~180 degree',
-
             };
 
             // Node
@@ -548,10 +526,6 @@
                 RoboBlocks.locales.add('en-GB', language);
             }
         }());
-
-
-
-
         // Source: lang/es-ES.js
         (function() {
             var language = {
@@ -596,8 +570,7 @@
                 LANG_BQ_BLUETOOTH_SEND_SEND: ' datos',
                 LANG_BQ_BLUETOOTH_SEND_TOOLTIP: 'Toma los datos de la entrada y los envía usando el módulo de Bluetooth',
 
-
-                LANG_BQ_BLUETOOTH_DEF: 'Bluetooth definición',
+                LANG_BQ_BLUETOOTH_DEF: 'Bluetooth',
                 LANG_BQ_BLUETOOTH_DEF_BAUD_RATE: 'Baud rate',
                 LANG_BQ_BLUETOOTH_DEF_PIN1: 'RX',
                 LANG_BQ_BLUETOOTH_DEF_PIN2: 'TX',
@@ -636,7 +609,6 @@
                 LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
                 LANG_BQ_BAT_TOOLTIP: 'Devuelve la distancia medida por el sensor.',
 
-
                 LANG_BQ_BUTTON: 'Botón',
                 LANG_BQ_BUTTON_PIN: 'PIN#',
                 LANG_BQ_BUTTON_TOOLTIP: 'Botón bq',
@@ -649,7 +621,6 @@
                 LANG_BQ_BUTTONS_BUTTON_D: 'Botón #D',
                 LANG_BQ_BUTTONS_BUTTON_E: 'Botón #E',
                 LANG_BQ_BUTTONS_TOOLTIP: 'Botones bq',
-
 
                 LANG_BQ_INFRARED: 'Sensor infrarrojo',
                 LANG_BQ_INFRARED_PIN: 'PIN#',
@@ -665,8 +636,6 @@
                 LANG_BQ_LED: 'LED',
                 LANG_BQ_LED_PIN: 'PIN#',
                 LANG_BQ_LED_STATE: 'estado',
-                // LANG_BQ_LED_ON : 'ON',
-                // LANG_BQ_LED_OFF : 'OFF',
                 LANG_BQ_LED_TOOLTIP: 'LED',
 
                 LANG_BQ_PHOTORESISTOR: 'Fotorresistencia',
@@ -696,7 +665,6 @@
                 LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Potenciómetro',
 
-
                 //LCD blocks:
                 LANG_CATEGORY_LCD: 'Bloques LCD',
                 LANG_LCD_DEF: 'LCD',
@@ -714,7 +682,6 @@
                 LANG_LCD_CLEAR_TOOLTIP: 'LCD: Borrar',
 
                 //controls blocks :
-
                 LANG_CATEGORY_CONTROLS: 'Control',
 
                 LANG_CONTROLS_BASE_DELAY_WAIT: 'Espera (ms)',
@@ -769,16 +736,15 @@
                 LANG_CONTROLS_SWITCH_CASE_TOOLTIP: 'caso ',
                 LANG_CONTROLS_SWITCH_DEFAULT_TOOLTIP: 'El bloque "default" especifica el código que se va a ejecutar si no existe una coincidencia con alguno de los casos descritos.',
 
-
                 //math blocks :
                 LANG_CATEGORY_MATH: 'Matemáticas',
 
-                LANG_MATH_ADVANCED_MAP_MAP: 'Map ',
-                LANG_MATH_ADVANCED_MAP_FROM: 'From [',
+                LANG_MATH_ADVANCED_MAP_MAP: 'Mapear ',
+                LANG_MATH_ADVANCED_MAP_FROM: 'De [',
                 LANG_MATH_ADVANCED_MAP_HYPHEN: '-',
                 LANG_MATH_ADVANCED_MAP_BRACKET: ']',
-                LANG_MATH_ADVANCED_MAP_TO: 'to [',
-                LANG_MATH_ADVANCED_MAP_TOOLTIP: 'Re-maps a number from a certain range to another.',
+                LANG_MATH_ADVANCED_MAP_TO: 'a [',
+                LANG_MATH_ADVANCED_MAP_TOOLTIP: 'Mapea un número desde un rango de origen a otro rango de valores.',
 
                 LANG_MATH_NUMBER_TOOLTIP: 'Number',
 
@@ -790,6 +756,8 @@
 
                 LANG_ARRAY_GET_BRACKET1: '[',
                 LANG_ARRAY_GET_BRACKET2: ']',
+
+                LANG_MATH_MODULO_TOOLTIP: 'Returns the remainder of the division of the two input numbers.',
 
                 LANG_MATH_BASE_MAP: 'Mapear ',
                 LANG_MATH_BASE_MAP_VALUE_TO: 'Valor entre [0-',
@@ -833,9 +801,6 @@
                 LANG_TEXT_LENGTH_INPUT_LENGTH: 'longitud',
                 LANG_TEXT_LENGTH_TOOLTIP: 'Devuelve el número de letras (incluyendo los espacios) en el texto introducido.',
 
-                // LANG_TEXT_EQUALSIGNORECASE_IS:'Is ',
-                // LANG_TEXT_EQUALSIGNORECASE_EQUAL:' equal to',
-                // LANG_TEXT_EQUALSIGNORECASE_QUESTION:'?',
                 LANG_TEXT_EQUALSIGNORECASE_IS: '',
                 LANG_TEXT_EQUALSIGNORECASE_EQUAL: ' ==',
                 LANG_TEXT_EQUALSIGNORECASE_QUESTION: '',
@@ -880,7 +845,6 @@
                 LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW: 'BAJO',
                 LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP: 'Escribe un valor en un pin digital.',
 
-
                 LANG_ADVANCED_HIGHLOW_HIGH: 'ALTO',
                 LANG_ADVANCED_HIGHLOW_LOW: 'BAJO',
                 LANG_ADVANCED_HIGHLOW_TOOLTIP: 'Escribe "ALTO" o "BAJO" en función de lo seleccionado.',
@@ -888,8 +852,6 @@
                 LANG_ADVANCED_MATH_RANDOM: 'Aleatorio entre',
                 LANG_ADVANCED_MATH_RANDOM_AND: ' y ',
                 LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Crea un número aleatorio entre los dos límites introducidos.',
-
-
 
                 //procedures blocks
                 LANG_CATEGORY_PROCEDURES: 'Funciones',
@@ -925,7 +887,6 @@
                 LANG_PROCEDURES_IFRETURN_TOOLTIP: 'Si un valor es verdadero, devuelve un valor.',
                 LANG_PROCEDURES_IFRETURN_WARNING: 'Atención: Este bloque sólo puede ser usado dentro de una función con un valor de retorno.',
 
-
                 //variables blocks :
                 LANG_CATEGORY_VARIABLES: 'Variables',
 
@@ -946,7 +907,6 @@
                 LANG_VARIABLES_DEFINE: 'Definir variable ',
                 LANG_VARIABLES_DEFINE_AS: 'como',
                 LANG_VARIABLES_DEFINE_TOOLTIP: 'Definir el valor de una variable.',
-
 
                 LANG_VARIABLES_SET: 'Variable ',
                 LANG_VARIABLES_SET_AS: '=',
@@ -1008,8 +968,6 @@
                 LANG_ZUM_POTENTIOMETER_PIN: 'PIN#',
                 LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Potenciómetro zum.',
 
-
-
                 //servo blocks :
                 LANG_CATEGORY_SERVO: 'Servo',
 
@@ -1040,10 +998,6 @@
                 RoboBlocks.locales.add('es-ES', language);
             }
         }());
-
-
-
-
         // Source: src/constants.js
         /* global RoboBlocks*/
 
@@ -1068,18 +1022,18 @@
         // RoboBlocks.LANG_COLOUR_COMMUNICATION='88';
 
         // RGB block colors
-        RoboBlocks.LANG_COLOUR_BQ = '#C32B32';
-        RoboBlocks.LANG_COLOUR_ZUM = '#C66732';
-        RoboBlocks.LANG_COLOUR_SERVO = '#C0C933';
-        RoboBlocks.LANG_COLOUR_TEXT = '#82CA32';
-        RoboBlocks.LANG_COLOUR_LOGIC = '#3ACB3A';
-        RoboBlocks.LANG_COLOUR_ADVANCED = '#CD853D';
-        RoboBlocks.LANG_COLOUR_VARIABLES = '#7623C7';
-        RoboBlocks.LANG_COLOUR_PROCEDURES = '#C222B0';
-        RoboBlocks.LANG_COLOUR_CONTROL = '#C222B0';
-        RoboBlocks.LANG_COLOUR_MATH = '#C222B0';
-        RoboBlocks.LANG_COLOUR_COMMUNICATION = '#C222B0';
-        RoboBlocks.LANG_COLOUR_LCD = '#C222B0';
+        RoboBlocks.LANG_COLOUR_BQ = '#D04141';
+        RoboBlocks.LANG_COLOUR_ZUM = '#CC7B44';
+        RoboBlocks.LANG_COLOUR_SERVO = '#CECE42';
+        RoboBlocks.LANG_COLOUR_LCD = '#ACCE42';
+        RoboBlocks.LANG_COLOUR_CONTROL = '#44CC44';
+        RoboBlocks.LANG_COLOUR_LOGIC = '#42CE91';
+        RoboBlocks.LANG_COLOUR_MATH = '#42CBCE';
+        RoboBlocks.LANG_COLOUR_TEXT = '#42A3CE';
+        RoboBlocks.LANG_COLOUR_COMMUNICATION = '#4263CE';
+        RoboBlocks.LANG_COLOUR_ADVANCED = '#9142CE';
+        RoboBlocks.LANG_COLOUR_VARIABLES = '#B244CC';
+        RoboBlocks.LANG_COLOUR_PROCEDURES = '#CE42B3';
         // Source: src/profiles.js
         /*
          * Arduino Board profiles
@@ -5937,6 +5891,8 @@
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
             var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
+            returnValue = returnValue.replace(/&quot;/g, '"');
+
             var returnType;
             if (!returnValue) {
                 returnType = 'void';
@@ -6056,9 +6012,9 @@
                 // Restore whether this block has a return value.
                 var value = xmlElement.getAttribute('value');
                 this.hasReturnValue_ = (value === 1);
-                if (!this.hasReturnValue_) {
-                    this.removeInput('VALUE');
-                }
+                // if (!this.hasReturnValue_) {
+                //     this.removeInput('VALUE');
+                // }
             },
             onchange: function() {
                 if (!this.workspace) {
@@ -6070,6 +6026,7 @@
                 var block = this;
                 do {
                     if (block.type === 'procedures_defreturn') {
+                        console.log('aaaaaaaaaaaa', block.type);
                         legal = true;
                         break;
                     }
@@ -6077,13 +6034,13 @@
                 } while (block);
                 if (legal) {
                     // If needed, toggle whether this block has a return value.
-                    if (block.type === 'procedures_defnoreturn' && this.hasReturnValue_) {
-                        this.removeInput('VALUE');
-                        this.hasReturnValue_ = false;
-                    } else if (block.type === 'procedures_defreturn' && !this.hasReturnValue_) {
-                        this.appendValueInput('VALUE');
-                        this.hasReturnValue_ = true;
-                    }
+                    // if (block.type === 'procedures_defnoreturn' && this.hasReturnValue_) {
+                    //     this.removeInput('VALUE');
+                    //     this.hasReturnValue_ = false;
+                    // } else if (block.type === 'procedures_defreturn' && !this.hasReturnValue_) {
+                    //     this.appendValueInput('VALUE');
+                    //     this.hasReturnValue_ = true;
+                    // }
                     this.setWarningText(null);
                 } else {
                     try {

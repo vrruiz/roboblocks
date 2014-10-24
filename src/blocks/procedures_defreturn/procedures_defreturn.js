@@ -15,6 +15,8 @@ Blockly.Arduino.procedures_defreturn = function(){
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,'\'' + this.id + '\'') + branch;
     }
     var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
+    returnValue=returnValue.replace(/&quot;/g,'"');
+
     var returnType;
     if (!returnValue){
         returnType = 'void';
