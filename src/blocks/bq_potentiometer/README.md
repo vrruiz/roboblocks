@@ -8,4 +8,4 @@ Parameters
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| PIN#     | Pin to which the photoresistor is connected | `Number` |
+| PIN#     | Pin to which the potentiometer is connected | `Number` |

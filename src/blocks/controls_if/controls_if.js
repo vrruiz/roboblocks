@@ -10,6 +10,8 @@ Blockly.Arduino.controls_if = function() {
     // If/elseif/else condition.
     var n=0;
     var argument=Blockly.Arduino.valueToCode(this, 'IF' + n, Blockly.Arduino.ORDER_NONE);
+    argument=argument.replace(/&quot;/g,'"');
+
     var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
     branch=branch.replace(/&quot;/g,'"');
     

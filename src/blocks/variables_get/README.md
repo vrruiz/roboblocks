@@ -1,13 +1,11 @@
 variables_get
 ==========
 
-variables_get description
+Returns the value of a variable.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| variable     | Dropdown that allows to select the variable | `Dropdown` |

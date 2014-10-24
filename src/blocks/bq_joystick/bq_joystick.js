@@ -7,10 +7,22 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.bq_joystick = function() {
-    var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
-    var code = JST['bq_joystick']({
-        'dropdown_pin': dropdown_pin,
+    var pinx = Blockly.Arduino.valueToCode(this,'PINX', Blockly.Arduino.ORDER_ATOMIC);
+    var piny = Blockly.Arduino.valueToCode(this,'PINY', Blockly.Arduino.ORDER_ATOMIC);
+    var pinbutton = Blockly.Arduino.valueToCode(this,'PINBUTTON', Blockly.Arduino.ORDER_ATOMIC);
+
+    Blockly.Arduino.definitions_['define_joystick'] = JST['bq_joystick_definitions']({
+        'pinx': pinx,
+        'piny': piny,
+        'pinbutton': pinbutton
     });
+
+    var array= Blockly.Arduino.valueToCode(this,'POS', Blockly.Arduino.ORDER_ATOMIC);
+    var code = JST['bq_joystick']({
+        'pinx': pinx,
+        'array':array
+    });
+
     return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -27,12 +39,34 @@ Blockly.Blocks.bq_joystick = {
     */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-        this.appendValueInput('PIN')
-        .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK'))
-        .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom))
-        .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN'))
-        .setCheck(Number);
+        this.appendDummyInput()
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK'))
+            .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom));
+
+        // this.appendValueInput('POS')
+        //     .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_POSITION'))
+        //     .setAlign(Blockly.ALIGN_RIGHT)
+        //     .setCheck(Number);
+
+
+        this.appendValueInput('PINX')
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_X'))
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .setCheck(Number);
+
+        this.appendValueInput('PINY')
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_Y'))
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .setCheck(Number);
+
+        this.appendValueInput('PINBUTTON')
+            .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_BUTTON'))
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .setCheck(Number);
+
         this.setOutput(true, Number);
+        // this.setPreviousStatement(true, null);
+        // this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_TOOLTIP'));
     }
 };

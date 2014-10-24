@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.7 - 2014-10-22
+/*! roboblocks - v0.0.7 - 2014-10-24
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -54,7 +54,7 @@
             this.setDefaultLang('en');
             return this;
         };
-        // Source: lang/en.js
+        // Source: lang/en-GB.js
         (function() {
             var language = {
                 //random :
@@ -158,8 +158,11 @@
                 LANG_BQ_INFRARED_TOOLTIP: 'bq Infrared Sensor',
 
                 LANG_BQ_JOYSTICK: 'Joystick',
-                LANG_BQ_JOYSTICK_PIN: 'PIN#',
-                LANG_BQ_JOYSTICK_TOOLTIP: 'bq Joystick',
+                LANG_BQ_JOYSTICK_PIN_X: 'X axis PIN#',
+                LANG_BQ_JOYSTICK_PIN_Y: 'Y axis PIN#',
+                LANG_BQ_JOYSTICK_PIN_BUTTON: 'Button PIN#',
+                LANG_BQ_JOYSTICK_POSITION: 'Joystick Position',
+                LANG_BQ_JOYSTICK_TOOLTIP: 'Joystick bq',
 
                 LANG_BQ_LED: 'LED',
                 LANG_BQ_LED_PIN: 'PIN#',
@@ -280,6 +283,15 @@
                 LANG_MATH_ADVANCED_MAP_TOOLTIP: 'Re-map a number from a certain range to another.',
 
                 LANG_MATH_NUMBER_TOOLTIP: 'Number',
+
+                LANG_MATH_ARRAY_ARRAY3: '[3]',
+                LANG_MATH_ARRAY_BRACKET3: '{',
+                LANG_MATH_ARRAY_BRACKET4: '}',
+                LANG_MATH_ARRAY_COMMA: ',',
+                LANG_MATH_ARRAY_TOOLTIP: 'Array',
+
+                LANG_ARRAY_GET_BRACKET1: '[',
+                LANG_ARRAY_GET_BRACKET2: ']',
 
                 LANG_MATH_MODULO_TOOLTIP: 'Returns the remainder of the division of the two input numbers.',
 
@@ -431,7 +443,7 @@
                 LANG_VARIABLES_GLOBAL: 'New variable ',
                 LANG_VARIABLES_GLOBAL_TYPE: 'of type ',
                 LANG_VARIABLES_GLOBAL_EQUALS: 'equals',
-                LANG_VARIABLES_GLOBAL_TOOLTIP: 'Declare and define a GLOBAL variable of type int or String',
+                LANG_VARIABLES_GLOBAL_TOOLTIP: 'Declares and defines a GLOBAL variable of type int or String.',
 
                 LANG_VARIABLES_LOCAL: 'New LOCAL variable ',
                 LANG_VARIABLES_LOCAL_TYPE: 'of type ',
@@ -445,10 +457,10 @@
 
                 LANG_VARIABLES_SET: 'Set variable ',
                 LANG_VARIABLES_SET_AS: 'as',
-                LANG_VARIABLES_SET_TOOLTIP: 'Set the value of a variable',
+                LANG_VARIABLES_SET_TOOLTIP: 'Sets the value of a variable.',
 
                 LANG_VARIABLES_GET: 'Variable ',
-                LANG_VARIABLES_GET_TOOLTIP: 'Get the value of a variable',
+                LANG_VARIABLES_GET_TOOLTIP: 'Returns the value of a variable.',
 
                 LANG_VARIABLES_PIN_TOOLTIP: 'Select the PIN.',
 
@@ -515,7 +527,7 @@
                 LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'TURN COUNTERCLOCKWISE',
                 LANG_SERVO_CONT_STOPPED: 'STOPPED',
                 LANG_SERVO_CONT_DELAY: 'Delay',
-                LANG_SERVO_CONT_TOOLTIP: 'Continuous rotation servo',
+                LANG_SERVO_CONT_TOOLTIP: 'Continuous rotation servo.',
 
                 LANG_SERVO_MOVE: 'Servo',
                 LANG_SERVO_MOVE_PIN: 'PIN#',
@@ -533,14 +545,14 @@
             // if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
             //     this.RoboBlocks.locales.add('en', language);
             if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
-                RoboBlocks.locales.add('en', language);
+                RoboBlocks.locales.add('en-GB', language);
             }
         }());
 
 
 
 
-        // Source: lang/es.js
+        // Source: lang/es-ES.js
         (function() {
             var language = {
                 //random :
@@ -551,6 +563,7 @@
 
                 LANG_LOGIC_OPERATION_AND: 'y',
                 LANG_LOGIC_OPERATION_OR: 'o',
+
                 LANG_LOGIC_COMPARE_TOOLTIP_EQ: 'Devuelve verdadero si las dos entradas son iguales.',
                 LANG_LOGIC_COMPARE_TOOLTIP_NEQ: 'Devuelve verdadero si las dos entradas no son iguales entre sí.',
                 LANG_LOGIC_COMPARE_TOOLTIP_LT: 'Devuelve verdadero si la primera entrada es menor que la segunda entrada.',
@@ -643,7 +656,10 @@
                 LANG_BQ_INFRARED_TOOLTIP: 'Sensor infrarrojo',
 
                 LANG_BQ_JOYSTICK: 'Joystick',
-                LANG_BQ_JOYSTICK_PIN: 'PIN#',
+                LANG_BQ_JOYSTICK_PIN_X: 'Eje X PIN#',
+                LANG_BQ_JOYSTICK_PIN_Y: 'Eje Y PIN#',
+                LANG_BQ_JOYSTICK_POSITION: 'Posición Joystick',
+                LANG_BQ_JOYSTICK_PIN_BUTTON: 'Pulsador PIN#',
                 LANG_BQ_JOYSTICK_TOOLTIP: 'Joystick bq',
 
                 LANG_BQ_LED: 'LED',
@@ -765,6 +781,15 @@
                 LANG_MATH_ADVANCED_MAP_TOOLTIP: 'Re-maps a number from a certain range to another.',
 
                 LANG_MATH_NUMBER_TOOLTIP: 'Number',
+
+                LANG_MATH_ARRAY_ARRAY3: '[3]',
+                LANG_MATH_ARRAY_BRACKET3: '{',
+                LANG_MATH_ARRAY_BRACKET4: '}',
+                LANG_MATH_ARRAY_COMMA: ',',
+                LANG_MATH_ARRAY_TOOLTIP: 'Array',
+
+                LANG_ARRAY_GET_BRACKET1: '[',
+                LANG_ARRAY_GET_BRACKET2: ']',
 
                 LANG_MATH_BASE_MAP: 'Mapear ',
                 LANG_MATH_BASE_MAP_VALUE_TO: 'Valor entre [0-',
@@ -1012,7 +1037,7 @@
             // if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
             //     this.RoboBlocks.locales.add('es', language);
             if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
-                RoboBlocks.locales.add('es', language);
+                RoboBlocks.locales.add('es-ES', language);
             }
         }());
 
@@ -1428,9 +1453,38 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'analogRead(' +
-                    __e(dropdown_pin) +
-                    ')';
+                __p += 'readJoystick_' +
+                    __e(pinx) +
+                    '()';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_joystick_definitions"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'int * readJoystick_pointer_' +
+                    __e(pinx) +
+                    ';\n\nint * readJoystick_' +
+                    __e(pinx) +
+                    '(){\n  readJoystick_pointer_' +
+                    __e(pinx) +
+                    '[0]=analogRead(' +
+                    __e(pinx) +
+                    ');\n  readJoystick_pointer_' +
+                    __e(pinx) +
+                    '[1]=analogRead(' +
+                    __e(piny) +
+                    ');\n  readJoystick_pointer_' +
+                    __e(pinx) +
+                    '[2]=digitalRead(' +
+                    __e(pinbutton) +
+                    ');\n  return readJoystick_pointer_' +
+                    __e(pinx) +
+                    ';\n}';
 
             }
             return __p
@@ -2528,6 +2582,102 @@
             }
         };
 
+        // Source: src/blocks/array_get/array_get.js
+        /* global Blockly, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * array_get code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.array_get = function() {
+            // Numeric value.
+            var code = '{';
+            code += window.parseFloat(this.getFieldValue('NUM0'));
+            code += ',';
+            code += window.parseFloat(this.getFieldValue('NUM1'));
+            code += ',';
+            code += window.parseFloat(this.getFieldValue('NUM2'));
+            code += '}';
+
+            // -4.abs() returns -4 in Dart due to strange order of operation choices.
+            // -4 is actually an operator and a number.  Reflect this in the order.
+            // var order = code < 0 ? Blockly.Arduino.ORDER_UNARY_PREFIX : Blockly.Arduino.ORDER_ATOMIC;
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        Blockly.Blocks.array_get = {
+            // Numeric value.
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'),
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/array_get',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
+                this.appendDummyInput('DUMMY')
+                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
+                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                this.appendDummyInput('DUMMY2')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ARRAY_GET_BRACKET1'))
+                    .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.array_get.validator), 'INDEX')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ARRAY_GET_BRACKET2'));
+
+                this.setOutput(true, Number);
+                this.setInputsInline(true);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ARRAY_GET_TOOLTIP'));
+            },
+            getVariables: function() {
+                var variables = Blockly.Variables.allVariables();
+                var dropdown = [];
+                if (variables.length > 0) {
+                    for (var i in variables) {
+                        dropdown.push([variables[i], variables[i]]);
+                    }
+                } else {
+                    dropdown.push(['', '']);
+                }
+                return dropdown;
+            },
+            onchange: function() {
+                if (!this.last_variables) {
+                    this.last_variables = Blockly.Variables.allVariables();
+                }
+                var variables = Blockly.Variables.allVariables();
+
+                for (var i in variables) {
+                    if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
+                        try {
+                            this.removeInput('DUMMY');
+                            this.removeInput('DUMMY2');
+                        } catch (e) {}
+
+                        this.appendDummyInput('DUMMY')
+                            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
+                            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                        this.appendDummyInput('DUMMY2')
+                            .appendField(RoboBlocks.locales.getKey('LANG_ARRAY_GET_BRACKET1'))
+                            .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.array_get.validator), 'INDEX')
+                            .appendField(RoboBlocks.locales.getKey('LANG_ARRAY_GET_BRACKET2'));
+
+                        this.last_variables = Blockly.Variables.allVariables();
+                    }
+                }
+            },
+            renameVar: function(oldName, newName) {
+                if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+                    this.setTitleValue(newName, 'VAR');
+                }
+            }
+        };
+
+
+        Blockly.Blocks.array_get.validator = function(text) {
+            // Ensure that only a number may be entered.
+            // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
+            var n = window.parseFloat(text || 0);
+            return window.isNaN(n) ? null : String(n);
+        };
         // Source: src/blocks/base_delay/base_delay.js
         /* global Blockly, JST, RoboBlocks */
 
@@ -3026,10 +3176,22 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.bq_joystick = function() {
-            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-            var code = JST['bq_joystick']({
-                'dropdown_pin': dropdown_pin,
+            var pinx = Blockly.Arduino.valueToCode(this, 'PINX', Blockly.Arduino.ORDER_ATOMIC);
+            var piny = Blockly.Arduino.valueToCode(this, 'PINY', Blockly.Arduino.ORDER_ATOMIC);
+            var pinbutton = Blockly.Arduino.valueToCode(this, 'PINBUTTON', Blockly.Arduino.ORDER_ATOMIC);
+
+            Blockly.Arduino.definitions_['define_joystick'] = JST['bq_joystick_definitions']({
+                'pinx': pinx,
+                'piny': piny,
+                'pinbutton': pinbutton
             });
+
+            var array = Blockly.Arduino.valueToCode(this, 'POS', Blockly.Arduino.ORDER_ATOMIC);
+            var code = JST['bq_joystick']({
+                'pinx': pinx,
+                'array': array
+            });
+
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
@@ -3046,12 +3208,34 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendValueInput('PIN')
+                this.appendDummyInput()
                     .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK'))
-                    .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom))
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN'))
+                    .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom));
+
+                // this.appendValueInput('POS')
+                //     .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_POSITION'))
+                //     .setAlign(Blockly.ALIGN_RIGHT)
+                //     .setCheck(Number);
+
+
+                this.appendValueInput('PINX')
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_X'))
+                    .setAlign(Blockly.ALIGN_RIGHT)
                     .setCheck(Number);
+
+                this.appendValueInput('PINY')
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_Y'))
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .setCheck(Number);
+
+                this.appendValueInput('PINBUTTON')
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_BUTTON'))
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .setCheck(Number);
+
                 this.setOutput(true, Number);
+                // this.setPreviousStatement(true, null);
+                // this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_TOOLTIP'));
             }
         };
@@ -3594,6 +3778,8 @@
             // If/elseif/else condition.
             var n = 0;
             var argument = Blockly.Arduino.valueToCode(this, 'IF' + n, Blockly.Arduino.ORDER_NONE);
+            argument = argument.replace(/&quot;/g, '"');
+
             var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
             branch = branch.replace(/&quot;/g, '"');
 
@@ -4047,6 +4233,8 @@
         Blockly.Arduino.controls_whileUntil = function() {
             // Do while/until loop.
             var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL', Blockly.Arduino.ORDER_NONE) || '';
+            argument0 = argument0.replace(/&quot;/g, '"');
+
             var branch = Blockly.Arduino.statementToCode(this, 'DO');
             branch = branch.replace(/&quot;/g, '"');
 
@@ -4903,6 +5091,65 @@
             POWER: RoboBlocks.locales.getKey('LANG_MATH_ARITHMETIC_TOOLTIP_POWER')
         };
 
+        // Source: src/blocks/math_array/math_array.js
+        /* global Blockly, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * math_array code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.math_array = function() {
+            // Numeric value.
+            var code = '{';
+            code += window.parseFloat(this.getFieldValue('NUM0'));
+            code += ',';
+            code += window.parseFloat(this.getFieldValue('NUM1'));
+            code += ',';
+            code += window.parseFloat(this.getFieldValue('NUM2'));
+            code += '}';
+
+            // -4.abs() returns -4 in Dart due to strange order of operation choices.
+            // -4 is actually an operator and a number.  Reflect this in the order.
+            // var order = code < 0 ? Blockly.Arduino.ORDER_UNARY_PREFIX : Blockly.Arduino.ORDER_ATOMIC;
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        Blockly.Blocks.math_array = {
+            // Numeric value.
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'), // Variables are handled specially.
+            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_array',
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MATH);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_ARRAY3'))
+                    .appendField(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_BRACKET3'))
+                    .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.math_array.validator), 'NUM0')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_COMMA'));
+
+
+                this.appendDummyInput()
+                    .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.math_array.validator), 'NUM1')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_COMMA'));
+
+                this.appendDummyInput()
+                    .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.math_array.validator), 'NUM2')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_BRACKET4'));
+
+                this.setOutput(true, Number);
+                this.setInputsInline(true);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_ARRAY_TOOLTIP'));
+            }
+        };
+
+
+        Blockly.Blocks.math_array.validator = function(text) {
+            // Ensure that only a number may be entered.
+            // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
+            var n = window.parseFloat(text || 0);
+            return window.isNaN(n) ? null : String(n);
+        };
         // Source: src/blocks/math_modulo/math_modulo.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
@@ -4955,13 +5202,6 @@
          * @return {String} Code generated with block parameters
          */
 
-        Blockly.Blocks.math_number.validator = function(text) {
-            // Ensure that only a number may be entered.
-            // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
-            var n = window.parseFloat(text || 0);
-            return window.isNaN(n) ? null : String(n);
-        };
-
         Blockly.Arduino.math_number = function() {
             // Numeric value.
             var code = window.parseFloat(this.getFieldValue('NUM'));
@@ -4982,6 +5222,13 @@
                 this.setOutput(true, Number);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_NUMBER_TOOLTIP'));
             }
+        };
+
+        Blockly.Blocks.math_number.validator = function(text) {
+            // Ensure that only a number may be entered.
+            // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
+            var n = window.parseFloat(text || 0);
+            return window.isNaN(n) ? null : String(n);
         };
 
         // Source: src/blocks/math_random/math_random.js
@@ -6663,19 +6910,36 @@
             // varValue='digitalRead(';
             // console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('digitalRead'));
             // console.log(varValue.search('digitalRead'),varValue.search('digitalRead')>0);
+            var varName = this.getFieldValue('VAR') || '';
+
 
             if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)))) {
                 varType = 'int';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+            } else if (varValue[0] === '{') {
+                varType = 'int ';
+                varValue = varValue.replace('{', '');
+                varValue = varValue.replace('}', '');
+                varValue = varValue.split(',');
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' * ' + varName + ';\n';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '[0]=' + varValue[0] + ';\n  ' + varName + '[1]=' + varValue[1] + ';\n  ' + varName + '[2]=' + varValue[2] + ';';
+
+            } else if (varValue.search('readJoystick') >= 0) {
+                varType = 'int ';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' * ' + varName + ';\n';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
             } else {
                 varType = 'String';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
             }
 
             // console.log('varType', varType);
 
-            var varName = this.getFieldValue('VAR') || '';
 
-            Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
-            Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+
+
 
             return '';
         };
@@ -6722,17 +6986,28 @@
             // Variable setter.
             var varType;
             var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
+            var varName = this.getFieldValue('VAR') || '';
+            var sufix = '';
+            var code = '';
+
 
             if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)))) {
                 varType = 'int';
+                code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
+            } else if (varValue[0] === '{') {
+                varType = 'int ';
+                varValue = varValue.replace('{', '');
+                varValue = varValue.replace('}', '');
+                varValue = varValue.split(',');
+                code = varType + ' * ' + varName + ';\n';
+                code += varName + '[0]=' + varValue[0] + ';\n' + varName + '[1]=' + varValue[1] + ';\n' + varName + '[2]=' + varValue[2] + ';\n';
+            } else if (varValue.search('readJoystick') >= 0) {
+                varType = 'int ';
+                code = varType + ' * ' + varName + ';\n';
+                code += varName + '=' + varValue + ';\n';
             } else {
                 varType = 'String';
             }
-
-            var varName = this.getFieldValue('VAR') || '';
-
-            var code = varType + ' ' + varName + ';\n' + varName + '=' + varValue + ';\n';
-
             return code;
         };
 

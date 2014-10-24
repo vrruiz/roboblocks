@@ -1,13 +1,12 @@
 variables_set
 ==========
 
-variables_set description
+Sets the value of a variable
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| var_name     | Name of the variable | `String` |
+| var_value     | Value of the variable | `String`/`Number` |

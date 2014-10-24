@@ -103,8 +103,11 @@
         LANG_BQ_INFRARED_TOOLTIP : 'bq Infrared Sensor',
 
         LANG_BQ_JOYSTICK : 'Joystick',
-        LANG_BQ_JOYSTICK_PIN : 'PIN#',
-        LANG_BQ_JOYSTICK_TOOLTIP : 'bq Joystick',
+        LANG_BQ_JOYSTICK_PIN_X : 'X axis PIN#',
+        LANG_BQ_JOYSTICK_PIN_Y : 'Y axis PIN#',
+        LANG_BQ_JOYSTICK_PIN_BUTTON : 'Button PIN#',
+        LANG_BQ_JOYSTICK_POSITION: 'Joystick Position',
+        LANG_BQ_JOYSTICK_TOOLTIP : 'Joystick bq',
 
         LANG_BQ_LED : 'LED',
         LANG_BQ_LED_PIN : 'PIN#',
@@ -225,6 +228,15 @@
         LANG_MATH_ADVANCED_MAP_TOOLTIP : 'Re-map a number from a certain range to another.',
 
         LANG_MATH_NUMBER_TOOLTIP : 'Number',
+
+        LANG_MATH_ARRAY_ARRAY3:'[3]',
+        LANG_MATH_ARRAY_BRACKET3:'{',
+        LANG_MATH_ARRAY_BRACKET4:'}',
+        LANG_MATH_ARRAY_COMMA:',',
+        LANG_MATH_ARRAY_TOOLTIP: 'Array',
+
+        LANG_ARRAY_GET_BRACKET1:'[',
+        LANG_ARRAY_GET_BRACKET2:']',
 
         LANG_MATH_MODULO_TOOLTIP : 'Returns the remainder of the division of the two input numbers.',
 
@@ -376,7 +388,7 @@
         LANG_VARIABLES_GLOBAL : 'New variable ',
         LANG_VARIABLES_GLOBAL_TYPE : 'of type ',
         LANG_VARIABLES_GLOBAL_EQUALS : 'equals',
-        LANG_VARIABLES_GLOBAL_TOOLTIP : 'Declare and define a GLOBAL variable of type int or String',
+        LANG_VARIABLES_GLOBAL_TOOLTIP : 'Declares and defines a GLOBAL variable of type int or String.',
 
         LANG_VARIABLES_LOCAL : 'New LOCAL variable ',
         LANG_VARIABLES_LOCAL_TYPE : 'of type ',
@@ -390,10 +402,10 @@
 
         LANG_VARIABLES_SET : 'Set variable ',
         LANG_VARIABLES_SET_AS : 'as',
-        LANG_VARIABLES_SET_TOOLTIP : 'Set the value of a variable',
+        LANG_VARIABLES_SET_TOOLTIP : 'Sets the value of a variable.',
 
         LANG_VARIABLES_GET : 'Variable ',
-        LANG_VARIABLES_GET_TOOLTIP : 'Get the value of a variable',
+        LANG_VARIABLES_GET_TOOLTIP : 'Returns the value of a variable.',
 
         LANG_VARIABLES_PIN_TOOLTIP : 'Select the PIN.',
 
@@ -460,7 +472,7 @@
         LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE : 'TURN COUNTERCLOCKWISE',
         LANG_SERVO_CONT_STOPPED : 'STOPPED',
         LANG_SERVO_CONT_DELAY : 'Delay',
-        LANG_SERVO_CONT_TOOLTIP : 'Continuous rotation servo',
+        LANG_SERVO_CONT_TOOLTIP : 'Continuous rotation servo.',
 
         LANG_SERVO_MOVE : 'Servo',
         LANG_SERVO_MOVE_PIN : 'PIN#',
@@ -478,7 +490,7 @@
     // if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
     //     this.RoboBlocks.locales.add('en', language);
     if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
-        RoboBlocks.locales.add('en', language);
+        RoboBlocks.locales.add('en-GB', language);
     }
 }());
 

@@ -1,13 +1,12 @@
 text_join
 ===========
 
-text_join description
+Create a piece of text by joining together any number of items.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| param1     | First string to join | `String` |
+| param2     | Second string to join | `String` |

@@ -1,1 +1,1 @@
-analogRead({{dropdown_pin}})
+readJoystick_{{pinx}}()

@@ -1,13 +1,13 @@
 zum_piezo_buzzerav
 ==========
 
-zum_piezo_buzzerav description
+Forces the piezobuzzer to produce a certain tone.
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| param1     | Description | `String` |
-| param2     | Description | `String` |
-| param3     | Description | `Number` |
+| PIN#     | Pin to which the piezobuzzer is connected | `Number` |
+| TONE     | Tone that the piezobuzzer is going to produce | `Number` |
+| Duration     | Duration of the note | `Number` |
