@@ -36,6 +36,6 @@ RoboBlocks.locales.add = function (langCode, values) {
 };
 
 RoboBlocks.locales.initialize = function() {
-    this.setDefaultLang('en');
+    this.setDefaultLang('en-GB');
     return this;
 };

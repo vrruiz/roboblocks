@@ -51,7 +51,7 @@
         };
 
         RoboBlocks.locales.initialize = function() {
-            this.setDefaultLang('en');
+            this.setDefaultLang('en-GB');
             return this;
         };
         // Source: lang/en-GB.js
