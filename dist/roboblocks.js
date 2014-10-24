@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.7 - 2014-10-23
+/*! roboblocks - v0.0.7 - 2014-10-24
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -54,7 +54,7 @@
             this.setDefaultLang('en');
             return this;
         };
-        // Source: lang/en.js
+        // Source: lang/en-GB.js
         (function() {
             var language = {
                 //random :
@@ -552,7 +552,7 @@
 
 
 
-        // Source: lang/es.js
+        // Source: lang/es-ES.js
         (function() {
             var language = {
                 //random :
