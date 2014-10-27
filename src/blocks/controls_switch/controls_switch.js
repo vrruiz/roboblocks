@@ -23,7 +23,7 @@ Blockly.Arduino.controls_switch = function() {
         branch = Blockly.Arduino.statementToCode(this, 'DEFAULT');
         code += '  \n  default:\n  {\n' + branch + '  }';
     }
-    return code + '\n}';
+    return code + '\n}\n';
 };
 
 

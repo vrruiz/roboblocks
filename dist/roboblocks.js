@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.7 - 2014-10-24
+/*! roboblocks - v0.0.7 - 2014-10-27
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -3982,7 +3982,7 @@
                 branch = Blockly.Arduino.statementToCode(this, 'DEFAULT');
                 code += '  \n  default:\n  {\n' + branch + '  }';
             }
-            return code + '\n}';
+            return code + '\n}\n';
         };
 
 
@@ -5743,20 +5743,24 @@
                 this.setFieldValue(this.paramString, 'PARAMS');
             },
             mutationToDom: function() {
-                // Save whether this block has a return value.
                 var container = document.createElement('mutation');
-                container.setAttribute('value', Number(this.hasReturnValue_));
+                for (var x = 0; x < this.arguments_.length; x++) {
+                    var parameter = document.createElement('arg');
+                    parameter.setAttribute('name', this.arguments_[x]);
+                    container.appendChild(parameter);
+                }
                 return container;
             },
             domToMutation: function(xmlElement) {
-                // Restore whether this block has a return value.
-                var value = xmlElement.getAttribute('value');
-                this.hasReturnValue_ = (value === 1);
-                if (!this.hasReturnValue_) {
-                    try {
-                        this.removeInput('VALUE');
-                    } catch (e) {}
+                this.arguments_ = [];
+                var childNode;
+                for (var x = 0; x < xmlElement.childNodes.length; x++) {
+                    childNode = xmlElement.childNodes[x];
+                    if (childNode.nodeName.toLowerCase() === 'arg') {
+                        this.arguments_.push(childNode.getAttribute('name'));
+                    }
                 }
+                this.updateParams_();
             },
             decompose: function(workspace) {
                 var containerBlock = Blockly.Block.obtain(workspace, 'procedures_mutatorcontainer');
