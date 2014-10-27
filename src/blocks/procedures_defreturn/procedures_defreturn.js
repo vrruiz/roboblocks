@@ -24,6 +24,9 @@ Blockly.Arduino.procedures_defreturn = function(){
     else if ((returnValue.search('analogRead')>=0) || (returnValue.search('digitalRead')>=0) || (returnValue.search('Distanc')>=0) || (!isNaN(parseFloat(returnValue))) ){
         returnType='int';
     }
+    else if (returnValue.search('readJoystick')>=0){
+        returnType='int *';
+    }
     else {
         returnType='String';
     }

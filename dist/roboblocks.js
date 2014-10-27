@@ -5920,6 +5920,8 @@
                 returnType = 'void';
             } else if ((returnValue.search('analogRead') >= 0) || (returnValue.search('digitalRead') >= 0) || (returnValue.search('Distanc') >= 0) || (!isNaN(parseFloat(returnValue)))) {
                 returnType = 'int';
+            } else if (returnValue.search('readJoystick') >= 0) {
+                returnType = 'int *';
             } else {
                 returnType = 'String';
             }
@@ -6886,9 +6888,7 @@
             // Variable setter.
             var varType;
             var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
-            // varValue='digitalRead(';
-            // console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('digitalRead'));
-            // console.log(varValue.search('digitalRead'),varValue.search('digitalRead')>0);
+
             var varName = this.getFieldValue('VAR') || '';
 
 

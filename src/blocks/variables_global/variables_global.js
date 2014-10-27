@@ -11,9 +11,7 @@ Blockly.Arduino.variables_global = function() {
   // Variable setter.
     var varType;
     var varValue=Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
-    // varValue='digitalRead(';
-    // console.log('aaaaaaaaaaaaaaaa', varValue, varValue.search('digitalRead'));
-    // console.log(varValue.search('digitalRead'),varValue.search('digitalRead')>0);
+
     var varName = this.getFieldValue('VAR')||'';
 
 
