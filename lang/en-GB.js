@@ -229,6 +229,7 @@
 
         LANG_ARRAY_GET_BRACKET1:'[',
         LANG_ARRAY_GET_BRACKET2:']',
+        LANG_ARRAY_GET_TOOLTIP:'Returns the value of a certain element of the array.',
 
         LANG_MATH_MODULO_TOOLTIP : 'Returns the remainder of the division of the two input numbers.',
 
@@ -391,7 +392,7 @@
         LANG_VARIABLES_PIN_TOOLTIP : 'Select the PIN.',
 
         //zum blocks :
-        LANG_CATEGORY_ZUM : 'zum blocks',
+        LANG_CATEGORY_ZUM : 'zum bloqs',
 
         LANG_ZUM_BUTTON : 'Button',
         LANG_ZUM_BUTTON_PIN : 'PIN#',

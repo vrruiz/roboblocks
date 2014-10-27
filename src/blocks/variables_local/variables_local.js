@@ -46,14 +46,12 @@ Blockly.Blocks.variables_local = {
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/variable',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
-        this.appendDummyInput()
-            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL'))
-            .appendField(new Blockly.FieldTextInput(''), 'VAR');
-
         this.appendValueInput('VALUE')
+            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL'))
+            .appendField(new Blockly.FieldTextInput(''), 'VAR')
             .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL_EQUALS'));
 
-        this.setInputsInline(true);
+        this.setInputsInline(false);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL_TOOLTIP'));

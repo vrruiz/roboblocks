@@ -229,6 +229,7 @@
 
         LANG_ARRAY_GET_BRACKET1:'[',
         LANG_ARRAY_GET_BRACKET2:']',
+        LANG_ARRAY_GET_TOOLTIP:'Devuelve el valor de un elemento concreto del array.',
 
         LANG_MATH_MODULO_TOOLTIP : 'Returns the remainder of the division of the two input numbers.',
 

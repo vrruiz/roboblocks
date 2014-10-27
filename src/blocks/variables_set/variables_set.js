@@ -27,14 +27,13 @@ Blockly.Blocks.variables_set = {
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/variables_set',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
-        this.appendDummyInput('DUMMY')
-            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
-            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
         this.appendValueInput('VALUE')
+            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
+            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
             .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
             .setAlign(Blockly.ALIGN_RIGHT);
-        this.setInputsInline(true);
+
+        this.setInputsInline(false);
 
         this.setPreviousStatement(true);
         this.setNextStatement(true);
@@ -62,17 +61,15 @@ Blockly.Blocks.variables_set = {
         for (var i in variables){
             if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
                 try{
-                    this.removeInput('DUMMY');
                     this.removeInput('VALUE');
 
-                    this.appendDummyInput('DUMMY')
-                        .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
-                        .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
                     this.appendValueInput('VALUE')
+                        .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
+                        .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
                         .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
                         .setAlign(Blockly.ALIGN_RIGHT);
-                    this.setInputsInline(true);
+
+                    this.setInputsInline(false);
 
                 }catch(e){}
                 this.last_variables=Blockly.Variables.allVariables();

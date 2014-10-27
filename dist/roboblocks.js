@@ -284,6 +284,7 @@
 
                 LANG_ARRAY_GET_BRACKET1: '[',
                 LANG_ARRAY_GET_BRACKET2: ']',
+                LANG_ARRAY_GET_TOOLTIP: 'Returns the value of a certain element of the array.',
 
                 LANG_MATH_MODULO_TOOLTIP: 'Returns the remainder of the division of the two input numbers.',
 
@@ -446,7 +447,7 @@
                 LANG_VARIABLES_PIN_TOOLTIP: 'Select the PIN.',
 
                 //zum blocks :
-                LANG_CATEGORY_ZUM: 'zum blocks',
+                LANG_CATEGORY_ZUM: 'zum bloqs',
 
                 LANG_ZUM_BUTTON: 'Button',
                 LANG_ZUM_BUTTON_PIN: 'PIN#',
@@ -756,6 +757,7 @@
 
                 LANG_ARRAY_GET_BRACKET1: '[',
                 LANG_ARRAY_GET_BRACKET2: ']',
+                LANG_ARRAY_GET_TOOLTIP: 'Devuelve el valor de un elemento concreto del array.',
 
                 LANG_MATH_MODULO_TOOLTIP: 'Returns the remainder of the division of the two input numbers.',
 
@@ -6928,14 +6930,13 @@
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_global',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
-                this.appendDummyInput()
-                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL'))
-                    .appendField(new Blockly.FieldTextInput(''), 'VAR');
 
                 this.appendValueInput('VALUE')
+                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL'))
+                    .appendField(new Blockly.FieldTextInput(''), 'VAR')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_EQUALS'));
 
-                this.setInputsInline(true);
+                this.setInputsInline(false);
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_TOOLTIP'));
@@ -6995,14 +6996,12 @@
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variable',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
-                this.appendDummyInput()
-                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL'))
-                    .appendField(new Blockly.FieldTextInput(''), 'VAR');
-
                 this.appendValueInput('VALUE')
+                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL'))
+                    .appendField(new Blockly.FieldTextInput(''), 'VAR')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL_EQUALS'));
 
-                this.setInputsInline(true);
+                this.setInputsInline(false);
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL_TOOLTIP'));
@@ -7046,14 +7045,13 @@
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_set',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
-                this.appendDummyInput('DUMMY')
-                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
-                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
                 this.appendValueInput('VALUE')
+                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
+                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
                     .setAlign(Blockly.ALIGN_RIGHT);
-                this.setInputsInline(true);
+
+                this.setInputsInline(false);
 
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
@@ -7080,17 +7078,15 @@
                 for (var i in variables) {
                     if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
                         try {
-                            this.removeInput('DUMMY');
                             this.removeInput('VALUE');
 
-                            this.appendDummyInput('DUMMY')
-                                .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
-                                .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
                             this.appendValueInput('VALUE')
+                                .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
+                                .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
                                 .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
                                 .setAlign(Blockly.ALIGN_RIGHT);
-                            this.setInputsInline(true);
+
+                            this.setInputsInline(false);
 
                         } catch (e) {}
                         this.last_variables = Blockly.Variables.allVariables();
