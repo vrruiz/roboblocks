@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.7 - 2014-10-27
+/*! roboblocks - v0.0.8 - 2014-10-27
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -1034,6 +1034,22 @@
         RoboBlocks.LANG_COLOUR_ADVANCED = '#9142CE';
         RoboBlocks.LANG_COLOUR_VARIABLES = '#B244CC';
         RoboBlocks.LANG_COLOUR_PROCEDURES = '#CE42B3';
+
+
+        RoboBlocks.setColors = function(colorArray) {
+            RoboBlocks.LANG_COLOUR_BQ = colorArray[0];
+            RoboBlocks.LANG_COLOUR_ZUM = colorArray[1];
+            RoboBlocks.LANG_COLOUR_SERVO = colorArray[2];
+            RoboBlocks.LANG_COLOUR_LCD = colorArray[3];
+            RoboBlocks.LANG_COLOUR_CONTROL = colorArray[4];
+            RoboBlocks.LANG_COLOUR_LOGIC = colorArray[5];
+            RoboBlocks.LANG_COLOUR_MATH = colorArray[6];
+            RoboBlocks.LANG_COLOUR_TEXT = colorArray[7];
+            RoboBlocks.LANG_COLOUR_COMMUNICATION = colorArray[8];
+            RoboBlocks.LANG_COLOUR_ADVANCED = colorArray[9];
+            RoboBlocks.LANG_COLOUR_VARIABLES = colorArray[10];
+            RoboBlocks.LANG_COLOUR_PROCEDURES = colorArray[11];
+        };
         // Source: src/profiles.js
         /*
          * Arduino Board profiles
