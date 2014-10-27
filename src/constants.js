@@ -2,24 +2,9 @@
 /* global RoboBlocks*/
 
 RoboBlocks.locales.initialize();
-// RoboBlocks.locales.setDefaultLang('es');
-
 
 // help URLs
 RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
-
-// RoboBlocks.LANG_COLOUR_BQ='10';
-// RoboBlocks.LANG_COLOUR_ZUM='336';
-// RoboBlocks.LANG_COLOUR_SERVO='30';
-// RoboBlocks.LANG_COLOUR_TEXT='200';
-// RoboBlocks.LANG_COLOUR_LOGIC='120';
-// RoboBlocks.LANG_COLOUR_ADVANCED='260';
-// RoboBlocks.LANG_COLOUR_VARIABLES='300';
-// RoboBlocks.LANG_COLOUR_PROCEDURES='320';
-// RoboBlocks.LANG_COLOUR_CONTROL='80';
-// RoboBlocks.LANG_COLOUR_MATH='180';
-
-// RoboBlocks.LANG_COLOUR_COMMUNICATION='88';
 
 // RGB block colors
 RoboBlocks.LANG_COLOUR_BQ = '#D04141';
@@ -36,7 +21,7 @@ RoboBlocks.LANG_COLOUR_VARIABLES = '#B244CC';
 RoboBlocks.LANG_COLOUR_PROCEDURES = '#CE42B3';
 
 
-RoboBlocks.setColors=function(colorArray){
+RoboBlocks.setColors = function(colorArray) {
     RoboBlocks.LANG_COLOUR_BQ = colorArray[0];
     RoboBlocks.LANG_COLOUR_ZUM = colorArray[1];
     RoboBlocks.LANG_COLOUR_SERVO = colorArray[2];
