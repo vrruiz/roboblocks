@@ -19,7 +19,7 @@ Blockly.Arduino.lcd_def = function() {
  */
 Blockly.Blocks.lcd_def = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
-    tags: ['bq', 'bluetooth'],
+    tags: ['bq', 'lcd'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/lcd_def',
     /**
 	  * lcd_slave initialization

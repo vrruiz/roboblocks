@@ -37,7 +37,7 @@ Blockly.Arduino.servo_cont = function() {
  */
 Blockly.Blocks.servo_cont = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_SERVO'),
-    tags: ['servo continuous'],
+    tags: ['servo'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/servo_cont',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_SERVO);

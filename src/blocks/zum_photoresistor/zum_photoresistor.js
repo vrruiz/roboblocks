@@ -24,7 +24,7 @@ Blockly.Arduino.zum_photoresistor = function() {
  */
 Blockly.Blocks.zum_photoresistor = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-    tags: ['bq', 'zum', 'photoresistor'],
+    tags: ['bq', 'fotorresistencia'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_photoresistor',
     /**
     * zum_photoresistor initialization

@@ -26,7 +26,7 @@ Blockly.Arduino.zum_button = function() {
  */
 Blockly.Blocks.zum_button = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-    tags: ['bq', 'zum', 'button'],
+    tags: ['bq', 'botón'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_button',
     /**
     * zum_button initialization

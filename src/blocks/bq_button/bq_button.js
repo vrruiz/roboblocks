@@ -3,7 +3,7 @@
 /* jshint sub:true */
 
 /**
- * bq_button code generation    
+ * bq_button code generation
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.bq_button = function() {
@@ -26,7 +26,7 @@ Blockly.Arduino.bq_button = function() {
  */
 Blockly.Blocks.bq_button = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-    tags: ['bq', 'button'],
+    tags: ['bq', 'botón'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_button',
     /**
      * bq_button initialization
