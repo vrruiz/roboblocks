@@ -16,7 +16,7 @@ Blockly.Arduino.variables_local = function() {
     var code ='';
 
 
-    if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue))) ){
+    if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue)))|| (varValue.search('random')>=0) ){
         varType='int';
         code= varType+' '+varName+ sufix+'='+varValue+';\n';
     }

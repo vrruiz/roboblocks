@@ -193,7 +193,7 @@
         LANG_CONTROLS_REPEAT_TOOLTIP : 'Ejecutar algunas instrucciones varias veces.',
 
         LANG_CONTROLS_FLOW_STATEMENTS_HELPURL : '',
-        LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP : 'del bucle',
+        LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP : 'el bucle',
         LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK : 'interrumpir',
         LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE : 'continuar con la siguiente iteración',
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK : 'Interrumpir el bucle que contiene esa instrucción.',
@@ -256,7 +256,7 @@
 
         LANG_TEXT_JOIN_HELPURL : '',
         LANG_TEXT_JOIN_Field_CREATEWITH : 'crear texto con',
-        LANG_TEXT_JOIN_TOOLTIP : 'Crea texto juntando cualquier número de elemntos.',
+        LANG_TEXT_JOIN_TOOLTIP : 'Crea texto juntando cualquier número de elementos.',
 
         LANG_TEXT_CREATE_JOIN_Field_JOIN : 'unir',
         LANG_TEXT_CREATE_JOIN_TOOLTIP : 'Añadir, eliminar o reordenar secciones para reconfigurar este bloque de texto.',
@@ -376,7 +376,7 @@
         LANG_VARIABLES_LOCAL : 'Nueva variable LOCAL ',
         LANG_VARIABLES_LOCAL_TYPE : 'de tipo ',
         LANG_VARIABLES_LOCAL_EQUALS : '=',
-        LANG_VARIABLES_LOCAL_TOOLTIP : 'DDeclarar y definir una variable LOCAL de tipo int o String.',
+        LANG_VARIABLES_LOCAL_TOOLTIP : 'Declarar y definir una variable LOCAL de tipo int o String.',
 
         LANG_VARIABLES_DEFINE : 'Definir variable ',
         LANG_VARIABLES_DEFINE_AS : 'como',

@@ -130,5 +130,115 @@ Blockly.Blocks.procedures_callnoreturn = {
         else{
             procedures_dropdown.push(['','']);
         }
+    },
+    setProcedureParameters: function(paramNames, paramIds) {
+        // Data structures for parameters on each call block:
+        // this.arguments = ['x', 'y']
+        //     Existing param names.
+        // paramNames = ['x', 'y', 'z']
+        //     New param names.
+        // paramIds = ['piua', 'f8b_', 'oi.o']
+        //     IDs of params (consistent for each parameter through the life of a
+        //     mutator, regardless of param renaming).
+        // this.quarkConnections_ {piua: null, f8b_: Blockly.Connection}
+        //     Look-up of paramIds to connections plugged into the call block.
+        // this.quarkArguments_ = ['piua', 'f8b_']
+        //     Existing param IDs.
+        // Note that quarkConnections_ may include IDs that no longer exist, but
+        // which might reappear if a param is reattached in the mutator.
+        if (!paramIds) {
+            // Reset the quarks (a mutator is about to open).
+            this.quarkConnections_ = {};
+            this.quarkArguments_ = null;
+            return;
+        }
+        if (paramIds.length !== paramNames.length) {
+            throw 'Error: paramNames and paramIds must be the same length.';
+        }
+        if (!this.quarkArguments_) {
+            // Initialize tracking for this block.
+            this.quarkConnections_ = {};
+            if (paramNames.join('\n') === this.arguments_.join('\n')) {
+                // No change to the parameters, allow quarkConnections_ to be
+                // populated with the existing connections.
+                this.quarkArguments_ = paramIds;
+            } else {
+                this.quarkArguments_ = [];
+            }
+        }
+        // Switch off rendering while the block is rebuilt.
+        var savedRendered = this.rendered;
+        this.rendered = false;
+        var input, connection;
+        // Update the quarkConnections_ with existing connections.
+        for (var x = this.arguments_.length - 1; x >= 0; x--) {
+            input = this.getInput('VARIABLES' + x);
+            if (input) {
+                connection = input.connection.targetConnection;
+                this.quarkConnections_[this.quarkArguments_[x]] = connection;
+                // Disconnect all argument blocks and remove all inputs.
+                this.removeInput('VARIABLES' + x);
+            }
+        }
+        // Rebuild the block's arguments.
+        this.arguments_ = [].concat(paramNames);
+        this.quarkArguments_ = paramIds;
+        for (x = 0; x < this.arguments_.length; x++) {
+            input = this.appendValueInput('VARIABLES' + x)
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(this.arguments_[x]);
+            if (this.quarkArguments_) {
+                // Reconnect any child blocks.
+                var quarkName = this.quarkArguments_[x];
+                if (quarkName in this.quarkConnections_) {
+                    connection = this.quarkConnections_[quarkName];
+                    if (!connection || connection.targetConnection ||
+                        connection.sourceBlock_.workspace !== this.workspace) {
+                        // Block no longer exists or has been attached elsewhere.
+                        delete this.quarkConnections_[quarkName];
+                    } else {
+                        input.connection.connect(connection);
+                    }
+                }
+            }
+        }
+        // Restore rendering and show the changes.
+        this.rendered = savedRendered;
+        if (this.rendered) {
+            this.render();
+        }
+    },
+    mutationToDom: function() {
+        // Save the name and arguments (none of which are editable).
+        var container = document.createElement('mutation');
+        container.setAttribute('name', this.getFieldValue('PROCEDURES'));
+        for (var x = 0; x < this.arguments_.length; x++) {
+            var parameter = document.createElement('arg');
+            parameter.setAttribute('name', this.arguments_[x]);
+            container.appendChild(parameter);
+        }
+        return container;
+    },
+    domToMutation: function(xmlElement) {
+        // Restore the name and parameters.
+        var name = xmlElement.getAttribute('name');
+        this.setFieldValue(name, 'PROCEDURES');
+        // var def = Blockly.Procedures.getDefinition(name, this.workspace);
+        // if (def && def.mutator.isVisible()) {
+        //     // Initialize caller with the mutator's IDs.
+        //     this.setProcedureParameters(def.arguments_, def.paramIds_);
+        // } else {
+        //     this.arguments_ = [];
+        //     var childNode;
+        //     for (var x = 0; x<xmlElement.childNodes.length; x++) {
+        //         childNode=xmlElement.childNodes[x];
+        //         if (childNode.nodeName.toLowerCase() === 'arg') {
+        //             this.arguments_.push(childNode.getAttribute('name'));
+        //         }
+        //     }
+        //     // For the second argument (paramIds) use the arguments list as a dummy
+        //     // list.
+        //     this.setProcedureParameters(this.arguments_, this.arguments_);
+        // }
     }
 };

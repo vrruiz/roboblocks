@@ -721,7 +721,7 @@
                 LANG_CONTROLS_REPEAT_TOOLTIP: 'Ejecutar algunas instrucciones varias veces.',
 
                 LANG_CONTROLS_FLOW_STATEMENTS_HELPURL: '',
-                LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP: 'del bucle',
+                LANG_CONTROLS_FLOW_STATEMENTS_INPUT_OFLOOP: 'el bucle',
                 LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK: 'interrumpir',
                 LANG_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE: 'continuar con la siguiente iteración',
                 LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK: 'Interrumpir el bucle que contiene esa instrucción.',
@@ -784,7 +784,7 @@
 
                 LANG_TEXT_JOIN_HELPURL: '',
                 LANG_TEXT_JOIN_Field_CREATEWITH: 'crear texto con',
-                LANG_TEXT_JOIN_TOOLTIP: 'Crea texto juntando cualquier número de elemntos.',
+                LANG_TEXT_JOIN_TOOLTIP: 'Crea texto juntando cualquier número de elementos.',
 
                 LANG_TEXT_CREATE_JOIN_Field_JOIN: 'unir',
                 LANG_TEXT_CREATE_JOIN_TOOLTIP: 'Añadir, eliminar o reordenar secciones para reconfigurar este bloque de texto.',
@@ -1203,7 +1203,7 @@
                     __e(value_num) +
                     ',0,1023,0,' +
                     __e(value_dmax) +
-                    ',)';
+                    ')';
 
             }
             return __p
@@ -3245,8 +3245,8 @@
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_STATE'))
                     .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_BQ_LED_ON') || 'HIGH', 'HIGH'],
-                        [RoboBlocks.locales.getKey('LANG_BQ_LED_OFF') || 'LOW', 'LOW']
+                        [RoboBlocks.locales.getKey('LANG_BQ_LED_ON') || 'ON', 'HIGH'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_LED_OFF') || 'OFF', 'LOW']
                     ]), 'STAT')
                     .setAlign(Blockly.ALIGN_RIGHT);
                 this.setPreviousStatement(true, null);
@@ -5529,6 +5529,116 @@
                 } else {
                     procedures_dropdown.push(['', '']);
                 }
+            },
+            setProcedureParameters: function(paramNames, paramIds) {
+                // Data structures for parameters on each call block:
+                // this.arguments = ['x', 'y']
+                //     Existing param names.
+                // paramNames = ['x', 'y', 'z']
+                //     New param names.
+                // paramIds = ['piua', 'f8b_', 'oi.o']
+                //     IDs of params (consistent for each parameter through the life of a
+                //     mutator, regardless of param renaming).
+                // this.quarkConnections_ {piua: null, f8b_: Blockly.Connection}
+                //     Look-up of paramIds to connections plugged into the call block.
+                // this.quarkArguments_ = ['piua', 'f8b_']
+                //     Existing param IDs.
+                // Note that quarkConnections_ may include IDs that no longer exist, but
+                // which might reappear if a param is reattached in the mutator.
+                if (!paramIds) {
+                    // Reset the quarks (a mutator is about to open).
+                    this.quarkConnections_ = {};
+                    this.quarkArguments_ = null;
+                    return;
+                }
+                if (paramIds.length !== paramNames.length) {
+                    throw 'Error: paramNames and paramIds must be the same length.';
+                }
+                if (!this.quarkArguments_) {
+                    // Initialize tracking for this block.
+                    this.quarkConnections_ = {};
+                    if (paramNames.join('\n') === this.arguments_.join('\n')) {
+                        // No change to the parameters, allow quarkConnections_ to be
+                        // populated with the existing connections.
+                        this.quarkArguments_ = paramIds;
+                    } else {
+                        this.quarkArguments_ = [];
+                    }
+                }
+                // Switch off rendering while the block is rebuilt.
+                var savedRendered = this.rendered;
+                this.rendered = false;
+                var input, connection;
+                // Update the quarkConnections_ with existing connections.
+                for (var x = this.arguments_.length - 1; x >= 0; x--) {
+                    input = this.getInput('VARIABLES' + x);
+                    if (input) {
+                        connection = input.connection.targetConnection;
+                        this.quarkConnections_[this.quarkArguments_[x]] = connection;
+                        // Disconnect all argument blocks and remove all inputs.
+                        this.removeInput('VARIABLES' + x);
+                    }
+                }
+                // Rebuild the block's arguments.
+                this.arguments_ = [].concat(paramNames);
+                this.quarkArguments_ = paramIds;
+                for (x = 0; x < this.arguments_.length; x++) {
+                    input = this.appendValueInput('VARIABLES' + x)
+                        .setAlign(Blockly.ALIGN_RIGHT)
+                        .appendField(this.arguments_[x]);
+                    if (this.quarkArguments_) {
+                        // Reconnect any child blocks.
+                        var quarkName = this.quarkArguments_[x];
+                        if (quarkName in this.quarkConnections_) {
+                            connection = this.quarkConnections_[quarkName];
+                            if (!connection || connection.targetConnection ||
+                                connection.sourceBlock_.workspace !== this.workspace) {
+                                // Block no longer exists or has been attached elsewhere.
+                                delete this.quarkConnections_[quarkName];
+                            } else {
+                                input.connection.connect(connection);
+                            }
+                        }
+                    }
+                }
+                // Restore rendering and show the changes.
+                this.rendered = savedRendered;
+                if (this.rendered) {
+                    this.render();
+                }
+            },
+            mutationToDom: function() {
+                // Save the name and arguments (none of which are editable).
+                var container = document.createElement('mutation');
+                container.setAttribute('name', this.getFieldValue('PROCEDURES'));
+                for (var x = 0; x < this.arguments_.length; x++) {
+                    var parameter = document.createElement('arg');
+                    parameter.setAttribute('name', this.arguments_[x]);
+                    container.appendChild(parameter);
+                }
+                return container;
+            },
+            domToMutation: function(xmlElement) {
+                // Restore the name and parameters.
+                var name = xmlElement.getAttribute('name');
+                this.setFieldValue(name, 'PROCEDURES');
+                // var def = Blockly.Procedures.getDefinition(name, this.workspace);
+                // if (def && def.mutator.isVisible()) {
+                //     // Initialize caller with the mutator's IDs.
+                //     this.setProcedureParameters(def.arguments_, def.paramIds_);
+                // } else {
+                //     this.arguments_ = [];
+                //     var childNode;
+                //     for (var x = 0; x<xmlElement.childNodes.length; x++) {
+                //         childNode=xmlElement.childNodes[x];
+                //         if (childNode.nodeName.toLowerCase() === 'arg') {
+                //             this.arguments_.push(childNode.getAttribute('name'));
+                //         }
+                //     }
+                //     // For the second argument (paramIds) use the arguments list as a dummy
+                //     // list.
+                //     this.setProcedureParameters(this.arguments_, this.arguments_);
+                // }
             }
         };
         // Source: src/blocks/procedures_callreturn/procedures_callreturn.js
@@ -6288,8 +6398,6 @@
             var value_degree = this.getFieldValue('ROT') || '';
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '';
 
-            delay_time = delay_time.replace('(', '').replace(')', '');
-
             Blockly.Arduino.definitions_['define_servo'] = JST['servo_cont_definitions']({
                 'dropdown_pin': dropdown_pin
             });
@@ -6351,10 +6459,7 @@
         Blockly.Arduino.servo_move = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
-            value_degree = value_degree.replace('(', '').replace(')', '');
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
-
-            delay_time = delay_time.replace('(', '').replace(')', '');
 
             Blockly.Arduino.definitions_['define_servo'] = JST['servo_move_definitions']({
                 'dropdown_pin': dropdown_pin
@@ -6891,7 +6996,7 @@
             var varName = this.getFieldValue('VAR') || '';
 
 
-            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)))) {
+            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0))) {
                 varType = 'int';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
@@ -6912,12 +7017,6 @@
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
             }
-
-            // console.log('varType', varType);
-
-
-
-
 
             return '';
         };
@@ -6968,7 +7067,7 @@
             var code = '';
 
 
-            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)))) {
+            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue))) || (varValue.search('random') >= 0)) {
                 varType = 'int';
                 code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
             } else if (varValue[0] === '{') {
@@ -7417,7 +7516,7 @@
 
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
-                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP'));
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_PIEZO_BUZZER_TOOLTIP'));
             }
         };
 
