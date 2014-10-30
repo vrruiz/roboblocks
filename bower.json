@@ -4,7 +4,7 @@
     "version": "0.1.1",
     "main": "dist/roboblocks.min.js",
     "license": "MIT",
-    "keywords": "roboblocks blockly arduino bitbloq bq",
+    "keywords": ["roboblocks", "blockly", "arduino", "bitbloq", "bq"],
     "author": {
         "name": "bq"
     },
