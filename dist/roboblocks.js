@@ -1,4 +1,4 @@
-/*! roboblocks - v0.0.8 - 2014-10-27
+/*! roboblocks - v0.0.8 - 2014-10-30
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
