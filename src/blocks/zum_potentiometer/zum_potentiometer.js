@@ -21,7 +21,7 @@ Blockly.Arduino.zum_potentiometer = function() {
  */
 Blockly.Blocks.zum_potentiometer = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-    tags: ['bq', 'zum', 'potentiometer'],
+    tags: ['bq', 'potenciómetro'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_potentiometer',
     /**
     * zum_potentiometer initialization

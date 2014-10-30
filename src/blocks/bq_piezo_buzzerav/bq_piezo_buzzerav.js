@@ -27,7 +27,7 @@ Blockly.Arduino.bq_piezo_buzzerav = function() {
  */
 Blockly.Blocks.bq_piezo_buzzerav = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-    tags: ['bq', 'advanced buzzer'],
+    tags: ['bq', 'zumbador avanzado'],
 	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_piezo_buzzerav',
     /**
     * bq_piezo_buzzerav initialization

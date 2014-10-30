@@ -9,7 +9,7 @@
 Blockly.Arduino.zum_follower = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC)||'';
     var NextPIN = Blockly.Arduino.valueToCode(this,'PIN2', Blockly.Arduino.ORDER_ATOMIC)||'';
-    
+
     var code_btn1 = Blockly.Arduino.statementToCode(this, 'SENS1');
     code_btn1=code_btn1.replace(/&quot;/g,'"');
     var code_btn2 = Blockly.Arduino.statementToCode(this, 'SENS2');
@@ -37,7 +37,7 @@ Blockly.Arduino.zum_follower = function() {
  */
 Blockly.Blocks.zum_follower = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-    tags: ['bq', 'zum', 'follower'],
+    tags: ['bq', 'sensor infrarrojo'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_follower',
     /**
     * zum_follower initialization

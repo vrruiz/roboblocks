@@ -21,7 +21,7 @@ Blockly.Arduino.bq_potentiometer = function() {
  */
 Blockly.Blocks.bq_potentiometer = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-    tags: ['bq', 'potentiometer'],
+    tags: ['bq', 'potenciómetro'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_potentiometer',
     /**
     * bq_potentiometer initialization
