@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.0 - 2014-10-30
+/*! roboblocks - v0.1.1 - 2014-10-30
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -1203,7 +1203,7 @@
                     __e(value_num) +
                     ',0,1023,0,' +
                     __e(value_dmax) +
-                    ',)';
+                    ')';
 
             }
             return __p
@@ -6288,8 +6288,6 @@
             var value_degree = this.getFieldValue('ROT') || '';
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '';
 
-            delay_time = delay_time.replace('(', '').replace(')', '');
-
             Blockly.Arduino.definitions_['define_servo'] = JST['servo_cont_definitions']({
                 'dropdown_pin': dropdown_pin
             });
@@ -6351,10 +6349,7 @@
         Blockly.Arduino.servo_move = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
-            value_degree = value_degree.replace('(', '').replace(')', '');
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
-
-            delay_time = delay_time.replace('(', '').replace(')', '');
 
             Blockly.Arduino.definitions_['define_servo'] = JST['servo_move_definitions']({
                 'dropdown_pin': dropdown_pin
