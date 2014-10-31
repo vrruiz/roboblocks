@@ -57,24 +57,24 @@ Blockly.Blocks.procedures_defnoreturn = {
     },
     updateParams_: function() {
         // Check for duplicated arguments.
-        // var badArg = false;
-        // var hash = {};
-        // for (var x = 0; x < this.arguments_.length; x++) {
-        //     if (hash['arg_' + this.arguments_[x].toLowerCase()]) {
-        //         badArg = true;
-        //         break;
-        //     }
-        //     hash['arg_' + this.arguments_[x].toLowerCase()] = true;
-        // }
-        // if (badArg) {
-        //     try{
-        //         this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEF_DUPLICATE_WARNING'));
-        //     }catch(err){
-        //         console.log('Captured error: ', err);
-        //     }
-        // } else {
-        //     this.setWarningText(null);
-        // }
+        var badArg = false;
+        var hash = {};
+        for (var x = 0; x < this.arguments_.length; x++) {
+            if (hash['arg_' + this.arguments_[x].toLowerCase()]) {
+                badArg = true;
+                break;
+            }
+            hash['arg_' + this.arguments_[x].toLowerCase()] = true;
+        }
+        if (badArg) {
+            try{
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEF_DUPLICATE_WARNING'));
+            }catch(err){
+                console.log('Captured error: ', err);
+            }
+        } else {
+            this.setWarningText(null);
+        }
         // Merge the arguments into a human-readable list.
         var params=[];
         for (var i in this.arguments_){

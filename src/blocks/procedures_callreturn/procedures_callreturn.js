@@ -67,6 +67,8 @@ Blockly.Blocks.procedures_callreturn = {
                     .appendField(dropdown, 'PROCEDURES');
             }
         }
+        this.setFieldValue(this.last_procedure, 'PROCEDURES');
+
         this.addVariables();
     },
     onchange: function () {

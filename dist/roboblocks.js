@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.0 - 2014-10-30
+/*! roboblocks - v0.1.1 - 2014-10-31
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -904,7 +904,7 @@
                 LANG_VARIABLES_LOCAL: 'Nueva variable LOCAL ',
                 LANG_VARIABLES_LOCAL_TYPE: 'de tipo ',
                 LANG_VARIABLES_LOCAL_EQUALS: '=',
-                LANG_VARIABLES_LOCAL_TOOLTIP: 'DDeclarar y definir una variable LOCAL de tipo int o String.',
+                LANG_VARIABLES_LOCAL_TOOLTIP: 'Declarar y definir una variable LOCAL de tipo int o String.',
 
                 LANG_VARIABLES_DEFINE: 'Definir variable ',
                 LANG_VARIABLES_DEFINE_AS: 'como',
@@ -5435,10 +5435,8 @@
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
 
-                var dropdown = new Blockly.FieldDropdown(this.getProcedures());
-
                 this.appendDummyInput('DUMMY')
-                    .appendField(dropdown, 'PROCEDURES');
+                    .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
 
                 this.addVariables();
 
@@ -5462,7 +5460,7 @@
                 }
                 return procedures_dropdown;
             },
-            renameProcedure: function(oldName) {
+            renameProcedure: function(oldName) { //changed name!!
                 var procedures = this.getProcedures();
                 for (var i in procedures) {
                     if (Blockly.Names.equals(oldName, procedures[i][0])) {
@@ -5472,6 +5470,7 @@
                             .appendField(dropdown, 'PROCEDURES');
                     }
                 }
+                this.setFieldValue(this.no_last_procedure, 'PROCEDURES');
                 this.addVariables();
             },
             onchange: function() {
@@ -5709,6 +5708,8 @@
                             .appendField(dropdown, 'PROCEDURES');
                     }
                 }
+                this.setFieldValue(this.last_procedure, 'PROCEDURES');
+
                 this.addVariables();
             },
             onchange: function() {
@@ -5831,24 +5832,24 @@
             },
             updateParams_: function() {
                 // Check for duplicated arguments.
-                // var badArg = false;
-                // var hash = {};
-                // for (var x = 0; x < this.arguments_.length; x++) {
-                //     if (hash['arg_' + this.arguments_[x].toLowerCase()]) {
-                //         badArg = true;
-                //         break;
-                //     }
-                //     hash['arg_' + this.arguments_[x].toLowerCase()] = true;
-                // }
-                // if (badArg) {
-                //     try{
-                //         this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEF_DUPLICATE_WARNING'));
-                //     }catch(err){
-                //         console.log('Captured error: ', err);
-                //     }
-                // } else {
-                //     this.setWarningText(null);
-                // }
+                var badArg = false;
+                var hash = {};
+                for (var x = 0; x < this.arguments_.length; x++) {
+                    if (hash['arg_' + this.arguments_[x].toLowerCase()]) {
+                        badArg = true;
+                        break;
+                    }
+                    hash['arg_' + this.arguments_[x].toLowerCase()] = true;
+                }
+                if (badArg) {
+                    try {
+                        this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEF_DUPLICATE_WARNING'));
+                    } catch (err) {
+                        console.log('Captured error: ', err);
+                    }
+                } else {
+                    this.setWarningText(null);
+                }
                 // Merge the arguments into a human-readable list.
                 var params = [];
                 for (var i in this.arguments_) {

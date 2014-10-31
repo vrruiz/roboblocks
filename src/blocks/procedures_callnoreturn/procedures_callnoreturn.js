@@ -32,11 +32,9 @@ Blockly.Blocks.procedures_callnoreturn = {
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/procedures_callnoreturn',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
-        
-        var dropdown=new Blockly.FieldDropdown(this.getProcedures());
 
         this.appendDummyInput('DUMMY')
-            .appendField(dropdown, 'PROCEDURES');
+            .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
 
         this.addVariables();
 
@@ -61,7 +59,7 @@ Blockly.Blocks.procedures_callnoreturn = {
         }
         return procedures_dropdown;
     },
-    renameProcedure: function(oldName) {
+    renameProcedure: function(oldName) {    //changed name!!
         var procedures= this.getProcedures();
         for (var i in procedures){
             if (Blockly.Names.equals(oldName, procedures[i][0])) {
@@ -71,6 +69,7 @@ Blockly.Blocks.procedures_callnoreturn = {
                     .appendField(dropdown, 'PROCEDURES');
             }
         }
+        this.setFieldValue(this.no_last_procedure, 'PROCEDURES');
         this.addVariables();
     },
     onchange: function() {
