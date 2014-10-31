@@ -5443,7 +5443,7 @@
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
 
-                this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALLRETURN_TOOLTIP'));
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALLNORETURN_TOOLTIP'));
                 this.arguments_ = [];
                 this.quarkConnections_ = null;
                 this.quarkArguments_ = null;
@@ -5765,6 +5765,39 @@
                     }
                 } else {
                     procedures_dropdown.push(['', '']);
+                }
+            },
+            mutationToDom: function() {
+                // Save the name and arguments (none of which are editable).
+                var container = document.createElement('mutation');
+                container.setAttribute('name', this.getFieldValue('PROCEDURES'));
+                for (var x = 0; x < this.arguments_.length; x++) {
+                    var parameter = document.createElement('arg');
+                    parameter.setAttribute('name', this.arguments_[x]);
+                    container.appendChild(parameter);
+                }
+                return container;
+            },
+            domToMutation: function(xmlElement) {
+                // Restore the name and parameters.
+                var name = xmlElement.getAttribute('name');
+                this.setFieldValue(name, 'PROCEDURES');
+                var def = Blockly.Procedures.getDefinition(name, this.workspace);
+                if (def && def.mutator.isVisible()) {
+                    // Initialize caller with the mutator's IDs.
+                    this.setProcedureParameters(def.arguments_, def.paramIds_);
+                } else {
+                    this.arguments_ = [];
+                    var childNode;
+                    for (var x = 0; x < xmlElement.childNodes.length; x++) {
+                        childNode = xmlElement.childNodes[x];
+                        if (childNode.nodeName.toLowerCase() === 'arg') {
+                            this.arguments_.push(childNode.getAttribute('name'));
+                        }
+                    }
+                    // For the second argument (paramIds) use the arguments list as a dummy
+                    // list.
+                    this.setProcedureParameters(this.arguments_, this.arguments_);
                 }
             }
         };

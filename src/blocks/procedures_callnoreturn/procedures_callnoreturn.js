@@ -41,7 +41,7 @@ Blockly.Blocks.procedures_callnoreturn = {
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         
-        this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALLRETURN_TOOLTIP'));
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALLNORETURN_TOOLTIP'));
         this.arguments_ = [];
         this.quarkConnections_ = null;
         this.quarkArguments_ = null;
