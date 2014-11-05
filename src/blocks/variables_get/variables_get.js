@@ -41,6 +41,8 @@ Blockly.Blocks.variables_get = {
         return dropdown;
     },
     onchange: function(){
+        this.last_variable=this.getFieldValue('VAR');
+
         if (!this.last_variables){
             this.last_variables=Blockly.Variables.allVariables();
         }
@@ -55,6 +57,8 @@ Blockly.Blocks.variables_get = {
                 this.appendDummyInput('DUMMY')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
                     .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                this.setFieldValue(this.last_variable, 'VAR');
 
                 this.last_variables=Blockly.Variables.allVariables();
             }

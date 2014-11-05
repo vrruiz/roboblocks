@@ -56,6 +56,8 @@ Blockly.Blocks.array_get = {
         return dropdown;
     },
     onchange: function(){
+        this.last_variable=this.getFieldValue('VAR');
+
         if (!this.last_variables){
             this.last_variables=Blockly.Variables.allVariables();
         }
@@ -76,6 +78,8 @@ Blockly.Blocks.array_get = {
                     .appendField(RoboBlocks.locales.getKey('LANG_ARRAY_GET_BRACKET1'))
                     .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.array_get.validator), 'INDEX')
                     .appendField(RoboBlocks.locales.getKey('LANG_ARRAY_GET_BRACKET2'));
+
+                this.setFieldValue(this.last_variable, 'VAR');
 
                 this.last_variables=Blockly.Variables.allVariables();
             }

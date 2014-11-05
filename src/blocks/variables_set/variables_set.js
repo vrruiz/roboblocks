@@ -50,9 +50,11 @@ Blockly.Blocks.variables_set = {
         else{
             dropdown.push(['', '']);
         }
+
         return dropdown;
     },
     onchange: function(){
+        this.last_variable=this.getFieldValue('VAR');
         if (!this.last_variables){
             this.last_variables=Blockly.Variables.allVariables();
         }
@@ -70,6 +72,7 @@ Blockly.Blocks.variables_set = {
                         .setAlign(Blockly.ALIGN_RIGHT);
 
                     this.setInputsInline(false);
+                    this.setFieldValue(this.last_variable, 'VAR');
 
                 }catch(e){}
                 this.last_variables=Blockly.Variables.allVariables();

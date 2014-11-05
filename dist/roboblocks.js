@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.1 - 2014-10-31
+/*! roboblocks - v0.1.1 - 2014-11-05
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -2597,6 +2597,8 @@
                 return dropdown;
             },
             onchange: function() {
+                this.last_variable = this.getFieldValue('VAR');
+
                 if (!this.last_variables) {
                     this.last_variables = Blockly.Variables.allVariables();
                 }
@@ -2617,6 +2619,8 @@
                             .appendField(RoboBlocks.locales.getKey('LANG_ARRAY_GET_BRACKET1'))
                             .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.array_get.validator), 'INDEX')
                             .appendField(RoboBlocks.locales.getKey('LANG_ARRAY_GET_BRACKET2'));
+
+                        this.setFieldValue(this.last_variable, 'VAR');
 
                         this.last_variables = Blockly.Variables.allVariables();
                     }
@@ -3739,7 +3743,6 @@
             argument = argument.replace(/&quot;/g, '"');
 
             var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-            branch = branch.replace(/&quot;/g, '"');
 
             var code = JST['controls_if']({
                 'argument': argument,
@@ -3761,6 +3764,9 @@
                     'branch': branch
                 });
             }
+            branch = branch.replace(/&quot;/g, '"');
+            code = code.replace(/&quot;/g, '"');
+
             return code + '\n';
         };
 
@@ -3829,97 +3835,97 @@
                         .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_ELSE'));
                 }
             },
-            decompose: function(workspace) {
-                var containerBlock = Blockly.Block.obtain(workspace, 'controls_if_if');
-                containerBlock.initSvg();
-                var connection = containerBlock.getInput('STACK').connection;
-                for (var x = 1; x <= this.elseifCount_; x++) {
-                    var elseifBlock = Blockly.Block.obtain(workspace, 'controls_if_elseif');
-                    elseifBlock.initSvg();
-                    connection.connect(elseifBlock.previousConnection);
-                    connection = elseifBlock.nextConnection;
-                }
-                if (this.elseCount_) {
-                    var elseBlock = Blockly.Block.obtain(workspace, 'controls_if_else');
-                    elseBlock.initSvg();
-                    connection.connect(elseBlock.previousConnection);
-                }
-                return containerBlock;
-            },
-            compose: function(containerBlock) {
-                // Disconnect the else input blocks and remove the inputs.
-                if (this.elseCount_) {
-                    this.removeInput('ELSE');
-                }
-                this.elseCount_ = 0;
-                // Disconnect all the elseif input blocks and remove the inputs.
-                for (var x = this.elseifCount_; x > 0; x--) {
-                    this.removeInput('IF' + x);
-                    this.removeInput('DO' + x);
-                }
-                this.elseifCount_ = 0;
-                // Rebuild the block's optional inputs.
-                var clauseBlock = containerBlock.getInputTargetBlock('STACK');
-                while (clauseBlock) {
-                    switch (clauseBlock.type) {
-                        case 'controls_if_elseif':
-                            this.elseifCount_++;
-                            var ifInput = this.appendValueInput('IF' + this.elseifCount_)
-                                .setCheck(Boolean)
-                                .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_ELSEIF'));
-                            var doInput = this.appendStatementInput('DO' + this.elseifCount_);
-                            doInput.appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_THEN'));
-                            // Reconnect any child blocks.
-                            if (clauseBlock.valueConnection_) {
-                                ifInput.connection.connect(clauseBlock.valueConnection_);
-                            }
-                            if (clauseBlock.statementConnection_) {
-                                doInput.connection.connect(clauseBlock.statementConnection_);
-                            }
-                            break;
-                        case 'controls_if_else':
-                            this.elseCount_++;
-                            var elseInput = this.appendStatementInput('ELSE');
-                            elseInput.appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_ELSE'));
-                            // Reconnect any child blocks.
-                            if (clauseBlock.statementConnection_) {
-                                elseInput.connection.connect(clauseBlock.statementConnection_);
-                            }
-                            break;
-                        default:
-                            throw 'Unknown block type.';
-                    }
-                    clauseBlock = clauseBlock.nextConnection &&
-                        clauseBlock.nextConnection.targetBlock();
-                }
-            },
-            saveConnections: function(containerBlock) {
-                // Store a pointer to any connected child blocks.
-                var clauseBlock = containerBlock.getInputTargetBlock('STACK');
-                var x = 1;
-                while (clauseBlock) {
-                    switch (clauseBlock.type) {
-                        case 'controls_if_elseif':
-                            var inputIf = this.getInput('IF' + x);
-                            var inputDo = this.getInput('DO' + x);
-                            clauseBlock.valueConnection_ =
-                                inputIf && inputIf.connection.targetConnection;
-                            clauseBlock.statementConnection_ =
-                                inputDo && inputDo.connection.targetConnection;
-                            x++;
-                            break;
-                        case 'controls_if_else':
-                            inputDo = this.getInput('ELSE');
-                            clauseBlock.statementConnection_ =
-                                inputDo && inputDo.connection.targetConnection;
-                            break;
-                        default:
-                            throw 'Unknown block type.';
-                    }
-                    clauseBlock = clauseBlock.nextConnection &&
-                        clauseBlock.nextConnection.targetBlock();
-                }
-            }
+            // decompose: function(workspace) {
+            //     var containerBlock = Blockly.Block.obtain(workspace, 'controls_if_if');
+            //     containerBlock.initSvg();
+            //     var connection = containerBlock.getInput('STACK').connection;
+            //     for (var x = 1; x <= this.elseifCount_; x++) {
+            //         var elseifBlock = Blockly.Block.obtain(workspace, 'controls_if_elseif');
+            //         elseifBlock.initSvg();
+            //         connection.connect(elseifBlock.previousConnection);
+            //         connection = elseifBlock.nextConnection;
+            //     }
+            //     if (this.elseCount_) {
+            //         var elseBlock = Blockly.Block.obtain(workspace, 'controls_if_else');
+            //         elseBlock.initSvg();
+            //         connection.connect(elseBlock.previousConnection);
+            //     }
+            //     return containerBlock;
+            // },
+            // compose: function(containerBlock) {
+            //     // Disconnect the else input blocks and remove the inputs.
+            //     if (this.elseCount_) {
+            //         this.removeInput('ELSE');
+            //     }
+            //     this.elseCount_ = 0;
+            //     // Disconnect all the elseif input blocks and remove the inputs.
+            //     for (var x = this.elseifCount_; x > 0; x--) {
+            //         this.removeInput('IF' + x);
+            //         this.removeInput('DO' + x);
+            //     }
+            //     this.elseifCount_ = 0;
+            //     // Rebuild the block's optional inputs.
+            //     var clauseBlock = containerBlock.getInputTargetBlock('STACK');
+            //     while (clauseBlock) {
+            //         switch (clauseBlock.type) {
+            //         case 'controls_if_elseif':
+            //             this.elseifCount_++;
+            //             var ifInput = this.appendValueInput('IF' + this.elseifCount_)
+            //             .setCheck(Boolean)
+            //             .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_ELSEIF'));
+            //             var doInput = this.appendStatementInput('DO' + this.elseifCount_);
+            //             doInput.appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_THEN'));
+            //               // Reconnect any child blocks.
+            //             if (clauseBlock.valueConnection_) {
+            //                 ifInput.connection.connect(clauseBlock.valueConnection_);
+            //             }
+            //             if (clauseBlock.statementConnection_) {
+            //                 doInput.connection.connect(clauseBlock.statementConnection_);
+            //             }
+            //             break;
+            //         case 'controls_if_else':
+            //             this.elseCount_++;
+            //             var elseInput = this.appendStatementInput('ELSE');
+            //             elseInput.appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_ELSE'));
+            //               // Reconnect any child blocks.
+            //             if (clauseBlock.statementConnection_) {
+            //                 elseInput.connection.connect(clauseBlock.statementConnection_);
+            //             }
+            //             break;
+            //         default:
+            //             throw 'Unknown block type.';
+            //         }
+            //         clauseBlock = clauseBlock.nextConnection &&
+            //         clauseBlock.nextConnection.targetBlock();
+            //     }
+            // },
+            // saveConnections: function(containerBlock) {
+            // // Store a pointer to any connected child blocks.
+            //     var clauseBlock = containerBlock.getInputTargetBlock('STACK');
+            //     var x = 1;
+            //     while (clauseBlock) {
+            //         switch (clauseBlock.type) {
+            //         case 'controls_if_elseif':
+            //             var inputIf = this.getInput('IF' + x);
+            //             var inputDo = this.getInput('DO' + x);
+            //             clauseBlock.valueConnection_ =
+            //             inputIf && inputIf.connection.targetConnection;
+            //             clauseBlock.statementConnection_ =
+            //             inputDo && inputDo.connection.targetConnection;
+            //             x++;
+            //             break;
+            //         case 'controls_if_else':
+            //             inputDo = this.getInput('ELSE');
+            //             clauseBlock.statementConnection_ =
+            //             inputDo && inputDo.connection.targetConnection;
+            //             break;
+            //         default:
+            //             throw 'Unknown block type.';
+            //         }
+            //         clauseBlock = clauseBlock.nextConnection &&
+            //         clauseBlock.nextConnection.targetBlock();
+            //     }
+            // }
         };
 
         Blockly.Blocks.controls_if_if = {
@@ -5470,8 +5476,13 @@
                             .appendField(dropdown, 'PROCEDURES');
                     }
                 }
-                this.setFieldValue(this.no_last_procedure, 'PROCEDURES');
                 this.addVariables();
+
+                try {
+                    this.setFieldValue(this.no_last_procedure, 'PROCEDURES');
+                } catch (e) {
+                    console.log('error!, ', e);
+                }
             },
             onchange: function() {
                 if (!this.workspace) {
@@ -5606,39 +5617,62 @@
                     this.render();
                 }
             },
-            mutationToDom: function() {
-                // Save the name and arguments (none of which are editable).
-                var container = document.createElement('mutation');
-                container.setAttribute('name', this.getFieldValue('PROCEDURES'));
-                for (var x = 0; x < this.arguments_.length; x++) {
-                    var parameter = document.createElement('arg');
-                    parameter.setAttribute('name', this.arguments_[x]);
-                    container.appendChild(parameter);
-                }
-                return container;
-            },
-            domToMutation: function(xmlElement) {
-                // Restore the name and parameters.
-                var name = xmlElement.getAttribute('name');
-                this.setFieldValue(name, 'PROCEDURES');
-                // var def = Blockly.Procedures.getDefinition(name, this.workspace);
-                // if (def && def.mutator.isVisible()) {
-                //     // Initialize caller with the mutator's IDs.
-                //     this.setProcedureParameters(def.arguments_, def.paramIds_);
-                // } else {
-                //     this.arguments_ = [];
-                //     var childNode;
-                //     for (var x = 0; x<xmlElement.childNodes.length; x++) {
-                //         childNode=xmlElement.childNodes[x];
-                //         if (childNode.nodeName.toLowerCase() === 'arg') {
-                //             this.arguments_.push(childNode.getAttribute('name'));
-                //         }
-                //     }
-                //     // For the second argument (paramIds) use the arguments list as a dummy
-                //     // list.
-                //     this.setProcedureParameters(this.arguments_, this.arguments_);
-                // }
-            }
+            // mutationToDom: function() {
+            //     // Save the name and arguments (none of which are editable).
+            //     var container = document.createElement('mutation');
+            //     container.setAttribute('name', this.getFieldValue('PROCEDURES'));
+            //     for (var x = 0; x < this.arguments_.length; x++) {
+            //         var parameter = document.createElement('arg');
+            //         parameter.setAttribute('name', this.arguments_[x]);
+            //         container.appendChild(parameter);
+            //     }
+            //     console.log('mutationToDom', container);
+
+            //     return container;
+            // },
+            // domToMutation: function(xmlElement) {
+            //     // Restore the name and parameters.
+            //     var name = xmlElement.getAttribute('name');
+            //     this.setFieldValue(name, 'PROCEDURES');
+
+            //     this.no_last_procedure=name;
+            //     this.addVariables();
+
+            //     var def = Blockly.Procedures.getDefinition(name, this.workspace);
+
+            //     console.log('domToMutation', name,'---------------', def);
+
+
+
+            //     // if (def && def.mutator.isVisible()) {
+            //     //     // Initialize caller with the mutator's IDs.
+            //     //     this.setProcedureParameters(def.arguments_, def.paramIds_);
+            //     // } else {
+            //     //     this.arguments_ = [];
+            //     //     var childNode;
+            //     //     for (var x = 0; x<xmlElement.childNodes.length; x++) {
+            //     //         childNode=xmlElement.childNodes[x];
+            //     //         if (childNode.nodeName.toLowerCase() === 'arg') {
+            //     //             this.arguments_.push(childNode.getAttribute('name'));
+            //     //         }
+            //     //     }
+
+
+            //     // var childNode;
+            //     // for (var x = 0; x<xmlElement.childNodes.length; x++) {
+            //     //     childNode=xmlElement.childNodes[x];
+            //     //     if (childNode.nodeName.toLowerCase() === 'arg') {
+            //     //         this.arguments_.push(childNode.getAttribute('name'));
+            //     //     }
+            //     // }
+            //     // // this.arguments_=this.getVariables(this.getFieldValue('PROCEDURES'));
+
+            //     // console.log('aaaaaaaaaaaaa', this.arguments_);
+            //     // // For the second argument (paramIds) use the arguments list as a dummy
+            //     // // list.
+            //     // this.setProcedureParameters(this.arguments_, this.arguments_);
+            //     // }
+            // }
         };
         // Source: src/blocks/procedures_callreturn/procedures_callreturn.js
         /* global Blockly, JST, RoboBlocks */
@@ -5674,12 +5708,10 @@
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
 
-                var dropdown = new Blockly.FieldDropdown(this.getProcedures());
-
                 this.appendDummyInput('DUMMY')
-                    .appendField(dropdown, 'PROCEDURES');
+                    .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
 
-                this.addVariables();
+                // this.addVariables();
                 this.setOutput(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALLRETURN_TOOLTIP'));
                 this.arguments_ = [];
@@ -5698,46 +5730,57 @@
                 }
                 return procedures_dropdown;
             },
-            renameProcedure: function(oldName) {
+            renameProcedure: function(oldName, newName) {
+
                 var procedures = this.getProcedures();
                 for (var i in procedures) {
                     if (Blockly.Names.equals(oldName, procedures[i][0])) {
-                        var dropdown = new Blockly.FieldDropdown(this.getProcedures());
                         this.removeInput('DUMMY');
                         this.appendDummyInput('DUMMY')
-                            .appendField(dropdown, 'PROCEDURES');
+                            .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
+
+                        // this.setFieldValue(dropdown, 'PROCEDURES');
                     }
                 }
+                if (this.last_procedure === oldName) {
+                    this.last_procedure = newName;
+                } else {}
                 this.setFieldValue(this.last_procedure, 'PROCEDURES');
-
-                this.addVariables();
+                // this.addVariables();
             },
             onchange: function() {
                 if (!this.workspace) {
                     // Block has been deleted.
                     return;
                 }
-                if (this.getFieldValue('PROCEDURES') !== this.last_procedure) {
-                    this.addVariables();
+                if (!this.last_procedure) {
                     this.last_procedure = this.getFieldValue('PROCEDURES');
                 }
-                if (this.getVariables(this.getFieldValue('PROCEDURES')) !== this.last_variables) {
-                    this.addVariables();
+                if (!this.last_variables) {
                     this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
+                } else {
+                    if (this.getFieldValue('PROCEDURES') !== this.last_procedure) {
+                        this.addVariables();
+                        this.last_procedure = this.getFieldValue('PROCEDURES');
+                    }
+                    if (this.getVariables(this.getFieldValue('PROCEDURES')) !== this.last_variables) {
+                        this.addVariables();
+                        // this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
+                    }
                 }
             },
             addVariables: function() {
-                var func_variables = this.getVariables(this.getFieldValue('PROCEDURES')); //get the variables of the actual function
-                for (var i = 0; i < this.maxVariableNumber(); i++) { // remove all the possible variable inputs
-                    if (this.getInput('VARIABLES' + i) === null) {
-                        break;
+                var func_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
+                console.log('aaaaaaaaaaaaaaaa', this.getVariables(this.getFieldValue('PROCEDURES')));
+                for (var x = 0; x < func_variables.length; x++) {
+                    if (this.getInput('VARIABLES' + x) === null) {
+                        this.appendValueInput('VARIABLES' + x)
+                            .appendField(func_variables[x], 'VARIABLES_NAME' + x);
+                    } else {
+                        this.setFieldValue(func_variables[x], 'VARIABLES_NAME' + x);
                     }
-                    this.removeInput('VARIABLES' + i);
                 }
-                for (var variable in func_variables) {
-                    this.appendValueInput('VARIABLES' + variable)
-                        .appendField(func_variables[variable]);
-                }
+                this.arguments_ = func_variables;
             },
             maxVariableNumber: function() {
                 var procedures = Blockly.Procedures.allProcedures();
@@ -5768,6 +5811,7 @@
                 }
             },
             mutationToDom: function() {
+                console.log('mutationToDom');
                 // Save the name and arguments (none of which are editable).
                 var container = document.createElement('mutation');
                 container.setAttribute('name', this.getFieldValue('PROCEDURES'));
@@ -5779,33 +5823,20 @@
                 return container;
             },
             domToMutation: function(xmlElement) {
+                this.xmlElement = xmlElement;
+                console.log('domToMutation');
                 // Restore the name and parameters.
                 var name = xmlElement.getAttribute('name');
                 this.setFieldValue(name, 'PROCEDURES');
-                var def = Blockly.Procedures.getDefinition(name, this.workspace);
-                if (def && def.mutator.isVisible()) {
-                    // Initialize caller with the mutator's IDs.
-                    this.setProcedureParameters(def.arguments_, def.paramIds_);
-                } else {
-                    this.arguments_ = [];
-                    var childNode;
-                    for (var x = 0; x < xmlElement.childNodes.length; x++) {
-                        childNode = xmlElement.childNodes[x];
-                        if (childNode.nodeName.toLowerCase() === 'arg') {
-                            this.arguments_.push(childNode.getAttribute('name'));
-                        }
-                    }
-                    // For the second argument (paramIds) use the arguments list as a dummy
-                    // list.
-                    this.setProcedureParameters(this.arguments_, this.arguments_);
+                console.log('xmlElement.childNodes', xmlElement.childNodes, xmlElement.childNodes[0].getAttribute('name'));
+
+                for (var x = 0; x < xmlElement.childNodes.length; x++) {
+                    console.log('domToMutation---->', xmlElement.childNodes.length, xmlElement.childNodes[x].getAttribute('name'));
+                    this.appendValueInput('VARIABLES' + x)
+                        .appendField(xmlElement.childNodes[x].getAttribute('name'), 'VARIABLES_NAME' + x);
                 }
             }
         };
-
-
-
-
-
         // Source: src/blocks/procedures_defnoreturn/procedures_defnoreturn.js
         /* global Blockly, JST, RoboBlocks */
 
@@ -6988,6 +7019,8 @@
                 return dropdown;
             },
             onchange: function() {
+                this.last_variable = this.getFieldValue('VAR');
+
                 if (!this.last_variables) {
                     this.last_variables = Blockly.Variables.allVariables();
                 }
@@ -7002,6 +7035,8 @@
                         this.appendDummyInput('DUMMY')
                             .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
                             .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+
+                        this.setFieldValue(this.last_variable, 'VAR');
 
                         this.last_variables = Blockly.Variables.allVariables();
                     }
@@ -7199,9 +7234,11 @@
                 } else {
                     dropdown.push(['', '']);
                 }
+
                 return dropdown;
             },
             onchange: function() {
+                this.last_variable = this.getFieldValue('VAR');
                 if (!this.last_variables) {
                     this.last_variables = Blockly.Variables.allVariables();
                 }
@@ -7219,6 +7256,7 @@
                                 .setAlign(Blockly.ALIGN_RIGHT);
 
                             this.setInputsInline(false);
+                            this.setFieldValue(this.last_variable, 'VAR');
 
                         } catch (e) {}
                         this.last_variables = Blockly.Variables.allVariables();
