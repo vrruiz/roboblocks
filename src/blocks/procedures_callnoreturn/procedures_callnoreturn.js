@@ -36,13 +36,11 @@ Blockly.Blocks.procedures_callnoreturn = {
         this.appendDummyInput('DUMMY')
             .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
 
-        this.addVariables();
-
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        
+
         this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALLNORETURN_TOOLTIP'));
-        this.arguments_ = [];
+        this.arguments_ = this.getVariables(this.getFieldValue('PROCEDURES'));
         this.quarkConnections_ = null;
         this.quarkArguments_ = null;
     },
@@ -59,53 +57,7 @@ Blockly.Blocks.procedures_callnoreturn = {
         }
         return procedures_dropdown;
     },
-    renameProcedure: function(oldName) {    //changed name!!
-        var procedures= this.getProcedures();
-        for (var i in procedures){
-            if (Blockly.Names.equals(oldName, procedures[i][0])) {
-                var dropdown=new Blockly.FieldDropdown(this.getProcedures());
-                this.removeInput('DUMMY');
-                this.appendDummyInput('DUMMY')
-                    .appendField(dropdown, 'PROCEDURES');
-            }
-        }
-        this.addVariables();
 
-        try{
-            this.setFieldValue(this.no_last_procedure, 'PROCEDURES');
-        }
-        catch(e){
-            console.log('error!, ',e);
-        }
-    },
-    onchange: function() {
-        if (!this.workspace) {
-            // Block has been deleted.
-            return;
-        }
-        if (this.getFieldValue('PROCEDURES')!== this.no_last_procedure){
-            this.addVariables();
-            this.no_last_procedure=this.getFieldValue('PROCEDURES');
-        }
-        if(this.getVariables(this.getFieldValue('PROCEDURES'))!==this.last_variables){
-            this.addVariables();
-            this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
-        }
-    },
-    addVariables: function(){
-        var func_variables=this.getVariables(this.getFieldValue('PROCEDURES')); //get the variables of the actual function
-        for (var i=0; i<this.maxVariableNumber(); i++){      // remove all the possible variable inputs
-            if (this.getInput('VARIABLES'+i)===null){
-                break;
-            }
-            this.removeInput('VARIABLES'+i);
-            
-        }
-        for (var variable in func_variables){
-            this.appendValueInput('VARIABLES'+variable)
-                .appendField(func_variables[variable]);
-        }
-    },
     maxVariableNumber: function(){
         var procedures=Blockly.Procedures.allProcedures();
         var procedures_dropdown=[];
@@ -136,137 +88,121 @@ Blockly.Blocks.procedures_callnoreturn = {
             procedures_dropdown.push(['','']);
         }
     },
-    setProcedureParameters: function(paramNames, paramIds) {
-        // Data structures for parameters on each call block:
-        // this.arguments = ['x', 'y']
-        //     Existing param names.
-        // paramNames = ['x', 'y', 'z']
-        //     New param names.
-        // paramIds = ['piua', 'f8b_', 'oi.o']
-        //     IDs of params (consistent for each parameter through the life of a
-        //     mutator, regardless of param renaming).
-        // this.quarkConnections_ {piua: null, f8b_: Blockly.Connection}
-        //     Look-up of paramIds to connections plugged into the call block.
-        // this.quarkArguments_ = ['piua', 'f8b_']
-        //     Existing param IDs.
-        // Note that quarkConnections_ may include IDs that no longer exist, but
-        // which might reappear if a param is reattached in the mutator.
-        if (!paramIds) {
-            // Reset the quarks (a mutator is about to open).
-            this.quarkConnections_ = {};
-            this.quarkArguments_ = null;
+    onchange: function () {
+        if (!this.workspace) {
+            // Block has been deleted.
             return;
         }
-        if (paramIds.length !== paramNames.length) {
-            throw 'Error: paramNames and paramIds must be the same length.';
+        if (!this.last_procedure){
+            this.last_procedure=this.getFieldValue('PROCEDURES');
         }
-        if (!this.quarkArguments_) {
-            // Initialize tracking for this block.
-            this.quarkConnections_ = {};
-            if (paramNames.join('\n') === this.arguments_.join('\n')) {
-                // No change to the parameters, allow quarkConnections_ to be
-                // populated with the existing connections.
-                this.quarkArguments_ = paramIds;
-            } else {
-                this.quarkArguments_ = [];
+        if (typeof this.last_variables==='undefined'){
+            this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
+        }
+        else if (typeof this.last_variables!=='undefined' && typeof this.last_procedure!=='undefined'){
+            if (this.getFieldValue('PROCEDURES')!== this.last_procedure){
+                this.changeVariables();
+                this.last_procedure=this.getFieldValue('PROCEDURES');
+            }
+            if(this.getVariables(this.getFieldValue('PROCEDURES'))!==this.last_variables){
+                this.addVariables();
+                this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
             }
         }
-        // Switch off rendering while the block is rebuilt.
-        var savedRendered = this.rendered;
-        this.rendered = false;
-        var input, connection;
-        // Update the quarkConnections_ with existing connections.
-        for (var x = this.arguments_.length - 1; x >= 0; x--) {
-            input = this.getInput('VARIABLES' + x);
-            if (input) {
-                connection = input.connection.targetConnection;
-                this.quarkConnections_[this.quarkArguments_[x]] = connection;
-                // Disconnect all argument blocks and remove all inputs.
-                this.removeInput('VARIABLES' + x);
+    },
+    addVariables: function(){
+        var func_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
+        var var_num;
+        if (typeof this.last_variables==='undefined'){
+            this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
+        }
+        if(typeof func_variables!=='undefined'&& typeof this.last_variables!=='undefined'){
+            if (typeof this.last_variables==='undefined'){
+                this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
+            }
+            if (func_variables.length>=this.last_variables){
+                var_num=func_variables.length;
+            }
+            else{
+                var_num=this.last_variables.length;
             }
         }
-        // Rebuild the block's arguments.
-        this.arguments_ = [].concat(paramNames);
-        this.quarkArguments_ = paramIds;
-        for (x = 0; x < this.arguments_.length; x++) {
-            input = this.appendValueInput('VARIABLES' + x)
-            .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(this.arguments_[x]);
-            if (this.quarkArguments_) {
-                // Reconnect any child blocks.
-                var quarkName = this.quarkArguments_[x];
-                if (quarkName in this.quarkConnections_) {
-                    connection = this.quarkConnections_[quarkName];
-                    if (!connection || connection.targetConnection ||
-                        connection.sourceBlock_.workspace !== this.workspace) {
-                        // Block no longer exists or has been attached elsewhere.
-                        delete this.quarkConnections_[quarkName];
-                    } else {
-                        input.connection.connect(connection);
-                    }
+        else{
+            var_num=0;
+        }
+
+        for (var x = 0; x < var_num; x++) {
+            if (this.getInput('VARIABLES'+x)===null){
+                this.appendValueInput('VARIABLES'+x)
+                        .appendField(func_variables[x], 'VARIABLES_NAME'+x);
+            }
+            else {
+                if(typeof func_variables[x]!=='undefined'){
+                    this.setFieldValue(func_variables[x],'VARIABLES_NAME'+x);
+                }
+                else{
+                    this.removeInput('VARIABLES'+x);
                 }
             }
         }
-        // Restore rendering and show the changes.
-        this.rendered = savedRendered;
-        if (this.rendered) {
-            this.render();
-        }
+        this.arguments_=func_variables;
     },
-    // mutationToDom: function() {
-    //     // Save the name and arguments (none of which are editable).
-    //     var container = document.createElement('mutation');
-    //     container.setAttribute('name', this.getFieldValue('PROCEDURES'));
-    //     for (var x = 0; x < this.arguments_.length; x++) {
-    //         var parameter = document.createElement('arg');
-    //         parameter.setAttribute('name', this.arguments_[x]);
-    //         container.appendChild(parameter);
-    //     }
-    //     console.log('mutationToDom', container);
 
-    //     return container;
-    // },
-    // domToMutation: function(xmlElement) {
-    //     // Restore the name and parameters.
-    //     var name = xmlElement.getAttribute('name');
-    //     this.setFieldValue(name, 'PROCEDURES');
+    renameProcedure: function(oldName, newName) {
+        var procedures= this.getProcedures();
+        for (var i in procedures){
+            if (Blockly.Names.equals(oldName, procedures[i][0])) {
+                this.removeInput('DUMMY');
+                this.appendDummyInput('DUMMY')
+                    .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
+            }
+        }
+        if (this.last_procedure===oldName){
+            this.last_procedure=newName;
+        }
+        this.setFieldValue(this.last_procedure, 'PROCEDURES');
+    },
+    changeVariables: function(){
+        var func_variables=this.getVariables(this.getFieldValue('PROCEDURES'));//get the variables of the actual function
+        for (var i=0; i<this.maxVariableNumber(); i++){// remove all the possible variable inputs
+            if (this.getInput('VARIABLES'+i)===null){
+                break;
+            }
+            this.removeInput('VARIABLES'+i);
+        }
+        for (var variable in func_variables){
+            this.appendValueInput('VARIABLES'+variable)
+                .appendField(func_variables[variable]);
+        }
+        this.arguments_=func_variables;
+    },
+    mutationToDom: function() {
+        // Save the name and arguments (none of which are editable).
+        var container = document.createElement('mutation');
+        container.setAttribute('name', this.getFieldValue('PROCEDURES'));
+        if (typeof this.arguments_==='undefined'){
+            this.arguments_=this.getVariables(this.getFieldValue('PROCEDURES'));
+        }
+        if (typeof this.arguments_==='undefined'){
+            this.arguments_=[];
+        }
+        for (var x = 0; x < this.arguments_.length; x++) {
+            var parameter = document.createElement('arg');
+            parameter.setAttribute('name', this.arguments_[x]);
+            container.appendChild(parameter);
+        }
+        return container;
+    },
+    domToMutation: function(xmlElement) {
+        this.xmlElement=xmlElement;
+        // Restore the name and parameters.
+        var name = xmlElement.getAttribute('name');
+        this.setFieldValue(name, 'PROCEDURES');
 
-    //     this.no_last_procedure=name;
-    //     this.addVariables();
+        for (var x = 0; x < xmlElement.childNodes.length; x++) {
+            this.appendValueInput('VARIABLES'+x)
+                    .appendField(xmlElement.childNodes[x].getAttribute('name'), 'VARIABLES_NAME'+x);
+        }
+    }
 
-    //     var def = Blockly.Procedures.getDefinition(name, this.workspace);
-
-    //     console.log('domToMutation', name,'---------------', def);
-
-
-
-    //     // if (def && def.mutator.isVisible()) {
-    //     //     // Initialize caller with the mutator's IDs.
-    //     //     this.setProcedureParameters(def.arguments_, def.paramIds_);
-    //     // } else {
-    //     //     this.arguments_ = [];
-    //     //     var childNode;
-    //     //     for (var x = 0; x<xmlElement.childNodes.length; x++) {
-    //     //         childNode=xmlElement.childNodes[x];
-    //     //         if (childNode.nodeName.toLowerCase() === 'arg') {
-    //     //             this.arguments_.push(childNode.getAttribute('name'));
-    //     //         }
-    //     //     }
-
-
-    //     // var childNode;
-    //     // for (var x = 0; x<xmlElement.childNodes.length; x++) {
-    //     //     childNode=xmlElement.childNodes[x];
-    //     //     if (childNode.nodeName.toLowerCase() === 'arg') {
-    //     //         this.arguments_.push(childNode.getAttribute('name'));
-    //     //     }
-    //     // }
-    //     // // this.arguments_=this.getVariables(this.getFieldValue('PROCEDURES'));
-
-    //     // console.log('aaaaaaaaaaaaa', this.arguments_);
-    //     // // For the second argument (paramIds) use the arguments list as a dummy
-    //     // // list.
-    //     // this.setProcedureParameters(this.arguments_, this.arguments_);
-    //     // }
-    // }
 };
