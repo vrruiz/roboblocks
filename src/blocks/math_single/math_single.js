@@ -90,7 +90,13 @@ Blockly.Blocks.math_single = {
         this.setOutput(true, Number);
         this.appendValueInput('NUM')
             .setCheck(Number)
-            .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+            .appendField(new Blockly.FieldDropdown([[RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ROOT')||'SQR ROOT', 'ROOT'],
+     [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ABSOLUTE')||'ABS', 'ABS'],
+     ['-', 'NEG'],
+     ['ln', 'LN'],
+     ['log10', 'LOG10'],
+     ['e^', 'EXP'],
+     ['10^', 'POW10']]), 'OP');
         // Assign 'this' to a variable for use in the tooltip closure below.
         var thisBlock = this;
         this.setTooltip(function() {
@@ -99,15 +105,6 @@ Blockly.Blocks.math_single = {
         });
     }
 };
-
-Blockly.Blocks.math_single.OPERATORS =
-    [[RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ROOT')||'SQR ROOT', 'ROOT'],
-     [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ABSOLUTE')||'ABS', 'ABS'],
-     ['-', 'NEG'],
-     ['ln', 'LN'],
-     ['log10', 'LOG10'],
-     ['e^', 'EXP'],
-     ['10^', 'POW10']];
 
 Blockly.Blocks.math_single.TOOLTIPS = {
     ROOT: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_ROOT'),

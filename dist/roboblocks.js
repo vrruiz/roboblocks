@@ -4252,7 +4252,10 @@
                 this.appendValueInput('BOOL')
                     .setCheck(Boolean)
                     .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TITLE_REPEAT'))
-                    .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'MODE');
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE'), 'WHILE'],
+                        [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL'), 'UNTIL']
+                    ]), 'MODE');
                 this.appendStatementInput('DO')
                     .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_INPUT_DO'));
                 this.setPreviousStatement(true);
@@ -4265,11 +4268,6 @@
                 });
             }
         };
-
-        Blockly.Blocks.controls_whileUntil.OPERATORS = [
-            [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE') || 'WHILE', 'WHILE'],
-            [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL') || 'UNTIL', 'UNTIL']
-        ];
 
         Blockly.Blocks.controls_whileUntil.TOOLTIPS = {
             WHILE: RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TOOLTIP_WHILE'),
@@ -4792,16 +4790,13 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
                 this.setOutput(true, Boolean);
                 this.appendDummyInput()
-                    .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'BOOL');
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TRUE'), 'TRUE'],
+                        [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_FALSE'), 'FALSE']
+                    ]), 'BOOL');
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TOOLTIP'));
             }
         };
-
-        Blockly.Blocks.logic_boolean.OPERATORS = [
-            [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TRUE') || 'TRUE', 'TRUE'],
-            [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_FALSE') || 'FALSE', 'FALSE']
-        ];
-
         // Source: src/blocks/logic_compare/logic_compare.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
@@ -4974,7 +4969,10 @@
                     .setCheck(Boolean);
                 this.appendValueInput('B')
                     .setCheck(Boolean)
-                    .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND') || 'AND', 'AND'],
+                        [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR') || 'OR', 'OR']
+                    ]), 'OP');
                 this.setInputsInline(true);
                 // Assign 'this' to a variable for use in the tooltip closure below.
                 var thisBlock = this;
@@ -4984,11 +4982,6 @@
                 });
             }
         };
-
-        Blockly.Blocks.logic_operation.OPERATORS = [
-            [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND') || 'AND', 'AND'],
-            [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR') || 'OR', 'OR']
-        ];
 
         Blockly.Blocks.logic_operation.TOOLTIPS = {
             AND: RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_TOOLTIP_AND'),
@@ -5344,7 +5337,15 @@
                 this.setOutput(true, Number);
                 this.appendValueInput('NUM')
                     .setCheck(Number)
-                    .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ROOT') || 'SQR ROOT', 'ROOT'],
+                        [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ABSOLUTE') || 'ABS', 'ABS'],
+                        ['-', 'NEG'],
+                        ['ln', 'LN'],
+                        ['log10', 'LOG10'],
+                        ['e^', 'EXP'],
+                        ['10^', 'POW10']
+                    ]), 'OP');
                 // Assign 'this' to a variable for use in the tooltip closure below.
                 var thisBlock = this;
                 this.setTooltip(function() {
@@ -5353,16 +5354,6 @@
                 });
             }
         };
-
-        Blockly.Blocks.math_single.OPERATORS = [
-            [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ROOT') || 'SQR ROOT', 'ROOT'],
-            [RoboBlocks.locales.getKey('LANG_MATH_SINGLE_OP_ABSOLUTE') || 'ABS', 'ABS'],
-            ['-', 'NEG'],
-            ['ln', 'LN'],
-            ['log10', 'LOG10'],
-            ['e^', 'EXP'],
-            ['10^', 'POW10']
-        ];
 
         Blockly.Blocks.math_single.TOOLTIPS = {
             ROOT: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_ROOT'),

@@ -19,11 +19,8 @@ Blockly.Blocks.logic_boolean = {
         this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
         this.setOutput(true, Boolean);
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'BOOL');
+            .appendField(new Blockly.FieldDropdown([[RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TRUE'), 'TRUE'],
+     [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_FALSE'), 'FALSE']]), 'BOOL');
         this.setTooltip(RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TOOLTIP'));
     }
 };
-
-Blockly.Blocks.logic_boolean.OPERATORS =
-    [[RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TRUE')||'TRUE', 'TRUE'],
-     [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_FALSE')||'FALSE', 'FALSE']];

@@ -43,7 +43,7 @@ Blockly.Blocks.controls_whileUntil = {
         this.appendValueInput('BOOL')
             .setCheck(Boolean)
             .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TITLE_REPEAT'))
-            .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'MODE');
+            .appendField(new Blockly.FieldDropdown([[RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE'), 'WHILE'],[RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL'), 'UNTIL']]), 'MODE');
         this.appendStatementInput('DO')
             .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_INPUT_DO'));
         this.setPreviousStatement(true);
@@ -56,10 +56,6 @@ Blockly.Blocks.controls_whileUntil = {
         });
     }
 };
-
-Blockly.Blocks.controls_whileUntil.OPERATORS =
-    [[RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE')||'WHILE', 'WHILE'],
-     [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL')||'UNTIL', 'UNTIL']];
 
 Blockly.Blocks.controls_whileUntil.TOOLTIPS = {
     WHILE: RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TOOLTIP_WHILE'),

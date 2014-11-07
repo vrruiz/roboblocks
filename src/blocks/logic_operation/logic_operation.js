@@ -33,7 +33,8 @@ Blockly.Blocks.logic_operation = {
             .setCheck(Boolean);
         this.appendValueInput('B')
             .setCheck(Boolean)
-            .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+            .appendField(new Blockly.FieldDropdown( [[RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND')||'AND', 'AND'],
+     [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR')||'OR', 'OR']]), 'OP');
         this.setInputsInline(true);
         // Assign 'this' to a variable for use in the tooltip closure below.
         var thisBlock = this;
@@ -43,10 +44,6 @@ Blockly.Blocks.logic_operation = {
         });
     }
 };
-
-Blockly.Blocks.logic_operation.OPERATORS =
-    [[RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND')||'AND', 'AND'],
-     [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR')||'OR', 'OR']];
 
 Blockly.Blocks.logic_operation.TOOLTIPS = {
     AND: RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_TOOLTIP_AND'),
