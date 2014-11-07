@@ -42,7 +42,7 @@ Blockly.Blocks.zum_led = {
             .appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom))
             .appendField(RoboBlocks.locales.getKey('LANG_ZUM_LED_PIN'));
         this.appendDummyInput()
-            .appendField('state')
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_LED_STATE'))
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldDropdown([
                 [RoboBlocks.locales.getKey('LANG_ZUM_LED_ON')||'ON', 'HIGH'],

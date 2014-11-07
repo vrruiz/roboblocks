@@ -35,7 +35,10 @@ Blockly.Arduino.variables_local = function() {
     }
     else {
         varType='String';
+        code=varType+' '+varName+'='+varValue+';\n';
+    
     }
+
     return code;
 };
 

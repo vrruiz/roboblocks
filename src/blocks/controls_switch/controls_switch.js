@@ -35,11 +35,11 @@ Blockly.Blocks.controls_switch = {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendValueInput('IF0')
             .setCheck(Boolean)
-            .appendField('switch');
+            .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH'))
+            .setAlign(Blockly.ALIGN_RIGHT);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setMutator(new Blockly.Mutator(['controls_switch_case',
-                                             'controls_switch_default']));
+        this.setMutator(new Blockly.Mutator(['controls_switch_case','controls_switch_default']));
         // Assign 'this' to a variable for use in the tooltip closure below.
         var thisBlock = this;
         this.setTooltip(function() {
@@ -75,14 +75,17 @@ Blockly.Blocks.controls_switch = {
         for (var x = 1; x <= this.switchCount_; x++) {
             this.appendValueInput('SWITCH' + x)
                 .setCheck(Number)
-                .appendField('case');
+                .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_CASE'))
+                .setAlign(Blockly.ALIGN_RIGHT);
             this.setInputsInline(true);
             this.appendStatementInput('DO' + x)
-                .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_THEN'));
+                .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_IF_MSG_THEN'))
+                .setAlign(Blockly.ALIGN_RIGHT);
         }
         if (this.defaultCount_) {
             this.appendStatementInput('DEFAULT')
-                .appendField('default');
+                .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_DEFAULT'))
+                .setAlign(Blockly.ALIGN_RIGHT);
         }
     },
     decompose: function(workspace) {
@@ -120,13 +123,22 @@ Blockly.Blocks.controls_switch = {
             switch (clauseBlock.type) {
             case 'controls_switch_case':
                 this.switchCount_++;
+                var case_lang;
+                if(this.switchCount_===1){
+                    case_lang=RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_IS');
+                }
+                else{
+                    case_lang=RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_CASE');
+                }
                 var switchInput = this.appendValueInput('SWITCH' + this.switchCount_)
                     .setCheck(Number)
-                    .appendField('case');
+                    .appendField(case_lang)
+                    .setAlign(Blockly.ALIGN_RIGHT);
                 this.setInputsInline(true);
 
                 var doInput = this.appendStatementInput('DO' + this.switchCount_);
-                doInput.appendField('do');
+                doInput.appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_DO'))
+                .setAlign(Blockly.ALIGN_RIGHT);
                 // Reconnect any child blocks.
                 if (clauseBlock.valueConnection_) {
                     switchInput.connection.connect(clauseBlock.valueConnection_);
@@ -138,7 +150,8 @@ Blockly.Blocks.controls_switch = {
             case 'controls_switch_default':
                 this.defaultCount_++;
                 var defaultInput = this.appendStatementInput('DEFAULT');
-                defaultInput.appendField('default');
+                defaultInput.appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_DEFAULT'))
+                .setAlign(Blockly.ALIGN_RIGHT);
                 // Reconnect any child blocks.
                 if (clauseBlock.statementConnection_) {
                     defaultInput.connection.connect(clauseBlock.statementConnection_);
@@ -184,7 +197,8 @@ Blockly.Blocks.controls_switch_switch = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendDummyInput()
-            .appendField('switch');
+            .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH'))
+            .setAlign(Blockly.ALIGN_RIGHT);
         this.appendStatementInput('STACK');
         this.setTooltip('Switch');
         this.contextMenu = false;
@@ -196,7 +210,8 @@ Blockly.Blocks.controls_switch_case = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendDummyInput()
-            .appendField('case');
+            .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_CASE'))
+            .setAlign(Blockly.ALIGN_RIGHT);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip('Switch case');
@@ -209,7 +224,8 @@ Blockly.Blocks.controls_switch_default = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendDummyInput()
-            .appendField('default');
+            .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_SWITCH_DEFAULT'))
+            .setAlign(Blockly.ALIGN_RIGHT);
         this.setPreviousStatement(true);
         this.setTooltip('Switch default');
         this.contextMenu = false;
