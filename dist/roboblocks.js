@@ -2126,9 +2126,20 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '#include <Servo.h>\n\nServo servo_' +
+                __p += 'Servo servo_' +
                     __e(dropdown_pin) +
-                    ';\n';
+                    ';';
+
+            }
+            return __p
+        };
+
+        this["JST"]["servo_cont_definitions_include"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#include <Servo.h>';
 
             }
             return __p
@@ -2171,9 +2182,20 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '#include <Servo.h>\n\nServo servo_' +
+                __p += 'Servo servo_' +
                     __e(dropdown_pin) +
                     ';\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["servo_move_definitions_include"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#include <Servo.h>';
 
             }
             return __p
@@ -2551,13 +2573,10 @@
 
         Blockly.Arduino.array_get = function() {
             // Numeric value.
-            var code = '{';
-            code += window.parseFloat(this.getFieldValue('NUM0'));
-            code += ',';
-            code += window.parseFloat(this.getFieldValue('NUM1'));
-            code += ',';
-            code += window.parseFloat(this.getFieldValue('NUM2'));
-            code += '}';
+            var variable = this.getFieldValue('VAR');
+            var index = this.getFieldValue('INDEX');
+
+            var code = variable + '[' + index + ']';
 
             // -4.abs() returns -4 in Dart due to strange order of operation choices.
             // -4 is actually an operator and a number.  Reflect this in the order.
@@ -5972,15 +5991,10 @@
             var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
             returnValue = returnValue.replace(/&quot;/g, '"');
 
-            var returnType;
-            if (!returnValue) {
-                returnType = 'void';
-            } else if ((returnValue.search('analogRead') >= 0) || (returnValue.search('digitalRead') >= 0) || (returnValue.search('Distanc') >= 0) || (!isNaN(parseFloat(returnValue)))) {
-                returnType = 'int';
-            } else if (returnValue.search('readJoystick') >= 0) {
-                returnType = 'int *';
-            } else {
-                returnType = 'String';
+            var returnType = this.getReturnType();
+            console.log('Return Type', returnType);
+            if (returnValue[0] === '{' && returnType === 'int') {
+                console.log('aaaaaaaaaaaaaaaaaa ---> yep this is part of an array');
             }
             if (returnValue) {
                 returnValue = '  return ' + returnValue + ';\n';
@@ -6024,6 +6038,22 @@
                 this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_TOOLTIP'));
                 this.arguments_ = [];
+            },
+            getReturnType: function() {
+                var returnType;
+                var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
+                if (!returnValue) {
+                    returnType = 'void';
+                } else if ((returnValue.search('analogRead') >= 0) || (returnValue.search('digitalRead') >= 0) || (returnValue.search('Distanc') >= 0) || (!isNaN(parseFloat(returnValue))) || returnValue[0] === '{' || returnValue.search('\\[') >= 0) {
+                    returnType = 'int';
+                } else if (returnValue.search('readJoystick') >= 0) {
+                    returnType = 'int *';
+                } else {
+                    returnType = 'String';
+                }
+                console.log('aaaaaaaaaaaaaa procedures_defreturn', returnType, returnValue);
+
+                return returnType;
             },
             updateParams_: Blockly.Blocks.procedures_defnoreturn.updateParams_,
             decompose: Blockly.Blocks.procedures_defnoreturn.decompose,
@@ -6346,7 +6376,10 @@
             var value_degree = this.getFieldValue('ROT') || '';
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '';
 
-            Blockly.Arduino.definitions_['define_servo'] = JST['servo_cont_definitions']({
+            Blockly.Arduino.definitions_['include_servo'] = JST['servo_cont_definitions_include']({});
+
+
+            Blockly.Arduino.definitions_['define_servo' + dropdown_pin] = JST['servo_cont_definitions']({
                 'dropdown_pin': dropdown_pin
             });
 
@@ -6409,7 +6442,11 @@
             var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
 
-            Blockly.Arduino.definitions_['define_servo'] = JST['servo_move_definitions']({
+            Blockly.Arduino.definitions_['include_servo'] = JST['servo_move_definitions_include']({
+                'dropdown_pin': dropdown_pin
+            });
+
+            Blockly.Arduino.definitions_['define_servo' + dropdown_pin] = JST['servo_move_definitions']({
                 'dropdown_pin': dropdown_pin
             });
 
@@ -6947,8 +6984,9 @@
 
             var varName = this.getFieldValue('VAR') || '';
 
+            // console.log('aaaaaaaaaaaaaaaaaa',varValue.search('\\(')>=0 );
 
-            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0))) {
+            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || varValue.search('\\[') >= 0) {
                 varType = 'int';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
@@ -6964,6 +7002,33 @@
                 varType = 'int ';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' * ' + varName + ';\n';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
+            } else if (varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
+                console.log('aaaaaaaaaaaaaa--> function!', varValue);
+                // while(Blockly.Block.obtain(this.workspace, 'procedures_defreturn')){
+                // console.log('aaaaaaaaaaaaaa--> procedures_defreturn', Blockly.Block.obtain(this.workspace, 'procedures_defreturn').getReturnType());
+                // }
+                for (var i in Blockly.Arduino.definitions_) {
+                    if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
+                        // console.log('heeeeeeeeeeeeere', Blockly.Arduino.definitions_[i].substring(0,5));
+                        if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'int') {
+                            if (Blockly.Arduino.definitions_[i].substring(0, 5) === 'int *') {
+                                varType = 'int *';
+                            } else {
+                                varType = 'int';
+                            }
+                        } else if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'Str') {
+                            varType = 'String';
+                        } else {
+                            varType = '';
+                        }
+                        console.log('heeeeeeeeeeeeeeere', varType);
+                        Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
+                        Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+
+                    }
+                }
+                // console.log('  for (var name in Blockly.Arduino.definitions_) {',  Blockly.Arduino.definitions_) ;
+
             } else {
                 varType = 'String';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
@@ -7019,7 +7084,7 @@
             var code = '';
 
 
-            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue))) || (varValue.search('random') >= 0)) {
+            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue))) || (varValue.search('random') >= 0) || varValue.search('\\[') >= 0) {
                 varType = 'int';
                 code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
             } else if (varValue[0] === '{') {
@@ -7033,6 +7098,28 @@
                 varType = 'int ';
                 code = varType + ' * ' + varName + ';\n';
                 code += varName + '=' + varValue + ';\n';
+            } else if (varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
+                console.log('aaaaaaaaaaaaaa--> function!', varValue);
+                for (var i in Blockly.Arduino.definitions_) {
+                    if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
+                        // console.log('heeeeeeeeeeeeere', Blockly.Arduino.definitions_[i].substring(0,5));
+                        if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'int') {
+                            if (Blockly.Arduino.definitions_[i].substring(0, 5) === 'int *') {
+                                varType = 'int *';
+                            } else {
+                                varType = 'int';
+                            }
+                        } else if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'Str') {
+                            varType = 'String';
+                        } else {
+                            varType = '';
+                        }
+                        console.log('heeeeeeeeeeeeeeere', varType);
+                        code = varType + ' ' + varName + '=' + varValue + ';\n';
+                    }
+                }
+                // console.log('  for (var name in Blockly.Arduino.definitions_) {',  Blockly.Arduino.definitions_) ;
+
             } else {
                 varType = 'String';
                 code = varType + ' ' + varName + '=' + varValue + ';\n';

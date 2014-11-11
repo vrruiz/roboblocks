@@ -17,18 +17,10 @@ Blockly.Arduino.procedures_defreturn = function(){
     var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
     returnValue=returnValue.replace(/&quot;/g,'"');
 
-    var returnType;
-    if (!returnValue){
-        returnType = 'void';
-    }
-    else if ((returnValue.search('analogRead')>=0) || (returnValue.search('digitalRead')>=0) || (returnValue.search('Distanc')>=0) || (!isNaN(parseFloat(returnValue))) ){
-        returnType='int';
-    }
-    else if (returnValue.search('readJoystick')>=0){
-        returnType='int *';
-    }
-    else {
-        returnType='String';
+    var returnType=this.getReturnType();
+    console.log('Return Type', returnType);
+    if (returnValue[0]==='{' && returnType==='int'){
+        console.log('aaaaaaaaaaaaaaaaaa ---> yep this is part of an array');
     }
     if (returnValue) {
         returnValue = '  return ' + returnValue + ';\n';
@@ -72,6 +64,25 @@ Blockly.Blocks.procedures_defreturn = {
         this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
         this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_TOOLTIP'));
         this.arguments_ = [];
+    },
+    getReturnType : function(){
+        var returnType;
+        var returnValue=Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
+        if (!returnValue){
+            returnType = 'void';
+        }
+        else if ((returnValue.search('analogRead')>=0) || (returnValue.search('digitalRead')>=0) || (returnValue.search('Distanc')>=0) || (!isNaN(parseFloat(returnValue))) || returnValue[0]==='{'|| returnValue.search('\\[')>=0){
+            returnType='int';
+        }
+        else if (returnValue.search('readJoystick')>=0  ){
+            returnType='int *';
+        }
+        else {
+            returnType='String';
+        }
+        console.log('aaaaaaaaaaaaaa procedures_defreturn', returnType, returnValue);
+
+        return returnType;
     },
     updateParams_: Blockly.Blocks.procedures_defnoreturn.updateParams_,
     decompose: Blockly.Blocks.procedures_defnoreturn.decompose,

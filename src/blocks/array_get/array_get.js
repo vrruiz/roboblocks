@@ -9,13 +9,10 @@
 
 Blockly.Arduino.array_get = function() {
     // Numeric value.
-    var code = '{';
-    code+=window.parseFloat(this.getFieldValue('NUM0'));
-    code+=',';
-    code+=window.parseFloat(this.getFieldValue('NUM1'));
-    code+=',';
-    code+=window.parseFloat(this.getFieldValue('NUM2'));
-    code+='}';
+    var variable=this.getFieldValue('VAR');
+    var index=this.getFieldValue('INDEX');
+
+    var code = variable+'['+index+']';
 
     // -4.abs() returns -4 in Dart due to strange order of operation choices.
     // -4 is actually an operator and a number.  Reflect this in the order.

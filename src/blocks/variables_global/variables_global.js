@@ -14,8 +14,9 @@ Blockly.Arduino.variables_global = function() {
 
     var varName = this.getFieldValue('VAR')||'';
 
+    // console.log('aaaaaaaaaaaaaaaaaa',varValue.search('\\(')>=0 );
 
-    if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random')>=0)) ){
+    if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random')>=0)) || varValue.search('\\[')>=0){
         varType='int';
         Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';';
         Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';';
@@ -33,6 +34,38 @@ Blockly.Arduino.variables_global = function() {
         varType='int ';
         Blockly.Arduino.definitions_['declare_var'+varName]=varType+' * '+varName+';\n';
         Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';\n';
+    }
+    else if (varValue.search('\\(')>=0 && varValue.search('\\)')>=0){
+        console.log('aaaaaaaaaaaaaa--> function!', varValue);
+        // while(Blockly.Block.obtain(this.workspace, 'procedures_defreturn')){
+        // console.log('aaaaaaaaaaaaaa--> procedures_defreturn', Blockly.Block.obtain(this.workspace, 'procedures_defreturn').getReturnType());
+        // }
+        for (var i in Blockly.Arduino.definitions_){
+            if(Blockly.Arduino.definitions_[i].search(varValue)>=0){
+                // console.log('heeeeeeeeeeeeere', Blockly.Arduino.definitions_[i].substring(0,5));
+                if (Blockly.Arduino.definitions_[i].substring(0,3)==='int'){
+                    if(Blockly.Arduino.definitions_[i].substring(0,5)==='int *'){
+                        varType='int *';
+                    }
+                    else{
+                        varType='int';
+                    }
+                }
+
+                else if (Blockly.Arduino.definitions_[i].substring(0,3)==='Str'){
+                    varType='String';
+                }
+                else{
+                    varType='';
+                }
+                console.log('heeeeeeeeeeeeeeere',varType);
+                Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';\n';
+                Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';';
+
+            }
+        }
+        // console.log('  for (var name in Blockly.Arduino.definitions_) {',  Blockly.Arduino.definitions_) ;
+        
     }
     else {
         varType='String';

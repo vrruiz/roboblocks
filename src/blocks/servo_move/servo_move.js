@@ -11,7 +11,11 @@ Blockly.Arduino.servo_move = function() {
     var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
     var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
 
-    Blockly.Arduino.definitions_['define_servo'] = JST['servo_move_definitions']({
+    Blockly.Arduino.definitions_['include_servo'] = JST['servo_move_definitions_include']({
+        'dropdown_pin': dropdown_pin
+    });
+
+    Blockly.Arduino.definitions_['define_servo'+dropdown_pin] = JST['servo_move_definitions']({
         'dropdown_pin': dropdown_pin
     });
 
