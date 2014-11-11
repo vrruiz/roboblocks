@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.1 - 2014-11-07
+/*! roboblocks - v0.1.1 - 2014-11-11
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -5430,10 +5430,10 @@
         Blockly.Arduino.procedures_callnoreturn = function() {
             // Call a procedure with a return value.
             var funcName = this.getFieldValue('PROCEDURES');
-            var args = []; //this.getInput('VARIABLES');//this.getVariables(funcName);
+            var args = [];
 
             for (var x = 0; x < this.getVariables(funcName).length; x++) {
-                args[x] = Blockly.Arduino.valueToCode(this, 'VARIABLES' + x, Blockly.Arduino.ORDER_NONE) || '';
+                args[x] = Blockly.Arduino.valueToCode(this, 'ARG' + x, Blockly.Arduino.ORDER_NONE) || '';
             }
             var funcArgs = args.join(', ');
             var code = JST['procedures_callnoreturn']({
@@ -5547,14 +5547,14 @@
                 }
 
                 for (var x = 0; x < var_num; x++) {
-                    if (this.getInput('VARIABLES' + x) === null) {
-                        this.appendValueInput('VARIABLES' + x)
-                            .appendField(func_variables[x], 'VARIABLES_NAME' + x);
+                    if (this.getInput('ARG' + x) === null) {
+                        this.appendValueInput('ARG' + x)
+                            .appendField(func_variables[x], 'ARG_NAME' + x);
                     } else {
                         if (typeof func_variables[x] !== 'undefined') {
-                            this.setFieldValue(func_variables[x], 'VARIABLES_NAME' + x);
+                            this.setFieldValue(func_variables[x], 'ARG_NAME' + x);
                         } else {
-                            this.removeInput('VARIABLES' + x);
+                            this.removeInput('ARG' + x);
                         }
                     }
                 }
@@ -5578,13 +5578,13 @@
             changeVariables: function() {
                 var func_variables = this.getVariables(this.getFieldValue('PROCEDURES')); //get the variables of the actual function
                 for (var i = 0; i < this.maxVariableNumber(); i++) { // remove all the possible variable inputs
-                    if (this.getInput('VARIABLES' + i) === null) {
+                    if (this.getInput('ARG' + i) === null) {
                         break;
                     }
-                    this.removeInput('VARIABLES' + i);
+                    this.removeInput('ARG' + i);
                 }
                 for (var variable in func_variables) {
-                    this.appendValueInput('VARIABLES' + variable)
+                    this.appendValueInput('ARG' + variable)
                         .appendField(func_variables[variable]);
                 }
                 this.arguments_ = func_variables;
@@ -5610,11 +5610,16 @@
                 this.xmlElement = xmlElement;
                 // Restore the name and parameters.
                 var name = xmlElement.getAttribute('name');
+                this.last_procedure = name;
                 this.setFieldValue(name, 'PROCEDURES');
 
                 for (var x = 0; x < xmlElement.childNodes.length; x++) {
-                    this.appendValueInput('VARIABLES' + x)
-                        .appendField(xmlElement.childNodes[x].getAttribute('name'), 'VARIABLES_NAME' + x);
+                    // try{
+                    //     this.appendValueInput('ARG'+x)
+                    //         .appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME'+x);
+                    // }catch(e){console.log('aaaaaaaaaaa',e);}
+                    this.appendValueInput('ARG' + x)
+                        .appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME' + x);
                 }
             }
 
@@ -5629,10 +5634,10 @@
         Blockly.Arduino.procedures_callreturn = function() {
             // Call a procedure with a return value.
             var funcName = this.getFieldValue('PROCEDURES');
-            var args = []; //this.getInput('VARIABLES');//this.getVariables(funcName);
+            var args = [];
 
             for (var x = 0; x < this.getVariables(funcName).length; x++) {
-                args[x] = Blockly.Arduino.valueToCode(this, 'VARIABLES' + x, Blockly.Arduino.ORDER_NONE) || 'null';
+                args[x] = Blockly.Arduino.valueToCode(this, 'ARG' + x, Blockly.Arduino.ORDER_NONE) || 'null';
             }
 
             var funcArgs = args.join(', ');

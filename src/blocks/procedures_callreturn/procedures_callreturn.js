@@ -8,10 +8,10 @@
 Blockly.Arduino.procedures_callreturn = function() {
     // Call a procedure with a return value.
     var funcName = this.getFieldValue('PROCEDURES');
-    var args = [];//this.getInput('VARIABLES');//this.getVariables(funcName);
+    var args = [];
 
     for (var x = 0; x < this.getVariables(funcName).length; x++) {
-        args[x] = Blockly.Arduino.valueToCode(this, 'VARIABLES' + x,Blockly.Arduino.ORDER_NONE) || 'null';
+        args[x] = Blockly.Arduino.valueToCode(this, 'ARG' + x,Blockly.Arduino.ORDER_NONE) || 'null';
     }
 
     var funcArgs=args.join(', ');
