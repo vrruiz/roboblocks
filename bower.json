@@ -1,7 +1,7 @@
 {
     "name": "roboblocks",
     "description": "Blockly blocks repository used in bitbloq",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "main": "dist/roboblocks.min.js",
     "license": "MIT",
     "keywords": ["roboblocks", "blockly", "arduino", "bitbloq", "bq"],
@@ -24,5 +24,5 @@
         "sinonjs": "~1.10.2",
         "chai": "~1.9.1"
     },
-    "ignore":["src", "test", "bower_components"]
+    "ignore": ["src", "test", "bower_components"]
 }
