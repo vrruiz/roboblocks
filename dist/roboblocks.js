@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.1 - 2014-11-11
+/*! roboblocks - v0.1.1 - 2014-11-12
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -2592,7 +2592,8 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendDummyInput('DUMMY')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
-                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+                    .appendField(new Blockly.FieldVariable(''), 'VAR');
+                // .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
                 this.appendDummyInput('DUMMY2')
                     .appendField(RoboBlocks.locales.getKey('LANG_ARRAY_GET_BRACKET1'))
@@ -5992,10 +5993,6 @@
             returnValue = returnValue.replace(/&quot;/g, '"');
 
             var returnType = this.getReturnType();
-            console.log('Return Type', returnType);
-            if (returnValue[0] === '{' && returnType === 'int') {
-                console.log('aaaaaaaaaaaaaaaaaa ---> yep this is part of an array');
-            }
             if (returnValue) {
                 returnValue = '  return ' + returnValue + ';\n';
             }
@@ -6051,8 +6048,6 @@
                 } else {
                     returnType = 'String';
                 }
-                console.log('aaaaaaaaaaaaaa procedures_defreturn', returnType, returnValue);
-
                 return returnType;
             },
             updateParams_: Blockly.Blocks.procedures_defnoreturn.updateParams_,
@@ -6921,8 +6916,8 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendDummyInput('DUMMY')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
-                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
+                    // .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+                    .appendField(new Blockly.FieldVariable(''), 'VAR');
                 this.setOutput(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_GET_TOOLTIP'));
             },
@@ -6939,28 +6934,28 @@
                 return dropdown;
             },
             onchange: function() {
-                this.last_variable = this.getFieldValue('VAR');
+                // this.last_variable=this.getFieldValue('VAR');
 
-                if (!this.last_variables) {
-                    this.last_variables = Blockly.Variables.allVariables();
-                }
-                var variables = Blockly.Variables.allVariables();
+                // if (!this.last_variables){
+                //     this.last_variables=Blockly.Variables.allVariables();
+                // }
+                // var variables=Blockly.Variables.allVariables();
 
-                for (var i in variables) {
-                    if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
-                        try {
-                            this.removeInput('DUMMY');
-                        } catch (e) {}
+                // for (var i in variables){
+                //     if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
+                //         try{
+                //             this.removeInput('DUMMY');
+                //         }catch(e){}
 
-                        this.appendDummyInput('DUMMY')
-                            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
-                            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+                //         this.appendDummyInput('DUMMY')
+                //             .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
+                //             .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
-                        this.setFieldValue(this.last_variable, 'VAR');
+                //         this.setFieldValue(this.last_variable, 'VAR');
 
-                        this.last_variables = Blockly.Variables.allVariables();
-                    }
-                }
+                //         this.last_variables=Blockly.Variables.allVariables();
+                //     }
+                // }
             },
             renameVar: function(oldName, newName) {
                 if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
@@ -6984,8 +6979,6 @@
 
             var varName = this.getFieldValue('VAR') || '';
 
-            // console.log('aaaaaaaaaaaaaaaaaa',varValue.search('\\(')>=0 );
-
             if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || varValue.search('\\[') >= 0) {
                 varType = 'int';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
@@ -7003,13 +6996,8 @@
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' * ' + varName + ';\n';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
             } else if (varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
-                console.log('aaaaaaaaaaaaaa--> function!', varValue);
-                // while(Blockly.Block.obtain(this.workspace, 'procedures_defreturn')){
-                // console.log('aaaaaaaaaaaaaa--> procedures_defreturn', Blockly.Block.obtain(this.workspace, 'procedures_defreturn').getReturnType());
-                // }
                 for (var i in Blockly.Arduino.definitions_) {
                     if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
-                        // console.log('heeeeeeeeeeeeere', Blockly.Arduino.definitions_[i].substring(0,5));
                         if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'int') {
                             if (Blockly.Arduino.definitions_[i].substring(0, 5) === 'int *') {
                                 varType = 'int *';
@@ -7021,14 +7009,11 @@
                         } else {
                             varType = '';
                         }
-                        console.log('heeeeeeeeeeeeeeere', varType);
                         Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
                         Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
 
                     }
                 }
-                // console.log('  for (var name in Blockly.Arduino.definitions_) {',  Blockly.Arduino.definitions_) ;
-
             } else {
                 varType = 'String';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
@@ -7099,10 +7084,8 @@
                 code = varType + ' * ' + varName + ';\n';
                 code += varName + '=' + varValue + ';\n';
             } else if (varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
-                console.log('aaaaaaaaaaaaaa--> function!', varValue);
                 for (var i in Blockly.Arduino.definitions_) {
                     if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
-                        // console.log('heeeeeeeeeeeeere', Blockly.Arduino.definitions_[i].substring(0,5));
                         if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'int') {
                             if (Blockly.Arduino.definitions_[i].substring(0, 5) === 'int *') {
                                 varType = 'int *';
@@ -7114,11 +7097,9 @@
                         } else {
                             varType = '';
                         }
-                        console.log('heeeeeeeeeeeeeeere', varType);
                         code = varType + ' ' + varName + '=' + varValue + ';\n';
                     }
                 }
-                // console.log('  for (var name in Blockly.Arduino.definitions_) {',  Blockly.Arduino.definitions_) ;
 
             } else {
                 varType = 'String';
@@ -7187,7 +7168,8 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendValueInput('VALUE')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
-                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
+                    // .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
+                    .appendField(new Blockly.FieldVariable(''), 'VAR')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
                     .setAlign(Blockly.ALIGN_RIGHT);
 
@@ -7211,30 +7193,30 @@
                 return dropdown;
             },
             onchange: function() {
-                this.last_variable = this.getFieldValue('VAR');
-                if (!this.last_variables) {
-                    this.last_variables = Blockly.Variables.allVariables();
-                }
-                var variables = Blockly.Variables.allVariables();
+                // this.last_variable=this.getFieldValue('VAR');
+                // if (!this.last_variables){
+                //     this.last_variables=Blockly.Variables.allVariables();
+                // }
+                // var variables=Blockly.Variables.allVariables();
 
-                for (var i in variables) {
-                    if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
-                        try {
-                            this.removeInput('VALUE');
+                // for (var i in variables){
+                //     if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
+                //         try{
+                //             this.removeInput('VALUE');
 
-                            this.appendValueInput('VALUE')
-                                .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
-                                .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
-                                .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
-                                .setAlign(Blockly.ALIGN_RIGHT);
+                //             this.appendValueInput('VALUE')
+                //                 .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
+                //                 .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
+                //                 .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
+                //                 .setAlign(Blockly.ALIGN_RIGHT);
 
-                            this.setInputsInline(false);
-                            this.setFieldValue(this.last_variable, 'VAR');
+                //             this.setInputsInline(false);
+                //             this.setFieldValue(this.last_variable, 'VAR');
 
-                        } catch (e) {}
-                        this.last_variables = Blockly.Variables.allVariables();
-                    }
-                }
+                //         }catch(e){}
+                //         this.last_variables=Blockly.Variables.allVariables();
+                //     }
+                // }
             },
             renameVar: function(oldName, newName) {
                 if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {

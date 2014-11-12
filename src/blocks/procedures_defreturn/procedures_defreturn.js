@@ -18,10 +18,6 @@ Blockly.Arduino.procedures_defreturn = function(){
     returnValue=returnValue.replace(/&quot;/g,'"');
 
     var returnType=this.getReturnType();
-    console.log('Return Type', returnType);
-    if (returnValue[0]==='{' && returnType==='int'){
-        console.log('aaaaaaaaaaaaaaaaaa ---> yep this is part of an array');
-    }
     if (returnValue) {
         returnValue = '  return ' + returnValue + ';\n';
     }
@@ -80,8 +76,6 @@ Blockly.Blocks.procedures_defreturn = {
         else {
             returnType='String';
         }
-        console.log('aaaaaaaaaaaaaa procedures_defreturn', returnType, returnValue);
-
         return returnType;
     },
     updateParams_: Blockly.Blocks.procedures_defnoreturn.updateParams_,

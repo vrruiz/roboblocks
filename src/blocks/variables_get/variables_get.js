@@ -22,8 +22,8 @@ Blockly.Blocks.variables_get = {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
         this.appendDummyInput('DUMMY')
             .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
-            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-
+            // .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+            .appendField(new Blockly.FieldVariable(''), 'VAR');
         this.setOutput(true);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_GET_TOOLTIP'));
     },
@@ -41,28 +41,28 @@ Blockly.Blocks.variables_get = {
         return dropdown;
     },
     onchange: function(){
-        this.last_variable=this.getFieldValue('VAR');
+        // this.last_variable=this.getFieldValue('VAR');
 
-        if (!this.last_variables){
-            this.last_variables=Blockly.Variables.allVariables();
-        }
-        var variables=Blockly.Variables.allVariables();
+        // if (!this.last_variables){
+        //     this.last_variables=Blockly.Variables.allVariables();
+        // }
+        // var variables=Blockly.Variables.allVariables();
 
-        for (var i in variables){
-            if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
-                try{
-                    this.removeInput('DUMMY');
-                }catch(e){}
+        // for (var i in variables){
+        //     if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
+        //         try{
+        //             this.removeInput('DUMMY');
+        //         }catch(e){}
 
-                this.appendDummyInput('DUMMY')
-                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
-                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+        //         this.appendDummyInput('DUMMY')
+        //             .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
+        //             .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
-                this.setFieldValue(this.last_variable, 'VAR');
+        //         this.setFieldValue(this.last_variable, 'VAR');
 
-                this.last_variables=Blockly.Variables.allVariables();
-            }
-        }
+        //         this.last_variables=Blockly.Variables.allVariables();
+        //     }
+        // }
     },
     renameVar: function(oldName, newName) {
         if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
