@@ -24,7 +24,7 @@ Blockly.Blocks.variables_get = {
         this.appendDummyInput('DUMMY')
             .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
             // .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-            .appendField(new Blockly.FieldVariable(''), 'VAR');
+            .appendField(new Blockly.FieldVariable(' '), 'VAR');
         this.setOutput(true);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_GET_TOOLTIP'));
     },

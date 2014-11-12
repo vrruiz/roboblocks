@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.1 - 2014-11-12
+/*! roboblocks - v0.1.2 - 2014-11-12
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -2594,7 +2594,7 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendDummyInput('DUMMY')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
-                    .appendField(new Blockly.FieldVariable(''), 'VAR');
+                    .appendField(new Blockly.FieldVariable(' '), 'VAR');
                 // .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
                 this.appendDummyInput('DUMMY2')
@@ -6920,7 +6920,7 @@
                 this.appendDummyInput('DUMMY')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
                     // .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
-                    .appendField(new Blockly.FieldVariable(''), 'VAR');
+                    .appendField(new Blockly.FieldVariable(' '), 'VAR');
                 this.setOutput(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_GET_TOOLTIP'));
             },
@@ -7192,7 +7192,7 @@
                 this.appendValueInput('VALUE')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
                     // .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
-                    .appendField(new Blockly.FieldVariable(''), 'VAR')
+                    .appendField(new Blockly.FieldVariable(' '), 'VAR')
                     .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
                     .setAlign(Blockly.ALIGN_RIGHT);
 

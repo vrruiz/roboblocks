@@ -30,7 +30,7 @@ Blockly.Blocks.variables_set = {
         this.appendValueInput('VALUE')
             .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))
             // .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
-            .appendField(new Blockly.FieldVariable(''), 'VAR')
+            .appendField(new Blockly.FieldVariable(' '), 'VAR')
             .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET_AS'))
             .setAlign(Blockly.ALIGN_RIGHT);
 

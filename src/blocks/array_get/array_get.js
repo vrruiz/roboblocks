@@ -28,7 +28,7 @@ Blockly.Blocks.array_get = {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
         this.appendDummyInput('DUMMY')
             .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
-            .appendField(new Blockly.FieldVariable(''), 'VAR');
+            .appendField(new Blockly.FieldVariable(' '), 'VAR');
             // .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
         this.appendDummyInput('DUMMY2')
