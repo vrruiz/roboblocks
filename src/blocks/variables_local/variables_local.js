@@ -21,16 +21,16 @@ Blockly.Arduino.variables_local = function() {
         code= varType+' '+varName+ sufix+'='+varValue+';\n';
     }
     else if (varValue[0]==='{'){
-        varType='int ';
+        varType='int *';
         varValue=varValue.replace('{','');
         varValue=varValue.replace('}','');
         varValue=varValue.split(',');
-        code=varType+' * '+varName+';\n';
+        code=varType+varName+';\n';
         code+=varName+'[0]='+varValue[0]+';\n'+varName+'[1]='+varValue[1]+';\n'+varName+'[2]='+varValue[2]+';\n';
     }
     else if (varValue.search('readJoystick')>=0){
-        varType='int ';
-        code=varType+' * '+varName+';\n';
+        varType='int *';
+        code=varType+varName+';\n';
         code+=varName+'='+varValue+';\n';
     }
     else if (varValue.search('\\(')>=0 && varValue.search('\\)')>=0){
@@ -56,11 +56,18 @@ Blockly.Arduino.variables_local = function() {
         }
         
     }
+    else if (this.isVariable(varValue)){
+        varType=RoboBlocks.variables[varValue];
+        code=varType+' '+varName+'='+varValue+';\n';
+    }
     else {
         varType='String';
         code=varType+' '+varName+'='+varValue+';\n';
     
     }
+
+    RoboBlocks.variables[varName]=varType;
+
 
     return code;
 };
@@ -90,4 +97,5 @@ Blockly.Blocks.variables_local = {
             this.setFieldValue(newName, 'VAR');
         }
     },
+    isVariable: Blockly.Blocks.variables_global.isVariable
 };

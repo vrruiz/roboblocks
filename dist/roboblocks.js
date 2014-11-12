@@ -1005,6 +1005,8 @@
 
         RoboBlocks.locales.initialize();
 
+        RoboBlocks.variables = {};
+
         // help URLs
         RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
 
@@ -6904,6 +6906,7 @@
         Blockly.Arduino.variables_get = function() {
             // Variable setter.
             var varName = this.getFieldValue('VAR') || '';
+            this.var_type = RoboBlocks.variables[this.getFieldValue('VAR')];
 
             return [varName, Blockly.Arduino.ORDER_ATOMIC];
         };
@@ -6984,16 +6987,16 @@
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
             } else if (varValue[0] === '{') {
-                varType = 'int ';
+                varType = 'int *';
                 varValue = varValue.replace('{', '');
                 varValue = varValue.replace('}', '');
                 varValue = varValue.split(',');
-                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' * ' + varName + ';\n';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '[0]=' + varValue[0] + ';\n  ' + varName + '[1]=' + varValue[1] + ';\n  ' + varName + '[2]=' + varValue[2] + ';';
 
             } else if (varValue.search('readJoystick') >= 0) {
-                varType = 'int ';
-                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' * ' + varName + ';\n';
+                varType = 'int *';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
             } else if (varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
                 for (var i in Blockly.Arduino.definitions_) {
@@ -7014,12 +7017,17 @@
 
                     }
                 }
+            } else if (this.isVariable(varValue)) {
+                varType = RoboBlocks.variables[varValue];
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
             } else {
                 varType = 'String';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
             }
 
+            RoboBlocks.variables[varName] = varType;
             return '';
         };
 
@@ -7048,6 +7056,14 @@
                 if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
                     this.setFieldValue(newName, 'VAR');
                 }
+            },
+            isVariable: function(varValue) {
+                for (var i in Blockly.Variables.allVariables()) {
+                    if (Blockly.Variables.allVariables()[i] === varValue) {
+                        return true;
+                    }
+                }
+                return false;
             }
         };
 
@@ -7073,15 +7089,15 @@
                 varType = 'int';
                 code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
             } else if (varValue[0] === '{') {
-                varType = 'int ';
+                varType = 'int *';
                 varValue = varValue.replace('{', '');
                 varValue = varValue.replace('}', '');
                 varValue = varValue.split(',');
-                code = varType + ' * ' + varName + ';\n';
+                code = varType + varName + ';\n';
                 code += varName + '[0]=' + varValue[0] + ';\n' + varName + '[1]=' + varValue[1] + ';\n' + varName + '[2]=' + varValue[2] + ';\n';
             } else if (varValue.search('readJoystick') >= 0) {
-                varType = 'int ';
-                code = varType + ' * ' + varName + ';\n';
+                varType = 'int *';
+                code = varType + varName + ';\n';
                 code += varName + '=' + varValue + ';\n';
             } else if (varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
                 for (var i in Blockly.Arduino.definitions_) {
@@ -7101,11 +7117,17 @@
                     }
                 }
 
+            } else if (this.isVariable(varValue)) {
+                varType = RoboBlocks.variables[varValue];
+                code = varType + ' ' + varName + '=' + varValue + ';\n';
             } else {
                 varType = 'String';
                 code = varType + ' ' + varName + '=' + varValue + ';\n';
 
             }
+
+            RoboBlocks.variables[varName] = varType;
+
 
             return code;
         };
@@ -7135,6 +7157,7 @@
                     this.setFieldValue(newName, 'VAR');
                 }
             },
+            isVariable: Blockly.Blocks.variables_global.isVariable
         };
 
         // Source: src/blocks/variables_set/variables_set.js

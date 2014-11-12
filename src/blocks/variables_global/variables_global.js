@@ -20,17 +20,17 @@ Blockly.Arduino.variables_global = function() {
         Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';';
     }
     else if (varValue[0]==='{'){
-        varType='int ';
+        varType='int *';
         varValue=varValue.replace('{','');
         varValue=varValue.replace('}','');
         varValue=varValue.split(',');
-        Blockly.Arduino.definitions_['declare_var'+varName]=varType+' * '+varName+';\n';
+        Blockly.Arduino.definitions_['declare_var'+varName]=varType+varName+';\n';
         Blockly.Arduino.setups_['define_var'+varName]=varName+'[0]='+varValue[0]+';\n  '+varName+'[1]='+varValue[1]+';\n  '+varName+'[2]='+varValue[2]+';';
 
     }
     else if (varValue.search('readJoystick')>=0){
-        varType='int ';
-        Blockly.Arduino.definitions_['declare_var'+varName]=varType+' * '+varName+';\n';
+        varType='int *';
+        Blockly.Arduino.definitions_['declare_var'+varName]=varType+varName+';\n';
         Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';\n';
     }
     else if (varValue.search('\\(')>=0 && varValue.search('\\)')>=0){
@@ -57,12 +57,18 @@ Blockly.Arduino.variables_global = function() {
             }
         }
     }
+    else if (this.isVariable(varValue)){
+        varType=RoboBlocks.variables[varValue];
+        Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';\n';
+        Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';';
+    }
     else {
         varType='String';
         Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';';
         Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';';
     }
 
+    RoboBlocks.variables[varName]=varType;
     return '';
 };
 
@@ -91,5 +97,13 @@ Blockly.Blocks.variables_global = {
         if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
             this.setFieldValue(newName, 'VAR');
         }
+    },
+    isVariable:function(varValue){
+        for (var i in Blockly.Variables.allVariables()){
+            if (Blockly.Variables.allVariables()[i]===varValue){
+                return true;
+            }
+        }
+        return false;
     }
 };
