@@ -4,11 +4,11 @@
 
 (function(factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['underscore', 'blockly', 'blockly.blocks', 'blockly.lang'], factory);
+        define(['underscore', 'blockly-bq', 'blockly.blocks'], factory);
     } else {
-        factory(_, window.Blockly, window.Blocks, window.BlocklyLang);
+        factory(_, window.Blockly, window.Blocks);
     }
-}(function(_, Blockly, Blocks, BlocklyLang) {
+}(function(_, Blockly, Blocks) {
     var load = function(options) {
         // Source: src/lang.js
         /* global RoboBlocks*/
