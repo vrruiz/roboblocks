@@ -106,13 +106,47 @@ Blockly.Blocks.variables_global = {
         }
         return false;
     },
+    validName: function(name){
+        if(name && name.length>0){
+            var i=0;
+            while(i<name.length){
+                if(!isNaN(parseFloat(name[i]))){
+                    name=name.substring(1,name.length);
+                }
+                else{
+                    break;
+                }
+            }
+            name=name.replace(/([ ])/, '_');
+            name=name.replace(/([áàâä])/g, 'a');
+            name=name.replace(/([éèêë])/g, 'e');
+            name=name.replace(/([íìîï])/g, 'i');
+            name=name.replace(/([óòôö])/g, 'o');
+            name=name.replace(/([úùûü])/g, 'u');
+            name=name.replace(/([ñ])/g, 'n');
+            
+            name=name.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|<>\-\&\Ç\%\=\~\{\}\¿\¡\"\@\:\;\-\"\·\|\º\ª\¨\'\·\̣\─\ç\`\´\¨\^])/g,'');
+
+            i=0;
+            while(i<name.length){
+                if(!isNaN(parseFloat(name[i]))){
+                    name=name.substring(1,name.length);
+                }
+                else{
+                    break;
+                }
+            }
+        }
+        return name;
+    },
     onchange:function(){
         if (this.last_variable !==this.getFieldValue('VAR')){
             var name=this.getFieldValue('VAR');
             name=this.validName(name);
-            this.setFieldValue(name,'VAR');
+            try{
+                this.setFieldValue(name,'VAR');
+            }catch(e){}
             this.last_variable=name;
         }
-    },
-    validName: Blockly.Blocks.procedures_defnoreturn.validName
+    }
 };

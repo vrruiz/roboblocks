@@ -42,25 +42,11 @@ Blockly.Blocks.procedures_defnoreturn = {
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/procedures_defnoreturn',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
-
-
-        //original
         var name = Blockly.Procedures.findLegalName(
             RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'), this);
         this.appendDummyInput()
-            // .appendField(new Blockly.FieldTextInput(name, Blockly.Procedures.rename), 'NAME')
-            .appendField(new Blockly.FieldTextInput(name,this.renameProcedure), 'NAME')
-
-
-
-// //old bitbloq
-//     var name = Blockly.Procedures.findLegalName(
-//         Blockly.LANG_PROCEDURES_DEFNORETURN_PROCEDURE, this);
-//     this.appendDummyInput()
-//         .appendTitle(new Blockly.FieldTextInput(name,
-//         Blockly.Procedures.rename), 'NAME')
-
-
+            .appendField(new Blockly.FieldTextInput(name,
+            Blockly.Procedures.rename), 'NAME')
             .appendField('', 'PARAMS');
         this.appendStatementInput('STACK')
             .appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_DO'));
@@ -208,43 +194,45 @@ Blockly.Blocks.procedures_defnoreturn = {
         }
     },
     validName: function(name){
-        var i=0;
-        while(i<name.length){
-            if(!isNaN(parseFloat(name[i]))){
-                name=name.substring(1,name.length);
+        if(name && name.length>0){
+            var i=0;
+            while(i<name.length){
+                if(!isNaN(parseFloat(name[i]))){
+                    name=name.substring(1,name.length);
+                }
+                else{
+                    break;
+                }
             }
-            else{
-                break;
+            name=name.replace(/([ ])/, '_');
+            name=name.replace(/([áàâä])/g, 'a');
+            name=name.replace(/([éèêë])/g, 'e');
+            name=name.replace(/([íìîï])/g, 'i');
+            name=name.replace(/([óòôö])/g, 'o');
+            name=name.replace(/([úùûü])/g, 'u');
+            name=name.replace(/([ñ])/g, 'n');
+            
+            name=name.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|<>\-\&\Ç\%\=\~\{\}\¿\¡\"\@\:\;\-\"\·\|\º\ª\¨\'\·\̣\─\ç\`\´\¨\^])/g,'');
+
+            i=0;
+            while(i<name.length){
+                if(!isNaN(parseFloat(name[i]))){
+                    name=name.substring(1,name.length);
+                }
+                else{
+                    break;
+                }
             }
         }
-
-        name=name.replace(/([ ])/, '_');
-        name=name.replace(/([áàâä])/g, 'a');
-        name=name.replace(/([éèêë])/g, 'e');
-        name=name.replace(/([íìîï])/g, 'i');
-        name=name.replace(/([óòôö])/g, 'o');
-        name=name.replace(/([úùûü])/g, 'u');
-        name=name.replace(/([ñ])/g, 'n');
-        
-        name=name.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|<>\-\&\Ç\%\=\~\{\}\¿\¡\"\@\:\;\-\"\·\|\º\ª\¨\'\·\̣\─\ç\`\´\¨\^])/g,'');
-
-        i=0;
-        while(i<name.length){
-            if(!isNaN(parseFloat(name[i]))){
-                name=name.substring(1,name.length);
-            }
-            else{
-                break;
-            }
-        }
-
         return name;
     },
     onchange: function(){
         if (this.last_procedure !==this.getFieldValue('NAME')){
             var name=this.getFieldValue('NAME');
             name=this.validName(name);
-            this.setFieldValue(name,'NAME');
+            try{
+                this.setFieldValue(name,'NAME');
+            }catch(e){}
             this.last_procedure=name;
         }
     }
@@ -279,7 +267,9 @@ Blockly.Blocks.procedures_mutatorarg = {
         if (this.last_variable !==this.getFieldValue('NAME')){
             var name=this.getFieldValue('NAME');
             name=this.validName(name);
-            this.setFieldValue(name,'NAME');
+            try{
+                this.setFieldValue(name,'NAME');
+            }catch(e){}
             this.last_variable=name;
         }
     },

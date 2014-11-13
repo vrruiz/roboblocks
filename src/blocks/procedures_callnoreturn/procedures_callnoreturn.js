@@ -44,16 +44,51 @@ Blockly.Blocks.procedures_callnoreturn = {
         this.quarkConnections_ = null;
         this.quarkArguments_ = null;
     },
+    validName: function(name){
+        if(name && name.length>0){
+            var i=0;
+            while(i<name.length){
+                if(!isNaN(parseFloat(name[i]))){
+                    name=name.substring(1,name.length);
+                }
+                else{
+                    break;
+                }
+            }
+            name=name.replace(/([ ])/, '_');
+            name=name.replace(/([áàâä])/g, 'a');
+            name=name.replace(/([éèêë])/g, 'e');
+            name=name.replace(/([íìîï])/g, 'i');
+            name=name.replace(/([óòôö])/g, 'o');
+            name=name.replace(/([úùûü])/g, 'u');
+            name=name.replace(/([ñ])/g, 'n');
+            
+            name=name.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|<>\-\&\Ç\%\=\~\{\}\¿\¡\"\@\:\;\-\"\·\|\º\ª\¨\'\·\̣\─\ç\`\´\¨\^])/g,'');
+
+            i=0;
+            while(i<name.length){
+                if(!isNaN(parseFloat(name[i]))){
+                    name=name.substring(1,name.length);
+                }
+                else{
+                    break;
+                }
+            }
+        }
+        return name;
+    },
     getProcedures: function() {
         var procedures=Blockly.Procedures.allProcedures();
         var procedures_dropdown=[];
         if(procedures[0].length>0){
             for (var i in procedures[0]){
-                procedures_dropdown.push([procedures[0][i][0],procedures[0][i][0]]);
+                var proc_name=procedures[0][i][0];
+                proc_name=this.validName(proc_name);
+                procedures_dropdown.push([proc_name,proc_name]);
             }
         }
         else{
-            procedures_dropdown.push(['','']);
+            procedures_dropdown.push([RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'),RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE')]);
         }
         return procedures_dropdown;
     },
@@ -133,12 +168,16 @@ Blockly.Blocks.procedures_callnoreturn = {
 
         for (var x = 0; x < var_num; x++) {
             if (this.getInput('ARG'+x)===null){
+                // try{
                 this.appendValueInput('ARG'+x)
-                        .appendField(func_variables[x], 'ARG_NAME'+x);
+                    .appendField(func_variables[x], 'ARG_NAME'+x);
+                // }catch(e){}
             }
             else {
                 if(typeof func_variables[x]!=='undefined'){
+                    // try{
                     this.setFieldValue(func_variables[x],'ARG_NAME'+x);
+                    // }catch(e){}
                 }
                 else{
                     this.removeInput('ARG'+x);
@@ -160,7 +199,9 @@ Blockly.Blocks.procedures_callnoreturn = {
         if (this.last_procedure===oldName){
             this.last_procedure=newName;
         }
-        this.setFieldValue(this.last_procedure, 'PROCEDURES');
+        try{
+            this.setFieldValue(this.last_procedure, 'PROCEDURES');
+        }catch(e){}
     },
     changeVariables: function(){
         var func_variables=this.getVariables(this.getFieldValue('PROCEDURES'));//get the variables of the actual function
@@ -201,10 +242,6 @@ Blockly.Blocks.procedures_callnoreturn = {
         this.setFieldValue(name, 'PROCEDURES');
 
         for (var x = 0; x < xmlElement.childNodes.length; x++) {
-            // try{
-            //     this.appendValueInput('ARG'+x)
-            //         .appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME'+x);
-            // }catch(e){console.log('aaaaaaaaaaa',e);}
             this.appendValueInput('ARG'+x)
                 .appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME'+x);
         }
