@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.2 - 2014-11-12
+/*! roboblocks - v0.1.2 - 2014-11-13
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -863,12 +863,12 @@
                 LANG_CATEGORY_PROCEDURES: 'Funciones',
 
                 LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
-                LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'función',
+                LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'func',
                 LANG_PROCEDURES_DEFNORETURN_DO: 'ejecutar',
                 LANG_PROCEDURES_DEFNORETURN_TOOLTIP: 'Función que se ejecutará sin devolver nada.',
 
                 LANG_PROCEDURES_DEFRETURN_HELPURL: '',
-                LANG_PROCEDURES_DEFRETURN_PROCEDURE: 'función',
+                LANG_PROCEDURES_DEFRETURN_PROCEDURE: 'func',
                 LANG_PROCEDURES_DEFRETURN_DO: 'ejecutar',
                 LANG_PROCEDURES_DEFRETURN_RETURN: 'devuelve',
                 LANG_PROCEDURES_DEFRETURN_TOOLTIP: 'Función con valor de retorno.',
@@ -5786,12 +5786,26 @@
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_defnoreturn',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
+
+
+                //original
                 var name = Blockly.Procedures.findLegalName(
                     RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'), this);
                 this.appendDummyInput()
-                    .appendField(new Blockly.FieldTextInput(name,
-                        Blockly.Procedures.rename), 'NAME')
-                    .appendField('', 'PARAMS');
+                    // .appendField(new Blockly.FieldTextInput(name, Blockly.Procedures.rename), 'NAME')
+                    .appendField(new Blockly.FieldTextInput(name, this.renameProcedure), 'NAME')
+
+
+
+                // //old bitbloq
+                //     var name = Blockly.Procedures.findLegalName(
+                //         Blockly.LANG_PROCEDURES_DEFNORETURN_PROCEDURE, this);
+                //     this.appendDummyInput()
+                //         .appendTitle(new Blockly.FieldTextInput(name,
+                //         Blockly.Procedures.rename), 'NAME')
+
+
+                .appendField('', 'PARAMS');
                 this.appendStatementInput('STACK')
                     .appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_DO'));
                 this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
@@ -5917,6 +5931,7 @@
                 var change = false;
                 for (var x = 0; x < this.arguments_.length; x++) {
                     if (Blockly.Names.equals(oldName, this.arguments_[x])) {
+                        newName = this.validName(newName);
                         this.arguments_[x] = newName;
                         change = true;
                     }
@@ -5934,6 +5949,45 @@
                             }
                         }
                     }
+                }
+            },
+            validName: function(name) {
+                var i = 0;
+                while (i < name.length) {
+                    if (!isNaN(parseFloat(name[i]))) {
+                        name = name.substring(1, name.length);
+                    } else {
+                        break;
+                    }
+                }
+
+                name = name.replace(/([ ])/, '_');
+                name = name.replace(/([áàâä])/g, 'a');
+                name = name.replace(/([éèêë])/g, 'e');
+                name = name.replace(/([íìîï])/g, 'i');
+                name = name.replace(/([óòôö])/g, 'o');
+                name = name.replace(/([úùûü])/g, 'u');
+                name = name.replace(/([ñ])/g, 'n');
+
+                name = name.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|<>\-\&\Ç\%\=\~\{\}\¿\¡\"\@\:\;\-\"\·\|\º\ª\¨\'\·\̣\─\ç\`\´\¨\^])/g, '');
+
+                i = 0;
+                while (i < name.length) {
+                    if (!isNaN(parseFloat(name[i]))) {
+                        name = name.substring(1, name.length);
+                    } else {
+                        break;
+                    }
+                }
+
+                return name;
+            },
+            onchange: function() {
+                if (this.last_procedure !== this.getFieldValue('NAME')) {
+                    var name = this.getFieldValue('NAME');
+                    name = this.validName(name);
+                    this.setFieldValue(name, 'NAME');
+                    this.last_procedure = name;
                 }
             }
         };
@@ -5965,7 +6019,16 @@
                 this.setNextStatement(true);
                 this.setTooltip('');
                 this.contextMenu = false;
-            }
+            },
+            onchange: function() {
+                if (this.last_variable !== this.getFieldValue('NAME')) {
+                    var name = this.getFieldValue('NAME');
+                    name = this.validName(name);
+                    this.setFieldValue(name, 'NAME');
+                    this.last_variable = name;
+                }
+            },
+            validName: Blockly.Blocks.procedures_defnoreturn.validName
         };
 
         Blockly.Blocks.procedures_mutatorarg.validator = function(newVar) {
@@ -6065,7 +6128,9 @@
             getVars: Blockly.Blocks.procedures_defnoreturn.getVars,
             renameVar: Blockly.Blocks.procedures_defnoreturn.renameVar,
             mutationToDom: Blockly.Blocks.procedures_defnoreturn.mutationToDom,
-            domToMutation: Blockly.Blocks.procedures_defnoreturn.domToMutation
+            domToMutation: Blockly.Blocks.procedures_defnoreturn.domToMutation,
+            validName: Blockly.Blocks.procedures_defnoreturn.validName,
+            onchange: Blockly.Blocks.procedures_defnoreturn.onchange
         };
 
         // Source: src/blocks/procedures_ifreturn/procedures_ifreturn.js
@@ -7064,7 +7129,16 @@
                     }
                 }
                 return false;
-            }
+            },
+            onchange: function() {
+                if (this.last_variable !== this.getFieldValue('VAR')) {
+                    var name = this.getFieldValue('VAR');
+                    name = this.validName(name);
+                    this.setFieldValue(name, 'VAR');
+                    this.last_variable = name;
+                }
+            },
+            validName: Blockly.Blocks.procedures_defnoreturn.validName
         };
 
         // Source: src/blocks/variables_local/variables_local.js
@@ -7157,7 +7231,9 @@
                     this.setFieldValue(newName, 'VAR');
                 }
             },
-            isVariable: Blockly.Blocks.variables_global.isVariable
+            isVariable: Blockly.Blocks.variables_global.isVariable,
+            onchange: Blockly.Blocks.variables_global.onchange,
+            validName: Blockly.Blocks.variables_global.validName
         };
 
         // Source: src/blocks/variables_set/variables_set.js

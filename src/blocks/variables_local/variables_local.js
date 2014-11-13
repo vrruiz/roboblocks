@@ -97,5 +97,7 @@ Blockly.Blocks.variables_local = {
             this.setFieldValue(newName, 'VAR');
         }
     },
-    isVariable: Blockly.Blocks.variables_global.isVariable
+    isVariable: Blockly.Blocks.variables_global.isVariable,
+    onchange: Blockly.Blocks.variables_global.onchange,
+    validName: Blockly.Blocks.variables_global.validName
 };

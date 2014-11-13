@@ -91,5 +91,7 @@ Blockly.Blocks.procedures_defreturn = {
     getVars: Blockly.Blocks.procedures_defnoreturn.getVars,
     renameVar: Blockly.Blocks.procedures_defnoreturn.renameVar,
     mutationToDom: Blockly.Blocks.procedures_defnoreturn.mutationToDom,
-    domToMutation: Blockly.Blocks.procedures_defnoreturn.domToMutation
+    domToMutation: Blockly.Blocks.procedures_defnoreturn.domToMutation,
+    validName: Blockly.Blocks.procedures_defnoreturn.validName,
+    onchange: Blockly.Blocks.procedures_defnoreturn.onchange
 };

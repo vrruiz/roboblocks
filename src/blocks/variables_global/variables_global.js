@@ -105,5 +105,14 @@ Blockly.Blocks.variables_global = {
             }
         }
         return false;
-    }
+    },
+    onchange:function(){
+        if (this.last_variable !==this.getFieldValue('VAR')){
+            var name=this.getFieldValue('VAR');
+            name=this.validName(name);
+            this.setFieldValue(name,'VAR');
+            this.last_variable=name;
+        }
+    },
+    validName: Blockly.Blocks.procedures_defnoreturn.validName
 };
