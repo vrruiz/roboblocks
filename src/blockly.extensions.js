@@ -29,7 +29,7 @@ Blockly.createToolbox = function() {
     for (block in blocks) {
 
         if (blocks.hasOwnProperty(block)) {
-            toolbox += '<category name="' + block + '">';
+            toolbox += '<category id="'+block+'" name="' + block + '">';
             blocks[block].forEach(categoryItem);
             toolbox += '</category>';
         }
