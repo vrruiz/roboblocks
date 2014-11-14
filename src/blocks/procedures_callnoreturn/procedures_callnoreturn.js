@@ -157,17 +157,13 @@ Blockly.Blocks.procedures_callnoreturn = {
             for (var x = 0; x < var_num; x++) {
 
                 if (this.getInput('ARG'+x)===null){
-                    // try{
                     this.appendValueInput('ARG'+x)
                         .appendField(func_variables[x], 'ARG_NAME'+x)
                         .setAlign(Blockly.ALIGN_RIGHT);
-                    // }catch(e){}
                 }
                 else {
                     if(typeof func_variables[x]!=='undefined'){
-                        // try{
                         this.setFieldValue(func_variables[x],'ARG_NAME'+x);
-                        // }catch(e){}
                     }
                     else{
                         this.removeInput('ARG'+x);

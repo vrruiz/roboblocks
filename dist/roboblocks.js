@@ -5564,16 +5564,12 @@
                     for (var x = 0; x < var_num; x++) {
 
                         if (this.getInput('ARG' + x) === null) {
-                            // try{
                             this.appendValueInput('ARG' + x)
                                 .appendField(func_variables[x], 'ARG_NAME' + x)
                                 .setAlign(Blockly.ALIGN_RIGHT);
-                            // }catch(e){}
                         } else {
                             if (typeof func_variables[x] !== 'undefined') {
-                                // try{
                                 this.setFieldValue(func_variables[x], 'ARG_NAME' + x);
-                                // }catch(e){}
                             } else {
                                 this.removeInput('ARG' + x);
                             }
@@ -5774,29 +5770,22 @@
                     // Block has been deleted.
                     return;
                 }
-                if (!this.last_procedure) {
+                if (this.getFieldValue('PROCEDURES') !== this.last_procedure && this.getFieldValue('PROCEDURES')) {
+                    console.log('procedures_callnoreturn-->procedure_name has changed!', this.getFieldValue('PROCEDURES'), this.last_procedure);
+                    this.changeVariables();
                     this.last_procedure = this.getFieldValue('PROCEDURES');
-                }
-                if (typeof this.last_variables === 'undefined') {
                     this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
-                } else if (typeof this.last_variables !== 'undefined' && typeof this.last_procedure !== 'undefined') {
-                    if (this.getFieldValue('PROCEDURES') !== this.last_procedure) {
-                        this.changeVariables();
-                        this.last_procedure = this.getFieldValue('PROCEDURES');
-                    }
-                    if (this.getVariables(this.getFieldValue('PROCEDURES')) !== this.last_variables) {
-                        this.addVariables();
-                        this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
-                    }
+                } else if (this.getVariables(this.getFieldValue('PROCEDURES')) !== this.last_variables) {
+                    console.log('procedures_callnoreturn-->variables have changed!', this.getVariables(this.getFieldValue('PROCEDURES')), this.last_variables, this.getFieldValue('PROCEDURES'));
+                    this.addVariables();
+                    this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                 }
             },
             addVariables: function() {
                 var func_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                 var var_num;
-                if (typeof this.last_variables === 'undefined') {
-                    this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
-                }
-                if (typeof func_variables !== 'undefined' && typeof this.last_variables !== 'undefined') {
+
+                if (func_variables) {
                     if (typeof this.last_variables === 'undefined') {
                         this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                     }
@@ -5805,27 +5794,25 @@
                     } else {
                         var_num = this.last_variables.length;
                     }
-                } else {
-                    var_num = 0;
-                }
+                    for (var x = 0; x < var_num; x++) {
 
-                for (var x = 0; x < var_num; x++) {
-                    if (this.getInput('ARG' + x) === null) {
-                        // try{
-                        this.appendValueInput('ARG' + x)
-                            .appendField(func_variables[x], 'ARG_NAME' + x);
-                        // }catch(e){}
-                    } else {
-                        if (typeof func_variables[x] !== 'undefined') {
-                            // try{
-                            this.setFieldValue(func_variables[x], 'ARG_NAME' + x);
-                            // }catch(e){}
+                        if (this.getInput('ARG' + x) === null) {
+                            this.appendValueInput('ARG' + x)
+                                .appendField(func_variables[x], 'ARG_NAME' + x)
+                                .setAlign(Blockly.ALIGN_RIGHT);
                         } else {
-                            this.removeInput('ARG' + x);
+                            if (typeof func_variables[x] !== 'undefined') {
+                                this.setFieldValue(func_variables[x], 'ARG_NAME' + x);
+                            } else {
+                                this.removeInput('ARG' + x);
+                            }
                         }
+
+                        console.log('getinput(arg+x)', this.getInput('ARG' + x), x);
+                        console.log('getinput(arg_name+x)', this.getFieldValue('ARG_NAME' + x), x);
                     }
+                    this.arguments_ = func_variables;
                 }
-                this.arguments_ = func_variables;
             },
 
             renameProcedure: function(oldName, newName) {
@@ -5856,7 +5843,8 @@
                 }
                 for (var variable in func_variables) {
                     this.appendValueInput('ARG' + variable)
-                        .appendField(func_variables[variable]);
+                        .appendField(func_variables[variable])
+                        .setAlign(Blockly.ALIGN_RIGHT);
                 }
                 this.arguments_ = func_variables;
             },
@@ -5886,7 +5874,8 @@
 
                 for (var x = 0; x < xmlElement.childNodes.length; x++) {
                     this.appendValueInput('ARG' + x)
-                        .appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME' + x);
+                        .appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME' + x)
+                        .setAlign(Blockly.ALIGN_RIGHT);
                 }
             }
         };
