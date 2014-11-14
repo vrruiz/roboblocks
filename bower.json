@@ -5,9 +5,13 @@
     "main": "dist/roboblocks.min.js",
     "license": "MIT",
     "keywords": ["roboblocks", "blockly", "arduino", "bitbloq", "bq"],
-    "author": {
-        "name": "bq"
-    },
+    "contributors": [{
+        "name": "Sergio Morcuende",
+        "email": "sergio.morcuende@bq.com"
+    }, {
+        "name": "Irene Sanz",
+        "email": "irene.sanz@bq.com"
+    }],
     "homepage": "http://github.com/bq/roboblocks",
     "repository": {
         "type": "git",
