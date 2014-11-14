@@ -14,8 +14,9 @@
         "url": "http://github.com/bq/roboblock.git"
     },
     "scripts": {
-        "bower": "bower install",
-        "build": "grunt"
+        "clean": "rm -rf node_modules src/main/webapp/bower_components && bower cache clean",
+        "bower": "npm install && bower install",
+        "reset": "npm run clean && npm run bower"
     },
     "dependencies": {},
     "devDependencies": {

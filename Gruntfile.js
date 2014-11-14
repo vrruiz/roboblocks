@@ -1,7 +1,7 @@
 'use strict';
 /*global module:false*/
 module.exports = function(grunt) {
-    var LIVERELOAD_PORT = 35729;
+    var LIVERELOAD_PORT = 34729;
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -140,7 +140,7 @@ module.exports = function(grunt) {
             },
             dev: {
                 options: {
-                    port: 9000,
+                    port: 9009,
                     middleware: function(connect) {
                         return [
                             // Prevent anoying 404 errors from Blockly.workspace media resources
