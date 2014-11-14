@@ -54,7 +54,7 @@ module.exports = function(grunt) {
         // Task configuration.
         concat: {
             options: {
-                banner: '<%= banner %>\n(function (factory) { if (typeof define === \'function\' && define.amd) {define([\'underscore\',\'blockly-bq\',\'blockly.blocks\'], factory);} else {factory(_, window.Blockly, window.Blocks);}}(function (_, Blockly, Blocks) {\nvar load = function(options) {\n',
+                banner: '<%= banner %>\n(function (factory) { if (typeof define === \'function\' && define.amd) {define([\'underscore\',\'blockly\',\'blockly.blocks\'], factory);} else {factory(_, window.Blockly, window.Blocks);}}(function (_, Blockly, Blocks) {\nvar load = function(options) {\n',
                 footer: 'return Blockly.Blocks;\n}\nvar RoboBlocks = {load: load};if (typeof define === \'function\' && define.amd) {return RoboBlocks;} else {window.RoboBlocks = RoboBlocks;}\n}));',
                 stripBanners: true,
                 // Only on 'use_strict' in file

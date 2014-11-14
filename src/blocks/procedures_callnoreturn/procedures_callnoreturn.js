@@ -43,6 +43,8 @@ Blockly.Blocks.procedures_callnoreturn = {
         this.arguments_ = this.getVariables(this.getFieldValue('PROCEDURES'));
         this.quarkConnections_ = null;
         this.quarkArguments_ = null;
+
+        this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
     },
     validName: function(name){
         if(name && name.length>0){
@@ -55,7 +57,7 @@ Blockly.Blocks.procedures_callnoreturn = {
                     break;
                 }
             }
-            name=name.replace(/([ ])/, '_');
+            name=name.replace(/([ ])/g, '_');
             name=name.replace(/([áàâä])/g, 'a');
             name=name.replace(/([éèêë])/g, 'e');
             name=name.replace(/([íìîï])/g, 'i');
@@ -112,7 +114,7 @@ Blockly.Blocks.procedures_callnoreturn = {
     getVariables: function(funcName){
         var procedures=Blockly.Procedures.allProcedures();
         var procedures_dropdown=[];
-        if(procedures[0].length>0 || procedures[1].length>0){
+        if(procedures[0].length>0 ){
             for (var i in procedures[0]){
                 if (procedures[0][i][0]===funcName){
                     return procedures[0][i][1];
@@ -129,25 +131,25 @@ Blockly.Blocks.procedures_callnoreturn = {
             return;
         }
         if (this.getFieldValue('PROCEDURES')!== this.last_procedure && this.getFieldValue('PROCEDURES')){
-            // console.log('procedures_callnoreturn-->procedure_name has changed!', this.getFieldValue('PROCEDURES'),this.last_procedure);
+            console.log('procedures_callnoreturn-->procedure_name has changed!', this.getFieldValue('PROCEDURES'),this.last_procedure);
             this.changeVariables();
             this.last_procedure=this.getFieldValue('PROCEDURES');
             this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
         }
-        else if(this.getVariables(this.getFieldValue('PROCEDURES'))!==this.last_variables ){
-            // console.log('procedures_callnoreturn-->variables have changed!',this.getVariables(this.getFieldValue('PROCEDURES')),this.last_variables, this.getFieldValue('PROCEDURES'));
+        else if(this.getVariables(this.getFieldValue('PROCEDURES'))!==this.last_variables){
+            console.log('procedures_callnoreturn-->variables have changed!',this.getVariables(this.getFieldValue('PROCEDURES')),this.last_variables, this.getFieldValue('PROCEDURES'));
             this.addVariables();
             this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
+            this.last_procedure=this.getFieldValue('PROCEDURES');
         }
     },
     addVariables: function(){
         var func_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
-        var var_num;
-
+        var var_num=0;
         if(func_variables){
-            if (typeof this.last_variables==='undefined'){
-                this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
-            }
+            // if (typeof this.last_variables==='undefined'){
+            //     this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
+            // }
             if (func_variables.length>=this.last_variables){
                 var_num=func_variables.length;
             }
@@ -169,9 +171,6 @@ Blockly.Blocks.procedures_callnoreturn = {
                         this.removeInput('ARG'+x);
                     }
                 }
-
-                // console.log('getinput(arg+x)', this.getInput('ARG'+x), x);
-                // console.log('getinput(arg_name+x)', this.getFieldValue('ARG_NAME'+x), x);
             }
             this.arguments_=func_variables;
         }

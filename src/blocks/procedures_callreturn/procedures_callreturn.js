@@ -53,7 +53,7 @@ Blockly.Blocks.procedures_callreturn = {
                     break;
                 }
             }
-            name=name.replace(/([ ])/, '_');
+            name=name.replace(/([ ])/g, '_');
             name=name.replace(/([áàâä])/g, 'a');
             name=name.replace(/([éèêë])/g, 'e');
             name=name.replace(/([íìîï])/g, 'i');
@@ -86,10 +86,11 @@ Blockly.Blocks.procedures_callreturn = {
             }
         }
         else{
-            procedures_dropdown.push(['','']);
+            procedures_dropdown.push([RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'),RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE')]);
         }
         return procedures_dropdown;
     },
+
     maxVariableNumber: function(){
         var procedures=Blockly.Procedures.allProcedures();
         var procedures_dropdown=[];
@@ -135,6 +136,7 @@ Blockly.Blocks.procedures_callreturn = {
             // console.log('procedures_callnoreturn-->variables have changed!',this.getVariables(this.getFieldValue('PROCEDURES')),this.last_variables, this.getFieldValue('PROCEDURES'));
             this.addVariables();
             this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
+            this.last_procedure=this.getFieldValue('PROCEDURES');
         }
     },
     addVariables: function(){
@@ -159,7 +161,7 @@ Blockly.Blocks.procedures_callreturn = {
                         .setAlign(Blockly.ALIGN_RIGHT);
                 }
                 else {
-                    if(func_variables[x]){
+                    if(func_variables[x] && this.getFieldValue('ARG_NAME'+x)){
                         this.setFieldValue(func_variables[x],'ARG_NAME'+x);
                     }
                     else{
@@ -176,6 +178,7 @@ Blockly.Blocks.procedures_callreturn = {
 
     renameProcedure: function(oldName, newName) {
         if (this.last_procedure){
+
             var procedures= this.getProcedures();
             for (var i in procedures){
                 if (Blockly.Names.equals(oldName, procedures[i][0])) {

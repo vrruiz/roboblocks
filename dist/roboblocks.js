@@ -4,7 +4,7 @@
 
 (function(factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['underscore', 'blockly-bq', 'blockly.blocks'], factory);
+        define(['underscore', 'blockly', 'blockly.blocks'], factory);
     } else {
         factory(_, window.Blockly, window.Blocks);
     }
@@ -920,7 +920,7 @@
                 LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN deseado.',
 
                 //zum blocks :
-                LANG_CATEGORY_ZUM: 'Bloques zum',
+                LANG_CATEGORY_ZUM: 'zum bloqs',
 
                 LANG_ZUM_BUTTON: 'Botón',
                 LANG_ZUM_BUTTON_PIN: 'PIN#',
@@ -5457,6 +5457,8 @@
                 this.arguments_ = this.getVariables(this.getFieldValue('PROCEDURES'));
                 this.quarkConnections_ = null;
                 this.quarkArguments_ = null;
+
+                this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
             },
             validName: function(name) {
                 if (name && name.length > 0) {
@@ -5468,7 +5470,7 @@
                             break;
                         }
                     }
-                    name = name.replace(/([ ])/, '_');
+                    name = name.replace(/([ ])/g, '_');
                     name = name.replace(/([áàâä])/g, 'a');
                     name = name.replace(/([éèêë])/g, 'e');
                     name = name.replace(/([íìîï])/g, 'i');
@@ -5522,7 +5524,7 @@
             getVariables: function(funcName) {
                 var procedures = Blockly.Procedures.allProcedures();
                 var procedures_dropdown = [];
-                if (procedures[0].length > 0 || procedures[1].length > 0) {
+                if (procedures[0].length > 0) {
                     for (var i in procedures[0]) {
                         if (procedures[0][i][0] === funcName) {
                             return procedures[0][i][1];
@@ -5538,24 +5540,24 @@
                     return;
                 }
                 if (this.getFieldValue('PROCEDURES') !== this.last_procedure && this.getFieldValue('PROCEDURES')) {
-                    // console.log('procedures_callnoreturn-->procedure_name has changed!', this.getFieldValue('PROCEDURES'),this.last_procedure);
+                    console.log('procedures_callnoreturn-->procedure_name has changed!', this.getFieldValue('PROCEDURES'), this.last_procedure);
                     this.changeVariables();
                     this.last_procedure = this.getFieldValue('PROCEDURES');
                     this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                 } else if (this.getVariables(this.getFieldValue('PROCEDURES')) !== this.last_variables) {
-                    // console.log('procedures_callnoreturn-->variables have changed!',this.getVariables(this.getFieldValue('PROCEDURES')),this.last_variables, this.getFieldValue('PROCEDURES'));
+                    console.log('procedures_callnoreturn-->variables have changed!', this.getVariables(this.getFieldValue('PROCEDURES')), this.last_variables, this.getFieldValue('PROCEDURES'));
                     this.addVariables();
                     this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
+                    this.last_procedure = this.getFieldValue('PROCEDURES');
                 }
             },
             addVariables: function() {
                 var func_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
-                var var_num;
-
+                var var_num = 0;
                 if (func_variables) {
-                    if (typeof this.last_variables === 'undefined') {
-                        this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
-                    }
+                    // if (typeof this.last_variables==='undefined'){
+                    //     this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
+                    // }
                     if (func_variables.length >= this.last_variables) {
                         var_num = func_variables.length;
                     } else {
@@ -5574,9 +5576,6 @@
                                 this.removeInput('ARG' + x);
                             }
                         }
-
-                        // console.log('getinput(arg+x)', this.getInput('ARG'+x), x);
-                        // console.log('getinput(arg_name+x)', this.getFieldValue('ARG_NAME'+x), x);
                     }
                     this.arguments_ = func_variables;
                 }
@@ -5702,7 +5701,7 @@
                             break;
                         }
                     }
-                    name = name.replace(/([ ])/, '_');
+                    name = name.replace(/([ ])/g, '_');
                     name = name.replace(/([áàâä])/g, 'a');
                     name = name.replace(/([éèêë])/g, 'e');
                     name = name.replace(/([íìîï])/g, 'i');
@@ -5733,10 +5732,11 @@
                         procedures_dropdown.push([proc_name, proc_name]);
                     }
                 } else {
-                    procedures_dropdown.push(['', '']);
+                    procedures_dropdown.push([RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'), RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE')]);
                 }
                 return procedures_dropdown;
             },
+
             maxVariableNumber: function() {
                 var procedures = Blockly.Procedures.allProcedures();
                 var procedures_dropdown = [];
@@ -5779,6 +5779,7 @@
                     // console.log('procedures_callnoreturn-->variables have changed!',this.getVariables(this.getFieldValue('PROCEDURES')),this.last_variables, this.getFieldValue('PROCEDURES'));
                     this.addVariables();
                     this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
+                    this.last_procedure = this.getFieldValue('PROCEDURES');
                 }
             },
             addVariables: function() {
@@ -5801,7 +5802,7 @@
                                 .appendField(func_variables[x], 'ARG_NAME' + x)
                                 .setAlign(Blockly.ALIGN_RIGHT);
                         } else {
-                            if (func_variables[x]) {
+                            if (func_variables[x] && this.getFieldValue('ARG_NAME' + x)) {
                                 this.setFieldValue(func_variables[x], 'ARG_NAME' + x);
                             } else {
                                 this.removeInput('ARG' + x);
@@ -5817,6 +5818,7 @@
 
             renameProcedure: function(oldName, newName) {
                 if (this.last_procedure) {
+
                     var procedures = this.getProcedures();
                     for (var i in procedures) {
                         if (Blockly.Names.equals(oldName, procedures[i][0])) {
@@ -6084,7 +6086,7 @@
                             break;
                         }
                     }
-                    name = name.replace(/([ ])/, '_');
+                    name = name.replace(/([ ])/g, '_');
                     name = name.replace(/([áàâä])/g, 'a');
                     name = name.replace(/([éèêë])/g, 'e');
                     name = name.replace(/([íìîï])/g, 'i');

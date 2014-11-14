@@ -204,7 +204,7 @@ Blockly.Blocks.procedures_defnoreturn = {
                     break;
                 }
             }
-            name=name.replace(/([ ])/, '_');
+            name=name.replace(/([ ])/g, '_');
             name=name.replace(/([áàâä])/g, 'a');
             name=name.replace(/([éèêë])/g, 'e');
             name=name.replace(/([íìîï])/g, 'i');
