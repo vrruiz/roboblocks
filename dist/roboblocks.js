@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.2 - 2014-11-13
+/*! roboblocks - v0.1.3 - 2014-11-14
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -5537,29 +5537,22 @@
                     // Block has been deleted.
                     return;
                 }
-                if (!this.last_procedure) {
+                if (this.getFieldValue('PROCEDURES') !== this.last_procedure && this.getFieldValue('PROCEDURES')) {
+                    console.log('procedures_callnoreturn-->procedure_name has changed!', this.getFieldValue('PROCEDURES'), this.last_procedure);
+                    this.changeVariables();
                     this.last_procedure = this.getFieldValue('PROCEDURES');
-                }
-                if (typeof this.last_variables === 'undefined') {
                     this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
-                } else if (typeof this.last_variables !== 'undefined' && typeof this.last_procedure !== 'undefined') {
-                    if (this.getFieldValue('PROCEDURES') !== this.last_procedure) {
-                        this.changeVariables();
-                        this.last_procedure = this.getFieldValue('PROCEDURES');
-                    }
-                    if (this.getVariables(this.getFieldValue('PROCEDURES')) !== this.last_variables) {
-                        this.addVariables();
-                        this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
-                    }
+                } else if (this.getVariables(this.getFieldValue('PROCEDURES')) !== this.last_variables) {
+                    console.log('procedures_callnoreturn-->variables have changed!', this.getVariables(this.getFieldValue('PROCEDURES')), this.last_variables, this.getFieldValue('PROCEDURES'));
+                    this.addVariables();
+                    this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                 }
             },
             addVariables: function() {
                 var func_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                 var var_num;
-                if (typeof this.last_variables === 'undefined') {
-                    this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
-                }
-                if (typeof func_variables !== 'undefined' && typeof this.last_variables !== 'undefined') {
+
+                if (func_variables) {
                     if (typeof this.last_variables === 'undefined') {
                         this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                     }
@@ -5568,44 +5561,49 @@
                     } else {
                         var_num = this.last_variables.length;
                     }
-                } else {
-                    var_num = 0;
-                }
+                    for (var x = 0; x < var_num; x++) {
 
-                for (var x = 0; x < var_num; x++) {
-                    if (this.getInput('ARG' + x) === null) {
-                        // try{
-                        this.appendValueInput('ARG' + x)
-                            .appendField(func_variables[x], 'ARG_NAME' + x);
-                        // }catch(e){}
-                    } else {
-                        if (typeof func_variables[x] !== 'undefined') {
+                        if (this.getInput('ARG' + x) === null) {
                             // try{
-                            this.setFieldValue(func_variables[x], 'ARG_NAME' + x);
+                            this.appendValueInput('ARG' + x)
+                                .appendField(func_variables[x], 'ARG_NAME' + x)
+                                .setAlign(Blockly.ALIGN_RIGHT);
                             // }catch(e){}
                         } else {
-                            this.removeInput('ARG' + x);
+                            if (typeof func_variables[x] !== 'undefined') {
+                                // try{
+                                this.setFieldValue(func_variables[x], 'ARG_NAME' + x);
+                                // }catch(e){}
+                            } else {
+                                this.removeInput('ARG' + x);
+                            }
                         }
+
+                        console.log('getinput(arg+x)', this.getInput('ARG' + x), x);
+                        console.log('getinput(arg_name+x)', this.getFieldValue('ARG_NAME' + x), x);
                     }
+                    this.arguments_ = func_variables;
                 }
-                this.arguments_ = func_variables;
             },
 
             renameProcedure: function(oldName, newName) {
-                var procedures = this.getProcedures();
-                for (var i in procedures) {
-                    if (Blockly.Names.equals(oldName, procedures[i][0])) {
-                        this.removeInput('DUMMY');
-                        this.appendDummyInput('DUMMY')
-                            .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
+                if (this.last_procedure) {
+
+                    var procedures = this.getProcedures();
+                    for (var i in procedures) {
+                        if (Blockly.Names.equals(oldName, procedures[i][0])) {
+                            this.removeInput('DUMMY');
+                            this.appendDummyInput('DUMMY')
+                                .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
+                        }
                     }
+                    if (this.last_procedure === oldName) {
+                        this.last_procedure = newName;
+                    }
+                    try {
+                        this.setFieldValue(this.last_procedure, 'PROCEDURES');
+                    } catch (e) {}
                 }
-                if (this.last_procedure === oldName) {
-                    this.last_procedure = newName;
-                }
-                try {
-                    this.setFieldValue(this.last_procedure, 'PROCEDURES');
-                } catch (e) {}
             },
             changeVariables: function() {
                 var func_variables = this.getVariables(this.getFieldValue('PROCEDURES')); //get the variables of the actual function
@@ -5617,7 +5615,8 @@
                 }
                 for (var variable in func_variables) {
                     this.appendValueInput('ARG' + variable)
-                        .appendField(func_variables[variable]);
+                        .appendField(func_variables[variable])
+                        .setAlign(Blockly.ALIGN_RIGHT);
                 }
                 this.arguments_ = func_variables;
             },
@@ -5647,7 +5646,8 @@
 
                 for (var x = 0; x < xmlElement.childNodes.length; x++) {
                     this.appendValueInput('ARG' + x)
-                        .appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME' + x);
+                        .appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME' + x)
+                        .setAlign(Blockly.ALIGN_RIGHT);
                 }
             }
 
@@ -5829,20 +5829,22 @@
             },
 
             renameProcedure: function(oldName, newName) {
-                var procedures = this.getProcedures();
-                for (var i in procedures) {
-                    if (Blockly.Names.equals(oldName, procedures[i][0])) {
-                        this.removeInput('DUMMY');
-                        this.appendDummyInput('DUMMY')
-                            .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
+                if (this.last_procedure) {
+                    var procedures = this.getProcedures();
+                    for (var i in procedures) {
+                        if (Blockly.Names.equals(oldName, procedures[i][0])) {
+                            this.removeInput('DUMMY');
+                            this.appendDummyInput('DUMMY')
+                                .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
+                        }
                     }
+                    if (this.last_procedure === oldName) {
+                        this.last_procedure = newName;
+                    }
+                    try {
+                        this.setFieldValue(this.last_procedure, 'PROCEDURES');
+                    } catch (e) {}
                 }
-                if (this.last_procedure === oldName) {
-                    this.last_procedure = newName;
-                }
-                try {
-                    this.setFieldValue(this.last_procedure, 'PROCEDURES');
-                } catch (e) {}
             },
             changeVariables: function() {
                 var func_variables = this.getVariables(this.getFieldValue('PROCEDURES')); //get the variables of the actual function

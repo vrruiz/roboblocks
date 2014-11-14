@@ -185,20 +185,22 @@ Blockly.Blocks.procedures_callreturn = {
     },
 
     renameProcedure: function(oldName, newName) {
-        var procedures= this.getProcedures();
-        for (var i in procedures){
-            if (Blockly.Names.equals(oldName, procedures[i][0])) {
-                this.removeInput('DUMMY');
-                this.appendDummyInput('DUMMY')
-                    .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
+        if (this.last_procedure){
+            var procedures= this.getProcedures();
+            for (var i in procedures){
+                if (Blockly.Names.equals(oldName, procedures[i][0])) {
+                    this.removeInput('DUMMY');
+                    this.appendDummyInput('DUMMY')
+                        .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
+                }
             }
+            if (this.last_procedure===oldName){
+                this.last_procedure=newName;
+            }
+            try{
+                this.setFieldValue(this.last_procedure, 'PROCEDURES');
+            }catch(e){}
         }
-        if (this.last_procedure===oldName){
-            this.last_procedure=newName;
-        }
-        try{
-            this.setFieldValue(this.last_procedure, 'PROCEDURES');
-        }catch(e){}
     },
     changeVariables: function(){
         var func_variables=this.getVariables(this.getFieldValue('PROCEDURES'));//get the variables of the actual function
