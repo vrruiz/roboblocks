@@ -392,7 +392,7 @@
         LANG_VARIABLES_PIN_TOOLTIP : 'Selecciona el PIN deseado.',
 
         //zum blocks :
-        LANG_CATEGORY_ZUM : 'Bloques zum',
+        LANG_CATEGORY_ZUM : 'zum bloqs',
 
         LANG_ZUM_BUTTON : 'Botón',
         LANG_ZUM_BUTTON_PIN : 'PIN#',
