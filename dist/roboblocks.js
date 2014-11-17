@@ -1233,11 +1233,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '//bqBAT\nlong Distance' +
-                    __e(red_pin) +
-                    '()\n{\n  long microseconds = TP_init' +
-                    __e(red_pin) +
-                    '();\n  long distance;\n  distance = microseconds/29/2;\n  return distance;\n}\n\nlong TP_init' +
+                __p += '//bqBAT\n\nlong TP_init' +
                     __e(red_pin) +
                     '()\n{\n  digitalWrite( ' +
                     __e(blue_pin) +
@@ -1247,7 +1243,11 @@
                     __e(blue_pin) +
                     ' , LOW);\n  long microseconds = pulseIn( ' +
                     __e(red_pin) +
-                    ' ,HIGH);\n  return microseconds;\n}\n';
+                    ' ,HIGH);\n  return microseconds;\n}\n\nlong Distance' +
+                    __e(red_pin) +
+                    '()\n{\n  long microseconds = TP_init' +
+                    __e(red_pin) +
+                    '();\n  long distance;\n  distance = microseconds/29/2;\n  return distance;\n}';
 
             }
             return __p
