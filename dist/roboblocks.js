@@ -1,10 +1,10 @@
-/*! roboblocks - v0.1.3 - 2014-11-14
+/*! roboblocks - v0.1.3 - 2014-11-17
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
 (function(factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['underscore', 'blockly', 'blockly.blocks'], factory);
+        define(['underscore', 'blockly-bq', 'blockly.blocks'], factory);
     } else {
         factory(_, window.Blockly, window.Blocks);
     }
