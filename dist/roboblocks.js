@@ -254,7 +254,7 @@
                 LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE: 'Skip the rest of this loop, and continue with the next iteration.',
                 LANG_CONTROLS_FLOW_STATEMENTS_WARNING: 'Warning: This block may only be used within a loop.',
 
-                LANG_CONTROLS_SWITCH_HELPURL: '',
+                LANG_CONTROLS_SWITCH: 'switch ',
                 LANG_CONTROLS_SWITCH_TOOLTIP_1: 'Execute the statement of the case .',
                 LANG_CONTROLS_SWITCH_TOOLTIP_2: 'Use the switch statement to select one of many blocks of code to be executed.',
                 LANG_CONTROLS_SWITCH_TOOLTIP_3: 'Use the switch statement to select one of many blocks of code to be executed.',
@@ -262,11 +262,11 @@
                 LANG_CONTROLS_SWITCH_SWITCH_TOOLTIP: 'The switch expression is evaluated once',
                 LANG_CONTROLS_SWITCH_CASE_TOOLTIP: 'case',
                 LANG_CONTROLS_SWITCH_DEFAULT_TOOLTIP: 'The default keyword specifies the code to run if there is no case match',
+                LANG_CONTROLS_SWITCH_IS: 'case: ',
                 LANG_CONTROLS_SWITCH_CASE: 'case',
                 LANG_CONTROLS_SWITCH_COLON: ': ',
                 LANG_CONTROLS_SWITCH_DEFAULT: 'default',
                 LANG_CONTROLS_SWITCH_DO: 'do',
-
 
                 //math blocks :
                 LANG_CATEGORY_MATH: 'Math',
