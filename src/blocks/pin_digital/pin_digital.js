@@ -16,7 +16,7 @@ Blockly.Blocks.pin_digital = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
         this.appendDummyInput('')
-            .appendField('Digital pin')
+            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_PIN_DIGITAL'))
             .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
 
         this.setInputsInline(true);

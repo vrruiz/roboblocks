@@ -55,7 +55,7 @@ Blockly.Blocks.logic_compare = {
 };
 
 Blockly.Blocks.logic_compare.OPERATORS =
-    [['==', 'EQ'],
+    [['=', 'EQ'],
      ['\u2260', 'NEQ'],
      ['<', 'LT'],
      ['\u2264', 'LTE'],

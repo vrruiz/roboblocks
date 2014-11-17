@@ -444,6 +444,8 @@
                 LANG_VARIABLES_GET: 'Variable ',
                 LANG_VARIABLES_GET_TOOLTIP: 'Returns the value of a variable.',
 
+                LANG_VARIABLES_PIN_ANALOG: 'Analog pin',
+                LANG_VARIABLES_PIN_DIGITAL: 'Digital pin',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Select the PIN.',
 
                 //zum blocks :
@@ -917,6 +919,8 @@
                 LANG_VARIABLES_GET: 'Variable ',
                 LANG_VARIABLES_GET_TOOLTIP: 'Devuelve el valor de una variable',
 
+                LANG_VARIABLES_PIN_ANALOG: 'Pin analógico',
+                LANG_VARIABLES_PIN_DIGITAL: 'Pin digital',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN deseado.',
 
                 //zum blocks :
@@ -4876,7 +4880,7 @@
         };
 
         Blockly.Blocks.logic_compare.OPERATORS = [
-            ['==', 'EQ'],
+            ['=', 'EQ'],
             ['\u2260', 'NEQ'],
             ['<', 'LT'],
             ['\u2264', 'LTE'],
@@ -5376,7 +5380,7 @@
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
-                    .appendField('Analog pin')
+                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_PIN_ANALOG'))
                     .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
 
                 this.setInputsInline(true);
@@ -5403,7 +5407,7 @@
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
-                    .appendField('Digital pin')
+                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_PIN_DIGITAL'))
                     .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
 
                 this.setInputsInline(true);

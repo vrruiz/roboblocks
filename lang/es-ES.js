@@ -389,6 +389,8 @@
         LANG_VARIABLES_GET : 'Variable ',
         LANG_VARIABLES_GET_TOOLTIP : 'Devuelve el valor de una variable',
 
+        LANG_VARIABLES_PIN_ANALOG : 'Pin analógico',
+        LANG_VARIABLES_PIN_DIGITAL : 'Pin digital',
         LANG_VARIABLES_PIN_TOOLTIP : 'Selecciona el PIN deseado.',
 
         //zum blocks :

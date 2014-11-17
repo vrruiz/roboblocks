@@ -16,7 +16,7 @@ Blockly.Blocks.pin_analog = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
         this.appendDummyInput('')
-            .appendField('Analog pin')
+            .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_PIN_ANALOG'))
             .appendField(new Blockly.FieldDropdown(profiles.default.analog), 'PIN');
 
         this.setInputsInline(true);
