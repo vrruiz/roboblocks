@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.3 - 2014-11-18
+/*! roboblocks - v0.1.4 - 2014-11-18
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -195,6 +195,7 @@
                 //LCD blocks:
                 LANG_CATEGORY_LCD: 'LCD blocks',
                 LANG_LCD_DEF: 'LCD',
+                LANG_LCD_PINS: 'Connect LCD pin SCL to A5, and pin SDA to A4',
                 LANG_LCD_DEF_TOOLTIP: 'Block that defines the LCD',
 
                 LANG_LCD_SETBACKLIGHT: 'LCD: setBacklight(',
@@ -670,6 +671,7 @@
                 //LCD blocks:
                 LANG_CATEGORY_LCD: 'Bloques LCD',
                 LANG_LCD_DEF: 'LCD',
+                LANG_LCD_PINS: 'Conecta el pin SCL al pin A5 y el pin SDA al pin A4',
                 LANG_LCD_DEF_TOOLTIP: 'Define el LCD',
 
                 LANG_LCD_SETBACKLIGHT: 'LCD: ajustar la retroiluminación',
@@ -4660,6 +4662,9 @@
                     .appendField(RoboBlocks.locales.getKey('LANG_LCD_DEF'))
                     .appendField(new Blockly.FieldImage('img/blocks/lcd.png', 208 * options.zoom, 100 * options.zoom));
 
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.locales.getKey('LANG_LCD_PINS'));
+
 
                 this.setInputsInline(false);
 
@@ -4717,7 +4722,7 @@
                 // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
                 this.appendDummyInput()
                     .appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT_POSITION'))
-                    .appendField(new Blockly.FieldCheckbox('FALSE'), 'POS')
+                    .appendField(new Blockly.FieldCheckbox('TRUE'), 'POS')
                     .setAlign(Blockly.ALIGN_RIGHT);
 
                 this.last_pos = this.getFieldValue('POS');
@@ -4744,9 +4749,7 @@
                     this.appendValueInput('YCOOR')
                         .appendField('column: ')
                         .setAlign(Blockly.ALIGN_RIGHT);
-
                 }
-
             },
             onchange: function() {
 
@@ -4754,6 +4757,18 @@
                     this.getPosition();
                     this.last_pos = this.getFieldValue('POS');
                 }
+            },
+            mutationToDom: function() {
+                var container = document.createElement('mutation');
+                if (this.getFieldValue('POS') === 'TRUE') {
+                    container.setAttribute('fixed', true);
+                } else if (this.getFieldValue('POS') === 'FALSE') {
+                    container.setAttribute('fixed', false);
+                }
+                return container;
+            },
+            domToMutation: function(xmlElement) {
+                this.setFieldValue(xmlElement.getAttribute('fixed'), 'POS');
             }
         };
 

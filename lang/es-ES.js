@@ -140,6 +140,7 @@
         //LCD blocks:
         LANG_CATEGORY_LCD : 'Bloques LCD',
         LANG_LCD_DEF : 'LCD',
+        LANG_LCD_PINS:'Conecta el pin SCL al pin A5 y el pin SDA al pin A4',
         LANG_LCD_DEF_TOOLTIP : 'Define el LCD',
 
         LANG_LCD_SETBACKLIGHT : 'LCD: ajustar la retroiluminación',

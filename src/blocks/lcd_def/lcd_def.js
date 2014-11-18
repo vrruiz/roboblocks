@@ -30,6 +30,9 @@ Blockly.Blocks.lcd_def = {
             .appendField(RoboBlocks.locales.getKey('LANG_LCD_DEF'))
             .appendField(new Blockly.FieldImage('img/blocks/lcd.png', 208 * options.zoom, 100 * options.zoom));
 
+        this.appendDummyInput()
+            .appendField(RoboBlocks.locales.getKey('LANG_LCD_PINS'));
+
 
         this.setInputsInline(false);
 

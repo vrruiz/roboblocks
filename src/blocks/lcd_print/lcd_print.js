@@ -47,7 +47,7 @@ Blockly.Blocks.lcd_print = {
             // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
         this.appendDummyInput()
             .appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT_POSITION'))
-            .appendField(new Blockly.FieldCheckbox('FALSE'), 'POS')
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'POS')
             .setAlign(Blockly.ALIGN_RIGHT);
 
         this.last_pos=this.getFieldValue('POS');
@@ -74,9 +74,7 @@ Blockly.Blocks.lcd_print = {
             this.appendValueInput('YCOOR')
                 .appendField('column: ')
                 .setAlign(Blockly.ALIGN_RIGHT);
-
         }
-
     },
     onchange : function(){
 
@@ -84,5 +82,18 @@ Blockly.Blocks.lcd_print = {
             this.getPosition();
             this.last_pos=this.getFieldValue('POS');
         }
+    },
+    mutationToDom: function() {
+        var container = document.createElement('mutation');
+        if (this.getFieldValue('POS')==='TRUE') {
+            container.setAttribute('fixed', true);
+        }
+        else if (this.getFieldValue('POS')==='FALSE') {
+            container.setAttribute('fixed', false);
+        }
+        return container;
+    },
+    domToMutation: function(xmlElement) {
+        this.setFieldValue(xmlElement.getAttribute('fixed'), 'POS');
     }
 };

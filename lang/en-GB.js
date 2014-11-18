@@ -140,6 +140,7 @@
         //LCD blocks:
         LANG_CATEGORY_LCD : 'LCD blocks',
         LANG_LCD_DEF : 'LCD',
+        LANG_LCD_PINS:'Connect LCD pin SCL to A5, and pin SDA to A4',
         LANG_LCD_DEF_TOOLTIP : 'Block that defines the LCD',
 
         LANG_LCD_SETBACKLIGHT : 'LCD: setBacklight(',
