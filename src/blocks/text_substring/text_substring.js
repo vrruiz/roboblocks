@@ -17,7 +17,7 @@ Blockly.Arduino.text_substring = function() {
         'to':to
     });
 
-    return code;
+    return [code, Blockly.Arduino.ORDER_NONE];
 };
 
 Blockly.Blocks.text_substring = {

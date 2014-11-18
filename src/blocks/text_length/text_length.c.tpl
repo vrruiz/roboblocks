@@ -1,1 +1,1 @@
-{{argument0}} .length()
+{{argument0}}.length()

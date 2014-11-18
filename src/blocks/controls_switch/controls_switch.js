@@ -6,6 +6,14 @@
 * contrls_switch code generation
 * @return {String} Code generated with block parameters
 */
+var indentSentences=function(sentences){
+    var splitted_sentences=sentences.split('\n');
+    var final_sentences='';
+    for (var i in splitted_sentences){
+        final_sentences+='  '+splitted_sentences[i]+'\n';
+    }
+    return final_sentences;
+};
 
 Blockly.Arduino.controls_switch = function() {
     // switch condition.
@@ -13,15 +21,18 @@ Blockly.Arduino.controls_switch = function() {
     var argument = Blockly.Arduino.valueToCode(this, 'IF0' ,
         Blockly.Arduino.ORDER_NONE) || '';
     var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
+    branch=indentSentences(branch);
     var code = 'switch (' + argument + ')\n{';
     for (n = 1; n <= this.switchCount_; n++) {
         argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n,Blockly.Arduino.ORDER_NONE) || '';
         branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-        code += ' \n  case ' + argument + ': \n  {\n' + branch + '  break;\n  }';
+        branch=indentSentences(branch);
+        code += ' \n  case ' + argument + ': \n  {\n' + branch + '    break;\n  }';
     }
     if (this.defaultCount_) {
         branch = Blockly.Arduino.statementToCode(this, 'DEFAULT');
-        code += '  \n  default:\n  {\n' + branch + '  }';
+        branch=indentSentences(branch);
+        code += '  \n  default:\n  {\n' + branch + '\n  }';
     }
     return code + '\n}\n';
 };

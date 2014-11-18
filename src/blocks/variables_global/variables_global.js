@@ -14,7 +14,7 @@ Blockly.Arduino.variables_global = function() {
 
     var varName = this.getFieldValue('VAR')||'';
 
-    if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random')>=0)) || varValue.search('\\[')>=0){
+    if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random')>=0)) || (varValue.search('map')>=0) ||varValue.search('\\[')>=0){
         varType='int';
         Blockly.Arduino.definitions_['declare_var'+varName]=varType+' '+varName+';';
         Blockly.Arduino.setups_['define_var'+varName]=varName+'='+varValue+';';

@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.3 - 2014-11-17
+/*! roboblocks - v0.1.3 - 2014-11-18
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -589,7 +589,7 @@
                 LANG_ADVANCED_SERIAL_PRINT: 'Imprimir por puerto serie',
                 LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Imprime los datos como texto ASCII.',
 
-                LANG_ADVANCED_SERIAL_PRINTLN: 'Imprimir por puerto serie (RC)',
+                LANG_ADVANCED_SERIAL_PRINTLN: 'Imprimir por puerto serie con salto de línea',
                 LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP: 'Imprime los datos como texto ASCII y con retorno de carro (RC).',
 
                 LANG_ADVANCED_SERIAL_READ: 'Leer desde el puerto serie',
@@ -1764,7 +1764,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'lcd.clear();';
+                __p += 'lcd.clear();\n';
 
             }
             return __p
@@ -1999,11 +1999,11 @@
                     __e(funcName) +
                     ' (' +
                     __e(args) +
-                    ') {\n  ' +
+                    ') {\n' +
                     __e(branch) +
                     ' ' +
                     __e(returnValue) +
-                    ' }\n';
+                    '\n}\n';
 
             }
             return __p
@@ -2029,7 +2029,7 @@
             with(obj) {
                 __p += 'Serial.print(' +
                     __e(content) +
-                    ');';
+                    ');\n';
 
             }
             return __p
@@ -2055,7 +2055,7 @@
             with(obj) {
                 __p += 'Serial.println(' +
                     __e(content) +
-                    ');';
+                    ');\n';
 
             }
             return __p
@@ -2244,7 +2244,7 @@
             with(obj) {
                 __p +=
                     __e(argument0) +
-                    ' .length()';
+                    '.length()';
 
             }
             return __p
@@ -2276,7 +2276,7 @@
                     __e(varName) +
                     '=' +
                     __e(varValue) +
-                    ';';
+                    ';\n';
 
             }
             return __p
@@ -4009,6 +4009,14 @@
          * contrls_switch code generation
          * @return {String} Code generated with block parameters
          */
+        var indentSentences = function(sentences) {
+            var splitted_sentences = sentences.split('\n');
+            var final_sentences = '';
+            for (var i in splitted_sentences) {
+                final_sentences += '  ' + splitted_sentences[i] + '\n';
+            }
+            return final_sentences;
+        };
 
         Blockly.Arduino.controls_switch = function() {
             // switch condition.
@@ -4016,15 +4024,18 @@
             var argument = Blockly.Arduino.valueToCode(this, 'IF0',
                 Blockly.Arduino.ORDER_NONE) || '';
             var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
+            branch = indentSentences(branch);
             var code = 'switch (' + argument + ')\n{';
             for (n = 1; n <= this.switchCount_; n++) {
                 argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n, Blockly.Arduino.ORDER_NONE) || '';
                 branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-                code += ' \n  case ' + argument + ': \n  {\n' + branch + '  break;\n  }';
+                branch = indentSentences(branch);
+                code += ' \n  case ' + argument + ': \n  {\n' + branch + '    break;\n  }';
             }
             if (this.defaultCount_) {
                 branch = Blockly.Arduino.statementToCode(this, 'DEFAULT');
-                code += '  \n  default:\n  {\n' + branch + '  }';
+                branch = indentSentences(branch);
+                code += '  \n  default:\n  {\n' + branch + '\n  }';
             }
             return code + '\n}\n';
         };
@@ -7062,7 +7073,7 @@
                 'to': to
             });
 
-            return code;
+            return [code, Blockly.Arduino.ORDER_NONE];
         };
 
         Blockly.Blocks.text_substring = {
@@ -7180,7 +7191,7 @@
 
             var varName = this.getFieldValue('VAR') || '';
 
-            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || varValue.search('\\[') >= 0) {
+            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0) {
                 varType = 'int';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
@@ -7323,8 +7334,11 @@
             var sufix = '';
             var code = '';
 
+            if (varValue[0] === '(') {
+                varValue = varValue.substring(1, varValue.length - 1);
+            }
 
-            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue))) || (varValue.search('random') >= 0) || varValue.search('\\[') >= 0) {
+            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue))) || (varValue.search('random') >= 0) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0) {
                 varType = 'int';
                 code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
             } else if (varValue[0] === '{') {

@@ -15,8 +15,11 @@ Blockly.Arduino.variables_local = function() {
     var sufix='';
     var code ='';
 
+    if (varValue[0]==='('){
+        varValue=varValue.substring(1,varValue.length-1);
+    }
 
-    if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue)))|| (varValue.search('random')>=0) || varValue.search('\\[')>=0){
+    if ( (varValue.search('analogRead')>=0) || (varValue.search('digitalRead')>=0) || (varValue.search('Distanc')>=0) || (!isNaN(parseFloat(varValue)))|| (varValue.search('random')>=0) ||(varValue.search('map')>=0) || varValue.search('\\[')>=0 ){
         varType='int';
         code= varType+' '+varName+ sufix+'='+varValue+';\n';
     }

@@ -59,7 +59,7 @@
         LANG_ADVANCED_SERIAL_PRINT : 'Imprimir por puerto serie',
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP : 'Imprime los datos como texto ASCII.',
 
-        LANG_ADVANCED_SERIAL_PRINTLN : 'Imprimir por puerto serie (RC)',
+        LANG_ADVANCED_SERIAL_PRINTLN : 'Imprimir por puerto serie con salto de línea',
         LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP : 'Imprime los datos como texto ASCII y con retorno de carro (RC).',
 
         LANG_ADVANCED_SERIAL_READ : 'Leer desde el puerto serie',
