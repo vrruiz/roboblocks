@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.4 - 2014-11-18
+/*! roboblocks - v0.1.4 - 2014-11-19
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -4677,17 +4677,14 @@
         // Source: src/blocks/lcd_print/lcd_print.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * lcd_print code generation
          * @return {String} Code generated with block parameters
          */
-
         Blockly.Arduino.lcd_print = function() {
             var val = Blockly.Arduino.valueToCode(this, 'VAL', Blockly.Arduino.ORDER_ATOMIC);
             var xcoor = Blockly.Arduino.valueToCode(this, 'XCOOR', Blockly.Arduino.ORDER_ATOMIC);
             var ycoor = Blockly.Arduino.valueToCode(this, 'YCOOR', Blockly.Arduino.ORDER_ATOMIC);
-
             var code;
             if (this.getFieldValue('POS') === 'TRUE') {
                 code = JST['lcd_print_pos']({
@@ -4700,10 +4697,8 @@
                     'val': val
                 });
             }
-
             return code;
         };
-
         /**
          * lcd_print block definition
          * @type {Object}
@@ -4717,20 +4712,12 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_LCD);
-                this.appendValueInput('VAL')
-                    .appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT'));
+                this.appendValueInput('VAL').appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT'));
                 // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
-                this.appendDummyInput()
-                    .appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT_POSITION'))
-                    .appendField(new Blockly.FieldCheckbox('TRUE'), 'POS')
-                    .setAlign(Blockly.ALIGN_RIGHT);
-
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT_POSITION')).appendField(new Blockly.FieldCheckbox('TRUE'), 'POS').setAlign(Blockly.ALIGN_RIGHT);
                 this.last_pos = this.getFieldValue('POS');
-
                 this.getPosition();
-
                 this.setInputsInline(false);
-
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_LCD_PRINT_TOOLTIP'));
@@ -4740,19 +4727,12 @@
                     this.removeInput('XCOOR');
                     this.removeInput('YCOOR');
                 } catch (e) {}
-
                 if (this.getFieldValue('POS') === 'TRUE') {
-                    this.appendValueInput('XCOOR')
-                        .appendField('row: ')
-                        .setAlign(Blockly.ALIGN_RIGHT);
-
-                    this.appendValueInput('YCOOR')
-                        .appendField('column: ')
-                        .setAlign(Blockly.ALIGN_RIGHT);
+                    this.appendValueInput('XCOOR').appendField('row').setAlign(Blockly.ALIGN_RIGHT);
+                    this.appendValueInput('YCOOR').appendField('column').setAlign(Blockly.ALIGN_RIGHT);
                 }
             },
             onchange: function() {
-
                 if (this.getFieldValue('POS') !== this.last_pos) {
                     this.getPosition();
                     this.last_pos = this.getFieldValue('POS');
@@ -4769,9 +4749,12 @@
             },
             domToMutation: function(xmlElement) {
                 this.setFieldValue(xmlElement.getAttribute('fixed'), 'POS');
+                if (this.getFieldValue('POS') === 'TRUE') {
+                    this.appendValueInput('XCOOR').appendField('row').setAlign(Blockly.ALIGN_RIGHT);
+                    this.appendValueInput('YCOOR').appendField('column').setAlign(Blockly.ALIGN_RIGHT);
+                }
             }
         };
-
         // Source: src/blocks/lcd_setBacklight/lcd_setBacklight.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
@@ -4958,29 +4941,25 @@
         };
 
         // Source: src/blocks/logic_operation/logic_operation.js
-        /* global Blockly, JST, RoboBlocks */
-
+        /* global Blockly, RoboBlocks */
         /**
          * logic_operation code generation
          * @return {String} Code generated with block parameters
          */
-
         Blockly.Arduino.logic_operation = function() {
             // Operations 'and', 'or'.
             var operator = (this.getFieldValue('OP') === 'AND') ? '&&' : '||';
-            var order = (operator === '&&') ? Blockly.Arduino.ORDER_LOGICAL_AND :
-                Blockly.Arduino.ORDER_LOGICAL_OR;
+            var order = (operator === '&&') ? Blockly.Arduino.ORDER_LOGICAL_AND : Blockly.Arduino.ORDER_LOGICAL_OR;
             var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '';
             var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '';
-            var code = JST['logic_operation']({
-                'operator': operator,
-                'argument0': argument0,
-                'argument1': argument1
-            });
+            // var code = JST['logic_operation']({
+            //     'operator': operator,
+            //     'argument0': argument0,
+            //     'argument1': argument1
+            // });
+            var code = '(' + argument0 + ') ' + operator + ' (' + argument1 + ')';
             return [code, order];
         };
-
-
         Blockly.Blocks.logic_operation = {
             // Logical operations: 'and', 'or'.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
@@ -4988,14 +4967,11 @@
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
                 this.setOutput(true, Boolean);
-                this.appendValueInput('A')
-                    .setCheck(Boolean);
-                this.appendValueInput('B')
-                    .setCheck(Boolean)
-                    .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND') || 'AND', 'AND'],
-                        [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR') || 'OR', 'OR']
-                    ]), 'OP');
+                this.appendValueInput('A').setCheck(Boolean);
+                this.appendValueInput('B').setCheck(Boolean).appendField(new Blockly.FieldDropdown([
+                    [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_AND') || 'AND', 'AND'],
+                    [RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_OR') || 'OR', 'OR']
+                ]), 'OP');
                 this.setInputsInline(true);
                 // Assign 'this' to a variable for use in the tooltip closure below.
                 var thisBlock = this;
@@ -5005,7 +4981,6 @@
                 });
             }
         };
-
         Blockly.Blocks.logic_operation.TOOLTIPS = {
             AND: RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_TOOLTIP_AND'),
             OR: RoboBlocks.locales.getKey('LANG_LOGIC_OPERATION_TOOLTIP_OR')
@@ -5570,12 +5545,10 @@
                     return;
                 }
                 if (this.getFieldValue('PROCEDURES') !== this.last_procedure && this.getFieldValue('PROCEDURES')) {
-                    console.log('procedures_callnoreturn-->procedure_name has changed!', this.getFieldValue('PROCEDURES'), this.last_procedure);
                     this.changeVariables();
                     this.last_procedure = this.getFieldValue('PROCEDURES');
                     this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                 } else if (this.getVariables(this.getFieldValue('PROCEDURES')) !== this.last_variables) {
-                    console.log('procedures_callnoreturn-->variables have changed!', this.getVariables(this.getFieldValue('PROCEDURES')), this.last_variables, this.getFieldValue('PROCEDURES'));
                     this.addVariables();
                     this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                     this.last_procedure = this.getFieldValue('PROCEDURES');
@@ -5801,12 +5774,10 @@
                     return;
                 }
                 if (this.getFieldValue('PROCEDURES') !== this.last_procedure && this.getFieldValue('PROCEDURES')) {
-                    // console.log('procedures_callnoreturn-->procedure_name has changed!', this.getFieldValue('PROCEDURES'),this.last_procedure);
                     this.changeVariables();
                     this.last_procedure = this.getFieldValue('PROCEDURES');
                     this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                 } else if (this.getVariables(this.getFieldValue('PROCEDURES')) !== this.last_variables) {
-                    // console.log('procedures_callnoreturn-->variables have changed!',this.getVariables(this.getFieldValue('PROCEDURES')),this.last_variables, this.getFieldValue('PROCEDURES'));
                     this.addVariables();
                     this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                     this.last_procedure = this.getFieldValue('PROCEDURES');
@@ -5838,9 +5809,6 @@
                                 this.removeInput('ARG' + x);
                             }
                         }
-
-                        // console.log('getinput(arg+x)', this.getInput('ARG'+x), x);
-                        // console.log('getinput(arg_name+x)', this.getFieldValue('ARG_NAME'+x), x);
                     }
                     this.arguments_ = func_variables;
                 }
@@ -6358,7 +6326,6 @@
                 var block = this;
                 do {
                     if (block.type === 'procedures_defreturn') {
-                        console.log('aaaaaaaaaaaa', block.type);
                         legal = true;
                         break;
                     }

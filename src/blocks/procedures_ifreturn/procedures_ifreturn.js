@@ -64,7 +64,6 @@ Blockly.Blocks.procedures_ifreturn = {
         var block = this;
         do {
             if (block.type === 'procedures_defreturn') {
-                console.log('aaaaaaaaaaaa', block.type);
                 legal = true;
                 break;
             }
