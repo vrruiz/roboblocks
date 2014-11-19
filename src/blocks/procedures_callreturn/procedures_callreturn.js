@@ -31,6 +31,7 @@ Blockly.Blocks.procedures_callreturn = {
         this.arguments_ = this.getVariables(this.getFieldValue('PROCEDURES'));
         this.quarkConnections_ = null;
         this.quarkArguments_ = null;
+        this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
     },
     validName: function(name) {
         if (name && name.length > 0) {
@@ -81,7 +82,7 @@ Blockly.Blocks.procedures_callreturn = {
                 procedures_dropdown.push([proc_name, proc_name]);
             }
         } else {
-            procedures_dropdown.push([RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'), RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE')]);
+            procedures_dropdown.push([RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_PROCEDURE'), RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_PROCEDURE')]);
         }
         return procedures_dropdown;
     },
@@ -101,16 +102,30 @@ Blockly.Blocks.procedures_callreturn = {
         }
     },
     getVariables: function(funcName) {
+        try {
+            var procedures = Blockly.Procedures.allProcedures();
+            var procedures_dropdown = [];
+            if (procedures[1].length > 0) {
+                for (var i in procedures[1]) {
+                    if (procedures[1][i][0] === funcName) {
+                        return procedures[1][i][1];
+                    }
+                }
+            } else {
+                procedures_dropdown.push(['', '']);
+            }
+        } catch (e) {}
+    },
+    exists: function() {
         var procedures = Blockly.Procedures.allProcedures();
-        var procedures_dropdown = [];
         if (procedures[1].length > 0) {
             for (var i in procedures[1]) {
-                if (procedures[1][i][0] === funcName) {
-                    return procedures[1][i][1];
+                if (procedures[1][i][0] === this.getFieldValue('PROCEDURES')) {
+                    return true;
                 }
             }
         } else {
-            procedures_dropdown.push(['', '']);
+            return false;
         }
     },
     onchange: function() {
@@ -127,18 +142,25 @@ Blockly.Blocks.procedures_callreturn = {
             this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
             this.last_procedure = this.getFieldValue('PROCEDURES');
         }
+        if (!this.exists()) {
+            this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALL_WITHOUT_DEFINITION'));
+        } else {
+            this.setWarningText(null);
+        }
     },
     addVariables: function() {
         var func_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
-        var var_num;
+        var var_num = 0;
         if (func_variables) {
-            if (typeof this.last_variables === 'undefined') {
+            if (!this.last_variables) {
                 this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
             }
-            if (func_variables.length >= this.last_variables) {
+            if (func_variables.length >= this.last_variables.length) {
                 var_num = func_variables.length;
-            } else {
-                var_num = this.last_variables.length;
+            } else if (this.last_variables) {
+                try {
+                    var_num = this.last_variables.length;
+                } catch (e) {}
             }
             for (var x = 0; x < var_num; x++) {
                 if (this.getInput('ARG' + x) === null) {

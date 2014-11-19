@@ -269,6 +269,7 @@
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Crea un número aleatorio entre los dos límites introducidos.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funciones',
+        LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'Llamada a una función sin definición previa.',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'func_sin_retorno',
         LANG_PROCEDURES_DEFNORETURN_DO: 'ejecutar',

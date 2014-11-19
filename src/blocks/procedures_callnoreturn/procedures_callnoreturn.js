@@ -8,9 +8,11 @@ Blockly.Arduino.procedures_callnoreturn = function() {
     // Call a procedure with a return value.
     var funcName = this.getFieldValue('PROCEDURES');
     var args = [];
-    for (var x = 0; x < this.getVariables(funcName).length; x++) {
-        args[x] = Blockly.Arduino.valueToCode(this, 'ARG' + x, Blockly.Arduino.ORDER_NONE) || '';
-    }
+    try {
+        for (var x = 0; x < this.getVariables(funcName).length; x++) {
+            args[x] = Blockly.Arduino.valueToCode(this, 'ARG' + x, Blockly.Arduino.ORDER_NONE) || '';
+        }
+    } catch (e) {}
     var funcArgs = args.join(', ');
     var code = JST['procedures_callnoreturn']({
         'funcName': funcName,
@@ -92,16 +94,30 @@ Blockly.Blocks.procedures_callnoreturn = {
         }
     },
     getVariables: function(funcName) {
+        try {
+            var procedures = Blockly.Procedures.allProcedures();
+            var procedures_dropdown = [];
+            if (procedures[0].length > 0) {
+                for (var i in procedures[0]) {
+                    if (procedures[0][i][0] === funcName) {
+                        return procedures[0][i][1];
+                    }
+                }
+            } else {
+                procedures_dropdown.push(['', '']);
+            }
+        } catch (e) {}
+    },
+    exists: function() {
         var procedures = Blockly.Procedures.allProcedures();
-        var procedures_dropdown = [];
         if (procedures[0].length > 0) {
             for (var i in procedures[0]) {
-                if (procedures[0][i][0] === funcName) {
-                    return procedures[0][i][1];
+                if (procedures[0][i][0] === this.getFieldValue('PROCEDURES')) {
+                    return true;
                 }
             }
         } else {
-            procedures_dropdown.push(['', '']);
+            return false;
         }
     },
     onchange: function() {
@@ -118,18 +134,25 @@ Blockly.Blocks.procedures_callnoreturn = {
             this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
             this.last_procedure = this.getFieldValue('PROCEDURES');
         }
+        if (!this.exists()) {
+            this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALL_WITHOUT_DEFINITION'));
+        } else {
+            this.setWarningText(null);
+        }
     },
     addVariables: function() {
         var func_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
         var var_num = 0;
         if (func_variables) {
-            // if (typeof this.last_variables==='undefined'){
-            //     this.last_variables=this.getVariables(this.getFieldValue('PROCEDURES'));
-            // }
-            if (func_variables.length >= this.last_variables) {
+            if (!this.last_variables) {
+                this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
+            }
+            if (func_variables.length >= this.last_variables.length) {
                 var_num = func_variables.length;
-            } else {
-                var_num = this.last_variables.length;
+            } else if (this.last_variables) {
+                try {
+                    var_num = this.last_variables.length;
+                } catch (e) {}
             }
             for (var x = 0; x < var_num; x++) {
                 if (this.getInput('ARG' + x) === null) {
