@@ -58,6 +58,16 @@ Blockly.Blocks.procedures_callreturn = {
                     break;
                 }
             }
+            for (var j in Blockly.Arduino.RESERVED_WORDS_) {
+                var reserved_words = Blockly.Arduino.RESERVED_WORDS_.split(',');
+                if (name === reserved_words[j]) {
+                    this.setWarningText(RoboBlocks.locales.getKey('LANG_RESERVED_WORDS'));
+                    name = '';
+                    break;
+                } else {
+                    this.setWarningText(null);
+                }
+            }
         }
         return name;
     },
@@ -119,7 +129,6 @@ Blockly.Blocks.procedures_callreturn = {
         }
     },
     addVariables: function() {
-        console.log('aaaaaaaaaaaaaaaaaaaaadd variables');
         var func_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
         var var_num;
         if (func_variables) {
@@ -190,7 +199,6 @@ Blockly.Blocks.procedures_callreturn = {
             parameter.setAttribute('name', this.arguments_[x]);
             container.appendChild(parameter);
         }
-        console.log('mutationtodom', container);
         return container;
     },
     domToMutation: function(xmlElement) {
@@ -202,6 +210,5 @@ Blockly.Blocks.procedures_callreturn = {
         for (var x = 0; x < xmlElement.childNodes.length; x++) {
             this.appendValueInput('ARG' + x).appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME' + x).setAlign(Blockly.ALIGN_RIGHT);
         }
-        console.log('domToMutation', xmlElement.childNodes.length);
     }
 };
