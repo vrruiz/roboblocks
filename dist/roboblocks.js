@@ -5419,17 +5419,14 @@
 
         // Source: src/blocks/procedures_callnoreturn/procedures_callnoreturn.js
         /* global Blockly, JST, RoboBlocks */
-
         /**
          * procedures_callnoreturn code generation
          * @return {String} Code generated with block parameters
          */
-
         Blockly.Arduino.procedures_callnoreturn = function() {
             // Call a procedure with a return value.
             var funcName = this.getFieldValue('PROCEDURES');
             var args = [];
-
             for (var x = 0; x < this.getVariables(funcName).length; x++) {
                 args[x] = Blockly.Arduino.valueToCode(this, 'ARG' + x, Blockly.Arduino.ORDER_NONE) || '';
             }
@@ -5438,31 +5435,21 @@
                 'funcName': funcName,
                 'funcArgs': funcArgs
             });
-
             return code;
         };
-
-
-
-
         Blockly.Blocks.procedures_callnoreturn = {
             // Variable getter.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'), // Variables are handled specially.
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_callnoreturn',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
-
-                this.appendDummyInput('DUMMY')
-                    .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
-
+                this.appendDummyInput('DUMMY').appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
-
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALLNORETURN_TOOLTIP'));
                 this.arguments_ = this.getVariables(this.getFieldValue('PROCEDURES'));
                 this.quarkConnections_ = null;
                 this.quarkArguments_ = null;
-
                 this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
             },
             validName: function(name) {
@@ -5482,9 +5469,7 @@
                     name = name.replace(/([óòôö])/g, 'o');
                     name = name.replace(/([úùûü])/g, 'u');
                     name = name.replace(/([ñ])/g, 'n');
-
                     name = name.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|<>\-\&\Ç\%\=\~\{\}\¿\¡\"\@\:\;\-\"\·\|\º\ª\¨\'\·\̣\─\ç\`\´\¨\^])/g, '');
-
                     i = 0;
                     while (i < name.length) {
                         if (!isNaN(parseFloat(name[i]))) {
@@ -5510,7 +5495,6 @@
                 }
                 return procedures_dropdown;
             },
-
             maxVariableNumber: function() {
                 var procedures = Blockly.Procedures.allProcedures();
                 var procedures_dropdown = [];
@@ -5567,11 +5551,8 @@
                         var_num = this.last_variables.length;
                     }
                     for (var x = 0; x < var_num; x++) {
-
                         if (this.getInput('ARG' + x) === null) {
-                            this.appendValueInput('ARG' + x)
-                                .appendField(func_variables[x], 'ARG_NAME' + x)
-                                .setAlign(Blockly.ALIGN_RIGHT);
+                            this.appendValueInput('ARG' + x).appendField(func_variables[x], 'ARG_NAME' + x).setAlign(Blockly.ALIGN_RIGHT);
                         } else {
                             if (func_variables[x] && this.getFieldValue('ARG_NAME' + x)) {
                                 this.setFieldValue(func_variables[x], 'ARG_NAME' + x);
@@ -5583,16 +5564,13 @@
                     this.arguments_ = func_variables;
                 }
             },
-
             renameProcedure: function(oldName, newName) {
                 if (this.last_procedure) {
-
                     var procedures = this.getProcedures();
                     for (var i in procedures) {
                         if (Blockly.Names.equals(oldName, procedures[i][0])) {
                             this.removeInput('DUMMY');
-                            this.appendDummyInput('DUMMY')
-                                .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
+                            this.appendDummyInput('DUMMY').appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
                         }
                     }
                     if (this.last_procedure === oldName) {
@@ -5612,9 +5590,7 @@
                     this.removeInput('ARG' + i);
                 }
                 for (var variable in func_variables) {
-                    this.appendValueInput('ARG' + variable)
-                        .appendField(func_variables[variable])
-                        .setAlign(Blockly.ALIGN_RIGHT);
+                    this.appendValueInput('ARG' + variable).appendField(func_variables[variable]).setAlign(Blockly.ALIGN_RIGHT);
                 }
                 this.arguments_ = func_variables;
             },
@@ -5641,18 +5617,13 @@
                 var name = xmlElement.getAttribute('name');
                 this.last_procedure = name;
                 this.setFieldValue(name, 'PROCEDURES');
-
                 for (var x = 0; x < xmlElement.childNodes.length; x++) {
-                    this.appendValueInput('ARG' + x)
-                        .appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME' + x)
-                        .setAlign(Blockly.ALIGN_RIGHT);
+                    this.appendValueInput('ARG' + x).appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME' + x).setAlign(Blockly.ALIGN_RIGHT);
                 }
             }
-
         };
         // Source: src/blocks/procedures_callreturn/procedures_callreturn.js
         /* global Blockly, JST, RoboBlocks */
-
         /**
          * procedures_callreturn code generation
          * @return {String} Code generated with block parameters
@@ -5661,33 +5632,24 @@
             // Call a procedure with a return value.
             var funcName = this.getFieldValue('PROCEDURES');
             var args = [];
-
             for (var x = 0; x < this.getVariables(funcName).length; x++) {
                 args[x] = Blockly.Arduino.valueToCode(this, 'ARG' + x, Blockly.Arduino.ORDER_NONE) || 'null';
             }
-
             var funcArgs = args.join(', ');
-
             var code = JST['procedures_callreturn']({
                 'funcName': funcName,
                 'funcArgs': funcArgs
             });
-
             //funcName + '(' + args.join(', ') + ')';
             return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
         };
-
         Blockly.Blocks.procedures_callreturn = {
             // Variable getter.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'), // Variables are handled specially.
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_callreturn',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
-
-                this.appendDummyInput('DUMMY')
-                    .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
-
-                this.addVariables();
+                this.appendDummyInput('DUMMY').appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
                 this.setOutput(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALLRETURN_TOOLTIP'));
                 this.arguments_ = this.getVariables(this.getFieldValue('PROCEDURES'));
@@ -5711,9 +5673,7 @@
                     name = name.replace(/([óòôö])/g, 'o');
                     name = name.replace(/([úùûü])/g, 'u');
                     name = name.replace(/([ñ])/g, 'n');
-
                     name = name.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|<>\-\&\Ç\%\=\~\{\}\¿\¡\"\@\:\;\-\"\·\|\º\ª\¨\'\·\̣\─\ç\`\´\¨\^])/g, '');
-
                     i = 0;
                     while (i < name.length) {
                         if (!isNaN(parseFloat(name[i]))) {
@@ -5739,7 +5699,6 @@
                 }
                 return procedures_dropdown;
             },
-
             maxVariableNumber: function() {
                 var procedures = Blockly.Procedures.allProcedures();
                 var procedures_dropdown = [];
@@ -5784,9 +5743,9 @@
                 }
             },
             addVariables: function() {
+                console.log('aaaaaaaaaaaaaaaaaaaaadd variables');
                 var func_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
                 var var_num;
-
                 if (func_variables) {
                     if (typeof this.last_variables === 'undefined') {
                         this.last_variables = this.getVariables(this.getFieldValue('PROCEDURES'));
@@ -5797,11 +5756,8 @@
                         var_num = this.last_variables.length;
                     }
                     for (var x = 0; x < var_num; x++) {
-
                         if (this.getInput('ARG' + x) === null) {
-                            this.appendValueInput('ARG' + x)
-                                .appendField(func_variables[x], 'ARG_NAME' + x)
-                                .setAlign(Blockly.ALIGN_RIGHT);
+                            this.appendValueInput('ARG' + x).appendField(func_variables[x], 'ARG_NAME' + x).setAlign(Blockly.ALIGN_RIGHT);
                         } else {
                             if (func_variables[x] && this.getFieldValue('ARG_NAME' + x)) {
                                 this.setFieldValue(func_variables[x], 'ARG_NAME' + x);
@@ -5813,16 +5769,13 @@
                     this.arguments_ = func_variables;
                 }
             },
-
             renameProcedure: function(oldName, newName) {
                 if (this.last_procedure) {
-
                     var procedures = this.getProcedures();
                     for (var i in procedures) {
                         if (Blockly.Names.equals(oldName, procedures[i][0])) {
                             this.removeInput('DUMMY');
-                            this.appendDummyInput('DUMMY')
-                                .appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
+                            this.appendDummyInput('DUMMY').appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
                         }
                     }
                     if (this.last_procedure === oldName) {
@@ -5842,9 +5795,7 @@
                     this.removeInput('ARG' + i);
                 }
                 for (var variable in func_variables) {
-                    this.appendValueInput('ARG' + variable)
-                        .appendField(func_variables[variable])
-                        .setAlign(Blockly.ALIGN_RIGHT);
+                    this.appendValueInput('ARG' + variable).appendField(func_variables[variable]).setAlign(Blockly.ALIGN_RIGHT);
                 }
                 this.arguments_ = func_variables;
             },
@@ -5863,6 +5814,7 @@
                     parameter.setAttribute('name', this.arguments_[x]);
                     container.appendChild(parameter);
                 }
+                console.log('mutationtodom', container);
                 return container;
             },
             domToMutation: function(xmlElement) {
@@ -5871,12 +5823,10 @@
                 var name = xmlElement.getAttribute('name');
                 this.last_procedure = name;
                 this.setFieldValue(name, 'PROCEDURES');
-
                 for (var x = 0; x < xmlElement.childNodes.length; x++) {
-                    this.appendValueInput('ARG' + x)
-                        .appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME' + x)
-                        .setAlign(Blockly.ALIGN_RIGHT);
+                    this.appendValueInput('ARG' + x).appendField(xmlElement.childNodes[x].getAttribute('name'), 'ARG_NAME' + x).setAlign(Blockly.ALIGN_RIGHT);
                 }
+                console.log('domToMutation', xmlElement.childNodes.length);
             }
         };
         // Source: src/blocks/procedures_defnoreturn/procedures_defnoreturn.js
