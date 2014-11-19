@@ -58,7 +58,7 @@ Blockly.Blocks.controls_for = {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendDummyInput('DUMMY')
             .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_WITH'))
-            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+            .appendField(new Blockly.FieldVariable(' '), 'VAR');
         this.appendValueInput('FROM')
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -96,40 +96,40 @@ Blockly.Blocks.controls_for = {
         return dropdown;
     },
     onchange: function(){
-        if (!this.last_variables){
-            this.last_variables=Blockly.Variables.allVariables();
-        }
-        var variables=Blockly.Variables.allVariables();
+        // if (!this.last_variables){
+        //     this.last_variables=Blockly.Variables.allVariables();
+        // }
+        // var variables=Blockly.Variables.allVariables();
 
-        for (var i in variables){
-            if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
-                try{
-                    this.removeInput('DUMMY');
-                    this.removeInput('FROM');
-                    this.removeInput('TO');
-                    this.removeInput('DO');
-
-
-                    this.appendDummyInput('DUMMY')
-                        .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_WITH'))
-                        .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+        // for (var i in variables){
+        //     if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
+        //         try{
+        //             this.removeInput('DUMMY');
+        //             this.removeInput('FROM');
+        //             this.removeInput('TO');
+        //             this.removeInput('DO');
 
 
-                    this.appendValueInput('FROM')
-                        .setCheck(Number)
-                        .setAlign(Blockly.ALIGN_RIGHT)
-                        .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_FROM'));
-                    this.appendValueInput('TO')
-                        .setCheck(Number)
-                        .setAlign(Blockly.ALIGN_RIGHT)
-                        .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_TO'));
-                    this.appendStatementInput('DO')
-                        .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_DO'));
+        //             this.appendDummyInput('DUMMY')
+        //                 .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_WITH'))
+        //                 .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
-                }catch(e){}
-                this.last_variables=Blockly.Variables.allVariables();
-            }
-        }
+
+        //             this.appendValueInput('FROM')
+        //                 .setCheck(Number)
+        //                 .setAlign(Blockly.ALIGN_RIGHT)
+        //                 .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_FROM'));
+        //             this.appendValueInput('TO')
+        //                 .setCheck(Number)
+        //                 .setAlign(Blockly.ALIGN_RIGHT)
+        //                 .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_TO'));
+        //             this.appendStatementInput('DO')
+        //                 .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_DO'));
+
+        //         }catch(e){}
+        //         this.last_variables=Blockly.Variables.allVariables();
+        //     }
+        // }
     },
     renameVar: function(oldName, newName) {
         if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {

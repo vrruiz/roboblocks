@@ -1,1 +1,1 @@
-random({{ value_num }}, {{ value_dmax }})
+random({{ value_num }},{{ value_dmax }})

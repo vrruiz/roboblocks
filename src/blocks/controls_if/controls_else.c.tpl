@@ -1,3 +1,2 @@
 else {
-{{branch}}
-}
+{{branch}} }

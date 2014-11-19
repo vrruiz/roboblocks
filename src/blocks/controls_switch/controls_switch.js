@@ -3,7 +3,7 @@
 /* jshint sub:true */
 
 /**
-* contrls_switch code generation
+* controls_switch code generation
 * @return {String} Code generated with block parameters
 */
 var indentSentences=function(sentences){
@@ -27,12 +27,16 @@ Blockly.Arduino.controls_switch = function() {
         argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n,Blockly.Arduino.ORDER_NONE) || '';
         branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
         branch=indentSentences(branch);
-        code += ' \n  case ' + argument + ': \n  {\n' + branch + '    break;\n  }';
+        branch = branch.substring(0, branch.length - 1);
+
+        code += ' \n  case ' + argument + ': \n  {\n' + branch + '  break;\n  }';
     }
     if (this.defaultCount_) {
         branch = Blockly.Arduino.statementToCode(this, 'DEFAULT');
         branch=indentSentences(branch);
-        code += '  \n  default:\n  {\n' + branch + '\n  }';
+        branch = branch.substring(0, branch.length - 1);
+
+        code += '  \n  default:\n  {\n' + branch + '}';
     }
     return code + '\n}\n';
 };

@@ -326,22 +326,22 @@
                 //procedures blocks
                 LANG_CATEGORY_PROCEDURES: 'Functions',
                 LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
-                LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'function',
+                LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'function_without_return',
                 LANG_PROCEDURES_DEFNORETURN_DO: 'do',
                 LANG_PROCEDURES_DEFNORETURN_TOOLTIP: 'A function with no return value.',
                 LANG_PROCEDURES_DEFRETURN_HELPURL: '',
-                LANG_PROCEDURES_DEFRETURN_PROCEDURE: 'function',
+                LANG_PROCEDURES_DEFRETURN_PROCEDURE: 'function_with_return',
                 LANG_PROCEDURES_DEFRETURN_DO: 'do',
                 LANG_PROCEDURES_DEFRETURN_RETURN: 'return',
                 LANG_PROCEDURES_DEFRETURN_TOOLTIP: 'A function with a return value.',
                 LANG_PROCEDURES_DEF_DUPLICATE_WARNING: 'Warning: This function has duplicate parameters.',
                 LANG_PROCEDURES_CALLNORETURN_HELPURL: '',
                 LANG_PROCEDURES_CALLNORETURN_CALL: 'do',
-                LANG_PROCEDURES_CALLNORETURN_PROCEDURE: 'function',
+                LANG_PROCEDURES_CALLNORETURN_PROCEDURE: 'function_without_return',
                 LANG_PROCEDURES_CALLNORETURN_TOOLTIP: 'Calls a function with no return value.',
                 LANG_PROCEDURES_CALLRETURN_HELPURL: '',
                 LANG_PROCEDURES_CALLRETURN_CALL: 'do',
-                LANG_PROCEDURES_CALLRETURN_PROCEDURE: 'function',
+                LANG_PROCEDURES_CALLRETURN_PROCEDURE: 'function_with_return',
                 LANG_PROCEDURES_CALLRETURN_TOOLTIP: 'Calls a function with a return value.',
                 LANG_PROCEDURES_MUTATORCONTAINER_Field: 'parameters',
                 LANG_PROCEDURES_MUTATORARG_Field: 'variable:',
@@ -710,22 +710,22 @@
                 //procedures blocks
                 LANG_CATEGORY_PROCEDURES: 'Funciones',
                 LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
-                LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'func',
+                LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'func_sin_retorno',
                 LANG_PROCEDURES_DEFNORETURN_DO: 'ejecutar',
                 LANG_PROCEDURES_DEFNORETURN_TOOLTIP: 'Función que se ejecutará sin devolver nada.',
                 LANG_PROCEDURES_DEFRETURN_HELPURL: '',
-                LANG_PROCEDURES_DEFRETURN_PROCEDURE: 'func',
+                LANG_PROCEDURES_DEFRETURN_PROCEDURE: 'func_con_retorno',
                 LANG_PROCEDURES_DEFRETURN_DO: 'ejecutar',
                 LANG_PROCEDURES_DEFRETURN_RETURN: 'devuelve',
                 LANG_PROCEDURES_DEFRETURN_TOOLTIP: 'Función con valor de retorno.',
                 LANG_PROCEDURES_DEF_DUPLICATE_WARNING: 'Atención: Esta función tiene parámetros duplicados.',
                 LANG_PROCEDURES_CALLNORETURN_HELPURL: '',
                 LANG_PROCEDURES_CALLNORETURN_CALL: 'ejecutar',
-                LANG_PROCEDURES_CALLNORETURN_PROCEDURE: 'función',
+                LANG_PROCEDURES_CALLNORETURN_PROCEDURE: 'func_sin_retorno',
                 LANG_PROCEDURES_CALLNORETURN_TOOLTIP: 'Ejecuta esta función.',
                 LANG_PROCEDURES_CALLRETURN_HELPURL: '',
                 LANG_PROCEDURES_CALLRETURN_CALL: 'ejecutar',
-                LANG_PROCEDURES_CALLRETURN_PROCEDURE: 'función',
+                LANG_PROCEDURES_CALLRETURN_PROCEDURE: 'func_con_retorno',
                 LANG_PROCEDURES_CALLRETURN_TOOLTIP: 'Ejecuta esta función que tiene valor de retorno.',
                 LANG_PROCEDURES_MUTATORCONTAINER_Field: 'parámetros',
                 LANG_PROCEDURES_MUTATORARG_Field: 'variable:',
@@ -1382,7 +1382,7 @@
             with(obj) {
                 __p += 'else {\n' +
                     __e(branch) +
-                    '\n}';
+                    ' }';
 
             }
             return __p
@@ -1397,7 +1397,7 @@
                     __e(argument) +
                     ') {\n' +
                     __e(branch) +
-                    '\n}';
+                    ' }';
 
             }
             return __p
@@ -1412,7 +1412,7 @@
                     __e(argument) +
                     ') {\n' +
                     __e(branch) +
-                    '\n}';
+                    ' }';
 
             }
             return __p
@@ -1425,7 +1425,7 @@
             with(obj) {
                 __p += 'while (' +
                     __e(argument0) +
-                    ') {\n  ' +
+                    ') {\n' +
                     __e(branch) +
                     ' }\n';
 
@@ -1604,7 +1604,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'lcd.begin(20, 4);\n  lcd.clear(); \n';
+                __p += 'lcd.begin(20, 4);\n  lcd.clear();\n';
 
             }
             return __p
@@ -1634,7 +1634,7 @@
                     __e(xcoor) +
                     ');\nlcd.print(' +
                     __e(val) +
-                    ');';
+                    ');\n';
 
             }
             return __p
@@ -1704,9 +1704,9 @@
             with(obj) {
                 __p +=
                     __e(argument0) +
-                    ' ' +
+                    '' +
                     __e(operator) +
-                    ' ' +
+                    '' +
                     __e(argument1);
 
             }
@@ -1749,7 +1749,7 @@
             with(obj) {
                 __p += 'random(' +
                     __e(value_num) +
-                    ', ' +
+                    ',' +
                     __e(value_dmax) +
                     ')';
 
@@ -1800,7 +1800,7 @@
                     __e(args) +
                     ') {\n' +
                     __e(branch) +
-                    '\n}\n';
+                    ' }\n';
 
             }
             return __p
@@ -1819,9 +1819,9 @@
                     __e(args) +
                     ') {\n' +
                     __e(branch) +
-                    ' ' +
+                    '\n' +
                     __e(returnValue) +
-                    '\n}\n';
+                    ' }\n';
 
             }
             return __p
@@ -3492,7 +3492,7 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendDummyInput('DUMMY')
                     .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_WITH'))
-                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+                    .appendField(new Blockly.FieldVariable(' '), 'VAR');
                 this.appendValueInput('FROM')
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
@@ -3529,40 +3529,40 @@
                 return dropdown;
             },
             onchange: function() {
-                if (!this.last_variables) {
-                    this.last_variables = Blockly.Variables.allVariables();
-                }
-                var variables = Blockly.Variables.allVariables();
+                // if (!this.last_variables){
+                //     this.last_variables=Blockly.Variables.allVariables();
+                // }
+                // var variables=Blockly.Variables.allVariables();
 
-                for (var i in variables) {
-                    if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
-                        try {
-                            this.removeInput('DUMMY');
-                            this.removeInput('FROM');
-                            this.removeInput('TO');
-                            this.removeInput('DO');
-
-
-                            this.appendDummyInput('DUMMY')
-                                .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_WITH'))
-                                .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
+                // for (var i in variables){
+                //     if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
+                //         try{
+                //             this.removeInput('DUMMY');
+                //             this.removeInput('FROM');
+                //             this.removeInput('TO');
+                //             this.removeInput('DO');
 
 
-                            this.appendValueInput('FROM')
-                                .setCheck(Number)
-                                .setAlign(Blockly.ALIGN_RIGHT)
-                                .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_FROM'));
-                            this.appendValueInput('TO')
-                                .setCheck(Number)
-                                .setAlign(Blockly.ALIGN_RIGHT)
-                                .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_TO'));
-                            this.appendStatementInput('DO')
-                                .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_DO'));
+                //             this.appendDummyInput('DUMMY')
+                //                 .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_WITH'))
+                //                 .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
 
-                        } catch (e) {}
-                        this.last_variables = Blockly.Variables.allVariables();
-                    }
-                }
+
+                //             this.appendValueInput('FROM')
+                //                 .setCheck(Number)
+                //                 .setAlign(Blockly.ALIGN_RIGHT)
+                //                 .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_FROM'));
+                //             this.appendValueInput('TO')
+                //                 .setCheck(Number)
+                //                 .setAlign(Blockly.ALIGN_RIGHT)
+                //                 .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_TO'));
+                //             this.appendStatementInput('DO')
+                //                 .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_DO'));
+
+                //         }catch(e){}
+                //         this.last_variables=Blockly.Variables.allVariables();
+                //     }
+                // }
             },
             renameVar: function(oldName, newName) {
                 if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
@@ -3824,7 +3824,7 @@
         /* jshint sub:true */
 
         /**
-         * contrls_switch code generation
+         * controls_switch code generation
          * @return {String} Code generated with block parameters
          */
         var indentSentences = function(sentences) {
@@ -3848,12 +3848,16 @@
                 argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n, Blockly.Arduino.ORDER_NONE) || '';
                 branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
                 branch = indentSentences(branch);
-                code += ' \n  case ' + argument + ': \n  {\n' + branch + '    break;\n  }';
+                branch = branch.substring(0, branch.length - 1);
+
+                code += ' \n  case ' + argument + ': \n  {\n' + branch + '  break;\n  }';
             }
             if (this.defaultCount_) {
                 branch = Blockly.Arduino.statementToCode(this, 'DEFAULT');
                 branch = indentSentences(branch);
-                code += '  \n  default:\n  {\n' + branch + '\n  }';
+                branch = branch.substring(0, branch.length - 1);
+
+                code += '  \n  default:\n  {\n' + branch + '}';
             }
             return code + '\n}\n';
         };
@@ -4065,7 +4069,6 @@
         // Source: src/blocks/controls_whileUntil/controls_whileUntil.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * controls_whileUntil code generation
          * @return {String} Code generated with block parameters
@@ -4075,13 +4078,14 @@
             // Do while/until loop.
             var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL', Blockly.Arduino.ORDER_NONE) || '';
             argument0 = argument0.replace(/&quot;/g, '"');
-
             var branch = Blockly.Arduino.statementToCode(this, 'DO');
             branch = branch.replace(/&quot;/g, '"');
-
+            //remove last \n
+            // branch = branch.substring(0, branch.length - 2);
 
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
+                // branch = branch.substring(0, branch.length - 2);
             }
             if (this.getFieldValue('MODE') === 'UNTIL') {
                 if (!argument0.match(/^\w+$/)) {
@@ -4093,26 +4097,19 @@
                 'argument0': argument0,
                 'branch': branch
             });
-
             return code;
         };
-
-
         Blockly.Blocks.controls_whileUntil = {
             // Do while/until loop.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_whileUntil',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
-                this.appendValueInput('BOOL')
-                    .setCheck(Boolean)
-                    .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TITLE_REPEAT'))
-                    .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE'), 'WHILE'],
-                        [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL'), 'UNTIL']
-                    ]), 'MODE');
-                this.appendStatementInput('DO')
-                    .appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_INPUT_DO'));
+                this.appendValueInput('BOOL').setCheck(Boolean).appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TITLE_REPEAT')).appendField(new Blockly.FieldDropdown([
+                    [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE'), 'WHILE'],
+                    [RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL'), 'UNTIL']
+                ]), 'MODE');
+                this.appendStatementInput('DO').appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_INPUT_DO'));
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
                 // Assign 'this' to a variable for use in the tooltip closure below.
@@ -4123,12 +4120,10 @@
                 });
             }
         };
-
         Blockly.Blocks.controls_whileUntil.TOOLTIPS = {
             WHILE: RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TOOLTIP_WHILE'),
             UNTIL: RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL')
         };
-
         // Source: src/blocks/inout_analog_read/inout_analog_read.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
@@ -5922,7 +5917,6 @@
         };
         // Source: src/blocks/procedures_defreturn/procedures_defreturn.js
         /* global Blockly, JST, RoboBlocks */
-
         /**
          * procedures_defreturn code generation
          * @return {String} Code generated with block parameters
@@ -5932,20 +5926,16 @@
             var funcName = this.getFieldValue('NAME');
             var branch = Blockly.Arduino.statementToCode(this, 'STACK');
             branch = branch.replace(/&quot;/g, '"');
-
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
             var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
             returnValue = returnValue.replace(/&quot;/g, '"');
-
             var returnType = this.getReturnType();
             if (returnValue) {
                 returnValue = '  return ' + returnValue + ';\n';
             }
-
             var args = this.paramString;
-
             var code = JST['procedures_defreturn']({
                 'returnType': returnType,
                 'funcName': funcName,
@@ -5953,47 +5943,64 @@
                 'branch': branch,
                 'returnValue': returnValue
             });
-
-
             code = Blockly.Arduino.scrub_(this, code);
             Blockly.Arduino.definitions_[funcName] = code;
             return null;
         };
-
-
-
         Blockly.Blocks.procedures_defreturn = {
             // Define a procedure with a return value.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'), // Procedures are handled specially.
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_defreturn',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
-                var name = Blockly.Procedures.findLegalName(
-                    RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_PROCEDURE'), this);
-                this.appendDummyInput()
-                    .appendField(new Blockly.FieldTextInput(name,
-                        Blockly.Procedures.rename), 'NAME')
-                    .appendField('', 'PARAMS');
-                this.appendStatementInput('STACK')
-                    .appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_DO'));
-                this.appendValueInput('RETURN')
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_RETURN'));
+                var name = Blockly.Procedures.findLegalName(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_PROCEDURE'), this);
+                this.appendDummyInput().appendField(new Blockly.FieldTextInput(name, Blockly.Procedures.rename), 'NAME').appendField('', 'PARAMS');
+                this.appendStatementInput('STACK').appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_DO'));
+                this.appendValueInput('RETURN').setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_RETURN'));
                 this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_TOOLTIP'));
                 this.arguments_ = [];
+            },
+            isVariable: function(varValue) {
+                for (var i in Blockly.Variables.allVariables()) {
+                    if (Blockly.Variables.allVariables()[i] === varValue) {
+                        return true;
+                    }
+                }
+                return false;
             },
             getReturnType: function() {
                 var returnType;
                 var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
                 if (!returnValue) {
                     returnType = 'void';
-                } else if ((returnValue.search('analogRead') >= 0) || (returnValue.search('digitalRead') >= 0) || (returnValue.search('Distanc') >= 0) || (!isNaN(parseFloat(returnValue))) || returnValue[0] === '{' || returnValue.search('\\[') >= 0) {
+                }
+                if (returnValue.search('"') >= 0) {
+                    returnType = 'String';
+                } else if (returnValue.search('\\(') >= 0 && returnValue.search('\\)') >= 0) {
+                    for (var i in Blockly.Arduino.definitions_) {
+                        if (Blockly.Arduino.definitions_[i].search(returnValue) >= 0) {
+                            if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'int') {
+                                if (Blockly.Arduino.definitions_[i].substring(0, 5) === 'int *') {
+                                    returnType = 'int *';
+                                } else {
+                                    returnType = 'int';
+                                }
+                            } else if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'Str') {
+                                returnType = 'String';
+                            } else {
+                                returnType = '';
+                            }
+                        }
+                    }
+                } else if (this.isVariable(returnValue)) {
+                    returnType = RoboBlocks.variables[returnValue];
+                } else if ((returnValue.search('analogRead') >= 0) || (returnValue.search('digitalRead') >= 0) || (returnValue.search('Distanc') >= 0) || (!isNaN(parseFloat(returnValue)) || (returnValue.search('random') >= 0)) || (returnValue.search('map') >= 0) || returnValue.search('\\[') >= 0 || (returnValue.search('abs') >= 0) || (returnValue.search('sqrt') >= 0) || (returnValue.search('log') >= 0) || (returnValue.search('log') >= 0) || (returnValue.search('exp') >= 0) || (returnValue.search('pow') >= 0)) {
                     returnType = 'int';
-                } else if (returnValue.search('readJoystick') >= 0) {
+                } else if (returnValue.search('readJoystick') >= 0 || returnValue[0] === '{') {
                     returnType = 'int *';
                 } else {
-                    returnType = 'String';
+                    returnType = 'void';
                 }
                 return returnType;
             },
@@ -6014,7 +6021,6 @@
             validName: Blockly.Blocks.procedures_defnoreturn.validName,
             onchange: Blockly.Blocks.procedures_defnoreturn.onchange
         };
-
         // Source: src/blocks/procedures_ifreturn/procedures_ifreturn.js
         /* global Blockly, RoboBlocks */
 
@@ -6488,7 +6494,7 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
                 this.appendValueInput('TEXT')
                     .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'))
-                    .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
+                    .appendField(new Blockly.FieldVariable(' '), 'VAR')
                     .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
@@ -6519,27 +6525,27 @@
                 return dropdown;
             },
             onchange: function() {
-                if (!this.last_variables) {
-                    this.last_variables = Blockly.Variables.allVariables();
-                }
-                var variables = Blockly.Variables.allVariables();
+                // if (!this.last_variables){
+                //     this.last_variables=Blockly.Variables.allVariables();
+                // }
+                // var variables=Blockly.Variables.allVariables();
 
-                for (var i in variables) {
-                    if (Blockly.Variables.allVariables()[i] !== this.last_variables[i]) {
-                        try {
-                            this.removeInput('TEXT');
+                // for (var i in variables){
+                //     if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
+                //         try{
+                //             this.removeInput('TEXT');
 
-                            this.appendValueInput('TEXT')
-                                .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'))
-                                .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
-                                .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
+                //             this.appendValueInput('TEXT')
+                //                 .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'))
+                //                 .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
+                //                 .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
 
-                            this.setInputsInline(true);
+                //             this.setInputsInline(true);
 
-                        } catch (e) {}
-                        this.last_variables = Blockly.Variables.allVariables();
-                    }
-                }
+                //         }catch(e){}
+                //         this.last_variables=Blockly.Variables.allVariables();
+                //     }
+                // }
             }
         };
         // Source: src/blocks/text_equalsIgnoreCase/text_equalsIgnoreCase.js
@@ -6924,21 +6930,10 @@
             var varType;
             var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
             var varName = this.getFieldValue('VAR') || '';
-            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0) {
-                varType = 'int';
+            if (varValue.search('"') >= 0) {
+                varType = 'String';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
-            } else if (varValue[0] === '{') {
-                varType = 'int *';
-                varValue = varValue.replace('{', '');
-                varValue = varValue.replace('}', '');
-                varValue = varValue.split(',');
-                Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
-                Blockly.Arduino.setups_['define_var' + varName] = varName + '[0]=' + varValue[0] + ';\n  ' + varName + '[1]=' + varValue[1] + ';\n  ' + varName + '[2]=' + varValue[2] + ';';
-            } else if (varValue.search('readJoystick') >= 0) {
-                varType = 'int *';
-                Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
-                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
             } else if (varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
                 for (var i in Blockly.Arduino.definitions_) {
                     if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
@@ -6961,8 +6956,23 @@
                 varType = RoboBlocks.variables[varValue];
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+            } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0)) {
+                varType = 'int';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+            } else if (varValue[0] === '{') {
+                varType = 'int *';
+                varValue = varValue.replace('{', '');
+                varValue = varValue.replace('}', '');
+                varValue = varValue.split(',');
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '[0]=' + varValue[0] + ';\n  ' + varName + '[1]=' + varValue[1] + ';\n  ' + varName + '[2]=' + varValue[2] + ';';
+            } else if (varValue.search('readJoystick') >= 0) {
+                varType = 'int *';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
             } else {
-                varType = 'String';
+                varType = 'unknown';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
             }
@@ -7048,10 +7058,8 @@
             }
         };
         // Source: src/blocks/variables_local/variables_local.js
-
         /* global Blockly,  RoboBlocks */
         /* jshint sub:true */
-
         /**
          * variable code generation
          * @return {String} Code generated with block parameters
@@ -7063,25 +7071,12 @@
             var varName = this.getFieldValue('VAR') || '';
             var sufix = '';
             var code = '';
-
             if (varValue[0] === '(') {
                 varValue = varValue.substring(1, varValue.length - 1);
             }
-
-            if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue))) || (varValue.search('random') >= 0) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0) {
-                varType = 'int';
-                code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
-            } else if (varValue[0] === '{') {
-                varType = 'int *';
-                varValue = varValue.replace('{', '');
-                varValue = varValue.replace('}', '');
-                varValue = varValue.split(',');
-                code = varType + varName + ';\n';
-                code += varName + '[0]=' + varValue[0] + ';\n' + varName + '[1]=' + varValue[1] + ';\n' + varName + '[2]=' + varValue[2] + ';\n';
-            } else if (varValue.search('readJoystick') >= 0) {
-                varType = 'int *';
-                code = varType + varName + ';\n';
-                code += varName + '=' + varValue + ';\n';
+            if (varValue.search('"') >= 0) {
+                varType = 'String';
+                code = varType + ' ' + varName + '=' + varValue + ';\n';
             } else if (varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
                 for (var i in Blockly.Arduino.definitions_) {
                     if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
@@ -7099,34 +7094,37 @@
                         code = varType + ' ' + varName + '=' + varValue + ';\n';
                     }
                 }
-
             } else if (this.isVariable(varValue)) {
                 varType = RoboBlocks.variables[varValue];
                 code = varType + ' ' + varName + '=' + varValue + ';\n';
+            } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0)) {
+                varType = 'int';
+                code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
+            } else if (varValue[0] === '{') {
+                varType = 'int *';
+                varValue = varValue.replace('{', '');
+                varValue = varValue.replace('}', '');
+                varValue = varValue.split(',');
+                code = varType + varName + ';\n';
+                code += varName + '[0]=' + varValue[0] + ';\n' + varName + '[1]=' + varValue[1] + ';\n' + varName + '[2]=' + varValue[2] + ';\n';
+            } else if (varValue.search('readJoystick') >= 0) {
+                varType = 'int *';
+                code = varType + varName + ';\n';
+                code += varName + '=' + varValue + ';\n';
             } else {
-                varType = 'String';
+                varType = 'unknown';
                 code = varType + ' ' + varName + '=' + varValue + ';\n';
-
             }
-
             RoboBlocks.variables[varName] = varType;
-
-
             return code;
         };
-
-
         Blockly.Blocks.variables_local = {
             // Variable setter.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'), // Variables are handled specially.
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variable',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
-                this.appendValueInput('VALUE')
-                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL'))
-                    .appendField(new Blockly.FieldTextInput(''), 'VAR')
-                    .appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL_EQUALS'));
-
+                this.appendValueInput('VALUE').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL')).appendField(new Blockly.FieldTextInput(''), 'VAR').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL_EQUALS'));
                 this.setInputsInline(false);
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
@@ -7144,7 +7142,6 @@
             onchange: Blockly.Blocks.variables_global.onchange,
             validName: Blockly.Blocks.variables_global.validName
         };
-
         // Source: src/blocks/variables_set/variables_set.js
 
         /* global Blockly, JST, RoboBlocks */

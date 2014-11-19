@@ -1,3 +1,2 @@
 else if ({{argument}}) {
-{{branch}}
-}
+{{branch}} }

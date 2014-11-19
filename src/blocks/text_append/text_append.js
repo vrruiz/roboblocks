@@ -21,7 +21,7 @@ Blockly.Blocks.text_append = {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendValueInput('TEXT')
             .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'))
-            .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
+            .appendField(new Blockly.FieldVariable(' '), 'VAR')
             .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
         this.setPreviousStatement(true);
         this.setNextStatement(true);
@@ -53,26 +53,26 @@ Blockly.Blocks.text_append = {
         return dropdown;
     },
     onchange: function(){
-        if (!this.last_variables){
-            this.last_variables=Blockly.Variables.allVariables();
-        }
-        var variables=Blockly.Variables.allVariables();
+        // if (!this.last_variables){
+        //     this.last_variables=Blockly.Variables.allVariables();
+        // }
+        // var variables=Blockly.Variables.allVariables();
 
-        for (var i in variables){
-            if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
-                try{
-                    this.removeInput('TEXT');
+        // for (var i in variables){
+        //     if (Blockly.Variables.allVariables()[i]!==this.last_variables[i]){
+        //         try{
+        //             this.removeInput('TEXT');
 
-                    this.appendValueInput('TEXT')
-                        .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'))
-                        .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
-                        .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
+        //             this.appendValueInput('TEXT')
+        //                 .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'))
+        //                 .appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR')
+        //                 .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
                         
-                    this.setInputsInline(true);
+        //             this.setInputsInline(true);
 
-                }catch(e){}
-                this.last_variables=Blockly.Variables.allVariables();
-            }
-        }
+        //         }catch(e){}
+        //         this.last_variables=Blockly.Variables.allVariables();
+        //     }
+        // }
     }
 };

@@ -1,1 +1,1 @@
-{{argument0}} {{operator}} {{argument1}}
+{{argument0}}{{operator}}{{argument1}}

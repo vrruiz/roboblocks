@@ -1,3 +1,2 @@
 {{returnType}} {{funcName}} ({{args}}) {
-{{branch}}
-}
+{{branch}} }
