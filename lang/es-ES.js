@@ -295,6 +295,7 @@
         LANG_PROCEDURES_IFRETURN_WARNING: 'Atención: Este bloque sólo puede ser usado dentro de una función que tenga valor de retorno.',
         //variables blocks :
         LANG_CATEGORY_VARIABLES: 'Variables',
+        LANG_VARIABLES_CALL_WITHOUT_DEFINITION: 'Esta variable no está declarada.',
         LANG_VARIABLES_GLOBAL: 'Variable',
         LANG_VARIABLES_GLOBAL_TYPE: 'de tipo ',
         LANG_VARIABLES_GLOBAL_EQUALS: '=',

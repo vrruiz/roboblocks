@@ -269,7 +269,7 @@
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Returns a random number between the two limits.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Functions',
-        LANG_PROCEDURES_CALL_WITHOUT_DEFINITION:'Function call without matching definition',
+        LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'Function call without matching definition',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'function_without_return',
         LANG_PROCEDURES_DEFNORETURN_DO: 'do',
@@ -295,6 +295,7 @@
         LANG_PROCEDURES_IFRETURN_WARNING: 'Warning: This block may only be used within a function with a return value.',
         //variables blocks :
         LANG_CATEGORY_VARIABLES: 'Variables',
+        LANG_VARIABLES_CALL_WITHOUT_DEFINITION: 'This variable is not declared.',
         LANG_VARIABLES_GLOBAL: 'Variable ',
         LANG_VARIABLES_GLOBAL_TYPE: 'of type ',
         LANG_VARIABLES_GLOBAL_EQUALS: 'equals',
