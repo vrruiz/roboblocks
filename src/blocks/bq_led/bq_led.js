@@ -29,7 +29,7 @@ Blockly.Arduino.bq_led = function() {
  */
 Blockly.Blocks.bq_led = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-    tag: ['bq', 'led'],
+    tags: ['bq', 'led'],
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_led',
     /**
     * bq_led initialization
