@@ -18,6 +18,9 @@ Blockly.Arduino.variables_local = function() {
     if (varValue.search('"') >= 0) {
         varType = 'String';
         code = varType + ' ' + varName + '=' + varValue + ';\n';
+    } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0) || (varValue.search('\\+'))) {
+        varType = 'int';
+        code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
     } else if (varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
         for (var i in Blockly.Arduino.definitions_) {
             if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
@@ -38,9 +41,6 @@ Blockly.Arduino.variables_local = function() {
     } else if (this.isVariable(varValue)) {
         varType = RoboBlocks.variables[varValue];
         code = varType + ' ' + varName + '=' + varValue + ';\n';
-    } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0) || (varValue.search('\\+')) ) {
-        varType = 'int';
-        code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
     } else if (varValue[0] === '{') {
         varType = 'int *';
         varValue = varValue.replace('{', '');
