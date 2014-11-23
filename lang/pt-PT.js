@@ -101,7 +101,7 @@
         LANG_BQ_PIEZO_BUZZER_SI: 'SI',
         LANG_BQ_PIEZO_BUZZER_DURATION: 'Duração',
         LANG_BQ_PIEZO_BUZZER_TOOLTIP: 'Cigarra - Elemento piezoeléctrico',
-        LANG_BQ_PIEZO_BUZZERAV: 'Zumbador avanzado',
+        LANG_BQ_PIEZO_BUZZERAV: 'Cigarra avançado',
         LANG_BQ_PIEZO_BUZZERAV_PIN: 'PIN#',
         LANG_BQ_PIEZO_BUZZERAV_TONE: 'TOM',
         LANG_BQ_PIEZO_BUZZERAV_DURATION: 'Duração',
