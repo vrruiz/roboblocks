@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.4 - 2014-11-21
+/*! roboblocks - v0.1.4 - 2014-11-24
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -4176,6 +4176,8 @@
         Blockly.Arduino.inout_analog_write = function() {
 
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+
+            console.log('aaaaaaaaaaa', dropdown_pin);
             var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
 
             Blockly.Arduino.setups_['setup_green_analog_write_13'] = JST['inout_analog_write_setups']({
@@ -4204,7 +4206,7 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
-                this.appendValueInput('')
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_WRITE'));
                 this.appendValueInput('NUM', Number)
                     .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_WRITE_VALUE'))
