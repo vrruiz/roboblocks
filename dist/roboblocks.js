@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.4 - 2014-11-24
+/*! roboblocks - v0.1.4 - 2014-11-25
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -352,11 +352,11 @@
                 //variables blocks :
                 LANG_CATEGORY_VARIABLES: 'Variables',
                 LANG_VARIABLES_CALL_WITHOUT_DEFINITION: 'This variable is not declared.',
-                LANG_VARIABLES_GLOBAL: 'Variable ',
+                LANG_VARIABLES_GLOBAL: 'GLOBAL Variable ',
                 LANG_VARIABLES_GLOBAL_TYPE: 'of type ',
                 LANG_VARIABLES_GLOBAL_EQUALS: 'equals',
                 LANG_VARIABLES_GLOBAL_TOOLTIP: 'Declares and defines a GLOBAL variable of type int or String.',
-                LANG_VARIABLES_LOCAL: 'LOCAL variable ',
+                LANG_VARIABLES_LOCAL: 'Variable ',
                 LANG_VARIABLES_LOCAL_TYPE: 'of type ',
                 LANG_VARIABLES_LOCAL_EQUALS: 'equals',
                 LANG_VARIABLES_LOCAL_TOOLTIP: 'Declare and define a LOCAL variable of type int or String.',
@@ -738,11 +738,11 @@
                 //variables blocks :
                 LANG_CATEGORY_VARIABLES: 'Variables',
                 LANG_VARIABLES_CALL_WITHOUT_DEFINITION: 'Esta variable no está declarada.',
-                LANG_VARIABLES_GLOBAL: 'Variable',
+                LANG_VARIABLES_GLOBAL: 'Variable GLOBAL',
                 LANG_VARIABLES_GLOBAL_TYPE: 'de tipo ',
                 LANG_VARIABLES_GLOBAL_EQUALS: '=',
                 LANG_VARIABLES_GLOBAL_TOOLTIP: 'Declara y define una variable GLOBAL de tipo entero (int) o texto (String).',
-                LANG_VARIABLES_LOCAL: 'Variable LOCAL',
+                LANG_VARIABLES_LOCAL: 'Variable',
                 LANG_VARIABLES_LOCAL_TYPE: 'de tipo ',
                 LANG_VARIABLES_LOCAL_EQUALS: '=',
                 LANG_VARIABLES_LOCAL_TOOLTIP: 'Declara y define una variable LOCAL de tipo entero (int) o texto (String).',

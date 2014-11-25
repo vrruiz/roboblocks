@@ -296,11 +296,11 @@
         //variables blocks :
         LANG_CATEGORY_VARIABLES: 'Variables',
         LANG_VARIABLES_CALL_WITHOUT_DEFINITION: 'This variable is not declared.',
-        LANG_VARIABLES_GLOBAL: 'Variable ',
+        LANG_VARIABLES_GLOBAL: 'GLOBAL Variable ',
         LANG_VARIABLES_GLOBAL_TYPE: 'of type ',
         LANG_VARIABLES_GLOBAL_EQUALS: 'equals',
         LANG_VARIABLES_GLOBAL_TOOLTIP: 'Declares and defines a GLOBAL variable of type int or String.',
-        LANG_VARIABLES_LOCAL: 'LOCAL variable ',
+        LANG_VARIABLES_LOCAL: 'Variable ',
         LANG_VARIABLES_LOCAL_TYPE: 'of type ',
         LANG_VARIABLES_LOCAL_EQUALS: 'equals',
         LANG_VARIABLES_LOCAL_TOOLTIP: 'Declare and define a LOCAL variable of type int or String.',
