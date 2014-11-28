@@ -12,8 +12,11 @@ Blockly.Arduino.zum_follower = function() {
 
     var code_btn1 = Blockly.Arduino.statementToCode(this, 'SENS1');
     code_btn1=code_btn1.replace(/&quot;/g,'"');
+    code_btn1=code_btn1.replace(/&amp;/g,'');
+
     var code_btn2 = Blockly.Arduino.statementToCode(this, 'SENS2');
     code_btn2=code_btn2.replace(/&quot;/g,'"');
+    code_btn2=code_btn2.replace(/&amp;/g,'');
 
     Blockly.Arduino.setups_['setup_follower_' + dropdown_pin] = JST['zum_follower_setups']({
         'dropdown_pin': dropdown_pin,

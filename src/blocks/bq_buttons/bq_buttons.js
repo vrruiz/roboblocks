@@ -22,6 +22,12 @@ Blockly.Arduino.bq_buttons = function() {
     code_btn4=code_btn4.replace(/&quot;/g,'"');
     code_btn5=code_btn5.replace(/&quot;/g,'"');
 
+    code_btn1=code_btn1.replace(/&amp;/g,'');
+    code_btn2=code_btn2.replace(/&amp;/g,'');
+    code_btn3=code_btn3.replace(/&amp;/g,'');
+    code_btn4=code_btn4.replace(/&amp;/g,'');
+    code_btn5=code_btn5.replace(/&amp;/g,'');
+
     Blockly.Arduino.definitions_['define_buttons'] = JST['bq_buttons_definitions']({
         'dropdown_pin': dropdown_pin
     });

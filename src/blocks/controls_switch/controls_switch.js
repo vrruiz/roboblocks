@@ -22,12 +22,15 @@ Blockly.Arduino.controls_switch = function() {
         Blockly.Arduino.ORDER_NONE) || '';
     var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
     branch=indentSentences(branch);
+    branch=branch.replace(/&amp;/g, '');
+
     var code = 'switch (' + argument + ')\n{';
     for (n = 1; n <= this.switchCount_; n++) {
         argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n,Blockly.Arduino.ORDER_NONE) || '';
         branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
         branch=indentSentences(branch);
         branch = branch.substring(0, branch.length - 1);
+        branch=branch.replace(/&amp;/g, '');
 
         code += ' \n  case ' + argument + ': \n  {\n' + branch + '  break;\n  }';
     }
@@ -35,6 +38,7 @@ Blockly.Arduino.controls_switch = function() {
         branch = Blockly.Arduino.statementToCode(this, 'DEFAULT');
         branch=indentSentences(branch);
         branch = branch.substring(0, branch.length - 1);
+        branch=branch.replace(/&amp;/g, '');
 
         code += '  \n  default:\n  {\n' + branch + '}';
     }

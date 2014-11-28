@@ -13,6 +13,8 @@ Blockly.Arduino.controls_for = function() {
     if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
     }
+    branch=branch.replace(/&amp;/g, '');
+
     var code;
     // if (argument0.match(/^-?\d+(\.\d+)?$/) && argument1.match(/^-?\d+(\.\d+)?$/)) {
     // Both arguments are simple numbers.
