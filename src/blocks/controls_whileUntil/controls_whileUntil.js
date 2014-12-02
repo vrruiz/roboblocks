@@ -12,7 +12,7 @@ Blockly.Arduino.controls_whileUntil = function() {
     argument0 = argument0.replace(/&quot;/g, '"');
     var branch = Blockly.Arduino.statementToCode(this, 'DO');
     branch = branch.replace(/&quot;/g, '"');
-    branch=branch.replace(/&amp;/g, '');
+    // branch=branch.replace(/&amp;/g, '');
 
     //remove last \n
     // branch = branch.substring(0, branch.length - 2);
@@ -21,7 +21,7 @@ Blockly.Arduino.controls_whileUntil = function() {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
         // branch = branch.substring(0, branch.length - 2);
     }
-    branch=branch.replace(/&amp;/g, '');
+    // branch=branch.replace(/&amp;/g, '');
 
     if (this.getFieldValue('MODE') === 'UNTIL') {
         if (!argument0.match(/^\w+$/)) {

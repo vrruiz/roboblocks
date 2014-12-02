@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.7 - 2014-11-28
+/*! roboblocks - v0.1.8 - 2014-12-02
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -2670,7 +2670,7 @@
 
                 this.appendDummyInput()
                     .appendField('zum?')
-                    .appendField(new Blockly.FieldCheckbox('TRUE'), 'TOGGLE')
+                    .appendField(new Blockly.FieldCheckbox('FALSE'), 'TOGGLE')
                     .setAlign(Blockly.ALIGN_RIGHT);
 
                 this.checkBT();
@@ -2872,11 +2872,11 @@
             code_btn4 = code_btn4.replace(/&quot;/g, '"');
             code_btn5 = code_btn5.replace(/&quot;/g, '"');
 
-            code_btn1 = code_btn1.replace(/&amp;/g, '');
-            code_btn2 = code_btn2.replace(/&amp;/g, '');
-            code_btn3 = code_btn3.replace(/&amp;/g, '');
-            code_btn4 = code_btn4.replace(/&amp;/g, '');
-            code_btn5 = code_btn5.replace(/&amp;/g, '');
+            // code_btn1=code_btn1.replace(/&amp;/g,'');
+            // code_btn2=code_btn2.replace(/&amp;/g,'');
+            // code_btn3=code_btn3.replace(/&amp;/g,'');
+            // code_btn4=code_btn4.replace(/&amp;/g,'');
+            // code_btn5=code_btn5.replace(/&amp;/g,'');
 
             Blockly.Arduino.definitions_['define_buttons'] = JST['bq_buttons_definitions']({
                 'dropdown_pin': dropdown_pin
@@ -3453,7 +3453,7 @@
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
-            branch = branch.replace(/&amp;/g, '');
+            // branch=branch.replace(/&amp;/g, '');
 
             var code;
             // if (argument0.match(/^-?\d+(\.\d+)?$/) && argument1.match(/^-?\d+(\.\d+)?$/)) {
@@ -3594,7 +3594,8 @@
             argument = argument.replace(/&quot;/g, '"');
 
             var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-            branch = branch.replace(/&amp;/g, '');
+            // branch=branch.replace(/&amp;/g, '');
+
             var code = JST['controls_if']({
                 'argument': argument,
                 'branch': branch
@@ -3604,7 +3605,7 @@
             for (n = 1; n <= this.elseifCount_; n++) {
                 argument = Blockly.Arduino.valueToCode(this, 'IF' + n, Blockly.Arduino.ORDER_NONE);
                 branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-                branch = branch.replace(/&amp;/g, '');
+                // branch=branch.replace(/&amp;/g, '');
 
                 code += JST['controls_elseif']({
                     'argument': argument,
@@ -3613,7 +3614,7 @@
             }
             if (this.elseCount_) {
                 branch = Blockly.Arduino.statementToCode(this, 'ELSE');
-                branch = branch.replace(/&amp;/g, '');
+                // branch=branch.replace(/&amp;/g, '');
 
                 code += JST['controls_else']({
                     'argument': argument,
@@ -3855,7 +3856,7 @@
                 Blockly.Arduino.ORDER_NONE) || '';
             var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
             branch = indentSentences(branch);
-            branch = branch.replace(/&amp;/g, '');
+            // branch=branch.replace(/&amp;/g, '');
 
             var code = 'switch (' + argument + ')\n{';
             for (n = 1; n <= this.switchCount_; n++) {
@@ -3863,7 +3864,7 @@
                 branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
                 branch = indentSentences(branch);
                 branch = branch.substring(0, branch.length - 1);
-                branch = branch.replace(/&amp;/g, '');
+                // branch=branch.replace(/&amp;/g, '');
 
                 code += ' \n  case ' + argument + ': \n  {\n' + branch + '  break;\n  }';
             }
@@ -3871,7 +3872,7 @@
                 branch = Blockly.Arduino.statementToCode(this, 'DEFAULT');
                 branch = indentSentences(branch);
                 branch = branch.substring(0, branch.length - 1);
-                branch = branch.replace(/&amp;/g, '');
+                // branch=branch.replace(/&amp;/g, '');
 
                 code += '  \n  default:\n  {\n' + branch + '}';
             }
@@ -4096,7 +4097,7 @@
             argument0 = argument0.replace(/&quot;/g, '"');
             var branch = Blockly.Arduino.statementToCode(this, 'DO');
             branch = branch.replace(/&quot;/g, '"');
-            branch = branch.replace(/&amp;/g, '');
+            // branch=branch.replace(/&amp;/g, '');
 
             //remove last \n
             // branch = branch.substring(0, branch.length - 2);
@@ -4105,7 +4106,7 @@
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
                 // branch = branch.substring(0, branch.length - 2);
             }
-            branch = branch.replace(/&amp;/g, '');
+            // branch=branch.replace(/&amp;/g, '');
 
             if (this.getFieldValue('MODE') === 'UNTIL') {
                 if (!argument0.match(/^\w+$/)) {
@@ -4530,6 +4531,7 @@
                     'val': val
                 });
             }
+            code = code.replace(/&quot;/g, '"');
             return code;
         };
         /**
@@ -5730,7 +5732,7 @@
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
-            branch = branch.replace(/&amp;/g, '');
+            // branch=branch.replace(/&amp;/g, '');
 
             var returnType = 'void';
             var args = this.paramString;
@@ -5995,7 +5997,7 @@
             var funcName = this.getFieldValue('NAME');
             var branch = Blockly.Arduino.statementToCode(this, 'STACK');
             branch = branch.replace(/&quot;/g, '"');
-            branch = branch.replace(/&amp;/g, '');
+            // branch=branch.replace(/&amp;/g, '');
 
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
@@ -6194,7 +6196,7 @@
         Blockly.Arduino.serial_available = function() {
             var branch = Blockly.Arduino.statementToCode(this, 'DO');
             branch = branch.replace(/&quot;/g, '"');
-            branch = branch.replace(/&amp;/g, '');
+            // branch=branch.replace(/&amp;/g, '');
 
             var code = JST['serial_available']({
                 'branch': branch
@@ -6561,10 +6563,10 @@
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text_append',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
-                this.appendValueInput('TEXT').appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'));
                 this.appendValueInput('VAR')
                     // .appendField(new Blockly.FieldVariable(' '), 'VAR')
-                    .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
+                    .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'));
+                this.appendValueInput('TEXT').appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
                 this.setInputsInline(true);
@@ -7365,11 +7367,11 @@
 
             var code_btn1 = Blockly.Arduino.statementToCode(this, 'SENS1');
             code_btn1 = code_btn1.replace(/&quot;/g, '"');
-            code_btn1 = code_btn1.replace(/&amp;/g, '');
+            // code_btn1=code_btn1.replace(/&amp;/g,'');
 
             var code_btn2 = Blockly.Arduino.statementToCode(this, 'SENS2');
             code_btn2 = code_btn2.replace(/&quot;/g, '"');
-            code_btn2 = code_btn2.replace(/&amp;/g, '');
+            // code_btn2=code_btn2.replace(/&amp;/g,'');
 
             Blockly.Arduino.setups_['setup_follower_' + dropdown_pin] = JST['zum_follower_setups']({
                 'dropdown_pin': dropdown_pin,

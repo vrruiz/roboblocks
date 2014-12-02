@@ -58,7 +58,7 @@ Blockly.Blocks.bq_bluetooth_def = {
 
         this.appendDummyInput()
             .appendField('zum?')
-            .appendField(new Blockly.FieldCheckbox('TRUE'), 'TOGGLE')
+            .appendField(new Blockly.FieldCheckbox('FALSE'), 'TOGGLE')
             .setAlign(Blockly.ALIGN_RIGHT);
 
         this.checkBT();

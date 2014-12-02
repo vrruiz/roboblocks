@@ -14,7 +14,7 @@ Blockly.Arduino.procedures_defnoreturn = function() {
     if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
     }
-    branch=branch.replace(/&amp;/g, '');
+    // branch=branch.replace(/&amp;/g, '');
 
     var returnType = 'void';
     var args = this.paramString;

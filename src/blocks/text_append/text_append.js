@@ -16,10 +16,10 @@ Blockly.Blocks.text_append = {
     helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text_append',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
-        this.appendValueInput('TEXT').appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'));
         this.appendValueInput('VAR')
         // .appendField(new Blockly.FieldVariable(' '), 'VAR')
-        .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
+        .appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TO'));
+        this.appendValueInput('TEXT').appendField(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_APPENDTEXT'));
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setInputsInline(true);

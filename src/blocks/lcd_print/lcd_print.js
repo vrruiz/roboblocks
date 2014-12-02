@@ -21,6 +21,7 @@ Blockly.Arduino.lcd_print = function() {
             'val': val
         });
     }
+    code=code.replace(/&quot;/g, '"');
     return code;
 };
 /**
