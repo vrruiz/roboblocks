@@ -371,7 +371,7 @@
         LANG_SERVO_MOVE_PIN: 'PIN#',
         LANG_SERVO_MOVE_DEGREES: 'Degrees (0~180)',
         LANG_SERVO_MOVE_DELAY: 'Delay [ms]',
-        LANG_SERVO_MOVE_TOOLTIP: 'Move between 0~180 degree',
+        LANG_SERVO_MOVE_TOOLTIP: 'Move between 0~180 degree'
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
