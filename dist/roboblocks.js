@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.8 - 2014-12-02
+/*! roboblocks - v0.1.9 - 2014-12-02
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -363,10 +363,10 @@
                 LANG_VARIABLES_DEFINE: 'Define variable ',
                 LANG_VARIABLES_DEFINE_AS: 'as',
                 LANG_VARIABLES_DEFINE_TOOLTIP: 'Define the value of a variable.',
-                LANG_VARIABLES_SET: 'Set variable ',
+                LANG_VARIABLES_SET: '',
                 LANG_VARIABLES_SET_AS: 'as',
                 LANG_VARIABLES_SET_TOOLTIP: 'Sets the value of a variable.',
-                LANG_VARIABLES_GET: 'Variable ',
+                LANG_VARIABLES_GET: '',
                 LANG_VARIABLES_GET_TOOLTIP: 'Returns the value of a variable.',
                 LANG_VARIABLES_PIN_ANALOG: 'Analog pin',
                 LANG_VARIABLES_PIN_DIGITAL: 'Digital pin',
@@ -749,10 +749,10 @@
                 LANG_VARIABLES_DEFINE: 'Definir variable ',
                 LANG_VARIABLES_DEFINE_AS: 'como',
                 LANG_VARIABLES_DEFINE_TOOLTIP: 'Definir el valor de una variable.',
-                LANG_VARIABLES_SET: 'Variable ',
+                LANG_VARIABLES_SET: '',
                 LANG_VARIABLES_SET_AS: '=',
                 LANG_VARIABLES_SET_TOOLTIP: 'Cambia el valor de una variable.',
-                LANG_VARIABLES_GET: 'Variable ',
+                LANG_VARIABLES_GET: '',
                 LANG_VARIABLES_GET_TOOLTIP: 'Devuelve el valor de una variable',
                 LANG_VARIABLES_PIN_ANALOG: 'Pin analógico',
                 LANG_VARIABLES_PIN_DIGITAL: 'Pin digital',
