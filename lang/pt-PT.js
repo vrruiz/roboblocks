@@ -371,7 +371,7 @@
         LANG_SERVO_MOVE_PIN: 'PIN#',
         LANG_SERVO_MOVE_DEGREES: 'Graus (0~180)',
         LANG_SERVO_MOVE_DELAY: 'Pausa',
-        LANG_SERVO_MOVE_TOOLTIP: 'Mover o servo entre 0 e 180 graus.',
+        LANG_SERVO_MOVE_TOOLTIP: 'Mover o servo entre 0 e 180 graus.'
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
