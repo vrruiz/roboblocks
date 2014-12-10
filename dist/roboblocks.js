@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.9 - 2014-12-04
+/*! roboblocks - v0.1.9 - 2014-12-05
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -11,13 +11,11 @@
 }(function(_, Blockly, Blocks) {
     var load = function(options) {
         // Source: src/lang.js
-        /* global RoboBlocks*/
-
+        /* global RoboBlocks, Blockly*/
         RoboBlocks.locales = {
             defaultLanguage: {},
             languages: []
         };
-
         RoboBlocks.locales.getKey = function(key) {
             return this.defaultLanguage[key];
         };
@@ -27,20 +25,32 @@
                     this.defaultLanguage = this.languages[i].values;
                 }
             }
+            //Set blockly literals
+            Blockly.Msg.DUPLICATE_BLOCK = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.REMOVE_COMMENT = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.ADD_COMMENT = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.EXTERNAL_INPUTS = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.INLINE_INPUTS = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.DELETE_BLOCK = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.DELETE_X_BLOCKS = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.COLLAPSE_BLOCK = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.EXPAND_BLOCK = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.DISABLE_BLOCK = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.ENABLE_BLOCK = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.HELP = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.COLLAPSE_ALL = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
+            Blockly.Msg.EXPAND_ALL = RoboBlocks.locales.getKey('BLOCKLY_MSG_DUPLICATE_BLOCK ');
         };
-
         RoboBlocks.locales.add = function(langCode, values) {
             if (!langCode) {
                 return this.defaultLanguage;
             }
-
             if (langCode && !values) {
                 if (!this.languages[langCode]) {
                     throw new Error('Unknown language : ' + langCode);
                 }
                 //this.defaultLanguage = langCode;
             }
-
             if (values || !this.languages[langCode]) {
                 this.languages.push({
                     langCode: langCode,
@@ -49,7 +59,6 @@
             }
             return this;
         };
-
         RoboBlocks.locales.initialize = function() {
             this.setDefaultLang('en-GB');
             return this;
@@ -444,6 +453,20 @@
         (function() {
             var language = {
                 //random :
+                BLOCKLY_MSG_DUPLICATE_BLOCK: 'Duplicate',
+                BLOCKLY_MSG_REMOVE_COMMENT: 'Remove Comment',
+                BLOCKLY_MSG_ADD_COMMENT: 'Add Comment',
+                BLOCKLY_MSG_EXTERNAL_INPUTS: 'External Inputs',
+                BLOCKLY_MSG_INLINE_INPUTS: 'Inline Inputs',
+                BLOCKLY_MSG_DELETE_BLOCK: 'Delete Block',
+                BLOCKLY_MSG_DELETE_X_BLOCKS: 'Delete %1 Blocks',
+                BLOCKLY_MSG_COLLAPSE_BLOCK: 'Collapse Block',
+                BLOCKLY_MSG_EXPAND_BLOCK: 'Expand Block',
+                BLOCKLY_MSG_DISABLE_BLOCK: 'Disable Block',
+                BLOCKLY_MSG_ENABLE_BLOCK: 'Enable Block',
+                BLOCKLY_MSG_HELP: 'Help',
+                BLOCKLY_MSG_COLLAPSE_ALL: 'Collapse Blocks',
+                BLOCKLY_MSG_EXPAND_ALL: 'Expand Blocks',
                 LANG_VARIABLES_SET_ITEM: 'item',
                 LANG_RESERVED_WORDS: 'Reserved word: this name is not allowed.',
                 //logic blocks:
@@ -830,6 +853,20 @@
         (function() {
             var language = {
                 //random :
+                BLOCKLY_MSG_DUPLICATE_BLOCK: 'Duplicaaarrrr',
+                BLOCKLY_MSG_REMOVE_COMMENT: 'Remove Comment',
+                BLOCKLY_MSG_ADD_COMMENT: 'Add Comment',
+                BLOCKLY_MSG_EXTERNAL_INPUTS: 'External Inputs',
+                BLOCKLY_MSG_INLINE_INPUTS: 'Inline Inputs',
+                BLOCKLY_MSG_DELETE_BLOCK: 'Delete Block',
+                BLOCKLY_MSG_DELETE_X_BLOCKS: 'Delete %1 Blocks',
+                BLOCKLY_MSG_COLLAPSE_BLOCK: 'Collapse Block',
+                BLOCKLY_MSG_EXPAND_BLOCK: 'Expand Block',
+                BLOCKLY_MSG_DISABLE_BLOCK: 'Disable Block',
+                BLOCKLY_MSG_ENABLE_BLOCK: 'Enable Block',
+                BLOCKLY_MSG_HELP: 'Help',
+                BLOCKLY_MSG_COLLAPSE_ALL: 'Collapse Blocks',
+                BLOCKLY_MSG_EXPAND_ALL: 'Expand Blocks',
                 LANG_VARIABLES_SET_ITEM: 'elemento',
                 LANG_RESERVED_WORDS: 'Palabra reservada: este nombre no está permitido.',
                 //logic blocks:
@@ -7546,7 +7583,7 @@
         };
 
         // Source: src/blocks/servo_cont/servo_cont.js
-        /* global Blockly, options,JST, RoboBlocks */
+        /* global Blockly, options,JST, RoboBlocks, profiles */
         /* jshint sub:true */
 
         /**
@@ -7554,7 +7591,7 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.servo_cont = function() {
-            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var dropdown_pin = this.getFieldValue('PIN');
             var value_degree = this.getFieldValue('ROT') || '';
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '';
 
@@ -7589,10 +7626,14 @@
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_cont',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-                this.appendValueInput('PIN')
+                this.appendDummyInput()
                     .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT'))
+                    // .setAlign(Blockly.ALIGN_LEFT)
                     .appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_PIN'));
+                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_PIN'))
+                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
+                // .setAlign(Blockly.ALIGN_RIGHT);
+
                 this.appendDummyInput()
                     .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_ROT'))
                     .setAlign(Blockly.ALIGN_RIGHT)
@@ -7612,7 +7653,7 @@
         };
 
         // Source: src/blocks/servo_move/servo_move.js
-        /* global Blockly, options, JST, RoboBlocks */
+        /* global Blockly, options, JST, RoboBlocks, profiles */
         /* jshint sub:true */
 
         /**
@@ -7658,10 +7699,12 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-                this.appendValueInput('PIN')
+                this.appendDummyInput()
                     .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE'))
                     .appendField(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_PIN'));
+                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_PIN'))
+                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
+                    .setAlign(Blockly.ALIGN_RIGHT);
                 this.appendValueInput('DEGREE', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)

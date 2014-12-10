@@ -2,6 +2,20 @@
 (function() {
     var language = {
         //random :
+        BLOCKLY_MSG_DUPLICATE_BLOCK: 'Duplicate',
+        BLOCKLY_MSG_REMOVE_COMMENT: 'Remove Comment',
+        BLOCKLY_MSG_ADD_COMMENT: 'Add Comment',
+        BLOCKLY_MSG_EXTERNAL_INPUTS: 'External Inputs',
+        BLOCKLY_MSG_INLINE_INPUTS: 'Inline Inputs',
+        BLOCKLY_MSG_DELETE_BLOCK: 'Delete Block',
+        BLOCKLY_MSG_DELETE_X_BLOCKS: 'Delete %1 Blocks',
+        BLOCKLY_MSG_COLLAPSE_BLOCK: 'Collapse Block',
+        BLOCKLY_MSG_EXPAND_BLOCK: 'Expand Block',
+        BLOCKLY_MSG_DISABLE_BLOCK: 'Disable Block',
+        BLOCKLY_MSG_ENABLE_BLOCK: 'Enable Block',
+        BLOCKLY_MSG_HELP: 'Help',
+        BLOCKLY_MSG_COLLAPSE_ALL: 'Collapse Blocks',
+        BLOCKLY_MSG_EXPAND_ALL: 'Expand Blocks',
         LANG_VARIABLES_SET_ITEM: 'item',
         LANG_RESERVED_WORDS: 'Reserved word: this name is not allowed.',
         //logic blocks:
