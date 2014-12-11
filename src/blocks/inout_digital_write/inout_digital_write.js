@@ -11,7 +11,7 @@ Blockly.Arduino.inout_digital_write = function() {
 	var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
 	var dropdown_stat = this.getFieldValue('STAT');
 
-	Blockly.Arduino.setups_['setup_green_digital_write_13'] = JST['inout_digital_write_setups']({
+	Blockly.Arduino.setups_['setup_green_digital_write_'+dropdown_pin] = JST['inout_digital_write_setups']({
 		'dropdown_pin': dropdown_pin,
 		'dropdown_stat': dropdown_stat
 	});

@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.9 - 2014-12-10
+/*! roboblocks - v0.1.9 - 2014-12-11
  * http://github.com/bq/roboblock
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -2448,25 +2448,38 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'int * readJoystick_pointer_' +
+                __p += 'int _internal_readJoystick_array_' +
                     __e(pinx) +
-                    ';\n\nint * readJoystick_' +
+                    ' [3];\n\nint * readJoystick_' +
                     __e(pinx) +
-                    '(){\n  readJoystick_pointer_' +
+                    '(){\n  _internal_readJoystick_array_' +
                     __e(pinx) +
                     '[0]=analogRead(' +
                     __e(pinx) +
-                    ');\n  readJoystick_pointer_' +
+                    ');\n  _internal_readJoystick_array_' +
                     __e(pinx) +
                     '[1]=analogRead(' +
                     __e(piny) +
-                    ');\n  readJoystick_pointer_' +
+                    ');\n  _internal_readJoystick_array_' +
                     __e(pinx) +
                     '[2]=digitalRead(' +
                     __e(pinbutton) +
-                    ');\n  return readJoystick_pointer_' +
+                    ');\n  return _internal_readJoystick_array_' +
                     __e(pinx) +
                     ';\n}';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_joystick_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += ' pinMode(' +
+                    __e(pinbutton) +
+                    ',INPUT_PULLUP);';
 
             }
             return __p
@@ -4194,6 +4207,10 @@
                 'pinbutton': pinbutton
             });
 
+            Blockly.Arduino.setups_['setup_joystick'] = JST['bq_joystick_setups']({
+                'pinbutton': pinbutton
+            });
+
             var array = Blockly.Arduino.valueToCode(this, 'POS', Blockly.Arduino.ORDER_ATOMIC);
             var code = JST['bq_joystick']({
                 'pinx': pinx,
@@ -5537,7 +5554,7 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var dropdown_stat = this.getFieldValue('STAT');
 
-            Blockly.Arduino.setups_['setup_green_digital_write_13'] = JST['inout_digital_write_setups']({
+            Blockly.Arduino.setups_['setup_green_digital_write_' + dropdown_pin] = JST['inout_digital_write_setups']({
                 'dropdown_pin': dropdown_pin,
                 'dropdown_stat': dropdown_stat
             });

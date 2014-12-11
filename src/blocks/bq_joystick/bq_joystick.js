@@ -17,6 +17,10 @@ Blockly.Arduino.bq_joystick = function() {
         'pinbutton': pinbutton
     });
 
+    Blockly.Arduino.setups_['setup_joystick'] = JST['bq_joystick_setups']({
+        'pinbutton': pinbutton
+    });
+
     var array= Blockly.Arduino.valueToCode(this,'POS', Blockly.Arduino.ORDER_ATOMIC);
     var code = JST['bq_joystick']({
         'pinx': pinx,
