@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options, JST, RoboBlocks, profiles */
+/* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -45,12 +45,11 @@ Blockly.Blocks.servo_move = {
      */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-        this.appendDummyInput()
+        this.appendValueInput('PIN')
             .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE'))
             .appendField(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom))
             .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_PIN'))
-            .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-            .setAlign(Blockly.ALIGN_RIGHT);
+            .setCheck(Number);
         this.appendValueInput('DEGREE', Number)
             .setCheck(Number)
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -62,5 +61,22 @@ Blockly.Blocks.servo_move = {
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_TOOLTIP'));
+    },
+    isVariable: function(varValue) {
+        for (var i in Blockly.Variables.allVariables()) {
+            if (Blockly.Variables.allVariables()[i] === varValue) {
+                return true;
+            }
+        }
+        return false;
+    },
+    onchange: function(){
+        try {
+            if (this.isVariable(Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+            } else {
+                this.setWarningText(null);
+            }
+        } catch (e) {}
     }
 };

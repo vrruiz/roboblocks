@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, options,JST, RoboBlocks, profiles */
+/* global Blockly, options,JST, RoboBlocks */
 /* jshint sub:true */
 
 /**
@@ -7,7 +7,7 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.servo_cont = function() {
-    var dropdown_pin = this.getFieldValue('PIN');
+    var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC)||'';
     var value_degree = this.getFieldValue('ROT')||'';
     var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC)||'';
 
@@ -42,14 +42,11 @@ Blockly.Blocks.servo_cont = {
     helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/servo_cont',
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-        this.appendDummyInput()
+        this.appendValueInput('PIN')
             .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT'))
-            // .setAlign(Blockly.ALIGN_LEFT)
             .appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom))
             .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_PIN'))
-            .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
-            // .setAlign(Blockly.ALIGN_RIGHT);
-
+            .setCheck(Number);
         this.appendDummyInput()
             .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_ROT'))
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -65,5 +62,22 @@ Blockly.Blocks.servo_cont = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_SERVO_CONT_TOOLTIP'));
+    },
+    isVariable: function(varValue) {
+        for (var i in Blockly.Variables.allVariables()) {
+            if (Blockly.Variables.allVariables()[i] === varValue) {
+                return true;
+            }
+        }
+        return false;
+    },
+    onchange: function(){
+        try {
+            if (this.isVariable(Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+            } else {
+                this.setWarningText(null);
+            }
+        } catch (e) {}
     }
 };

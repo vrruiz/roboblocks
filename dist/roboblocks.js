@@ -372,10 +372,10 @@
                 LANG_VARIABLES_DEFINE: 'Definir variable ',
                 LANG_VARIABLES_DEFINE_AS: 'com',
                 LANG_VARIABLES_DEFINE_TOOLTIP: 'Definir el valor d\'una variable.',
-                LANG_VARIABLES_SET: 'Variable ',
+                LANG_VARIABLES_SET: 'Var ',
                 LANG_VARIABLES_SET_AS: '=',
                 LANG_VARIABLES_SET_TOOLTIP: 'Canvia el valor d\'una variable.',
-                LANG_VARIABLES_GET: 'Variable ',
+                LANG_VARIABLES_GET: 'Var ',
                 LANG_VARIABLES_GET_TOOLTIP: 'Retorna el valor d\'una variable',
                 LANG_VARIABLES_PIN_ANALOG: 'Pin analògic',
                 LANG_VARIABLES_PIN_DIGITAL: 'Pin digital',
@@ -436,7 +436,8 @@
                 LANG_SERVO_MOVE_PIN: 'PIN#',
                 LANG_SERVO_MOVE_DEGREES: 'Graus (0~180)',
                 LANG_SERVO_MOVE_DELAY: 'Pausa',
-                LANG_SERVO_MOVE_TOOLTIP: 'Moure el servo entre 0 i 180 graus.'
+                LANG_SERVO_MOVE_TOOLTIP: 'Moure el servo entre 0 i 180 graus.',
+                LANG_SERVO_WARNING: 'It is not possible to set the servo pin using a variable'
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -772,10 +773,10 @@
                 LANG_VARIABLES_DEFINE: 'Define variable ',
                 LANG_VARIABLES_DEFINE_AS: 'as',
                 LANG_VARIABLES_DEFINE_TOOLTIP: 'Define the value of a variable.',
-                LANG_VARIABLES_SET: '',
-                LANG_VARIABLES_SET_AS: 'as',
+                LANG_VARIABLES_SET: 'Var',
+                LANG_VARIABLES_SET_AS: '=',
                 LANG_VARIABLES_SET_TOOLTIP: 'Sets the value of a variable.',
-                LANG_VARIABLES_GET: '',
+                LANG_VARIABLES_GET: 'Var',
                 LANG_VARIABLES_GET_TOOLTIP: 'Returns the value of a variable.',
                 LANG_VARIABLES_PIN_ANALOG: 'Analog pin',
                 LANG_VARIABLES_PIN_DIGITAL: 'Digital pin',
@@ -836,7 +837,8 @@
                 LANG_SERVO_MOVE_PIN: 'PIN#',
                 LANG_SERVO_MOVE_DEGREES: 'Degrees (0~180)',
                 LANG_SERVO_MOVE_DELAY: 'Delay [ms]',
-                LANG_SERVO_MOVE_TOOLTIP: 'Move between 0~180 degree'
+                LANG_SERVO_MOVE_TOOLTIP: 'Move between 0~180 degree',
+                LANG_SERVO_WARNING: 'It is not possible to set the servo pin using a variable'
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -1172,10 +1174,10 @@
                 LANG_VARIABLES_DEFINE: 'Definir variable ',
                 LANG_VARIABLES_DEFINE_AS: 'como',
                 LANG_VARIABLES_DEFINE_TOOLTIP: 'Definir el valor de una variable.',
-                LANG_VARIABLES_SET: '',
+                LANG_VARIABLES_SET: 'Var',
                 LANG_VARIABLES_SET_AS: '=',
                 LANG_VARIABLES_SET_TOOLTIP: 'Cambia el valor de una variable.',
-                LANG_VARIABLES_GET: '',
+                LANG_VARIABLES_GET: 'Var',
                 LANG_VARIABLES_GET_TOOLTIP: 'Devuelve el valor de una variable',
                 LANG_VARIABLES_PIN_ANALOG: 'Pin analógico',
                 LANG_VARIABLES_PIN_DIGITAL: 'Pin digital',
@@ -1236,7 +1238,8 @@
                 LANG_SERVO_MOVE_PIN: 'PIN#',
                 LANG_SERVO_MOVE_DEGREES: 'Grados (0~180)',
                 LANG_SERVO_MOVE_DELAY: 'Pausa [ms]',
-                LANG_SERVO_MOVE_TOOLTIP: 'Mover el servo entre 0 y 180 grados.'
+                LANG_SERVO_MOVE_TOOLTIP: 'Mover el servo entre 0 y 180 grados.',
+                LANG_SERVO_WARNING: 'No puedes asignar una variable al pin del servo'
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -1558,10 +1561,10 @@
                 LANG_VARIABLES_DEFINE: 'Definizione variable ',
                 LANG_VARIABLES_DEFINE_AS: 'come',
                 LANG_VARIABLES_DEFINE_TOOLTIP: 'Definisi il valore della variable.',
-                LANG_VARIABLES_SET: 'Definisci variable ',
-                LANG_VARIABLES_SET_AS: 'come',
+                LANG_VARIABLES_SET: 'Var ',
+                LANG_VARIABLES_SET_AS: '=',
                 LANG_VARIABLES_SET_TOOLTIP: 'Definisci valore della variabile.',
-                LANG_VARIABLES_GET: 'Variable ',
+                LANG_VARIABLES_GET: 'Var ',
                 LANG_VARIABLES_GET_TOOLTIP: 'Restituisce il valore della stampante.',
                 LANG_VARIABLES_PIN_ANALOG: 'PIN analogico',
                 LANG_VARIABLES_PIN_DIGITAL: 'PIN digitale',
@@ -1622,7 +1625,8 @@
                 LANG_SERVO_MOVE_PIN: 'PIN#',
                 LANG_SERVO_MOVE_DEGREES: 'Gradi (0~180)',
                 LANG_SERVO_MOVE_DELAY: 'Pausa',
-                LANG_SERVO_MOVE_TOOLTIP: 'Muove dai 0~180 gradi'
+                LANG_SERVO_MOVE_TOOLTIP: 'Muove dai 0~180 gradi',
+                LANG_SERVO_WARNING: 'It is not possible to set the servo pin using a variable'
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -1944,10 +1948,10 @@
                 LANG_VARIABLES_DEFINE: 'Definir variável ',
                 LANG_VARIABLES_DEFINE_AS: 'como',
                 LANG_VARIABLES_DEFINE_TOOLTIP: 'Definir o valor de uma variável.',
-                LANG_VARIABLES_SET: '',
+                LANG_VARIABLES_SET: 'Var',
                 LANG_VARIABLES_SET_AS: '=',
                 LANG_VARIABLES_SET_TOOLTIP: 'Troca o valor de uma variável.',
-                LANG_VARIABLES_GET: '',
+                LANG_VARIABLES_GET: 'Var',
                 LANG_VARIABLES_GET_TOOLTIP: 'Devolve o valor de uma variável',
                 LANG_VARIABLES_PIN_ANALOG: 'Pino analógico',
                 LANG_VARIABLES_PIN_DIGITAL: 'Pino digital',
@@ -2008,7 +2012,8 @@
                 LANG_SERVO_MOVE_PIN: 'PIN#',
                 LANG_SERVO_MOVE_DEGREES: 'Graus (0~180)',
                 LANG_SERVO_MOVE_DELAY: 'Pausa',
-                LANG_SERVO_MOVE_TOOLTIP: 'Mover o servo entre 0 e 180 graus.'
+                LANG_SERVO_MOVE_TOOLTIP: 'Mover o servo entre 0 e 180 graus.',
+                LANG_SERVO_WARNING: 'It is not possible to set the servo pin using a variable'
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -7600,7 +7605,7 @@
         };
 
         // Source: src/blocks/servo_cont/servo_cont.js
-        /* global Blockly, options,JST, RoboBlocks, profiles */
+        /* global Blockly, options,JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -7608,7 +7613,7 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.servo_cont = function() {
-            var dropdown_pin = this.getFieldValue('PIN');
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
             var value_degree = this.getFieldValue('ROT') || '';
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '';
 
@@ -7643,14 +7648,11 @@
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_cont',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-                this.appendDummyInput()
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT'))
-                    // .setAlign(Blockly.ALIGN_LEFT)
                     .appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom))
                     .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_PIN'))
-                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
-                // .setAlign(Blockly.ALIGN_RIGHT);
-
+                    .setCheck(Number);
                 this.appendDummyInput()
                     .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_ROT'))
                     .setAlign(Blockly.ALIGN_RIGHT)
@@ -7666,11 +7668,27 @@
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_SERVO_CONT_TOOLTIP'));
+            },
+            isVariable: function(varValue) {
+                for (var i in Blockly.Variables.allVariables()) {
+                    if (Blockly.Variables.allVariables()[i] === varValue) {
+                        return true;
+                    }
+                }
+                return false;
+            },
+            onchange: function() {
+                try {
+                    if (this.isVariable(Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
+                        this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+                    } else {
+                        this.setWarningText(null);
+                    }
+                } catch (e) {}
             }
         };
-
         // Source: src/blocks/servo_move/servo_move.js
-        /* global Blockly, options, JST, RoboBlocks, profiles */
+        /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
 
         /**
@@ -7716,12 +7734,11 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-                this.appendDummyInput()
+                this.appendValueInput('PIN')
                     .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE'))
                     .appendField(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom))
                     .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_PIN'))
-                    .appendField(new Blockly.FieldDropdown(profiles.default.digital), 'PIN')
-                    .setAlign(Blockly.ALIGN_RIGHT);
+                    .setCheck(Number);
                 this.appendValueInput('DEGREE', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
@@ -7733,9 +7750,25 @@
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_TOOLTIP'));
+            },
+            isVariable: function(varValue) {
+                for (var i in Blockly.Variables.allVariables()) {
+                    if (Blockly.Variables.allVariables()[i] === varValue) {
+                        return true;
+                    }
+                }
+                return false;
+            },
+            onchange: function() {
+                try {
+                    if (this.isVariable(Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
+                        this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+                    } else {
+                        this.setWarningText(null);
+                    }
+                } catch (e) {}
             }
         };
-
         // Source: src/blocks/text/text.js
         /* global Blockly, RoboBlocks */
 

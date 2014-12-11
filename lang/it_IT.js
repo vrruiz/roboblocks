@@ -307,10 +307,10 @@
         LANG_VARIABLES_DEFINE: 'Definizione variable ',
         LANG_VARIABLES_DEFINE_AS: 'come',
         LANG_VARIABLES_DEFINE_TOOLTIP: 'Definisi il valore della variable.',
-        LANG_VARIABLES_SET: 'Definisci variable ',
-        LANG_VARIABLES_SET_AS: 'come',
+        LANG_VARIABLES_SET: 'Var ',
+        LANG_VARIABLES_SET_AS: '=',
         LANG_VARIABLES_SET_TOOLTIP: 'Definisci valore della variabile.',
-        LANG_VARIABLES_GET: 'Variable ',
+        LANG_VARIABLES_GET: 'Var ',
         LANG_VARIABLES_GET_TOOLTIP: 'Restituisce il valore della stampante.',
         LANG_VARIABLES_PIN_ANALOG: 'PIN analogico',
         LANG_VARIABLES_PIN_DIGITAL: 'PIN digitale',
@@ -371,7 +371,8 @@
         LANG_SERVO_MOVE_PIN: 'PIN#',
         LANG_SERVO_MOVE_DEGREES: 'Gradi (0~180)',
         LANG_SERVO_MOVE_DELAY: 'Pausa',
-        LANG_SERVO_MOVE_TOOLTIP: 'Muove dai 0~180 gradi'
+        LANG_SERVO_MOVE_TOOLTIP: 'Muove dai 0~180 gradi',
+        LANG_SERVO_WARNING:'It is not possible to set the servo pin using a variable'
 };
 // Node
 if (typeof module !== 'undefined' && module.exports) {

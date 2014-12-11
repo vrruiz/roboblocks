@@ -307,10 +307,10 @@
         LANG_VARIABLES_DEFINE: 'Definir variable ',
         LANG_VARIABLES_DEFINE_AS: 'com',
         LANG_VARIABLES_DEFINE_TOOLTIP: 'Definir el valor d\'una variable.',
-        LANG_VARIABLES_SET: 'Variable ',
+        LANG_VARIABLES_SET: 'Var ',
         LANG_VARIABLES_SET_AS: '=',
         LANG_VARIABLES_SET_TOOLTIP: 'Canvia el valor d\'una variable.',
-        LANG_VARIABLES_GET: 'Variable ',
+        LANG_VARIABLES_GET: 'Var ',
         LANG_VARIABLES_GET_TOOLTIP: 'Retorna el valor d\'una variable',
         LANG_VARIABLES_PIN_ANALOG: 'Pin analògic',
         LANG_VARIABLES_PIN_DIGITAL: 'Pin digital',
@@ -371,7 +371,8 @@
         LANG_SERVO_MOVE_PIN: 'PIN#',
         LANG_SERVO_MOVE_DEGREES: 'Graus (0~180)',
         LANG_SERVO_MOVE_DELAY: 'Pausa',
-        LANG_SERVO_MOVE_TOOLTIP: 'Moure el servo entre 0 i 180 graus.'
+        LANG_SERVO_MOVE_TOOLTIP: 'Moure el servo entre 0 i 180 graus.',
+        LANG_SERVO_WARNING:'It is not possible to set the servo pin using a variable'
 };
 // Node
 if (typeof module !== 'undefined' && module.exports) {
