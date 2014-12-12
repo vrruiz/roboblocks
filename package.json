@@ -1,17 +1,17 @@
 {
     "name": "roboblocks",
     "description": "Blockly blocks repository used in bitbloq",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "main": "dist/roboblocks.js",
     "license": "MIT",
     "keywords": ["roboblocks", "blockly", "arduino", "bitbloq", "bq"],
     "author": {
         "name": "bq"
     },
-    "homepage": "http://github.com/bq/roboblock",
+    "homepage": "https://github.com/bq/roboblocks",
     "repository": {
         "type": "git",
-        "url": "http://github.com/bq/roboblock.git"
+        "url": "https://github.com/bq/roboblocks.git"
     },
     "scripts": {
         "clean": "rm -rf node_modules src/main/webapp/bower_components && bower cache clean",
