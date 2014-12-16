@@ -57,16 +57,24 @@ Blockly.Blocks.procedures_defreturn = {
     getReturnType: function() {
         var returnType;
         var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
+        var isFunction=false;
+
+        for (var i in Blockly.Arduino.definitions_) {
+            if (Blockly.Arduino.definitions_[i].search(returnValue) >= 0) {
+                isFunction = true;
+                break;
+            }
+        }
         if (!returnValue) {
             returnType = 'void';
         }
         if (returnValue.search('"') >= 0) {
             returnType = 'String';
-        } else if (returnValue.search('\\(') >= 0 && returnValue.search('\\)') >= 0) {
-            for (var i in Blockly.Arduino.definitions_) {
+        } else if (isFunction){//returnValue.search('\\(') >= 0 && returnValue.search('\\)') >= 0) {
+            for (i in Blockly.Arduino.definitions_) {
                 if (Blockly.Arduino.definitions_[i].search(returnValue) >= 0) {
-                    if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'int') {
-                        if (Blockly.Arduino.definitions_[i].substring(0, 5) === 'int *') {
+                    if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'int'|| Blockly.Arduino.definitions_[i].substring(0, 3) === '//b') { //bqbat function
+                        if (Blockly.Arduino.definitions_[i].substring(0, 5) === 'int *'|| Blockly.Arduino.definitions_[i].substring(0, 5) === 'int _') {
                             returnType = 'int *';
                         } else {
                             returnType = 'int';

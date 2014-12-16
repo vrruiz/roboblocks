@@ -12,24 +12,24 @@ Blockly.Arduino.variables_local = function() {
     var varName = this.getFieldValue('VAR') || '';
     var sufix = '';
     var code = '';
+    var isFunction=false;
+    for (var i in Blockly.Arduino.definitions_) {
+        if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
+            isFunction = true;
+            break;
+        }
+    }
     if (varValue[0] === '(') {
         varValue = varValue.substring(1, varValue.length - 1);
     }
     if (varValue.search('"') >= 0) {
         varType = 'String';
         code = varType + ' ' + varName + '=' + varValue + ';\n';
-    } else if (varValue[0] === '{') {
-        varType = 'int *';
-        varValue = varValue.replace('{', '');
-        varValue = varValue.replace('}', '');
-        varValue = varValue.split(',');
-        code = varType + varName + ';\n';
-        code += varName + '[0]=' + varValue[0] + ';\n' + varName + '[1]=' + varValue[1] + ';\n' + varName + '[2]=' + varValue[2] + ';\n';
-    } else if (varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
-        for (var i in Blockly.Arduino.definitions_) {
+    } else if (isFunction) { //varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
+        for (i in Blockly.Arduino.definitions_) {
             if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
-                if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'int') {
-                    if (Blockly.Arduino.definitions_[i].substring(0, 5) === 'int *') {
+                if (Blockly.Arduino.definitions_[i].substring(0, 3) === 'int'|| Blockly.Arduino.definitions_[i].substring(0, 3) === '//b') { //bqbat function
+                    if (Blockly.Arduino.definitions_[i].substring(0, 5) === 'int *'|| Blockly.Arduino.definitions_[i].substring(0, 5) === 'int _') {
                         varType = 'int *';
                     } else {
                         varType = 'int';
@@ -42,6 +42,13 @@ Blockly.Arduino.variables_local = function() {
                 code = varType + ' ' + varName + '=' + varValue + ';\n';
             }
         }
+    } else if (varValue[0] === '{') {
+        varType = 'int *';
+        varValue = varValue.replace('{', '');
+        varValue = varValue.replace('}', '');
+        varValue = varValue.split(',');
+        code = varType + varName + ';\n';
+        code += varName + '[0]=' + varValue[0] + ';\n' + varName + '[1]=' + varValue[1] + ';\n' + varName + '[2]=' + varValue[2] + ';\n';
     } else if (this.isVariable(varValue)) {
         varType = RoboBlocks.variables[varValue];
         code = varType + ' ' + varName + '=' + varValue + ';\n';
