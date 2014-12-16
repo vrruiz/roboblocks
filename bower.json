@@ -1,32 +1,45 @@
 {
-    "name": "roboblocks",
-    "description": "Blockly blocks repository used in bitbloq",
-    "version": "0.1.10",
-    "main": "dist/roboblocks.min.js",
-    "license": "MIT",
-    "keywords": ["roboblocks", "blockly", "arduino", "bitbloq", "bq"],
-    "contributors": [{
-        "name": "Sergio Morcuende",
-        "email": "sergio.morcuende@bq.com"
-    }, {
-        "name": "Irene Sanz",
-        "email": "irene.sanz@bq.com"
-    }],
-    "homepage": "http://github.com/bq/roboblocks",
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/bq/roboblocks.git"
+  "name": "roboblocks",
+  "description": "Blockly blocks repository used in bitbloq",
+  "version": "0.1.10",
+  "main": "dist/roboblocks.min.js",
+  "license": "MIT",
+  "keywords": [
+    "roboblocks",
+    "blockly",
+    "arduino",
+    "bitbloq",
+    "bq"
+  ],
+  "contributors": [
+    {
+      "name": "Sergio Morcuende",
+      "email": "sergio.morcuende@bq.com"
     },
-    "dependencies": {
-        "blockly-bq": "0.1.6",
-        "underscore": "~1.6.0",
-        "requirejs": "~2.1.15"
-    },
-    "devDependencies": {
-        "jquery": "~2.1.1",
-        "mocha": "~1.21.4",
-        "sinonjs": "~1.10.2",
-        "chai": "~1.9.1"
-    },
-    "ignore": ["src", "test", "bower_components"]
+    {
+      "name": "Irene Sanz",
+      "email": "irene.sanz@bq.com"
+    }
+  ],
+  "homepage": "http://github.com/bq/roboblocks",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/bq/roboblocks.git"
+  },
+  "dependencies": {
+    "blockly-bq": "0.1.7",
+    "underscore": "~1.6.0",
+    "requirejs": "~2.1.15"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "mocha": "~1.21.4",
+    "sinonjs": "~1.10.2",
+    "chai": "~1.9.1"
+  },
+  "ignore": [
+    "src",
+    "test",
+    "bower_components"
+  ]
 }
