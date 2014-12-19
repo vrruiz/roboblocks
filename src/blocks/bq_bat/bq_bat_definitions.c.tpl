@@ -1,5 +1,4 @@
 //bqBAT
-
 long TP_init{{ red_pin }}()
 {
   digitalWrite( {{ blue_pin }} , LOW);
