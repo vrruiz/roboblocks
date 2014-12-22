@@ -11,6 +11,7 @@ Blockly.Arduino.bq_joystick = function() {
     var piny = Blockly.Arduino.valueToCode(this,'PINY', Blockly.Arduino.ORDER_ATOMIC);
     var pinbutton = Blockly.Arduino.valueToCode(this,'PINBUTTON', Blockly.Arduino.ORDER_ATOMIC);
 
+    Blockly.Arduino.definitions_['declare_var _internal_readJoystick_array_'] = 'int _internal_readJoystick_array_'+pinx+'[3];\n';
     Blockly.Arduino.definitions_['define_joystick'] = JST['bq_joystick_definitions']({
         'pinx': pinx,
         'piny': piny,

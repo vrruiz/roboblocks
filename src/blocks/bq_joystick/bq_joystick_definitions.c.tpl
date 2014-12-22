@@ -1,5 +1,3 @@
-int _internal_readJoystick_array_{{pinx}} [3];
-
 int * readJoystick_{{pinx}}(){
   _internal_readJoystick_array_{{pinx}}[0]=analogRead({{pinx}});
   _internal_readJoystick_array_{{pinx}}[1]=analogRead({{piny}});

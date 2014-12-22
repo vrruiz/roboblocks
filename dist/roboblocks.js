@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.10 - 2014-12-19
+/*! roboblocks - v0.1.10 - 2014-12-22
  * https://github.com/bq/roboblocks
  * Copyright (c) 2014 bq; Licensed  */
 
@@ -2438,9 +2438,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'int _internal_readJoystick_array_' +
-                    __e(pinx) +
-                    ' [3];\n\nint * readJoystick_' +
+                __p += 'int * readJoystick_' +
                     __e(pinx) +
                     '(){\n  _internal_readJoystick_array_' +
                     __e(pinx) +
@@ -4191,6 +4189,7 @@
             var piny = Blockly.Arduino.valueToCode(this, 'PINY', Blockly.Arduino.ORDER_ATOMIC);
             var pinbutton = Blockly.Arduino.valueToCode(this, 'PINBUTTON', Blockly.Arduino.ORDER_ATOMIC);
 
+            Blockly.Arduino.definitions_['declare_var _internal_readJoystick_array_'] = 'int _internal_readJoystick_array_' + pinx + '[3];\n';
             Blockly.Arduino.definitions_['define_joystick'] = JST['bq_joystick_definitions']({
                 'pinx': pinx,
                 'piny': piny,
