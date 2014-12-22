@@ -8,7 +8,7 @@
  */
 
 Blockly.Arduino.lcd_def = function() {
-    Blockly.Arduino.definitions_['define_softwareserial'] = JST['lcd_def_definitions']({});
+    Blockly.Arduino.definitions_['define_lcd'] = JST['lcd_def_definitions']({});
     Blockly.Arduino.definitions_['declare_var_LCD'] = 'LiquidCrystal lcd(0);\n';
 
     Blockly.Arduino.setups_['setup_bluetooth_']= JST['lcd_def_setups']({});

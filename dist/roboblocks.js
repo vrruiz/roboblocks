@@ -2395,7 +2395,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '  int get_key(unsigned int input)\n  {\n    int k;\n    for (k = 0; k < NUM_KEYS; k++)\n    {\n      if (input < adc_key_val[k])\n      {\n        return k;\n      }\n    }\n    if (k >= NUM_KEYS)k = -1;\n      return k;\n  }\n';
+                __p += 'int get_key(unsigned int input)\n  {\n    int k;\n    for (k = 0; k < NUM_KEYS; k++)\n    {\n      if (input < adc_key_val[k])\n      {\n        return k;\n      }\n    }\n    if (k >= NUM_KEYS)k = -1;\n      return k;\n}\n';
 
             }
             return __p
@@ -2406,7 +2406,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '//bqButtons\n  int adc_key_val[5] ={20,50, 100, 200, 600 };\n  int NUM_KEYS = 5;\n  int adc_key_in;\n  int key=-1;\n  int oldkey=-1;';
+                __p += '//bqButtons\nint adc_key_val[5] ={20,50, 100, 200, 600 };\nint NUM_KEYS = 5;\nint adc_key_in;\nint key=-1;\nint oldkey=-1;\n';
 
             }
             return __p
@@ -2812,7 +2812,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '#include <Wire.h>\n#include <LiquidCrystal.h>\n';
+                __p += '#include <Wire.h>\n#include <LiquidCrystal.h>';
 
             }
             return __p
@@ -5701,7 +5701,7 @@
          */
 
         Blockly.Arduino.lcd_def = function() {
-            Blockly.Arduino.definitions_['define_softwareserial'] = JST['lcd_def_definitions']({});
+            Blockly.Arduino.definitions_['define_lcd'] = JST['lcd_def_definitions']({});
             Blockly.Arduino.definitions_['declare_var_LCD'] = 'LiquidCrystal lcd(0);\n';
 
             Blockly.Arduino.setups_['setup_bluetooth_'] = JST['lcd_def_setups']({});
