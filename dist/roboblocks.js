@@ -2251,7 +2251,18 @@
                     __e(blue_pin) +
                     ' , LOW);\n  long microseconds = pulseIn( ' +
                     __e(red_pin) +
-                    ' ,HIGH);\n  return microseconds;\n}\n\nlong Distance' +
+                    ' ,HIGH);\n  return microseconds;\n}\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_bat_definitions_2"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'long Distance' +
                     __e(red_pin) +
                     '()\n{\n  long microseconds = TP_init' +
                     __e(red_pin) +
@@ -2281,11 +2292,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '#include <SoftwareSerial.h>\n\nSoftwareSerial blueToothSerial(' +
-                    __e(dropdown_pin) +
-                    ',' +
-                    __e(NextPIN) +
-                    ');';
+                __p += '#include <SoftwareSerial.h>';
 
             }
             return __p
@@ -2388,7 +2395,18 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '//bqButtons\n  int adc_key_val[5] ={20,50, 100, 200, 600 };\n  int NUM_KEYS = 5;\n  int adc_key_in;\n  int key=-1;\n  int oldkey=-1;\n  int get_key(unsigned int input)\n  {\n    int k;\n    for (k = 0; k < NUM_KEYS; k++)\n    {\n      if (input < adc_key_val[k])\n      {\n        return k;\n      }\n    }\n    if (k >= NUM_KEYS)k = -1;\n      return k;\n  }\n';
+                __p += '  int get_key(unsigned int input)\n  {\n    int k;\n    for (k = 0; k < NUM_KEYS; k++)\n    {\n      if (input < adc_key_val[k])\n      {\n        return k;\n      }\n    }\n    if (k >= NUM_KEYS)k = -1;\n      return k;\n  }\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_buttons_definitions_variables"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '//bqButtons\n  int adc_key_val[5] ={20,50, 100, 200, 600 };\n  int NUM_KEYS = 5;\n  int adc_key_in;\n  int key=-1;\n  int oldkey=-1;';
 
             }
             return __p
@@ -2794,7 +2812,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '#include <Wire.h>\n#include <LiquidCrystal.h>\nLiquidCrystal lcd(0);\n';
+                __p += '#include <Wire.h>\n#include <LiquidCrystal.h>\n';
 
             }
             return __p
@@ -3766,7 +3784,12 @@
                 'blue_pin': blue_pin
             });
 
-            Blockly.Arduino.definitions_['define_bq_bat_' + red_pin] = JST['bq_bat_definitions']({
+            Blockly.Arduino.definitions_['define_bq_bat_' + red_pin + 'tp_init'] = JST['bq_bat_definitions']({
+                'red_pin': red_pin,
+                'blue_pin': blue_pin
+            });
+
+            Blockly.Arduino.definitions_['define_bq_bat_' + red_pin + 'distance'] = JST['bq_bat_definitions_2']({
                 'red_pin': red_pin,
                 'blue_pin': blue_pin
             });
@@ -3829,6 +3852,7 @@
 
             var baud_rate = Blockly.Arduino.valueToCode(this, 'BAUD_RATE', Blockly.Arduino.ORDER_ATOMIC);
 
+            Blockly.Arduino.definitions_['declare_var_blueToothSerial' + dropdown_pin] = 'SoftwareSerial blueToothSerial(' + dropdown_pin + ',' + NextPIN + ');\n';
             Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_def_definitions']({
                 'dropdown_pin': dropdown_pin,
                 'NextPIN': NextPIN
@@ -4075,7 +4099,8 @@
             // code_btn4=code_btn4.replace(/&amp;/g,'');
             // code_btn5=code_btn5.replace(/&amp;/g,'');
 
-            Blockly.Arduino.definitions_['define_buttons'] = JST['bq_buttons_definitions']({
+            Blockly.Arduino.definitions_['declare_var_define_buttons' + dropdown_pin] = JST['bq_buttons_definitions_variables']({});
+            Blockly.Arduino.definitions_['define_buttons' + dropdown_pin] = JST['bq_buttons_definitions']({
                 'dropdown_pin': dropdown_pin
             });
 
@@ -4189,7 +4214,7 @@
             var piny = Blockly.Arduino.valueToCode(this, 'PINY', Blockly.Arduino.ORDER_ATOMIC);
             var pinbutton = Blockly.Arduino.valueToCode(this, 'PINBUTTON', Blockly.Arduino.ORDER_ATOMIC);
 
-            Blockly.Arduino.definitions_['declare_var _internal_readJoystick_array_'] = 'int _internal_readJoystick_array_' + pinx + '[3];\n';
+            Blockly.Arduino.definitions_['declare_var_internal_readJoystick_array_' + pinx] = 'int _internal_readJoystick_array_' + pinx + '[3];\n';
             Blockly.Arduino.definitions_['define_joystick'] = JST['bq_joystick_definitions']({
                 'pinx': pinx,
                 'piny': piny,
@@ -5677,6 +5702,8 @@
 
         Blockly.Arduino.lcd_def = function() {
             Blockly.Arduino.definitions_['define_softwareserial'] = JST['lcd_def_definitions']({});
+            Blockly.Arduino.definitions_['declare_var_LCD'] = 'LiquidCrystal lcd(0);\n';
+
             Blockly.Arduino.setups_['setup_bluetooth_'] = JST['lcd_def_setups']({});
             return '';
         };
@@ -7612,7 +7639,7 @@
             Blockly.Arduino.definitions_['include_servo'] = JST['servo_cont_definitions_include']({});
 
 
-            Blockly.Arduino.definitions_['define_servo' + dropdown_pin] = JST['servo_cont_definitions']({
+            Blockly.Arduino.definitions_['declare_var_servo' + dropdown_pin] = JST['servo_cont_definitions']({
                 'dropdown_pin': dropdown_pin
             });
 
@@ -7696,7 +7723,7 @@
                 'dropdown_pin': dropdown_pin
             });
 
-            Blockly.Arduino.definitions_['define_servo' + dropdown_pin] = JST['servo_move_definitions']({
+            Blockly.Arduino.definitions_['declare_var_servo' + dropdown_pin] = JST['servo_move_definitions']({
                 'dropdown_pin': dropdown_pin
             });
 
@@ -8253,12 +8280,11 @@
             var varName = this.getFieldValue('VAR') || '';
             var isFunction = false;
             for (var i in Blockly.Arduino.definitions_) {
-                if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
+                if (Blockly.Arduino.definitions_[i].search(varValue + ' \\(') >= 0) {
                     isFunction = true;
                     break;
                 }
             }
-
             if (varValue.search('"') >= 0) {
                 varType = 'String';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + '=' + varValue + ';';
@@ -8277,7 +8303,7 @@
                             varType = '';
                         }
                         Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
-                        Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+                        Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
                         break;
                     }
                 }
@@ -8287,11 +8313,11 @@
                 varValue = varValue.replace('}', '');
                 varValue = varValue.split(',');
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
-                Blockly.Arduino.setups_['define_var' + varName] = varName + '[0]=' + varValue[0] + ';\n  ' + varName + '[1]=' + varValue[1] + ';\n  ' + varName + '[2]=' + varValue[2] + ';';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '[0]=' + varValue[0] + ';\n  ' + varName + '[1]=' + varValue[1] + ';\n  ' + varName + '[2]=' + varValue[2] + ';\n';
             } else if (this.isVariable(varValue)) {
                 varType = RoboBlocks.variables[varValue];
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
-                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
             } else if (varValue.search('readJoystick') >= 0) {
                 varType = 'int *';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
@@ -8301,13 +8327,14 @@
                 if (!isNaN(parseFloat(varValue))) {
                     Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + '=' + varValue + ';\n';
                 } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (varValue.search('random') >= 0) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0) || (varValue.search('\\+'))) {
-                    Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
-                    Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+                    console.log('distance:', varType);
+                    Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
+                    Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
                 }
             } else {
                 varType = 'unknown';
-                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';';
-                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
+                Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
             }
             RoboBlocks.variables[varName] = varType;
             return '';
@@ -8406,7 +8433,7 @@
             var code = '';
             var isFunction = false;
             for (var i in Blockly.Arduino.definitions_) {
-                if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
+                if (Blockly.Arduino.definitions_[i].search(varValue + ' \\(') >= 0) {
                     isFunction = true;
                     break;
                 }
@@ -8448,7 +8475,7 @@
                 varType = 'int *';
                 code = varType + varName + ';\n';
                 code += varName + '=' + varValue + ';\n';
-            } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0) || (varValue.search('\\+'))) {
+            } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue))) || (varValue.search('random') >= 0) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0) || (varValue.search('\\+'))) {
                 varType = 'int';
                 code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
             } else {
@@ -8456,6 +8483,7 @@
                 code = varType + ' ' + varName + '=' + varValue + ';\n';
             }
             RoboBlocks.variables[varName] = varType;
+
             return code;
         };
         Blockly.Blocks.variables_local = {

@@ -20,6 +20,7 @@ Blockly.Arduino.bq_bluetooth_def = function() {
 
     var baud_rate= Blockly.Arduino.valueToCode(this, 'BAUD_RATE', Blockly.Arduino.ORDER_ATOMIC);
 
+    Blockly.Arduino.definitions_['declare_var_blueToothSerial'+dropdown_pin]='SoftwareSerial blueToothSerial('+dropdown_pin+','+NextPIN+');\n';
     Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_def_definitions']({
         'dropdown_pin': dropdown_pin,
         'NextPIN': NextPIN

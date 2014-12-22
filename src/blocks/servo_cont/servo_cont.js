@@ -14,7 +14,7 @@ Blockly.Arduino.servo_cont = function() {
     Blockly.Arduino.definitions_['include_servo'] = JST['servo_cont_definitions_include']({});
 
 
-    Blockly.Arduino.definitions_['define_servo'+dropdown_pin] = JST['servo_cont_definitions']({
+    Blockly.Arduino.definitions_['declare_var_servo'+dropdown_pin] = JST['servo_cont_definitions']({
         'dropdown_pin': dropdown_pin
     });
 

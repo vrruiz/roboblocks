@@ -14,7 +14,7 @@ Blockly.Arduino.variables_local = function() {
     var code = '';
     var isFunction=false;
     for (var i in Blockly.Arduino.definitions_) {
-        if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
+        if (Blockly.Arduino.definitions_[i].search(varValue+' \\(') >= 0) {
             isFunction = true;
             break;
         }
@@ -56,7 +56,7 @@ Blockly.Arduino.variables_local = function() {
         varType = 'int *';
         code = varType + varName + ';\n';
         code += varName + '=' + varValue + ';\n';
-    } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0) || (varValue.search('\\+'))) {
+    } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue))) || (varValue.search('random') >= 0) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0) || (varValue.search('\\+')) ) {
         varType = 'int';
         code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
     } else {
@@ -64,6 +64,7 @@ Blockly.Arduino.variables_local = function() {
         code = varType + ' ' + varName + '=' + varValue + ';\n';
     }
     RoboBlocks.variables[varName] = varType;
+
     return code;
 };
 Blockly.Blocks.variables_local = {

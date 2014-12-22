@@ -15,7 +15,7 @@ Blockly.Arduino.servo_move = function() {
         'dropdown_pin': dropdown_pin
     });
 
-    Blockly.Arduino.definitions_['define_servo'+dropdown_pin] = JST['servo_move_definitions']({
+    Blockly.Arduino.definitions_['declare_var_servo'+dropdown_pin] = JST['servo_move_definitions']({
         'dropdown_pin': dropdown_pin
     });
 

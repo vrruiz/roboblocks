@@ -15,7 +15,12 @@ Blockly.Arduino.bq_bat = function() {
         'blue_pin': blue_pin
     });
 
-    Blockly.Arduino.definitions_['define_bq_bat_' + red_pin] = JST['bq_bat_definitions']({
+    Blockly.Arduino.definitions_['define_bq_bat_' + red_pin+'tp_init'] = JST['bq_bat_definitions']({
+        'red_pin': red_pin,
+        'blue_pin': blue_pin
+    });
+
+    Blockly.Arduino.definitions_['define_bq_bat_' + red_pin+'distance'] = JST['bq_bat_definitions_2']({
         'red_pin': red_pin,
         'blue_pin': blue_pin
     });
