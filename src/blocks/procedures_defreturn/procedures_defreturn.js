@@ -60,7 +60,7 @@ Blockly.Blocks.procedures_defreturn = {
         var isFunction=false;
 
         for (var i in Blockly.Arduino.definitions_) {
-            if (Blockly.Arduino.definitions_[i].search(returnValue) >= 0) {
+            if (Blockly.Arduino.definitions_[i].search(returnValue+ ' \\(') >= 0) {
                 isFunction = true;
                 break;
             }
