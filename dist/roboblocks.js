@@ -8483,7 +8483,6 @@
                 code = varType + ' ' + varName + '=' + varValue + ';\n';
             }
             RoboBlocks.variables[varName] = varType;
-
             return code;
         };
         Blockly.Blocks.variables_local = {

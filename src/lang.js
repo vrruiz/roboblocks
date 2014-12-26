@@ -4,6 +4,9 @@ RoboBlocks.locales = {
     defaultLanguage: {},
     languages: []
 };
+RoboBlocks.locales.getLang = function() {
+    return this.defaultLanguage.lngCode;
+};
 RoboBlocks.locales.getKey = function(key) {
     return this.defaultLanguage[key];
 };
@@ -11,6 +14,7 @@ RoboBlocks.locales.setDefaultLang = function(langCode) {
     for (var i in this.languages) {
         if (this.languages[i].langCode === langCode) {
             this.defaultLanguage = this.languages[i].values;
+            this.defaultLanguage.lngCode=langCode;
         }
     }
 };
@@ -33,6 +37,6 @@ RoboBlocks.locales.add = function(langCode, values) {
     return this;
 };
 RoboBlocks.locales.initialize = function() {
-    this.setDefaultLang('en-GB');
+    var lang= options.lang || 'en-GB';
     return this;
 };
