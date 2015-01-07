@@ -8,15 +8,32 @@
  */
 Blockly.Arduino.bq_infrared = function() {
     var dropdown_pin =Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
-    Blockly.Arduino.setups_['setup_infrared_' + dropdown_pin] = JST['bq_infrared_setups']({
+
+
+    var code='';
+
+    if (this.childBlocks_!== undefined){
+        var pin_block=this.childBlocks_[0].type;
+        if (pin_block==='variables_get'){
+            code += JST['bq_infrared_setups']({
+                'dropdown_pin': dropdown_pin
+            });
+        }
+        else if (pin_block==='math_number'){
+            Blockly.Arduino.setups_['setup_infrared_' + dropdown_pin] = JST['bq_infrared_setups']({
+                'dropdown_pin': dropdown_pin
+            });
+        }
+    }
+    else{
+        Blockly.Arduino.setups_['setup_infrared_' + dropdown_pin] = JST['bq_infrared_setups']({
+            'dropdown_pin': dropdown_pin
+        });
+    }
+    code += JST['bq_infrared']({
         'dropdown_pin': dropdown_pin
     });
 
-    var code = JST['bq_infrared']({
-        'dropdown_pin': dropdown_pin
-    });
-
-    //  code=code.substring(0,code.length-1);
     return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
