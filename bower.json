@@ -1,7 +1,7 @@
 {
   "name": "roboblocks",
   "description": "Blockly blocks repository used in bitbloq",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "main": "dist/roboblocks.min.js",
   "license": "MIT",
   "keywords": [
@@ -19,6 +19,10 @@
     {
       "name": "Irene Sanz",
       "email": "irene.sanz@bq.com"
+    },
+    {
+      "name": "Laura Del Rio",
+      "email": "laura.delrio@bq.com"
     }
   ],
   "homepage": "http://github.com/bq/roboblocks",
