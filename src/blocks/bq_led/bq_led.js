@@ -10,12 +10,33 @@ Blockly.Arduino.bq_led = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
     var dropdown_stat = this.getFieldValue('STAT');
 
-    Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
-        'dropdown_pin': dropdown_pin,
-        'dropdown_stat': dropdown_stat
-    });
 
-    var code = JST['bq_led']({
+    var code='';
+
+    if (this.childBlocks_!== undefined){
+        var pin_block=this.childBlocks_[0].type;
+
+        if (pin_block==='variables_get'){
+            code += JST['bq_led_setups']({
+                'dropdown_pin': dropdown_pin,
+                'dropdown_stat': dropdown_stat
+            });
+        }
+        else if (pin_block==='math_number'){
+            Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
+                'dropdown_pin': dropdown_pin,
+                'dropdown_stat': dropdown_stat
+            });
+        }
+    }
+    else{
+        Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
+            'dropdown_pin': dropdown_pin,
+            'dropdown_stat': dropdown_stat
+        });
+    }
+
+    code += JST['bq_led']({
         'dropdown_pin': dropdown_pin,
         'dropdown_stat': dropdown_stat
     });

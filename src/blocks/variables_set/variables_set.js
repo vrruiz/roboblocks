@@ -9,7 +9,20 @@ Blockly.Arduino.variables_set = function() {
     // Variable setter.
     var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT) || '';
     var varName = this.getFieldValue('VAR') || '';
-    var code = JST['variables_set']({
+    var code ='';
+    
+    varValue=varValue.split(';\n');
+    for (var j in varValue){
+        if (varValue[j].search('pinMode')>=0){
+            code+=varValue[j]+';\n';
+        }
+        else{
+            varValue=varValue[j];
+        }
+    }
+
+
+    code += JST['variables_set']({
         'varName': varName,
         'varValue': varValue
     });

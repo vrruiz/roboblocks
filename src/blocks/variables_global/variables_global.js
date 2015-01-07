@@ -11,6 +11,7 @@ Blockly.Arduino.variables_global = function() {
     var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
     var varName = this.getFieldValue('VAR') || '';
     var isFunction = false;
+
     for (var i in Blockly.Arduino.definitions_) {
         if (Blockly.Arduino.definitions_[i].search(varValue+' \\(') >= 0) {
             isFunction = true;
@@ -47,7 +48,7 @@ Blockly.Arduino.variables_global = function() {
         Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
         Blockly.Arduino.setups_['define_var' + varName] = varName + '[0]=' + varValue[0] + ';\n  ' + varName + '[1]=' + varValue[1] + ';\n  ' + varName + '[2]=' + varValue[2] + ';\n';
     } else if (this.isVariable(varValue)) {
-        varType = RoboBlocks.variables[varValue];
+        varType = RoboBlocks.variables[varValue][0];
         Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
         Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
     } else if (varValue.search('readJoystick') >= 0) {
@@ -69,7 +70,8 @@ Blockly.Arduino.variables_global = function() {
         Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
         Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
     }
-    RoboBlocks.variables[varName] = varType;
+    RoboBlocks.variables[varName] = [varType, 'global'];
+
     return '';
 };
 Blockly.Blocks.variables_global = {

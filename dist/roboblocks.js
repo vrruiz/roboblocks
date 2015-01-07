@@ -1,6 +1,6 @@
-/*! roboblocks - v0.1.10 - 2014-12-22
+/*! roboblocks - v0.1.12 - 2015-01-07
  * https://github.com/bq/roboblocks
- * Copyright (c) 2014 bq; Licensed  */
+ * Copyright (c) 2015 bq; Licensed  */
 
 (function(factory) {
     if (typeof define === 'function' && define.amd) {
@@ -2019,6 +2019,7 @@
 
         RoboBlocks.variables = {};
 
+
         // help URLs
         RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
 
@@ -2228,59 +2229,141 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'Distance' +
-                    __e(red_pin) +
+                __p += 'Distance_' +
+                    __e(echo_pin) +
                     '()';
 
             }
             return __p
         };
 
-        this["JST"]["bq_bat_definitions"] = function(obj) {
+        this["JST"]["bq_bat_definitions_distance"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '//bqBAT\nlong TP_init' +
-                    __e(red_pin) +
-                    '()\n{\n  digitalWrite( ' +
-                    __e(blue_pin) +
-                    ' , LOW);\n  delayMicroseconds(2);\n  digitalWrite( ' +
-                    __e(blue_pin) +
-                    ' , HIGH);\n  delayMicroseconds(10);\n  digitalWrite( ' +
-                    __e(blue_pin) +
-                    ' , LOW);\n  long microseconds = pulseIn( ' +
-                    __e(red_pin) +
-                    ' ,HIGH);\n  return microseconds;\n}\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["bq_bat_definitions_2"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += 'long Distance' +
-                    __e(red_pin) +
-                    '()\n{\n  long microseconds = TP_init' +
-                    __e(red_pin) +
+                __p += 'long Distance_' +
+                    __e(echo_pin) +
+                    '()\n{\n  long microseconds = TP_init_' +
+                    __e(echo_pin) +
                     '();\n  long distance;\n  distance = microseconds/29/2;\n  return distance;\n}\n';
 
             }
             return __p
         };
 
-        this["JST"]["bq_bat_setups"] = function(obj) {
+        this["JST"]["bq_bat_definitions_tp_init"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '//bqBAT\nlong TP_init_' +
+                    __e(echo_pin) +
+                    '()\n{\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , LOW);\n  delayMicroseconds(2);\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , HIGH);\n  delayMicroseconds(10);\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , LOW);\n  long microseconds = pulseIn( ' +
+                    __e(echo_pin) +
+                    ' ,HIGH);\n  return microseconds;\n}\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_bat_definitions_tp_init_echo"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '//bqBAT\nlong TP_init_' +
+                    __e(echo_pin) +
+                    '()\n{\n  pinMode( ' +
+                    __e(echo_pin) +
+                    ' , INPUT );\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , LOW);\n  delayMicroseconds(2);\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , HIGH);\n  delayMicroseconds(10);\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , LOW);\n  long microseconds = pulseIn( ' +
+                    __e(echo_pin) +
+                    ' ,HIGH);\n  return microseconds;\n}\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_bat_definitions_tp_init_echo_and_trigger"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '//bqBAT\nlong TP_init_' +
+                    __e(echo_pin) +
+                    '()\n{\n  pinMode( ' +
+                    __e(echo_pin) +
+                    ' , INPUT );\n  pinMode( ' +
+                    __e(trigger_pin) +
+                    ' , INPUT );\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , LOW);\n  delayMicroseconds(2);\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , HIGH);\n  delayMicroseconds(10);\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , LOW);\n  long microseconds = pulseIn( ' +
+                    __e(echo_pin) +
+                    ' ,HIGH);\n  return microseconds;\n}\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_bat_definitions_tp_init_trigger"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '//bqBAT\nlong TP_init_' +
+                    __e(echo_pin) +
+                    '()\n{\n  pinMode( ' +
+                    __e(trigger_pin) +
+                    ' , INPUT );\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , LOW);\n  delayMicroseconds(2);\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , HIGH);\n  delayMicroseconds(10);\n  digitalWrite( ' +
+                    __e(trigger_pin) +
+                    ' , LOW);\n  long microseconds = pulseIn( ' +
+                    __e(echo_pin) +
+                    ' ,HIGH);\n  return microseconds;\n}\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_bat_setups_echo"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
                 __p += 'pinMode( ' +
-                    __e(red_pin) +
-                    ' , INPUT );\n  pinMode( ' +
-                    __e(blue_pin) +
+                    __e(echo_pin) +
+                    ' , INPUT );';
+
+            }
+            return __p
+        };
+
+        this["JST"]["bq_bat_setups_trigger"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'pinMode( ' +
+                    __e(trigger_pin) +
                     ' , OUTPUT );';
 
             }
@@ -3776,26 +3859,93 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.bq_bat = function() {
-            var red_pin = Blockly.Arduino.valueToCode(this, 'RED PIN', Blockly.Arduino.ORDER_ATOMIC);
-            var blue_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var echo_pin = Blockly.Arduino.valueToCode(this, 'RED PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var trigger_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
 
-            Blockly.Arduino.setups_['setup_bq_bat_'] = JST['bq_bat_setups']({
-                'red_pin': red_pin,
-                'blue_pin': blue_pin
+
+            Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'distance'] = JST['bq_bat_definitions_distance']({
+                'echo_pin': echo_pin,
+                'trigger_pin': trigger_pin
             });
 
-            Blockly.Arduino.definitions_['define_bq_bat_' + red_pin + 'tp_init'] = JST['bq_bat_definitions']({
-                'red_pin': red_pin,
-                'blue_pin': blue_pin
-            });
+            if (this.childBlocks_ === undefined || this.childBlocks_.length >= 2) {
+                var pin_block = [];
+                pin_block.push(this.childBlocks_[0].type); //echo
+                pin_block.push(this.childBlocks_[1].type); //trigger
 
-            Blockly.Arduino.definitions_['define_bq_bat_' + red_pin + 'distance'] = JST['bq_bat_definitions_2']({
-                'red_pin': red_pin,
-                'blue_pin': blue_pin
-            });
+                console.log('pin_block', pin_block);
+                console.log('conditions: ', pin_block[0] === 'variables_get', pin_block[0] === 'math_number', pin_block[1] === 'variables_get', pin_block[1] === 'math_number');
 
-            var code = JST['bq_bat']({
-                'red_pin': red_pin
+
+                if (pin_block[0] === 'variables_get') {
+                    Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init_echo']({
+                        'echo_pin': echo_pin,
+                        'trigger_pin': trigger_pin
+                    });
+                    code += JST['bq_bat_setups_echo']({
+                        'echo_pin': echo_pin
+                    });
+                }
+                if (pin_block[0] === 'math_number' && pin_block[1] === 'math_number') {
+                    Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
+                        'echo_pin': echo_pin,
+                        'trigger_pin': trigger_pin
+                    });
+                    Blockly.Arduino.setups_['setup_bq_bat_echo'] = JST['bq_bat_setups_echo']({
+                        'echo_pin': echo_pin
+                    });
+                    Blockly.Arduino.setups_['setup_bq_bat_trigger'] = JST['bq_bat_setups_trigger']({
+                        'trigger_pin': trigger_pin
+                    });
+                } else if (pin_block[0] === 'variables_get' && pin_block[1] === 'variables_get') {
+                    Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init_echo_and_trigger']({
+                        'echo_pin': echo_pin,
+                        'trigger_pin': trigger_pin
+                    });
+                } else {
+                    if (pin_block[0] === 'variables_get') {
+                        Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init_echo']({
+                            'echo_pin': echo_pin,
+                            'trigger_pin': trigger_pin
+                        });
+                    }
+                    if (pin_block[0] === 'math_number') {
+                        Blockly.Arduino.setups_['setup_bq_bat_'] = JST['bq_bat_setups_echo']({
+                            'echo_pin': echo_pin
+                        });
+                    }
+                    if (pin_block[1] === 'variables_get') {
+                        Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init_trigger']({
+                            'echo_pin': echo_pin,
+                            'trigger_pin': trigger_pin
+                        });
+                    }
+                    if (pin_block[1] === 'math_number') {
+                        Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
+                            'echo_pin': echo_pin,
+                            'trigger_pin': trigger_pin
+                        });
+                        Blockly.Arduino.setups_['setup_bq_bat_2'] = JST['bq_bat_setups_trigger']({
+                            'trigger_pin': trigger_pin
+                        });
+                    }
+                }
+            } else {
+                Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
+                    'echo_pin': echo_pin,
+                    'trigger_pin': trigger_pin
+                });
+                Blockly.Arduino.setups_['setup_bq_bat_'] = JST['bq_bat_setups_echo']({
+                    'echo_pin': echo_pin
+                });
+                Blockly.Arduino.setups_['setup_bq_bat_2'] = JST['bq_bat_setups_trigger']({
+                    'trigger_pin': trigger_pin
+                });
+            }
+
+            code = JST['bq_bat']({
+                'echo_pin': echo_pin
             });
 
             return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -4033,14 +4183,32 @@
         Blockly.Arduino.bq_button = function() {
 
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
 
-            Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['bq_button_setups']({
+            if (this.childBlocks_ !== undefined) {
+                var pin_block = this.childBlocks_[0].type;
+                if (pin_block === 'variables_get') {
+                    code += JST['bq_button_setups']({
+                        'dropdown_pin': dropdown_pin,
+                    });
+                    // console.log('code',code);
+
+                } else if (pin_block === 'math_number') {
+                    Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['bq_button_setups']({
+                        'dropdown_pin': dropdown_pin,
+                    });
+                }
+            } else {
+                Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['bq_button_setups']({
+                    'dropdown_pin': dropdown_pin,
+                });
+            }
+
+            code += JST['bq_button']({
                 'dropdown_pin': dropdown_pin,
             });
 
-            var code = JST['bq_button']({
-                'dropdown_pin': dropdown_pin,
-            });
+            // console.log('code',code);
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
@@ -4291,12 +4459,31 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var dropdown_stat = this.getFieldValue('STAT');
 
-            Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
-                'dropdown_pin': dropdown_pin,
-                'dropdown_stat': dropdown_stat
-            });
 
-            var code = JST['bq_led']({
+            var code = '';
+
+            if (this.childBlocks_ !== undefined) {
+                var pin_block = this.childBlocks_[0].type;
+
+                if (pin_block === 'variables_get') {
+                    code += JST['bq_led_setups']({
+                        'dropdown_pin': dropdown_pin,
+                        'dropdown_stat': dropdown_stat
+                    });
+                } else if (pin_block === 'math_number') {
+                    Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
+                        'dropdown_pin': dropdown_pin,
+                        'dropdown_stat': dropdown_stat
+                    });
+                }
+            } else {
+                Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
+                    'dropdown_pin': dropdown_pin,
+                    'dropdown_stat': dropdown_stat
+                });
+            }
+
+            code += JST['bq_led']({
                 'dropdown_pin': dropdown_pin,
                 'dropdown_stat': dropdown_stat
             });
@@ -7304,7 +7491,7 @@
                         }
                     }
                 } else if (this.isVariable(returnValue)) {
-                    returnType = RoboBlocks.variables[returnValue];
+                    returnType = RoboBlocks.variables[returnValue][0];
                 } else if ((returnValue.search('analogRead') >= 0) || (returnValue.search('digitalRead') >= 0) || (returnValue.search('Distanc') >= 0) || (!isNaN(parseFloat(returnValue)) || (returnValue.search('random') >= 0)) || (returnValue.search('map') >= 0) || returnValue.search('\\[') >= 0 || (returnValue.search('abs') >= 0) || (returnValue.search('sqrt') >= 0) || (returnValue.search('log') >= 0) || (returnValue.search('log') >= 0) || (returnValue.search('exp') >= 0) || (returnValue.search('pow') >= 0)) {
                     returnType = 'int';
                 } else if (returnValue.search('readJoystick') >= 0 || returnValue[0] === '{') {
@@ -8195,7 +8382,7 @@
         Blockly.Arduino.variables_get = function() {
             // Variable setter.
             var varName = this.getFieldValue('VAR') || '';
-            this.var_type = RoboBlocks.variables[this.getFieldValue('VAR')];
+            this.var_type = RoboBlocks.variables[this.getFieldValue('VAR')][0];
             return [varName, Blockly.Arduino.ORDER_ATOMIC];
         };
         Blockly.Blocks.variables_get = {
@@ -8279,6 +8466,7 @@
             var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
             var varName = this.getFieldValue('VAR') || '';
             var isFunction = false;
+
             for (var i in Blockly.Arduino.definitions_) {
                 if (Blockly.Arduino.definitions_[i].search(varValue + ' \\(') >= 0) {
                     isFunction = true;
@@ -8315,7 +8503,7 @@
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '[0]=' + varValue[0] + ';\n  ' + varName + '[1]=' + varValue[1] + ';\n  ' + varName + '[2]=' + varValue[2] + ';\n';
             } else if (this.isVariable(varValue)) {
-                varType = RoboBlocks.variables[varValue];
+                varType = RoboBlocks.variables[varValue][0];
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
             } else if (varValue.search('readJoystick') >= 0) {
@@ -8336,7 +8524,8 @@
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
             }
-            RoboBlocks.variables[varName] = varType;
+            RoboBlocks.variables[varName] = [varType, 'global'];
+
             return '';
         };
         Blockly.Blocks.variables_global = {
@@ -8432,6 +8621,17 @@
             var sufix = '';
             var code = '';
             var isFunction = false;
+
+
+            varValue = varValue.split(';\n');
+            for (var j in varValue) {
+                if (varValue[j].search('pinMode') >= 0) {
+                    code += varValue[j] + ';\n';
+                } else {
+                    varValue = varValue[j];
+                }
+            }
+
             for (var i in Blockly.Arduino.definitions_) {
                 if (Blockly.Arduino.definitions_[i].search(varValue + ' \\(') >= 0) {
                     isFunction = true;
@@ -8443,7 +8643,7 @@
             }
             if (varValue.search('"') >= 0) {
                 varType = 'String';
-                code = varType + ' ' + varName + '=' + varValue + ';\n';
+                code += varType + ' ' + varName + '=' + varValue + ';\n';
             } else if (isFunction) { //varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
                 for (i in Blockly.Arduino.definitions_) {
                     if (Blockly.Arduino.definitions_[i].search(varValue) >= 0) {
@@ -8458,7 +8658,7 @@
                         } else {
                             varType = '';
                         }
-                        code = varType + ' ' + varName + '=' + varValue + ';\n';
+                        code += varType + ' ' + varName + '=' + varValue + ';\n';
                     }
                 }
             } else if (varValue[0] === '{') {
@@ -8466,23 +8666,23 @@
                 varValue = varValue.replace('{', '');
                 varValue = varValue.replace('}', '');
                 varValue = varValue.split(',');
-                code = varType + varName + ';\n';
+                code += varType + varName + ';\n';
                 code += varName + '[0]=' + varValue[0] + ';\n' + varName + '[1]=' + varValue[1] + ';\n' + varName + '[2]=' + varValue[2] + ';\n';
             } else if (this.isVariable(varValue)) {
-                varType = RoboBlocks.variables[varValue];
-                code = varType + ' ' + varName + '=' + varValue + ';\n';
+                varType = RoboBlocks.variables[varValue][0];
+                code += varType + ' ' + varName + '=' + varValue + ';\n';
             } else if (varValue.search('readJoystick') >= 0) {
                 varType = 'int *';
-                code = varType + varName + ';\n';
+                code += varType + varName + ';\n';
                 code += varName + '=' + varValue + ';\n';
             } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue))) || (varValue.search('random') >= 0) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0) || (varValue.search('\\+'))) {
                 varType = 'int';
-                code = varType + ' ' + varName + sufix + '=' + varValue + ';\n';
+                code += varType + ' ' + varName + sufix + '=' + varValue + ';\n';
             } else {
                 varType = 'unknown';
-                code = varType + ' ' + varName + '=' + varValue + ';\n';
+                code += varType + ' ' + varName + '=' + varValue + ';\n';
             }
-            RoboBlocks.variables[varName] = varType;
+            RoboBlocks.variables[varName] = [varType, 'local'];
 
             return code;
         };
@@ -8521,7 +8721,19 @@
             // Variable setter.
             var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT) || '';
             var varName = this.getFieldValue('VAR') || '';
-            var code = JST['variables_set']({
+            var code = '';
+
+            varValue = varValue.split(';\n');
+            for (var j in varValue) {
+                if (varValue[j].search('pinMode') >= 0) {
+                    code += varValue[j] + ';\n';
+                } else {
+                    varValue = varValue[j];
+                }
+            }
+
+
+            code += JST['variables_set']({
                 'varName': varName,
                 'varValue': varValue
             });
