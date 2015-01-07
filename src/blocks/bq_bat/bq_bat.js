@@ -7,26 +7,57 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.bq_bat = function() {
-    var red_pin = Blockly.Arduino.valueToCode(this, 'RED PIN', Blockly.Arduino.ORDER_ATOMIC);
-    var blue_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN',Blockly.Arduino.ORDER_ATOMIC);
+    var echo_pin = Blockly.Arduino.valueToCode(this, 'RED PIN', Blockly.Arduino.ORDER_ATOMIC);
+    var trigger_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN',Blockly.Arduino.ORDER_ATOMIC);
+    var code ='';
 
-    Blockly.Arduino.setups_['setup_bq_bat_']=JST['bq_bat_setups']({
-        'red_pin': red_pin,
-        'blue_pin': blue_pin
+    Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin+'tp_init'] = JST['bq_bat_definitions_tp_init']({
+        'echo_pin': echo_pin,
+        'trigger_pin': trigger_pin
     });
 
-    Blockly.Arduino.definitions_['define_bq_bat_' + red_pin+'tp_init'] = JST['bq_bat_definitions']({
-        'red_pin': red_pin,
-        'blue_pin': blue_pin
+    Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin+'distance'] = JST['bq_bat_definitions_distance']({
+        'echo_pin': echo_pin,
+        'trigger_pin': trigger_pin
     });
 
-    Blockly.Arduino.definitions_['define_bq_bat_' + red_pin+'distance'] = JST['bq_bat_definitions_2']({
-        'red_pin': red_pin,
-        'blue_pin': blue_pin
-    });
+    if (this.childBlocks_=== undefined || this.childBlocks_.length >= 2){
+        var pin_block=[];
+        pin_block.push(this.childBlocks_[0].type);  //echo
+        pin_block.push(this.childBlocks_[1].type);  //trigger
 
-    var code = JST['bq_bat']({
-        'red_pin': red_pin
+        if (pin_block[0]==='variables_get'){
+            code +=JST['bq_bat_setups_echo']({
+                'echo_pin': echo_pin
+            });
+        }
+        if (pin_block[0]==='math_number'){
+            Blockly.Arduino.setups_['setup_bq_bat_']=JST['bq_bat_setups_echo']({
+                'echo_pin': echo_pin
+            });
+        }
+        if (pin_block[1]==='variables_get'){
+            code +=JST['bq_bat_setups_trigger']({
+                'trigger_pin': trigger_pin
+            });
+        }
+        if (pin_block[1]==='math_number'){
+            Blockly.Arduino.setups_['setup_bq_bat_2']=JST['bq_bat_setups_trigger']({
+                'trigger_pin': trigger_pin
+            });
+        }
+    }
+    else{
+        Blockly.Arduino.setups_['setup_bq_bat_']=JST['bq_bat_setups_echo']({
+            'echo_pin': echo_pin
+        });
+        Blockly.Arduino.setups_['setup_bq_bat_2']=JST['bq_bat_setups_trigger']({
+            'trigger_pin': trigger_pin
+        });
+    }
+
+    code += JST['bq_bat']({
+        'echo_pin': echo_pin
     });
 
     return [code, Blockly.Arduino.ORDER_ATOMIC];

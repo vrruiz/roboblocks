@@ -1,1 +1,1 @@
-Distance{{ red_pin }}()
+Distance_{{ echo_pin }}()

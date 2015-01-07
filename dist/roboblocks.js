@@ -2273,77 +2273,6 @@
             return __p
         };
 
-        this["JST"]["bq_bat_definitions_tp_init_echo"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '//bqBAT\nlong TP_init_' +
-                    __e(echo_pin) +
-                    '()\n{\n  pinMode( ' +
-                    __e(echo_pin) +
-                    ' , INPUT );\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , LOW);\n  delayMicroseconds(2);\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , HIGH);\n  delayMicroseconds(10);\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , LOW);\n  long microseconds = pulseIn( ' +
-                    __e(echo_pin) +
-                    ' ,HIGH);\n  return microseconds;\n}\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["bq_bat_definitions_tp_init_echo_and_trigger"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '//bqBAT\nlong TP_init_' +
-                    __e(echo_pin) +
-                    '()\n{\n  pinMode( ' +
-                    __e(echo_pin) +
-                    ' , INPUT );\n  pinMode( ' +
-                    __e(trigger_pin) +
-                    ' , INPUT );\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , LOW);\n  delayMicroseconds(2);\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , HIGH);\n  delayMicroseconds(10);\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , LOW);\n  long microseconds = pulseIn( ' +
-                    __e(echo_pin) +
-                    ' ,HIGH);\n  return microseconds;\n}\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["bq_bat_definitions_tp_init_trigger"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '//bqBAT\nlong TP_init_' +
-                    __e(echo_pin) +
-                    '()\n{\n  pinMode( ' +
-                    __e(trigger_pin) +
-                    ' , INPUT );\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , LOW);\n  delayMicroseconds(2);\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , HIGH);\n  delayMicroseconds(10);\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , LOW);\n  long microseconds = pulseIn( ' +
-                    __e(echo_pin) +
-                    ' ,HIGH);\n  return microseconds;\n}\n';
-
-            }
-            return __p
-        };
-
         this["JST"]["bq_bat_setups_echo"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -2351,7 +2280,7 @@
             with(obj) {
                 __p += 'pinMode( ' +
                     __e(echo_pin) +
-                    ' , INPUT );';
+                    ' , INPUT );\n';
 
             }
             return __p
@@ -2364,7 +2293,7 @@
             with(obj) {
                 __p += 'pinMode( ' +
                     __e(trigger_pin) +
-                    ' , OUTPUT );';
+                    ' , OUTPUT );\n';
 
             }
             return __p
@@ -3863,6 +3792,10 @@
             var trigger_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
 
+            Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
+                'echo_pin': echo_pin,
+                'trigger_pin': trigger_pin
+            });
 
             Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'distance'] = JST['bq_bat_definitions_distance']({
                 'echo_pin': echo_pin,
@@ -3879,63 +3812,26 @@
 
 
                 if (pin_block[0] === 'variables_get') {
-                    Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init_echo']({
-                        'echo_pin': echo_pin,
-                        'trigger_pin': trigger_pin
-                    });
                     code += JST['bq_bat_setups_echo']({
                         'echo_pin': echo_pin
                     });
                 }
-                if (pin_block[0] === 'math_number' && pin_block[1] === 'math_number') {
-                    Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
-                        'echo_pin': echo_pin,
-                        'trigger_pin': trigger_pin
-                    });
-                    Blockly.Arduino.setups_['setup_bq_bat_echo'] = JST['bq_bat_setups_echo']({
+                if (pin_block[0] === 'math_number') {
+                    Blockly.Arduino.setups_['setup_bq_bat_'] = JST['bq_bat_setups_echo']({
                         'echo_pin': echo_pin
                     });
-                    Blockly.Arduino.setups_['setup_bq_bat_trigger'] = JST['bq_bat_setups_trigger']({
+                }
+                if (pin_block[1] === 'variables_get') {
+                    code += JST['bq_bat_setups_trigger']({
                         'trigger_pin': trigger_pin
                     });
-                } else if (pin_block[0] === 'variables_get' && pin_block[1] === 'variables_get') {
-                    Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init_echo_and_trigger']({
-                        'echo_pin': echo_pin,
+                }
+                if (pin_block[1] === 'math_number') {
+                    Blockly.Arduino.setups_['setup_bq_bat_2'] = JST['bq_bat_setups_trigger']({
                         'trigger_pin': trigger_pin
                     });
-                } else {
-                    if (pin_block[0] === 'variables_get') {
-                        Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init_echo']({
-                            'echo_pin': echo_pin,
-                            'trigger_pin': trigger_pin
-                        });
-                    }
-                    if (pin_block[0] === 'math_number') {
-                        Blockly.Arduino.setups_['setup_bq_bat_'] = JST['bq_bat_setups_echo']({
-                            'echo_pin': echo_pin
-                        });
-                    }
-                    if (pin_block[1] === 'variables_get') {
-                        Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init_trigger']({
-                            'echo_pin': echo_pin,
-                            'trigger_pin': trigger_pin
-                        });
-                    }
-                    if (pin_block[1] === 'math_number') {
-                        Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
-                            'echo_pin': echo_pin,
-                            'trigger_pin': trigger_pin
-                        });
-                        Blockly.Arduino.setups_['setup_bq_bat_2'] = JST['bq_bat_setups_trigger']({
-                            'trigger_pin': trigger_pin
-                        });
-                    }
                 }
             } else {
-                Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
-                    'echo_pin': echo_pin,
-                    'trigger_pin': trigger_pin
-                });
                 Blockly.Arduino.setups_['setup_bq_bat_'] = JST['bq_bat_setups_echo']({
                     'echo_pin': echo_pin
                 });
@@ -3944,7 +3840,7 @@
                 });
             }
 
-            code = JST['bq_bat']({
+            code += JST['bq_bat']({
                 'echo_pin': echo_pin
             });
 
