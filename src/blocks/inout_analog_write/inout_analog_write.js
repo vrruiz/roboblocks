@@ -17,13 +17,13 @@ Blockly.Arduino.inout_analog_write = function() {
                 'value_num': value_num
             });
         } else if (pin_block === 'math_number') {
-            Blockly.Arduino.setups_['setup_green_analog_write_13'] = JST['inout_analog_write_setups']({
+            Blockly.Arduino.setups_['setup_analog_write'+dropdown_pin] = JST['inout_analog_write_setups']({
                 'dropdown_pin': dropdown_pin,
                 'value_num': value_num
             });
         }
     } else {
-        Blockly.Arduino.setups_['setup_green_analog_write_13'] = JST['inout_analog_write_setups']({
+        Blockly.Arduino.setups_['setup_analog_write'+dropdown_pin] = JST['inout_analog_write_setups']({
             'dropdown_pin': dropdown_pin,
             'value_num': value_num
         });

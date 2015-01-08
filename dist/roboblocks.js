@@ -3170,26 +3170,13 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'servo_' +
+                __p += 'servos[' +
                     __e(dropdown_pin) +
-                    '.write(' +
+                    '].write(' +
                     __e(value_degree) +
                     ');\ndelay(' +
                     __e(delay_time) +
                     ');\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["servo_cont_definitions"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += 'Servo servo_' +
-                    __e(dropdown_pin) +
-                    ';';
 
             }
             return __p
@@ -3200,7 +3187,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '#include <Servo.h>';
+                __p += '#include <Servo.h>\n\nServo servos[13];';
 
             }
             return __p
@@ -3211,11 +3198,11 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'servo_' +
+                __p += 'servos[' +
                     __e(dropdown_pin) +
-                    '.attach(' +
+                    '].attach(' +
                     __e(dropdown_pin) +
-                    ');';
+                    ');\n';
 
             }
             return __p
@@ -3226,26 +3213,13 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'servo_' +
+                __p += 'servos[' +
                     __e(dropdown_pin) +
-                    '.write(' +
+                    '].write(' +
                     __e(value_degree) +
                     ');\ndelay(' +
                     __e(delay_time) +
                     ');\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["servo_move_definitions"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += 'Servo servo_' +
-                    __e(dropdown_pin) +
-                    ';\n';
 
             }
             return __p
@@ -3256,7 +3230,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '#include <Servo.h>';
+                __p += '#include <Servo.h>\n\nServo servos[13];';
 
             }
             return __p
@@ -3267,11 +3241,11 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'servo_' +
+                __p += 'servos[' +
                     __e(dropdown_pin) +
-                    '.attach(' +
+                    '].attach(' +
                     __e(dropdown_pin) +
-                    ');';
+                    ');\n';
 
             }
             return __p
@@ -4316,7 +4290,6 @@
             });
 
             if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 3) {
-                console.log('this.childBlocks_', this.childBlocks_);
                 var pin_block = this.childBlocks_[2].type;
                 if (pin_block === 'variables_get') {
                     code += JST['bq_joystick_setups']({
@@ -4403,14 +4376,19 @@
             var code = '';
 
             if (this.childBlocks_ !== undefined) {
-                var pin_block = this.childBlocks_[0].type;
-
-                if (pin_block === 'variables_get') {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
                     code += JST['bq_led_setups']({
                         'dropdown_pin': dropdown_pin,
                         'dropdown_stat': dropdown_stat
                     });
-                } else if (pin_block === 'math_number') {
+                }
+                if (pin_block[0] === 'math_number') {
                     Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
                         'dropdown_pin': dropdown_pin,
                         'dropdown_stat': dropdown_stat
@@ -5567,13 +5545,13 @@
                         'value_num': value_num
                     });
                 } else if (pin_block === 'math_number') {
-                    Blockly.Arduino.setups_['setup_green_analog_write_13'] = JST['inout_analog_write_setups']({
+                    Blockly.Arduino.setups_['setup_analog_write' + dropdown_pin] = JST['inout_analog_write_setups']({
                         'dropdown_pin': dropdown_pin,
                         'value_num': value_num
                     });
                 }
             } else {
-                Blockly.Arduino.setups_['setup_green_analog_write_13'] = JST['inout_analog_write_setups']({
+                Blockly.Arduino.setups_['setup_analog_write' + dropdown_pin] = JST['inout_analog_write_setups']({
                     'dropdown_pin': dropdown_pin,
                     'value_num': value_num
                 });
@@ -5853,7 +5831,7 @@
             Blockly.Arduino.definitions_['define_lcd'] = JST['lcd_def_definitions']({});
             Blockly.Arduino.definitions_['declare_var_LCD'] = 'LiquidCrystal lcd(0);\n';
 
-            Blockly.Arduino.setups_['setup_bluetooth_'] = JST['lcd_def_setups']({});
+            Blockly.Arduino.setups_['setup_lcd_'] = JST['lcd_def_setups']({});
             return '';
         };
 
@@ -5978,8 +5956,6 @@
          */
 
         Blockly.Arduino.lcd_setBacklight = function() {
-            // Blockly.Arduino.definitions_['define_softwareserial'] = JST['lcd_setBacklight_definitions']({});
-            // Blockly.Arduino.setups_['setup_bluetooth_']= JST['lcd_setBacklight_setups']({});
             var state = this.getFieldValue('STATE');
             var code = JST['lcd_setBacklight']({
                 'state': state
@@ -7775,7 +7751,6 @@
         // Source: src/blocks/servo_cont/servo_cont.js
         /* global Blockly, options,JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * servo_cont code generation
          * @return {String} Code generated with block parameters
@@ -7784,28 +7759,38 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
             var value_degree = this.getFieldValue('ROT') || '';
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '';
-
             Blockly.Arduino.definitions_['include_servo'] = JST['servo_cont_definitions_include']({});
 
-
-            Blockly.Arduino.definitions_['declare_var_servo' + dropdown_pin] = JST['servo_cont_definitions']({
-                'dropdown_pin': dropdown_pin
-            });
-
-
-            Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = JST['servo_cont_setups']({
-                'dropdown_pin': dropdown_pin
-            });
-
-
-            var code = JST['servo_cont']({
+            var code = '';
+            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
+                    code += JST['servo_cont_setups']({
+                        'dropdown_pin': dropdown_pin
+                    });
+                }
+                if (pin_block[0] === 'math_number') {
+                    Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = JST['servo_cont_setups']({
+                        'dropdown_pin': dropdown_pin
+                    });
+                }
+            } else {
+                Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = JST['servo_cont_setups']({
+                    'dropdown_pin': dropdown_pin
+                });
+            }
+            code += JST['servo_cont']({
                 'dropdown_pin': dropdown_pin,
                 'value_degree': value_degree,
                 'delay_time': delay_time
             });
             return code;
         };
-
         /**
          * servo_cont block definition
          * @type {Object}
@@ -7816,23 +7801,13 @@
             helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_cont',
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-                this.appendValueInput('PIN')
-                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT'))
-                    .appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_PIN'))
-                    .setCheck(Number);
-                this.appendDummyInput()
-                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_ROT'))
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_CLOCKWISE') || 'CLOCKWISE', '0'],
-                        [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE') || 'ANTICLOCKWISE', '180'],
-                        [RoboBlocks.locales.getKey('LANG_SERVO_CONT_STOPPED') || 'STOPPED', '90']
-                    ]), 'ROT');
-                this.appendValueInput('DELAY_TIME', Number)
-                    .setCheck(Number)
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_DELAY'));
+                this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT')).appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_PIN')).setCheck(Number);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_ROT')).setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldDropdown([
+                    [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_CLOCKWISE') || 'CLOCKWISE', '0'],
+                    [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE') || 'ANTICLOCKWISE', '180'],
+                    [RoboBlocks.locales.getKey('LANG_SERVO_CONT_STOPPED') || 'STOPPED', '90']
+                ]), 'ROT');
+                this.appendValueInput('DELAY_TIME', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_DELAY'));
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_SERVO_CONT_TOOLTIP'));
@@ -7846,19 +7821,18 @@
                 return false;
             },
             onchange: function() {
-                try {
-                    if (this.isVariable(Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
-                        this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
-                    } else {
-                        this.setWarningText(null);
-                    }
-                } catch (e) {}
+                // try {
+                //     if (this.isVariable(Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
+                //         this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+                //     } else {
+                //         this.setWarningText(null);
+                //     }
+                // } catch (e) {}
             }
         };
         // Source: src/blocks/servo_move/servo_move.js
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * servo_move code generation
          * @return {String} Code generated with block parameters
@@ -7867,28 +7841,39 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
-
             Blockly.Arduino.definitions_['include_servo'] = JST['servo_move_definitions_include']({
                 'dropdown_pin': dropdown_pin
             });
-
-            Blockly.Arduino.definitions_['declare_var_servo' + dropdown_pin] = JST['servo_move_definitions']({
-                'dropdown_pin': dropdown_pin
-            });
-
-            Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = JST['servo_move_setups']({
-                'dropdown_pin': dropdown_pin
-            });
-
-            var code = JST['servo_move']({
+            var code = '';
+            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
+                    code += JST['servo_move_setups']({
+                        'dropdown_pin': dropdown_pin
+                    });
+                }
+                if (pin_block[0] === 'math_number') {
+                    Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = JST['servo_move_setups']({
+                        'dropdown_pin': dropdown_pin
+                    });
+                }
+            } else {
+                Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = JST['servo_move_setups']({
+                    'dropdown_pin': dropdown_pin
+                });
+            }
+            code += JST['servo_move']({
                 'dropdown_pin': dropdown_pin,
                 'value_degree': value_degree,
                 'delay_time': delay_time
             });
-
             return code;
         };
-
         /**
          * servo_move block definition
          * @type {Object}
@@ -7902,19 +7887,9 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-                this.appendValueInput('PIN')
-                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE'))
-                    .appendField(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom))
-                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_PIN'))
-                    .setCheck(Number);
-                this.appendValueInput('DEGREE', Number)
-                    .setCheck(Number)
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_DEGREES'));
-                this.appendValueInput('DELAY_TIME', Number)
-                    .setCheck(Number)
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_DELAY'));
+                this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE')).appendField(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_PIN')).setCheck(Number);
+                this.appendValueInput('DEGREE', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_DEGREES'));
+                this.appendValueInput('DELAY_TIME', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_DELAY'));
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_TOOLTIP'));
@@ -7928,13 +7903,13 @@
                 return false;
             },
             onchange: function() {
-                try {
-                    if (this.isVariable(Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
-                        this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
-                    } else {
-                        this.setWarningText(null);
-                    }
-                } catch (e) {}
+                // try {
+                //     if (this.isVariable(Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
+                //         this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+                //     } else {
+                //         this.setWarningText(null);
+                //     }
+                // } catch (e) {}
             }
         };
         // Source: src/blocks/text/text.js
@@ -9078,12 +9053,6 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
             var dropdown_stat = this.getFieldValue('STAT');
             var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
-
-            //  Blockly.Arduino.setups_['setup_piezo_buzzer_' + dropdown_pin] = JST['zum_piezo_buzzer_setups']({
-            //      'dropdown_pin': dropdown_pin,
-            //      'dropdown_stat': dropdown_stat
-            //  });
-
 
             var code = JST['zum_piezo_buzzer']({
                 'dropdown_pin': dropdown_pin,

@@ -11,12 +11,6 @@ Blockly.Arduino.zum_piezo_buzzer = function() {
     var dropdown_stat = this.getFieldValue('STAT');
     var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
 
-    //  Blockly.Arduino.setups_['setup_piezo_buzzer_' + dropdown_pin] = JST['zum_piezo_buzzer_setups']({
-    //      'dropdown_pin': dropdown_pin,
-    //      'dropdown_stat': dropdown_stat
-    //  });
-
-
     var code = JST['zum_piezo_buzzer']({
         'dropdown_pin': dropdown_pin,
         'dropdown_stat': dropdown_stat,

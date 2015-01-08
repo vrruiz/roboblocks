@@ -8,8 +8,6 @@
  */
 
 Blockly.Arduino.lcd_setBacklight = function() {
-    // Blockly.Arduino.definitions_['define_softwareserial'] = JST['lcd_setBacklight_definitions']({});
-    // Blockly.Arduino.setups_['setup_bluetooth_']= JST['lcd_setBacklight_setups']({});
     var state=this.getFieldValue('STATE');
     var code = JST ['lcd_setBacklight']({
         'state': state

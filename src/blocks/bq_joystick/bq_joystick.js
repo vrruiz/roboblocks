@@ -21,7 +21,6 @@ Blockly.Arduino.bq_joystick = function() {
     });
 
     if (this.childBlocks_!== undefined && this.childBlocks_.length>=3){
-        console.log('this.childBlocks_',this.childBlocks_);
         var pin_block=this.childBlocks_[2].type;
         if (pin_block==='variables_get'){
             code += JST['bq_joystick_setups']({

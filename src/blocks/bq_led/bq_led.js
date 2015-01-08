@@ -14,15 +14,19 @@ Blockly.Arduino.bq_led = function() {
     var code='';
 
     if (this.childBlocks_!== undefined){
-        var pin_block=this.childBlocks_[0].type;
-
-        if (pin_block==='variables_get'){
+        var pin_block=[];
+        for (var i in this.childBlocks_){
+            if (this.childBlocks_[i].type==='variables_get' || this.childBlocks_[i].type==='math_number'){
+                pin_block.push(this.childBlocks_[i].type);
+            }
+        }
+        if (pin_block[0]==='variables_get'){
             code += JST['bq_led_setups']({
                 'dropdown_pin': dropdown_pin,
                 'dropdown_stat': dropdown_stat
             });
         }
-        else if (pin_block==='math_number'){
+        if (pin_block[0]==='math_number'){
             Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
                 'dropdown_pin': dropdown_pin,
                 'dropdown_stat': dropdown_stat
