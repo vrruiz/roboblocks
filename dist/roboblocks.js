@@ -2495,9 +2495,9 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += ' pinMode(' +
+                __p += 'pinMode(' +
                     __e(pinbutton) +
-                    ',INPUT_PULLUP);\n ';
+                    ',INPUT_PULLUP);\n';
 
             }
             return __p
@@ -5485,25 +5485,34 @@
         // Source: src/blocks/inout_analog_read/inout_analog_read.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * inout_analog_read code generation
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.inout_analog_read = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-
-            Blockly.Arduino.setups_['setup_green_analog_read' + dropdown_pin] = JST['inout_analog_read_setups']({
+            var code = '';
+            if (this.childBlocks_ !== undefined) {
+                var pin_block = this.childBlocks_[0].type;
+                if (pin_block === 'variables_get') {
+                    code += JST['inout_analog_read_setups']({
+                        'dropdown_pin': dropdown_pin,
+                    });
+                } else if (pin_block === 'math_number') {
+                    Blockly.Arduino.setups_['setup_green_analog_read' + dropdown_pin] = JST['inout_analog_read_setups']({
+                        'dropdown_pin': dropdown_pin,
+                    });
+                }
+            } else {
+                Blockly.Arduino.setups_['setup_green_analog_read' + dropdown_pin] = JST['inout_analog_read_setups']({
+                    'dropdown_pin': dropdown_pin,
+                });
+            }
+            code += JST['inout_analog_read']({
                 'dropdown_pin': dropdown_pin,
             });
-
-            var code = JST['inout_analog_read']({
-                'dropdown_pin': dropdown_pin,
-            });
-
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
-
         /**
          * inout_analog_read block definition
          * @type {Object}
@@ -5516,14 +5525,12 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
-                this.appendValueInput('PIN')
-                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ'));
+                this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ'));
                 this.setOutput(true, Boolean);
                 this.setInputsInline(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP'));
             }
         };
-
         // Source: src/blocks/inout_analog_write/inout_analog_write.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
