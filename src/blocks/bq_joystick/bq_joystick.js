@@ -14,7 +14,7 @@ Blockly.Arduino.bq_joystick = function() {
     var code='';
 
     Blockly.Arduino.definitions_['declare_var_internal_readJoystick_array_'+pinx] = 'int _internal_readJoystick_array_'+pinx+'[3];\n';
-    Blockly.Arduino.definitions_['define_joystick'] = JST['bq_joystick_definitions']({
+    Blockly.Arduino.definitions_['define_joystick'+pinx] = JST['bq_joystick_definitions']({
         'pinx': pinx,
         'piny': piny,
         'pinbutton': pinbutton
@@ -29,13 +29,13 @@ Blockly.Arduino.bq_joystick = function() {
             });
         }
         else if (pin_block==='math_number'){
-            Blockly.Arduino.setups_['setup_joystick'] = JST['bq_joystick_setups']({
+            Blockly.Arduino.setups_['setup_joystick_'+pinbutton] = JST['bq_joystick_setups']({
                 'pinbutton': pinbutton
             });
         }
     }
     else{
-        Blockly.Arduino.setups_['setup_joystick'] = JST['bq_joystick_setups']({
+        Blockly.Arduino.setups_['setup_joystick_'+pinbutton] = JST['bq_joystick_setups']({
             'pinbutton': pinbutton
         });
     }

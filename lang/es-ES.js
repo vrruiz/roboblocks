@@ -2,7 +2,7 @@
 (function() {
     var language = {
         //random :
-        BLOCKLY_MSG_DUPLICATE_BLOCK: 'Duplicaaarrrr',
+        BLOCKLY_MSG_DUPLICATE_BLOCK: 'Duplicar',
         BLOCKLY_MSG_REMOVE_COMMENT: 'Remove Comment',
         BLOCKLY_MSG_ADD_COMMENT: 'Add Comment',
         BLOCKLY_MSG_EXTERNAL_INPUTS: 'External Inputs',

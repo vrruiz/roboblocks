@@ -1,0 +1,1 @@
+pinMode( {{ NextPIN }} , INPUT);
