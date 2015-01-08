@@ -1,6 +1,6 @@
-/*! roboblocks - v0.1.10 - 2014-12-22
+/*! roboblocks - v0.1.12 - 2015-01-08
  * https://github.com/bq/roboblocks
- * Copyright (c) 2014 bq; Licensed  */
+ * Copyright (c) 2015 bq; Licensed  */
 
 (function(factory) {
     if (typeof define === 'function' && define.amd) {
@@ -11,10 +11,13 @@
 }(function(_, Blockly, Blocks) {
     var load = function(options) {
         // Source: src/lang.js
-        /* global RoboBlocks*/
+        /* global RoboBlocks, options */
         RoboBlocks.locales = {
             defaultLanguage: {},
             languages: []
+        };
+        RoboBlocks.locales.getLang = function() {
+            return this.defaultLanguage.lngCode;
         };
         RoboBlocks.locales.getKey = function(key) {
             return this.defaultLanguage[key];
@@ -23,6 +26,7 @@
             for (var i in this.languages) {
                 if (this.languages[i].langCode === langCode) {
                     this.defaultLanguage = this.languages[i].values;
+                    this.defaultLanguage.lngCode = langCode;
                 }
             }
         };
@@ -45,9 +49,11 @@
             return this;
         };
         RoboBlocks.locales.initialize = function() {
-            this.setDefaultLang('en-GB');
+            var lang = options.lang || 'en-GB';
+            this.setDefaultLang(lang);
             return this;
         };
+
         // Source: lang/ca-ES.js
         (function() {
             var language = {
@@ -8483,6 +8489,7 @@
                 code = varType + ' ' + varName + '=' + varValue + ';\n';
             }
             RoboBlocks.variables[varName] = varType;
+
             return code;
         };
         Blockly.Blocks.variables_local = {

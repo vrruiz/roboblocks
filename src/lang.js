@@ -1,5 +1,5 @@
 'use strict';
-/* global RoboBlocks*/
+/* global RoboBlocks, options */
 RoboBlocks.locales = {
     defaultLanguage: {},
     languages: []
@@ -37,6 +37,7 @@ RoboBlocks.locales.add = function(langCode, values) {
     return this;
 };
 RoboBlocks.locales.initialize = function() {
-    var lang= options.lang || 'en-GB';
+    var lang = options.lang || 'en-GB';
+    this.setDefaultLang(lang);
     return this;
 };
