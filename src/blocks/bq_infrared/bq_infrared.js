@@ -12,14 +12,19 @@ Blockly.Arduino.bq_infrared = function() {
 
     var code='';
 
-    if (this.childBlocks_!== undefined){
-        var pin_block=this.childBlocks_[0].type;
-        if (pin_block==='variables_get'){
+    if (this.childBlocks_!== undefined && this.childBlocks_.length>=1){
+        var pin_block=[];
+        for (var i in this.childBlocks_){
+            if (this.childBlocks_[i].type==='variables_get' || this.childBlocks_[i].type==='math_number'){
+                pin_block.push(this.childBlocks_[i].type);
+            }
+        }
+        if (pin_block[0]==='variables_get'){
             code += JST['bq_infrared_setups']({
                 'dropdown_pin': dropdown_pin
             });
         }
-        else if (pin_block==='math_number'){
+        else if (pin_block[0]==='math_number'){
             Blockly.Arduino.setups_['setup_infrared_' + dropdown_pin] = JST['bq_infrared_setups']({
                 'dropdown_pin': dropdown_pin
             });

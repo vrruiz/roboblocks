@@ -3795,8 +3795,11 @@
 
             if (this.childBlocks_ === undefined || this.childBlocks_.length >= 2) {
                 var pin_block = [];
-                pin_block.push(this.childBlocks_[0].type); //echo
-                pin_block.push(this.childBlocks_[1].type); //trigger
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
 
                 if (pin_block[0] === 'variables_get') {
                     code += JST['bq_bat_setups_echo']({
@@ -4068,15 +4071,20 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
 
-            if (this.childBlocks_ !== undefined) {
-                var pin_block = this.childBlocks_[0].type;
-                if (pin_block === 'variables_get') {
+            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
                     code += JST['bq_button_setups']({
                         'dropdown_pin': dropdown_pin,
                     });
                     // console.log('code',code);
 
-                } else if (pin_block === 'math_number') {
+                } else if (pin_block[0] === 'math_number') {
                     Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['bq_button_setups']({
                         'dropdown_pin': dropdown_pin,
                     });
@@ -4221,13 +4229,18 @@
 
             var code = '';
 
-            if (this.childBlocks_ !== undefined) {
-                var pin_block = this.childBlocks_[0].type;
-                if (pin_block === 'variables_get') {
+            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
                     code += JST['bq_infrared_setups']({
                         'dropdown_pin': dropdown_pin
                     });
-                } else if (pin_block === 'math_number') {
+                } else if (pin_block[0] === 'math_number') {
                     Blockly.Arduino.setups_['setup_infrared_' + dropdown_pin] = JST['bq_infrared_setups']({
                         'dropdown_pin': dropdown_pin
                     });
@@ -4290,12 +4303,11 @@
             });
 
             if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 3) {
-                var pin_block = this.childBlocks_[2].type;
-                if (pin_block === 'variables_get') {
+                if (isNaN(parseFloat(pinbutton))) {
                     code += JST['bq_joystick_setups']({
                         'pinbutton': pinbutton
                     });
-                } else if (pin_block === 'math_number') {
+                } else {
                     Blockly.Arduino.setups_['setup_joystick_' + pinbutton] = JST['bq_joystick_setups']({
                         'pinbutton': pinbutton
                     });
@@ -5487,13 +5499,18 @@
         Blockly.Arduino.inout_analog_read = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
-            if (this.childBlocks_ !== undefined) {
-                var pin_block = this.childBlocks_[0].type;
-                if (pin_block === 'variables_get') {
+            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
                     code += JST['inout_analog_read_setups']({
                         'dropdown_pin': dropdown_pin,
                     });
-                } else if (pin_block === 'math_number') {
+                } else if (pin_block[0] === 'math_number') {
                     Blockly.Arduino.setups_['setup_green_analog_read' + dropdown_pin] = JST['inout_analog_read_setups']({
                         'dropdown_pin': dropdown_pin,
                     });
@@ -5537,14 +5554,19 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
-            if (this.childBlocks_ !== undefined) {
-                var pin_block = this.childBlocks_[0].type;
-                if (pin_block === 'variables_get') {
+            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
                     code += JST['inout_analog_write_setups']({
                         'dropdown_pin': dropdown_pin,
                         'value_num': value_num
                     });
-                } else if (pin_block === 'math_number') {
+                } else if (pin_block[0] === 'math_number') {
                     Blockly.Arduino.setups_['setup_analog_write' + dropdown_pin] = JST['inout_analog_write_setups']({
                         'dropdown_pin': dropdown_pin,
                         'value_num': value_num
@@ -5638,13 +5660,18 @@
         Blockly.Arduino.inout_digital_read = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
-            if (this.childBlocks_ !== undefined) {
-                var pin_block = this.childBlocks_[0].type;
-                if (pin_block === 'variables_get') {
+            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
                     code += JST['inout_digital_read_setups']({
                         'dropdown_pin': dropdown_pin,
                     });
-                } else if (pin_block === 'math_number') {
+                } else if (pin_block[0] === 'math_number') {
                     Blockly.Arduino.setups_['setup_green_digital_read' + dropdown_pin] = JST['inout_digital_read_setups']({
                         'dropdown_pin': dropdown_pin,
                     });
@@ -5688,14 +5715,19 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var dropdown_stat = this.getFieldValue('STAT');
             var code = '';
-            if (this.childBlocks_ !== undefined) {
-                var pin_block = this.childBlocks_[0].type;
-                if (pin_block === 'variables_get') {
+            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
                     code += JST['inout_digital_write_setups']({
                         'dropdown_pin': dropdown_pin,
                         'dropdown_stat': dropdown_stat
                     });
-                } else if (pin_block === 'math_number') {
+                } else if (pin_block[0] === 'math_number') {
                     Blockly.Arduino.setups_['setup_green_digital_write_' + dropdown_pin] = JST['inout_digital_write_setups']({
                         'dropdown_pin': dropdown_pin,
                         'dropdown_stat': dropdown_stat
@@ -8319,7 +8351,9 @@
         Blockly.Arduino.variables_get = function() {
             // Variable setter.
             var varName = this.getFieldValue('VAR') || '';
-            this.var_type = RoboBlocks.variables[this.getFieldValue('VAR')][0];
+            if (RoboBlocks.variables[this.getFieldValue('VAR')] !== undefined) {
+                this.var_type = RoboBlocks.variables[this.getFieldValue('VAR')][0];
+            }
             return [varName, Blockly.Arduino.ORDER_ATOMIC];
         };
         Blockly.Blocks.variables_get = {
@@ -8759,13 +8793,18 @@
         Blockly.Arduino.zum_button = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
-            if (this.childBlocks_ !== undefined) {
-                var pin_block = this.childBlocks_[0].type;
-                if (pin_block === 'variables_get') {
+            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
                     code += JST['zum_button_setups']({
                         'dropdown_pin': dropdown_pin,
                     });
-                } else if (pin_block === 'math_number') {
+                } else if (pin_block[0] === 'math_number') {
                     Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['zum_button_setups']({
                         'dropdown_pin': dropdown_pin,
                     });
@@ -8894,13 +8933,18 @@
         Blockly.Arduino.zum_infrared = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
             var code = '';
-            if (this.childBlocks_ !== undefined) {
-                var pin_block = this.childBlocks_[0].type;
-                if (pin_block === 'variables_get') {
+            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
+                var pin_block = [];
+                for (var i in this.childBlocks_) {
+                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
+                        pin_block.push(this.childBlocks_[i].type);
+                    }
+                }
+                if (pin_block[0] === 'variables_get') {
                     code += JST['zum_infrared_setups']({
                         'dropdown_pin': dropdown_pin
                     });
-                } else if (pin_block === 'math_number') {
+                } else if (pin_block[0] === 'math_number') {
                     Blockly.Arduino.setups_['setup_infrared_' + dropdown_pin] = JST['zum_infrared_setups']({
                         'dropdown_pin': dropdown_pin
                     });

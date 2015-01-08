@@ -8,7 +8,9 @@
 Blockly.Arduino.variables_get = function() {
     // Variable setter.
     var varName = this.getFieldValue('VAR') || '';
-    this.var_type = RoboBlocks.variables[this.getFieldValue('VAR')][0];
+    if (RoboBlocks.variables[this.getFieldValue('VAR')]!==undefined){
+        this.var_type = RoboBlocks.variables[this.getFieldValue('VAR')][0];
+    }
     return [varName, Blockly.Arduino.ORDER_ATOMIC];
 };
 Blockly.Blocks.variables_get = {

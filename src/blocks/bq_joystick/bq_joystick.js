@@ -21,13 +21,12 @@ Blockly.Arduino.bq_joystick = function() {
     });
 
     if (this.childBlocks_!== undefined && this.childBlocks_.length>=3){
-        var pin_block=this.childBlocks_[2].type;
-        if (pin_block==='variables_get'){
+        if (isNaN(parseFloat(pinbutton))){
             code += JST['bq_joystick_setups']({
                 'pinbutton': pinbutton
             });
         }
-        else if (pin_block==='math_number'){
+        else{
             Blockly.Arduino.setups_['setup_joystick_'+pinbutton] = JST['bq_joystick_setups']({
                 'pinbutton': pinbutton
             });

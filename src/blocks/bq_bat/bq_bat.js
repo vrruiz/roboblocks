@@ -23,8 +23,11 @@ Blockly.Arduino.bq_bat = function() {
 
     if (this.childBlocks_=== undefined || this.childBlocks_.length >= 2){
         var pin_block=[];
-        pin_block.push(this.childBlocks_[0].type);  //echo
-        pin_block.push(this.childBlocks_[1].type);  //trigger
+        for (var i in this.childBlocks_){
+            if (this.childBlocks_[i].type==='variables_get' || this.childBlocks_[i].type==='math_number'){
+                pin_block.push(this.childBlocks_[i].type);
+            }
+        }
 
         if (pin_block[0]==='variables_get'){
             code +=JST['bq_bat_setups_echo']({
