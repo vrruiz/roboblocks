@@ -11,10 +11,13 @@
 }(function(_, Blockly, Blocks) {
     var load = function(options) {
         // Source: src/lang.js
-        /* global RoboBlocks*/
+        /* global RoboBlocks, options */
         RoboBlocks.locales = {
             defaultLanguage: {},
             languages: []
+        };
+        RoboBlocks.locales.getLang = function() {
+            return this.defaultLanguage.lngCode;
         };
         RoboBlocks.locales.getKey = function(key) {
             return this.defaultLanguage[key];
@@ -23,6 +26,7 @@
             for (var i in this.languages) {
                 if (this.languages[i].langCode === langCode) {
                     this.defaultLanguage = this.languages[i].values;
+                    this.defaultLanguage.lngCode = langCode;
                 }
             }
         };
@@ -45,9 +49,11 @@
             return this;
         };
         RoboBlocks.locales.initialize = function() {
-            this.setDefaultLang('en-GB');
+            var lang = options.lang || 'en-GB';
+            this.setDefaultLang(lang);
             return this;
         };
+
         // Source: lang/ca-ES.js
         (function() {
             var language = {
