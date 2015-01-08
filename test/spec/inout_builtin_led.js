@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'inout_builtin_led');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), 'void setup()\n{\n  pinMode(13,OUTPUT);\n\n}\n\n\nvoid loop()\n{\n  digitalWrite(13,HIGH);\n\n}');
+				assert.equal(Blockly.Arduino.workspaceToCode(), '/***   Global variables   ***/\n\n/***   Function declaration   ***/\n\nvoid setup()\n{\n  pinMode(13,OUTPUT);\n\n}\n\n\nvoid loop()\n{\n  digitalWrite(13,HIGH);\n\n}\n\n/***   Function definition   ***/\n');
 			});
 		});
 	});

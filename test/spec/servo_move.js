@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'servo_move');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), '#include <Servo.h>\n\nServo servo_;\n\nvoid setup()\n{\n  servo_.attach();\n}\n\n\nvoid loop()\n{\n  servo_.write();\n  delay();\n\n}' );
+				assert.equal(Blockly.Arduino.workspaceToCode(), '#include <Servo.h>\n\nServo servos[13];\n\n/***   Global variables   ***/\n\n/***   Function declaration   ***/\n\nvoid setup()\n{\n  servos[].attach();\n\n}\n\n\nvoid loop()\n{\n  servos[].write();\n  delay();\n\n}\n\n/***   Function definition   ***/\n' );
 			});
 		});
 	});

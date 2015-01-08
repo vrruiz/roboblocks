@@ -46,7 +46,7 @@ return {
 		'spec/logic_operation',
 		'spec/logic_boolean',
 		'spec/logic_negate',
-		'spec/logic_null',
+		// 'spec/logic_null',
 		'spec/math_number',
 		'spec/math_random',
 		'spec/base_map',
