@@ -1,1 +1,1 @@
- pinMode({{pinbutton}},INPUT_PULLUP);
+pinMode({{pinbutton}},INPUT_PULLUP);

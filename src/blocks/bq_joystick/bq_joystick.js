@@ -11,6 +11,8 @@ Blockly.Arduino.bq_joystick = function() {
     var piny = Blockly.Arduino.valueToCode(this,'PINY', Blockly.Arduino.ORDER_ATOMIC);
     var pinbutton = Blockly.Arduino.valueToCode(this,'PINBUTTON', Blockly.Arduino.ORDER_ATOMIC);
 
+    var code='';
+
     Blockly.Arduino.definitions_['declare_var_internal_readJoystick_array_'+pinx] = 'int _internal_readJoystick_array_'+pinx+'[3];\n';
     Blockly.Arduino.definitions_['define_joystick'] = JST['bq_joystick_definitions']({
         'pinx': pinx,
@@ -18,12 +20,28 @@ Blockly.Arduino.bq_joystick = function() {
         'pinbutton': pinbutton
     });
 
-    Blockly.Arduino.setups_['setup_joystick'] = JST['bq_joystick_setups']({
-        'pinbutton': pinbutton
-    });
+    if (this.childBlocks_!== undefined && this.childBlocks_.length>=3){
+        console.log('this.childBlocks_',this.childBlocks_);
+        var pin_block=this.childBlocks_[2].type;
+        if (pin_block==='variables_get'){
+            code += JST['bq_joystick_setups']({
+                'pinbutton': pinbutton
+            });
+        }
+        else if (pin_block==='math_number'){
+            Blockly.Arduino.setups_['setup_joystick'] = JST['bq_joystick_setups']({
+                'pinbutton': pinbutton
+            });
+        }
+    }
+    else{
+        Blockly.Arduino.setups_['setup_joystick'] = JST['bq_joystick_setups']({
+            'pinbutton': pinbutton
+        });
+    }
 
     var array= Blockly.Arduino.valueToCode(this,'POS', Blockly.Arduino.ORDER_ATOMIC);
-    var code = JST['bq_joystick']({
+    code += JST['bq_joystick']({
         'pinx': pinx,
         'array':array
     });
