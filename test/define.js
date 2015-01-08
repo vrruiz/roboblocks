@@ -9,7 +9,7 @@ require.config({
         roboblocks: '../dist/roboblocks',
         underscore: '../bower_components/underscore/underscore',
 
-        blockly: '../bower_components/blockly-bq/blockly_compressed',
+        'blockly-bq': '../bower_components/blockly-bq/blockly_compressed',
         'blockly.extensions': '../src/blockly.extensions',
         'blockly.blocks': '../bower_components/blockly-bq/blocks_compressed',
         'blockly.lang': '../bower_components/blockly-bq/msg/js/en',
@@ -22,20 +22,20 @@ require.config({
         chai: '../bower_components/chai/chai'
     },
     shim: {
-        blockly: {
+        'blockly-bq': {
             exports: 'Blockly'
         },
         'blockly.extensions': {
-            deps: ['blockly']
+            deps: ['blockly-bq']
         },
         'blockly.blocks': {
-            deps: ['blockly']
+            deps: ['blockly-bq']
         },
         'blockly.lang': {
-            deps: ['blockly']
+            deps: ['blockly-bq']
         },
         'blockly.arduino': {
-            deps: ['blockly']
+            deps: ['blockly-bq']
         },
         'roboblocks': {
             deps: ['underscore']

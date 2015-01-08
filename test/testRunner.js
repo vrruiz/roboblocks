@@ -7,7 +7,7 @@ require([
         'jquery',
         'roboblocks',
         'roboblocks.test.options',
-        'blockly',
+        'blockly-bq',
         'blockly.extensions',
         'blockly.blocks',
         'blockly.lang',
