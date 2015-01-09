@@ -140,6 +140,8 @@
         LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'aggiunge una condizione al blocco IF.',
         LANG_CONTROLS_IF_ELSE_Field_ELSE: 'else',
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'aggiunge una fine, prende tutte le altre condizioni del blocco IF.',
+        LANG_CONTROLS_FOR_FROM_WARNING:'It is not possible to set a variable as the initial value of the for block.',
+        LANG_CONTROLS_FOR_TO_WARNING:'It is not possible to set a variable as the final value of the for block.',
         LANG_CONTROLS_FOR_INPUT_WITH: 'count with',
         LANG_CONTROLS_FOR_INPUT_VAR: 'x',
         LANG_CONTROLS_FOR_INPUT_FROM: 'from',

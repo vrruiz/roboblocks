@@ -154,6 +154,8 @@
         LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'Añade una condición al bloque "si".',
         LANG_CONTROLS_IF_ELSE_Field_ELSE: 'de lo contrario',
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Añade una condición final al bloque "si" para capturar el resto de opciones.',
+        LANG_CONTROLS_FOR_FROM_WARNING:'No puedes asignar una variable al valor inicial del for',
+        LANG_CONTROLS_FOR_TO_WARNING:'No puedes asignar una variable al valor final del for',
         LANG_CONTROLS_FOR_INPUT_WITH: 'Contar con',
         LANG_CONTROLS_FOR_INPUT_VAR: 'x',
         LANG_CONTROLS_FOR_INPUT_FROM: 'desde',

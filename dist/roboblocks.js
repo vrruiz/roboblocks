@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-01-08
+/*! roboblocks - v0.1.12 - 2015-01-09
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -196,6 +196,8 @@
                 LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'Afegeix a condició del bloc "si".',
                 LANG_CONTROLS_IF_ELSE_Field_ELSE: 'en cas contrari',
                 LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Afegeix una condició final al bloc "si" per a capturar la resta d\'opcions.',
+                LANG_CONTROLS_FOR_FROM_WARNING: 'It is not possible to set a variable as the initial value of the for block.',
+                LANG_CONTROLS_FOR_TO_WARNING: 'It is not possible to set a variable as the final value of the for block.',
                 LANG_CONTROLS_FOR_INPUT_WITH: 'comptar amb',
                 LANG_CONTROLS_FOR_INPUT_VAR: 'x',
                 LANG_CONTROLS_FOR_INPUT_FROM: 'des de',
@@ -597,6 +599,8 @@
                 LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'Add a condition to the if block.',
                 LANG_CONTROLS_IF_ELSE_Field_ELSE: 'else',
                 LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Add a final, catch-all condition to the if block.',
+                LANG_CONTROLS_FOR_FROM_WARNING: 'It is not possible to set a variable as the initial value of the for block.',
+                LANG_CONTROLS_FOR_TO_WARNING: 'It is not possible to set a variable as the final value of the for block.',
                 LANG_CONTROLS_FOR_INPUT_WITH: 'count with',
                 LANG_CONTROLS_FOR_INPUT_VAR: 'x',
                 LANG_CONTROLS_FOR_INPUT_FROM: 'from',
@@ -998,6 +1002,8 @@
                 LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'Añade una condición al bloque "si".',
                 LANG_CONTROLS_IF_ELSE_Field_ELSE: 'de lo contrario',
                 LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Añade una condición final al bloque "si" para capturar el resto de opciones.',
+                LANG_CONTROLS_FOR_FROM_WARNING: 'No puedes asignar una variable al valor inicial del for',
+                LANG_CONTROLS_FOR_TO_WARNING: 'No puedes asignar una variable al valor final del for',
                 LANG_CONTROLS_FOR_INPUT_WITH: 'Contar con',
                 LANG_CONTROLS_FOR_INPUT_VAR: 'x',
                 LANG_CONTROLS_FOR_INPUT_FROM: 'desde',
@@ -1385,6 +1391,8 @@
                 LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'aggiunge una condizione al blocco IF.',
                 LANG_CONTROLS_IF_ELSE_Field_ELSE: 'else',
                 LANG_CONTROLS_IF_ELSE_TOOLTIP: 'aggiunge una fine, prende tutte le altre condizioni del blocco IF.',
+                LANG_CONTROLS_FOR_FROM_WARNING: 'It is not possible to set a variable as the initial value of the for block.',
+                LANG_CONTROLS_FOR_TO_WARNING: 'It is not possible to set a variable as the final value of the for block.',
                 LANG_CONTROLS_FOR_INPUT_WITH: 'count with',
                 LANG_CONTROLS_FOR_INPUT_VAR: 'x',
                 LANG_CONTROLS_FOR_INPUT_FROM: 'from',
@@ -1772,6 +1780,8 @@
                 LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'Adiciona uma condição ao bloco "se".',
                 LANG_CONTROLS_IF_ELSE_Field_ELSE: 'senão',
                 LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Adiciona uma condição final ao bloco "se" para capturar o resto das opções.',
+                LANG_CONTROLS_FOR_FROM_WARNING: 'It is not possible to set a variable as the initial value of the for block.',
+                LANG_CONTROLS_FOR_TO_WARNING: 'It is not possible to set a variable as the final value of the for block.',
                 LANG_CONTROLS_FOR_INPUT_WITH: 'Contar com',
                 LANG_CONTROLS_FOR_INPUT_VAR: 'x',
                 LANG_CONTROLS_FOR_INPUT_FROM: 'desde',
@@ -4863,7 +4873,26 @@
                 }
                 return dropdown;
             },
+            isVariable: function(varValue) {
+                for (var i in Blockly.Variables.allVariables()) {
+                    if (Blockly.Variables.allVariables()[i] === varValue) {
+                        return true;
+                    }
+                }
+                return false;
+            },
             onchange: function() {
+                try {
+                    if (this.isVariable(Blockly.Arduino.valueToCode(this, 'FROM', Blockly.Arduino.ORDER_ATOMIC))) {
+                        this.setWarningText(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_FROM_WARNING'));
+                    } else if (this.isVariable(Blockly.Arduino.valueToCode(this, 'TO', Blockly.Arduino.ORDER_ATOMIC))) {
+                        this.setWarningText(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_TO_WARNING'));
+                    } else {
+                        this.setWarningText(null);
+                    }
+                } catch (e) {}
+
+
                 // if (!this.workspace) {
                 //     // Block has been deleted.
                 //     return;

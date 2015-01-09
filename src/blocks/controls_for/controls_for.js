@@ -79,7 +79,27 @@ Blockly.Blocks.controls_for = {
         }
         return dropdown;
     },
+    isVariable: function(varValue) {
+        for (var i in Blockly.Variables.allVariables()) {
+            if (Blockly.Variables.allVariables()[i] === varValue) {
+                return true;
+            }
+        }
+        return false;
+    },
     onchange: function() {
+        try {
+            if (this.isVariable(Blockly.Arduino.valueToCode(this, 'FROM', Blockly.Arduino.ORDER_ATOMIC))) {
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_FROM_WARNING'));
+            }
+            else if ( this.isVariable(Blockly.Arduino.valueToCode(this, 'TO', Blockly.Arduino.ORDER_ATOMIC))) {
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_TO_WARNING'));
+            } else {
+                this.setWarningText(null);
+            }
+        } catch (e) {}
+
+
         // if (!this.workspace) {
         //     // Block has been deleted.
         //     return;

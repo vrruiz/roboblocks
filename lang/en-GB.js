@@ -154,6 +154,8 @@
         LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'Add a condition to the if block.',
         LANG_CONTROLS_IF_ELSE_Field_ELSE: 'else',
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Add a final, catch-all condition to the if block.',
+        LANG_CONTROLS_FOR_FROM_WARNING:'It is not possible to set a variable as the initial value of the for block.',
+        LANG_CONTROLS_FOR_TO_WARNING:'It is not possible to set a variable as the final value of the for block.',
         LANG_CONTROLS_FOR_INPUT_WITH: 'count with',
         LANG_CONTROLS_FOR_INPUT_VAR: 'x',
         LANG_CONTROLS_FOR_INPUT_FROM: 'from',

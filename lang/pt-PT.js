@@ -140,6 +140,8 @@
         LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'Adiciona uma condição ao bloco "se".',
         LANG_CONTROLS_IF_ELSE_Field_ELSE: 'senão',
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Adiciona uma condição final ao bloco "se" para capturar o resto das opções.',
+        LANG_CONTROLS_FOR_FROM_WARNING:'It is not possible to set a variable as the initial value of the for block.',
+        LANG_CONTROLS_FOR_TO_WARNING:'It is not possible to set a variable as the final value of the for block.',
         LANG_CONTROLS_FOR_INPUT_WITH: 'Contar com',
         LANG_CONTROLS_FOR_INPUT_VAR: 'x',
         LANG_CONTROLS_FOR_INPUT_FROM: 'desde',

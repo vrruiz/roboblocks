@@ -140,6 +140,8 @@
         LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'Afegeix a condició del bloc "si".',
         LANG_CONTROLS_IF_ELSE_Field_ELSE: 'en cas contrari',
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Afegeix una condició final al bloc "si" per a capturar la resta d\'opcions.',
+        LANG_CONTROLS_FOR_FROM_WARNING:'It is not possible to set a variable as the initial value of the for block.',
+        LANG_CONTROLS_FOR_TO_WARNING:'It is not possible to set a variable as the final value of the for block.',
         LANG_CONTROLS_FOR_INPUT_WITH: 'comptar amb',
         LANG_CONTROLS_FOR_INPUT_VAR: 'x',
         LANG_CONTROLS_FOR_INPUT_FROM: 'des de',
