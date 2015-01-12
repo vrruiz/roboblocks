@@ -8,22 +8,13 @@
 Blockly.Arduino.zum_button = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
     var code = '';
-    if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
-        var pin_block=[];
-        for (var i in this.childBlocks_){
-            if (this.childBlocks_[i].type==='variables_get' || this.childBlocks_[i].type==='math_number'){
-                pin_block.push(this.childBlocks_[i].type);
-            }
-        }
-        if (pin_block[0] === 'variables_get') {
-            code += JST['zum_button_setups']({
-                'dropdown_pin': dropdown_pin,
-            });
-        } else if (pin_block[0] === 'math_number') {
-            Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['zum_button_setups']({
-                'dropdown_pin': dropdown_pin,
-            });
-        }
+    var a = RoboBlocks.findPinMode(dropdown_pin);
+    code += a['code'];
+    dropdown_pin = a['pin'];
+    if (RoboBlocks.isVariable(dropdown_pin)) {
+        code += JST['zum_button_setups']({
+            'dropdown_pin': dropdown_pin,
+        });
     } else {
         Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['zum_button_setups']({
             'dropdown_pin': dropdown_pin,

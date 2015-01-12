@@ -15,41 +15,27 @@ Blockly.Arduino.zum_follower = function() {
     code_btn2 = code_btn2.replace(/&quot;/g, '"');
     // code_btn2=code_btn2.replace(/&amp;/g,'');
     var code = '';
-    if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 3) {
-        var pin_block = [];
-        for (var i in this.childBlocks_){
-            if (this.childBlocks_[i].type==='variables_get' || this.childBlocks_[i].type==='math_number'){
-                pin_block.push(this.childBlocks_[i].type);
-            }
-        }
-
-        if (pin_block[0] === 'variables_get') {
-            code += JST['zum_follower_setups_pin']({
-                'dropdown_pin': dropdown_pin
-            });
-        }
-        if (pin_block[0] === 'math_number') {
-            Blockly.Arduino.setups_['setup_follower_1_' + dropdown_pin] = JST['zum_follower_setups_pin']({
-                'dropdown_pin': dropdown_pin
-            });
-        }
-
-        if (pin_block[1] === 'variables_get') {
-            code += JST['zum_follower_setups_nextpin']({
-                'NextPIN': NextPIN
-            });
-        }
-        if (pin_block[1] === 'math_number') {
-            Blockly.Arduino.setups_['setup_follower_2_' + NextPIN] = JST['zum_follower_setups_nextpin']({
-                'NextPIN': NextPIN
-            });
-        }
-
-    } else {
-        Blockly.Arduino.setups_['setup_follower_3_' + dropdown_pin] = JST['zum_follower_setups_pin']({
+    var a = RoboBlocks.findPinMode(dropdown_pin);
+    code += a['code'];
+    dropdown_pin = a['pin'];
+    var b = RoboBlocks.findPinMode(NextPIN);
+    code += b['code'];
+    NextPIN = b['pin'];
+    if (RoboBlocks.isVariable(dropdown_pin)) {
+        code += JST['zum_follower_setups_pin']({
             'dropdown_pin': dropdown_pin
         });
-        Blockly.Arduino.setups_['setup_follower_4_' + NextPIN] = JST['zum_follower_setups_nextpin']({
+    } else {
+        Blockly.Arduino.setups_['setup_follower_1_' + dropdown_pin] = JST['zum_follower_setups_pin']({
+            'dropdown_pin': dropdown_pin
+        });
+    }
+    if (RoboBlocks.isVariable(NextPIN)) {
+        code += JST['zum_follower_setups_nextpin']({
+            'NextPIN': NextPIN
+        });
+    } else {
+        Blockly.Arduino.setups_['setup_follower_2_' + NextPIN] = JST['zum_follower_setups_nextpin']({
             'NextPIN': NextPIN
         });
     }
