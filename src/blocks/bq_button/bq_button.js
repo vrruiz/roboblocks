@@ -11,6 +11,16 @@ Blockly.Arduino.bq_button = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
     var code='';
 
+    dropdown_pin=dropdown_pin.split(';\n');
+    for (var j in dropdown_pin){
+        if (dropdown_pin[j].search('pinMode')>=0){
+            code+=dropdown_pin[j]+';\n';
+        }
+        else{
+            dropdown_pin=dropdown_pin[j];
+        }
+    }
+
     if (this.childBlocks_!== undefined&& this.childBlocks_.length>=1){
         var pin_block=[];
         for (var i in this.childBlocks_){
