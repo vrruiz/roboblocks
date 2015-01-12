@@ -3987,39 +3987,56 @@
         // Source: src/blocks/bq_bluetooth_def/bq_bluetooth_def.js
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * bq_bluetooth_def code generation
          * @return {String} Code generated with block parameters
          */
-
         Blockly.Arduino.bq_bluetooth_def = function() {
             var dropdown_pin, NextPIN;
             if (this.getFieldValue('TOGGLE') === 'FALSE') {
                 dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
                 NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
+                dropdown_pin = dropdown_pin.split(';\n');
+                for (var j in dropdown_pin) {
+                    if (dropdown_pin[j].search('pinMode') >= 0) {
+                        Blockly.Arduino.setups_['setup_bluetooth_pinmode'] = dropdown_pin[j] + ';\n';
+                    } else {
+                        dropdown_pin = dropdown_pin[j];
+                    }
+                }
+                NextPIN = NextPIN.split(';\n');
+                for (j in NextPIN) {
+                    if (NextPIN[j].search('pinMode') >= 0) {
+                        Blockly.Arduino.setups_['setup_bluetooth_pinmode2'] = NextPIN[j] + ';\n';
+                    } else {
+                        NextPIN = NextPIN[j];
+                    }
+                }
             } else {
                 dropdown_pin = 0;
                 NextPIN = 1;
             }
-
             var baud_rate = Blockly.Arduino.valueToCode(this, 'BAUD_RATE', Blockly.Arduino.ORDER_ATOMIC);
-
+            baud_rate = baud_rate.split(';\n');
+            for (var i in baud_rate) {
+                if (baud_rate[i].search('pinMode') >= 0) {
+                    Blockly.Arduino.setups_['setup_bluetooth_pinmode3'] = baud_rate[i] + ';\n';
+                } else {
+                    baud_rate = baud_rate[i];
+                }
+            }
             Blockly.Arduino.definitions_['declare_var_blueToothSerial' + dropdown_pin] = 'SoftwareSerial blueToothSerial(' + dropdown_pin + ',' + NextPIN + ');\n';
             Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_def_definitions']({
                 'dropdown_pin': dropdown_pin,
                 'NextPIN': NextPIN
             });
-
             Blockly.Arduino.setups_['setup_bluetooth_'] = JST['bq_bluetooth_def_setups']({
                 'baud_rate': baud_rate,
                 'dropdown_pin': dropdown_pin,
                 'NextPIN': NextPIN
             });
-
             return '';
         };
-
         /**
          * bq_bluetooth__def block definition
          * @type {Object}
@@ -4033,25 +4050,12 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
-                this.appendDummyInput()
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF'))
-                    .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
-
-                this.appendValueInput('BAUD_RATE')
-                    .setCheck(Number)
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_BAUD_RATE'))
-                    .setAlign(Blockly.ALIGN_RIGHT);
-
-                this.appendDummyInput()
-                    .appendField('zum?')
-                    .appendField(new Blockly.FieldCheckbox('FALSE'), 'TOGGLE')
-                    .setAlign(Blockly.ALIGN_RIGHT);
-
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF')).appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+                this.appendValueInput('BAUD_RATE').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_BAUD_RATE')).setAlign(Blockly.ALIGN_RIGHT);
+                this.appendDummyInput().appendField('zum?').appendField(new Blockly.FieldCheckbox('FALSE'), 'TOGGLE').setAlign(Blockly.ALIGN_RIGHT);
                 this.checkBT();
                 this.last_toogle = this.getFieldValue('TOGGLE');
-
                 this.setInputsInline(false);
-
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_TOOLTIP'));
@@ -4062,16 +4066,8 @@
                         this.removeInput('PIN');
                         this.removeInput('PIN2');
                     } catch (e) {}
-
-                    this.appendValueInput('PIN')
-                        .setCheck(Number)
-                        .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_PIN1'))
-                        .setAlign(Blockly.ALIGN_RIGHT);
-
-                    this.appendValueInput('PIN2')
-                        .setCheck(Number)
-                        .appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_PIN2'))
-                        .setAlign(Blockly.ALIGN_RIGHT);
+                    this.appendValueInput('PIN').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_PIN1')).setAlign(Blockly.ALIGN_RIGHT);
+                    this.appendValueInput('PIN2').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_PIN2')).setAlign(Blockly.ALIGN_RIGHT);
                 } else {
                     try {
                         this.removeInput('PIN');
@@ -4086,7 +4082,6 @@
                 }
             }
         };
-
         // Source: src/blocks/bq_bluetooth_receive/bq_bluetooth_receive.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
