@@ -12,6 +12,17 @@ Blockly.Arduino.variables_global = function() {
     var varName = this.getFieldValue('VAR') || '';
     var isFunction = false;
 
+    varValue=varValue.split(';\n');
+    for (var j in varValue){
+        if (varValue[j].search('pinMode')>=0){
+            Blockly.Arduino.setups_['pinMode'+varValue]=varValue[j]+';\n';
+            // code+=varValue[j]+';\n';
+        }
+        else{
+            varValue=varValue[j];
+        }
+    }
+
     for (var i in Blockly.Arduino.definitions_) {
         if (Blockly.Arduino.definitions_[i].search(varValue+' \\(') >= 0) {
             isFunction = true;

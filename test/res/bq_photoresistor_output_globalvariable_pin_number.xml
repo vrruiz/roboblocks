@@ -1,0 +1,1 @@
+<xml xmlns="http://www.w3.org/1999/xhtml"><block type="variables_global" id="170" inline="false" x="0" y="-10"><field name="VAR">sensor_luz</field><value name="VALUE"><block type="bq_photoresistor" id="138" inline="false"><value name="PIN"><block type="math_number" id="147"><field name="NUM">0</field></block></value></block></value></block></xml>

@@ -12,8 +12,59 @@ Blockly.Arduino.advanced_map = function() {
     var from_max = Blockly.Arduino.valueToCode(this, 'FROM_MAX', Blockly.Arduino.ORDER_NONE);
     var to_min = Blockly.Arduino.valueToCode(this, 'TO_MIN', Blockly.Arduino.ORDER_NONE);
     var to_max = Blockly.Arduino.valueToCode(this, 'TO_MAX', Blockly.Arduino.ORDER_NONE);
-    
-    var code = JST['advanced_map']({
+
+    var code = '';
+
+    num=num.split(';\n');
+    for (var j in num){
+        if (num[j].search('pinMode')>=0){
+            code+=num[j]+';\n';
+        }
+        else{
+            num=num[j];
+        }
+    }
+    from_min=from_min.split(';\n');
+    for (j in from_min){
+        if (from_min[j].search('pinMode')>=0){
+            code+=from_min[j]+';\n';
+        }
+        else{
+            from_min=from_min[j];
+        }
+    }
+
+    from_max=from_max.split(';\n');
+    for (j in from_max){
+        if (from_max[j].search('pinMode')>=0){
+            code+=from_max[j]+';\n';
+        }
+        else{
+            from_max=from_max[j];
+        }
+    }
+
+    to_min=to_min.split(';\n');
+    for (j in to_min){
+        if (to_min[j].search('pinMode')>=0){
+            code+=to_min[j]+';\n';
+        }
+        else{
+            to_min=to_min[j];
+        }
+    }
+
+    to_max=to_max.split(';\n');
+    for (j in to_max){
+        if (to_max[j].search('pinMode')>=0){
+            code+=to_max[j]+';\n';
+        }
+        else{
+            to_max=to_max[j];
+        }
+    }
+
+    code += JST['advanced_map']({
         'num' : num,
         'from_min' : from_min,
         'from_max' : from_max,

@@ -5,7 +5,11 @@ define(function() {
 /* return an array of specs to be run */
 return {
 	specs: [
-		'spec/trial.js',
+
+		//XML
+		'spec/bq_photoresistor_output_globalvariable_pin_number.js',
+
+		//UNIT TESTS
 		'spec/bq_bat',
 		'spec/bq_photoresistor',
 		'spec/bq_led',

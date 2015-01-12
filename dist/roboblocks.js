@@ -3519,8 +3519,18 @@
          */
         Blockly.Arduino.advanced_conversion = function() {
             var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
+            var code = '';
+            value_num = value_num.split(';\n');
+            for (var j in value_num) {
+                if (value_num[j].search('pinMode') >= 0) {
+                    code += value_num[j] + ';\n';
+                } else {
+                    value_num = value_num[j];
+                }
+            }
+
             var convertion = this.getFieldValue('CONV');
-            var code = JST['advanced_conversion']({
+            code += JST['advanced_conversion']({
                 'value_num': value_num,
                 'convertion': convertion
             });
@@ -3571,7 +3581,53 @@
             var to_min = Blockly.Arduino.valueToCode(this, 'TO_MIN', Blockly.Arduino.ORDER_NONE);
             var to_max = Blockly.Arduino.valueToCode(this, 'TO_MAX', Blockly.Arduino.ORDER_NONE);
 
-            var code = JST['advanced_map']({
+            var code = '';
+
+            num = num.split(';\n');
+            for (var j in num) {
+                if (num[j].search('pinMode') >= 0) {
+                    code += num[j] + ';\n';
+                } else {
+                    num = num[j];
+                }
+            }
+            from_min = from_min.split(';\n');
+            for (j in from_min) {
+                if (from_min[j].search('pinMode') >= 0) {
+                    code += from_min[j] + ';\n';
+                } else {
+                    from_min = from_min[j];
+                }
+            }
+
+            from_max = from_max.split(';\n');
+            for (j in from_max) {
+                if (from_max[j].search('pinMode') >= 0) {
+                    code += from_max[j] + ';\n';
+                } else {
+                    from_max = from_max[j];
+                }
+            }
+
+            to_min = to_min.split(';\n');
+            for (j in to_min) {
+                if (to_min[j].search('pinMode') >= 0) {
+                    code += to_min[j] + ';\n';
+                } else {
+                    to_min = to_min[j];
+                }
+            }
+
+            to_max = to_max.split(';\n');
+            for (j in to_max) {
+                if (to_max[j].search('pinMode') >= 0) {
+                    code += to_max[j] + ';\n';
+                } else {
+                    to_max = to_max[j];
+                }
+            }
+
+            code += JST['advanced_map']({
                 'num': num,
                 'from_min': from_min,
                 'from_max': from_max,
@@ -3718,8 +3774,17 @@
         //register with blockly arduino
         Blockly.Arduino.base_delay = function() {
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+            delay_time = delay_time.split(';\n');
+            for (var j in delay_time) {
+                if (delay_time[j].search('pinMode') >= 0) {
+                    code += delay_time[j] + ';\n';
+                } else {
+                    delay_time = delay_time[j];
+                }
+            }
 
-            var code = JST['base_delay']({
+            code += JST['base_delay']({
                 'delay_time': delay_time
             });
             return code;
@@ -8474,6 +8539,16 @@
             var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
             var varName = this.getFieldValue('VAR') || '';
             var isFunction = false;
+
+            varValue = varValue.split(';\n');
+            for (var j in varValue) {
+                if (varValue[j].search('pinMode') >= 0) {
+                    Blockly.Arduino.setups_['pinMode' + varValue] = varValue[j] + ';\n';
+                    // code+=varValue[j]+';\n';
+                } else {
+                    varValue = varValue[j];
+                }
+            }
 
             for (var i in Blockly.Arduino.definitions_) {
                 if (Blockly.Arduino.definitions_[i].search(varValue + ' \\(') >= 0) {
