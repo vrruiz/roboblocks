@@ -10,30 +10,14 @@ Blockly.Arduino.servo_cont = function() {
     var value_degree = this.getFieldValue('ROT') || '';
     var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '';
     Blockly.Arduino.definitions_['include_servo'] = JST['servo_cont_definitions_include']({});
-
     var code = '';
-    if (this.childBlocks_ !== undefined && this.childBlocks_.length>=1) {
-        var pin_block = [];
-        for (var i in this.childBlocks_) {
-            if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
-                pin_block.push(this.childBlocks_[i].type);
-            }
-        }
-        if (pin_block[0] === 'variables_get') {
-            code += JST['servo_cont_setups']({
-                'dropdown_pin': dropdown_pin
-            });
-        }
-        if (pin_block[0] === 'math_number') {
-            Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = JST['servo_cont_setups']({
-                'dropdown_pin': dropdown_pin
-            });
-        }
-    } else {
-        Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = JST['servo_cont_setups']({
-            'dropdown_pin': dropdown_pin
-        });
-    }
+    var a = RoboBlocks.findPinMode(dropdown_pin);
+    code += a['code'];
+    dropdown_pin = a['pin'];
+    var b = RoboBlocks.findPinMode(delay_time);
+    code += b['code'];
+    delay_time = b['pin'];
+
     code += JST['servo_cont']({
         'dropdown_pin': dropdown_pin,
         'value_degree': value_degree,
