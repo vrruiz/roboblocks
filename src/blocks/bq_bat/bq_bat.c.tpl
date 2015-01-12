@@ -1,1 +1,1 @@
-Distance_{{ echo_pin }}()
+Distance_{{ name }}()

@@ -2246,7 +2246,7 @@
                 __e = _.escape;
             with(obj) {
                 __p += 'Distance_' +
-                    __e(echo_pin) +
+                    __e(name) +
                     '()';
 
             }
@@ -2259,9 +2259,9 @@
                 __e = _.escape;
             with(obj) {
                 __p += 'long Distance_' +
-                    __e(echo_pin) +
+                    __e(name) +
                     '()\n{\n  long microseconds = TP_init_' +
-                    __e(echo_pin) +
+                    __e(name) +
                     '();\n  long distance;\n  distance = microseconds/29/2;\n  return distance;\n}\n';
 
             }
@@ -2274,7 +2274,7 @@
                 __e = _.escape;
             with(obj) {
                 __p += '//bqBAT\nlong TP_init_' +
-                    __e(echo_pin) +
+                    __e(name) +
                     '()\n{\n  digitalWrite( ' +
                     __e(trigger_pin) +
                     ' , LOW);\n  delayMicroseconds(2);\n  digitalWrite( ' +
@@ -3818,12 +3818,31 @@
             var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
             var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
 
-            var code = JST['base_map']({
+            var code = '';
+            value_num = value_num.split(';\n');
+            for (var j in value_num) {
+                if (value_num[j].search('pinMode') >= 0) {
+                    code += value_num[j] + ';\n';
+                } else {
+                    value_num = value_num[j];
+                }
+            }
+
+            value_dmax = value_dmax.split(';\n');
+            for (j in value_dmax) {
+                if (value_dmax[j].search('pinMode') >= 0) {
+                    code += value_dmax[j] + ';\n';
+                } else {
+                    value_dmax = value_dmax[j];
+                }
+            }
+
+            code += JST['base_map']({
                 'value_num': value_num,
                 'value_dmax': value_dmax
             });
 
-            return [code, Blockly.Arduino.ORDER_NONE];
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
         Blockly.Blocks.base_map = {
@@ -3857,13 +3876,35 @@
             var echo_pin = Blockly.Arduino.valueToCode(this, 'RED PIN', Blockly.Arduino.ORDER_ATOMIC);
             var trigger_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
+            var name = trigger_pin.substring(0, 3) + '_' + echo_pin.substring(0, 3);
+
+
+            echo_pin = echo_pin.split(';\n');
+            for (var j in echo_pin) {
+                if (echo_pin[j].search('pinMode') >= 0) {
+                    code += echo_pin[j] + ';\n';
+                } else {
+                    echo_pin = echo_pin[j];
+                }
+            }
+
+            trigger_pin = trigger_pin.split(';\n');
+            for (j in trigger_pin) {
+                if (trigger_pin[j].search('pinMode') >= 0) {
+                    code += trigger_pin[j] + ';\n';
+                } else {
+                    trigger_pin = trigger_pin[j];
+                }
+            }
 
             Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
+                'name': name,
                 'echo_pin': echo_pin,
                 'trigger_pin': trigger_pin
             });
 
             Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'distance'] = JST['bq_bat_definitions_distance']({
+                'name': name,
                 'echo_pin': echo_pin,
                 'trigger_pin': trigger_pin
             });
@@ -3906,6 +3947,7 @@
             }
 
             code += JST['bq_bat']({
+                'name': name,
                 'echo_pin': echo_pin
             });
 

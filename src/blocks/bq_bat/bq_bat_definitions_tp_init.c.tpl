@@ -1,5 +1,5 @@
 //bqBAT
-long TP_init_{{ echo_pin }}()
+long TP_init_{{ name }}()
 {
   digitalWrite( {{ trigger_pin }} , LOW);
   delayMicroseconds(2);

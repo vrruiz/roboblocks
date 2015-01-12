@@ -10,13 +10,37 @@ Blockly.Arduino.bq_bat = function() {
     var echo_pin = Blockly.Arduino.valueToCode(this, 'RED PIN', Blockly.Arduino.ORDER_ATOMIC);
     var trigger_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN',Blockly.Arduino.ORDER_ATOMIC);
     var code ='';
+    var name=trigger_pin.substring(0,3)+'_'+echo_pin.substring(0,3);
+
+
+    echo_pin=echo_pin.split(';\n');
+    for (var j in echo_pin){
+        if (echo_pin[j].search('pinMode')>=0){
+            code+=echo_pin[j]+';\n';
+        }
+        else{
+            echo_pin=echo_pin[j];
+        }
+    }
+
+    trigger_pin=trigger_pin.split(';\n');
+    for (j in trigger_pin){
+        if (trigger_pin[j].search('pinMode')>=0){
+            code+=trigger_pin[j]+';\n';
+        }
+        else{
+            trigger_pin=trigger_pin[j];
+        }
+    }
 
     Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin+'tp_init'] = JST['bq_bat_definitions_tp_init']({
+        'name': name,
         'echo_pin': echo_pin,
         'trigger_pin': trigger_pin
     });
 
     Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin+'distance'] = JST['bq_bat_definitions_distance']({
+        'name': name,
         'echo_pin': echo_pin,
         'trigger_pin': trigger_pin
     });
@@ -60,6 +84,7 @@ Blockly.Arduino.bq_bat = function() {
     }
 
     code += JST['bq_bat']({
+        'name': name,
         'echo_pin': echo_pin
     });
 
