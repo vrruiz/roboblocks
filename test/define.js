@@ -5,6 +5,7 @@ require.config({
     baseUrl: 'test',
     deps: ['testRunner'],
     paths: {
+        load_xml: 'load_xml',
         src: '../src',
         roboblocks: '../dist/roboblocks',
         underscore: '../bower_components/underscore/underscore',

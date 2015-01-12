@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-01-09
+/*! roboblocks - v0.1.12 - 2015-01-12
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -6804,9 +6804,13 @@
                     this.last_procedure = this.getFieldValue('PROCEDURES');
                 }
                 if (!this.exists()) {
-                    this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALL_WITHOUT_DEFINITION'));
+                    try {
+                        this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALL_WITHOUT_DEFINITION'));
+                    } catch (e) {}
                 } else {
-                    this.setWarningText(null);
+                    try {
+                        this.setWarningText(null);
+                    } catch (e) {}
                 }
             },
             addVariables: function() {
@@ -7040,9 +7044,13 @@
                     this.last_procedure = this.getFieldValue('PROCEDURES');
                 }
                 if (!this.exists()) {
-                    this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALL_WITHOUT_DEFINITION'));
+                    try {
+                        this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALL_WITHOUT_DEFINITION'));
+                    } catch (e) {}
                 } else {
-                    this.setWarningText(null);
+                    try {
+                        this.setWarningText(null);
+                    } catch (e) {}
                 }
             },
             addVariables: function() {
@@ -8515,7 +8523,6 @@
                 if (!isNaN(parseFloat(varValue))) {
                     Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + '=' + varValue + ';\n';
                 } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (varValue.search('random') >= 0) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0) || (varValue.search('\\+'))) {
-                    console.log('distance:', varType);
                     Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
                     Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
                 }

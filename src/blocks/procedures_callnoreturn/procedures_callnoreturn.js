@@ -135,9 +135,13 @@ Blockly.Blocks.procedures_callnoreturn = {
             this.last_procedure = this.getFieldValue('PROCEDURES');
         }
         if (!this.exists()) {
-            this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALL_WITHOUT_DEFINITION'));
+            try {
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_PROCEDURES_CALL_WITHOUT_DEFINITION'));
+            } catch (e) {}
         } else {
-            this.setWarningText(null);
+            try {
+                this.setWarningText(null);
+            } catch (e) {}
         }
     },
     addVariables: function() {

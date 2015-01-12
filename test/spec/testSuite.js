@@ -5,6 +5,7 @@ define(function() {
 /* return an array of specs to be run */
 return {
 	specs: [
+		'spec/trial.js',
 		'spec/bq_bat',
 		'spec/bq_photoresistor',
 		'spec/bq_led',

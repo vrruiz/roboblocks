@@ -15,9 +15,10 @@ require([
         'sinonjs',
         'mocha',
         'chai',
-        'spec/testSuite'
+        'spec/testSuite',
+        'load_xml'
     ],
-    function($, RoboBlocks, options, Blockly, BlocklyExtensions, BlocklyBlocks, BlocklyLang, BlocklyArduino, sinonjs, mocha, chai, testSuite) {
+    function($, RoboBlocks, options, Blockly, BlocklyExtensions, BlocklyBlocks, BlocklyLang, BlocklyArduino, sinonjs, mocha, chai, testSuite, load_xml) {
 
         mocha.ui('bdd');
         mocha.reporter('html');
