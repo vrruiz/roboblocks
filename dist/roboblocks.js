@@ -2041,8 +2041,28 @@
             if (RoboBlocks.variables[varValue] !== undefined) {
                 return true;
             }
+            if (varValue.search('digitalRead\\(') >= 0 || varValue.search('analogRead\\(') >= 0) {
+                return true;
+            }
             return false;
         };
+
+        RoboBlocks.findPinMode = function(dropdown_pin) {
+            var code = '';
+            dropdown_pin = dropdown_pin.split(';\n');
+            for (var j in dropdown_pin) {
+                if (dropdown_pin[j].search('pinMode') >= 0) {
+                    code += dropdown_pin[j] + ';\n';
+                } else {
+                    dropdown_pin = dropdown_pin[j];
+                }
+            }
+            return {
+                'code': code,
+                'pin': dropdown_pin
+            };
+        };
+
         // help URLs
         RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
         // RGB block colors
@@ -3927,6 +3947,12 @@
                 'name': name,
                 'echo_pin': echo_pin
             });
+
+            RoboBlocks.variables[JST['bq_bat']({
+                'name': name,
+                'echo_pin': echo_pin
+            })] = ['int', 'global'];
+
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
         /**
@@ -4146,57 +4172,32 @@
         // Source: src/blocks/bq_button/bq_button.js
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * bq_button code generation
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.bq_button = function() {
-
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
 
-            dropdown_pin = dropdown_pin.split(';\n');
-            for (var j in dropdown_pin) {
-                if (dropdown_pin[j].search('pinMode') >= 0) {
-                    code += dropdown_pin[j] + ';\n';
-                } else {
-                    dropdown_pin = dropdown_pin[j];
-                }
-            }
-
-            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
-                var pin_block = [];
-                for (var i in this.childBlocks_) {
-                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
-                        pin_block.push(this.childBlocks_[i].type);
-                    }
-                }
-                if (pin_block[0] === 'variables_get') {
-                    code += JST['bq_button_setups']({
-                        'dropdown_pin': dropdown_pin,
-                    });
-                    // console.log('code',code);
-
-                } else if (pin_block[0] === 'math_number') {
-                    Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['bq_button_setups']({
-                        'dropdown_pin': dropdown_pin,
-                    });
-                }
+            if (RoboBlocks.isVariable(dropdown_pin)) {
+                code += JST['bq_button_setups']({
+                    'dropdown_pin': dropdown_pin,
+                });
             } else {
                 Blockly.Arduino.setups_['setup_button_' + dropdown_pin] = JST['bq_button_setups']({
                     'dropdown_pin': dropdown_pin,
                 });
             }
-
             code += JST['bq_button']({
                 'dropdown_pin': dropdown_pin,
             });
-
             // console.log('code',code);
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
-
         /**
          * bq_button block definition
          * @type {Object}
@@ -4210,18 +4211,11 @@
              **/
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendValueInput('PIN')
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_BUTTON'))
-                    .appendField(new Blockly.FieldImage('img/blocks/bqmod05.png', 212 * options.zoom, 139 * options.zoom))
-                    .setCheck(Number)
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_BUTTON_PIN'))
-                    .setAlign(Blockly.ALIGN_RIGHT);
-
+                this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_BQ_BUTTON')).appendField(new Blockly.FieldImage('img/blocks/bqmod05.png', 212 * options.zoom, 139 * options.zoom)).setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_BQ_BUTTON_PIN')).setAlign(Blockly.ALIGN_RIGHT);
                 this.setOutput(true, Boolean);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_BUTTON_TOOLTIP'));
             }
         };
-
         // Source: src/blocks/bq_buttons/bq_buttons.js
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
@@ -4373,7 +4367,6 @@
         // Source: src/blocks/bq_joystick/bq_joystick.js
         /* global Blockly, options,JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * bq_joystick code generation
          * @return {String} Code generated with block parameters
@@ -4382,8 +4375,9 @@
             var pinx = Blockly.Arduino.valueToCode(this, 'PINX', Blockly.Arduino.ORDER_ATOMIC);
             var piny = Blockly.Arduino.valueToCode(this, 'PINY', Blockly.Arduino.ORDER_ATOMIC);
             var pinbutton = Blockly.Arduino.valueToCode(this, 'PINBUTTON', Blockly.Arduino.ORDER_ATOMIC);
-
             var code = '';
+
+
 
             Blockly.Arduino.definitions_['declare_var_internal_readJoystick_array_' + pinx] = 'int _internal_readJoystick_array_' + pinx + '[3];\n';
             Blockly.Arduino.definitions_['define_joystick' + pinx] = JST['bq_joystick_definitions']({
@@ -4391,32 +4385,22 @@
                 'piny': piny,
                 'pinbutton': pinbutton
             });
-
-            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 3) {
-                if (isNaN(parseFloat(pinbutton))) {
-                    code += JST['bq_joystick_setups']({
-                        'pinbutton': pinbutton
-                    });
-                } else {
-                    Blockly.Arduino.setups_['setup_joystick_' + pinbutton] = JST['bq_joystick_setups']({
-                        'pinbutton': pinbutton
-                    });
-                }
+            if (RoboBlocks.isVariable(pinbutton)) {
+                code += JST['bq_joystick_setups']({
+                    'pinbutton': pinbutton
+                });
             } else {
                 Blockly.Arduino.setups_['setup_joystick_' + pinbutton] = JST['bq_joystick_setups']({
                     'pinbutton': pinbutton
                 });
             }
-
             var array = Blockly.Arduino.valueToCode(this, 'POS', Blockly.Arduino.ORDER_ATOMIC);
             code += JST['bq_joystick']({
                 'pinx': pinx,
                 'array': array
             });
-
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
-
         /**
          * bq_joystick block definition
          * @type {Object}
@@ -4430,42 +4414,23 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendDummyInput()
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK'))
-                    .appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom));
-
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK')).appendField(new Blockly.FieldImage('img/blocks/bqmod11.png', 209 * options.zoom, 277 * options.zoom));
                 // this.appendValueInput('POS')
                 //     .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_POSITION'))
                 //     .setAlign(Blockly.ALIGN_RIGHT)
                 //     .setCheck(Number);
-
-
-                this.appendValueInput('PINX')
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_X'))
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .setCheck(Number);
-
-                this.appendValueInput('PINY')
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_Y'))
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .setCheck(Number);
-
-                this.appendValueInput('PINBUTTON')
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_BUTTON'))
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .setCheck(Number);
-
+                this.appendValueInput('PINX').appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_X')).setAlign(Blockly.ALIGN_RIGHT).setCheck(Number);
+                this.appendValueInput('PINY').appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_Y')).setAlign(Blockly.ALIGN_RIGHT).setCheck(Number);
+                this.appendValueInput('PINBUTTON').appendField(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_PIN_BUTTON')).setAlign(Blockly.ALIGN_RIGHT).setCheck(Number);
                 this.setOutput(true, Number);
                 // this.setPreviousStatement(true, null);
                 // this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_JOYSTICK_TOOLTIP'));
             }
         };
-
         // Source: src/blocks/bq_led/bq_led.js
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * bq_led code generation
          * @return {String} Code generated with block parameters
@@ -4473,44 +4438,29 @@
         Blockly.Arduino.bq_led = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var dropdown_stat = this.getFieldValue('STAT');
-
-
             var code = '';
 
-            if (this.childBlocks_ !== undefined) {
-                var pin_block = [];
-                for (var i in this.childBlocks_) {
-                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
-                        pin_block.push(this.childBlocks_[i].type);
-                    }
-                }
-                if (pin_block[0] === 'variables_get') {
-                    code += JST['bq_led_setups']({
-                        'dropdown_pin': dropdown_pin,
-                        'dropdown_stat': dropdown_stat
-                    });
-                }
-                if (pin_block[0] === 'math_number') {
-                    Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
-                        'dropdown_pin': dropdown_pin,
-                        'dropdown_stat': dropdown_stat
-                    });
-                }
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
+
+            if (RoboBlocks.isVariable(dropdown_pin)) {
+                code += JST['bq_led_setups']({
+                    'dropdown_pin': dropdown_pin,
+                    'dropdown_stat': dropdown_stat
+                });
             } else {
                 Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['bq_led_setups']({
                     'dropdown_pin': dropdown_pin,
                     'dropdown_stat': dropdown_stat
                 });
             }
-
             code += JST['bq_led']({
                 'dropdown_pin': dropdown_pin,
                 'dropdown_stat': dropdown_stat
             });
-
             return code;
         };
-
         /**
          * bq_led block definition
          * @type {Object}
@@ -4524,25 +4474,16 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_BQ);
-                this.appendValueInput('PIN')
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED'))
-                    .appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom))
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_PIN'))
-                    .setCheck(Number);
-
-                this.appendDummyInput('')
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_STATE'))
-                    .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_BQ_LED_ON') || 'ON', 'HIGH'],
-                        [RoboBlocks.locales.getKey('LANG_BQ_LED_OFF') || 'OFF', 'LOW']
-                    ]), 'STAT')
-                    .setAlign(Blockly.ALIGN_RIGHT);
+                this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_BQ_LED')).appendField(new Blockly.FieldImage('img/blocks/bqmod02.png', 208 * options.zoom, 140 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_PIN')).setCheck(Number);
+                this.appendDummyInput('').appendField(RoboBlocks.locales.getKey('LANG_BQ_LED_STATE')).appendField(new Blockly.FieldDropdown([
+                    [RoboBlocks.locales.getKey('LANG_BQ_LED_ON') || 'ON', 'HIGH'],
+                    [RoboBlocks.locales.getKey('LANG_BQ_LED_OFF') || 'OFF', 'LOW']
+                ]), 'STAT').setAlign(Blockly.ALIGN_RIGHT);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_LED_TOOLTIP'));
             }
         };
-
         // Source: src/blocks/bq_photoresistor/bq_photoresistor.js
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
@@ -5608,22 +5549,15 @@
         Blockly.Arduino.inout_analog_read = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
-            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
-                var pin_block = [];
-                for (var i in this.childBlocks_) {
-                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
-                        pin_block.push(this.childBlocks_[i].type);
-                    }
-                }
-                if (pin_block[0] === 'variables_get') {
-                    code += JST['inout_analog_read_setups']({
-                        'dropdown_pin': dropdown_pin,
-                    });
-                } else if (pin_block[0] === 'math_number') {
-                    Blockly.Arduino.setups_['setup_green_analog_read' + dropdown_pin] = JST['inout_analog_read_setups']({
-                        'dropdown_pin': dropdown_pin,
-                    });
-                }
+
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
+
+            if (RoboBlocks.isVariable(dropdown_pin)) {
+                code += JST['inout_analog_read_setups']({
+                    'dropdown_pin': dropdown_pin,
+                });
             } else {
                 Blockly.Arduino.setups_['setup_green_analog_read' + dropdown_pin] = JST['inout_analog_read_setups']({
                     'dropdown_pin': dropdown_pin,
@@ -5647,7 +5581,7 @@
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ'));
-                this.setOutput(true, Boolean);
+                this.setOutput(true, Number);
                 this.setInputsInline(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP'));
             }
@@ -5663,30 +5597,27 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
-            if (this.childBlocks_ !== undefined && this.childBlocks_.length >= 1) {
-                var pin_block = [];
-                for (var i in this.childBlocks_) {
-                    if (this.childBlocks_[i].type === 'variables_get' || this.childBlocks_[i].type === 'math_number') {
-                        pin_block.push(this.childBlocks_[i].type);
-                    }
-                }
-                if (pin_block[0] === 'variables_get') {
-                    code += JST['inout_analog_write_setups']({
-                        'dropdown_pin': dropdown_pin,
-                        'value_num': value_num
-                    });
-                } else if (pin_block[0] === 'math_number') {
-                    Blockly.Arduino.setups_['setup_analog_write' + dropdown_pin] = JST['inout_analog_write_setups']({
-                        'dropdown_pin': dropdown_pin,
-                        'value_num': value_num
-                    });
-                }
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
+
+            var b = RoboBlocks.findPinMode(value_num);
+            code += b['code'];
+            value_num = b['pin'];
+
+
+            if (RoboBlocks.isVariable(dropdown_pin)) {
+                code += JST['inout_analog_write_setups']({
+                    'dropdown_pin': dropdown_pin,
+                    'value_num': value_num
+                });
             } else {
                 Blockly.Arduino.setups_['setup_analog_write' + dropdown_pin] = JST['inout_analog_write_setups']({
                     'dropdown_pin': dropdown_pin,
                     'value_num': value_num
                 });
             }
+
             code += JST['inout_analog_write']({
                 'dropdown_pin': dropdown_pin,
                 'value_num': value_num

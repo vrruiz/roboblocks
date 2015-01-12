@@ -58,6 +58,12 @@ Blockly.Arduino.bq_bat = function() {
         'name': name,
         'echo_pin': echo_pin
     });
+
+    RoboBlocks.variables[JST['bq_bat']({
+        'name': name,
+        'echo_pin': echo_pin
+    })] = ['int', 'global'];
+
     return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 /**
