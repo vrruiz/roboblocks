@@ -4133,7 +4133,17 @@
         Blockly.Arduino.bq_bluetooth_send = function() {
             var statement_send = Blockly.Arduino.valueToCode(this, 'SNT', Blockly.Arduino.ORDER_ATOMIC) || '';
 
-            var code = JST['bq_bluetooth_send']({
+            var code = '';
+            statement_send = statement_send.split(';\n');
+            for (var j in statement_send) {
+                if (statement_send[j].search('pinMode') >= 0) {
+                    code += statement_send[j] + ';\n';
+                } else {
+                    statement_send = statement_send[j];
+                }
+            }
+
+            code += JST['bq_bluetooth_send']({
                 'statement_send': statement_send
             });
 
