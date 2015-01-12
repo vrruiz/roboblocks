@@ -81,6 +81,8 @@ Blockly.Arduino.variables_global = function() {
         Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
     }
     RoboBlocks.variables[varName] = [varType, 'global'];
+    RoboBlocks.variables['analogRead('+varName+')'] = [varType, 'global'];
+    RoboBlocks.variables['digitalRead('+varName+')'] = [varType, 'global'];
 
     return '';
 };

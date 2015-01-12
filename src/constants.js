@@ -1,14 +1,20 @@
 'use strict';
-/* global RoboBlocks*/
-
+/* global RoboBlocks, Blockly*/
 RoboBlocks.locales.initialize();
-
-RoboBlocks.variables={};
-
-
+RoboBlocks.variables = {};
+RoboBlocks.isVariable = function(varValue) {
+    for (var i in Blockly.Variables.allVariables()) {
+        if (Blockly.Variables.allVariables()[i] === varValue) {
+            return true;
+        }
+    }
+    if (RoboBlocks.variables[varValue]!==undefined){
+        return true;
+    }
+    return false;
+};
 // help URLs
 RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
-
 // RGB block colors
 RoboBlocks.LANG_COLOUR_BQ = '#D04141';
 RoboBlocks.LANG_COLOUR_ZUM = '#CC7B44';
@@ -22,8 +28,6 @@ RoboBlocks.LANG_COLOUR_COMMUNICATION = '#4263CE';
 RoboBlocks.LANG_COLOUR_ADVANCED = '#9142CE';
 RoboBlocks.LANG_COLOUR_VARIABLES = '#B244CC';
 RoboBlocks.LANG_COLOUR_PROCEDURES = '#CE42B3';
-
-
 RoboBlocks.setColors = function(colorArray) {
     RoboBlocks.LANG_COLOUR_BQ = colorArray[0];
     RoboBlocks.LANG_COLOUR_ZUM = colorArray[1];

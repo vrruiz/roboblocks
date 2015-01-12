@@ -76,6 +76,8 @@ Blockly.Arduino.variables_local = function() {
         code += varType + ' ' + varName + '=' + varValue + ';\n';
     }
     RoboBlocks.variables[varName] = [varType, 'local'];
+    RoboBlocks.variables['analogRead('+varName+')'] = [varType, 'local'];
+    RoboBlocks.variables['digitalRead('+varName+')'] = [varType, 'local'];
 
     return code;
 };
