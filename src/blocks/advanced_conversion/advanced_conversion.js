@@ -9,15 +9,10 @@
 Blockly.Arduino.advanced_conversion = function() {
     var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
     var code='';
-    value_num=value_num.split(';\n');
-    for (var j in value_num){
-        if (value_num[j].search('pinMode')>=0){
-            code+=value_num[j]+';\n';
-        }
-        else{
-            value_num=value_num[j];
-        }
-    }
+    var a = RoboBlocks.findPinMode(value_num);
+    code += a['code'];
+    value_num = a['pin'];
+
 
     var convertion=this.getFieldValue('CONV');
     code += JST['advanced_conversion']({

@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-01-12
+/*! roboblocks - v0.1.12 - 2015-01-13
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -2495,7 +2495,7 @@
                 __e = _.escape;
             with(obj) {
                 __p += 'readJoystick_' +
-                    __e(pinx) +
+                    __e(name) +
                     '()';
 
             }
@@ -2508,21 +2508,21 @@
                 __e = _.escape;
             with(obj) {
                 __p += 'int * readJoystick_' +
-                    __e(pinx) +
+                    __e(name) +
                     '(){\n  _internal_readJoystick_array_' +
-                    __e(pinx) +
+                    __e(name) +
                     '[0]=analogRead(' +
                     __e(pinx) +
                     ');\n  _internal_readJoystick_array_' +
-                    __e(pinx) +
+                    __e(name) +
                     '[1]=analogRead(' +
                     __e(piny) +
                     ');\n  _internal_readJoystick_array_' +
-                    __e(pinx) +
+                    __e(name) +
                     '[2]=digitalRead(' +
                     __e(pinbutton) +
                     ');\n  return _internal_readJoystick_array_' +
-                    __e(pinx) +
+                    __e(name) +
                     ';\n}';
 
             }
@@ -3543,14 +3543,10 @@
         Blockly.Arduino.advanced_conversion = function() {
             var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
             var code = '';
-            value_num = value_num.split(';\n');
-            for (var j in value_num) {
-                if (value_num[j].search('pinMode') >= 0) {
-                    code += value_num[j] + ';\n';
-                } else {
-                    value_num = value_num[j];
-                }
-            }
+            var a = RoboBlocks.findPinMode(value_num);
+            code += a['code'];
+            value_num = a['pin'];
+
 
             var convertion = this.getFieldValue('CONV');
             code += JST['advanced_conversion']({
@@ -3605,50 +3601,26 @@
             var to_max = Blockly.Arduino.valueToCode(this, 'TO_MAX', Blockly.Arduino.ORDER_NONE);
 
             var code = '';
+            var a = RoboBlocks.findPinMode(num);
+            code += a['code'];
+            num = a['pin'];
 
-            num = num.split(';\n');
-            for (var j in num) {
-                if (num[j].search('pinMode') >= 0) {
-                    code += num[j] + ';\n';
-                } else {
-                    num = num[j];
-                }
-            }
-            from_min = from_min.split(';\n');
-            for (j in from_min) {
-                if (from_min[j].search('pinMode') >= 0) {
-                    code += from_min[j] + ';\n';
-                } else {
-                    from_min = from_min[j];
-                }
-            }
+            a = RoboBlocks.findPinMode(from_min);
+            code += a['code'];
+            from_min = a['pin'];
 
-            from_max = from_max.split(';\n');
-            for (j in from_max) {
-                if (from_max[j].search('pinMode') >= 0) {
-                    code += from_max[j] + ';\n';
-                } else {
-                    from_max = from_max[j];
-                }
-            }
+            a = RoboBlocks.findPinMode(from_max);
+            code += a['code'];
+            from_max = a['pin'];
 
-            to_min = to_min.split(';\n');
-            for (j in to_min) {
-                if (to_min[j].search('pinMode') >= 0) {
-                    code += to_min[j] + ';\n';
-                } else {
-                    to_min = to_min[j];
-                }
-            }
+            a = RoboBlocks.findPinMode(to_min);
+            code += a['code'];
+            to_min = a['pin'];
 
-            to_max = to_max.split(';\n');
-            for (j in to_max) {
-                if (to_max[j].search('pinMode') >= 0) {
-                    code += to_max[j] + ';\n';
-                } else {
-                    to_max = to_max[j];
-                }
-            }
+            a = RoboBlocks.findPinMode(to_max);
+            code += a['code'];
+            to_max = a['pin'];
+
 
             code += JST['advanced_map']({
                 'num': num,
@@ -3798,14 +3770,9 @@
         Blockly.Arduino.base_delay = function() {
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
-            delay_time = delay_time.split(';\n');
-            for (var j in delay_time) {
-                if (delay_time[j].search('pinMode') >= 0) {
-                    code += delay_time[j] + ';\n';
-                } else {
-                    delay_time = delay_time[j];
-                }
-            }
+            var a = RoboBlocks.findPinMode(delay_time);
+            code += a['code'];
+            delay_time = a['pin'];
 
             code += JST['base_delay']({
                 'delay_time': delay_time
@@ -3842,23 +3809,13 @@
             var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
 
             var code = '';
-            value_num = value_num.split(';\n');
-            for (var j in value_num) {
-                if (value_num[j].search('pinMode') >= 0) {
-                    code += value_num[j] + ';\n';
-                } else {
-                    value_num = value_num[j];
-                }
-            }
+            var a = RoboBlocks.findPinMode(value_num);
+            code += a['code'];
+            value_num = a['pin'];
 
-            value_dmax = value_dmax.split(';\n');
-            for (j in value_dmax) {
-                if (value_dmax[j].search('pinMode') >= 0) {
-                    code += value_dmax[j] + ';\n';
-                } else {
-                    value_dmax = value_dmax[j];
-                }
-            }
+            a = RoboBlocks.findPinMode(value_dmax);
+            code += a['code'];
+            value_dmax = a['pin'];
 
             code += JST['base_map']({
                 'value_num': value_num,
@@ -3899,22 +3856,14 @@
             var trigger_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
             var name = trigger_pin.substring(0, 3) + '_' + echo_pin.substring(0, 3);
-            echo_pin = echo_pin.split(';\n');
-            for (var j in echo_pin) {
-                if (echo_pin[j].search('pinMode') >= 0) {
-                    code += echo_pin[j] + ';\n';
-                } else {
-                    echo_pin = echo_pin[j];
-                }
-            }
-            trigger_pin = trigger_pin.split(';\n');
-            for (j in trigger_pin) {
-                if (trigger_pin[j].search('pinMode') >= 0) {
-                    code += trigger_pin[j] + ';\n';
-                } else {
-                    trigger_pin = trigger_pin[j];
-                }
-            }
+            var a = RoboBlocks.findPinMode(echo_pin);
+            code += a['code'];
+            echo_pin = a['pin'];
+
+            a = RoboBlocks.findPinMode(trigger_pin);
+            code += a['code'];
+            trigger_pin = a['pin'];
+
             Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
                 'name': name,
                 'echo_pin': echo_pin,
@@ -3985,35 +3934,21 @@
             if (this.getFieldValue('TOGGLE') === 'FALSE') {
                 dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
                 NextPIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
-                dropdown_pin = dropdown_pin.split(';\n');
-                for (var j in dropdown_pin) {
-                    if (dropdown_pin[j].search('pinMode') >= 0) {
-                        Blockly.Arduino.setups_['setup_bluetooth_pinmode'] = dropdown_pin[j] + ';\n';
-                    } else {
-                        dropdown_pin = dropdown_pin[j];
-                    }
-                }
-                NextPIN = NextPIN.split(';\n');
-                for (j in NextPIN) {
-                    if (NextPIN[j].search('pinMode') >= 0) {
-                        Blockly.Arduino.setups_['setup_bluetooth_pinmode2'] = NextPIN[j] + ';\n';
-                    } else {
-                        NextPIN = NextPIN[j];
-                    }
-                }
+                var a = RoboBlocks.findPinMode(dropdown_pin);
+                Blockly.Arduino.setups_['setup_bluetooth_pinmode'] = a['code'];
+                dropdown_pin = a['pin'];
+                a = RoboBlocks.findPinMode(NextPIN);
+                Blockly.Arduino.setups_['setup_bluetooth_pinmode2'] = a['code'];
+                NextPIN = a['pin'];
             } else {
                 dropdown_pin = 0;
                 NextPIN = 1;
             }
             var baud_rate = Blockly.Arduino.valueToCode(this, 'BAUD_RATE', Blockly.Arduino.ORDER_ATOMIC);
-            baud_rate = baud_rate.split(';\n');
-            for (var i in baud_rate) {
-                if (baud_rate[i].search('pinMode') >= 0) {
-                    Blockly.Arduino.setups_['setup_bluetooth_pinmode3'] = baud_rate[i] + ';\n';
-                } else {
-                    baud_rate = baud_rate[i];
-                }
-            }
+            var b = RoboBlocks.findPinMode(baud_rate);
+            Blockly.Arduino.setups_['setup_bluetooth_pinmode3'] = b['code'];
+            baud_rate = b['pin'];
+
             Blockly.Arduino.definitions_['declare_var_blueToothSerial' + dropdown_pin] = 'SoftwareSerial blueToothSerial(' + dropdown_pin + ',' + NextPIN + ');\n';
             Blockly.Arduino.definitions_['define_softwareserial'] = JST['bq_bluetooth_def_definitions']({
                 'dropdown_pin': dropdown_pin,
@@ -4123,14 +4058,9 @@
             var statement_send = Blockly.Arduino.valueToCode(this, 'SNT', Blockly.Arduino.ORDER_ATOMIC) || '';
 
             var code = '';
-            statement_send = statement_send.split(';\n');
-            for (var j in statement_send) {
-                if (statement_send[j].search('pinMode') >= 0) {
-                    code += statement_send[j] + ';\n';
-                } else {
-                    statement_send = statement_send[j];
-                }
-            }
+            var a = RoboBlocks.findPinMode(statement_send);
+            code += a['code'];
+            statement_send = a['pin'];
 
             code += JST['bq_bluetooth_send']({
                 'statement_send': statement_send
@@ -4235,14 +4165,9 @@
             var code_btn5 = Blockly.Arduino.statementToCode(this, 'BUTN5');
 
             var code = '';
-            dropdown_pin = dropdown_pin.split(';\n');
-            for (var j in dropdown_pin) {
-                if (dropdown_pin[j].search('pinMode') >= 0) {
-                    code += dropdown_pin[j] + ';\n';
-                } else {
-                    dropdown_pin = dropdown_pin[j];
-                }
-            }
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
 
 
             code_btn1 = code_btn1.replace(/&quot;/g, '"');
@@ -4324,14 +4249,10 @@
         Blockly.Arduino.bq_infrared = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
-            dropdown_pin = dropdown_pin.split(';\n');
-            for (var j in dropdown_pin) {
-                if (dropdown_pin[j].search('pinMode') >= 0) {
-                    code += dropdown_pin[j] + ';\n';
-                } else {
-                    dropdown_pin = dropdown_pin[j];
-                }
-            }
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
+
             if (RoboBlocks.isVariable(dropdown_pin)) {
                 code += JST['bq_infrared_setups']({
                     'dropdown_pin': dropdown_pin
@@ -4377,10 +4298,24 @@
             var pinbutton = Blockly.Arduino.valueToCode(this, 'PINBUTTON', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
 
+            var a = RoboBlocks.findPinMode(pinx);
+            code += a['code'];
+            pinx = a['pin'];
+
+            a = RoboBlocks.findPinMode(piny);
+            code += a['code'];
+            piny = a['pin'];
+
+            a = RoboBlocks.findPinMode(pinbutton);
+            code += a['code'];
+            pinbutton = a['pin'];
 
 
-            Blockly.Arduino.definitions_['declare_var_internal_readJoystick_array_' + pinx] = 'int _internal_readJoystick_array_' + pinx + '[3];\n';
+            var name = pinx.substring(0, 3) + '_' + piny.substring(0, 3);
+
+            Blockly.Arduino.definitions_['declare_var_internal_readJoystick_array_' + pinx] = 'int _internal_readJoystick_array_' + name + '[3];\n';
             Blockly.Arduino.definitions_['define_joystick' + pinx] = JST['bq_joystick_definitions']({
+                'name': name,
                 'pinx': pinx,
                 'piny': piny,
                 'pinbutton': pinbutton
@@ -4396,6 +4331,7 @@
             }
             var array = Blockly.Arduino.valueToCode(this, 'POS', Blockly.Arduino.ORDER_ATOMIC);
             code += JST['bq_joystick']({
+                'name': name,
                 'pinx': pinx,
                 'array': array
             });
@@ -4495,8 +4431,12 @@
         //        var code = 'analogRead(' + dropdown_pin + ')';
         Blockly.Arduino.bq_photoresistor = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
 
-            var code = JST['bq_photoresistor']({
+            code += JST['bq_photoresistor']({
                 'dropdown_pin': dropdown_pin
             });
 
@@ -4540,14 +4480,22 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
             var dropdown_stat = this.getFieldValue('STAT') || '';
             var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
 
-            var code = JST['bq_piezo_buzzer']({
+            a = RoboBlocks.findPinMode(delay_time);
+            code += a['code'];
+            delay_time = a['pin'];
+
+
+            code += JST['bq_piezo_buzzer']({
                 'dropdown_pin': dropdown_pin,
                 'dropdown_stat': dropdown_stat,
                 'delay_time': delay_time
             });
 
-            code = 'tone(' + dropdown_pin + ',' + dropdown_stat + ',' + delay_time + ');\ndelay(' + delay_time + ');\n';
             return code;
         };
 
@@ -4610,8 +4558,21 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC);
             var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
 
-            var code = JST['bq_piezo_buzzerav']({
+            a = RoboBlocks.findPinMode(delay_time);
+            code += a['code'];
+            delay_time = a['pin'];
+
+            a = RoboBlocks.findPinMode(Buzztone);
+            code += a['code'];
+            Buzztone = a['pin'];
+
+
+            code += JST['bq_piezo_buzzerav']({
                 'dropdown_pin': dropdown_pin,
                 'Buzztone': Buzztone,
                 'delay_time': delay_time
@@ -4666,7 +4627,12 @@
          */
         Blockly.Arduino.bq_potentiometer = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-            var code = JST['bq_potentiometer']({
+            var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
+
+            code += JST['bq_potentiometer']({
                 'dropdown_pin': dropdown_pin
             });
 

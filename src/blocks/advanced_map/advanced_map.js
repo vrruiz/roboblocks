@@ -14,55 +14,26 @@ Blockly.Arduino.advanced_map = function() {
     var to_max = Blockly.Arduino.valueToCode(this, 'TO_MAX', Blockly.Arduino.ORDER_NONE);
 
     var code = '';
+    var a = RoboBlocks.findPinMode(num);
+    code += a['code'];
+    num = a['pin'];
 
-    num=num.split(';\n');
-    for (var j in num){
-        if (num[j].search('pinMode')>=0){
-            code+=num[j]+';\n';
-        }
-        else{
-            num=num[j];
-        }
-    }
-    from_min=from_min.split(';\n');
-    for (j in from_min){
-        if (from_min[j].search('pinMode')>=0){
-            code+=from_min[j]+';\n';
-        }
-        else{
-            from_min=from_min[j];
-        }
-    }
+    a = RoboBlocks.findPinMode(from_min);
+    code += a['code'];
+    from_min = a['pin'];
 
-    from_max=from_max.split(';\n');
-    for (j in from_max){
-        if (from_max[j].search('pinMode')>=0){
-            code+=from_max[j]+';\n';
-        }
-        else{
-            from_max=from_max[j];
-        }
-    }
+    a = RoboBlocks.findPinMode(from_max);
+    code += a['code'];
+    from_max = a['pin'];
 
-    to_min=to_min.split(';\n');
-    for (j in to_min){
-        if (to_min[j].search('pinMode')>=0){
-            code+=to_min[j]+';\n';
-        }
-        else{
-            to_min=to_min[j];
-        }
-    }
+    a = RoboBlocks.findPinMode(to_min);
+    code += a['code'];
+    to_min = a['pin'];
 
-    to_max=to_max.split(';\n');
-    for (j in to_max){
-        if (to_max[j].search('pinMode')>=0){
-            code+=to_max[j]+';\n';
-        }
-        else{
-            to_max=to_max[j];
-        }
-    }
+    a = RoboBlocks.findPinMode(to_max);
+    code += a['code'];
+    to_max = a['pin'];
+
 
     code += JST['advanced_map']({
         'num' : num,

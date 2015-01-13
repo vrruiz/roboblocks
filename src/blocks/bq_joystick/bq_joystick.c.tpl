@@ -1,1 +1,1 @@
-readJoystick_{{pinx}}()
+readJoystick_{{name}}()

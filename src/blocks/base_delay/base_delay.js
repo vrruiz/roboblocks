@@ -5,15 +5,9 @@
 Blockly.Arduino.base_delay = function() {
     var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC);
     var code ='';
-    delay_time=delay_time.split(';\n');
-    for (var j in delay_time){
-        if (delay_time[j].search('pinMode')>=0){
-            code+=delay_time[j]+';\n';
-        }
-        else{
-            delay_time=delay_time[j];
-        }
-    }
+    var a = RoboBlocks.findPinMode(delay_time);
+    code += a['code'];
+    delay_time = a['pin'];
 
     code += JST['base_delay']({
         'delay_time': delay_time

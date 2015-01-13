@@ -11,10 +11,24 @@ Blockly.Arduino.bq_joystick = function() {
     var pinbutton = Blockly.Arduino.valueToCode(this, 'PINBUTTON', Blockly.Arduino.ORDER_ATOMIC);
     var code = '';
 
+    var a = RoboBlocks.findPinMode(pinx);
+    code += a['code'];
+    pinx = a['pin'];
 
-    
-    Blockly.Arduino.definitions_['declare_var_internal_readJoystick_array_' + pinx] = 'int _internal_readJoystick_array_' + pinx + '[3];\n';
+    a = RoboBlocks.findPinMode(piny);
+    code += a['code'];
+    piny = a['pin'];
+
+    a = RoboBlocks.findPinMode(pinbutton);
+    code += a['code'];
+    pinbutton = a['pin'];
+
+
+    var name = pinx.substring(0,3)+'_'+piny.substring(0,3);
+
+    Blockly.Arduino.definitions_['declare_var_internal_readJoystick_array_' + pinx] = 'int _internal_readJoystick_array_' + name + '[3];\n';
     Blockly.Arduino.definitions_['define_joystick' + pinx] = JST['bq_joystick_definitions']({
+        'name':name,
         'pinx': pinx,
         'piny': piny,
         'pinbutton': pinbutton
@@ -30,6 +44,7 @@ Blockly.Arduino.bq_joystick = function() {
     }
     var array = Blockly.Arduino.valueToCode(this, 'POS', Blockly.Arduino.ORDER_ATOMIC);
     code += JST['bq_joystick']({
+        'name':name,
         'pinx': pinx,
         'array': array
     });

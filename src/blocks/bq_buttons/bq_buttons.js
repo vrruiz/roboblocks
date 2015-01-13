@@ -17,15 +17,9 @@ Blockly.Arduino.bq_buttons = function() {
     var code_btn5 = Blockly.Arduino.statementToCode(this, 'BUTN5');
 
     var code = '';
-    dropdown_pin=dropdown_pin.split(';\n');
-    for (var j in dropdown_pin){
-        if (dropdown_pin[j].search('pinMode')>=0){
-            code+=dropdown_pin[j]+';\n';
-        }
-        else{
-            dropdown_pin=dropdown_pin[j];
-        }
-    }
+    var a = RoboBlocks.findPinMode(dropdown_pin);
+    code += a['code'];
+    dropdown_pin = a['pin'];
 
 
     code_btn1=code_btn1.replace(/&quot;/g,'"');

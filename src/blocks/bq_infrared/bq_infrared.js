@@ -8,14 +8,10 @@
 Blockly.Arduino.bq_infrared = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
     var code = '';
-    dropdown_pin = dropdown_pin.split(';\n');
-    for (var j in dropdown_pin) {
-        if (dropdown_pin[j].search('pinMode') >= 0) {
-            code += dropdown_pin[j] + ';\n';
-        } else {
-            dropdown_pin = dropdown_pin[j];
-        }
-    }
+    var a = RoboBlocks.findPinMode(dropdown_pin);
+    code += a['code'];
+    dropdown_pin = a['pin'];
+
     if (RoboBlocks.isVariable(dropdown_pin)) {
         code += JST['bq_infrared_setups']({
             'dropdown_pin': dropdown_pin

@@ -10,14 +10,22 @@ Blockly.Arduino.bq_piezo_buzzer = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC)||'';
     var dropdown_stat = this.getFieldValue('STAT')||'';
     var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC)||'';
+    var code = '';
+    var a=RoboBlocks.findPinMode(dropdown_pin);
+    code+=a['code'];
+    dropdown_pin=a['pin'];
 
-    var code = JST['bq_piezo_buzzer']({
+    a=RoboBlocks.findPinMode(delay_time);
+    code+=a['code'];
+    delay_time=a['pin'];
+
+
+    code += JST['bq_piezo_buzzer']({
         'dropdown_pin': dropdown_pin,
         'dropdown_stat': dropdown_stat,
         'delay_time': delay_time
     });
 
-    code = 'tone(' + dropdown_pin + ',' + dropdown_stat + ',' + delay_time + ');\ndelay(' + delay_time + ');\n';
     return code;
 };
 

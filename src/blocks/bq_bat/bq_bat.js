@@ -10,22 +10,14 @@ Blockly.Arduino.bq_bat = function() {
     var trigger_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN', Blockly.Arduino.ORDER_ATOMIC);
     var code = '';
     var name = trigger_pin.substring(0, 3) + '_' + echo_pin.substring(0, 3);
-    echo_pin = echo_pin.split(';\n');
-    for (var j in echo_pin) {
-        if (echo_pin[j].search('pinMode') >= 0) {
-            code += echo_pin[j] + ';\n';
-        } else {
-            echo_pin = echo_pin[j];
-        }
-    }
-    trigger_pin = trigger_pin.split(';\n');
-    for (j in trigger_pin) {
-        if (trigger_pin[j].search('pinMode') >= 0) {
-            code += trigger_pin[j] + ';\n';
-        } else {
-            trigger_pin = trigger_pin[j];
-        }
-    }
+    var a = RoboBlocks.findPinMode(echo_pin);
+    code += a['code'];
+    echo_pin = a['pin'];
+
+    a = RoboBlocks.findPinMode(trigger_pin);
+    code += a['code'];
+    trigger_pin = a['pin'];
+
     Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
         'name': name,
         'echo_pin': echo_pin,

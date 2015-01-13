@@ -8,7 +8,12 @@
  */
 Blockly.Arduino.bq_potentiometer = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC);
-    var code = JST['bq_potentiometer']({
+    var code = '';
+    var a=RoboBlocks.findPinMode(dropdown_pin);
+    code+=a['code'];
+    dropdown_pin=a['pin'];
+    
+    code += JST['bq_potentiometer']({
         'dropdown_pin': dropdown_pin
     });
 

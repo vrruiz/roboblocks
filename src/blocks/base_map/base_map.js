@@ -12,25 +12,13 @@ Blockly.Arduino.base_map = function() {
     var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
 
     var code = '';
-    value_num=value_num.split(';\n');
-    for (var j in value_num){
-        if (value_num[j].search('pinMode')>=0){
-            code+=value_num[j]+';\n';
-        }
-        else{
-            value_num=value_num[j];
-        }
-    }
+    var a = RoboBlocks.findPinMode(value_num);
+    code += a['code'];
+    value_num = a['pin'];
 
-    value_dmax=value_dmax.split(';\n');
-    for (j in value_dmax){
-        if (value_dmax[j].search('pinMode')>=0){
-            code+=value_dmax[j]+';\n';
-        }
-        else{
-            value_dmax=value_dmax[j];
-        }
-    }
+    a = RoboBlocks.findPinMode(value_dmax);
+    code += a['code'];
+    value_dmax = a['pin'];
 
     code += JST['base_map']({
         'value_num':value_num,
