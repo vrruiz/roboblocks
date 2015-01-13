@@ -15,7 +15,18 @@ Blockly.Arduino.logic_compare = function() {
         Blockly.Arduino.ORDER_EQUALITY : Blockly.Arduino.ORDER_RELATIONAL;
     var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '';
     var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '';
-    var code = JST['logic_compare']({
+
+    var code = '';
+
+    var a=RoboBlocks.findPinMode(argument0);
+    code+=a['code'];
+    argument0=a['pin'];
+
+    a=RoboBlocks.findPinMode(argument1);
+    code+=a['code'];
+    argument1=a['pin'];
+
+    code += JST['logic_compare']({
         'argument0':argument0,
         'argument1':argument1,
         'operator':operator

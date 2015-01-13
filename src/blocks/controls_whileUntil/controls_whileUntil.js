@@ -12,10 +12,11 @@ Blockly.Arduino.controls_whileUntil = function() {
     argument0 = argument0.replace(/&quot;/g, '"');
     var branch = Blockly.Arduino.statementToCode(this, 'DO');
     branch = branch.replace(/&quot;/g, '"');
-    // branch=branch.replace(/&amp;/g, '');
 
-    //remove last \n
-    // branch = branch.substring(0, branch.length - 2);
+    var code = '';
+    var a=RoboBlocks.findPinMode(argument0);
+    code+=a['code'];
+    argument0=a['pin'];
 
     if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
@@ -29,7 +30,7 @@ Blockly.Arduino.controls_whileUntil = function() {
         }
         argument0 = '!' + argument0;
     }
-    var code = JST['controls_whileUntil']({
+    code += JST['controls_whileUntil']({
         'argument0': argument0,
         'branch': branch
     });

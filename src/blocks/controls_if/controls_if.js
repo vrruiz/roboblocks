@@ -13,9 +13,13 @@ Blockly.Arduino.controls_if = function() {
     argument=argument.replace(/&quot;/g,'"');
 
     var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-    // branch=branch.replace(/&amp;/g, '');
 
-    var code = JST['controls_if']({
+    var code = '';
+    var a=RoboBlocks.findPinMode(argument);
+    code+=a['code'];
+    argument=a['pin'];
+
+    code += JST['controls_if']({
         'argument': argument,
         'branch' : branch
     });

@@ -4794,35 +4794,22 @@
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
-            // branch=branch.replace(/&amp;/g, '');
 
-            var code;
-            // if (argument0.match(/^-?\d+(\.\d+)?$/) && argument1.match(/^-?\d+(\.\d+)?$/)) {
-            // Both arguments are simple numbers.
+            var code = '';
+            var a = RoboBlocks.findPinMode(variable0);
+            code += a['code'];
+            variable0 = a['pin'];
+
+            a = RoboBlocks.findPinMode(argument0);
+            code += a['code'];
+            argument0 = a['pin'];
+
+            a = RoboBlocks.findPinMode(argument1);
+            code += a['code'];
+            argument1 = a['pin'];
+
             var up = parseFloat(argument0) <= parseFloat(argument1);
-            code = 'for (' + variable0 + ' = ' + argument0 + '; ' + variable0 + (up ? ' <= ' : ' >= ') + argument1 + '; ' + variable0 + (up ? '++' : '--') + ') {\n' + branch + '}\n';
-            // } 
-            // else {
-            //     code = '';
-            //     // Cache non-trivial values to variables to prevent repeated look-ups.
-            //     var startVar = argument0;
-            //     // if (!argument0.match(/^\w+$/) && !argument0.match(/^-?\d+(\.\d+)?$/)) {
-            //     //     startVar = Blockly.Arduino.variableDB_.getDistinctName(variable0 + '_start', Blockly.Variables.NAME_TYPE);
-            //     //     code += 'int ' + startVar + ' = ' + argument0 + ';\n';
-            //     // }
-            //     var endVar = argument1;
-            //     // if (!argument1.match(/^\w+$/) && !argument1.match(/^-?\d+(\.\d+)?$/)) {
-            //     //     endVar = Blockly.Arduino.variableDB_.getDistinctName(variable0 + '_end', Blockly.Variables.NAME_TYPE);
-            //     //     code += 'int ' + endVar + ' = ' + argument1 + ';\n';
-            //     // }
-            //     code += 'for (' + variable0 + ' = ' + startVar + ';\n' +
-            //         '    (' + startVar + ' <= ' + endVar + ') ? ' +
-            //           variable0 + ' <= ' + endVar + ' : ' +
-            //           variable0 + ' >= ' + endVar + ';\n' +
-            //           '    ' + variable0 + ' += (' + startVar + ' <= ' + endVar +
-            //               ') ? 1 : -1) {\n' +
-            //           branch + '}\n';
-            // }
+            code += 'for (' + variable0 + ' = ' + argument0 + '; ' + variable0 + (up ? ' <= ' : ' >= ') + argument1 + '; ' + variable0 + (up ? '++' : '--') + ') {\n' + branch + '}\n';
             return code;
         };
         Blockly.Blocks.controls_for = {
@@ -4954,9 +4941,13 @@
             argument = argument.replace(/&quot;/g, '"');
 
             var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-            // branch=branch.replace(/&amp;/g, '');
 
-            var code = JST['controls_if']({
+            var code = '';
+            var a = RoboBlocks.findPinMode(argument);
+            code += a['code'];
+            argument = a['pin'];
+
+            code += JST['controls_if']({
                 'argument': argument,
                 'branch': branch
             });
@@ -5218,7 +5209,12 @@
             branch = indentSentences(branch);
             // branch=branch.replace(/&amp;/g, '');
 
-            var code = 'switch (' + argument + ')\n{';
+            var code = '';
+            var a = RoboBlocks.findPinMode(argument);
+            code += a['code'];
+            argument = a['pin'];
+
+            code += 'switch (' + argument + ')\n{';
             for (n = 1; n <= this.switchCount_; n++) {
                 argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n, Blockly.Arduino.ORDER_NONE) || '';
                 branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
@@ -5457,10 +5453,11 @@
             argument0 = argument0.replace(/&quot;/g, '"');
             var branch = Blockly.Arduino.statementToCode(this, 'DO');
             branch = branch.replace(/&quot;/g, '"');
-            // branch=branch.replace(/&amp;/g, '');
 
-            //remove last \n
-            // branch = branch.substring(0, branch.length - 2);
+            var code = '';
+            var a = RoboBlocks.findPinMode(argument0);
+            code += a['code'];
+            argument0 = a['pin'];
 
             if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
@@ -5474,7 +5471,7 @@
                 }
                 argument0 = '!' + argument0;
             }
-            var code = JST['controls_whileUntil']({
+            code += JST['controls_whileUntil']({
                 'argument0': argument0,
                 'branch': branch
             });
@@ -5894,15 +5891,28 @@
             var val = Blockly.Arduino.valueToCode(this, 'VAL', Blockly.Arduino.ORDER_ATOMIC);
             var xcoor = Blockly.Arduino.valueToCode(this, 'XCOOR', Blockly.Arduino.ORDER_ATOMIC);
             var ycoor = Blockly.Arduino.valueToCode(this, 'YCOOR', Blockly.Arduino.ORDER_ATOMIC);
-            var code;
+            var code = '';
+
+            var a = RoboBlocks.findPinMode(xcoor);
+            code += a['code'];
+            xcoor = a['pin'];
+
+            a = RoboBlocks.findPinMode(ycoor);
+            code += a['code'];
+            ycoor = a['pin'];
+
+            a = RoboBlocks.findPinMode(val);
+            code += a['code'];
+            val = a['pin'];
+
             if (this.getFieldValue('POS') === 'TRUE') {
-                code = JST['lcd_print_pos']({
+                code += JST['lcd_print_pos']({
                     'val': val,
                     'xcoor': xcoor,
                     'ycoor': ycoor
                 });
             } else {
-                code = JST['lcd_print']({
+                code += JST['lcd_print']({
                     'val': val
                 });
             }
@@ -6057,7 +6067,18 @@
                 Blockly.Arduino.ORDER_EQUALITY : Blockly.Arduino.ORDER_RELATIONAL;
             var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '';
             var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '';
-            var code = JST['logic_compare']({
+
+            var code = '';
+
+            var a = RoboBlocks.findPinMode(argument0);
+            code += a['code'];
+            argument0 = a['pin'];
+
+            a = RoboBlocks.findPinMode(argument1);
+            code += a['code'];
+            argument1 = a['pin'];
+
+            code += JST['logic_compare']({
                 'argument0': argument0,
                 'argument1': argument1,
                 'operator': operator
@@ -6125,7 +6146,12 @@
             // Negation.
             var order = Blockly.Arduino.ORDER_UNARY_PREFIX;
             var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL', order) || 'false';
-            var code = JST['logic_negate']({
+            var code = '';
+            var a = RoboBlocks.findPinMode(argument0);
+            code += a['code'];
+            argument0 = a['pin'];
+
+            code += JST['logic_negate']({
                 'argument0': argument0
             });
 
@@ -6165,7 +6191,15 @@
             //     'argument0': argument0,
             //     'argument1': argument1
             // });
-            var code = '(' + argument0 + ') ' + operator + ' (' + argument1 + ')';
+            var code = '';
+            var a = RoboBlocks.findPinMode(argument0);
+            code += a['code'];
+            argument0 = a['pin'];
+            a = RoboBlocks.findPinMode(argument1);
+            code += a['code'];
+            argument1 = a['pin'];
+
+            code += '(' + argument0 + ') ' + operator + ' (' + argument1 + ')';
             return [code, order];
         };
         Blockly.Blocks.logic_operation = {

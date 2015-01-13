@@ -15,7 +15,15 @@ Blockly.Arduino.logic_operation = function() {
     //     'argument0': argument0,
     //     'argument1': argument1
     // });
-    var code = '('+argument0 + ') ' + operator + ' (' + argument1+')';
+    var code = '';
+    var a=RoboBlocks.findPinMode(argument0);
+    code+=a['code'];
+    argument0=a['pin'];
+    a=RoboBlocks.findPinMode(argument1);
+    code+=a['code'];
+    argument1=a['pin'];
+
+    code += '('+argument0 + ') ' + operator + ' (' + argument1+')';
     return [code, order];
 };
 Blockly.Blocks.logic_operation = {

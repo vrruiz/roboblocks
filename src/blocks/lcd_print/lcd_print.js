@@ -9,15 +9,28 @@ Blockly.Arduino.lcd_print = function() {
     var val = Blockly.Arduino.valueToCode(this, 'VAL', Blockly.Arduino.ORDER_ATOMIC);
     var xcoor = Blockly.Arduino.valueToCode(this, 'XCOOR', Blockly.Arduino.ORDER_ATOMIC);
     var ycoor = Blockly.Arduino.valueToCode(this, 'YCOOR', Blockly.Arduino.ORDER_ATOMIC);
-    var code;
+    var code='';
+
+    var a=RoboBlocks.findPinMode(xcoor);
+    code+=a['code'];
+    xcoor=a['pin'];
+
+    a=RoboBlocks.findPinMode(ycoor);
+    code+=a['code'];
+    ycoor=a['pin'];
+
+    a=RoboBlocks.findPinMode(val);
+    code+=a['code'];
+    val=a['pin'];
+
     if (this.getFieldValue('POS') === 'TRUE') {
-        code = JST['lcd_print_pos']({
+        code += JST['lcd_print_pos']({
             'val': val,
             'xcoor': xcoor,
             'ycoor': ycoor
         });
     } else {
-        code = JST['lcd_print']({
+        code += JST['lcd_print']({
             'val': val
         });
     }

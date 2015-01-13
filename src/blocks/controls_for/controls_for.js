@@ -13,35 +13,22 @@ Blockly.Arduino.controls_for = function() {
     if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
     }
-    // branch=branch.replace(/&amp;/g, '');
 
-    var code;
-    // if (argument0.match(/^-?\d+(\.\d+)?$/) && argument1.match(/^-?\d+(\.\d+)?$/)) {
-    // Both arguments are simple numbers.
+    var code='';
+    var a=RoboBlocks.findPinMode(variable0);
+    code+=a['code'];
+    variable0=a['pin'];
+
+    a=RoboBlocks.findPinMode(argument0);
+    code+=a['code'];
+    argument0=a['pin'];
+
+    a=RoboBlocks.findPinMode(argument1);
+    code+=a['code'];
+    argument1=a['pin'];
+
     var up = parseFloat(argument0) <= parseFloat(argument1);
-    code = 'for (' + variable0 + ' = ' + argument0 + '; ' + variable0 + (up ? ' <= ' : ' >= ') + argument1 + '; ' + variable0 + (up ? '++' : '--') + ') {\n' + branch + '}\n';
-    // } 
-    // else {
-    //     code = '';
-    //     // Cache non-trivial values to variables to prevent repeated look-ups.
-    //     var startVar = argument0;
-    //     // if (!argument0.match(/^\w+$/) && !argument0.match(/^-?\d+(\.\d+)?$/)) {
-    //     //     startVar = Blockly.Arduino.variableDB_.getDistinctName(variable0 + '_start', Blockly.Variables.NAME_TYPE);
-    //     //     code += 'int ' + startVar + ' = ' + argument0 + ';\n';
-    //     // }
-    //     var endVar = argument1;
-    //     // if (!argument1.match(/^\w+$/) && !argument1.match(/^-?\d+(\.\d+)?$/)) {
-    //     //     endVar = Blockly.Arduino.variableDB_.getDistinctName(variable0 + '_end', Blockly.Variables.NAME_TYPE);
-    //     //     code += 'int ' + endVar + ' = ' + argument1 + ';\n';
-    //     // }
-    //     code += 'for (' + variable0 + ' = ' + startVar + ';\n' +
-    //         '    (' + startVar + ' <= ' + endVar + ') ? ' +
-    //           variable0 + ' <= ' + endVar + ' : ' +
-    //           variable0 + ' >= ' + endVar + ';\n' +
-    //           '    ' + variable0 + ' += (' + startVar + ' <= ' + endVar +
-    //               ') ? 1 : -1) {\n' +
-    //           branch + '}\n';
-    // }
+    code += 'for (' + variable0 + ' = ' + argument0 + '; ' + variable0 + (up ? ' <= ' : ' >= ') + argument1 + '; ' + variable0 + (up ? '++' : '--') + ') {\n' + branch + '}\n';
     return code;
 };
 Blockly.Blocks.controls_for = {

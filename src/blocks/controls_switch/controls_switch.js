@@ -24,7 +24,12 @@ Blockly.Arduino.controls_switch = function() {
     branch=indentSentences(branch);
     // branch=branch.replace(/&amp;/g, '');
 
-    var code = 'switch (' + argument + ')\n{';
+    var code = '';
+    var a=RoboBlocks.findPinMode(argument);
+    code+=a['code'];
+    argument=a['pin'];
+
+    code += 'switch (' + argument + ')\n{';
     for (n = 1; n <= this.switchCount_; n++) {
         argument = Blockly.Arduino.valueToCode(this, 'SWITCH' + n,Blockly.Arduino.ORDER_NONE) || '';
         branch = Blockly.Arduino.statementToCode(this, 'DO' + n);

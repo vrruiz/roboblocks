@@ -9,7 +9,12 @@ Blockly.Arduino.logic_negate = function() {
     // Negation.
     var order = Blockly.Arduino.ORDER_UNARY_PREFIX;
     var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL', order) || 'false';
-    var code = JST ['logic_negate']({
+    var code ='';
+    var a=RoboBlocks.findPinMode(argument0);
+    code+=a['code'];
+    argument0=a['pin'];
+
+    code += JST ['logic_negate']({
         'argument0':argument0
     });
 
