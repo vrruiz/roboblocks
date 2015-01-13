@@ -15,15 +15,10 @@ Blockly.Arduino.variables_local = function() {
     var isFunction=false;
 
 
-    varValue=varValue.split(';\n');
-    for (var j in varValue){
-        if (varValue[j].search('pinMode')>=0){
-            code+=varValue[j]+';\n';
-        }
-        else{
-            varValue=varValue[j];
-        }
-    }
+    var a=RoboBlocks.findPinMode(varValue);
+    code+=a['code'];
+    varValue=a['pin'];
+
 
     for (var i in Blockly.Arduino.definitions_) {
         if (Blockly.Arduino.definitions_[i].search(varValue+' \\(') >= 0) {
@@ -31,10 +26,7 @@ Blockly.Arduino.variables_local = function() {
             break;
         }
     }
-    if (varValue[0] === '(') {
-        varValue = varValue.substring(1, varValue.length - 1);
-    }
-    if (varValue.search('"') >= 0) {
+    if (varValue.search('"') >= 0 || varValue.search('substring\\(') >= 0 ) {
         varType = 'String';
         code += varType + ' ' + varName + '=' + varValue + ';\n';
     } else if (isFunction) { //varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
@@ -75,6 +67,7 @@ Blockly.Arduino.variables_local = function() {
         varType = 'unknown';
         code += varType + ' ' + varName + '=' + varValue + ';\n';
     }
+
     RoboBlocks.variables[varName] = [varType, 'local'];
     RoboBlocks.variables['analogRead('+varName+')'] = [varType, 'local'];
     RoboBlocks.variables['digitalRead('+varName+')'] = [varType, 'local'];

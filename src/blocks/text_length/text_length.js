@@ -9,7 +9,12 @@
 Blockly.Arduino.text_length = function() {
     // String length.
     var argument0 = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
-    var code = JST['text_length']({
+    var code ='';
+    var a=RoboBlocks.findPinMode(argument0);
+    code+=a['code'];
+    argument0=a['pin'];
+
+    code += JST['text_length']({
         'argument0':argument0
     });
 

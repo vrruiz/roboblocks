@@ -9,15 +9,26 @@ Blockly.Arduino.text_substring = function() {
     var string1 = Blockly.Arduino.valueToCode(this, 'STRING1', Blockly.Arduino.ORDER_NONE);
     var from = Blockly.Arduino.valueToCode(this, 'FROM', Blockly.Arduino.ORDER_NONE);
     var to = Blockly.Arduino.valueToCode(this, 'TO', Blockly.Arduino.ORDER_NONE);
+    var code = '';
+    var a=RoboBlocks.findPinMode(string1);
+    code+=a['code'];
+    string1=a['pin'];
 
+    a=RoboBlocks.findPinMode(from);
+    code+=a['code'];
+    from=a['pin'];
 
-    var code = JST['text_substring']({
+    a=RoboBlocks.findPinMode(to);
+    code+=a['code'];
+    to=a['pin'];
+
+    code += JST['text_substring']({
         'string1': string1,
         'from': from,
         'to':to
     });
 
-    return [code, Blockly.Arduino.ORDER_NONE];
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Blocks.text_substring = {

@@ -11,12 +11,22 @@ Blockly.Arduino.text_equalsIgnoreCase = function() {
     var string2 = Blockly.Arduino.valueToCode(this, 'STRING2', Blockly.Arduino.ORDER_NONE);
     string2=string2.replace(/&quot;/g,'"');
 
-    var code = JST['text_equalsIgnoreCase']({
+    var code = '';
+
+    var a=RoboBlocks.findPinMode(string1);
+    code+=a['code'];
+    string1=a['pin'];
+
+    a=RoboBlocks.findPinMode(string2);
+    code+=a['code'];
+    string2=a['pin'];
+
+    code += JST['text_equalsIgnoreCase']({
         'string1': string1,
         'string2': string2
     });
 
-    return [code, Blockly.Arduino.ORDER_NONE];
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Blocks.text_equalsIgnoreCase = {

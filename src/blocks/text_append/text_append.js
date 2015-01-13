@@ -8,7 +8,18 @@ Blockly.Arduino.text_append = function() {
     // Append to a variable in place.
     var varName = Blockly.Arduino.valueToCode(this, 'VAR', Blockly.Arduino.ORDER_NONE) || '';
     var argument0 = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
-    return varName + ' += String(' + argument0 + ');\n';
+
+    var code = '';
+
+    var a=RoboBlocks.findPinMode(varName);
+    code+=a['code'];
+    varName=a['pin'];
+    a=RoboBlocks.findPinMode(argument0);
+    code+=a['code'];
+    argument0=a['pin'];
+
+    code +=varName + ' += String(' + argument0 + ');\n';
+    return code;
 };
 Blockly.Blocks.text_append = {
     // Append to a variable in place.

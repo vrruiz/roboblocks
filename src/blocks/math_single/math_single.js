@@ -10,69 +10,86 @@
 Blockly.Arduino.math_single = function() {
     // Math operators with single operand.
     var operator = this.getFieldValue('OP');
-    var code;
     var arg;
+    var code = '';
+    var a;
+
     if (operator === 'NEG') {
         // Negation is a special case given its different operator precedents.
         arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_UNARY_PREFIX) || '';
+        a=RoboBlocks.findPinMode(arg);
+        code+=a['code'];
+        arg=a['pin'];
         if (arg[0] === '-') {
             // --3 is not legal in Dart.
             arg = ' ' + arg;
         }
-        code = '-' + arg;
+        code += '-' + arg;
         return [code, Blockly.Arduino.ORDER_UNARY_PREFIX];
     }
-    if (operator === 'ABS)') {
-        arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
-    } else if (operator === 'SIN' || operator === 'COS' || operator === 'TAN') {
+    else if (operator === 'SIN' || operator === 'COS' || operator === 'TAN') {
         arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_MULTIPLICATIVE) || '';
-    } else {
+        a=RoboBlocks.findPinMode(arg);
+        code+=a['code'];
+        arg=a['pin'];
+    }
+    else if (operator === 'LOG10'){
+        code ='';
+    }else {
         arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE) || '';
+        a=RoboBlocks.findPinMode(arg);
+        code+=a['code'];
+        arg=a['pin'];
     }
     var PI = 3.14159;
     // First, handle cases which generate values that don't need parentheses.
     switch (operator) {
     case 'ABS':
-        code = arg + '.abs()';
+        code += 'abs('+arg+')';
         break;
     case 'ROOT':
-        code = 'sqrt(' + arg + ')';
+        code += 'sqrt(' + arg + ')';
         break;
     case 'LN':
-        code = 'log(' + arg + ')';
+        code += 'log(' + arg + ')';
         break;
     case 'EXP':
-        code = 'exp(' + arg + ')';
+        code += 'exp(' + arg + ')';
         break;
     case 'POW10':
-        code = 'pow(10,' + arg + ')';
+        code += 'pow(10,' + arg + ')';
         break;
     case 'SIN':
-        code = 'sin(' + arg + ' / 180 * '+ PI+')';
+        code += 'sin(' + arg + ' / 180 * '+ PI+')';
         break;
     case 'COS':
-        code = 'cos(' + arg + ' / 180 * '+ PI+')';
+        code += 'cos(' + arg + ' / 180 * '+ PI+')';
         break;
     case 'TAN':
-        code = 'tan(' + arg + ' / 180 * '+ PI+')';
+        code += 'tan(' + arg + ' / 180 * '+ PI+')';
         break;
     }
     if (code) {
         return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
     }
+
     // Second, handle cases which generate values that may need parentheses.
     switch (operator) {
     case 'LOG10':
-        code = 'log(' + arg + ') / log(10)';
+        arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE) || '';
+        a=RoboBlocks.findPinMode(arg);
+        code+=a['code'];
+        arg=a['pin'];
+        code += 'log(' + arg + ') / log(10)';
         break;
     case 'ASIN':
-        code = 'asin(' + arg + ') / '+ PI+' * 180';
+        code += 'asin(' + arg + ') / '+ PI+' * 180';
         break;
     case 'ACOS':
-        code = 'acos(' + arg + ') / '+ PI+' * 180';
+        code += 'acos(' + arg + ') / '+ PI+' * 180';
         break;
     case 'ATAN':
-        code = 'atan(' + arg + ') / '+ PI+' * 180';
+        code += 'atan(' + arg + ') / '+ PI+' * 180';
         break;
     default:
         throw 'Unknown math operator: ' + operator;

@@ -12,16 +12,9 @@ Blockly.Arduino.variables_global = function() {
     var varName = this.getFieldValue('VAR') || '';
     var isFunction = false;
 
-    varValue=varValue.split(';\n');
-    for (var j in varValue){
-        if (varValue[j].search('pinMode')>=0){
-            Blockly.Arduino.setups_['pinMode'+varValue]=varValue[j]+';\n';
-            // code+=varValue[j]+';\n';
-        }
-        else{
-            varValue=varValue[j];
-        }
-    }
+    var a=RoboBlocks.findPinMode(varValue);
+    Blockly.Arduino.setups_['pinMode'+varValue]=a['code'];
+    varValue=a['pin'];
 
     for (var i in Blockly.Arduino.definitions_) {
         if (Blockly.Arduino.definitions_[i].search(varValue+' \\(') >= 0) {
@@ -29,7 +22,7 @@ Blockly.Arduino.variables_global = function() {
             break;
         }
     }
-    if (varValue.search('"') >= 0) {
+    if (varValue.search('"') >= 0 || varValue.search('substring\\(') >= 0 ) {
         varType = 'String';
         Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + '=' + varValue + ';';
     } else if (isFunction) { //varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {

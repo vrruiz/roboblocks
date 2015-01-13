@@ -8,12 +8,20 @@
 Blockly.Arduino.math_random = function() {
     var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
     var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
+    var code = '';
+    var a=RoboBlocks.findPinMode(value_num);
+    code+=a['code'];
+    value_num=a['pin'];
 
-    var code = JST['math_random']({
+    a=RoboBlocks.findPinMode(value_dmax);
+    code+=a['code'];
+    value_dmax=a['pin'];
+
+    code += JST['math_random']({
         'value_num': value_num,
         'value_dmax': value_dmax
     });
-    return [code, Blockly.Arduino.ORDER_NONE];
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Blocks.math_random = {

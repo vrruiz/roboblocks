@@ -13,7 +13,14 @@ Blockly.Arduino.math_modulo = function() {
         Blockly.Arduino.ORDER_MULTIPLICATIVE) || '';
     var argument1 = Blockly.Arduino.valueToCode(this, 'DIVISOR',
         Blockly.Arduino.ORDER_MULTIPLICATIVE) || '';
-    var code = JST ['math_modulo']({
+    var code = '';
+    var a=RoboBlocks.findPinMode(argument0);
+    code+=a['code'];
+    argument0=a['pin'];
+    a=RoboBlocks.findPinMode(argument1);
+    code+=a['code'];
+    argument1=a['pin'];
+    code += JST ['math_modulo']({
         'argument0':argument0,
         'argument1':argument1
     });

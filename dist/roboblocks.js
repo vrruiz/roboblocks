@@ -6245,7 +6245,14 @@
             var order = tuple[1];
             var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '';
             var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '';
-            var code;
+            var code = '';
+            var a = RoboBlocks.findPinMode(argument0);
+            code += a['code'];
+            argument0 = a['pin'];
+
+            a = RoboBlocks.findPinMode(argument1);
+            code += a['code'];
+            argument1 = a['pin'];
             if (!operator) {
                 code = JST['math_arithmetic_pow']({
                     'argument0': argument0,
@@ -6253,7 +6260,7 @@
                 });
                 return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
             }
-            code = JST['math_arithmetic']({
+            code += JST['math_arithmetic']({
                 'argument0': argument0,
                 'argument1': argument1,
                 'operator': operator
@@ -6384,7 +6391,14 @@
                 Blockly.Arduino.ORDER_MULTIPLICATIVE) || '';
             var argument1 = Blockly.Arduino.valueToCode(this, 'DIVISOR',
                 Blockly.Arduino.ORDER_MULTIPLICATIVE) || '';
-            var code = JST['math_modulo']({
+            var code = '';
+            var a = RoboBlocks.findPinMode(argument0);
+            code += a['code'];
+            argument0 = a['pin'];
+            a = RoboBlocks.findPinMode(argument1);
+            code += a['code'];
+            argument1 = a['pin'];
+            code += JST['math_modulo']({
                 'argument0': argument0,
                 'argument1': argument1
             });
@@ -6460,12 +6474,20 @@
         Blockly.Arduino.math_random = function() {
             var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
             var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+            var a = RoboBlocks.findPinMode(value_num);
+            code += a['code'];
+            value_num = a['pin'];
 
-            var code = JST['math_random']({
+            a = RoboBlocks.findPinMode(value_dmax);
+            code += a['code'];
+            value_dmax = a['pin'];
+
+            code += JST['math_random']({
                 'value_num': value_num,
                 'value_dmax': value_dmax
             });
-            return [code, Blockly.Arduino.ORDER_NONE];
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
         Blockly.Blocks.math_random = {
@@ -6497,69 +6519,84 @@
         Blockly.Arduino.math_single = function() {
             // Math operators with single operand.
             var operator = this.getFieldValue('OP');
-            var code;
             var arg;
+            var code = '';
+            var a;
+
             if (operator === 'NEG') {
                 // Negation is a special case given its different operator precedents.
                 arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_UNARY_PREFIX) || '';
+                a = RoboBlocks.findPinMode(arg);
+                code += a['code'];
+                arg = a['pin'];
                 if (arg[0] === '-') {
                     // --3 is not legal in Dart.
                     arg = ' ' + arg;
                 }
-                code = '-' + arg;
+                code += '-' + arg;
                 return [code, Blockly.Arduino.ORDER_UNARY_PREFIX];
-            }
-            if (operator === 'ABS)') {
-                arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
             } else if (operator === 'SIN' || operator === 'COS' || operator === 'TAN') {
                 arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_MULTIPLICATIVE) || '';
+                a = RoboBlocks.findPinMode(arg);
+                code += a['code'];
+                arg = a['pin'];
+            } else if (operator === 'LOG10') {
+                code = '';
             } else {
                 arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE) || '';
+                a = RoboBlocks.findPinMode(arg);
+                code += a['code'];
+                arg = a['pin'];
             }
             var PI = 3.14159;
             // First, handle cases which generate values that don't need parentheses.
             switch (operator) {
                 case 'ABS':
-                    code = arg + '.abs()';
+                    code += 'abs(' + arg + ')';
                     break;
                 case 'ROOT':
-                    code = 'sqrt(' + arg + ')';
+                    code += 'sqrt(' + arg + ')';
                     break;
                 case 'LN':
-                    code = 'log(' + arg + ')';
+                    code += 'log(' + arg + ')';
                     break;
                 case 'EXP':
-                    code = 'exp(' + arg + ')';
+                    code += 'exp(' + arg + ')';
                     break;
                 case 'POW10':
-                    code = 'pow(10,' + arg + ')';
+                    code += 'pow(10,' + arg + ')';
                     break;
                 case 'SIN':
-                    code = 'sin(' + arg + ' / 180 * ' + PI + ')';
+                    code += 'sin(' + arg + ' / 180 * ' + PI + ')';
                     break;
                 case 'COS':
-                    code = 'cos(' + arg + ' / 180 * ' + PI + ')';
+                    code += 'cos(' + arg + ' / 180 * ' + PI + ')';
                     break;
                 case 'TAN':
-                    code = 'tan(' + arg + ' / 180 * ' + PI + ')';
+                    code += 'tan(' + arg + ' / 180 * ' + PI + ')';
                     break;
             }
             if (code) {
                 return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
             }
+
             // Second, handle cases which generate values that may need parentheses.
             switch (operator) {
                 case 'LOG10':
-                    code = 'log(' + arg + ') / log(10)';
+                    arg = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE) || '';
+                    a = RoboBlocks.findPinMode(arg);
+                    code += a['code'];
+                    arg = a['pin'];
+                    code += 'log(' + arg + ') / log(10)';
                     break;
                 case 'ASIN':
-                    code = 'asin(' + arg + ') / ' + PI + ' * 180';
+                    code += 'asin(' + arg + ') / ' + PI + ' * 180';
                     break;
                 case 'ACOS':
-                    code = 'acos(' + arg + ') / ' + PI + ' * 180';
+                    code += 'acos(' + arg + ') / ' + PI + ' * 180';
                     break;
                 case 'ATAN':
-                    code = 'atan(' + arg + ') / ' + PI + ' * 180';
+                    code += 'atan(' + arg + ') / ' + PI + ' * 180';
                     break;
                 default:
                     throw 'Unknown math operator: ' + operator;
@@ -6669,13 +6706,18 @@
             // Call a procedure with a return value.
             var funcName = this.getFieldValue('PROCEDURES');
             var args = [];
+            var code = '';
+            var a;
             try {
                 for (var x = 0; x < this.getVariables(funcName).length; x++) {
                     args[x] = Blockly.Arduino.valueToCode(this, 'ARG' + x, Blockly.Arduino.ORDER_NONE) || '';
+                    a = RoboBlocks.findPinMode(args[x]);
+                    code += a['code'];
+                    args[x] = a['pin'];
                 }
             } catch (e) {}
             var funcArgs = args.join(', ');
-            var code = JST['procedures_callnoreturn']({
+            code += JST['procedures_callnoreturn']({
                 'funcName': funcName,
                 'funcArgs': funcArgs
             });
@@ -6901,11 +6943,17 @@
             // Call a procedure with a return value.
             var funcName = this.getFieldValue('PROCEDURES');
             var args = [];
+            var a;
+            var code = '';
             for (var x = 0; x < this.getVariables(funcName).length; x++) {
                 args[x] = Blockly.Arduino.valueToCode(this, 'ARG' + x, Blockly.Arduino.ORDER_NONE) || 'null';
+
+                a = RoboBlocks.findPinMode(args[x]);
+                code += a['code'];
+                args[x] = a['pin'];
             }
             var funcArgs = args.join(', ');
-            var code = JST['procedures_callreturn']({
+            code += JST['procedures_callreturn']({
                 'funcName': funcName,
                 'funcArgs': funcArgs
             });
@@ -7418,13 +7466,17 @@
                 branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
             }
             var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
+            var code = '';
+
             returnValue = returnValue.replace(/&quot;/g, '"');
             var returnType = this.getReturnType();
             if (returnValue) {
-                returnValue = '  return ' + returnValue + ';\n';
+                var a = RoboBlocks.findPinMode(returnValue);
+                returnValue = a['code'];
+                returnValue += '  return ' + a['pin'] + ';\n';
             }
             var args = this.paramString;
-            var code = JST['procedures_defreturn']({
+            code += JST['procedures_defreturn']({
                 'returnType': returnType,
                 'funcName': funcName,
                 'args': args,
@@ -7460,6 +7512,10 @@
             getReturnType: function() {
                 var returnType;
                 var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN', Blockly.Arduino.ORDER_NONE) || '';
+                var a = RoboBlocks.findPinMode(returnValue);
+                // code+=a['code'];
+                returnValue = a['pin'];
+
                 var isFunction = false;
 
                 for (var i in Blockly.Arduino.definitions_) {
@@ -7528,13 +7584,20 @@
             // Conditionally return value from a procedure.
             var condition = Blockly.Arduino.valueToCode(this, 'CONDITION',
                 Blockly.Arduino.ORDER_NONE) || '';
-            var code = 'if (' + condition + ') {\n';
-            if (this.hasReturnValue_) {
-                var value = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_NONE) || '';
-                code += '  return ' + value + ';\n';
-            } else {
-                code += '  return;\n';
-            }
+            var code = '';
+            var a = RoboBlocks.findPinMode(condition);
+            code += a['code'];
+            condition = a['pin'];
+
+            code += 'if (' + condition + ') {\n';
+            // if (this.hasReturnValue_) {
+            var value = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_NONE) || '';
+            a = RoboBlocks.findPinMode(value);
+            code += a['code'];
+            code += '  return (' + value + ');\n';
+            // } else {
+            //     code += '  return;\n';
+            // }
             code += '}\n';
             return code;
         };
@@ -7652,25 +7715,25 @@
         // Source: src/blocks/serial_print/serial_print.js
         /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * serial_print code generation
          * @return {String} Code generated with block parameters
          */
-
-
         Blockly.Arduino.serial_print = function() {
             var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+            var a = RoboBlocks.findPinMode(content);
+            code += a['code'];
+            content = a['pin'];
             Blockly.Arduino.setups_['setup_serial_print'] = JST['serial_print_setups']({
-                'bitrate': profiles.default.serial
+                'bitrate': profiles.
+                default.serial
             });
-            var code = JST['serial_print']({
+            code += JST['serial_print']({
                 'content': content
             });
-
             return code;
         };
-
         /**
          * serial_print block definition
          * @type {Object}
@@ -7683,34 +7746,34 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
-                this.appendValueInput('CONTENT', String)
-                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_PRINT'));
+                this.appendValueInput('CONTENT', String).appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_PRINT'));
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_PRINT_TOOLTIP'));
             }
         };
-
         // Source: src/blocks/serial_println/serial_println.js
         /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * serial_println code generation
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.serial_println = function() {
             var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+            var a = RoboBlocks.findPinMode(content);
+            code += a['code'];
+            content = a['pin'];
             Blockly.Arduino.setups_['setup_serial_println'] = JST['serial_println_setups']({
-                'bitrate': profiles.default.serial
+                'bitrate': profiles.
+                default.serial
             });
-            var code = JST['serial_println']({
+            code += JST['serial_println']({
                 'content': content
             });
-
             return code;
         };
-
         /**
          * serial_println block definition
          * @type {Object}
@@ -7723,14 +7786,12 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_COMMUNICATION);
-                this.appendValueInput('CONTENT', String)
-                    .appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_PRINTLN'));
+                this.appendValueInput('CONTENT', String).appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_PRINTLN'));
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP'));
             }
         };
-
         // Source: src/blocks/serial_read/serial_read.js
         /* global Blockly, profiles, JST, RoboBlocks */
         /* jshint sub:true */
@@ -7982,7 +8043,18 @@
             // Append to a variable in place.
             var varName = Blockly.Arduino.valueToCode(this, 'VAR', Blockly.Arduino.ORDER_NONE) || '';
             var argument0 = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
-            return varName + ' += String(' + argument0 + ');\n';
+
+            var code = '';
+
+            var a = RoboBlocks.findPinMode(varName);
+            code += a['code'];
+            varName = a['pin'];
+            a = RoboBlocks.findPinMode(argument0);
+            code += a['code'];
+            argument0 = a['pin'];
+
+            code += varName + ' += String(' + argument0 + ');\n';
+            return code;
         };
         Blockly.Blocks.text_append = {
             // Append to a variable in place.
@@ -8056,12 +8128,22 @@
             var string2 = Blockly.Arduino.valueToCode(this, 'STRING2', Blockly.Arduino.ORDER_NONE);
             string2 = string2.replace(/&quot;/g, '"');
 
-            var code = JST['text_equalsIgnoreCase']({
+            var code = '';
+
+            var a = RoboBlocks.findPinMode(string1);
+            code += a['code'];
+            string1 = a['pin'];
+
+            a = RoboBlocks.findPinMode(string2);
+            code += a['code'];
+            string2 = a['pin'];
+
+            code += JST['text_equalsIgnoreCase']({
                 'string1': string1,
                 'string2': string2
             });
 
-            return [code, Blockly.Arduino.ORDER_NONE];
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
         Blockly.Blocks.text_equalsIgnoreCase = {
@@ -8093,21 +8175,42 @@
          */
         Blockly.Arduino.text_join = function() {
             // Create a string made up of any number of elements of any type.
-            var code;
+            var code = '';
+            var a;
+            console.log('this.itemCount_', this.itemCount_);
             if (this.itemCount_ === 0) {
                 return ['\'\'', Blockly.Arduino.ORDER_ATOMIC];
             } else if (this.itemCount_ === 1) {
                 var argument0 = Blockly.Arduino.valueToCode(this, 'ADD0', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
-                code = argument0;
+                a = RoboBlocks.findPinMode(argument0);
+                code += a['code'];
+                argument0 = a['pin'];
+
+                code += 'String(' + argument0 + ')';
                 return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
             } else {
-                code = [];
-                code[0] = 'String(' + (Blockly.Arduino.valueToCode(this, 'ADD0', Blockly.Arduino.ORDER_NONE) || '');
+                var i = (Blockly.Arduino.valueToCode(this, 'ADD0', Blockly.Arduino.ORDER_NONE) || '');
+                console.log('Blockly.Arduino.valueToCode(this, ADD0, Blockly.Arduino.ORDER_NONE)', Blockly.Arduino.valueToCode(this, 'ADD0', Blockly.Arduino.ORDER_NONE));
+                a = RoboBlocks.findPinMode(i);
+                code = a['code'];
+                i = a['pin'];
+
+                var final_line = 'String(' + i;
+                console.log('iteration 0', '\ncode: ', code, '\nfinal_line: ', final_line, '\nb', i);
+
                 for (var n = 1; n < this.itemCount_; n++) {
-                    code[n] = ') + String(' + (Blockly.Arduino.valueToCode(this, 'ADD' + n, Blockly.Arduino.ORDER_NONE) || '');
+                    i = (Blockly.Arduino.valueToCode(this, 'ADD' + n, Blockly.Arduino.ORDER_NONE) || '');
+                    console.log('Blockly.Arduino.valueToCode(this, ADDn, Blockly.Arduino.ORDER_NONE)', Blockly.Arduino.valueToCode(this, 'ADD' + n, Blockly.Arduino.ORDER_NONE));
+                    a = RoboBlocks.findPinMode(i);
+                    code += a['code'];
+                    i = a['pin'];
+                    final_line += ') + String(' + i;
+                    console.log('iteration', n, '\ncode: ', code, '\nfinal_line: ', final_line, '\nb', i);
                 }
-                code[this.itemCount_] = ')';
-                code = code.join('');
+
+
+                code += final_line + ')';
+
                 return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
             }
         };
@@ -8272,7 +8375,12 @@
         Blockly.Arduino.text_length = function() {
             // String length.
             var argument0 = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
-            var code = JST['text_length']({
+            var code = '';
+            var a = RoboBlocks.findPinMode(argument0);
+            code += a['code'];
+            argument0 = a['pin'];
+
+            code += JST['text_length']({
                 'argument0': argument0
             });
 
@@ -8303,15 +8411,26 @@
             var string1 = Blockly.Arduino.valueToCode(this, 'STRING1', Blockly.Arduino.ORDER_NONE);
             var from = Blockly.Arduino.valueToCode(this, 'FROM', Blockly.Arduino.ORDER_NONE);
             var to = Blockly.Arduino.valueToCode(this, 'TO', Blockly.Arduino.ORDER_NONE);
+            var code = '';
+            var a = RoboBlocks.findPinMode(string1);
+            code += a['code'];
+            string1 = a['pin'];
 
+            a = RoboBlocks.findPinMode(from);
+            code += a['code'];
+            from = a['pin'];
 
-            var code = JST['text_substring']({
+            a = RoboBlocks.findPinMode(to);
+            code += a['code'];
+            to = a['pin'];
+
+            code += JST['text_substring']({
                 'string1': string1,
                 'from': from,
                 'to': to
             });
 
-            return [code, Blockly.Arduino.ORDER_NONE];
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
         Blockly.Blocks.text_substring = {
@@ -8438,15 +8557,9 @@
             var varName = this.getFieldValue('VAR') || '';
             var isFunction = false;
 
-            varValue = varValue.split(';\n');
-            for (var j in varValue) {
-                if (varValue[j].search('pinMode') >= 0) {
-                    Blockly.Arduino.setups_['pinMode' + varValue] = varValue[j] + ';\n';
-                    // code+=varValue[j]+';\n';
-                } else {
-                    varValue = varValue[j];
-                }
-            }
+            var a = RoboBlocks.findPinMode(varValue);
+            Blockly.Arduino.setups_['pinMode' + varValue] = a['code'];
+            varValue = a['pin'];
 
             for (var i in Blockly.Arduino.definitions_) {
                 if (Blockly.Arduino.definitions_[i].search(varValue + ' \\(') >= 0) {
@@ -8454,7 +8567,7 @@
                     break;
                 }
             }
-            if (varValue.search('"') >= 0) {
+            if (varValue.search('"') >= 0 || varValue.search('substring\\(') >= 0) {
                 varType = 'String';
                 Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + '=' + varValue + ';';
             } else if (isFunction) { //varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
@@ -8605,14 +8718,10 @@
             var isFunction = false;
 
 
-            varValue = varValue.split(';\n');
-            for (var j in varValue) {
-                if (varValue[j].search('pinMode') >= 0) {
-                    code += varValue[j] + ';\n';
-                } else {
-                    varValue = varValue[j];
-                }
-            }
+            var a = RoboBlocks.findPinMode(varValue);
+            code += a['code'];
+            varValue = a['pin'];
+
 
             for (var i in Blockly.Arduino.definitions_) {
                 if (Blockly.Arduino.definitions_[i].search(varValue + ' \\(') >= 0) {
@@ -8620,10 +8729,7 @@
                     break;
                 }
             }
-            if (varValue[0] === '(') {
-                varValue = varValue.substring(1, varValue.length - 1);
-            }
-            if (varValue.search('"') >= 0) {
+            if (varValue.search('"') >= 0 || varValue.search('substring\\(') >= 0) {
                 varType = 'String';
                 code += varType + ' ' + varName + '=' + varValue + ';\n';
             } else if (isFunction) { //varValue.search('\\(') >= 0 && varValue.search('\\)') >= 0) {
@@ -8664,6 +8770,7 @@
                 varType = 'unknown';
                 code += varType + ' ' + varName + '=' + varValue + ';\n';
             }
+
             RoboBlocks.variables[varName] = [varType, 'local'];
             RoboBlocks.variables['analogRead(' + varName + ')'] = [varType, 'local'];
             RoboBlocks.variables['digitalRead(' + varName + ')'] = [varType, 'local'];
@@ -8707,14 +8814,9 @@
             var varName = this.getFieldValue('VAR') || '';
             var code = '';
 
-            varValue = varValue.split(';\n');
-            for (var j in varValue) {
-                if (varValue[j].search('pinMode') >= 0) {
-                    code += varValue[j] + ';\n';
-                } else {
-                    varValue = varValue[j];
-                }
-            }
+            var a = RoboBlocks.findPinMode(varValue);
+            code += a['code'];
+            varValue = a['pin'];
 
 
             code += JST['variables_set']({
@@ -9023,8 +9125,13 @@
          */
         Blockly.Arduino.zum_photoresistor = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
 
-            var code = JST['zum_photoresistor']({
+
+            code += JST['zum_photoresistor']({
                 'dropdown_pin': dropdown_pin
             });
 
@@ -9068,13 +9175,21 @@
             var dropdown_stat = this.getFieldValue('STAT');
             var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
 
-            var code = JST['zum_piezo_buzzer']({
+            var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
+
+            a = RoboBlocks.findPinMode(delay_time);
+            code += a['code'];
+            delay_time = a['pin'];
+
+            code += JST['zum_piezo_buzzer']({
                 'dropdown_pin': dropdown_pin,
                 'dropdown_stat': dropdown_stat,
                 'delay_time': delay_time
             });
 
-            code = 'tone(' + dropdown_pin + ',' + dropdown_stat + ',' + delay_time + ');\ndelay(' + delay_time + ');\n';
             return code;
         };
 
@@ -9132,7 +9247,20 @@
             var Buzztone = Blockly.Arduino.valueToCode(this, 'TONE', Blockly.Arduino.ORDER_ATOMIC);
             var delay_time = Blockly.Arduino.valueToCode(this, 'DURA', Blockly.Arduino.ORDER_ATOMIC);
 
-            var code = JST['zum_piezo_buzzerav']({
+            var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
+
+            a = RoboBlocks.findPinMode(Buzztone);
+            code += a['code'];
+            Buzztone = a['pin'];
+
+            a = RoboBlocks.findPinMode(delay_time);
+            code += a['code'];
+            delay_time = a['pin'];
+
+            code += JST['zum_piezo_buzzerav']({
                 'dropdown_pin': dropdown_pin,
                 'Buzztone': Buzztone,
                 'delay_time': delay_time
@@ -9185,7 +9313,12 @@
          */
         Blockly.Arduino.zum_potentiometer = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
-            var code = JST['zum_potentiometer']({
+            var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
+
+            code += JST['zum_potentiometer']({
                 'dropdown_pin': dropdown_pin
             });
 

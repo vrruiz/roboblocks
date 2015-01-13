@@ -16,7 +16,14 @@ Blockly.Arduino.math_arithmetic = function() {
     var order = tuple[1];
     var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '';
     var argument1 = Blockly.Arduino.valueToCode(this, 'B', order) || '';
-    var code;
+    var code='';
+    var a=RoboBlocks.findPinMode(argument0);
+    code+=a['code'];
+    argument0=a['pin'];
+
+    a=RoboBlocks.findPinMode(argument1);
+    code+=a['code'];
+    argument1=a['pin'];
     if (!operator) {
         code = JST['math_arithmetic_pow']({
             'argument0':argument0,
@@ -24,7 +31,7 @@ Blockly.Arduino.math_arithmetic = function() {
         });
         return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
     }
-    code = JST['math_arithmetic']({
+    code += JST['math_arithmetic']({
             'argument0':argument0,
             'argument1':argument1,
             'operator':operator

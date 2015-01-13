@@ -7,21 +7,42 @@
   */
 Blockly.Arduino.text_join = function() {
     // Create a string made up of any number of elements of any type.
-    var code;
+    var code='';
+    var a;
+    console.log('this.itemCount_', this.itemCount_);
     if (this.itemCount_ === 0) {
         return ['\'\'', Blockly.Arduino.ORDER_ATOMIC];
     } else if (this.itemCount_ === 1) {
         var argument0 = Blockly.Arduino.valueToCode(this, 'ADD0', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '';
-        code = argument0;
+        a=RoboBlocks.findPinMode(argument0);
+        code+=a['code'];
+        argument0=a['pin'];
+
+        code += 'String('+argument0+')';
         return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
     } else {
-        code = [];
-        code[0] = 'String('+(Blockly.Arduino.valueToCode(this, 'ADD0', Blockly.Arduino.ORDER_NONE) || '');
+        var i=(Blockly.Arduino.valueToCode(this, 'ADD0', Blockly.Arduino.ORDER_NONE) || '');
+        console.log('Blockly.Arduino.valueToCode(this, ADD0, Blockly.Arduino.ORDER_NONE)',Blockly.Arduino.valueToCode(this, 'ADD0', Blockly.Arduino.ORDER_NONE));
+        a=RoboBlocks.findPinMode(i);
+        code=a['code'];
+        i=a['pin'];
+
+        var final_line= 'String('+i;
+        console.log('iteration 0', '\ncode: ',code, '\nfinal_line: ', final_line, '\nb', i);
+
         for (var n = 1; n < this.itemCount_; n++) {
-            code[n] = ') + String(' + (Blockly.Arduino.valueToCode(this, 'ADD' + n, Blockly.Arduino.ORDER_NONE) || '');
+            i=(Blockly.Arduino.valueToCode(this, 'ADD' + n, Blockly.Arduino.ORDER_NONE) || '');
+            console.log('Blockly.Arduino.valueToCode(this, ADDn, Blockly.Arduino.ORDER_NONE)',Blockly.Arduino.valueToCode(this, 'ADD'+n, Blockly.Arduino.ORDER_NONE));
+            a=RoboBlocks.findPinMode(i);
+            code+=a['code'];
+            i=a['pin'];
+            final_line += ') + String(' + i;
+            console.log('iteration', n, '\ncode: ',code, '\nfinal_line: ', final_line, '\nb', i);
         }
-        code[this.itemCount_]=')';
-        code = code.join('');
+
+
+        code+=final_line+')';
+
         return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
     }
 };

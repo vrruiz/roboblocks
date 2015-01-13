@@ -8,8 +8,13 @@
  */
 Blockly.Arduino.zum_photoresistor = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC)||'';
+    var code = '';
+    var a=RoboBlocks.findPinMode(dropdown_pin);
+    code+=a['code'];
+    dropdown_pin=a['pin'];
 
-    var code = JST['zum_photoresistor']({
+
+    code += JST['zum_photoresistor']({
         'dropdown_pin': dropdown_pin
     });
 

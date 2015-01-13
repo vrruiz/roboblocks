@@ -9,13 +9,20 @@ Blockly.Arduino.procedures_ifreturn = function() {
     // Conditionally return value from a procedure.
     var condition = Blockly.Arduino.valueToCode(this, 'CONDITION',
         Blockly.Arduino.ORDER_NONE) || '';
-    var code = 'if (' + condition + ') {\n';
-    if (this.hasReturnValue_) {
-        var value = Blockly.Arduino.valueToCode(this, 'VALUE',Blockly.Arduino.ORDER_NONE) || '';
-        code += '  return ' + value + ';\n';
-    } else {
-        code += '  return;\n';
-    }
+    var code ='';
+    var a=RoboBlocks.findPinMode(condition);
+    code+=a['code'];
+    condition=a['pin'];
+
+    code += 'if (' + condition + ') {\n';
+    // if (this.hasReturnValue_) {
+    var value = Blockly.Arduino.valueToCode(this, 'VALUE',Blockly.Arduino.ORDER_NONE) || '';
+    a=RoboBlocks.findPinMode(value);
+    code+=a['code'];
+    code += '  return (' + value + ');\n';
+    // } else {
+    //     code += '  return;\n';
+    // }
     code += '}\n';
     return code;
 };
