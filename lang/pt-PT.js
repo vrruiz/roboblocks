@@ -316,6 +316,7 @@
         LANG_VARIABLES_GET_TOOLTIP: 'Devolve o valor de uma variável',
         LANG_VARIABLES_PIN_ANALOG: 'Pino analógico',
         LANG_VARIABLES_PIN_DIGITAL: 'Pino digital',
+        LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona o pino desejado.',
         //zum blocks :
         LANG_CATEGORY_ZUM: 'zum bloqs',

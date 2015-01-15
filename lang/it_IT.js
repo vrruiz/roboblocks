@@ -316,6 +316,7 @@
         LANG_VARIABLES_GET_TOOLTIP: 'Restituisce il valore della stampante.',
         LANG_VARIABLES_PIN_ANALOG: 'PIN analogico',
         LANG_VARIABLES_PIN_DIGITAL: 'PIN digitale',
+        LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Seleziona il PIN.',
         //zum blocks :
         LANG_CATEGORY_ZUM: 'zum bloqs',

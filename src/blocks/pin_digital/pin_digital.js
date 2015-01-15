@@ -22,5 +22,20 @@ Blockly.Blocks.pin_digital = {
         this.setInputsInline(true);
         this.setOutput(true, Number);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_PIN_TOOLTIP'));
+    },
+    onchange: function(){
+        if (!this.workspace) {
+            // Block has been deleted.
+            return;
+        }
+        if (this.getFieldValue('PIN')==='0') {
+            try {
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_VARIABLES_PIN_DIGITAL0'));
+            } catch (e) {}
+        } else {
+            try {
+                this.setWarningText(null);
+            } catch (e) {}
+        }
     }
 };

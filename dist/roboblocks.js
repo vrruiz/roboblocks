@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-01-13
+/*! roboblocks - v0.1.12 - 2015-01-15
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -372,6 +372,7 @@
                 LANG_VARIABLES_GET_TOOLTIP: 'Retorna el valor d\'una variable',
                 LANG_VARIABLES_PIN_ANALOG: 'Pin analògic',
                 LANG_VARIABLES_PIN_DIGITAL: 'Pin digital',
+                LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN desitjat.',
                 //zum blocks :
                 LANG_CATEGORY_ZUM: 'zum bloqs',
@@ -775,6 +776,7 @@
                 LANG_VARIABLES_GET_TOOLTIP: 'Returns the value of a variable.',
                 LANG_VARIABLES_PIN_ANALOG: 'Analog pin',
                 LANG_VARIABLES_PIN_DIGITAL: 'Digital pin',
+                LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Select the PIN.',
                 //zum blocks :
                 LANG_CATEGORY_ZUM: 'zum bloqs',
@@ -1178,6 +1180,9 @@
                 LANG_VARIABLES_GET_TOOLTIP: 'Devuelve el valor de una variable',
                 LANG_VARIABLES_PIN_ANALOG: 'Pin analógico',
                 LANG_VARIABLES_PIN_DIGITAL: 'Pin digital',
+                LANG_VARIABLES_PIN_DIGITAL0: 'CUIDADO: el pin digital 0 (pin Rx) es usado para escribir un programa en la placa desde el ordenador. 
+                Usarlo para conectar componentes puede dar problemas al programarla.
+                ',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN deseado.',
                 //zum blocks :
                 LANG_CATEGORY_ZUM: 'zum bloqs',
@@ -1567,6 +1572,7 @@
                 LANG_VARIABLES_GET_TOOLTIP: 'Restituisce il valore della stampante.',
                 LANG_VARIABLES_PIN_ANALOG: 'PIN analogico',
                 LANG_VARIABLES_PIN_DIGITAL: 'PIN digitale',
+                LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Seleziona il PIN.',
                 //zum blocks :
                 LANG_CATEGORY_ZUM: 'zum bloqs',
@@ -1956,6 +1962,7 @@
                 LANG_VARIABLES_GET_TOOLTIP: 'Devolve o valor de uma variável',
                 LANG_VARIABLES_PIN_ANALOG: 'Pino analógico',
                 LANG_VARIABLES_PIN_DIGITAL: 'Pino digital',
+                LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona o pino desejado.',
                 //zum blocks :
                 LANG_CATEGORY_ZUM: 'zum bloqs',
@@ -2100,6 +2107,7 @@
             arduino: {
                 description: 'Standard-compatible board',
                 digital: [
+                    ['0', '0'],
                     ['1', '1'],
                     ['2', '2'],
                     ['3', '3'],
@@ -6693,6 +6701,21 @@
                 this.setInputsInline(true);
                 this.setOutput(true, Number);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_PIN_TOOLTIP'));
+            },
+            onchange: function() {
+                if (!this.workspace) {
+                    // Block has been deleted.
+                    return;
+                }
+                if (this.getFieldValue('PIN') === '0') {
+                    try {
+                        this.setWarningText(RoboBlocks.locales.getKey('LANG_VARIABLES_PIN_DIGITAL0'));
+                    } catch (e) {}
+                } else {
+                    try {
+                        this.setWarningText(null);
+                    } catch (e) {}
+                }
             }
         };
 
