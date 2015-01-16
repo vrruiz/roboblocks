@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-01-15
+/*! roboblocks - v0.1.12 - 2015-01-16
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -2602,7 +2602,9 @@
                     __e(dropdown_stat) +
                     ',' +
                     __e(delay_time) +
-                    ');\n\n';
+                    ');\ndelay(' +
+                    __e(delay_time) +
+                    ');\n';
 
             }
             return __p
@@ -3501,7 +3503,9 @@
                     __e(dropdown_stat) +
                     ',' +
                     __e(delay_time) +
-                    ');\n\n';
+                    ');\ndelay(' +
+                    __e(delay_time) +
+                    ');\n';
 
             }
             return __p
