@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'inout_analog_write');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), '/***   Global variables   ***/\n\n/***   Function declaration   ***/\n\nvoid setup()\n{\n  pinMode(,OUTPUT);\n\n}\n\n\nvoid loop()\n{\n  analogWrite(,);\n\n}\n\n/***   Function definition   ***/\n');
+				assert.equal(Blockly.Arduino.workspaceToCode(), '/***   Global variables   ***/\n\n/***   Function declaration   ***/\n\nvoid setup()\n{\n\n}\n\n\nvoid loop()\n{\n  pinMode(,OUTPUT);\n  analogWrite(,);\n\n}\n\n/***   Function definition   ***/\n');
 			});
 		});
 	});

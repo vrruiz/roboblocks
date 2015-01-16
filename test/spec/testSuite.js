@@ -8,6 +8,7 @@ return {
 
 		//XML
 		'spec/bq_photoresistor_output_globalvariable_pin_number.js',
+		'spec/servos_pin_global_variable.js',
 
 		//UNIT TESTS
 		'spec/bq_bat',

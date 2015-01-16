@@ -1180,9 +1180,7 @@
                 LANG_VARIABLES_GET_TOOLTIP: 'Devuelve el valor de una variable',
                 LANG_VARIABLES_PIN_ANALOG: 'Pin analógico',
                 LANG_VARIABLES_PIN_DIGITAL: 'Pin digital',
-                LANG_VARIABLES_PIN_DIGITAL0: 'CUIDADO: el pin digital 0 (pin Rx) es usado para escribir un programa en la placa desde el ordenador. 
-                Usarlo para conectar componentes puede dar problemas al programarla.
-                ',
+                LANG_VARIABLES_PIN_DIGITAL0: 'CUIDADO: el pin digital 0 (pin Rx) es usado para escribir un programa en la placa desde el ordenador. Usarlo para conectar componentes puede dar problemas al programarla.',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN deseado.',
                 //zum blocks :
                 LANG_CATEGORY_ZUM: 'zum bloqs',
