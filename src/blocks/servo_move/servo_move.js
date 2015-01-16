@@ -22,6 +22,17 @@ Blockly.Arduino.servo_move = function() {
     var c = RoboBlocks.findPinMode(value_degree);
     code += c['code'];
     value_degree = c['pin'];
+
+    if (RoboBlocks.isVariable(dropdown_pin)) {
+        code += JST['servo_move_setups']({
+            'dropdown_pin': dropdown_pin
+        });
+    } else {
+        Blockly.Arduino.setups_['servo_move_' + dropdown_pin] = JST['servo_move_setups']({
+            'dropdown_pin': dropdown_pin
+        });
+    }
+
     code += JST['servo_move']({
         'dropdown_pin': dropdown_pin,
         'value_degree': value_degree,
