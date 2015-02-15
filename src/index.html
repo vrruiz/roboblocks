@@ -1,8 +1,18 @@
 <!doctype html>
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>RoboBlocks PlayGround</title>
+    <title>Visual Arduino - RoboBlocks PlayGround</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        #blockly {
+            min-height: 100%;
+        }
+    </style>
 </head>
 <body>
     <div id="blockly"></div>
@@ -12,9 +22,7 @@
     <script src="bower_components/blockly-bq/blocks_compressed.js"></script>
     <script src="bower_components/blockly-bq/arduino_compressed.js"></script>
     <script src="roboblocks.js"></script>
-    <div id="code" style="position: absolute; top: 30px; left: 710px; width: 700px; height: 700px; background-color: #E6E6FA;">    </div>
-
-    <button  style="position: absolute; top: 10px; left: 710px; " onclick="document.getElementById('code').innerHTML ='<pre>'+Blockly.Arduino.workspaceToCode()+'</pre>'">CODE</button>
+    <div id="code" style="visibility: hidden;"></div>
 
     <script>
             RoboBlocks.load({
@@ -25,17 +33,8 @@
             Blockly.inject(document.body.appendChild(el), {
                 toolbox: Blockly.createToolbox()
             });
-            $('.blocklySvg, #blockly').height('700');
-            $('.blocklySvg, #blockly').width('700');
-            // LiveReload
-            (function() {
-                var po = document.createElement('script');
-                po.type = 'text/javascript';
-                po.async = true;
-                po.src = '//' + window.location.host.split(':')[0] + ':35729/livereload.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(po, s);
-            })();
+            $('.blocklySvg, #blockly').height('100%');
+            $('.blocklySvg, #blockly').width('100%');
     </script>
 </body>
 </html>
