@@ -69,7 +69,7 @@
         LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Salto de linha',
         LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Escreve caracteres especiais.',
         //bq blocks :
-        LANG_CATEGORY_BQ: 'Blocos octopus',
+        LANG_CATEGORY_BQ: 'Octopus bloqs',
         LANG_BQ_BAT: 'BAT - Sensor de Ultrasons',
         LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
         LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
@@ -124,7 +124,7 @@
         LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
         LANG_BQ_POTENTIOMETER_TOOLTIP: 'Devolve o valor analógico medido pelo potenciómetro',
         //LCD blocks:
-        LANG_CATEGORY_LCD: 'Blocos LCD',
+        LANG_CATEGORY_LCD: 'LCD bloqs',
         LANG_LCD_DEF: 'LCD (2x16)',
         LANG_LCD_PINS: 'Conecta o pino SCL ao pino A5 e o pino SDA ao pino A4',
         LANG_LCD_DEF_TOOLTIP: 'Define o LCD',
@@ -337,7 +337,7 @@
         LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona o pino desejado.',
         //zum blocks :
-        LANG_CATEGORY_ZUM: 'zum bloqs',
+        LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Botão',
         LANG_ZUM_BUTTON_PIN: 'PIN#',
         LANG_ZUM_BUTTON_TOOLTIP: 'Botão zum',

@@ -69,7 +69,7 @@
         LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Salto de línea',
         LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Escribe caracteres especiales.',
         //bq blocks :
-        LANG_CATEGORY_BQ: 'Bloques octopus',
+        LANG_CATEGORY_BQ: 'Octopus bloqs',
         LANG_BQ_BAT: 'BAT - Sensor de Ultrasonidos',
         LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
         LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
@@ -124,7 +124,7 @@
         LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
         LANG_BQ_POTENTIOMETER_TOOLTIP: 'Devuelve el valor analógico medido por el potenciómetro',
         //LCD blocks:
-        LANG_CATEGORY_LCD: 'LCD blocks',
+        LANG_CATEGORY_LCD: 'LCD bloqs',
         LANG_LCD_DEF: 'LCD (2x16)',
         LANG_LCD_PINS: 'Conecta el pin SCL al pin A5 y el pin SDA al pin A4',
         LANG_LCD_DEF_TOOLTIP: 'Define el LCD',
@@ -337,7 +337,7 @@
         LANG_VARIABLES_PIN_DIGITAL0: 'CUIDADO: el pin digital 0 (pin Rx) es usado para escribir un programa en la placa desde el ordenador. Usarlo para conectar componentes puede dar problemas al programarla.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN deseado.',
         //zum blocks :
-        LANG_CATEGORY_ZUM: 'zum bloqs',
+        LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Botón',
         LANG_ZUM_BUTTON_PIN: 'PIN#',
         LANG_ZUM_BUTTON_TOOLTIP: 'Botón zum',
