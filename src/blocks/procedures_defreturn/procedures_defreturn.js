@@ -9,7 +9,6 @@ Blockly.Arduino.procedures_defreturn = function() {
     var funcName = this.getFieldValue('NAME');
     var branch = Blockly.Arduino.statementToCode(this, 'STACK');
     branch = branch.replace(/&quot;/g, '"');
-    // branch=branch.replace(/&amp;/g, '');
 
     if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
@@ -32,6 +31,8 @@ Blockly.Arduino.procedures_defreturn = function() {
         'branch': branch,
         'returnValue': returnValue
     });
+    code=code.replace(/&amp;/g, '');
+
     code = Blockly.Arduino.scrub_(this, code);
     Blockly.Arduino.definitions_[funcName] = code;
     return null;

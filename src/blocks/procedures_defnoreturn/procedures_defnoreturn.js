@@ -24,6 +24,8 @@ Blockly.Arduino.procedures_defnoreturn = function() {
         'args': args,
         'branch': branch
     });
+    code=code.replace(/&amp;/g, '');
+
     code = Blockly.Arduino.scrub_(this, code);
     Blockly.Arduino.definitions_[funcName] = code;
     return null;
