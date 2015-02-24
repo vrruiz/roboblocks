@@ -53,6 +53,7 @@ RoboBlocks.URL_FLOW_STATEMENTS='http://diwo.bq.com/programando-los-bloques-de-co
 RoboBlocks.URL_LOGIC='http://diwo.bq.com/programando-los-bloques-logicos/';
 RoboBlocks.URL_MATH='http://diwo.bq.com/programando-los-bloques-matematicos/';
 RoboBlocks.URL_TEXT='http://diwo.bq.com/programando-los-bloques-de-texto/';
+RoboBlocks.URL_BT='http://diwo.bq.com/ejemplo-en-bitbloq-de-comunicacion-bluetooth/';
 
 // RGB block colors
 RoboBlocks.LANG_COLOUR_BQ = '#D04141';

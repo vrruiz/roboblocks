@@ -20,7 +20,7 @@ Blockly.Arduino.bq_bluetooth_receive = function() {
 Blockly.Blocks.bq_bluetooth_receive = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
     tags: ['bq', 'bluetooth'],
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_bluetooth_receive',
+    helpUrl: RoboBlocks.URL_BT,
     /**
 	  * bq_bluetooth_slave initialization
 	  */
