@@ -7799,7 +7799,7 @@
             var a = RoboBlocks.findPinMode(content);
             code += a['code'];
             content = a['pin'];
-            Blockly.Arduino.setups_['setup_serial_print'] = JST['serial_print_setups']({
+            Blockly.Arduino.setups_['setup_serial'] = JST['serial_print_setups']({
                 'bitrate': profiles.
                 default.serial
             });
@@ -7839,7 +7839,7 @@
             var a = RoboBlocks.findPinMode(content);
             code += a['code'];
             content = a['pin'];
-            Blockly.Arduino.setups_['setup_serial_println'] = JST['serial_println_setups']({
+            Blockly.Arduino.setups_['setup_serial'] = JST['serial_println_setups']({
                 'bitrate': profiles.
                 default.serial
             });
@@ -7877,7 +7877,7 @@
 
         Blockly.Arduino.serial_read = function() {
 
-            Blockly.Arduino.setups_['setup_serial_read'] = JST['serial_read_setups']({
+            Blockly.Arduino.setups_['setup_serial'] = JST['serial_read_setups']({
                 'bitrate': profiles.default.serial
             });
             var code = JST['serial_read']({});

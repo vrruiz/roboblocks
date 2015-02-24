@@ -9,7 +9,7 @@
 
 Blockly.Arduino.serial_read = function() {
 
-	Blockly.Arduino.setups_['setup_serial_read'] = JST['serial_read_setups']({
+	Blockly.Arduino.setups_['setup_serial'] = JST['serial_read_setups']({
 		'bitrate': profiles.default.serial
 	});
 	var code = JST['serial_read']({});
