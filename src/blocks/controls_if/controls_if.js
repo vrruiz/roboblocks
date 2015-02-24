@@ -57,7 +57,7 @@ Blockly.Arduino.controls_if = function() {
 Blockly.Blocks.controls_if = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
     tags: ['bq'],
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/controls_if',
+    helpUrl: RoboBlocks.URL_IF,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendValueInput('IF0')

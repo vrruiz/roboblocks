@@ -2131,6 +2131,28 @@
 
         // help URLs
         RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
+        RoboBlocks.URL_LED = 'http://diwo.bq.com/programando-un-led-en-bitbloq-i/';
+        RoboBlocks.URL_LDR = 'http://diwo.bq.com/el-sensor-de-luz/';
+        RoboBlocks.URL_BUTTON = 'http://diwo.bq.com/programando-el-pulsador-en-bitbloq/';
+        RoboBlocks.URL_BUZZER = 'http://diwo.bq.com/programando-el-zumbador-en-bitbloq/';
+        RoboBlocks.URL_POTENTIOMETER = 'http://diwo.bq.com/programando-un-potenciometro-en-bitbloq/';
+        RoboBlocks.URL_IR = 'http://diwo.bq.com/programando-un-sensor-infrarrojo-en-bitbloq/';
+        RoboBlocks.URL_CONTINUOUS_ROTATION_SERVO = 'http://diwo.bq.com/programando-un-servo-en-bitbloq/';
+        RoboBlocks.URL_SERVO = 'http://diwo.bq.com/programando-un-miniservo-en-bitbloq/';
+        RoboBlocks.URL_LCD = 'http://diwo.bq.com/programando-una-pantalla-lcd-en-bitbloq/';
+        RoboBlocks.URL_US = 'http://diwo.bq.com/programando-el-sensor-ultrasonido-en-bitbloq/';
+        RoboBlocks.URL_BUTTONS = 'http://diwo.bq.com/programando-la-botonera-en-bitbloq/';
+        RoboBlocks.URL_JOYSTICK = 'http://diwo.bq.com/programando-un-joystick-con-bitbloq/';
+        RoboBlocks.URL_SERIE = 'http://diwo.bq.com/comunicacion-puerto-serie-en-windows-7/';
+        RoboBlocks.URL_IF = 'http://diwo.bq.com/programando-los-bloques-de-control-el-bloque-si-ejecutar/';
+        RoboBlocks.URL_SWITCH = 'http://diwo.bq.com/programando-los-bloques-de-control-el-bloque-si-switch-case/';
+        RoboBlocks.URL_WHILE = 'http://diwo.bq.com/programando-los-bloques-de-control-el-bloque-mientras/';
+        RoboBlocks.URL_FOR = 'http://diwo.bq.com/programando-los-bloques-de-control-el-bloque-contar/';
+        RoboBlocks.URL_FLOW_STATEMENTS = 'http://diwo.bq.com/programando-los-bloques-de-control-interrumpir/';
+        RoboBlocks.URL_LOGIC = 'http://diwo.bq.com/programando-los-bloques-logicos/';
+        RoboBlocks.URL_MATH = 'http://diwo.bq.com/programando-los-bloques-matematicos/';
+        RoboBlocks.URL_TEXT = 'http://diwo.bq.com/programando-los-bloques-de-texto/';
+
         // RGB block colors
         RoboBlocks.LANG_COLOUR_BQ = '#D04141';
         RoboBlocks.LANG_COLOUR_ZUM = '#CC7B44';
@@ -3621,7 +3643,7 @@
          */
         Blockly.Blocks.advanced_conversion = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/advanced_conversion',
+            helpUrl: RoboBlocks.URL_SERIE,
             /**
              * advanced_conversion initialization
              */
@@ -3697,7 +3719,7 @@
          */
         Blockly.Blocks.advanced_map = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/advanced_map',
+            helpUrl: RoboBlocks.URL_MATH,
             /**
              * advanced_map initialization
              */
@@ -3748,7 +3770,7 @@
         Blockly.Blocks.array_get = {
             // Numeric value.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/array_get',
+            helpUrl: RoboBlocks.URL_MATH,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET')).appendField(new Blockly.FieldVariable(' '), 'VAR');
@@ -3886,7 +3908,7 @@
 
         Blockly.Blocks.base_map = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/base_map',
+            helpUrl: RoboBlocks.URL_MATH,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_MATH);
                 this.appendValueInput('NUM', Number)
@@ -3955,7 +3977,7 @@
         Blockly.Blocks.bq_bat = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
             tags: ['bq', 'bat'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_bat',
+            helpUrl: RoboBlocks.URL_US,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendDummyInput('').appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT')).appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));
@@ -4179,7 +4201,7 @@
         Blockly.Blocks.bq_button = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
             tags: ['bq', 'botón'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_button',
+            helpUrl: RoboBlocks.URL_BUTTON,
             /**
              * bq_button initialization
              **/
@@ -4251,7 +4273,7 @@
         Blockly.Blocks.bq_buttons = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
             tags: ['bq', 'botones'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_buttons',
+            helpUrl: RoboBlocks.URL_BUTTONS,
             /**
              * bq_buttons initialization
              */
@@ -4318,7 +4340,7 @@
         Blockly.Blocks.bq_infrared = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
             tags: ['bq', 'sensor infrarrojo'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_infrared',
+            helpUrl: RoboBlocks.URL_IR,
             /**
              * bq_infrared initialization
              */
@@ -4388,7 +4410,7 @@
         Blockly.Blocks.bq_joystick = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
             tags: ['bq', 'joystick'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_joystick',
+            helpUrl: RoboBlocks.URL_JOYSTICK,
             /**
              * bq_joystick initialization
              */
@@ -4448,7 +4470,7 @@
         Blockly.Blocks.bq_led = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
             tags: ['bq', 'led'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_led',
+            helpUrl: RoboBlocks.URL_LED,
             /**
              * bq_led initialization
              */
@@ -4496,7 +4518,7 @@
         Blockly.Blocks.bq_photoresistor = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
             tags: ['bq', 'fotorresistencia'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_photoresistor',
+            helpUrl: RoboBlocks.URL_LDR,
             /**
              * bq_photoresistor initialization
              */
@@ -4551,7 +4573,7 @@
         Blockly.Blocks.bq_piezo_buzzer = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
             tags: ['bq', 'zumbador'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_piezo_buzzer',
+            helpUrl: RoboBlocks.URL_BUZZER,
             /**
              * bq_piezo_buzzer initialization
              */
@@ -4633,7 +4655,7 @@
         Blockly.Blocks.bq_piezo_buzzerav = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
             tags: ['bq', 'zumbador avanzado'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_piezo_buzzerav',
+            helpUrl: RoboBlocks.URL_BUZZER,
             /**
              * bq_piezo_buzzerav initialization
              */
@@ -4690,7 +4712,7 @@
         Blockly.Blocks.bq_potentiometer = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
             tags: ['bq', 'potenciómetro'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_potentiometer',
+            helpUrl: RoboBlocks.URL_POTENTIOMETER,
             /**
              * bq_potentiometer initialization
              */
@@ -4769,7 +4791,7 @@
         Blockly.Blocks.controls_flow_statements = {
             // Flow statements: continue, break.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_flow_statements',
+            helpUrl: RoboBlocks.URL_FLOW_STATEMENTS,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 var dropdown = new Blockly.FieldDropdown(
@@ -4859,7 +4881,7 @@
         Blockly.Blocks.controls_for = {
             // For loop.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_for',
+            helpUrl: RoboBlocks.URL_FOR,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendValueInput('VAR').appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_WITH'));
@@ -5029,7 +5051,7 @@
         Blockly.Blocks.controls_if = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
             tags: ['bq'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_if',
+            helpUrl: RoboBlocks.URL_IF,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendValueInput('IF0')
@@ -5283,7 +5305,7 @@
         Blockly.Blocks.controls_switch = {
             // switch condition.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_switch',
+            helpUrl: RoboBlocks.URL_SWITCH,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendValueInput('IF0')
@@ -5524,7 +5546,7 @@
         Blockly.Blocks.controls_whileUntil = {
             // Do while/until loop.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_whileUntil',
+            helpUrl: RoboBlocks.URL_WHILE,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendValueInput('BOOL').setCheck(Boolean).appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TITLE_REPEAT')).appendField(new Blockly.FieldDropdown([
@@ -5678,7 +5700,7 @@
          */
         Blockly.Blocks.inout_builtin_led = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_builtin_led',
+            helpUrl: RoboBlocks.URL_LED,
             /**
              * inout_builtin_led initialization
              */
@@ -5858,7 +5880,7 @@
         Blockly.Blocks.lcd_clear = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
             tags: ['bq', 'bluetooth'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/lcd_clear',
+            helpUrl: RoboBlocks.URL_LCD,
             /**
              * lcd_slave initialization
              */
@@ -5898,7 +5920,7 @@
         Blockly.Blocks.lcd_def = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
             tags: ['bq', 'lcd'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/lcd_def',
+            helpUrl: RoboBlocks.URL_LCD,
             /**
              * lcd_slave initialization
              */
@@ -5958,7 +5980,7 @@
         Blockly.Blocks.lcd_print = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
             tags: ['bq', 'bluetooth'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/lcd_print',
+            helpUrl: RoboBlocks.URL_LCD,
             /**
              * lcd_slave initialization
              */
@@ -6030,7 +6052,7 @@
          */
         Blockly.Blocks.lcd_setBacklight = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/lcd_setBacklight',
+            helpUrl: RoboBlocks.URL_LCD,
             /**
              * lcd_slave initialization
              */
@@ -6070,7 +6092,7 @@
         Blockly.Blocks.logic_boolean = {
             // Boolean data type: true and false.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/logic_boolean',
+            helpUrl: RoboBlocks.URL_LOGIC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
                 this.setOutput(true, Boolean);
@@ -6132,7 +6154,7 @@
         Blockly.Blocks.logic_compare = {
             // Comparison operator.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/logic_compare',
+            helpUrl: RoboBlocks.URL_LOGIC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
                 this.setOutput(true, Boolean);
@@ -6195,7 +6217,7 @@
         Blockly.Blocks.logic_negate = {
             // Negation.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/logic_negate',
+            helpUrl: RoboBlocks.URL_LOGIC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
                 this.setOutput(true, Boolean);
@@ -6237,7 +6259,7 @@
         Blockly.Blocks.logic_operation = {
             // Logical operations: 'and', 'or'.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/logic_operation',
+            helpUrl: RoboBlocks.URL_LOGIC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
                 this.setOutput(true, Boolean);
@@ -6314,7 +6336,7 @@
         Blockly.Blocks.math_arithmetic = {
             // Basic arithmetic operator.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_arithmetic',
+            helpUrl: RoboBlocks.URL_MATH,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_MATH);
                 this.setOutput(true, Number);
@@ -6377,7 +6399,7 @@
         Blockly.Blocks.math_array = {
             // Numeric value.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'), // Variables are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_array',
+            helpUrl: RoboBlocks.URL_MATH,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_MATH);
                 this.appendDummyInput()
@@ -6442,7 +6464,7 @@
         Blockly.Blocks.math_modulo = {
             // Remainder of a division.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_modulo',
+            helpUrl: RoboBlocks.URL_MATH,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_MATH);
                 this.setOutput(true, Number);
@@ -6479,7 +6501,7 @@
         Blockly.Blocks.math_number = {
             // Numeric value.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'), // Variables are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_number',
+            helpUrl: RoboBlocks.URL_MATH,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_MATH);
                 this.appendDummyInput()
@@ -6524,7 +6546,7 @@
 
         Blockly.Blocks.math_random = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_random',
+            helpUrl: RoboBlocks.URL_MATH,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_MATH);
                 this.appendValueInput('NUM', Number)
@@ -6640,7 +6662,7 @@
         Blockly.Blocks.math_single = {
             // Advanced math operators with single operand.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/math_single',
+            helpUrl: RoboBlocks.URL_MATH,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_MATH);
                 this.setOutput(true, Number);
@@ -7743,7 +7765,7 @@
          */
         Blockly.Blocks.serial_available = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_available',
+            helpUrl: RoboBlocks.URL_SERIE,
             /**
              * serial_available initialization
              */
@@ -7787,7 +7809,7 @@
          */
         Blockly.Blocks.serial_print = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_print',
+            helpUrl: RoboBlocks.URL_SERIE,
             /**
              * serial_print initialization
              */
@@ -7827,7 +7849,7 @@
          */
         Blockly.Blocks.serial_println = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_println',
+            helpUrl: RoboBlocks.URL_SERIE,
             /**
              * serial_println initialization
              */
@@ -7864,7 +7886,7 @@
          */
         Blockly.Blocks.serial_read = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_read',
+            helpUrl: RoboBlocks.URL_SERIE,
             /**
              * serial_read initialization
              */
@@ -7899,7 +7921,7 @@
          */
         Blockly.Blocks.serial_special = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_special',
+            helpUrl: RoboBlocks.URL_SERIE,
             /**
              * serial_special initialization
              */
@@ -7961,7 +7983,7 @@
         Blockly.Blocks.servo_cont = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_SERVO'),
             tags: ['servo'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_cont',
+            helpUrl: RoboBlocks.URL_CONTINUOUS_ROTATION_SERVO,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
                 this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT')).appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_PIN')).setCheck(Number);
@@ -8042,7 +8064,7 @@
         Blockly.Blocks.servo_move = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_SERVO'),
             tags: ['servo'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_move',
+            helpUrl: RoboBlocks.URL_SERVO,
             /**
              * servo_move initialization
              */
@@ -8089,7 +8111,7 @@
         Blockly.Blocks.text = {
             // Text value.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text',
+            helpUrl: RoboBlocks.URL_TEXT,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
                 this.appendDummyInput()
@@ -8127,7 +8149,7 @@
         Blockly.Blocks.text_append = {
             // Append to a variable in place.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text_append',
+            helpUrl: RoboBlocks.URL_TEXT,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
                 this.appendValueInput('VAR')
@@ -8137,11 +8159,7 @@
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
                 this.setInputsInline(true);
-                // Assign 'this' to a variable for use in the tooltip closure below.
-                var thisBlock = this;
-                this.setTooltip(function() {
-                    return RoboBlocks.LANG_TEXT_APPEND_TOOLTIP.replace('%1', thisBlock.getFieldValue('VAR'));
-                });
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TOOLTIP'));
             },
             getVars: function() {
                 return [this.getFieldValue('VAR')];
@@ -8216,7 +8234,7 @@
 
         Blockly.Blocks.text_equalsIgnoreCase = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text_equalsIgnoreCase',
+            helpUrl: RoboBlocks.URL_TEXT,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
                 this.appendValueInput('STRING1')
@@ -8286,7 +8304,7 @@
         Blockly.Blocks.text_join = {
             // Create a string made up of any number of elements of any type.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text_join',
+            helpUrl: RoboBlocks.URL_TEXT,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
                 this.appendValueInput('ADD0')
@@ -8458,7 +8476,7 @@
         Blockly.Blocks.text_length = {
             // String length.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text_length',
+            helpUrl: RoboBlocks.URL_TEXT,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
                 this.appendValueInput('VALUE')
@@ -8503,7 +8521,7 @@
 
         Blockly.Blocks.text_substring = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text_substring',
+            helpUrl: RoboBlocks.URL_TEXT,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
                 this.appendValueInput('STRING1')
@@ -9000,7 +9018,7 @@
         Blockly.Blocks.zum_button = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
             tags: ['bq', 'botón'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_button',
+            helpUrl: RoboBlocks.URL_BUTTON,
             /**
              * zum_button initialization
              */
@@ -9067,7 +9085,7 @@
         Blockly.Blocks.zum_follower = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
             tags: ['bq', 'sensor infrarrojo'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_follower',
+            helpUrl: RoboBlocks.URL_IR,
             /**
              * zum_follower initialization
              */
@@ -9118,7 +9136,7 @@
         Blockly.Blocks.zum_infrared = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
             tags: ['bq', 'sensor infrarrojo'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_infrared',
+            helpUrl: RoboBlocks.URL_IR,
             /**
              * zum_infrared initialization
              */
@@ -9167,7 +9185,7 @@
         Blockly.Blocks.zum_led = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
             tags: ['bq', 'led'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_led',
+            helpUrl: RoboBlocks.URL_LED,
             /**
              * zum_led initialization
              */
@@ -9215,7 +9233,7 @@
         Blockly.Blocks.zum_photoresistor = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
             tags: ['bq', 'fotorresistencia'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_photoresistor',
+            helpUrl: RoboBlocks.URL_LDR,
             /**
              * zum_photoresistor initialization
              */
@@ -9269,7 +9287,7 @@
         Blockly.Blocks.zum_piezo_buzzer = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
             tags: ['bq', 'zumbador'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_piezo_buzzer',
+            helpUrl: RoboBlocks.URL_BUZZER,
             /**
              * zum_piezo_buzzer initialization
              */
@@ -9345,7 +9363,7 @@
         Blockly.Blocks.zum_piezo_buzzerav = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
             tags: ['bq', 'zumbador avanzado'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_piezo_buzzerav',
+            helpUrl: RoboBlocks.URL_BUZZER,
             /**
              * zum_piezo_buzzerav initialization
              */
@@ -9400,7 +9418,7 @@
         Blockly.Blocks.zum_potentiometer = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
             tags: ['bq', 'potenciómetro'],
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/zum_potentiometer',
+            helpUrl: RoboBlocks.URL_POTENTIOMETER,
             /**
              * zum_potentiometer initialization
              */

@@ -32,6 +32,28 @@ RoboBlocks.findPinMode=function(dropdown_pin){
 
 // help URLs
 RoboBlocks.GITHUB_SRC_URL = 'https://github.com/bq/roboblocks/tree/master/src/';
+RoboBlocks.URL_LED='http://diwo.bq.com/programando-un-led-en-bitbloq-i/';
+RoboBlocks.URL_LDR='http://diwo.bq.com/el-sensor-de-luz/';
+RoboBlocks.URL_BUTTON='http://diwo.bq.com/programando-el-pulsador-en-bitbloq/';
+RoboBlocks.URL_BUZZER='http://diwo.bq.com/programando-el-zumbador-en-bitbloq/';
+RoboBlocks.URL_POTENTIOMETER='http://diwo.bq.com/programando-un-potenciometro-en-bitbloq/';
+RoboBlocks.URL_IR='http://diwo.bq.com/programando-un-sensor-infrarrojo-en-bitbloq/';
+RoboBlocks.URL_CONTINUOUS_ROTATION_SERVO='http://diwo.bq.com/programando-un-servo-en-bitbloq/';
+RoboBlocks.URL_SERVO='http://diwo.bq.com/programando-un-miniservo-en-bitbloq/';
+RoboBlocks.URL_LCD='http://diwo.bq.com/programando-una-pantalla-lcd-en-bitbloq/';
+RoboBlocks.URL_US='http://diwo.bq.com/programando-el-sensor-ultrasonido-en-bitbloq/';
+RoboBlocks.URL_BUTTONS='http://diwo.bq.com/programando-la-botonera-en-bitbloq/';
+RoboBlocks.URL_JOYSTICK='http://diwo.bq.com/programando-un-joystick-con-bitbloq/';
+RoboBlocks.URL_SERIE='http://diwo.bq.com/comunicacion-puerto-serie-en-windows-7/';
+RoboBlocks.URL_IF='http://diwo.bq.com/programando-los-bloques-de-control-el-bloque-si-ejecutar/';
+RoboBlocks.URL_SWITCH='http://diwo.bq.com/programando-los-bloques-de-control-el-bloque-si-switch-case/';
+RoboBlocks.URL_WHILE='http://diwo.bq.com/programando-los-bloques-de-control-el-bloque-mientras/';
+RoboBlocks.URL_FOR='http://diwo.bq.com/programando-los-bloques-de-control-el-bloque-contar/';
+RoboBlocks.URL_FLOW_STATEMENTS='http://diwo.bq.com/programando-los-bloques-de-control-interrumpir/';
+RoboBlocks.URL_LOGIC='http://diwo.bq.com/programando-los-bloques-logicos/';
+RoboBlocks.URL_MATH='http://diwo.bq.com/programando-los-bloques-matematicos/';
+RoboBlocks.URL_TEXT='http://diwo.bq.com/programando-los-bloques-de-texto/';
+
 // RGB block colors
 RoboBlocks.LANG_COLOUR_BQ = '#D04141';
 RoboBlocks.LANG_COLOUR_ZUM = '#CC7B44';

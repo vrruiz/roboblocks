@@ -50,7 +50,7 @@ Blockly.Arduino.bq_bat = function() {
 Blockly.Blocks.bq_bat = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
     tags: ['bq', 'bat'],
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_bat',
+    helpUrl: RoboBlocks.URL_US,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendDummyInput('').appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT')).appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));

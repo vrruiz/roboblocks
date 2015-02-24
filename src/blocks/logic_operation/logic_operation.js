@@ -29,7 +29,7 @@ Blockly.Arduino.logic_operation = function() {
 Blockly.Blocks.logic_operation = {
     // Logical operations: 'and', 'or'.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/logic_operation',
+    helpUrl: RoboBlocks.URL_LOGIC,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
         this.setOutput(true, Boolean);

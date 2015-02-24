@@ -31,7 +31,7 @@ Blockly.Arduino.text_equalsIgnoreCase = function() {
 
 Blockly.Blocks.text_equalsIgnoreCase = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/text_equalsIgnoreCase',
+    helpUrl: RoboBlocks.URL_TEXT,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendValueInput('STRING1')

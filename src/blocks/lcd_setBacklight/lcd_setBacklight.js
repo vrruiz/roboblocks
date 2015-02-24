@@ -21,7 +21,7 @@ Blockly.Arduino.lcd_setBacklight = function() {
  */
 Blockly.Blocks.lcd_setBacklight = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/lcd_setBacklight',
+    helpUrl: RoboBlocks.URL_LCD,
     /**
 	  * lcd_slave initialization
 	  */

@@ -26,7 +26,7 @@ Blockly.Arduino.math_random = function() {
 
 Blockly.Blocks.math_random = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_random',
+    helpUrl: RoboBlocks.URL_MATH,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.appendValueInput('NUM', Number)

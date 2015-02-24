@@ -26,7 +26,7 @@ Blockly.Arduino.serial_print = function() {
  */
 Blockly.Blocks.serial_print = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_print',
+    helpUrl: RoboBlocks.URL_SERIE,
     /**
      * serial_print initialization
      */

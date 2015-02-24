@@ -24,7 +24,7 @@ Blockly.Arduino.text_append = function() {
 Blockly.Blocks.text_append = {
     // Append to a variable in place.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/text_append',
+    helpUrl: RoboBlocks.URL_TEXT,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendValueInput('VAR')
@@ -34,11 +34,7 @@ Blockly.Blocks.text_append = {
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setInputsInline(true);
-        // Assign 'this' to a variable for use in the tooltip closure below.
-        var thisBlock = this;
-        this.setTooltip(function() {
-            return RoboBlocks.LANG_TEXT_APPEND_TOOLTIP.replace('%1', thisBlock.getFieldValue('VAR'));
-        });
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_TEXT_APPEND_TOOLTIP'));
     },
     getVars: function() {
         return [this.getFieldValue('VAR')];

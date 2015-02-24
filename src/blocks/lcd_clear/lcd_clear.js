@@ -20,7 +20,7 @@ Blockly.Arduino.lcd_clear = function() {
 Blockly.Blocks.lcd_clear = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
     tags: ['bq', 'bluetooth'],
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/lcd_clear',
+    helpUrl: RoboBlocks.URL_LCD,
     /**
 	  * lcd_slave initialization
 	  */

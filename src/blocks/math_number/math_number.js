@@ -19,7 +19,7 @@ Blockly.Arduino.math_number = function() {
 Blockly.Blocks.math_number = {
   // Numeric value.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),  // Variables are handled specially.
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_number',
+    helpUrl: RoboBlocks.URL_MATH,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.appendDummyInput()

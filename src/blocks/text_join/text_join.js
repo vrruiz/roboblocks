@@ -50,7 +50,7 @@ Blockly.Arduino.text_join = function() {
 Blockly.Blocks.text_join = {
     // Create a string made up of any number of elements of any type.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/text_join',
+    helpUrl: RoboBlocks.URL_TEXT,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendValueInput('ADD0')

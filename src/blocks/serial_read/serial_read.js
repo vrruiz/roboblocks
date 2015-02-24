@@ -23,7 +23,7 @@ Blockly.Arduino.serial_read = function() {
  */
 Blockly.Blocks.serial_read = {
 	category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_read',
+	helpUrl: RoboBlocks.URL_SERIE,
 	 /**
 	  * serial_read initialization
 	  */

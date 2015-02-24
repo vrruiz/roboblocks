@@ -59,7 +59,7 @@ Blockly.Arduino.bq_buttons = function() {
 Blockly.Blocks.bq_buttons = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
     tags: ['bq', 'botones'],
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_buttons',
+    helpUrl: RoboBlocks.URL_BUTTONS,
     /**
     * bq_buttons initialization
     */

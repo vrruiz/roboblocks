@@ -51,7 +51,7 @@ Blockly.Arduino.advanced_map = function() {
  */
 Blockly.Blocks.advanced_map = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/advanced_map',
+    helpUrl: RoboBlocks.URL_MATH,
      /**
       * advanced_map initialization
       */

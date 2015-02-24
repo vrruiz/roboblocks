@@ -23,7 +23,7 @@ Blockly.Arduino.serial_available = function() {
  */
 Blockly.Blocks.serial_available = {
 	category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_available',
+	helpUrl: RoboBlocks.URL_SERIE,
 	 /**
 	  * serial_available initialization
 	  */

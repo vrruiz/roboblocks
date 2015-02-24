@@ -54,7 +54,7 @@ Blockly.Arduino.controls_switch = function() {
 Blockly.Blocks.controls_switch = {
     // switch condition.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/controls_switch',
+    helpUrl: RoboBlocks.URL_SWITCH,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendValueInput('IF0')

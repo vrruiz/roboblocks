@@ -25,7 +25,7 @@ Blockly.Arduino.inout_builtin_led = function() {
  */
 Blockly.Blocks.inout_builtin_led = {
 	category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/inout_builtin_led',
+	helpUrl: RoboBlocks.URL_LED,
 	 /**
 	  * inout_builtin_led initialization
 	  */
