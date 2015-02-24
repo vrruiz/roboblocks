@@ -2335,9 +2335,11 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'Distance_' +
-                    __e(name) +
-                    '()';
+                __p += 'Distance(' +
+                    __e(trigger_pin) +
+                    ',' +
+                    __e(echo_pin) +
+                    ')';
 
             }
             return __p
@@ -2348,11 +2350,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'long Distance_' +
-                    __e(name) +
-                    '()\n{\n  long microseconds = TP_init_' +
-                    __e(name) +
-                    '();\n  long distance;\n  distance = microseconds/29/2;\n  return distance;\n}\n';
+                __p += 'long Distance(int trigger_pin, int echo_pin)\n{\n  long microseconds = TP_init(trigger_pin, echo_pin);\n  long distance;\n  distance = microseconds/29/2;\n  return distance;\n}\n';
 
             }
             return __p
@@ -2363,17 +2361,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '//bqBAT\nlong TP_init_' +
-                    __e(name) +
-                    '()\n{\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , LOW);\n  delayMicroseconds(2);\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , HIGH);\n  delayMicroseconds(10);\n  digitalWrite( ' +
-                    __e(trigger_pin) +
-                    ' , LOW);\n  long microseconds = pulseIn( ' +
-                    __e(echo_pin) +
-                    ' ,HIGH);\n  return microseconds;\n}\n';
+                __p += '//bqBAT\nlong TP_init(int trigger_pin, int echo_pin)\n{\n  digitalWrite(trigger_pin, LOW);\n  delayMicroseconds(2);\n  digitalWrite(trigger_pin, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(trigger_pin, LOW);\n  long microseconds = pulseIn(echo_pin ,HIGH);\n  return microseconds;\n}\n';
 
             }
             return __p
@@ -3926,7 +3914,6 @@
             var echo_pin = Blockly.Arduino.valueToCode(this, 'RED PIN', Blockly.Arduino.ORDER_ATOMIC);
             var trigger_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN', Blockly.Arduino.ORDER_ATOMIC);
             var code = '';
-            var name = trigger_pin.substring(0, 3) + '_' + echo_pin.substring(0, 3);
             var a = RoboBlocks.findPinMode(echo_pin);
             code += a['code'];
             echo_pin = a['pin'];
@@ -3935,16 +3922,8 @@
             code += a['code'];
             trigger_pin = a['pin'];
 
-            Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'tp_init'] = JST['bq_bat_definitions_tp_init']({
-                'name': name,
-                'echo_pin': echo_pin,
-                'trigger_pin': trigger_pin
-            });
-            Blockly.Arduino.definitions_['define_bq_bat_' + echo_pin + 'distance'] = JST['bq_bat_definitions_distance']({
-                'name': name,
-                'echo_pin': echo_pin,
-                'trigger_pin': trigger_pin
-            });
+            Blockly.Arduino.definitions_['define_bq_bat_tp_init'] = JST['bq_bat_definitions_tp_init']({});
+            Blockly.Arduino.definitions_['define_bq_bat_distance'] = JST['bq_bat_definitions_distance']({});
             if (RoboBlocks.isVariable(echo_pin)) {
                 code += JST['bq_bat_setups_echo']({
                     'echo_pin': echo_pin
@@ -3964,15 +3943,9 @@
                 });
             }
             code += JST['bq_bat']({
-                'name': name,
+                'trigger_pin': trigger_pin,
                 'echo_pin': echo_pin
             });
-
-            RoboBlocks.variables[JST['bq_bat']({
-                'name': name,
-                'echo_pin': echo_pin
-            })] = ['int', 'global'];
-
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
         /**
