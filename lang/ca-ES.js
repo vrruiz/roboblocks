@@ -380,7 +380,7 @@
         LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Potenciòmetre zum.',
         //servo blocks :
         LANG_CATEGORY_SERVO: 'Servo',
-        LANG_SERVO_CONT: 'Servo',
+        LANG_SERVO_CONT: 'Servo de rotació contínua',
         LANG_SERVO_CONT_PIN: 'PIN#',
         LANG_SERVO_CONT_ROT: 'ROT',
         LANG_SERVO_CONT_TURN_CLOCKWISE: 'GIRAR EN SENTIT HORARIO',

@@ -125,7 +125,7 @@
                 LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Salt de línia',
                 LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Escriu caràcters especials.',
                 //bq blocks :
-                LANG_CATEGORY_BQ: 'Blocs octopus',
+                LANG_CATEGORY_BQ: 'Octopus bloqs',
                 LANG_BQ_BAT: 'BAT - Sensor d\'Ultrasons',
                 LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
                 LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
@@ -180,7 +180,7 @@
                 LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Retorna el valor analògic mesurat pel potenciòmetre',
                 //LCD blocks:
-                LANG_CATEGORY_LCD: 'Blocs LCD',
+                LANG_CATEGORY_LCD: 'LCD bloqs',
                 LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'Connecta el pin SCL al pin A5 i el pin SDA al pin A4',
                 LANG_LCD_DEF_TOOLTIP: 'Defineix el LCD',
@@ -393,7 +393,7 @@
                 LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN desitjat.',
                 //zum blocks :
-                LANG_CATEGORY_ZUM: 'zum bloqs',
+                LANG_CATEGORY_ZUM: 'Zum bloqs',
                 LANG_ZUM_BUTTON: 'Botó',
                 LANG_ZUM_BUTTON_PIN: 'PIN#',
                 LANG_ZUM_BUTTON_TOOLTIP: 'Botó zum',
@@ -436,7 +436,7 @@
                 LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Potenciòmetre zum.',
                 //servo blocks :
                 LANG_CATEGORY_SERVO: 'Servo',
-                LANG_SERVO_CONT: 'Servo',
+                LANG_SERVO_CONT: 'Servo de rotació contínua',
                 LANG_SERVO_CONT_PIN: 'PIN#',
                 LANG_SERVO_CONT_ROT: 'ROT',
                 LANG_SERVO_CONT_TURN_CLOCKWISE: 'GIRAR EN SENTIT HORARIO',
@@ -533,7 +533,7 @@
                 LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Line Feed',
                 LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Writes special Chars.',
                 //bq blocks :
-                LANG_CATEGORY_BQ: 'octopus bloqs',
+                LANG_CATEGORY_BQ: 'Octopus bloqs',
                 LANG_BQ_BAT: 'BAT - Ultrasonic Sensor',
                 LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
                 LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
@@ -588,7 +588,7 @@
                 LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Returns the analog value measured by the potentiometer.',
                 //LCD blocks:
-                LANG_CATEGORY_LCD: 'LCD blocks',
+                LANG_CATEGORY_LCD: 'LCD bloqs',
                 LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'Connect LCD pin SCL to A5, and pin SDA to A4',
                 LANG_LCD_DEF_TOOLTIP: 'Block that defines the LCD',
@@ -801,7 +801,7 @@
                 LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Select the PIN.',
                 //zum blocks :
-                LANG_CATEGORY_ZUM: 'zum bloqs',
+                LANG_CATEGORY_ZUM: 'Zum bloqs',
                 LANG_ZUM_BUTTON: 'Button',
                 LANG_ZUM_BUTTON_PIN: 'PIN#',
                 LANG_ZUM_BUTTON_TOOLTIP: 'zum Button',
@@ -844,7 +844,7 @@
                 LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Returns the analog value measured by the potentiometer.',
                 //servo blocks :
                 LANG_CATEGORY_SERVO: 'Servo',
-                LANG_SERVO_CONT: 'Servo',
+                LANG_SERVO_CONT: 'Continuous rotation servo',
                 LANG_SERVO_CONT_PIN: 'PIN#',
                 LANG_SERVO_CONT_ROT: 'ROT',
                 LANG_SERVO_CONT_TURN_CLOCKWISE: 'TURN CLOCKWISE',
@@ -941,7 +941,7 @@
                 LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Salto de línea',
                 LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Escribe caracteres especiales.',
                 //bq blocks :
-                LANG_CATEGORY_BQ: 'Bloques octopus',
+                LANG_CATEGORY_BQ: 'Octopus bloqs',
                 LANG_BQ_BAT: 'BAT - Sensor de Ultrasonidos',
                 LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
                 LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
@@ -996,7 +996,7 @@
                 LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Devuelve el valor analógico medido por el potenciómetro',
                 //LCD blocks:
-                LANG_CATEGORY_LCD: 'LCD blocks',
+                LANG_CATEGORY_LCD: 'LCD bloqs',
                 LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'Conecta el pin SCL al pin A5 y el pin SDA al pin A4',
                 LANG_LCD_DEF_TOOLTIP: 'Define el LCD',
@@ -1209,7 +1209,7 @@
                 LANG_VARIABLES_PIN_DIGITAL0: 'CUIDADO: el pin digital 0 (pin Rx) es usado para escribir un programa en la placa desde el ordenador. Usarlo para conectar componentes puede dar problemas al programarla.',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN deseado.',
                 //zum blocks :
-                LANG_CATEGORY_ZUM: 'zum bloqs',
+                LANG_CATEGORY_ZUM: 'Zum bloqs',
                 LANG_ZUM_BUTTON: 'Botón',
                 LANG_ZUM_BUTTON_PIN: 'PIN#',
                 LANG_ZUM_BUTTON_TOOLTIP: 'Botón zum',
@@ -1252,7 +1252,7 @@
                 LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Potenciómetro zum.',
                 //servo blocks :
                 LANG_CATEGORY_SERVO: 'Servo',
-                LANG_SERVO_CONT: 'Servo',
+                LANG_SERVO_CONT: 'Servo rotación continua',
                 LANG_SERVO_CONT_PIN: 'PIN#',
                 LANG_SERVO_CONT_ROT: 'ROT',
                 LANG_SERVO_CONT_TURN_CLOCKWISE: 'GIRAR EN SENTIDO HORARIO',
@@ -1349,7 +1349,7 @@
                 LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Line Feed',
                 LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Writes special Chars.',
                 //bq blocks :
-                LANG_CATEGORY_BQ: 'octopus bloqs',
+                LANG_CATEGORY_BQ: 'Octopus bloqs',
                 LANG_BQ_BAT: 'BAT - Sensore ad Ultrasuoni',
                 LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
                 LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
@@ -1404,7 +1404,7 @@
                 LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Restituisce il valore analogico del potenziometro.',
                 //LCD blocks:
-                LANG_CATEGORY_LCD: 'Blocco LCD',
+                LANG_CATEGORY_LCD: 'LCD bloqs',
                 LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'Connetti LCD con pin SCL a A5, ed il pin SDA a A4',
                 LANG_LCD_DEF_TOOLTIP: 'Questo blocco definisce LCD',
@@ -1617,7 +1617,7 @@
                 LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Seleziona il PIN.',
                 //zum blocks :
-                LANG_CATEGORY_ZUM: 'zum bloqs',
+                LANG_CATEGORY_ZUM: 'Zum bloqs',
                 LANG_ZUM_BUTTON: 'Pulsante',
                 LANG_ZUM_BUTTON_PIN: 'PIN#',
                 LANG_ZUM_BUTTON_TOOLTIP: 'zum Pulsante',
@@ -1660,14 +1660,14 @@
                 LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Restituisce il valore analogico del potenziometro.',
                 //servo blocks :
                 LANG_CATEGORY_SERVO: 'Servo',
-                LANG_SERVO_CONT: 'Servo',
+                LANG_SERVO_CONT: 'Servomotore a Rotazione Continua',
                 LANG_SERVO_CONT_PIN: 'PIN#',
                 LANG_SERVO_CONT_ROT: 'ROTAZiONE',
                 LANG_SERVO_CONT_TURN_CLOCKWISE: 'GIRA IN SENSO ORARIO',
                 LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'GIRA IN SENSo ANTI-ORARIO',
                 LANG_SERVO_CONT_STOPPED: 'FERMA',
                 LANG_SERVO_CONT_DELAY: 'Pausa',
-                LANG_SERVO_CONT_TOOLTIP: 'Continuous rotation servo.',
+                LANG_SERVO_CONT_TOOLTIP: 'Servomotore a Rotazione Continua.',
                 LANG_SERVO_MOVE: 'Servo',
                 LANG_SERVO_MOVE_PIN: 'PIN#',
                 LANG_SERVO_MOVE_DEGREES: 'Gradi (0~180)',
@@ -1757,7 +1757,7 @@
                 LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Salto de linha',
                 LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Escreve caracteres especiais.',
                 //bq blocks :
-                LANG_CATEGORY_BQ: 'Blocos octopus',
+                LANG_CATEGORY_BQ: 'Octopus bloqs',
                 LANG_BQ_BAT: 'BAT - Sensor de Ultrasons',
                 LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
                 LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
@@ -1812,7 +1812,7 @@
                 LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Devolve o valor analógico medido pelo potenciómetro',
                 //LCD blocks:
-                LANG_CATEGORY_LCD: 'Blocos LCD',
+                LANG_CATEGORY_LCD: 'LCD bloqs',
                 LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'Conecta o pino SCL ao pino A5 e o pino SDA ao pino A4',
                 LANG_LCD_DEF_TOOLTIP: 'Define o LCD',
@@ -2025,7 +2025,7 @@
                 LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
                 LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona o pino desejado.',
                 //zum blocks :
-                LANG_CATEGORY_ZUM: 'zum bloqs',
+                LANG_CATEGORY_ZUM: 'Zum bloqs',
                 LANG_ZUM_BUTTON: 'Botão',
                 LANG_ZUM_BUTTON_PIN: 'PIN#',
                 LANG_ZUM_BUTTON_TOOLTIP: 'Botão zum',
@@ -2068,14 +2068,14 @@
                 LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Potenciómetro zum.',
                 //servo blocks :
                 LANG_CATEGORY_SERVO: 'Servo',
-                LANG_SERVO_CONT: 'Servo',
+                LANG_SERVO_CONT: 'Servo para rotação contínua',
                 LANG_SERVO_CONT_PIN: 'PIN#',
                 LANG_SERVO_CONT_ROT: 'ROT',
                 LANG_SERVO_CONT_TURN_CLOCKWISE: 'GIRAR no SENTIDO HORÁRIO',
                 LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'GIRAR no SENTIDO ANTI-HORÁRIO',
                 LANG_SERVO_CONT_STOPPED: 'PARAR',
                 LANG_SERVO_CONT_DELAY: 'Pausa',
-                LANG_SERVO_CONT_TOOLTIP: 'Servo de rotación continua.',
+                LANG_SERVO_CONT_TOOLTIP: 'Servo para rotação contínua.',
                 LANG_SERVO_MOVE: 'Servo',
                 LANG_SERVO_MOVE_PIN: 'PIN#',
                 LANG_SERVO_MOVE_DEGREES: 'Graus (0~180)',
