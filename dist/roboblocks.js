@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-01-16
+/*! roboblocks - v0.1.12 - 2015-02-24
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -58,6 +58,20 @@
         (function() {
             var language = {
                 //random :
+                BLOCKLY_MSG_DUPLICATE_BLOCK: 'Duplicar',
+                BLOCKLY_MSG_REMOVE_COMMENT: 'Remove Comment',
+                BLOCKLY_MSG_ADD_COMMENT: 'Add Comment',
+                BLOCKLY_MSG_EXTERNAL_INPUTS: 'External Inputs',
+                BLOCKLY_MSG_INLINE_INPUTS: 'Inline Inputs',
+                BLOCKLY_MSG_DELETE_BLOCK: 'Delete Block',
+                BLOCKLY_MSG_DELETE_X_BLOCKS: 'Delete %1 Blocks',
+                BLOCKLY_MSG_COLLAPSE_BLOCK: 'Collapse Block',
+                BLOCKLY_MSG_EXPAND_BLOCK: 'Expand Block',
+                BLOCKLY_MSG_DISABLE_BLOCK: 'Disable Block',
+                BLOCKLY_MSG_ENABLE_BLOCK: 'Enable Block',
+                BLOCKLY_MSG_HELP: 'Help',
+                BLOCKLY_MSG_COLLAPSE_ALL: 'Collapse Blocks',
+                BLOCKLY_MSG_EXPAND_ALL: 'Expand Blocks',
                 LANG_VARIABLES_SET_ITEM: 'element',
                 LANG_RESERVED_WORDS: 'Paraula reservada: aquest nom no està permès.',
                 //logic blocks:
@@ -167,9 +181,13 @@
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Retorna el valor analògic mesurat pel potenciòmetre',
                 //LCD blocks:
                 LANG_CATEGORY_LCD: 'Blocs LCD',
-                LANG_LCD_DEF: 'LCD',
+                LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'Connecta el pin SCL al pin A5 i el pin SDA al pin A4',
                 LANG_LCD_DEF_TOOLTIP: 'Defineix el LCD',
+                LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
+                LANG_LCD_ADVANCED_ROWS: 'Rows',
+                LANG_LCD_ADVANCED_COLUMNS: 'Columns',
+                LANG_LCD_DEF_ADVANCED_TOOLTIP: 'Block that defines the advanced LCD',
                 LANG_LCD_SETBACKLIGHT: 'LCD: ajustar la retroiluminació',
                 LANG_LCD_SETBACKLIGHT_CLOSE: '',
                 LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Ajusta la retroiluminació de la pantalla LCD',
@@ -571,9 +589,13 @@
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Returns the analog value measured by the potentiometer.',
                 //LCD blocks:
                 LANG_CATEGORY_LCD: 'LCD blocks',
-                LANG_LCD_DEF: 'LCD',
+                LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'Connect LCD pin SCL to A5, and pin SDA to A4',
                 LANG_LCD_DEF_TOOLTIP: 'Block that defines the LCD',
+                LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
+                LANG_LCD_ADVANCED_ROWS: 'Rows',
+                LANG_LCD_ADVANCED_COLUMNS: 'Columns',
+                LANG_LCD_DEF_ADVANCED_TOOLTIP: 'Block that defines the advanced LCD',
                 LANG_LCD_SETBACKLIGHT: 'LCD: setBacklight(',
                 LANG_LCD_SETBACKLIGHT_CLOSE: ')',
                 LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Sets the backlight of the LCD screen.',
@@ -974,10 +996,14 @@
                 LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Devuelve el valor analógico medido por el potenciómetro',
                 //LCD blocks:
-                LANG_CATEGORY_LCD: 'Bloques LCD',
-                LANG_LCD_DEF: 'LCD',
+                LANG_CATEGORY_LCD: 'LCD blocks',
+                LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'Conecta el pin SCL al pin A5 y el pin SDA al pin A4',
                 LANG_LCD_DEF_TOOLTIP: 'Define el LCD',
+                LANG_LCD_ADVANCED_DEF: 'LCD avanzado',
+                LANG_LCD_ADVANCED_ROWS: 'Filas',
+                LANG_LCD_ADVANCED_COLUMNS: 'Columnas',
+                LANG_LCD_DEF_ADVANCED_TOOLTIP: 'Bloque que define el LCD avanzado',
                 LANG_LCD_SETBACKLIGHT: 'LCD: ajustar la retroiluminación',
                 LANG_LCD_SETBACKLIGHT_CLOSE: '',
                 LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Ajusta la retroiluminación de la pantalla LCD',
@@ -1256,6 +1282,20 @@
         (function() {
             var language = {
                 //random :
+                BLOCKLY_MSG_DUPLICATE_BLOCK: 'Duplicar',
+                BLOCKLY_MSG_REMOVE_COMMENT: 'Remove Comment',
+                BLOCKLY_MSG_ADD_COMMENT: 'Add Comment',
+                BLOCKLY_MSG_EXTERNAL_INPUTS: 'External Inputs',
+                BLOCKLY_MSG_INLINE_INPUTS: 'Inline Inputs',
+                BLOCKLY_MSG_DELETE_BLOCK: 'Delete Block',
+                BLOCKLY_MSG_DELETE_X_BLOCKS: 'Delete %1 Blocks',
+                BLOCKLY_MSG_COLLAPSE_BLOCK: 'Collapse Block',
+                BLOCKLY_MSG_EXPAND_BLOCK: 'Expand Block',
+                BLOCKLY_MSG_DISABLE_BLOCK: 'Disable Block',
+                BLOCKLY_MSG_ENABLE_BLOCK: 'Enable Block',
+                BLOCKLY_MSG_HELP: 'Help',
+                BLOCKLY_MSG_COLLAPSE_ALL: 'Collapse Blocks',
+                BLOCKLY_MSG_EXPAND_ALL: 'Expand Blocks',
                 LANG_VARIABLES_SET_ITEM: 'oggetto',
                 LANG_RESERVED_WORDS: 'Parola riservata: questo nome non è permesso.',
                 //logic blocks:
@@ -1365,9 +1405,13 @@
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Restituisce il valore analogico del potenziometro.',
                 //LCD blocks:
                 LANG_CATEGORY_LCD: 'Blocco LCD',
-                LANG_LCD_DEF: 'LCD',
+                LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'Connetti LCD con pin SCL a A5, ed il pin SDA a A4',
                 LANG_LCD_DEF_TOOLTIP: 'Questo blocco definisce LCD',
+                LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
+                LANG_LCD_ADVANCED_ROWS: 'Rows',
+                LANG_LCD_ADVANCED_COLUMNS: 'Columns',
+                LANG_LCD_DEF_ADVANCED_TOOLTIP: 'Block that defines the advanced LCD',
                 LANG_LCD_SETBACKLIGHT: 'LCD: imposta Retroilluminazione(',
                 LANG_LCD_SETBACKLIGHT_CLOSE: ')',
                 LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Imposta la retroilluminazione del schermo LCD.',
@@ -1646,6 +1690,20 @@
         (function() {
             var language = {
                 //random :
+                BLOCKLY_MSG_DUPLICATE_BLOCK: 'Duplicar',
+                BLOCKLY_MSG_REMOVE_COMMENT: 'Remove Comment',
+                BLOCKLY_MSG_ADD_COMMENT: 'Add Comment',
+                BLOCKLY_MSG_EXTERNAL_INPUTS: 'External Inputs',
+                BLOCKLY_MSG_INLINE_INPUTS: 'Inline Inputs',
+                BLOCKLY_MSG_DELETE_BLOCK: 'Delete Block',
+                BLOCKLY_MSG_DELETE_X_BLOCKS: 'Delete %1 Blocks',
+                BLOCKLY_MSG_COLLAPSE_BLOCK: 'Collapse Block',
+                BLOCKLY_MSG_EXPAND_BLOCK: 'Expand Block',
+                BLOCKLY_MSG_DISABLE_BLOCK: 'Disable Block',
+                BLOCKLY_MSG_ENABLE_BLOCK: 'Enable Block',
+                BLOCKLY_MSG_HELP: 'Help',
+                BLOCKLY_MSG_COLLAPSE_ALL: 'Collapse Blocks',
+                BLOCKLY_MSG_EXPAND_ALL: 'Expand Blocks',
                 LANG_VARIABLES_SET_ITEM: 'elemento',
                 LANG_RESERVED_WORDS: 'Palavra reservada: este nome não é permitido.',
                 //logic blocks:
@@ -1755,9 +1813,13 @@
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Devolve o valor analógico medido pelo potenciómetro',
                 //LCD blocks:
                 LANG_CATEGORY_LCD: 'Blocos LCD',
-                LANG_LCD_DEF: 'LCD',
+                LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'Conecta o pino SCL ao pino A5 e o pino SDA ao pino A4',
                 LANG_LCD_DEF_TOOLTIP: 'Define o LCD',
+                LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
+                LANG_LCD_ADVANCED_ROWS: 'Rows',
+                LANG_LCD_ADVANCED_COLUMNS: 'Columns',
+                LANG_LCD_DEF_ADVANCED_TOOLTIP: 'Block that defines the advanced LCD',
                 LANG_LCD_SETBACKLIGHT: 'LCD: ajustar a retroiluminação',
                 LANG_LCD_SETBACKLIGHT_CLOSE: '',
                 LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Ajusta a retroiluminação do LCD',
@@ -2032,7 +2094,6 @@
                 RoboBlocks.locales.add('pt-PT', language);
             }
         }());
-
         // Source: src/constants.js
         /* global RoboBlocks, Blockly*/
         RoboBlocks.locales.initialize();
@@ -2882,7 +2943,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'lcd.begin(20, 4);\n  lcd.clear();\n';
+                __p += 'lcd.begin(16, 2);\n  lcd.clear();\n';
 
             }
             return __p
@@ -5847,20 +5908,16 @@
         // Source: src/blocks/lcd_def/lcd_def.js
         /* global Blockly, JST, options, RoboBlocks */
         /* jshint sub:true */
-
         /**
          * lcd_def code generation
          * @return {String} Code generated with block parameters
          */
-
         Blockly.Arduino.lcd_def = function() {
             Blockly.Arduino.definitions_['define_lcd'] = JST['lcd_def_definitions']({});
             Blockly.Arduino.definitions_['declare_var_LCD'] = 'LiquidCrystal lcd(0);\n';
-
             Blockly.Arduino.setups_['setup_lcd_'] = JST['lcd_def_setups']({});
             return '';
         };
-
         /**
          * lcd_def block definition
          * @type {Object}
@@ -5874,22 +5931,14 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_LCD);
-                this.appendDummyInput()
-                    .appendField(RoboBlocks.locales.getKey('LANG_LCD_DEF'))
-                    .appendField(new Blockly.FieldImage('img/blocks/lcd.png', 208 * options.zoom, 100 * options.zoom));
-
-                this.appendDummyInput()
-                    .appendField(RoboBlocks.locales.getKey('LANG_LCD_PINS'));
-
-
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_LCD_DEF')).appendField(new Blockly.FieldImage('img/blocks/lcd.png', 208 * options.zoom, 100 * options.zoom));
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_LCD_PINS'));
                 this.setInputsInline(false);
-
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_LCD_DEF_TOOLTIP'));
             }
         };
-
         // Source: src/blocks/lcd_print/lcd_print.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */

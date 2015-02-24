@@ -2,6 +2,20 @@
 (function() {
     var language = {
         //random :
+        BLOCKLY_MSG_DUPLICATE_BLOCK: 'Duplicar',
+        BLOCKLY_MSG_REMOVE_COMMENT: 'Remove Comment',
+        BLOCKLY_MSG_ADD_COMMENT: 'Add Comment',
+        BLOCKLY_MSG_EXTERNAL_INPUTS: 'External Inputs',
+        BLOCKLY_MSG_INLINE_INPUTS: 'Inline Inputs',
+        BLOCKLY_MSG_DELETE_BLOCK: 'Delete Block',
+        BLOCKLY_MSG_DELETE_X_BLOCKS: 'Delete %1 Blocks',
+        BLOCKLY_MSG_COLLAPSE_BLOCK: 'Collapse Block',
+        BLOCKLY_MSG_EXPAND_BLOCK: 'Expand Block',
+        BLOCKLY_MSG_DISABLE_BLOCK: 'Disable Block',
+        BLOCKLY_MSG_ENABLE_BLOCK: 'Enable Block',
+        BLOCKLY_MSG_HELP: 'Help',
+        BLOCKLY_MSG_COLLAPSE_ALL: 'Collapse Blocks',
+        BLOCKLY_MSG_EXPAND_ALL: 'Expand Blocks',
         LANG_VARIABLES_SET_ITEM: 'elemento',
         LANG_RESERVED_WORDS: 'Palavra reservada: este nome não é permitido.',
         //logic blocks:
@@ -111,9 +125,13 @@
         LANG_BQ_POTENTIOMETER_TOOLTIP: 'Devolve o valor analógico medido pelo potenciómetro',
         //LCD blocks:
         LANG_CATEGORY_LCD: 'Blocos LCD',
-        LANG_LCD_DEF: 'LCD',
+        LANG_LCD_DEF: 'LCD (2x16)',
         LANG_LCD_PINS: 'Conecta o pino SCL ao pino A5 e o pino SDA ao pino A4',
         LANG_LCD_DEF_TOOLTIP: 'Define o LCD',
+        LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
+        LANG_LCD_ADVANCED_ROWS: 'Rows',
+        LANG_LCD_ADVANCED_COLUMNS: 'Columns',
+        LANG_LCD_DEF_ADVANCED_TOOLTIP: 'Block that defines the advanced LCD',
         LANG_LCD_SETBACKLIGHT: 'LCD: ajustar a retroiluminação',
         LANG_LCD_SETBACKLIGHT_CLOSE: '',
         LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Ajusta a retroiluminação do LCD',
