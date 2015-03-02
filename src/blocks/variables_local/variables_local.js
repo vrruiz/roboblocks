@@ -77,7 +77,7 @@ Blockly.Arduino.variables_local = function() {
 Blockly.Blocks.variables_local = {
     // Variable setter.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'), // Variables are handled specially.
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variable',
+    helpUrl: RoboBlocks.URL_VAR,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
         this.appendValueInput('VALUE').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL')).appendField(new Blockly.FieldTextInput(''), 'VAR').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL_EQUALS'));

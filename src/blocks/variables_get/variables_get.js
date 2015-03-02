@@ -16,7 +16,7 @@ Blockly.Arduino.variables_get = function() {
 Blockly.Blocks.variables_get = {
     // Variable setter.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'), // Variables are handled specially.
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_get',
+    helpUrl: RoboBlocks.URL_VAR,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
         this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))

@@ -35,7 +35,7 @@ Blockly.Arduino.inout_digital_write = function() {
  */
 Blockly.Blocks.inout_digital_write = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_digital_write',
+    helpUrl: RoboBlocks.URL_PIN_FUNC,
     /**
      * inout_digital_write initialization
      */

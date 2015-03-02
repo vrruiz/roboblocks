@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-02-24
+/*! roboblocks - v0.1.12 - 2015-03-02
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -2153,6 +2153,9 @@
         RoboBlocks.URL_MATH = 'http://diwo.bq.com/programando-los-bloques-matematicos/';
         RoboBlocks.URL_TEXT = 'http://diwo.bq.com/programando-los-bloques-de-texto/';
         RoboBlocks.URL_BT = 'http://diwo.bq.com/ejemplo-en-bitbloq-de-comunicacion-bluetooth/';
+        RoboBlocks.URL_VAR = 'http://diwo.bq.com/programando-con-variables-en-bitbloq/';
+        RoboBlocks.URL_PROC = 'http://diwo.bq.com/programando-con-funciones-en-bitbloq/';
+        RoboBlocks.URL_PIN_FUNC = 'http://diwo.bq.com/programando-los-bloques-funciones-pin';
 
         // RGB block colors
         RoboBlocks.LANG_COLOUR_BQ = '#D04141';
@@ -3771,7 +3774,7 @@
         Blockly.Blocks.array_get = {
             // Numeric value.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'),
-            helpUrl: RoboBlocks.URL_MATH,
+            helpUrl: RoboBlocks.URL_VAR,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET')).appendField(new Blockly.FieldVariable(' '), 'VAR');
@@ -3864,7 +3867,7 @@
 
         Blockly.Blocks.base_delay = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/base_delay',
+            helpUrl: RoboBlocks.URL_LED,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
                 this.appendValueInput('DELAY_TIME', Number)
@@ -5604,7 +5607,7 @@
          */
         Blockly.Blocks.inout_analog_read = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_analog_read',
+            helpUrl: RoboBlocks.URL_PIN_FUNC,
             /**
              * inout_analog_read initialization
              */
@@ -5660,7 +5663,7 @@
          */
         Blockly.Blocks.inout_analog_write = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_analog_write',
+            helpUrl: RoboBlocks.URL_PIN_FUNC,
             /**
              * inout_analog_write initialization
              */
@@ -5753,7 +5756,7 @@
          */
         Blockly.Blocks.inout_digital_read = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_digital_read',
+            helpUrl: RoboBlocks.URL_PIN_FUNC,
             /**
              * inout_digital_read initialization
              */
@@ -5802,7 +5805,7 @@
          */
         Blockly.Blocks.inout_digital_write = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_digital_write',
+            helpUrl: RoboBlocks.URL_PIN_FUNC,
             /**
              * inout_digital_write initialization
              */
@@ -5843,7 +5846,7 @@
          */
         Blockly.Blocks.inout_highlow = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_highlow',
+            helpUrl: RoboBlocks.URL_PIN_FUNC,
             /**
              * inout_highlow initialization
              */
@@ -6711,7 +6714,7 @@
 
         Blockly.Blocks.pin_analog = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/pin',
+            helpUrl: RoboBlocks.URL_PIN_FUNC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
@@ -6738,7 +6741,7 @@
 
         Blockly.Blocks.pin_digital = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/pin',
+            helpUrl: RoboBlocks.URL_PIN_FUNC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
                 this.appendDummyInput('')
@@ -6796,7 +6799,7 @@
         Blockly.Blocks.procedures_callnoreturn = {
             // Variable getter.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'), // Variables are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_callnoreturn',
+            helpUrl: RoboBlocks.URL_PROC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
                 this.appendDummyInput('DUMMY').appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
@@ -7033,7 +7036,7 @@
         Blockly.Blocks.procedures_callreturn = {
             // Variable getter.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'), // Variables are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_callreturn',
+            helpUrl: RoboBlocks.URL_PROC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
                 this.appendDummyInput('DUMMY').appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
@@ -7284,7 +7287,7 @@
         Blockly.Blocks.procedures_defnoreturn = {
             // Define a procedure with no return value.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_defnoreturn',
+            helpUrl: RoboBlocks.URL_PROC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
                 var name = Blockly.Procedures.findLegalName(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'), this);
@@ -7563,7 +7566,7 @@
         Blockly.Blocks.procedures_defreturn = {
             // Define a procedure with a return value.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'), // Procedures are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_defreturn',
+            helpUrl: RoboBlocks.URL_PROC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
                 var name = Blockly.Procedures.findLegalName(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_PROCEDURE'), this);
@@ -7680,7 +7683,7 @@
         Blockly.Blocks.procedures_ifreturn = {
             // Conditionally return value from a procedure.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'),
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_ifreturn',
+            helpUrl: RoboBlocks.URL_PROC,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
                 this.appendValueInput('CONDITION')
@@ -8568,7 +8571,7 @@
         Blockly.Blocks.variables_get = {
             // Variable setter.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'), // Variables are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_get',
+            helpUrl: RoboBlocks.URL_VAR,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET'))
@@ -8716,7 +8719,7 @@
         Blockly.Blocks.variables_global = {
             // Variable setter.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'), // Variables are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_global',
+            helpUrl: RoboBlocks.URL_VAR,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendValueInput('VALUE').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL')).appendField(new Blockly.FieldTextInput(''), 'VAR').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_EQUALS'));
@@ -8870,7 +8873,7 @@
         Blockly.Blocks.variables_local = {
             // Variable setter.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'), // Variables are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variable',
+            helpUrl: RoboBlocks.URL_VAR,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendValueInput('VALUE').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL')).appendField(new Blockly.FieldTextInput(''), 'VAR').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_LOCAL_EQUALS'));
@@ -8918,7 +8921,7 @@
         Blockly.Blocks.variables_set = {
             // Variable setter.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'), // Variables are handled specially.
-            helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_set',
+            helpUrl: RoboBlocks.URL_VAR,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
                 this.appendValueInput('VALUE').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_SET'))

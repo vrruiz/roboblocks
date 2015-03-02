@@ -32,7 +32,7 @@ Blockly.Arduino.procedures_ifreturn = function() {
 Blockly.Blocks.procedures_ifreturn = {
     // Conditionally return value from a procedure.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/procedures_ifreturn',
+    helpUrl: RoboBlocks.URL_PROC,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         this.appendValueInput('CONDITION')

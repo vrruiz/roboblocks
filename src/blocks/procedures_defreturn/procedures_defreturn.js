@@ -40,7 +40,7 @@ Blockly.Arduino.procedures_defreturn = function() {
 Blockly.Blocks.procedures_defreturn = {
     // Define a procedure with a return value.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'), // Procedures are handled specially.
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_defreturn',
+    helpUrl: RoboBlocks.URL_PROC,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         var name = Blockly.Procedures.findLegalName(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFRETURN_PROCEDURE'), this);
