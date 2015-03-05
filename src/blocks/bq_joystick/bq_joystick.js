@@ -56,7 +56,7 @@ Blockly.Arduino.bq_joystick = function() {
  */
 Blockly.Blocks.bq_joystick = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-    tags: ['bq', 'joystick'],
+    tags: ['joystick'],
     helpUrl: RoboBlocks.URL_JOYSTICK,
     /**
      * bq_joystick initialization

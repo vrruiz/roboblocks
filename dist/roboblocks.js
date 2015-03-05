@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-03-02
+/*! roboblocks - v0.1.12 - 2015-03-05
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -49,11 +49,10 @@
             return this;
         };
         RoboBlocks.locales.initialize = function() {
-            var lang = options.lang || 'en-GB';
+            var lang = options.lang || 'es-ES';
             this.setDefaultLang(lang);
             return this;
         };
-
         // Source: lang/ca-ES.js
         (function() {
             var language = {
@@ -3980,7 +3979,7 @@
          */
         Blockly.Blocks.bq_bat = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-            tags: ['bq', 'bat'],
+            tags: ['bat'],
             helpUrl: RoboBlocks.URL_US,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
@@ -4037,7 +4036,7 @@
          */
         Blockly.Blocks.bq_bluetooth_def = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-            tags: ['bq', 'bluetooth'],
+            tags: ['bluetooth'],
             helpUrl: RoboBlocks.URL_BT,
             /**
              * bq_bluetooth_slave initialization
@@ -4096,7 +4095,7 @@
          */
         Blockly.Blocks.bq_bluetooth_receive = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-            tags: ['bq', 'bluetooth'],
+            tags: ['bluetooth'],
             helpUrl: RoboBlocks.URL_BT,
             /**
              * bq_bluetooth_slave initialization
@@ -4145,7 +4144,7 @@
          */
         Blockly.Blocks.bq_bluetooth_send = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-            tags: ['bq', 'bluetooth'],
+            tags: ['bluetooth'],
             helpUrl: RoboBlocks.URL_BT,
             /**
              * bq_bluetooth_send initialization
@@ -4204,7 +4203,7 @@
          */
         Blockly.Blocks.bq_button = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-            tags: ['bq', 'botón'],
+            tags: ['button'],
             helpUrl: RoboBlocks.URL_BUTTON,
             /**
              * bq_button initialization
@@ -4276,7 +4275,7 @@
          */
         Blockly.Blocks.bq_buttons = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-            tags: ['bq', 'botones'],
+            tags: ['buttons'],
             helpUrl: RoboBlocks.URL_BUTTONS,
             /**
              * bq_buttons initialization
@@ -4343,7 +4342,7 @@
          */
         Blockly.Blocks.bq_infrared = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-            tags: ['bq', 'sensor infrarrojo'],
+            tags: ['infrared'],
             helpUrl: RoboBlocks.URL_IR,
             /**
              * bq_infrared initialization
@@ -4413,7 +4412,7 @@
          */
         Blockly.Blocks.bq_joystick = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-            tags: ['bq', 'joystick'],
+            tags: ['joystick'],
             helpUrl: RoboBlocks.URL_JOYSTICK,
             /**
              * bq_joystick initialization
@@ -4473,7 +4472,7 @@
          */
         Blockly.Blocks.bq_led = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-            tags: ['bq', 'led'],
+            tags: ['led'],
             helpUrl: RoboBlocks.URL_LED,
             /**
              * bq_led initialization
@@ -4521,7 +4520,7 @@
          */
         Blockly.Blocks.bq_photoresistor = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-            tags: ['bq', 'fotorresistencia'],
+            tags: ['photoresistor'],
             helpUrl: RoboBlocks.URL_LDR,
             /**
              * bq_photoresistor initialization
@@ -4576,7 +4575,7 @@
          */
         Blockly.Blocks.bq_piezo_buzzer = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-            tags: ['bq', 'zumbador'],
+            tags: ['buzzer'],
             helpUrl: RoboBlocks.URL_BUZZER,
             /**
              * bq_piezo_buzzer initialization
@@ -4658,7 +4657,7 @@
          */
         Blockly.Blocks.bq_piezo_buzzerav = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-            tags: ['bq', 'zumbador avanzado'],
+            tags: ['buzzer'],
             helpUrl: RoboBlocks.URL_BUZZER,
             /**
              * bq_piezo_buzzerav initialization
@@ -4715,7 +4714,7 @@
          */
         Blockly.Blocks.bq_potentiometer = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-            tags: ['bq', 'potenciómetro'],
+            tags: ['potentiometer'],
             helpUrl: RoboBlocks.URL_POTENTIOMETER,
             /**
              * bq_potentiometer initialization
@@ -4757,6 +4756,7 @@
         Blockly.Blocks.bt_serial_available = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
             helpUrl: RoboBlocks.URL_BT,
+            tags: ['bluetooth'],
             /**
              * bt_serial_available initialization
              */
@@ -5054,7 +5054,6 @@
          */
         Blockly.Blocks.controls_if = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-            tags: ['bq'],
             helpUrl: RoboBlocks.URL_IF,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
@@ -5883,7 +5882,7 @@
          */
         Blockly.Blocks.lcd_clear = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
-            tags: ['bq', 'bluetooth'],
+            tags: ['lcd'],
             helpUrl: RoboBlocks.URL_LCD,
             /**
              * lcd_slave initialization
@@ -5923,7 +5922,7 @@
          */
         Blockly.Blocks.lcd_def = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
-            tags: ['bq', 'lcd'],
+            tags: ['lcd'],
             helpUrl: RoboBlocks.URL_LCD,
             /**
              * lcd_slave initialization
@@ -5983,7 +5982,7 @@
          */
         Blockly.Blocks.lcd_print = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
-            tags: ['bq', 'bluetooth'],
+            tags: ['lcd'],
             helpUrl: RoboBlocks.URL_LCD,
             /**
              * lcd_slave initialization
@@ -6057,6 +6056,7 @@
         Blockly.Blocks.lcd_setBacklight = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
             helpUrl: RoboBlocks.URL_LCD,
+            tags: ['lcd'],
             /**
              * lcd_slave initialization
              */
@@ -7773,6 +7773,8 @@
         Blockly.Blocks.serial_available = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
             helpUrl: RoboBlocks.URL_SERIE,
+            tags: ['serial'],
+
             /**
              * serial_available initialization
              */
@@ -7817,6 +7819,7 @@
         Blockly.Blocks.serial_print = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
             helpUrl: RoboBlocks.URL_SERIE,
+            tags: ['serial'],
             /**
              * serial_print initialization
              */
@@ -7857,6 +7860,7 @@
         Blockly.Blocks.serial_println = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
             helpUrl: RoboBlocks.URL_SERIE,
+            tags: ['serial'],
             /**
              * serial_println initialization
              */
@@ -7894,6 +7898,8 @@
         Blockly.Blocks.serial_read = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
             helpUrl: RoboBlocks.URL_SERIE,
+            tags: ['serial'],
+
             /**
              * serial_read initialization
              */
@@ -7929,6 +7935,8 @@
         Blockly.Blocks.serial_special = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
             helpUrl: RoboBlocks.URL_SERIE,
+            tags: ['serial'],
+
             /**
              * serial_special initialization
              */
@@ -9024,7 +9032,7 @@
          */
         Blockly.Blocks.zum_button = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-            tags: ['bq', 'botón'],
+            tags: ['button'],
             helpUrl: RoboBlocks.URL_BUTTON,
             /**
              * zum_button initialization
@@ -9091,7 +9099,7 @@
          */
         Blockly.Blocks.zum_follower = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-            tags: ['bq', 'sensor infrarrojo'],
+            tags: ['infrared'],
             helpUrl: RoboBlocks.URL_IR,
             /**
              * zum_follower initialization
@@ -9142,7 +9150,7 @@
          */
         Blockly.Blocks.zum_infrared = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-            tags: ['bq', 'sensor infrarrojo'],
+            tags: ['infrared'],
             helpUrl: RoboBlocks.URL_IR,
             /**
              * zum_infrared initialization
@@ -9191,7 +9199,7 @@
          */
         Blockly.Blocks.zum_led = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-            tags: ['bq', 'led'],
+            tags: ['led'],
             helpUrl: RoboBlocks.URL_LED,
             /**
              * zum_led initialization
@@ -9239,7 +9247,7 @@
          */
         Blockly.Blocks.zum_photoresistor = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-            tags: ['bq', 'fotorresistencia'],
+            tags: ['photoresistor'],
             helpUrl: RoboBlocks.URL_LDR,
             /**
              * zum_photoresistor initialization
@@ -9293,7 +9301,7 @@
          */
         Blockly.Blocks.zum_piezo_buzzer = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-            tags: ['bq', 'zumbador'],
+            tags: ['buzzer'],
             helpUrl: RoboBlocks.URL_BUZZER,
             /**
              * zum_piezo_buzzer initialization
@@ -9369,7 +9377,7 @@
          */
         Blockly.Blocks.zum_piezo_buzzerav = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-            tags: ['bq', 'zumbador avanzado'],
+            tags: ['buzzer'],
             helpUrl: RoboBlocks.URL_BUZZER,
             /**
              * zum_piezo_buzzerav initialization
@@ -9424,7 +9432,7 @@
          */
         Blockly.Blocks.zum_potentiometer = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-            tags: ['bq', 'potenciómetro'],
+            tags: ['potentiometer'],
             helpUrl: RoboBlocks.URL_POTENTIOMETER,
             /**
              * zum_potentiometer initialization

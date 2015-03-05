@@ -49,7 +49,7 @@ Blockly.Arduino.bq_bat = function() {
  */
 Blockly.Blocks.bq_bat = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-    tags: ['bq', 'bat'],
+    tags: ['bat'],
     helpUrl: RoboBlocks.URL_US,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);

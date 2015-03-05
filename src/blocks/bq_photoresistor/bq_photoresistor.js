@@ -29,7 +29,7 @@ Blockly.Arduino.bq_photoresistor = function() {
 */
 Blockly.Blocks.bq_photoresistor = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-    tags: ['bq', 'fotorresistencia'],
+    tags: ['photoresistor'],
     helpUrl: RoboBlocks.URL_LDR,
     /**
     * bq_photoresistor initialization

@@ -23,6 +23,7 @@ Blockly.Arduino.bt_serial_available = function() {
 Blockly.Blocks.bt_serial_available = {
 	category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
 	helpUrl: RoboBlocks.URL_BT,
+	tags: ['bluetooth'],
 	 /**
 	  * bt_serial_available initialization
 	  */

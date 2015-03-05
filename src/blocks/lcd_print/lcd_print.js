@@ -43,7 +43,7 @@ Blockly.Arduino.lcd_print = function() {
  */
 Blockly.Blocks.lcd_print = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
-    tags: ['bq', 'bluetooth'],
+    tags: ['lcd'],
     helpUrl: RoboBlocks.URL_LCD,
     /**
      * lcd_slave initialization

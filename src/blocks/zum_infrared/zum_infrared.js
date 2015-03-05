@@ -32,7 +32,7 @@ Blockly.Arduino.zum_infrared = function() {
  */
 Blockly.Blocks.zum_infrared = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-    tags: ['bq', 'sensor infrarrojo'],
+    tags: ['infrared'],
     helpUrl: RoboBlocks.URL_IR,
     /**
      * zum_infrared initialization

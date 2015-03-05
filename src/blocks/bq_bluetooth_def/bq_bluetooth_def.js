@@ -43,7 +43,7 @@ Blockly.Arduino.bq_bluetooth_def = function() {
  */
 Blockly.Blocks.bq_bluetooth_def = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-    tags: ['bq', 'bluetooth'],
+    tags: ['bluetooth'],
     helpUrl: RoboBlocks.URL_BT,
     /**
      * bq_bluetooth_slave initialization

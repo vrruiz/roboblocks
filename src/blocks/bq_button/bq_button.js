@@ -33,7 +33,7 @@ Blockly.Arduino.bq_button = function() {
  */
 Blockly.Blocks.bq_button = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-    tags: ['bq', 'botón'],
+    tags: ['button'],
     helpUrl: RoboBlocks.URL_BUTTON,
     /**
      * bq_button initialization

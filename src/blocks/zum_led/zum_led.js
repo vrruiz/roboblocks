@@ -35,7 +35,7 @@ Blockly.Arduino.zum_led = function() {
  */
 Blockly.Blocks.zum_led = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-    tags: ['bq', 'led'],
+    tags: ['led'],
     helpUrl: RoboBlocks.URL_LED,
     /**
      * zum_led initialization

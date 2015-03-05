@@ -53,7 +53,7 @@ Blockly.Arduino.zum_follower = function() {
  */
 Blockly.Blocks.zum_follower = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-    tags: ['bq', 'sensor infrarrojo'],
+    tags: ['infrared'],
     helpUrl: RoboBlocks.URL_IR,
     /**
      * zum_follower initialization
