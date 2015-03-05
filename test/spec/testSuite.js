@@ -84,6 +84,7 @@ return {
 		'spec/procedures_defreturn',
 		'spec/procedures_defnoreturn',
 		'spec/procedures_ifreturn',
+		'spec/procedures_return',
 		'spec/procedures_callreturn',
 		'spec/procedures_callnoreturn',
 		'spec/pin_analog',

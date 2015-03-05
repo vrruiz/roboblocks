@@ -289,6 +289,8 @@
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Restituisce un valore casuale tra i due limiti.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Functioni',
+        LANG_PROCEDURES_RETURN: 'return',
+        LANG_PROCEDURES_RETURN_TOOLTIP: 'Returns a value',
         LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'La funzione è ricamata senza corrisponenti definizioni',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'Funzione_senza_valore_d_uscita',
