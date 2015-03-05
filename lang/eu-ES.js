@@ -283,6 +283,8 @@
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Zehaztutako bi mugen artean ausazko zenbaki bat sortzen du.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funtzioak',
+        LANG_PROCEDURES_RETURN: 'Return',
+        LANG_PROCEDURES_RETURN_TOOLTIP: 'Returns a value',
         LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'Aurretik zehaztu gabeko funtzio bati deia.',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'itzulerarik_gabeko_funtzioa',

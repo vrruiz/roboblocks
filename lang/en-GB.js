@@ -289,6 +289,8 @@
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Returns a random number between the two limits.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Functions',
+        LANG_PROCEDURES_RETURN: 'Return',
+        LANG_PROCEDURES_RETURN_TOOLTIP: 'Returns a value',
         LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'Function call without matching definition',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'function_without_return',

@@ -1,3 +1,4 @@
+
 'use strict';
 (function() {
     var language = {
@@ -289,6 +290,8 @@
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Crea un nombre aleatori entre els dos límits introduïts.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funcions',
+        LANG_PROCEDURES_RETURN: 'Return',
+        LANG_PROCEDURES_RETURN_TOOLTIP: 'Returns a value',
         LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'Crida a una funció sense definició prèvia.',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'func_sin_retorno',
