@@ -1,4 +1,3 @@
-
 'use strict';
 (function() {
     var language = {
@@ -159,8 +158,8 @@
         LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'Afegeix a condició del bloc "si".',
         LANG_CONTROLS_IF_ELSE_Field_ELSE: 'en cas contrari',
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Afegeix una condició final al bloc "si" per a capturar la resta d\'opcions.',
-        LANG_CONTROLS_FOR_FROM_WARNING:'It is not possible to set a variable as the initial value of the for block.',
-        LANG_CONTROLS_FOR_TO_WARNING:'It is not possible to set a variable as the final value of the for block.',
+        LANG_CONTROLS_FOR_FROM_WARNING: 'It is not possible to set a variable as the initial value of the for block.',
+        LANG_CONTROLS_FOR_TO_WARNING: 'It is not possible to set a variable as the final value of the for block.',
         LANG_CONTROLS_FOR_INPUT_WITH: 'comptar amb',
         LANG_CONTROLS_FOR_INPUT_VAR: 'x',
         LANG_CONTROLS_FOR_INPUT_FROM: 'des de',
@@ -233,7 +232,7 @@
         LANG_TEXT_JOIN_HELPURL: '',
         LANG_TEXT_JOIN_Field_CREATEWITH: 'crear text amb',
         LANG_TEXT_JOIN_TOOLTIP: 'Crea text ajuntant qualsevol nombre d\'elements.',
-    LANG_TEXT_CREATE_JOIN_Field_JOIN: 'unir',
+        LANG_TEXT_CREATE_JOIN_Field_JOIN: 'unir',
         LANG_TEXT_CREATE_JOIN_TOOLTIP: 'Afegir, eliminar o reordenar seccions per a reconfigurar aquest bloc de text.',
         LANG_TEXT_CREATE_JOIN_ITEM_Field_ITEM: 'element',
         LANG_TEXT_CREATE_JOIN_ITEM_TOOLTIP: 'Afegir un element al text.',
@@ -396,16 +395,16 @@
         LANG_SERVO_MOVE_DEGREES: 'Graus (0~180)',
         LANG_SERVO_MOVE_DELAY: 'Pausa',
         LANG_SERVO_MOVE_TOOLTIP: 'Moure el servo entre 0 i 180 graus.',
-        LANG_SERVO_WARNING:'It is not possible to set the servo pin using a variable'
-};
-// Node
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = language;
-}
-// Browser
-// if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
-//     this.RoboBlocks.locales.add('es', language);
-if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
-    RoboBlocks.locales.add('ca-ES', language);
-}
+        LANG_SERVO_WARNING: 'It is not possible to set the servo pin using a variable'
+    };
+    // Node
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    // if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
+    //     this.RoboBlocks.locales.add('es', language);
+    if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
+        RoboBlocks.locales.add('ca-ES', language);
+    }
 }());

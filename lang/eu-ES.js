@@ -1,7 +1,7 @@
 'use strict';
 (function() {
     var language = {
- //random :
+        //random :
         BLOCKLY_MSG_DUPLICATE_BLOCK: 'Bikoiztu',
         BLOCKLY_MSG_REMOVE_COMMENT: 'Iruzkina Ezabatu',
         BLOCKLY_MSG_ADD_COMMENT: 'Iruzkina Gehitu',
@@ -128,6 +128,10 @@
         LANG_LCD_DEF: 'LCD',
         LANG_LCD_PINS: 'SCL pina A5 pinera eta SDA pina A4 pinera konektatu',
         LANG_LCD_DEF_TOOLTIP: 'LCDa definitu',
+        LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
+        LANG_LCD_ADVANCED_ROWS: 'Rows',
+        LANG_LCD_ADVANCED_COLUMNS: 'Columns',
+        LANG_LCD_DEF_ADVANCED_TOOLTIP: 'Block that defines the advanced LCD',
         LANG_LCD_SETBACKLIGHT: 'LCD: atzeko iluminazioa doitu',
         LANG_LCD_SETBACKLIGHT_CLOSE: '',
         LANG_LCD_SETBACKLIGHT_TOOLTIP: 'LCD pantailaren atzeko iluminazioa doitu',
@@ -388,16 +392,16 @@
         LANG_SERVO_MOVE_DEGREES: 'Graduak (0~180)',
         LANG_SERVO_MOVE_DELAY: 'Etena [ms]',
         LANG_SERVO_MOVE_TOOLTIP: 'Serboa 0 eta 180 gradu artean biratu.',
-        LANG_SERVO_WARNING:'Serboaren pinari ezin diozu aldagai bat esleitu'
-        };
-// Node
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = language;
-}
-// Browser
-// if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
-//     this.RoboBlocks.locales.add('es', language);
-if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
-    RoboBlocks.locales.add('ca-ES', language);
-}
+        LANG_SERVO_WARNING: 'Serboaren pinari ezin diozu aldagai bat esleitu'
+    };
+    // Node
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    // if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
+    //     this.RoboBlocks.locales.add('es', language);
+    if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
+        RoboBlocks.locales.add('ca-ES', language);
+    }
 }());
