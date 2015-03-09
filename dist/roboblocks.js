@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-03-05
+/*! roboblocks - v0.1.12 - 2015-03-09
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -2789,7 +2789,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'long Distance(int trigger_pin, int echo_pin)\n{\n  long microseconds = TP_init(trigger_pin, echo_pin);\n  long distance;\n  distance = microseconds/29/2;\n  return distance;\n}\n';
+                __p += 'long Distance(int trigger_pin, int echo_pin)\n{\n  long microseconds = TP_init(trigger_pin, echo_pin);\n  long distance;\n  distance = microseconds/29/2;\n  if (distance == 0){\n    distance = 999;\n  }\n  return distance;\n}\n';
 
             }
             return __p
