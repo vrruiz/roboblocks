@@ -2570,7 +2570,8 @@
         RoboBlocks.URL_TEXT = 'http://diwo.bq.com/programando-los-bloques-de-texto/';
         RoboBlocks.URL_BT = 'http://diwo.bq.com/ejemplo-en-bitbloq-de-comunicacion-bluetooth/';
         RoboBlocks.URL_VAR = 'http://diwo.bq.com/programando-con-variables-en-bitbloq/';
-        RoboBlocks.URL_PROC = 'http://diwo.bq.com/programando-con-funciones-en-bitbloq/';
+        RoboBlocks.URL_PROC_NO_RET = 'http://diwo.bq.com/programando-con-funciones-en-bitbloq/';
+        RoboBlocks.URL_PROC = 'http://diwo.bq.com/programando-con-funciones-en-bitbloq-2/';
         RoboBlocks.URL_PIN_FUNC = 'http://diwo.bq.com/programando-los-bloques-funciones-pin';
 
         // RGB block colors
@@ -7216,7 +7217,7 @@
         Blockly.Blocks.procedures_callnoreturn = {
             // Variable getter.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'), // Variables are handled specially.
-            helpUrl: RoboBlocks.URL_PROC,
+            helpUrl: RoboBlocks.URL_PROC_NO_RET,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
                 this.appendDummyInput('DUMMY').appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');
@@ -7704,7 +7705,7 @@
         Blockly.Blocks.procedures_defnoreturn = {
             // Define a procedure with no return value.
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'),
-            helpUrl: RoboBlocks.URL_PROC,
+            helpUrl: RoboBlocks.URL_PROC_NO_RET,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
                 var name = Blockly.Procedures.findLegalName(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'), this);

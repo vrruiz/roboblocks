@@ -55,7 +55,8 @@ RoboBlocks.URL_MATH='http://diwo.bq.com/programando-los-bloques-matematicos/';
 RoboBlocks.URL_TEXT='http://diwo.bq.com/programando-los-bloques-de-texto/';
 RoboBlocks.URL_BT='http://diwo.bq.com/ejemplo-en-bitbloq-de-comunicacion-bluetooth/';
 RoboBlocks.URL_VAR= 'http://diwo.bq.com/programando-con-variables-en-bitbloq/';
-RoboBlocks.URL_PROC='http://diwo.bq.com/programando-con-funciones-en-bitbloq/';
+RoboBlocks.URL_PROC_NO_RET='http://diwo.bq.com/programando-con-funciones-en-bitbloq/';
+RoboBlocks.URL_PROC='http://diwo.bq.com/programando-con-funciones-en-bitbloq-2/';
 RoboBlocks.URL_PIN_FUNC='http://diwo.bq.com/programando-los-bloques-funciones-pin';
 
 // RGB block colors
