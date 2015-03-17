@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-03-10
+/*! roboblocks - v0.1.12 - 2015-03-17
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -1410,7 +1410,7 @@
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Potentziometroak neurtutako balio analogikoa bueltatzen du',
                 //LCD blocks:
                 LANG_CATEGORY_LCD: 'LCD blokeak',
-                LANG_LCD_DEF: 'LCD',
+                LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'SCL pina A5 pinera eta SDA pina A4 pinera konektatu',
                 LANG_LCD_DEF_TOOLTIP: 'LCDa definitu',
                 LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
@@ -1687,7 +1687,7 @@
             // if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
             //     this.RoboBlocks.locales.add('es', language);
             if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
-                RoboBlocks.locales.add('ca-ES', language);
+                RoboBlocks.locales.add('eu-ES', language);
             }
         }());
         // Source: lang/it_IT.js
