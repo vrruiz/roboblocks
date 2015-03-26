@@ -1,4 +1,4 @@
-/*! roboblocks - v0.1.12 - 2015-03-17
+/*! roboblocks - v0.1.12 - 2015-03-26
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -9185,7 +9185,8 @@
                 varValue = varValue.replace('{', '');
                 varValue = varValue.replace('}', '');
                 varValue = varValue.split(',');
-                Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
+                Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + '=' + '(int*)malloc(3*sizeof(int));\n';
+                // Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
                 Blockly.Arduino.setups_['define_var' + varName] = varName + '[0]=' + varValue[0] + ';\n  ' + varName + '[1]=' + varValue[1] + ';\n  ' + varName + '[2]=' + varValue[2] + ';\n';
             } else if (this.isVariable(varValue)) {
                 varType = RoboBlocks.variables[varValue][0];
@@ -9345,7 +9346,8 @@
                 varValue = varValue.replace('{', '');
                 varValue = varValue.replace('}', '');
                 varValue = varValue.split(',');
-                code += varType + varName + ';\n';
+                code += varType + varName + '=' + '(int*)malloc(3*sizeof(int));\n';
+                // code += varType + varName + ';\n';
                 code += varName + '[0]=' + varValue[0] + ';\n' + varName + '[1]=' + varValue[1] + ';\n' + varName + '[2]=' + varValue[2] + ';\n';
             } else if (this.isVariable(varValue)) {
                 varType = RoboBlocks.variables[varValue][0];

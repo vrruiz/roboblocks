@@ -51,7 +51,8 @@ Blockly.Arduino.variables_local = function() {
         varValue = varValue.replace('{', '');
         varValue = varValue.replace('}', '');
         varValue = varValue.split(',');
-        code += varType + varName + ';\n';
+        code += varType + varName + '='+'(int*)malloc(3*sizeof(int));\n';
+        // code += varType + varName + ';\n';
         code += varName + '[0]=' + varValue[0] + ';\n' + varName + '[1]=' + varValue[1] + ';\n' + varName + '[2]=' + varValue[2] + ';\n';
     } else if (this.isVariable(varValue)) {
         varType = RoboBlocks.variables[varValue][0];
