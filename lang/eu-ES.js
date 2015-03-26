@@ -287,8 +287,8 @@
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Zehaztutako bi mugen artean ausazko zenbaki bat sortzen du.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funtzioak',
-        LANG_PROCEDURES_RETURN: 'return',
-        LANG_PROCEDURES_RETURN_TOOLTIP: 'Returns a value',
+        LANG_PROCEDURES_RETURN: 'itzuli',
+        LANG_PROCEDURES_RETURN_TOOLTIP: 'Balio bat itzultzen du',
         LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'Aurretik zehaztu gabeko funtzio bati deia.',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'itzulerarik_gabeko_funtzioa',
@@ -379,7 +379,7 @@
         LANG_ZUM_POTENTIOMETER_TOOLTIP: 'zum potentziometroa.',
         //servo blocks :
         LANG_CATEGORY_SERVO: 'Serboa',
-        LANG_SERVO_CONT: 'Serboa',
+        LANG_SERVO_CONT: 'Errotazio jarraiko serboa',
         LANG_SERVO_CONT_PIN: 'PIN#',
         LANG_SERVO_CONT_ROT: 'ROT',
         LANG_SERVO_CONT_TURN_CLOCKWISE: 'ERLOJU-ORRATZEN ARABERA BIRATU',
