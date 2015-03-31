@@ -7,3 +7,13 @@ bower_components
 *.sublime-project
 *.sublime-workspace
 .idea/
+
+src/bower_components/
+src/javascript/
+src/img/
+src/media/
+src/dist/
+src/roboblocks.js
+src/roboblocks.min.js
+
+dist/
