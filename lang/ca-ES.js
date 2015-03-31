@@ -2,6 +2,20 @@
 (function() {
     var language = {
         //random :
+        BLOCKLY_MSG_DUPLICATE_BLOCK: 'Duplicar',
+        BLOCKLY_MSG_REMOVE_COMMENT: 'Remove Comment',
+        BLOCKLY_MSG_ADD_COMMENT: 'Add Comment',
+        BLOCKLY_MSG_EXTERNAL_INPUTS: 'External Inputs',
+        BLOCKLY_MSG_INLINE_INPUTS: 'Inline Inputs',
+        BLOCKLY_MSG_DELETE_BLOCK: 'Delete Block',
+        BLOCKLY_MSG_DELETE_X_BLOCKS: 'Delete %1 Blocks',
+        BLOCKLY_MSG_COLLAPSE_BLOCK: 'Collapse Block',
+        BLOCKLY_MSG_EXPAND_BLOCK: 'Expand Block',
+        BLOCKLY_MSG_DISABLE_BLOCK: 'Disable Block',
+        BLOCKLY_MSG_ENABLE_BLOCK: 'Enable Block',
+        BLOCKLY_MSG_HELP: 'Help',
+        BLOCKLY_MSG_COLLAPSE_ALL: 'Collapse Blocks',
+        BLOCKLY_MSG_EXPAND_ALL: 'Expand Blocks',
         LANG_VARIABLES_SET_ITEM: 'element',
         LANG_RESERVED_WORDS: 'Paraula reservada: aquest nom no està permès.',
         //logic blocks:
@@ -55,7 +69,7 @@
         LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Salt de línia',
         LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Escriu caràcters especials.',
         //bq blocks :
-        LANG_CATEGORY_BQ: 'Blocs octopus',
+        LANG_CATEGORY_BQ: 'Octopus bloqs',
         LANG_BQ_BAT: 'BAT - Sensor d\'Ultrasons',
         LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
         LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
@@ -110,10 +124,14 @@
         LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
         LANG_BQ_POTENTIOMETER_TOOLTIP: 'Retorna el valor analògic mesurat pel potenciòmetre',
         //LCD blocks:
-        LANG_CATEGORY_LCD: 'Blocs LCD',
-        LANG_LCD_DEF: 'LCD',
+        LANG_CATEGORY_LCD: 'LCD bloqs',
+        LANG_LCD_DEF: 'LCD (2x16)',
         LANG_LCD_PINS: 'Connecta el pin SCL al pin A5 i el pin SDA al pin A4',
         LANG_LCD_DEF_TOOLTIP: 'Defineix el LCD',
+        LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
+        LANG_LCD_ADVANCED_ROWS: 'Rows',
+        LANG_LCD_ADVANCED_COLUMNS: 'Columns',
+        LANG_LCD_DEF_ADVANCED_TOOLTIP: 'Block that defines the advanced LCD',
         LANG_LCD_SETBACKLIGHT: 'LCD: ajustar la retroiluminació',
         LANG_LCD_SETBACKLIGHT_CLOSE: '',
         LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Ajusta la retroiluminació de la pantalla LCD',
@@ -140,8 +158,8 @@
         LANG_CONTROLS_IF_ELSEIF_TOOLTIP: 'Afegeix a condició del bloc "si".',
         LANG_CONTROLS_IF_ELSE_Field_ELSE: 'en cas contrari',
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Afegeix una condició final al bloc "si" per a capturar la resta d\'opcions.',
-        LANG_CONTROLS_FOR_FROM_WARNING:'It is not possible to set a variable as the initial value of the for block.',
-        LANG_CONTROLS_FOR_TO_WARNING:'It is not possible to set a variable as the final value of the for block.',
+        LANG_CONTROLS_FOR_FROM_WARNING: 'It is not possible to set a variable as the initial value of the for block.',
+        LANG_CONTROLS_FOR_TO_WARNING: 'It is not possible to set a variable as the final value of the for block.',
         LANG_CONTROLS_FOR_INPUT_WITH: 'comptar amb',
         LANG_CONTROLS_FOR_INPUT_VAR: 'x',
         LANG_CONTROLS_FOR_INPUT_FROM: 'des de',
@@ -214,7 +232,7 @@
         LANG_TEXT_JOIN_HELPURL: '',
         LANG_TEXT_JOIN_Field_CREATEWITH: 'crear text amb',
         LANG_TEXT_JOIN_TOOLTIP: 'Crea text ajuntant qualsevol nombre d\'elements.',
-    LANG_TEXT_CREATE_JOIN_Field_JOIN: 'unir',
+        LANG_TEXT_CREATE_JOIN_Field_JOIN: 'unir',
         LANG_TEXT_CREATE_JOIN_TOOLTIP: 'Afegir, eliminar o reordenar seccions per a reconfigurar aquest bloc de text.',
         LANG_TEXT_CREATE_JOIN_ITEM_Field_ITEM: 'element',
         LANG_TEXT_CREATE_JOIN_ITEM_TOOLTIP: 'Afegir un element al text.',
@@ -271,6 +289,8 @@
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Crea un nombre aleatori entre els dos límits introduïts.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funcions',
+        LANG_PROCEDURES_RETURN: 'return',
+        LANG_PROCEDURES_RETURN_TOOLTIP: 'Returns a value',
         LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'Crida a una funció sense definició prèvia.',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'func_sin_retorno',
@@ -319,7 +339,7 @@
         LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN desitjat.',
         //zum blocks :
-        LANG_CATEGORY_ZUM: 'zum bloqs',
+        LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Botó',
         LANG_ZUM_BUTTON_PIN: 'PIN#',
         LANG_ZUM_BUTTON_TOOLTIP: 'Botó zum',
@@ -362,7 +382,7 @@
         LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Potenciòmetre zum.',
         //servo blocks :
         LANG_CATEGORY_SERVO: 'Servo',
-        LANG_SERVO_CONT: 'Servo',
+        LANG_SERVO_CONT: 'Servo de rotació contínua',
         LANG_SERVO_CONT_PIN: 'PIN#',
         LANG_SERVO_CONT_ROT: 'ROT',
         LANG_SERVO_CONT_TURN_CLOCKWISE: 'GIRAR EN SENTIT HORARIO',
@@ -375,16 +395,16 @@
         LANG_SERVO_MOVE_DEGREES: 'Graus (0~180)',
         LANG_SERVO_MOVE_DELAY: 'Pausa',
         LANG_SERVO_MOVE_TOOLTIP: 'Moure el servo entre 0 i 180 graus.',
-        LANG_SERVO_WARNING:'It is not possible to set the servo pin using a variable'
-};
-// Node
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = language;
-}
-// Browser
-// if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
-//     this.RoboBlocks.locales.add('es', language);
-if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
-    RoboBlocks.locales.add('ca-ES', language);
-}
+        LANG_SERVO_WARNING: 'It is not possible to set the servo pin using a variable'
+    };
+    // Node
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    // if (typeof window !== 'undefined' && this.RoboBlocks && this.RoboBlocks.locales.add) {
+    //     this.RoboBlocks.locales.add('es', language);
+    if (typeof window !== 'undefined' && RoboBlocks && RoboBlocks.locales.add) {
+        RoboBlocks.locales.add('ca-ES', language);
+    }
 }());

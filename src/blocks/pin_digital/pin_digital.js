@@ -12,7 +12,7 @@ Blockly.Arduino.pin_digital = function() {
 
 Blockly.Blocks.pin_digital = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/pin',
+    helpUrl: RoboBlocks.URL_PIN_FUNC,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
         this.appendDummyInput('')

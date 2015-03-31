@@ -69,7 +69,7 @@
         LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Salto de línea',
         LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Escribe caracteres especiales.',
         //bq blocks :
-        LANG_CATEGORY_BQ: 'Bloques octopus',
+        LANG_CATEGORY_BQ: 'Octopus bloqs',
         LANG_BQ_BAT: 'BAT - Sensor de Ultrasonidos',
         LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
         LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
@@ -124,10 +124,14 @@
         LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
         LANG_BQ_POTENTIOMETER_TOOLTIP: 'Devuelve el valor analógico medido por el potenciómetro',
         //LCD blocks:
-        LANG_CATEGORY_LCD: 'Bloques LCD',
-        LANG_LCD_DEF: 'LCD',
+        LANG_CATEGORY_LCD: 'LCD bloqs',
+        LANG_LCD_DEF: 'LCD (2x16)',
         LANG_LCD_PINS: 'Conecta el pin SCL al pin A5 y el pin SDA al pin A4',
         LANG_LCD_DEF_TOOLTIP: 'Define el LCD',
+        LANG_LCD_ADVANCED_DEF: 'LCD avanzado',
+        LANG_LCD_ADVANCED_ROWS: 'Filas',
+        LANG_LCD_ADVANCED_COLUMNS: 'Columnas',
+        LANG_LCD_DEF_ADVANCED_TOOLTIP: 'Bloque que define el LCD avanzado',
         LANG_LCD_SETBACKLIGHT: 'LCD: ajustar la retroiluminación',
         LANG_LCD_SETBACKLIGHT_CLOSE: '',
         LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Ajusta la retroiluminación de la pantalla LCD',
@@ -285,6 +289,8 @@
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Crea un número aleatorio entre los dos límites introducidos.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funciones',
+        LANG_PROCEDURES_RETURN: 'devuelve',
+        LANG_PROCEDURES_RETURN_TOOLTIP: 'Devuelve un valor',
         LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'Llamada a una función sin definición previa.',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'func_sin_retorno',
@@ -333,7 +339,7 @@
         LANG_VARIABLES_PIN_DIGITAL0: 'CUIDADO: el pin digital 0 (pin Rx) es usado para escribir un programa en la placa desde el ordenador. Usarlo para conectar componentes puede dar problemas al programarla.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN deseado.',
         //zum blocks :
-        LANG_CATEGORY_ZUM: 'zum bloqs',
+        LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Botón',
         LANG_ZUM_BUTTON_PIN: 'PIN#',
         LANG_ZUM_BUTTON_TOOLTIP: 'Botón zum',
@@ -376,7 +382,7 @@
         LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Potenciómetro zum.',
         //servo blocks :
         LANG_CATEGORY_SERVO: 'Servo',
-        LANG_SERVO_CONT: 'Servo',
+        LANG_SERVO_CONT: 'Servo rotación continua',
         LANG_SERVO_CONT_PIN: 'PIN#',
         LANG_SERVO_CONT_ROT: 'ROT',
         LANG_SERVO_CONT_TURN_CLOCKWISE: 'GIRAR EN SENTIDO HORARIO',

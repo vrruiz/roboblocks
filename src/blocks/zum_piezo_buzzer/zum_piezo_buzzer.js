@@ -36,8 +36,8 @@ Blockly.Arduino.zum_piezo_buzzer = function() {
  */
 Blockly.Blocks.zum_piezo_buzzer = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
-    tags: ['bq', 'zumbador'],
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/zum_piezo_buzzer',
+    tags: ['buzzer'],
+    helpUrl: RoboBlocks.URL_BUZZER,
     /**
     * zum_piezo_buzzer initialization
     */

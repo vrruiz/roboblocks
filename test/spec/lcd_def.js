@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'lcd_def');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), '#include <Wire.h>\n#include <LiquidCrystal.h>\n\n/***   Global variables   ***/\nLiquidCrystal lcd(0);\n\n/***   Function declaration   ***/\n\nvoid setup()\n{\n  lcd.begin(20, 4);\n  lcd.clear();\n\n}\n\n\nvoid loop()\n{\n\n}\n\n/***   Function definition   ***/\n');
+				assert.equal(Blockly.Arduino.workspaceToCode(), '#include <Wire.h>\n#include <LiquidCrystal.h>\n\n/***   Global variables   ***/\nLiquidCrystal lcd(0);\n\n/***   Function declaration   ***/\n\nvoid setup()\n{\n  lcd.begin(16, 2);\n  lcd.clear();\n\n}\n\n\nvoid loop()\n{\n\n}\n\n/***   Function definition   ***/\n');
 			});
 		});
 	});

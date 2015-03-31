@@ -1,1 +1,1 @@
-Distance_{{ name }}()
+Distance({{trigger_pin}},{{echo_pin}})

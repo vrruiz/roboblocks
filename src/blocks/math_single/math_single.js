@@ -101,7 +101,7 @@ Blockly.Arduino.math_single = function() {
 Blockly.Blocks.math_single = {
     // Advanced math operators with single operand.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_single',
+    helpUrl: RoboBlocks.URL_MATH,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.setOutput(true, Number);

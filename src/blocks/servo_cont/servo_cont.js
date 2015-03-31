@@ -42,7 +42,7 @@ Blockly.Arduino.servo_cont = function() {
 Blockly.Blocks.servo_cont = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_SERVO'),
     tags: ['servo'],
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_cont',
+    helpUrl: RoboBlocks.URL_CONTINUOUS_ROTATION_SERVO,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
         this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT')).appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_PIN')).setCheck(Number);

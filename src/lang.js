@@ -14,7 +14,7 @@ RoboBlocks.locales.setDefaultLang = function(langCode) {
     for (var i in this.languages) {
         if (this.languages[i].langCode === langCode) {
             this.defaultLanguage = this.languages[i].values;
-            this.defaultLanguage.lngCode=langCode;
+            this.defaultLanguage.lngCode = langCode;
         }
     }
 };

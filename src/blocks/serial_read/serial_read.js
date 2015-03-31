@@ -9,7 +9,7 @@
 
 Blockly.Arduino.serial_read = function() {
 
-	Blockly.Arduino.setups_['setup_serial_read'] = JST['serial_read_setups']({
+	Blockly.Arduino.setups_['setup_serial'] = JST['serial_read_setups']({
 		'bitrate': profiles.default.serial
 	});
 	var code = JST['serial_read']({});
@@ -23,7 +23,9 @@ Blockly.Arduino.serial_read = function() {
  */
 Blockly.Blocks.serial_read = {
 	category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_read',
+	helpUrl: RoboBlocks.URL_SERIE,
+	tags: ['serial'],
+
 	 /**
 	  * serial_read initialization
 	  */

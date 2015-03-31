@@ -21,7 +21,7 @@ Blockly.Arduino.controls_flow_statements = function() {
 Blockly.Blocks.controls_flow_statements = {
     // Flow statements: continue, break.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/controls_flow_statements',
+    helpUrl: RoboBlocks.URL_FLOW_STATEMENTS,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         var dropdown = new Blockly.FieldDropdown(

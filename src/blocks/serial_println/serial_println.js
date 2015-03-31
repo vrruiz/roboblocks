@@ -11,7 +11,7 @@ Blockly.Arduino.serial_println = function() {
     var a = RoboBlocks.findPinMode(content);
     code += a['code'];
     content = a['pin'];
-    Blockly.Arduino.setups_['setup_serial_println'] = JST['serial_println_setups']({
+    Blockly.Arduino.setups_['setup_serial'] = JST['serial_println_setups']({
         'bitrate': profiles.
         default.serial
     });
@@ -26,7 +26,8 @@ Blockly.Arduino.serial_println = function() {
  */
 Blockly.Blocks.serial_println = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/serial_println',
+    helpUrl: RoboBlocks.URL_SERIE,
+    tags: ['serial'],
     /**
      * serial_println initialization
      */

@@ -12,7 +12,7 @@
 				expect( true ).to.equal( true );
 				var bool = Blockly.Block.obtain(Blockly.mainWorkspace, 'bq_bat');
 
-				assert.equal(Blockly.Arduino.workspaceToCode(), '/***   Global variables   ***/\n\n/***   Function declaration   ***/\n//bqBAT\nlong TP_init__();\nlong Distance__();\n\nvoid setup()\n{\n  pinMode(  , INPUT );\n\n  pinMode(  , OUTPUT );\n\n}\n\n\nvoid loop()\n{\n  Distance__();\n\n}\n\n/***   Function definition   ***/\n//bqBAT\nlong TP_init__()\n{\n  digitalWrite(  , LOW);\n  delayMicroseconds(2);\n  digitalWrite(  , HIGH);\n  delayMicroseconds(10);\n  digitalWrite(  , LOW);\n  long microseconds = pulseIn(  ,HIGH);\n  return microseconds;\n}\nlong Distance__()\n{\n  long microseconds = TP_init__();\n  long distance;\n  distance = microseconds/29/2;\n  return distance;\n}\n');
+				assert.equal(Blockly.Arduino.workspaceToCode(), '/***   Global variables   ***/\n\n/***   Function declaration   ***/\n//bqBAT\nlong TP_init(int trigger_pin, int echo_pin);\nlong Distance(int trigger_pin, int echo_pin);\n\nvoid setup()\n{\n  pinMode(  , INPUT );\n\n  pinMode(  , OUTPUT );\n\n}\n\n\nvoid loop()\n{\n  Distance(,);\n\n}\n\n/***   Function definition   ***/\n//bqBAT\nlong TP_init(int trigger_pin, int echo_pin)\n{\n  digitalWrite(trigger_pin, LOW);\n  delayMicroseconds(2);\n  digitalWrite(trigger_pin, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(trigger_pin, LOW);\n  long microseconds = pulseIn(echo_pin ,HIGH);\n  return microseconds;\n}\nlong Distance(int trigger_pin, int echo_pin)\n{\n  long microseconds = TP_init(trigger_pin, echo_pin);\n  long distance;\n  distance = microseconds/29/2;\n  if (distance == 0){\n    distance = 999;\n  }\n  return distance;\n}\n');
 			});
 		});
 	});

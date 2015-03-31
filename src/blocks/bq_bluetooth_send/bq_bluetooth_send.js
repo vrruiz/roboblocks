@@ -28,8 +28,8 @@ Blockly.Arduino.bq_bluetooth_send = function() {
  */
 Blockly.Blocks.bq_bluetooth_send = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-    tags: ['bq', 'bluetooth'],
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/bq_bluetooth_send',
+    tags: ['bluetooth'],
+    helpUrl: RoboBlocks.URL_BT,
     /**
 	  * bq_bluetooth_send initialization
 	  */

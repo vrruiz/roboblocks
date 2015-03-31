@@ -20,7 +20,9 @@ Blockly.Arduino.serial_special = function() {
  */
 Blockly.Blocks.serial_special = {
 	category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/serial_special',
+	helpUrl: RoboBlocks.URL_SERIE,
+	tags: ['serial'],
+
 	 /**
 	  * serial_special initialization
 	  */

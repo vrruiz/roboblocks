@@ -17,7 +17,7 @@ Blockly.Arduino.base_delay = function() {
 
 Blockly.Blocks.base_delay = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/base_delay',
+    helpUrl: RoboBlocks.URL_LED,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendValueInput('DELAY_TIME', Number)

@@ -32,7 +32,7 @@ Blockly.Arduino.math_modulo = function() {
 Blockly.Blocks.math_modulo = {
   // Remainder of a division.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_modulo',
+    helpUrl: RoboBlocks.URL_MATH,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.setOutput(true, Number);

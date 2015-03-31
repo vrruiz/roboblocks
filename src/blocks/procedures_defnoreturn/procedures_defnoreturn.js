@@ -24,6 +24,8 @@ Blockly.Arduino.procedures_defnoreturn = function() {
         'args': args,
         'branch': branch
     });
+    code=code.replace(/&amp;/g, '');
+
     code = Blockly.Arduino.scrub_(this, code);
     Blockly.Arduino.definitions_[funcName] = code;
     return null;
@@ -31,7 +33,7 @@ Blockly.Arduino.procedures_defnoreturn = function() {
 Blockly.Blocks.procedures_defnoreturn = {
     // Define a procedure with no return value.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_defnoreturn',
+    helpUrl: RoboBlocks.URL_PROC_NO_RET,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         var name = Blockly.Procedures.findLegalName(RoboBlocks.locales.getKey('LANG_PROCEDURES_DEFNORETURN_PROCEDURE'), this);

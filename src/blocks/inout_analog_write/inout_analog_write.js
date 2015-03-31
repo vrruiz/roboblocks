@@ -42,7 +42,7 @@ Blockly.Arduino.inout_analog_write = function() {
  */
 Blockly.Blocks.inout_analog_write = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_analog_write',
+    helpUrl: RoboBlocks.URL_PIN_FUNC,
     /**
      * inout_analog_write initialization
      */
