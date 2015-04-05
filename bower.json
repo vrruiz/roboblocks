@@ -31,7 +31,7 @@
     "url": "http://github.com/bq/roboblocks.git"
   },
   "dependencies": {
-    "blockly-bq": "0.1.9",
+    "blockly-bq": "http://github.com/vrruiz/blockly.git",
     "underscore": "~1.6.0",
     "requirejs": "~2.1.15"
   },
