@@ -69,7 +69,7 @@
         LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Saut de ligne',
         LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Utilise des caractères spéciaux.',
         //bq blocks :
-        LANG_CATEGORY_BQ: 'blocs octopus',
+        LANG_CATEGORY_BQ: 'Octopus bloqs',
         LANG_BQ_BAT: 'BAT – Capteur à ultrasons',
         LANG_BQ_BAT_RED_PIN: 'BROCHE ECHO#',
         LANG_BQ_BAT_BLUE_PIN: 'BROCHE TRIGGER#',
@@ -339,7 +339,7 @@
         LANG_VARIABLES_PIN_DIGITAL0: 'ATTENTION : la broche numérique 0 (broche RX) sert à charger les programmes. Si elle est utilisée pour connecter des composants électroniques, des problèmes peuvent survenir lors du chargement d’un nouveau programme.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Sélectionner la BROCHE.',
         //zum blocks :
-        LANG_CATEGORY_ZUM: 'Blocs zum',
+        LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Bouton',
         LANG_ZUM_BUTTON_PIN: 'BROCHE#',
         LANG_ZUM_BUTTON_TOOLTIP: 'Bouton zum',
