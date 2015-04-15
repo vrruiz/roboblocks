@@ -28,7 +28,7 @@ Blockly.Arduino.advanced_conversion = function() {
  */
 Blockly.Blocks.advanced_conversion = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_COMMUNICATION'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/advanced_conversion',
+    helpUrl: RoboBlocks.URL_SERIE,
     /**
      * advanced_conversion initialization
      */

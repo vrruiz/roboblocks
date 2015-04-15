@@ -22,7 +22,7 @@ Blockly.Arduino.inout_highlow = function() {
  */
 Blockly.Blocks.inout_highlow = {
 	category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-	helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/inout_highlow',
+	helpUrl: RoboBlocks.URL_PIN_FUNC,
 	 /**
 	  * inout_highlow initialization
 	  */

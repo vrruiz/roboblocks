@@ -33,7 +33,7 @@ Blockly.Arduino.inout_analog_read = function() {
  */
 Blockly.Blocks.inout_analog_read = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_analog_read',
+    helpUrl: RoboBlocks.URL_PIN_FUNC,
     /**
      * inout_analog_read initialization
      */

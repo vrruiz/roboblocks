@@ -48,7 +48,7 @@ Blockly.Arduino.logic_compare.OPERATORS = {
 Blockly.Blocks.logic_compare = {
     // Comparison operator.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/logic_compare',
+    helpUrl: RoboBlocks.URL_LOGIC,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
         this.setOutput(true, Boolean);

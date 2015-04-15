@@ -47,7 +47,7 @@ Blockly.Arduino.servo_move = function() {
 Blockly.Blocks.servo_move = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_SERVO'),
     tags: ['servo'],
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/servo_move',
+    helpUrl: RoboBlocks.URL_SERVO,
     /**
      * servo_move initialization
      */

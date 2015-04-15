@@ -30,7 +30,7 @@ Blockly.Arduino.base_map = function() {
 
 Blockly.Blocks.base_map = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/base_map',
+    helpUrl: RoboBlocks.URL_MATH,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.appendValueInput('NUM', Number)

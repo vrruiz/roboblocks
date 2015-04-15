@@ -31,7 +31,7 @@ Blockly.Arduino.inout_digital_read = function() {
  */
 Blockly.Blocks.inout_digital_read = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ADVANCED'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/inout_digital_read',
+    helpUrl: RoboBlocks.URL_PIN_FUNC,
     /**
      * inout_digital_read initialization
      */

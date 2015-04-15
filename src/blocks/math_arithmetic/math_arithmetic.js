@@ -53,7 +53,7 @@ Blockly.Arduino.math_arithmetic.OPERATORS = {
 Blockly.Blocks.math_arithmetic = {
   // Basic arithmetic operator.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/math_arithmetic',
+    helpUrl: RoboBlocks.URL_MATH,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MATH);
         this.setOutput(true, Number);

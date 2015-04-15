@@ -49,7 +49,8 @@ Blockly.Arduino.variables_global = function() {
         varValue = varValue.replace('{', '');
         varValue = varValue.replace('}', '');
         varValue = varValue.split(',');
-        Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
+        Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + '='+'(int*)malloc(3*sizeof(int));\n';
+        // Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
         Blockly.Arduino.setups_['define_var' + varName] = varName + '[0]=' + varValue[0] + ';\n  ' + varName + '[1]=' + varValue[1] + ';\n  ' + varName + '[2]=' + varValue[2] + ';\n';
     } else if (this.isVariable(varValue)) {
         varType = RoboBlocks.variables[varValue][0];
@@ -57,7 +58,7 @@ Blockly.Arduino.variables_global = function() {
         Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
     } else if (varValue.search('readJoystick') >= 0) {
         varType = 'int *';
-        Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + ';\n';
+        Blockly.Arduino.definitions_['declare_var' + varName] = varType + varName + '='+'(int*)malloc(3*sizeof(int));\n';
         Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
     } else if ((varValue.search('analogRead') >= 0) || (varValue.search('digitalRead') >= 0) || (varValue.search('Distanc') >= 0) || (!isNaN(parseFloat(varValue)) || (varValue.search('random') >= 0)) || (varValue.search('map') >= 0) || varValue.search('\\[') >= 0 || (varValue.search('abs') >= 0) || (varValue.search('sqrt') >= 0) || (varValue.search('log') >= 0) || (varValue.search('log') >= 0) || (varValue.search('exp') >= 0) || (varValue.search('pow') >= 0) || (varValue.search('\\+')) ) {
         varType = 'int';
@@ -82,7 +83,7 @@ Blockly.Arduino.variables_global = function() {
 Blockly.Blocks.variables_global = {
     // Variable setter.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'), // Variables are handled specially.
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/variables_global',
+    helpUrl: RoboBlocks.URL_VAR,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
         this.appendValueInput('VALUE').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL')).appendField(new Blockly.FieldTextInput(''), 'VAR').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_EQUALS'));

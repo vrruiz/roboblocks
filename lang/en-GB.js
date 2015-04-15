@@ -69,7 +69,7 @@
         LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Line Feed',
         LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Writes special Chars.',
         //bq blocks :
-        LANG_CATEGORY_BQ: 'octopus bloqs',
+        LANG_CATEGORY_BQ: 'Octopus bloqs',
         LANG_BQ_BAT: 'BAT - Ultrasonic Sensor',
         LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
         LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
@@ -124,10 +124,14 @@
         LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
         LANG_BQ_POTENTIOMETER_TOOLTIP: 'Returns the analog value measured by the potentiometer.',
         //LCD blocks:
-        LANG_CATEGORY_LCD: 'LCD blocks',
-        LANG_LCD_DEF: 'LCD',
+        LANG_CATEGORY_LCD: 'LCD bloqs',
+        LANG_LCD_DEF: 'LCD (2x16)',
         LANG_LCD_PINS: 'Connect LCD pin SCL to A5, and pin SDA to A4',
         LANG_LCD_DEF_TOOLTIP: 'Block that defines the LCD',
+        LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
+        LANG_LCD_ADVANCED_ROWS: 'Rows',
+        LANG_LCD_ADVANCED_COLUMNS: 'Columns',
+        LANG_LCD_DEF_ADVANCED_TOOLTIP: 'Block that defines the advanced LCD',
         LANG_LCD_SETBACKLIGHT: 'LCD: setBacklight(',
         LANG_LCD_SETBACKLIGHT_CLOSE: ')',
         LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Sets the backlight of the LCD screen.',
@@ -285,6 +289,8 @@
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Returns a random number between the two limits.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Functions',
+        LANG_PROCEDURES_RETURN: 'return',
+        LANG_PROCEDURES_RETURN_TOOLTIP: 'Returns a value',
         LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'Function call without matching definition',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
         LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'function_without_return',
@@ -333,7 +339,7 @@
         LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Select the PIN.',
         //zum blocks :
-        LANG_CATEGORY_ZUM: 'zum bloqs',
+        LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Button',
         LANG_ZUM_BUTTON_PIN: 'PIN#',
         LANG_ZUM_BUTTON_TOOLTIP: 'zum Button',
@@ -376,7 +382,7 @@
         LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Returns the analog value measured by the potentiometer.',
         //servo blocks :
         LANG_CATEGORY_SERVO: 'Servo',
-        LANG_SERVO_CONT: 'Servo',
+        LANG_SERVO_CONT: 'Continuous rotation servo',
         LANG_SERVO_CONT_PIN: 'PIN#',
         LANG_SERVO_CONT_ROT: 'ROT',
         LANG_SERVO_CONT_TURN_CLOCKWISE: 'TURN CLOCKWISE',

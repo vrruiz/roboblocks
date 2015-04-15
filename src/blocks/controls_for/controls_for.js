@@ -34,7 +34,7 @@ Blockly.Arduino.controls_for = function() {
 Blockly.Blocks.controls_for = {
     // For loop.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_for',
+    helpUrl: RoboBlocks.URL_FOR,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendValueInput('VAR').appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_WITH'));

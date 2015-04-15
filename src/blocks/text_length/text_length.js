@@ -24,7 +24,7 @@ Blockly.Arduino.text_length = function() {
 Blockly.Blocks.text_length = {
     // String length.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/text_length',
+    helpUrl: RoboBlocks.URL_TEXT,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendValueInput('VALUE')

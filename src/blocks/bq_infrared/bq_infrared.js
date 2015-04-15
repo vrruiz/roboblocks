@@ -32,8 +32,8 @@ Blockly.Arduino.bq_infrared = function() {
  */
 Blockly.Blocks.bq_infrared = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_BQ'),
-    tags: ['bq', 'sensor infrarrojo'],
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/bq_infrared',
+    tags: ['infrared'],
+    helpUrl: RoboBlocks.URL_IR,
     /**
      * bq_infrared initialization
      */

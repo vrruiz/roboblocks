@@ -28,7 +28,7 @@ Blockly.Arduino.procedures_callnoreturn = function() {
 Blockly.Blocks.procedures_callnoreturn = {
     // Variable getter.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_PROCEDURES'), // Variables are handled specially.
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/procedures_callnoreturn',
+    helpUrl: RoboBlocks.URL_PROC_NO_RET,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         this.appendDummyInput('DUMMY').appendField(new Blockly.FieldDropdown(this.getProcedures()), 'PROCEDURES');

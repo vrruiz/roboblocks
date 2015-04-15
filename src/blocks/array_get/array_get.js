@@ -18,7 +18,7 @@ Blockly.Arduino.array_get = function() {
 Blockly.Blocks.array_get = {
     // Numeric value.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_VARIABLES'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/array_get',
+    helpUrl: RoboBlocks.URL_VAR,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_VARIABLES);
         this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GET')).appendField(new Blockly.FieldVariable(' '), 'VAR');

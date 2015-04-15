@@ -14,7 +14,7 @@ Blockly.Arduino.logic_boolean = function() {
 Blockly.Blocks.logic_boolean = {
     // Boolean data type: true and false.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/logic_boolean',
+    helpUrl: RoboBlocks.URL_LOGIC,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
         this.setOutput(true, Boolean);

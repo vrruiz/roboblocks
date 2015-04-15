@@ -39,7 +39,7 @@ Blockly.Arduino.controls_whileUntil = function() {
 Blockly.Blocks.controls_whileUntil = {
     // Do while/until loop.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL + 'blocks/controls_whileUntil',
+    helpUrl: RoboBlocks.URL_WHILE,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
         this.appendValueInput('BOOL').setCheck(Boolean).appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TITLE_REPEAT')).appendField(new Blockly.FieldDropdown([

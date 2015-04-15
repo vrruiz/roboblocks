@@ -14,7 +14,7 @@ RoboBlocks.locales.setDefaultLang = function(langCode) {
     for (var i in this.languages) {
         if (this.languages[i].langCode === langCode) {
             this.defaultLanguage = this.languages[i].values;
-            this.defaultLanguage.lngCode=langCode;
+            this.defaultLanguage.lngCode = langCode;
         }
     }
 };
@@ -37,7 +37,7 @@ RoboBlocks.locales.add = function(langCode, values) {
     return this;
 };
 RoboBlocks.locales.initialize = function() {
-    var lang = options.lang || 'en-GB';
+    var lang = options.lang || window.roboblocksLanguage || 'en-GB';
     this.setDefaultLang(lang);
     return this;
 };

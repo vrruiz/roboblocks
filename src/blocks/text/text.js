@@ -14,7 +14,7 @@ Blockly.Arduino.text = function() {
 Blockly.Blocks.text = {
     // Text value.
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/text',
+    helpUrl: RoboBlocks.URL_TEXT,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendDummyInput()

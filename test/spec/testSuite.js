@@ -9,6 +9,8 @@ return {
 		//XML
 		'spec/bq_photoresistor_output_globalvariable_pin_number.js',
 		'spec/servos_pin_global_variable.js',
+		'spec/joystick_global_variable.js',
+		'spec/joystick_local_variable.js',
 
 		//UNIT TESTS
 		'spec/bq_bat',
@@ -82,6 +84,7 @@ return {
 		'spec/procedures_defreturn',
 		'spec/procedures_defnoreturn',
 		'spec/procedures_ifreturn',
+		'spec/procedures_return',
 		'spec/procedures_callreturn',
 		'spec/procedures_callnoreturn',
 		'spec/pin_analog',

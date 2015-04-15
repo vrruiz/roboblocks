@@ -33,7 +33,7 @@ Blockly.Arduino.text_substring = function() {
 
 Blockly.Blocks.text_substring = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_TEXT'),
-    helpUrl: RoboBlocks.GITHUB_SRC_URL+'blocks/text_substring',
+    helpUrl: RoboBlocks.URL_TEXT,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_TEXT);
         this.appendValueInput('STRING1')
