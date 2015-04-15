@@ -1,10 +1,16 @@
 {
     "name": "roboblocks",
     "description": "Blockly blocks repository used in bitbloq",
-    "version": "0.1.12",
+    "version": "0.2.3",
     "main": "dist/roboblocks.js",
     "license": "MIT",
-    "keywords": ["roboblocks", "blockly", "arduino", "bitbloq", "bq"],
+    "keywords": [
+        "roboblocks",
+        "blockly",
+        "arduino",
+        "bitbloq",
+        "bq"
+    ],
     "author": {
         "name": "bq"
     },
