@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2015-04-15
+/*! roboblocks - v0.2.3 - 2015-10-16
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -4033,6 +4033,19 @@
             return __p
         };
 
+        this["JST"]["controls_setup"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    __e(branch) +
+                    '\n';
+
+            }
+            return __p
+        };
+
         this["JST"]["controls_whileUntil"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -6538,6 +6551,37 @@
         };
 
 
+
+        // Source: src/blocks/controls_setup/controls_setup.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * controls_setup code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.controls_setup = function() {
+            // Add statements to setup.
+            var branch = Blockly.Arduino.statementToCode(this, 'SETUP');
+            branch = branch.replace(/&quot;/g, '"');
+
+            Blockly.Arduino.setups_['X_SETUP'] = JST['controls_setup']({
+                'branch': branch
+            });
+
+            return '';
+        };
+        Blockly.Blocks.controls_setup = {
+            // Setup statements.
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
+            // helpUrl: RoboBlocks.URL_SETUP,
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
+                this.appendStatementInput('SETUP').appendField('Setup');
+                this.setPreviousStatement(false);
+                this.setNextStatement(false);
+            }
+        };
 
         // Source: src/blocks/controls_switch/controls_switch.js
         /* global Blockly, RoboBlocks */
