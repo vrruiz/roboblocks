@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2015-10-18
+/*! roboblocks - v0.2.3 - 2015-11-28
  * https://github.com/bq/roboblocks
  * Copyright (c) 2015 bq; Licensed  */
 
@@ -615,6 +615,11 @@
                 LANG_CATEGORY_CONTROLS: 'Control',
                 LANG_CONTROLS_BASE_DELAY_WAIT: 'Wait (ms)',
                 LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Waits the specified time in milliseconds (ms)',
+                LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Do',
+                LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'while',
+                LANG_CONTROLS_DOWHILE_TOOLTIP: 'While the condition is true, continue doing the statements.',
+                LANG_CONTROLS_EXECUTE: 'Execute',
+                LANG_CONTROLS_EXECUTE_TOOLTIP: 'Executes C/C++ code. Use with caution, as it can easily break the program and prevent it from compiling.',
                 LANG_CONTROLS_IF_TOOLTIP_1: 'If the condition is true, execute the statements.',
                 LANG_CONTROLS_IF_TOOLTIP_2: 'If the condition is true, then do the first block of statements. Otherwise, do the second block of statements.',
                 LANG_CONTROLS_IF_TOOLTIP_3: 'If the first condition is true, then do the first block of statements. Otherwise, if the second value is true, do the second block of statements.',
@@ -1028,6 +1033,11 @@
                 LANG_CATEGORY_CONTROLS: 'Control',
                 LANG_CONTROLS_BASE_DELAY_WAIT: 'Esperar [ms]',
                 LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Espera el tiempo especificado en milisegundos (ms)',
+                LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Hacer',
+                LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'mientras',
+                LANG_CONTROLS_DOWHILE_TOOLTIP: 'Mientras la condición sea verdadera, continúa ejecutando las acciones del bloque.',
+                LANG_CONTROLS_EXECUTE: 'Ejecutar',
+                LANG_CONTROLS_EXECUTE_TOOLTIP: 'Ejecuta código C/C++. Utilizar con preucación, ya que puede romper fácilmente el programa e impedir su correcta compilación.',
                 LANG_CONTROLS_IF_TOOLTIP_1: 'Si la condición es verdadera, ejecuta las acciones dentro del bloque.',
                 LANG_CONTROLS_IF_TOOLTIP_2: 'Si la condición es verdadera, se ejecuta el primer bloque de comandos. Si no lo es, se ejecuta el segundo bloque de comandos.',
                 LANG_CONTROLS_IF_TOOLTIP_3: 'Si el primer valor es verdadero, se ejecuta el primer bloque de comandos. Sino, si el segundo valor es verdadero, se ejecuta el segundo bloque de comandos.',
@@ -4403,6 +4413,34 @@
             return __p
         };
 
+        this["JST"]["controls_doWhile"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'do {\n' +
+                    __e(branch) +
+                    '\n} while (' +
+                    __e(argument0) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["controls_execute"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    __e(content) +
+                    '\n';
+
+            }
+            return __p
+        };
+
         this["JST"]["controls_else"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -6482,6 +6520,93 @@
                 this.setPreviousStatement(true);
                 this.setNextStatement(true);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/controls_doWhile/controls_doWhile.js
+        /* global Blockly, JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * controls_doWhile code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.controls_doWhile = function() {
+            // Do while/until loop.
+            var argument0 = Blockly.Arduino.valueToCode(this, 'WHILE', Blockly.Arduino.ORDER_NONE) || '';
+            argument0 = argument0.replace(/&quot;/g, '"');
+            var branch = Blockly.Arduino.statementToCode(this, 'DO');
+            branch = branch.replace(/&quot;/g, '"');
+            var code = '';
+            if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+                branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
+                // branch = branch.substring(0, branch.length - 2);
+            }
+            // branch=branch.replace(/&amp;/g, '');
+            code += JST['controls_doWhile']({
+                'argument0': argument0,
+                'branch': branch
+            });
+            return code;
+        };
+        Blockly.Blocks.controls_doWhile = {
+            // Do/while loop.
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
+            // helpUrl: RoboBlocks.URL_DOWHILE,
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
+                this.appendStatementInput('DO').appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_DOWHILE_OPERATOR_DO'));
+                this.appendValueInput('WHILE').setCheck(Boolean).appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_DOWHILE_OPERATOR_WHILE'));
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_CONTROLS_DOWHILE_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/controls_execute/controls_execute.js
+        /* global Blockly, profiles, JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * controls_execute code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.controls_execute = function() {
+            var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+            content = content.replace(/^"/, '');
+            content = content.replace(/"$/g, '');
+            if (content.match(/^#include /)) {
+                var include_code = JST['controls_execute']({
+                    'content': content
+                });
+                if ('define_include' in Blockly.Arduino.definitions_) {
+                    Blockly.Arduino.definitions_['define_include'] += include_code;
+                } else {
+                    Blockly.Arduino.definitions_['define_include'] = include_code;
+                }
+            } else {
+                code += JST['controls_execute']({
+                    'content': content
+                });
+            }
+            return code;
+        };
+        /**
+         * control_execute block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.controls_execute = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_CONTROLS'),
+            // helpUrl: RoboBlocks.URL_SERIE,
+            /**
+             * controls_execute initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_CONTROL);
+                this.appendValueInput('CONTENT', String).appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_EXECUTE'));
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_CONTROLS_EXECUTE_TOOLTIP'));
             }
         };
 
