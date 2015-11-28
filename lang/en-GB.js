@@ -146,6 +146,8 @@
         LANG_CATEGORY_CONTROLS: 'Control',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Wait (ms)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Waits the specified time in milliseconds (ms)',
+        LANG_CONTROLS_EXECUTE: 'Execute',
+        LANG_CONTROLS_EXECUTE_TOOLTIP: 'Executes C/C++ code. Use with caution, as it can easily break the program and prevent it from compiling.',
         LANG_CONTROLS_IF_TOOLTIP_1: 'If the condition is true, execute the statements.',
         LANG_CONTROLS_IF_TOOLTIP_2: 'If the condition is true, then do the first block of statements. Otherwise, do the second block of statements.',
         LANG_CONTROLS_IF_TOOLTIP_3: 'If the first condition is true, then do the first block of statements. Otherwise, if the second value is true, do the second block of statements.',
