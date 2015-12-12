@@ -188,6 +188,8 @@
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK: 'Break out of the containing loop.',
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE: 'Skip the rest of this loop, and continue with the next iteration.',
         LANG_CONTROLS_FLOW_STATEMENTS_WARNING: 'Warning: This block may only be used within a loop.',
+        LANG_CONTROLS_SETUP_LOOP_SETUP_TITLE: 'Setup',
+        LANG_CONTROLS_SETUP_LOOP_LOOP_TITLE: 'Loop',
         LANG_CONTROLS_SWITCH: 'switch ',
         LANG_CONTROLS_SWITCH_TOOLTIP_1: 'Execute the statement of the case .',
         LANG_CONTROLS_SWITCH_TOOLTIP_2: 'Use the switch statement to select one of many blocks of code to be executed.',

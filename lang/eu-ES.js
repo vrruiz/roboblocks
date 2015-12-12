@@ -189,6 +189,8 @@
         LANG_CONTROLS_SWITCH_SWITCH_TOOLTIP: 'Kasu desberdinak betetzen diren banan-bana alderatzen ditu bloke honek.',
         LANG_CONTROLS_SWITCH_CASE_TOOLTIP: 'kasu ',
         LANG_CONTROLS_SWITCH_DEFAULT_TOOLTIP: '"default" blokeak aurreko kasuetatik bat ere ez bada bete exekutatu behar den ekintza zehazten du.',
+        LANG_CONTROLS_SETUP_LOOP_SETUP_TITLE: 'Setup',
+        LANG_CONTROLS_SETUP_LOOP_LOOP_TITLE: 'Loop',
         LANG_CONTROLS_SWITCH_IS: 'kasua: ',
         LANG_CONTROLS_SWITCH_CASE: 'kasua ',
         LANG_CONTROLS_SWITCH_COLON: ': ',

@@ -183,6 +183,8 @@
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK: 'Interrompre la boucle contenant ces instructions.',
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE: 'Passer le reste de cette boucle et continuer avec la prochaine itération.',
         LANG_CONTROLS_FLOW_STATEMENTS_WARNING: 'Attention : Ce bloc ne peut être utilisé que dans une boucle.',
+        LANG_CONTROLS_SETUP_LOOP_SETUP_TITLE: 'Setup',
+        LANG_CONTROLS_SETUP_LOOP_LOOP_TITLE: 'Loop',
         LANG_CONTROLS_SWITCH: 'si ',
         LANG_CONTROLS_SWITCH_TOOLTIP_1: 'Exécute les instructions du cas.',
         LANG_CONTROLS_SWITCH_TOOLTIP_2: 'Utiliser l’instruction “si” pour sélectionner un des nombreux blocs de code à exécuter.',

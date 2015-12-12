@@ -183,6 +183,8 @@
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK: 'Sair do "loop" nesta instrução.',
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE: 'Saltar o resto das accões desta volta e continuar com para a próxima volta.',
         LANG_CONTROLS_FLOW_STATEMENTS_WARNING: 'Atenção: Este bloco só pode ser usado dentro de um "loop".',
+        LANG_CONTROLS_SETUP_LOOP_SETUP_TITLE: 'Setup',
+        LANG_CONTROLS_SETUP_LOOP_LOOP_TITLE: 'Loop',
         LANG_CONTROLS_SWITCH: 'se ',
         LANG_CONTROLS_SWITCH_TOOLTIP_1: 'executa as acções se for este o caso.',
         LANG_CONTROLS_SWITCH_TOOLTIP_2: 'executa as acções se for este o caso.',

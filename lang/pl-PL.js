@@ -183,6 +183,8 @@
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK: 'Przerwij wewnętrzną pętlę wykonania.',
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE: 'Pomiń resztę tej pętli i kontynuuj następny przebieg.',
         LANG_CONTROLS_FLOW_STATEMENTS_WARNING: 'Ostrzeżenie: Ten blok może być użyty tylko w pętli.',
+        LANG_CONTROLS_SETUP_LOOP_SETUP_TITLE: 'Setup',
+        LANG_CONTROLS_SETUP_LOOP_LOOP_TITLE: 'Loop',
         LANG_CONTROLS_SWITCH: 'Przełącznik',
         LANG_CONTROLS_SWITCH_TOOLTIP_1: 'Wykonaj polecenie danego przypadku.',
         LANG_CONTROLS_SWITCH_TOOLTIP_2: 'Użyj polecenia Przełącznik aby wybrać jeden z wielu bloków kodu do wykonania.',

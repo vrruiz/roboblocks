@@ -183,6 +183,8 @@
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK: 'Interrompre el bucle que conté aquesta instrucció.',
         LANG_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE: 'Saltar-se la resta d\'accions d\'aquesta iteració i continuar amb la següent iteració.',
         LANG_CONTROLS_FLOW_STATEMENTS_WARNING: 'Atenció: Aquest bloc només pot ser usat dins d\'un bucle.',
+        LANG_CONTROLS_SETUP_LOOP_SETUP_TITLE: 'Inicio',
+        LANG_CONTROLS_SETUP_LOOP_LOOP_TITLE: 'Repetir',
         LANG_CONTROLS_SWITCH: 'si ',
         LANG_CONTROLS_SWITCH_TOOLTIP_1: 'Executa les accions del cas que es compleixi.',
         LANG_CONTROLS_SWITCH_TOOLTIP_2: 'Executa les accions del cas que es compleixi.',
