@@ -185,6 +185,7 @@
         LANG_CONTROLS_FLOW_STATEMENTS_WARNING: 'Внимание: Этот блок может быть использован только в пределах "петли".',
         LANG_CONTROLS_SETUP_LOOP_SETUP_TITLE: 'Setup',
         LANG_CONTROLS_SETUP_LOOP_LOOP_TITLE: 'Loop',
+        LANG_CONTROLS_SETUP_LOOP_TOOLTIP: 'Blocks in setup will be executed at start, and blocks in Loop will be repeated continously.',
         LANG_CONTROLS_SWITCH: 'если',
         LANG_CONTROLS_SWITCH_TOOLTIP_1: 'выполняет действия, если это так.',
         LANG_CONTROLS_SWITCH_TOOLTIP_2: 'выполняет действия, если это так.',

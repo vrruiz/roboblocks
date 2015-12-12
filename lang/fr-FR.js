@@ -185,6 +185,7 @@
         LANG_CONTROLS_FLOW_STATEMENTS_WARNING: 'Attention : Ce bloc ne peut être utilisé que dans une boucle.',
         LANG_CONTROLS_SETUP_LOOP_SETUP_TITLE: 'Setup',
         LANG_CONTROLS_SETUP_LOOP_LOOP_TITLE: 'Loop',
+        LANG_CONTROLS_SETUP_LOOP_TOOLTIP: 'Blocks in setup will be executed at start, and blocks in Loop will be repeated continously.',
         LANG_CONTROLS_SWITCH: 'si ',
         LANG_CONTROLS_SWITCH_TOOLTIP_1: 'Exécute les instructions du cas.',
         LANG_CONTROLS_SWITCH_TOOLTIP_2: 'Utiliser l’instruction “si” pour sélectionner un des nombreux blocs de code à exécuter.',

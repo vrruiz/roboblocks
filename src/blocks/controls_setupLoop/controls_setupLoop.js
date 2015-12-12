@@ -32,5 +32,6 @@ Blockly.Blocks.controls_setupLoop = {
         this.appendStatementInput('LOOP').appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_SETUP_LOOP_LOOP_TITLE'));
         this.setPreviousStatement(false);
         this.setNextStatement(false);
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_CONTROLS_SETUP_LOOP_TOOLTIP'));
     }
 };

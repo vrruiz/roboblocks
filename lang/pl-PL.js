@@ -185,6 +185,7 @@
         LANG_CONTROLS_FLOW_STATEMENTS_WARNING: 'Ostrzeżenie: Ten blok może być użyty tylko w pętli.',
         LANG_CONTROLS_SETUP_LOOP_SETUP_TITLE: 'Setup',
         LANG_CONTROLS_SETUP_LOOP_LOOP_TITLE: 'Loop',
+        LANG_CONTROLS_SETUP_LOOP_TOOLTIP: 'Blocks in setup will be executed at start, and blocks in Loop will be repeated continously.',
         LANG_CONTROLS_SWITCH: 'Przełącznik',
         LANG_CONTROLS_SWITCH_TOOLTIP_1: 'Wykonaj polecenie danego przypadku.',
         LANG_CONTROLS_SWITCH_TOOLTIP_2: 'Użyj polecenia Przełącznik aby wybrać jeden z wielu bloków kodu do wykonania.',
