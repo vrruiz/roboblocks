@@ -5116,7 +5116,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'lcd.begin(16, 2);\n  lcd.clear();\n';
+                __p += 'lcd.begin(16, 2);\nlcd.clear();\n';
 
             }
             return __p
@@ -8230,7 +8230,7 @@
          */
         Blockly.Arduino.lcd_def = function() {
             Blockly.Arduino.definitions_['define_lcd'] = JST['lcd_def_definitions']({});
-            Blockly.Arduino.definitions_['declare_var_LCD'] = 'LiquidCrystal lcd(0);\n';
+            Blockly.Arduino.definitions_['declare_var_LCD'] = 'LiquidCrystal lcd(12, 11, 5, 4, 3, 2);\n';
             Blockly.Arduino.setups_['setup_lcd_'] = JST['lcd_def_setups']({});
             return '';
         };
@@ -8255,6 +8255,7 @@
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_LCD_DEF_TOOLTIP'));
             }
         };
+
         // Source: src/blocks/lcd_print/lcd_print.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
