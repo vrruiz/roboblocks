@@ -27,8 +27,8 @@ module.exports = function(grunt) {
             options: {
                 templateSettings: {
                     evaluate: /\{\{#([\s\S]+?)\}\}/g, // {{# console.log("blah") }}
-                    interpolate: /\{\{\{(\s*\w+?\s*)\}\}\}/g, // {{ title }}
-                    escape: /\{\{(\s*\w+?\s*)\}\}(?!\})/g // {{{ title }}}
+                    interpolate: /\{\{(\s*\w{1,}\s*)\}\}/g, // {{ title }}
+                    escape: /\{\{\{(\s*\w{1,}?\s*)\}\}\}/g // {{{ title }}}
                 },
                 processName: function(filepath) {
                     console.log(filepath);
