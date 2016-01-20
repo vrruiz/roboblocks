@@ -128,7 +128,7 @@
         //bloki LCD:
         LANG_CATEGORY_LCD: 'Wyświetlacze LCD',
         LANG_LCD_DEF: 'LCD (2x16)',
-        LANG_LCD_PINS: 'Podłącz pin SCL wyświetlacza LCD do A5, a pin SDA - do A4',
+        LANG_LCD_PINS: 'LCD Pins',
         LANG_LCD_DEF_TOOLTIP: 'Blok definiujący wyświetlacz LCD',
         LANG_LCD_ADVANCED_DEF: 'Zaawansowany wyświetlacz LCD',
         LANG_LCD_ADVANCED_ROWS: 'Rzędy',

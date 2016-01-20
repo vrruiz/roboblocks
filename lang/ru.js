@@ -128,7 +128,7 @@
         // ЖК блоки:
         LANG_CATEGORY_LCD: 'Блоки ЖК',
         LANG_LCD_DEF: 'ЖК-дисплей (2x16) ',
-        LANG_LCD_PINS: 'Подключает SCL вход к контакту А5 и SDA вход к контакту А4 ',
+        LANG_LCD_PINS: 'LCD Pins',
         LANG_LCD_DEF_TOOLTIP: 'Установка ЖК',
         LANG_LCD_ADVANCED_DEF: 'расширенный ЖК ',
         LANG_LCD_ADVANCED_ROWS: 'Линии',

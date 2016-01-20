@@ -128,7 +128,7 @@
         //LCD blocks:
         LANG_CATEGORY_LCD: 'LCD blokeak',
         LANG_LCD_DEF: 'LCD (2x16)',
-        LANG_LCD_PINS: 'SCL pina A5 pinera eta SDA pina A4 pinera konektatu',
+        LANG_LCD_PINS: 'LCD Pins',
         LANG_LCD_DEF_TOOLTIP: 'LCDa definitu',
         LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
         LANG_LCD_ADVANCED_ROWS: 'Rows',

@@ -128,7 +128,7 @@
         //LCD blocks:
         LANG_CATEGORY_LCD: 'LCD bloqs',
         LANG_LCD_DEF: 'LCD (2x16)',
-        LANG_LCD_PINS: 'Connecta el pin SCL al pin A5 i el pin SDA al pin A4',
+        LANG_LCD_PINS: 'LCD Pins',
         LANG_LCD_DEF_TOOLTIP: 'Defineix el LCD',
         LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
         LANG_LCD_ADVANCED_ROWS: 'Rows',
