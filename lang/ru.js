@@ -348,6 +348,11 @@
         LANG_VARIABLES_PIN_DIGITAL: 'цифровой PIN ',
         LANG_VARIABLES_PIN_DIGITAL0: 'ВНИМАНИЕ: цифровой контактный 0 (контактный RX) используется для загрузки скетча. Использование его для подключения электронных компонентов может вызвать проблемы при загрузке новых скетчей.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Выберите нужный контакт.',
+        LANG_VARIABLES_TYPE_BYTE: 'Byte', // To translate
+        LANG_VARIABLES_TYPE_FLOAT: 'Float',  // To translate
+        LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
+        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
+        LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
         // Zum блоки:
         LANG_CATEGORY_ZUM: 'Блоки Zum',
         LANG_ZUM_BUTTON: 'Кнопка',

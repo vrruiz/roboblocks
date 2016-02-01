@@ -348,6 +348,11 @@
         LANG_VARIABLES_PIN_DIGITAL: 'Pino digital',
         LANG_VARIABLES_PIN_DIGITAL0: 'AVISO: o pin digital 0 (pin RX) é utilizado ao carregar um esboço. Utilizá-lo para ligar componentes eletrônicos pode causar problemas ao carregar um novo esboço.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Seleciona o pino desejado.',
+        LANG_VARIABLES_TYPE_BYTE: 'Byte', // To translate
+        LANG_VARIABLES_TYPE_FLOAT: 'Float',  // To translate
+        LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
+        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
+        LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
         //zum blocks :
         LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Botão',

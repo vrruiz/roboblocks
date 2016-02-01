@@ -348,6 +348,11 @@
         LANG_VARIABLES_PIN_DIGITAL: 'pin cyfrowy',
         LANG_VARIABLES_PIN_DIGITAL0: 'Ostrzeżenie: pin cyfrowy 0 (RX pin) jst używany podczas ładowania programu (sketchu). Jego użycie do podłączania komponenetów elektronicznych może powodować problemy podczas ładowania nowego programu.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Wybierz PIN.',
+        LANG_VARIABLES_TYPE_BYTE: 'Byte', // To translate
+        LANG_VARIABLES_TYPE_FLOAT: 'Float',  // To translate
+        LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
+        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
+        LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
         //bloki Zum:
         LANG_CATEGORY_ZUM: 'Bloki Zum',
         LANG_ZUM_BUTTON: 'Przycisk',

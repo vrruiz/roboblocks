@@ -345,6 +345,11 @@
         LANG_VARIABLES_PIN_ANALOG: 'Pin analogikoa',
         LANG_VARIABLES_PIN_DIGITAL: 'Pin digitala',
         LANG_VARIABLES_PIN_TOOLTIP: 'PINa aukeratu.',
+        LANG_VARIABLES_TYPE_BYTE: 'Byte', // To translate
+        LANG_VARIABLES_TYPE_FLOAT: 'Float', // To translate
+        LANG_VARIABLES_TYPE_INTEGER: 'Integer', // To translate
+        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer', // To translate
+        LANG_VARIABLES_TYPE_STRING: 'String', // To translate
         //zum blocks :
         LANG_CATEGORY_ZUM: 'zum blokeak',
         LANG_ZUM_BUTTON: 'Botoia',

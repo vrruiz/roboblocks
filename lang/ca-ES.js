@@ -348,6 +348,11 @@
         LANG_VARIABLES_PIN_DIGITAL: 'Pin digital',
         LANG_VARIABLES_PIN_DIGITAL0: 'WARNING: digital pin 0 (RX pin) is used when uploading a sketch. Using it to connect electronic components may cause problems when uploading a new sketch.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN desitjat.',
+        LANG_VARIABLES_TYPE_BYTE: 'Byte', // To translate
+        LANG_VARIABLES_TYPE_FLOAT: 'Float',  // To translate
+        LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
+        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
+        LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
         //zum blocks :
         LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Botó',

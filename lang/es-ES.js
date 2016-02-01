@@ -348,6 +348,11 @@
         LANG_VARIABLES_PIN_DIGITAL: 'Pin digital',
         LANG_VARIABLES_PIN_DIGITAL0: 'CUIDADO: el pin digital 0 (pin Rx) es usado para escribir un programa en la placa desde el ordenador. Usarlo para conectar componentes puede dar problemas al programarla.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Selecciona el PIN deseado.',
+        LANG_VARIABLES_TYPE_BYTE: 'Octeto',
+        LANG_VARIABLES_TYPE_FLOAT: 'Decimal',
+        LANG_VARIABLES_TYPE_INTEGER: 'Entero',
+        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Entero largo',
+        LANG_VARIABLES_TYPE_STRING: 'Texto',
         //zum blocks :
         LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Botón',
