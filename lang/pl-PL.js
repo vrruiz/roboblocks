@@ -146,6 +146,8 @@
         LANG_CATEGORY_CONTROLS: 'Sterujące',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Czekaj (ms)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Czeka przez czas określony w milisekundach (ms)',
+        LANG_CONTROLS_BASE_MILLIS: 'Time from start (ms)', // To translate
+        LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program started (long integer)', // To translate
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Rób',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'dopóki',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'Powtarzaj wykonanie bloku poleceń dopóki warunek jest spełniony.',

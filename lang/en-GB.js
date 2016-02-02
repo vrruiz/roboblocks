@@ -146,6 +146,8 @@
         LANG_CATEGORY_CONTROLS: 'Control',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Wait (ms)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Waits the specified time in milliseconds (ms)',
+        LANG_CONTROLS_BASE_MILLIS: 'Time from start (ms)',
+        LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program started (long integer)',
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Do',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'while',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'While the condition is true, continue doing the statements.',

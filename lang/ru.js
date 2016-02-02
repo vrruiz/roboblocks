@@ -146,6 +146,8 @@
         LANG_CATEGORY_CONTROLS: 'Контроль',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Ждать (мс)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Время ожидания указано в миллисекундах (мс) ',
+LANG_CONTROLS_BASE_MILLIS: 'Time from start (ms)', // To translate
+LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program started (long integer)', // To translate
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Do',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'while',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'While the condition is true, continue doing the statements.',

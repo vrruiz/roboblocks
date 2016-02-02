@@ -146,6 +146,8 @@
         LANG_CATEGORY_CONTROLS: 'Controllo',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Attendi (ms)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Attende un determinato tempo in millisecondi (ms)',
+        LANG_CONTROLS_BASE_MILLIS: 'Time from start (ms)', // To translate
+        LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program started (long integer)', // To translate
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Do',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'while',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'While the condition is true, continue doing the statements.',

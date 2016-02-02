@@ -146,6 +146,8 @@
         LANG_CATEGORY_CONTROLS: 'Control',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Esperar [ms]',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Espera el tiempo especificado en milisegundos (ms)',
+        LANG_CONTROLS_BASE_MILLIS: 'Tiempo desde el arranque (ms)',
+        LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Número de milisegundos desde que se inició el programa (entero largo)',
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Hacer',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'mientras',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'Mientras la condición sea verdadera, continúa ejecutando las acciones del bloque.',
