@@ -10,23 +10,12 @@ Blockly.Arduino.variables_local_type = function() {
     var varType = this.getFieldValue('VAR_TYPE');
     var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
     var varName = this.getFieldValue('VAR') || '';
-    var sufix = '';
     var code = '';
-    var isFunction=false;
 
     var a=RoboBlocks.findPinMode(varValue);
     code+=a['code'];
     varValue=a['pin'];
 
-    if (varType == 'int' || varType == 'long' || varType == 'byte') {
-        varValue = parseInt(varValue,10) || '0';
-    } else if (varType == 'float') {
-        varValue = parseFloat(varValue) || '0.0';
-    } else if (varType == 'String') {
-        if (varValue.search('"') < 0 && varValue.search('substring\\(') << 0 ) {
-            varValue = '""';
-        }
-    }
     code += varType + ' ' + varName + '=' + varValue + ';\n';
 
     RoboBlocks.variables[varName] = [varType, 'local'];

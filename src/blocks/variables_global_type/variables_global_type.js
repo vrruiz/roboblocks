@@ -12,19 +12,12 @@ Blockly.Arduino.variables_global_type = function() {
     var varName = this.getFieldValue('VAR') || '';
     var isFunction = false;
 
-    var a=RoboBlocks.findPinMode(varValue);
-    Blockly.Arduino.setups_['pinMode'+varValue]=a['code'];
-    varValue=a['pin'];
+    var varName = this.getFieldValue('VAR') || '';
+    var code ='';
 
-    if (varType == 'int' || varType == 'long' || varType == 'byte') {
-        varValue = parseInt(varValue,10) || '0';
-    } else if (varType == 'float') {
-        varValue = parseFloat(varValue) || '0.0';
-    } else if (varType == 'String') {
-        if (varValue.search('"') < 0 && varValue.search('substring\\(') << 0 ) {
-            varValue = '""';
-        }
-    }
+    var a=RoboBlocks.findPinMode(varValue);
+    code+=a['code'];
+    varValue=a['pin'];
 
     Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
     Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
