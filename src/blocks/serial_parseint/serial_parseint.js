@@ -11,7 +11,7 @@ Blockly.Arduino.serial_parseint = function() {
     Blockly.Arduino.setups_['setup_serial'] = JST['serial_parseint_setups']({
     	'bitrate': profiles.default.serial
     });
-    var code = 'Serial.parseInt()'; // JST['serial_parseint']({});
+    var code = 'Serial.parseInt()';
 
     return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
