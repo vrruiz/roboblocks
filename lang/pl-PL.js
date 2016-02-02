@@ -57,6 +57,8 @@
         LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP: 'Sprawdź czy jest dostępny port szeregowy Bluetooth.',
         LANG_ADVANCED_SERIAL_AVAILABLE: 'Port szeregowy dostępny.',
         LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP: 'Sprawdź czy jest dostępny port szeregowy.',
+        LANG_ADVANCED_SERIAL_PARSEINT: 'Serial Read Integer', // To translate
+        LANG_ADVANCED_SERIAL_PARSEINT_TOOLTIP: 'First valid (long) integer number from the serial buffer', // To translate
         LANG_ADVANCED_SERIAL_PRINT: 'Wydruk tekstu przez port szeregowy',
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Drukuje dane jako tekst ASCII.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Wydruk linii tekstu przez port szeregowy',

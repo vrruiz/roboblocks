@@ -57,6 +57,8 @@
         LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP: 'Verifica se o módulo Bluetooth está disponível ou não',
         LANG_ADVANCED_SERIAL_AVAILABLE: 'Porta Série disponível',
         LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP: 'Verifica se a porta série está disponível ou não',
+        LANG_ADVANCED_SERIAL_PARSEINT: 'Serial Read Integer', // To translate
+        LANG_ADVANCED_SERIAL_PARSEINT_TOOLTIP: 'First valid (long) integer number from the serial buffer', // To translate
         LANG_ADVANCED_SERIAL_PRINT: 'Imprimir pela porta série',
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Imprime os dados como texto ASCII.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Imprimir pela porta série com salto de linha',

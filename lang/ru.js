@@ -57,6 +57,8 @@
         LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP: 'Проверяет, доступен ли модуль Bluetooth.',
         LANG_ADVANCED_SERIAL_AVAILABLE: 'Последовательный порт доступен',
         LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP: 'Проверяет, доступен ли последовательный порт',
+        LANG_ADVANCED_SERIAL_PARSEINT: 'Serial Read Integer', // To translate
+        LANG_ADVANCED_SERIAL_PARSEINT_TOOLTIP: 'First valid (long) integer number from the serial buffer', // To translate
         LANG_ADVANCED_SERIAL_PRINT: 'Отправляет данные в последовательный порт',
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Отправляет данные в последовательный порт в кодировке ASCII.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Отправляет данные в последовательный порт одной строкой',

@@ -57,6 +57,8 @@
         LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP: 'Check wether the bluetooth is available or not.',
         LANG_ADVANCED_SERIAL_AVAILABLE: 'Serial Available',
         LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP: 'Check wether the serial port is available or not',
+        LANG_ADVANCED_SERIAL_PARSEINT: 'Serial Read Integer',
+        LANG_ADVANCED_SERIAL_PARSEINT_TOOLTIP: 'First valid (long) integer number from the serial buffer',
         LANG_ADVANCED_SERIAL_PRINT: 'Serial Print',
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Prints data as ASCII text.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Serial Println',
