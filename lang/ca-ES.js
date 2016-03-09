@@ -289,6 +289,7 @@
         LANG_ADVANCED_BUILTIN_LED_TOOLTIP: 'LED integrat a la placa que està internament connectat al PIN 13.',
         LANG_ADVANCED_INOUT_DIGITAL_READ: 'Llegir el pin digital PIN#',
         LANG_ADVANCED_INOUT_DIGITAL_READ_TOOLTIP: 'Llegeix el valor des d\'un pin digital específic.',
+        LANG_ADVANCED_INOUT_DIGITAL_WRITE_GET_VAR: 'el valor',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE: 'Escriure en el pin digital',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN: 'PIN#',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE: 'estat',

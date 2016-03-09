@@ -288,6 +288,7 @@
         LANG_ADVANCED_INOUT_DIGITAL_READ: 'PIN# digitala irakurri',
         LANG_ADVANCED_INOUT_DIGITAL_READ_TOOLTIP: 'Dagokion pin digitalaren balioa irakurtzen du.',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE: 'Pin digitalean idatzi',
+        LANG_ADVANCED_INOUT_DIGITAL_WRITE_GET_VAR: 'balioa',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN: 'PIN#',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE: 'egoera',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH: 'ALTUA',

@@ -290,6 +290,7 @@
         LANG_ADVANCED_INOUT_DIGITAL_READ: 'Lire la broche numérique#',
         LANG_ADVANCED_INOUT_DIGITAL_READ_TOOLTIP: 'Lit la valeur provenant d’une broche numérique donnée.',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE: 'Écrire dans la broche numérique',
+        LANG_ADVANCED_INOUT_DIGITAL_WRITE_GET_VAR: 'la valeur',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN: '#',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE: 'état',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH: 'ÉLEVÉ',

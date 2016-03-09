@@ -290,6 +290,7 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_ADVANCED_INOUT_DIGITAL_READ: 'Читать цифровой PIN# ',
         LANG_ADVANCED_INOUT_DIGITAL_READ_TOOLTIP: 'Читает значение определенного цифрового контакта.',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE: 'Записать в цифровой PIN#',
+		LANG_ADVANCED_INOUT_DIGITAL_WRITE_GET_VAR: 'значение',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN: 'PIN# ',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE: 'состояние',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH: 'ВКЛ',

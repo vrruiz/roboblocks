@@ -290,6 +290,7 @@
         LANG_ADVANCED_INOUT_DIGITAL_READ: 'Leer el pin digital PIN#',
         LANG_ADVANCED_INOUT_DIGITAL_READ_TOOLTIP: 'Lee el valor desde un pin digital específico.',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE: 'Escribir en el pin digital',
+        LANG_ADVANCED_INOUT_DIGITAL_WRITE_GET_VAR: 'el valor',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN: 'PIN#',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_STATE: 'estado',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH: 'ALTO',
