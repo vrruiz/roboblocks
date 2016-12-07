@@ -7,7 +7,7 @@
  */
 Blockly.Arduino.zum_blinking_led = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
-    var dropdown_stat = this.getFieldValue('STAT');
+    var delay = Blockly.Arduino.valueToCode(this, 'DELAY', Blockly.Arduino.ORDER_ATOMIC) || '';
     var code = '';
     var a = RoboBlocks.findPinMode(dropdown_pin);
     code += a['code'];
@@ -15,14 +15,17 @@ Blockly.Arduino.zum_blinking_led = function() {
     if (RoboBlocks.isVariable(dropdown_pin)) {
         code += JST['zum_blinking_led_setups']({
             'dropdown_pin': dropdown_pin,
+            'delay': delay
         });
     } else {
         Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['zum_blinking_led_setups']({
             'dropdown_pin': dropdown_pin,
+            'delay': delay
         });
     }
     code += JST['zum_blinking_led']({
         'dropdown_pin': dropdown_pin,
+        'delay': delay
     });
     return code;
 };
@@ -39,9 +42,10 @@ Blockly.Blocks.zum_blinking_led = {
      */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
-        this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_ZUM_LED')).appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_ZUM_LED_PIN'));
+        this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED')).appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_PIN'));
+        this.appendValueInput('DELAY').setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_DELAY'));
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_LED_TOOLTIP'));
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_TOOLTIP'));
     }
 };

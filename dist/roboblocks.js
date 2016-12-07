@@ -864,6 +864,10 @@
                 LANG_ZUM_LED_ON: 'ON',
                 LANG_ZUM_LED_OFF: 'OFF',
                 LANG_ZUM_LED_TOOLTIP: 'zum LED',
+                LANG_ZUM_BLINKING_LED: 'Blinking LED',
+                LANG_ZUM_BLINKING_LED_PIN: 'PIN#',
+                LANG_ZUM_BLINKING_LED_DELAY: 'Delay (ms)',
+                LANG_ZUM_BLINKING_LED_TOOLTIP: 'zum Blinking LED',
                 LANG_ZUM_PHOTORESISTOR: 'Light Sensor',
                 LANG_ZUM_PHOTORESISTOR_PIN: 'PIN#',
                 LANG_ZUM_PHOTORESISTOR_TOOLTIP: 'Returns the analog value measured by the light sensor.',
@@ -6266,6 +6270,38 @@
             return __p
         };
 
+        this["JST"]["zum_blinking_led"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'digitalWrite(' +
+                    ((__t = (dropdown_pin)) == null ? '' : __t) +
+                    ', HIGH);\ndelay(' +
+                    ((__t = (delay)) == null ? '' : __t) +
+                    ');\ndigitalWrite(' +
+                    ((__t = (dropdown_pin)) == null ? '' : __t) +
+                    ', LOW);\ndelay(' +
+                    ((__t = (delay)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_blinking_led_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'pinMode(' +
+                    ((__t = (dropdown_pin)) == null ? '' : __t) +
+                    ',OUTPUT);\n';
+
+            }
+            return __p
+        };
+
         this["JST"]["zum_button"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -9179,35 +9215,6 @@
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TOOLTIP'));
             }
         };
-        // Source: src/blocks/logic_boolean_bin/logic_boolean_bin.js
-        /* global Blockly, RoboBlocks */
-
-        /**
-         * logic_boolean code generation
-         * @return {String} Code generated with block parameters
-         */
-        Blockly.Arduino.logic_boolean_bin = function() {
-            // Boolean values 1 and 0.
-            var code = (this.getFieldValue('BOOL') === '1') ? '1' : '0';
-            return [code, Blockly.Arduino.ORDER_ATOMIC];
-        };
-
-        Blockly.Blocks.logic_boolean_bin = {
-            // Boolean data type: 1 and 0.
-            category: RoboBlocks.locales.getKey('LANG_CATEGORY_LOGIC'),
-            helpUrl: RoboBlocks.URL_LOGIC,
-            init: function() {
-                this.setColour(RoboBlocks.LANG_COLOUR_LOGIC);
-                this.setOutput(1, Boolean);
-                this.appendDummyInput()
-                    .appendField(new Blockly.FieldDropdown([
-                        [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TRUE'), '1'],
-                        [RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_FALSE'), '0']
-                    ]), 'BOOL');
-                this.setTooltip(RoboBlocks.locales.getKey('LANG_LOGIC_BOOLEAN_TOOLTIP'));
-            }
-        };
-
         // Source: src/blocks/logic_compare/logic_compare.js
         /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
@@ -12475,6 +12482,58 @@
                 return false;
             }
         };
+        // Source: src/blocks/zum_blinking_led/zum_blinking_led.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * zum_led code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_blinking_led = function() {
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var delay = Blockly.Arduino.valueToCode(this, 'DELAY', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
+            if (RoboBlocks.isVariable(dropdown_pin)) {
+                code += JST['zum_blinking_led_setups']({
+                    'dropdown_pin': dropdown_pin,
+                    'delay': delay
+                });
+            } else {
+                Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['zum_blinking_led_setups']({
+                    'dropdown_pin': dropdown_pin,
+                    'delay': delay
+                });
+            }
+            code += JST['zum_blinking_led']({
+                'dropdown_pin': dropdown_pin,
+                'delay': delay
+            });
+            return code;
+        };
+        /**
+         * zum_led block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_blinking_led = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['led'],
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * zum_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED')).appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_PIN'));
+                this.appendValueInput('DELAY').setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_DELAY'));
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_TOOLTIP'));
+            }
+        };
+
         // Source: src/blocks/zum_button/zum_button.js
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
@@ -12692,6 +12751,7 @@
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_LED_TOOLTIP'));
             }
         };
+
         // Source: src/blocks/zum_photoresistor/zum_photoresistor.js
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
