@@ -358,6 +358,10 @@
         LANG_VARIABLES_TYPE_INTEGER: 'Entero',
         LANG_VARIABLES_TYPE_INTEGER_LONG: 'Entero largo',
         LANG_VARIABLES_TYPE_STRING: 'Texto',
+        LANG_VARIABLES_VOLATILE_GLOBAL: 'Declarar variable VOLATIL GLOBAL ',
+        LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'de tipo ',
+        LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: '=',
+        LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declara y define una variable VOLATIL GLOBAL de tipo entero (int) o texto (String) usada en funciones de manejo de interrupciones.',
         //zum blocks :
         LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Botón',
@@ -415,7 +419,24 @@
         LANG_SERVO_MOVE_DEGREES: 'Grados (0~180)',
         LANG_SERVO_MOVE_DELAY: 'Pausa [ms]',
         LANG_SERVO_MOVE_TOOLTIP: 'Mover el servo entre 0 y 180 grados.',
-        LANG_SERVO_WARNING:'No puedes asignar una variable al pin del servo'
+        LANG_SERVO_WARNING:'No puedes asignar una variable al pin del servo',
+        //interrupt blocks :
+        LANG_CATEGORY_INTERRUPTS: 'Interrupciones',
+        LANG_INTERRUPTS_STATE: 'Establece estado de las interrupciones a ',
+        LANG_INTERRUPTS_STATE_ENABLED: 'HABILITADO',
+        LANG_INTERRUPTS_STATE_DISABLED: 'DESHABILITADO',
+        LANG_INTERRUPTS_STATE_TOOLTIP: 'Habilita o deshabilita las interrupciones. Algunas funciones no podrán usarse mientras que las interrupciones estén deshabilitadas. Utilizar solo para secciones críticas del programa.',
+        LANG_INTERRUPTS_ATTACH: 'Asociar la función ',
+        LANG_INTERRUPTS_ATTACH_PARAM2: 'en el modo ',
+        LANG_INTERRUPTS_ATTACH_PARAM3: 'con la interrupción del pin digital',
+        LANG_INTERRUPTS_ATTACH_LOW: 'BAJO',
+        LANG_INTERRUPTS_ATTACH_CHANGE: 'CAMBIO',
+        LANG_INTERRUPTS_ATTACH_RISING: 'SUBIENDO',
+        LANG_INTERRUPTS_ATTACH_FALLING: 'BAJANDO',
+        LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_sin_retorno',
+        LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Especifica la función que se va a ejecutar cuando se produzca la interrupción en el pin especificado.',
+        LANG_INTERRUPTS_DETACH: 'Desasociar la interrupción del pin digital',
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la asociación de la interrupción especificada en el pin. Cuando se active ese pin, ya no se ejecutará la función asociada.'
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

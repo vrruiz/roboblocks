@@ -358,6 +358,10 @@
         LANG_VARIABLES_TYPE_INTEGER: 'Integer',
         LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',
         LANG_VARIABLES_TYPE_STRING: 'String',
+        LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',
+        LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',
+        LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',
+        LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declares and defines a VOLATILE GLOBAL variable of type int or String used in a ISR function.',
         //zum blocks :
         LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Button',
@@ -415,7 +419,24 @@
         LANG_SERVO_MOVE_DEGREES: 'Degrees (0~180)',
         LANG_SERVO_MOVE_DELAY: 'Delay [ms]',
         LANG_SERVO_MOVE_TOOLTIP: 'Move between 0~180 degree',
-        LANG_SERVO_WARNING:'It is not possible to set the servo pin using a variable'
+        LANG_SERVO_WARNING:'It is not possible to set the servo pin using a variable',
+        //interrupt blocks :
+        LANG_CATEGORY_INTERRUPTS: 'Interrupts',
+        LANG_INTERRUPTS_STATE: 'Set interrupts state to ',
+        LANG_INTERRUPTS_STATE_ENABLED: 'ENABLED',
+        LANG_INTERRUPTS_STATE_DISABLED: 'DISABLED',
+        LANG_INTERRUPTS_STATE_TOOLTIP: 'Enable or Disable interrupts. Some functions will not work while interrupts are disabled. Use only for particularly critical sections of code.',
+        LANG_INTERRUPTS_ATTACH: 'Attach procedure ',
+        LANG_INTERRUPTS_ATTACH_PARAM2: 'in mode ',
+        LANG_INTERRUPTS_ATTACH_PARAM3: 'with interrupt of digital pin',
+        LANG_INTERRUPTS_ATTACH_LOW: 'LOW',
+        LANG_INTERRUPTS_ATTACH_CHANGE: 'CHANGE',
+        LANG_INTERRUPTS_ATTACH_RISING: 'RISING',
+        LANG_INTERRUPTS_ATTACH_FALLING: 'FALLING',
+        LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',
+        LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',
+        LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
