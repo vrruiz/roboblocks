@@ -358,6 +358,10 @@
         LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
         LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
         LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
+        LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',  // To translate
+        LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',  // To translate
+        LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',  // To translate
+        LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declares and defines a VOLATILE GLOBAL variable of type int or String used in a ISR function.',  // To translate
         //zum blocks :
         LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Botó',
@@ -415,7 +419,24 @@
         LANG_SERVO_MOVE_DEGREES: 'Graus (0~180)',
         LANG_SERVO_MOVE_DELAY: 'Pausa',
         LANG_SERVO_MOVE_TOOLTIP: 'Moure el servo entre 0 i 180 graus.',
-        LANG_SERVO_WARNING: 'It is not possible to set the servo pin using a variable'
+        LANG_SERVO_WARNING: 'It is not possible to set the servo pin using a variable',
+        //interrupt blocks :
+        LANG_CATEGORY_INTERRUPTS: 'Interrupts',  // To translate
+        LANG_INTERRUPTS_STATE: 'Set interrupts state to ',  // To translate
+        LANG_INTERRUPTS_STATE_ENABLED: 'ENABLED',  // To translate
+        LANG_INTERRUPTS_STATE_DISABLED: 'DISABLED',  // To translate
+        LANG_INTERRUPTS_STATE_TOOLTIP: 'Enable or Disable interrupts. Some functions will not work while interrupts are disabled. Use only for particularly critical sections of code.',  // To translate
+        LANG_INTERRUPTS_ATTACH: 'Attach procedure ',  // To translate
+        LANG_INTERRUPTS_ATTACH_PARAM2: 'in mode ',  // To translate
+        LANG_INTERRUPTS_ATTACH_PARAM3: 'with interrupt of digital pin',  // To translate
+        LANG_INTERRUPTS_ATTACH_LOW: 'LOW',  // To translate
+        LANG_INTERRUPTS_ATTACH_CHANGE: 'CHANGE',  // To translate
+        LANG_INTERRUPTS_ATTACH_RISING: 'RISING',  // To translate
+        LANG_INTERRUPTS_ATTACH_FALLING: 'FALLING',  // To translate
+        LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
+        LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
+        LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
