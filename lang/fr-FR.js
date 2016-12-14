@@ -57,8 +57,8 @@
         LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP: 'Vérifier si le module Bluetooth est disponible ou non.',
         LANG_ADVANCED_SERIAL_AVAILABLE: 'Port série disponible',
         LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP: 'Vérifier si le port série est disponible ou non',
-        LANG_ADVANCED_SERIAL_PARSEINT: 'Serial Read Integer', // To translate
-        LANG_ADVANCED_SERIAL_PARSEINT_TOOLTIP: 'First valid (long) integer number from the serial buffer', // To translate
+        LANG_ADVANCED_SERIAL_PARSEINT: 'Entier série lu',
+        LANG_ADVANCED_SERIAL_PARSEINT_TOOLTIP: 'D abord valider le nombre entier(long) du tampon série',
         LANG_ADVANCED_SERIAL_PRINT: 'Imprimer via le port série',
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Imprime les données en caractères ASCII.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Imprimer via le port série avec retour chariot',
@@ -148,13 +148,13 @@
         LANG_CATEGORY_CONTROLS: 'Contrôle',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Attendre (ms)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Attend le temps défini en millisecondes (ms)',
-        LANG_CONTROLS_BASE_MILLIS: 'Time from start (ms)', // To translate
-        LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program started (long integer)', // To translate
+        LANG_CONTROLS_BASE_MILLIS: 'Temps à partir du début (ms)',
+        LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Nombre de millisecondes depuis le démarrage du programme (entier long)', 
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Do',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'while',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'While the condition is true, continue doing the statements.',
         LANG_CONTROLS_EXECUTE: 'Execute',
-        LANG_CONTROLS_EXECUTE_TOOLTIP: 'Executes C/C++ code. Use with caution, as it can easily break the program and prevent it from compiling.',
+        LANG_CONTROLS_EXECUTE_TOOLTIP: 'Exécutes du code C/C++. A utiliser avec parcimonie, car il peut casser facilement le programme et l empêcher de compiler.',
         LANG_CONTROLS_IF_TOOLTIP_1: 'Si la condition est vraie, exécute les instructions.',
         LANG_CONTROLS_IF_TOOLTIP_2: 'Si la condition est vraie, exécuter le premier bloc d’instruction. Sinon, exécuter le second bloc d’instruction.',
         LANG_CONTROLS_IF_TOOLTIP_3: 'Si la première condition est vraie, exécuter le premier bloc d’instruction. Sinon, si la seconde valeur est vraie, exécuter le second bloc d’instruction.',
@@ -411,7 +411,7 @@
         LANG_SERVO_CONT_ROT: 'ROT',
         LANG_SERVO_CONT_TURN_CLOCKWISE: 'TOURNER DANS LE SENS DES AIGUILLES D’UNE MONTRE',
         LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'TOURNER DANS LE SENS INVERSE DES AIGUILLES D’UNE MONTRE ',
-        LANG_SERVO_CONT_STOPPED: 'ARRÊTÉ',
+        LANG_SERVO_CONT_STOPPED: 'ARRETE',
         LANG_SERVO_CONT_DELAY: 'Attendre [ms]',
         LANG_SERVO_CONT_TOOLTIP: 'Servo à rotation continue.',
         LANG_SERVO_MOVE: 'Servo',
