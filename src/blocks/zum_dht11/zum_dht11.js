@@ -11,7 +11,6 @@ Blockly.Arduino.zum_dht11 = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
     var temperature  = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
     var humidity  = Blockly.Arduino.valueToCode(this, 'HUMIDITY', Blockly.Arduino.ORDER_ATOMIC);
-    var delay = Blockly.Arduino.valueToCode(this, 'DELAY', Blockly.Arduino.ORDER_ATOMIC);
 
     var code = '';
     var a = RoboBlocks.findPinMode(dropdown_pin);
@@ -23,14 +22,12 @@ Blockly.Arduino.zum_dht11 = function() {
             'dropdown_pin': dropdown_pin,
             'temperature': temperature,
             'humidity': humidity,
-            'delay': delay
         });
     } else {
         Blockly.Arduino.setups_['setup_dht11_' + dropdown_pin] = JST['zum_dht11_setups']({
             'dropdown_pin': dropdown_pin,
             'temperature': temperature,
             'humidity': humidity,
-            'delay': delay
         });
     }
 
@@ -38,7 +35,6 @@ Blockly.Arduino.zum_dht11 = function() {
         'dropdown_pin': dropdown_pin,
         'temperature': temperature,
         'humidity': humidity,
-        'delay': delay
     });
 
     return code;
@@ -58,7 +54,10 @@ Blockly.Blocks.zum_dht11 = {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
         this.appendValueInput('PIN')
             .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11'))
-            .appendField(new Blockly.FieldImage('img/blocks/dht11.png', 208 * options.zoom, 140 * options.zoom))
+            .appendField(new Blockly.FieldImage(
+                'img/blocks/dht11.png',
+                208 * options.zoom,
+                140 * options.zoom))
             .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_PIN'));
         this.appendValueInput('TEMPERATURE')
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -66,9 +65,6 @@ Blockly.Blocks.zum_dht11 = {
         this.appendValueInput('HUMIDITY')
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_HUMIDITY'));
-        this.appendValueInput('DELAY')
-            .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_DELAY'));
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_TOOLTIP'));

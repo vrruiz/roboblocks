@@ -12678,7 +12678,10 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
                 this.appendValueInput('PIN')
                     .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11'))
-                    .appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom))
+                    .appendField(new Blockly.FieldImage(
+                        'img/blocks/dht11.png',
+                        208 * options.zoom,
+                        140 * options.zoom))
                     .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_PIN'));
                 this.appendValueInput('TEMPERATURE')
                     .setAlign(Blockly.ALIGN_RIGHT)
