@@ -353,16 +353,16 @@
         LANG_VARIABLES_PIN_DIGITAL: 'Broche numérique',
         LANG_VARIABLES_PIN_DIGITAL0: 'ATTENTION : la broche numérique 0 (broche RX) sert à charger les programmes. Si elle est utilisée pour connecter des composants électroniques, des problèmes peuvent survenir lors du chargement d’un nouveau programme.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Sélectionner la BROCHE.',
-        LANG_VARIABLES_TYPE_BYTE: 'Byte', // To translate
-        LANG_VARIABLES_TYPE_FLOAT: 'Float',  // To translate
-        LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
-        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
-        LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declares and defines a VOLATILE GLOBAL variable of type int or String used in a ISR function.',  // To translate
-        //zum blocks :
+        LANG_VARIABLES_TYPE_BYTE: 'Octet',
+        LANG_VARIABLES_TYPE_FLOAT: 'Virgule flotante',
+        LANG_VARIABLES_TYPE_INTEGER: 'Entier',
+        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Entier long',
+        LANG_VARIABLES_TYPE_STRING: 'Chaine',
+        LANG_VARIABLES_VOLATILE_GLOBAL: 'Variable Globale volatile déclarée',
+        LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'de type',
+        LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'égal',
+        LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Déclare et défini une variable GLOBALE VOLATILE de type int ou chaine utilisé dans une fonction ISR.',
+        //aux blocks :
         LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Bouton',
         LANG_ZUM_BUTTON_PIN: 'BROCHE#',
@@ -421,22 +421,22 @@
         LANG_SERVO_MOVE_TOOLTIP: 'Bouger le servo entre 0 et 180 degrés',
         LANG_SERVO_WARNING: 'Il n’est pas possible de déterminer la broche du servo à l’aide d’une variable',
         //interrupt blocks :
-        LANG_CATEGORY_INTERRUPTS: 'Interrupts',  // To translate
-        LANG_INTERRUPTS_STATE: 'Set interrupts state to ',  // To translate
-        LANG_INTERRUPTS_STATE_ENABLED: 'ENABLED',  // To translate
-        LANG_INTERRUPTS_STATE_DISABLED: 'DISABLED',  // To translate
-        LANG_INTERRUPTS_STATE_TOOLTIP: 'Enable or Disable interrupts. Some functions will not work while interrupts are disabled. Use only for particularly critical sections of code.',  // To translate
-        LANG_INTERRUPTS_ATTACH: 'Attach procedure ',  // To translate
-        LANG_INTERRUPTS_ATTACH_PARAM2: 'in mode ',  // To translate
-        LANG_INTERRUPTS_ATTACH_PARAM3: 'with interrupt of digital pin',  // To translate
-        LANG_INTERRUPTS_ATTACH_LOW: 'LOW',  // To translate
-        LANG_INTERRUPTS_ATTACH_CHANGE: 'CHANGE',  // To translate
-        LANG_INTERRUPTS_ATTACH_RISING: 'RISING',  // To translate
-        LANG_INTERRUPTS_ATTACH_FALLING: 'FALLING',  // To translate
-        LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
-        LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
-        LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
+        LANG_CATEGORY_INTERRUPTS: 'Interruption',
+        LANG_INTERRUPTS_STATE: 'Configurer les interruptions à l état de',
+        LANG_INTERRUPTS_STATE_ENABLED: 'MARCHE',
+        LANG_INTERRUPTS_STATE_DISABLED: 'ARRET',
+        LANG_INTERRUPTS_STATE_TOOLTIP: 'Valider ou invalider les interruptions. Certaines fonctions ne fonctionnerons pas tant que les interruptions sont invalidées. A n utiliser qu en cas de sections de code critique',
+        LANG_INTERRUPTS_ATTACH: 'Procédure jointe ',
+        LANG_INTERRUPTS_ATTACH_PARAM2: 'en mode ',
+        LANG_INTERRUPTS_ATTACH_PARAM3: 'Avec interruption de la broche digitale',
+        LANG_INTERRUPTS_ATTACH_LOW: 'BAS',
+        LANG_INTERRUPTS_ATTACH_CHANGE: 'MODIFIE',
+        LANG_INTERRUPTS_ATTACH_RISING: 'MONTER',
+        LANG_INTERRUPTS_ATTACH_FALLING: 'TOMBER',
+        LANG_INTERRUPTS_ATTACH_PROCEDURE: 'fonction_sans_retour',
+        LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Régler la procédure qui doit être exécutée quand une interruption apparait dans la broche spécifiée.',
+        LANG_INTERRUPTS_DETACH: 'Détacher l interruption sur la broche digitale',
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Annuler l interruption sur la broche. Quand la broche est activée, la procédure associée n est plus exécuter.'
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
