@@ -58,7 +58,7 @@
         LANG_ADVANCED_SERIAL_AVAILABLE: 'Port série disponible',
         LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP: 'Vérifier si le port série est disponible ou non',
         LANG_ADVANCED_SERIAL_PARSEINT: 'Serial Read Integer', // To translate
-        LANG_ADVANCED_SERIAL_PARSEINT_TOOLTIP: 'First valid (long) integer number from the serial buffer', // To translate
+        LANG_ADVANCED_SERIAL_PARSEINT_TOOLTIP: 'D abord valider le nombre entier(long) du tampon série',
         LANG_ADVANCED_SERIAL_PRINT: 'Imprimer via le port série',
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Imprime les données en caractères ASCII.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Imprimer via le port série avec retour chariot',
@@ -148,13 +148,13 @@
         LANG_CATEGORY_CONTROLS: 'Contrôle',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Attendre (ms)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Attend le temps défini en millisecondes (ms)',
-        LANG_CONTROLS_BASE_MILLIS: 'Time from start (ms)', // To translate
-        LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program started (long integer)', // To translate
+        LANG_CONTROLS_BASE_MILLIS: 'Temps à partir du début (ms)',
+        LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Nombre de millisecondes depuis le démarrage du programme (entier long)', 
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Do',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'while',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'While the condition is true, continue doing the statements.',
         LANG_CONTROLS_EXECUTE: 'Execute',
-        LANG_CONTROLS_EXECUTE_TOOLTIP: 'Executes C/C++ code. Use with caution, as it can easily break the program and prevent it from compiling.',
+        LANG_CONTROLS_EXECUTE_TOOLTIP: 'Exécutes du code C/C++. A utiliser avec parcimonie, car il peut casser facilement le programme et l empêcher de compiler.',
         LANG_CONTROLS_IF_TOOLTIP_1: 'Si la condition est vraie, exécute les instructions.',
         LANG_CONTROLS_IF_TOOLTIP_2: 'Si la condition est vraie, exécuter le premier bloc d’instruction. Sinon, exécuter le second bloc d’instruction.',
         LANG_CONTROLS_IF_TOOLTIP_3: 'Si la première condition est vraie, exécuter le premier bloc d’instruction. Sinon, si la seconde valeur est vraie, exécuter le second bloc d’instruction.',
@@ -353,15 +353,15 @@
         LANG_VARIABLES_PIN_DIGITAL: 'Broche numérique',
         LANG_VARIABLES_PIN_DIGITAL0: 'ATTENTION : la broche numérique 0 (broche RX) sert à charger les programmes. Si elle est utilisée pour connecter des composants électroniques, des problèmes peuvent survenir lors du chargement d’un nouveau programme.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Sélectionner la BROCHE.',
-        LANG_VARIABLES_TYPE_BYTE: 'Byte', // To translate
-        LANG_VARIABLES_TYPE_FLOAT: 'Float',  // To translate
-        LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
-        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
-        LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declares and defines a VOLATILE GLOBAL variable of type int or String used in a ISR function.',  // To translate
+        LANG_VARIABLES_TYPE_BYTE: 'Octet',
+        LANG_VARIABLES_TYPE_FLOAT: 'Virgule flotante',
+        LANG_VARIABLES_TYPE_INTEGER: 'Entier',
+        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Entier long',
+        LANG_VARIABLES_TYPE_STRING: 'chaine',  
+        LANG_VARIABLES_VOLATILE_GLOBAL: 'Variable VOLATILE GLOBAL déclarée ',
+        LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'de type ', 
+        LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'egal ',
+        LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Déclarer et définir une variable VOLATILE GLOBAL de type entier ou chaine utilisée dans une fonction ISR .',  
         //zum blocks :
         LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Bouton',
@@ -411,7 +411,7 @@
         LANG_SERVO_CONT_ROT: 'ROT',
         LANG_SERVO_CONT_TURN_CLOCKWISE: 'TOURNER DANS LE SENS DES AIGUILLES D’UNE MONTRE',
         LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'TOURNER DANS LE SENS INVERSE DES AIGUILLES D’UNE MONTRE ',
-        LANG_SERVO_CONT_STOPPED: 'ARRÊTÉ',
+        LANG_SERVO_CONT_STOPPED: 'ARRETE',
         LANG_SERVO_CONT_DELAY: 'Attendre [ms]',
         LANG_SERVO_CONT_TOOLTIP: 'Servo à rotation continue.',
         LANG_SERVO_MOVE: 'Servo',
@@ -421,22 +421,22 @@
         LANG_SERVO_MOVE_TOOLTIP: 'Bouger le servo entre 0 et 180 degrés',
         LANG_SERVO_WARNING: 'Il n’est pas possible de déterminer la broche du servo à l’aide d’une variable',
         //interrupt blocks :
-        LANG_CATEGORY_INTERRUPTS: 'Interrupts',  // To translate
-        LANG_INTERRUPTS_STATE: 'Set interrupts state to ',  // To translate
-        LANG_INTERRUPTS_STATE_ENABLED: 'ENABLED',  // To translate
-        LANG_INTERRUPTS_STATE_DISABLED: 'DISABLED',  // To translate
-        LANG_INTERRUPTS_STATE_TOOLTIP: 'Enable or Disable interrupts. Some functions will not work while interrupts are disabled. Use only for particularly critical sections of code.',  // To translate
-        LANG_INTERRUPTS_ATTACH: 'Attach procedure ',  // To translate
-        LANG_INTERRUPTS_ATTACH_PARAM2: 'in mode ',  // To translate
-        LANG_INTERRUPTS_ATTACH_PARAM3: 'with interrupt of digital pin',  // To translate
-        LANG_INTERRUPTS_ATTACH_LOW: 'LOW',  // To translate
-        LANG_INTERRUPTS_ATTACH_CHANGE: 'CHANGE',  // To translate
-        LANG_INTERRUPTS_ATTACH_RISING: 'RISING',  // To translate
-        LANG_INTERRUPTS_ATTACH_FALLING: 'FALLING',  // To translate
-        LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
-        LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
-        LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
+        LANG_CATEGORY_INTERRUPTS: 'Interruption',
+        LANG_INTERRUPTS_STATE: 'configurer les interruptions à l etat de',
+        LANG_INTERRUPTS_STATE_ENABLED: 'VALIDER', 
+        LANG_INTERRUPTS_STATE_DISABLED: 'INVALIDER', 
+        LANG_INTERRUPTS_STATE_TOOLTIP: 'Valider ou invalider les interruptions. Certaines fonctions ne marcheront pas pendant que les interruptions sont invalidées. A utiliser avec parcimonie,seulement dans le cas de code de sections critiques.', 
+        LANG_INTERRUPTS_ATTACH: 'Procédure jointe', 
+        LANG_INTERRUPTS_ATTACH_PARAM2: 'en mode ', 
+        LANG_INTERRUPTS_ATTACH_PARAM3: 'Avec interruption de la broche digitale',
+        LANG_INTERRUPTS_ATTACH_LOW: 'BAS',
+        LANG_INTERRUPTS_ATTACH_CHANGE: 'MODIFIER',
+        LANG_INTERRUPTS_ATTACH_RISING: 'MONTER', 
+        LANG_INTERRUPTS_ATTACH_FALLING: 'TOMBER',
+        LANG_INTERRUPTS_ATTACH_PROCEDURE: 'fonction_sans_retour', 
+        LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Configure la procédure pour être excécutée quand une interruption apparaît dans une broche spécifique.',
+        LANG_INTERRUPTS_DETACH: 'Détacher l interruption de la broche digitale',
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Annule l interruption sur la broche. Quand la broche est activée, la procédure associée n est plus excécutée.'
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
