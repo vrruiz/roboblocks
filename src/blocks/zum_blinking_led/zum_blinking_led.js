@@ -7,25 +7,26 @@
  */
 Blockly.Arduino.zum_blinking_led = function() {
     var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
-    var delay = Blockly.Arduino.valueToCode(this, 'DELAY', Blockly.Arduino.ORDER_ATOMIC) || '';
+    var dropdown_delay = Blockly.Arduino.valueToCode(this, 'DELAY', Blockly.Arduino.ORDER_ATOMIC) || '';
     var code = '';
     var a = RoboBlocks.findPinMode(dropdown_pin);
+
     code += a['code'];
     dropdown_pin = a['pin'];
     if (RoboBlocks.isVariable(dropdown_pin)) {
         code += JST['zum_blinking_led_setups']({
             'dropdown_pin': dropdown_pin,
-            'delay': delay
+            'dropdown_delay': dropdown_delay
         });
     } else {
         Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['zum_blinking_led_setups']({
             'dropdown_pin': dropdown_pin,
-            'delay': delay
+            'dropdown_delay': dropdown_delay
         });
     }
     code += JST['zum_blinking_led']({
         'dropdown_pin': dropdown_pin,
-        'delay': delay
+        'dropdown_delay': dropdown_delay
     });
     return code;
 };

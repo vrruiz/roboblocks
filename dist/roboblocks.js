@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2016-12-07
+/*! roboblocks - v0.2.3 - 2016-12-14
  * https://github.com/bq/roboblocks
  * Copyright (c) 2016 ; Licensed  */
 
@@ -850,6 +850,12 @@
                 LANG_ZUM_BUTTON: 'Button',
                 LANG_ZUM_BUTTON_PIN: 'PIN#',
                 LANG_ZUM_BUTTON_TOOLTIP: 'zum Button',
+                LANG_ZUM_DHT11: 'DHT11',
+                LANG_ZUM_DHT11_PIN: 'PIN#',
+                LANG_ZUM_DHT11_DELAY: 'Delay (ms)',
+                LANG_ZUM_DHT11_TEMPERATURE: 'Temp. var',
+                LANG_ZUM_DHT11_HUMIDITY: 'Hum. var',
+                LANG_ZUM_DHT11_TOOLTIP: 'Zum DHT11',
                 LANG_ZUM_FOLLOWER: 'Infrared Sensor',
                 LANG_ZUM_FOLLOWER_PIN_LEFT: 'PIN LEFT#',
                 LANG_ZUM_FOLLOWER_PIN_RIGHT: 'PIN RIGHT#',
@@ -6278,11 +6284,11 @@
                 __p += 'digitalWrite(' +
                     ((__t = (dropdown_pin)) == null ? '' : __t) +
                     ', HIGH);\ndelay(' +
-                    ((__t = (delay)) == null ? '' : __t) +
+                    ((__t = (dropdown_delay)) == null ? '' : __t) +
                     ');\ndigitalWrite(' +
                     ((__t = (dropdown_pin)) == null ? '' : __t) +
                     ', LOW);\ndelay(' +
-                    ((__t = (delay)) == null ? '' : __t) +
+                    ((__t = (dropdown_delay)) == null ? '' : __t) +
                     ');\n';
 
             }
@@ -6323,6 +6329,38 @@
                 __p += 'pinMode(' +
                     ((__t = (dropdown_pin)) == null ? '' : __t) +
                     ',INPUT_PULLUP);\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_dht11"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'int dht11_value_' +
+                    ((__t = (dropdown_pin)) == null ? '' : __t) +
+                    ' = DHT.read11(' +
+                    ((__t = (dropdown_pin)) == null ? '' : __t) +
+                    ');\n' +
+                    ((__t = (temperature)) == null ? '' : __t) +
+                    ' = DHT.temperature;\n' +
+                    ((__t = (humidity)) == null ? '' : __t) +
+                    ' = DHT.humidity;\ndelay(' +
+                    ((__t = (delay)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_dht11_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '';
 
             }
             return __p
@@ -12491,25 +12529,26 @@
          */
         Blockly.Arduino.zum_blinking_led = function() {
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '';
-            var delay = Blockly.Arduino.valueToCode(this, 'DELAY', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var dropdown_delay = Blockly.Arduino.valueToCode(this, 'DELAY', Blockly.Arduino.ORDER_ATOMIC) || '';
             var code = '';
             var a = RoboBlocks.findPinMode(dropdown_pin);
+
             code += a['code'];
             dropdown_pin = a['pin'];
             if (RoboBlocks.isVariable(dropdown_pin)) {
                 code += JST['zum_blinking_led_setups']({
                     'dropdown_pin': dropdown_pin,
-                    'delay': delay
+                    'dropdown_delay': dropdown_delay
                 });
             } else {
                 Blockly.Arduino.setups_['setup_green_led_' + dropdown_pin] = JST['zum_blinking_led_setups']({
                     'dropdown_pin': dropdown_pin,
-                    'delay': delay
+                    'dropdown_delay': dropdown_delay
                 });
             }
             code += JST['zum_blinking_led']({
                 'dropdown_pin': dropdown_pin,
-                'delay': delay
+                'dropdown_delay': dropdown_delay
             });
             return code;
         };
@@ -12579,6 +12618,83 @@
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_BUTTON_TOOLTIP'));
             }
         };
+        // Source: src/blocks/zum_dht11/zum_dht11.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * zum_dht11 code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_dht11 = function() {
+            Blockly.Arduino.definitions_['define_dht11'] = '#include <dht.h>\ndht DHT;\n';
+
+            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var temperature = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
+            var humidity = Blockly.Arduino.valueToCode(this, 'HUMIDITY', Blockly.Arduino.ORDER_ATOMIC);
+            var delay = Blockly.Arduino.valueToCode(this, 'DELAY', Blockly.Arduino.ORDER_ATOMIC);
+
+            var code = '';
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+
+            code += a['code'];
+            dropdown_pin = a['pin'];
+            if (RoboBlocks.isVariable(dropdown_pin)) {
+                code += JST['zum_dht11_setups']({
+                    'dropdown_pin': dropdown_pin,
+                    'temperature': temperature,
+                    'humidity': humidity,
+                    'delay': delay
+                });
+            } else {
+                Blockly.Arduino.setups_['setup_dht11_' + dropdown_pin] = JST['zum_dht11_setups']({
+                    'dropdown_pin': dropdown_pin,
+                    'temperature': temperature,
+                    'humidity': humidity,
+                    'delay': delay
+                });
+            }
+
+            code += JST['zum_dht11']({
+                'dropdown_pin': dropdown_pin,
+                'temperature': temperature,
+                'humidity': humidity,
+                'delay': delay
+            });
+
+            return code;
+        };
+        /**
+         * zum_dht11 block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_dht11 = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['dht11'],
+            helpUrl: RoboBlocks.URL_dht11,
+            /**
+             * zum_dht11 initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11'))
+                    .appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom))
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_PIN'));
+                this.appendValueInput('TEMPERATURE')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_TEMPERATURE'));
+                this.appendValueInput('HUMIDITY')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_HUMIDITY'));
+                this.appendValueInput('DELAY')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_DELAY'));
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_TOOLTIP'));
+            }
+        };
+
         // Source: src/blocks/zum_follower/zum_follower.js
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */

@@ -1,4 +1,4 @@
 digitalWrite({{ dropdown_pin }}, HIGH);
-delay({{ delay }});
+delay({{ dropdown_delay }});
 digitalWrite({{ dropdown_pin }}, LOW);
-delay({{ delay }});
+delay({{ dropdown_delay }});
