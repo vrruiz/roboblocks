@@ -1,0 +1,1 @@
+randomSeed({{value_num}});
