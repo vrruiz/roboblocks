@@ -43,8 +43,16 @@ Blockly.Blocks.zum_blinking_led = {
      */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
-        this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED')).appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_PIN'));
-        this.appendValueInput('DELAY').setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_DELAY'));
+        this.appendValueInput('PIN')
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED'))
+            .appendField(new Blockly.FieldImage(
+                'img/blocks/zum04.png',
+                208 * options.zoom,
+                140 * options.zoom))
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_PIN'));
+        this.appendValueInput('DELAY')
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_DELAY'));
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_TOOLTIP'));

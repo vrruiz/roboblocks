@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2016-12-14
+/*! roboblocks - v0.2.3 - 2016-12-21
  * https://github.com/bq/roboblocks
  * Copyright (c) 2016 ; Licensed  */
 
@@ -850,12 +850,16 @@
                 LANG_ZUM_BUTTON: 'Button',
                 LANG_ZUM_BUTTON_PIN: 'PIN#',
                 LANG_ZUM_BUTTON_TOOLTIP: 'zum Button',
-                LANG_ZUM_DHT11: 'DHT11',
+                LANG_ZUM_BMP180: 'Barometer',
+                LANG_ZUM_BMP180_TEMPERATURE: 'Temp. var.',
+                LANG_ZUM_BMP180_ALTITUDE: 'Altitude var.',
+                LANG_ZUM_BMP180_PRESSURE: 'Pressure var.',
+                LANG_ZUM_BMP180_TOOLTIP: 'BMP180',
+                LANG_ZUM_DHT11: 'Hygrometer',
                 LANG_ZUM_DHT11_PIN: 'PIN#',
-                LANG_ZUM_DHT11_DELAY: 'Delay (ms)',
-                LANG_ZUM_DHT11_TEMPERATURE: 'Temp. var',
-                LANG_ZUM_DHT11_HUMIDITY: 'Hum. var',
-                LANG_ZUM_DHT11_TOOLTIP: 'Zum DHT11',
+                LANG_ZUM_DHT11_TEMPERATURE: 'Temp. var.',
+                LANG_ZUM_DHT11_HUMIDITY: 'Hum. var.',
+                LANG_ZUM_DHT11_TOOLTIP: 'Hygrometer',
                 LANG_ZUM_FOLLOWER: 'Infrared Sensor',
                 LANG_ZUM_FOLLOWER_PIN_LEFT: 'PIN LEFT#',
                 LANG_ZUM_FOLLOWER_PIN_RIGHT: 'PIN RIGHT#',
@@ -6308,6 +6312,34 @@
             return __p
         };
 
+        this["JST"]["zum_bmp180"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p +=
+                    ((__t = (temperature)) == null ? '' : __t) +
+                    ' = BMP.readTemperature();\n' +
+                    ((__t = (altitude)) == null ? '' : __t) +
+                    ' = BMP.readAltitude();\n' +
+                    ((__t = (pressure)) == null ? '' : __t) +
+                    ' = BMP.readPressure();\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_bmp180_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'BMP.begin();\n';
+
+            }
+            return __p
+        };
+
         this["JST"]["zum_button"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -6339,7 +6371,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'int dht11_value_' +
+                __p += 'int dht11_' +
                     ((__t = (dropdown_pin)) == null ? '' : __t) +
                     ' = DHT.read11(' +
                     ((__t = (dropdown_pin)) == null ? '' : __t) +
@@ -6347,9 +6379,7 @@
                     ((__t = (temperature)) == null ? '' : __t) +
                     ' = DHT.temperature;\n' +
                     ((__t = (humidity)) == null ? '' : __t) +
-                    ' = DHT.humidity;\ndelay(' +
-                    ((__t = (delay)) == null ? '' : __t) +
-                    ');\n';
+                    ' = DHT.humidity;\n';
 
             }
             return __p
@@ -12565,11 +12595,79 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
-                this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED')).appendField(new Blockly.FieldImage('img/blocks/zum04.png', 208 * options.zoom, 140 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_PIN'));
-                this.appendValueInput('DELAY').setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_DELAY'));
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED'))
+                    .appendField(new Blockly.FieldImage(
+                        'img/blocks/zum04.png',
+                        208 * options.zoom,
+                        140 * options.zoom))
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_PIN'));
+                this.appendValueInput('DELAY')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_DELAY'));
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_BLINKING_LED_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/zum_bmp180/zum_bmp180.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * zum_bmp180 code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_bmp180 = function() {
+            Blockly.Arduino.definitions_['define_bmp180'] = '#include <Adafruit_BMP085.h>\nAdafruit_BMP085 BMP;\n';
+
+            var temperature = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
+            var altitude = Blockly.Arduino.valueToCode(this, 'ALTITUDE', Blockly.Arduino.ORDER_ATOMIC);
+            var pressure = Blockly.Arduino.valueToCode(this, 'PRESSURE', Blockly.Arduino.ORDER_ATOMIC);
+
+            var code = '';
+
+            Blockly.Arduino.setups_['setup_bmp180_'] = JST['zum_bmp180_setups']();
+
+            code += JST['zum_bmp180']({
+                'temperature': temperature,
+                'altitude': altitude,
+                'pressure': pressure,
+            });
+
+            return code;
+        };
+        /**
+         * zum_bmp180 block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_bmp180 = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['bmp180'],
+            helpUrl: RoboBlocks.URL_BMP180,
+            /**
+             * zum_bmp180 initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BMP180'))
+                    .appendField(new Blockly.FieldImage(
+                        'img/blocks/bmp085.png',
+                        208 * options.zoom,
+                        140 * options.zoom));
+                this.appendValueInput('TEMPERATURE')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BMP180_TEMPERATURE'));
+                this.appendValueInput('ALTITUDE')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BMP180_ALTITUDE'));
+                this.appendValueInput('PRESSURE')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_BMP180_PRESSURE'));
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_BMP180_TOOLTIP'));
             }
         };
 
@@ -12631,7 +12729,6 @@
             var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
             var temperature = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
             var humidity = Blockly.Arduino.valueToCode(this, 'HUMIDITY', Blockly.Arduino.ORDER_ATOMIC);
-            var delay = Blockly.Arduino.valueToCode(this, 'DELAY', Blockly.Arduino.ORDER_ATOMIC);
 
             var code = '';
             var a = RoboBlocks.findPinMode(dropdown_pin);
@@ -12643,14 +12740,12 @@
                     'dropdown_pin': dropdown_pin,
                     'temperature': temperature,
                     'humidity': humidity,
-                    'delay': delay
                 });
             } else {
                 Blockly.Arduino.setups_['setup_dht11_' + dropdown_pin] = JST['zum_dht11_setups']({
                     'dropdown_pin': dropdown_pin,
                     'temperature': temperature,
                     'humidity': humidity,
-                    'delay': delay
                 });
             }
 
@@ -12658,7 +12753,6 @@
                 'dropdown_pin': dropdown_pin,
                 'temperature': temperature,
                 'humidity': humidity,
-                'delay': delay
             });
 
             return code;
@@ -12689,9 +12783,6 @@
                 this.appendValueInput('HUMIDITY')
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_HUMIDITY'));
-                this.appendValueInput('DELAY')
-                    .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_DELAY'));
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_TOOLTIP'));
