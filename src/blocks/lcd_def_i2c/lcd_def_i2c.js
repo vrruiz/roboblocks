@@ -6,8 +6,8 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.zum_lcd_i2c = function() {
-    Blockly.Arduino.definitions_['define_lcd_i2c'] = JST['lcd_def_i2c_definitions']({});
-    Blockly.Arduino.setups_['setup_lcd_i2c_'] = JST['lcd_def_i2c_setups']({});
+    Blockly.Arduino.definitions_['define_lcd_i2c'] = JST['lcd_def_i2c_definitions']();
+    Blockly.Arduino.setups_['setup_lcd_i2c_'] = JST['lcd_def_i2c_setups']();
 
     return '';
 };
