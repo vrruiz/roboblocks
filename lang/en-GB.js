@@ -129,6 +129,8 @@
         LANG_BQ_POTENTIOMETER_TOOLTIP: 'Returns the analog value measured by the potentiometer.',
         //LCD blocks:
         LANG_CATEGORY_LCD: 'LCD bloqs',
+        LANG_LCD_DEF_I2C: 'LCD (2x16): I2C',
+        LANG_LCD_DEF_TOOLTIP: 'Block that defines the I2C LCD',
         LANG_LCD_DEF: 'LCD (2x16)',
         LANG_LCD_PINS: 'LCD Pins',
         LANG_LCD_DEF_TOOLTIP: 'Block that defines the LCD',

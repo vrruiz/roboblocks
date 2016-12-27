@@ -40,7 +40,7 @@ Blockly.Blocks.variables_local_type = {
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_LONG'), 'long'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BYTE'), 'byte'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_FLOAT'), 'float']
-            ]), "VAR_TYPE").
+            ]), 'VAR_TYPE').
             appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_EQUALS'));
         this.setInputsInline(false);
         this.setPreviousStatement(true);

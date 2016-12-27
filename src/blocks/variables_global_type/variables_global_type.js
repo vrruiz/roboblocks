@@ -10,9 +10,6 @@ Blockly.Arduino.variables_global_type = function() {
     var varType = this.getFieldValue('VAR_TYPE');
     var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
     var varName = this.getFieldValue('VAR') || '';
-    var isFunction = false;
-
-    var varName = this.getFieldValue('VAR') || '';
     var code ='';
 
     var a=RoboBlocks.findPinMode(varValue);
@@ -45,7 +42,7 @@ Blockly.Blocks.variables_global_type = {
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_LONG'), 'long'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BYTE'), 'byte'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_FLOAT'), 'float']
-            ]), "VAR_TYPE").
+            ]), 'VAR_TYPE').
             appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_EQUALS'));
         this.setInputsInline(false);
         this.setPreviousStatement(true);

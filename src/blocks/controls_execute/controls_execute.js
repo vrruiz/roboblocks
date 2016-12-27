@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, profiles, JST, RoboBlocks */
+/* global Blockly, JST, RoboBlocks */
 /* jshint sub:true */
 /**
  * controls_execute code generation

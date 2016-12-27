@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2016-12-21
+/*! roboblocks - v0.2.3 - 2016-12-27
  * https://github.com/bq/roboblocks
  * Copyright (c) 2016 ; Licensed  */
 
@@ -616,6 +616,8 @@
                 LANG_BQ_POTENTIOMETER_TOOLTIP: 'Returns the analog value measured by the potentiometer.',
                 //LCD blocks:
                 LANG_CATEGORY_LCD: 'LCD bloqs',
+                LANG_LCD_DEF_I2C: 'LCD (2x16): I2C',
+                LANG_LCD_DEF_TOOLTIP: 'Block that defines the I2C LCD',
                 LANG_LCD_DEF: 'LCD (2x16)',
                 LANG_LCD_PINS: 'LCD Pins',
                 LANG_LCD_DEF_TOOLTIP: 'Block that defines the LCD',
@@ -5779,6 +5781,28 @@
             return __p
         };
 
+        this["JST"]["lcd_def_i2c_definitions"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#include <Wire.h>\n#include <LiquidCrystal_I2C.h>\nLiquidCrystal_I2C lcd(0x27, 16, 2);\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["lcd_def_i2c_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'lcd.begin();\nlcd.clear();\n';
+
+            }
+            return __p
+        };
+
         this["JST"]["lcd_print"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -6873,7 +6897,7 @@
         };
 
         // Source: src/blocks/base_millis/base_millis.js
-        /* global Blockly, JST, RoboBlocks */
+        /* global Blockly, RoboBlocks */
 
         //register with blockly arduino
         Blockly.Arduino.base_millis = function() {
@@ -7787,7 +7811,7 @@
         };
 
         // Source: src/blocks/controls_execute/controls_execute.js
-        /* global Blockly, profiles, JST, RoboBlocks */
+        /* global Blockly, JST, RoboBlocks */
         /* jshint sub:true */
         /**
          * controls_execute code generation
@@ -8940,7 +8964,7 @@
             code += b['code'];
             value_num = b['pin'];
 
-            /* Parece que actúa sobre el setup  */
+            /* Parece que actúa sobre el setup */
             if (RoboBlocks.isVariable(dropdown_pin)) {
                 code += JST['inout_digital_write_var_setups']({
                     'dropdown_pin': dropdown_pin,
@@ -8972,12 +8996,21 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
-                this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE')).appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN'));
-                this.appendValueInput('NUM', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_GET_VAR')).appendField("[0,1]");
+                this.appendValueInput('PIN')
+                    .appendField(RoboBlocks.locales
+                        .getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE'))
+                    .appendField(RoboBlocks.locales
+                        .getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN'));
+                this.appendValueInput('NUM', Number)
+                    .setCheck(Number).setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales
+                        .getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_GET_VAR'))
+                    .appendField('[0,1]');
                 this.setPreviousStatement(true, null);
                 this.setInputsInline(true);
                 this.setNextStatement(true, null);
-                this.setTooltip(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP'));
+                this.setTooltip(RoboBlocks.locales
+                    .getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP'));
             }
         };
 
@@ -9109,6 +9142,45 @@
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_LCD_DEF_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/lcd_def_i2c/lcd_def_i2c.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * zum_lcd_i2c code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_lcd_i2c = function() {
+            Blockly.Arduino.definitions_['define_lcd_i2c'] = JST['lcd_def_i2c_definitions']({});
+            Blockly.Arduino.setups_['setup_lcd_i2c_'] = JST['lcd_def_i2c_setups']({});
+
+            return '';
+        };
+
+        /**
+         * zum_lcd_i2c block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_lcd_i2c = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_LCD'),
+            tags: ['lcd'],
+            helpUrl: RoboBlocks.URL_LCD_I2C,
+            /**
+             * lcd_slave initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_LCD);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_LCD_DEF_I2C'))
+                    .appendField(new Blockly.FieldImage(
+                        'img/blocks/lcd.png',
+                        208 * options.zoom,
+                        100 * options.zoom));
+                this.setInputsInline(false);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_LCD_DEF_I2C_TOOLTIP'));
             }
         };
 
@@ -12181,9 +12253,6 @@
             var varType = this.getFieldValue('VAR_TYPE');
             var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
             var varName = this.getFieldValue('VAR') || '';
-            var isFunction = false;
-
-            var varName = this.getFieldValue('VAR') || '';
             var code = '';
 
             var a = RoboBlocks.findPinMode(varValue);
@@ -12216,7 +12285,7 @@
                     [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_LONG'), 'long'],
                     [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BYTE'), 'byte'],
                     [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_FLOAT'), 'float']
-                ]), "VAR_TYPE").
+                ]), 'VAR_TYPE').
                 appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_EQUALS'));
                 this.setInputsInline(false);
                 this.setPreviousStatement(true);
@@ -12433,7 +12502,7 @@
                     [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_LONG'), 'long'],
                     [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BYTE'), 'byte'],
                     [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_FLOAT'), 'float']
-                ]), "VAR_TYPE").
+                ]), 'VAR_TYPE').
                 appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_EQUALS'));
                 this.setInputsInline(false);
                 this.setPreviousStatement(true);
