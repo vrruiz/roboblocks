@@ -7,7 +7,7 @@
  */
 Blockly.Arduino.zum_bmp180 = function() {
     Blockly.Arduino.definitions_['define_bmp180'] = '#include <Adafruit_BMP085.h>\nAdafruit_BMP085 BMP;\n';
-    Blockly.Arduino.setups_['setup_bmp180'] = 'BMP.begin()';
+    Blockly.Arduino.setups_['setup_bmp180'] = 'BMP.begin();';
 
     var temperature  = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
     var altitude  = Blockly.Arduino.valueToCode(this, 'ALTITUDE', Blockly.Arduino.ORDER_ATOMIC);

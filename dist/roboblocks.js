@@ -6350,17 +6350,6 @@
             return __p
         };
 
-        this["JST"]["zum_bmp180_setups"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += 'BMP.begin();\n';
-
-            }
-            return __p
-        };
-
         this["JST"]["zum_button"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -6401,17 +6390,6 @@
                     ' = DHT.temperature;\n' +
                     ((__t = (humidity)) == null ? '' : __t) +
                     ' = DHT.humidity;\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["zum_dht11_setups"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '';
 
             }
             return __p
@@ -12720,9 +12698,8 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.zum_bmp180 = function() {
-            Blockly.Arduino.definitions_['define_bmp180'] = '#include <Adafruit_BMP085.h>\n';
-            Blockly.Arduino.definitions_['var_bmp180'] = 'Adafruit_BMP085 BMP;\n';
-            Blockly.Arduino.setups_['setup_bmp180'] = JST['zum_bmp180_setups']();
+            Blockly.Arduino.definitions_['define_bmp180'] = '#include <Adafruit_BMP085.h>\nAdafruit_BMP085 BMP;\n';
+            Blockly.Arduino.setups_['setup_bmp180'] = 'BMP.begin();';
 
             var temperature = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
             var altitude = Blockly.Arduino.valueToCode(this, 'ALTITUDE', Blockly.Arduino.ORDER_ATOMIC);
@@ -12818,7 +12795,7 @@
             }
         };
         // Source: src/blocks/zum_dht11/zum_dht11.js
-        /* global Blockly, options, JST, RoboBlocks */
+        /* global Blockly, profiles, options, JST, RoboBlocks */
         /* jshint sub:true */
         /**
          * zum_dht11 code generation
@@ -12827,33 +12804,14 @@
         Blockly.Arduino.zum_dht11 = function() {
             Blockly.Arduino.definitions_['define_dht11'] = '#include <dht.h>\ndht DHT;\n';
 
-            var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var dropdown_pin = this.getTitleValue('PIN');
             var temperature = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
             var humidity = Blockly.Arduino.valueToCode(this, 'HUMIDITY', Blockly.Arduino.ORDER_ATOMIC);
 
-            var code = '';
-            var a = RoboBlocks.findPinMode(dropdown_pin);
-
-            code += a['code'];
-            dropdown_pin = a['pin'];
-            if (RoboBlocks.isVariable(dropdown_pin)) {
-                code += JST['zum_dht11_setups']({
-                    'dropdown_pin': dropdown_pin,
-                    'temperature': temperature,
-                    'humidity': humidity,
-                });
-            } else {
-                Blockly.Arduino.setups_['setup_dht11_' + dropdown_pin] = JST['zum_dht11_setups']({
-                    'dropdown_pin': dropdown_pin,
-                    'temperature': temperature,
-                    'humidity': humidity,
-                });
-            }
-
-            code += JST['zum_dht11']({
+            var code = JST['zum_dht11']({
                 'dropdown_pin': dropdown_pin,
                 'temperature': temperature,
-                'humidity': humidity,
+                'humidity': humidity
             });
 
             return code;
@@ -12871,13 +12829,14 @@
              */
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
-                this.appendValueInput('PIN')
+                this.appendDummyInput()
                     .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11'))
                     .appendField(new Blockly.FieldImage(
                         'img/blocks/dht11.png',
                         208 * options.zoom,
                         140 * options.zoom))
-                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_PIN'));
+                    .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_PIN'))
+                    .appendTitle(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
                 this.appendValueInput('TEMPERATURE')
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_TEMPERATURE'));
