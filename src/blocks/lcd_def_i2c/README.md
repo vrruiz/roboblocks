@@ -1,7 +1,7 @@
 lcd_def_i2c
 ==========
 
-LCD definition using an I2C interface.
+LCD definition using the I2C protocol.
 
 Parameters
 ----------

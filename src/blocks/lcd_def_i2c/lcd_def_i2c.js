@@ -2,18 +2,19 @@
 /* global Blockly, options, JST, RoboBlocks */
 /* jshint sub:true */
 /**
- * zum_lcd_i2c code generation
+ * lcd_i2c code generation
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.zum_lcd_i2c = function() {
-    Blockly.Arduino.definitions_['define_lcd_i2c'] = JST['lcd_def_i2c_definitions']();
+    Blockly.Arduino.definitions_['define_wire'] = '#include <Wire.h>\n';
+    Blockly.Arduino.definitions_['define_lcd_i2c'] = '#include <LiquidCrystal_I2C.h>\nLiquidCrystal_I2C lcd(0x27, 16, 2);\n';
     Blockly.Arduino.setups_['setup_lcd_i2c_'] = JST['lcd_def_i2c_setups']();
 
     return '';
 };
 
 /**
- * zum_lcd_i2c block definition
+ * lcd_i2c block definition
  * @type {Object}
  */
 Blockly.Blocks.zum_lcd_i2c = {

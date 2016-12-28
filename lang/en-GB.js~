@@ -129,6 +129,8 @@
         LANG_BQ_POTENTIOMETER_TOOLTIP: 'Returns the analog value measured by the potentiometer.',
         //LCD blocks:
         LANG_CATEGORY_LCD: 'LCD bloqs',
+        LANG_LCD_DEF_I2C: 'LCD (2x16): I2C',
+        LANG_LCD_DEF_TOOLTIP: 'Block that defines the I2C LCD',
         LANG_LCD_DEF: 'LCD (2x16)',
         LANG_LCD_PINS: 'LCD Pins',
         LANG_LCD_DEF_TOOLTIP: 'Block that defines the LCD',
@@ -414,6 +416,13 @@
         LANG_ZUM_POTENTIOMETER: 'Potentiometer',
         LANG_ZUM_POTENTIOMETER_PIN: 'PIN#',
         LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Returns the analog value measured by the potentiometer.',
+	LANG_MPU6050_TOOLTIP: 'Motion tracker',
+	LANG_MPU6050_ACCEL_X: 'Accel. x',
+	LANG_MPU6050_ACCEL_Y: 'Accel. y',
+	LANG_MPU6050_ACCEL_Z: 'Accel. z',
+	LANG_MPU6050_GYRO_X: 'Gyro. x',
+	LANG_MPU6050_GYRO_Y: 'Gyro. y',
+	LANG_MPU6050_GYRO_Z: 'Gyro. z',
         //servo blocks :
         LANG_CATEGORY_SERVO: 'Servo',
         LANG_SERVO_CONT: 'Continuous rotation servo',

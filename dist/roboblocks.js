@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2016-12-27
+/*! roboblocks - v0.2.3 - 2016-12-28
  * https://github.com/bq/roboblocks
  * Copyright (c) 2016 ; Licensed  */
 
@@ -903,6 +903,14 @@
                 LANG_ZUM_POTENTIOMETER: 'Potentiometer',
                 LANG_ZUM_POTENTIOMETER_PIN: 'PIN#',
                 LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Returns the analog value measured by the potentiometer.',
+                LANG_MPU6050: 'Motion tracker',
+                LANG_MPU6050_ACCEL_X: 'Accel. x',
+                LANG_MPU6050_ACCEL_Y: 'Accel. y',
+                LANG_MPU6050_ACCEL_Z: 'Accel. z',
+                LANG_MPU6050_GYRO_X: 'Gyro. x',
+                LANG_MPU6050_GYRO_Y: 'Gyro. y',
+                LANG_MPU6050_GYRO_Z: 'Gyro. z',
+                LANG_MPU6050_TOOLTIP: 'Motion tracker',
                 //servo blocks :
                 LANG_CATEGORY_SERVO: 'Servo',
                 LANG_SERVO_CONT: 'Continuous rotation servo',
@@ -5781,17 +5789,6 @@
             return __p
         };
 
-        this["JST"]["lcd_def_i2c_definitions"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '#include <Wire.h>\n#include <LiquidCrystal_I2C.h>\nLiquidCrystal_I2C lcd(0x27, 16, 2);\n';
-
-            }
-            return __p
-        };
-
         this["JST"]["lcd_def_i2c_setups"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -6514,6 +6511,40 @@
                 __p += 'pinMode(' +
                     ((__t = (dropdown_pin)) == null ? '' : __t) +
                     ',OUTPUT);\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_mpu6050"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'accelgyro.getMotion6(\n    &' +
+                    ((__t = (accel_x)) == null ? '' : __t) +
+                    ',\n    &' +
+                    ((__t = (accel_y)) == null ? '' : __t) +
+                    ',\n    &' +
+                    ((__t = (accel_z)) == null ? '' : __t) +
+                    ',\n    &' +
+                    ((__t = (gyro_x)) == null ? '' : __t) +
+                    ',\n    &' +
+                    ((__t = (gyro_y)) == null ? '' : __t) +
+                    ',\n    &' +
+                    ((__t = (gyro_z)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["zum_mpu6050_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE\n    Wire.begin();\n#elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE\n    Fastwire::setup(400, true);\n#endif\n\naccelgyro.initialize();\n';
 
             }
             return __p
@@ -9149,18 +9180,19 @@
         /* global Blockly, options, JST, RoboBlocks */
         /* jshint sub:true */
         /**
-         * zum_lcd_i2c code generation
+         * lcd_i2c code generation
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.zum_lcd_i2c = function() {
-            Blockly.Arduino.definitions_['define_lcd_i2c'] = JST['lcd_def_i2c_definitions']({});
-            Blockly.Arduino.setups_['setup_lcd_i2c_'] = JST['lcd_def_i2c_setups']({});
+            Blockly.Arduino.definitions_['define_wire'] = '#include <Wire.h>\n';
+            Blockly.Arduino.definitions_['define_lcd_i2c'] = '#include <LiquidCrystal_I2C.h>\nLiquidCrystal_I2C lcd(0x27, 16, 2);\n';
+            Blockly.Arduino.setups_['setup_lcd_i2c_'] = JST['lcd_def_i2c_setups']();
 
             return '';
         };
 
         /**
-         * zum_lcd_i2c block definition
+         * lcd_i2c block definition
          * @type {Object}
          */
         Blockly.Blocks.zum_lcd_i2c = {
@@ -12688,15 +12720,15 @@
          * @return {String} Code generated with block parameters
          */
         Blockly.Arduino.zum_bmp180 = function() {
-            Blockly.Arduino.definitions_['define_bmp180'] = '#include <Adafruit_BMP085.h>\nAdafruit_BMP085 BMP;\n';
+            Blockly.Arduino.definitions_['define_bmp180'] = '#include <Adafruit_BMP085.h>\n';
+            Blockly.Arduino.definitions_['var_bmp180'] = 'Adafruit_BMP085 BMP;\n';
+            Blockly.Arduino.setups_['setup_bmp180'] = JST['zum_bmp180_setups']();
 
             var temperature = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
             var altitude = Blockly.Arduino.valueToCode(this, 'ALTITUDE', Blockly.Arduino.ORDER_ATOMIC);
             var pressure = Blockly.Arduino.valueToCode(this, 'PRESSURE', Blockly.Arduino.ORDER_ATOMIC);
 
             var code = '';
-
-            Blockly.Arduino.setups_['setup_bmp180_'] = JST['zum_bmp180_setups']();
 
             code += JST['zum_bmp180']({
                 'temperature': temperature,
@@ -13028,6 +13060,82 @@
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_LED_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/zum_mpu6050/zum_mpu6050.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * mpu6050 code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.zum_mpu6050 = function() {
+            Blockly.Arduino.definitions_['define_wire'] = '#include <Wire.h>\n';
+            Blockly.Arduino.definitions_['define_mpu6050'] = '#include <I2Cdev.h>\n#include <MPU6050.h>\nMPU6050 accelgyro;\n';
+            Blockly.Arduino.setups_['setup_mpu6050'] = JST['zum_mpu6050_setups']();
+
+            var accel_x = Blockly.Arduino.valueToCode(this, 'ACCEL_X', Blockly.Arduino.ORDER_ATOMIC);
+            var accel_y = Blockly.Arduino.valueToCode(this, 'ACCEL_Y', Blockly.Arduino.ORDER_ATOMIC);
+            var accel_z = Blockly.Arduino.valueToCode(this, 'ACCEL_Z', Blockly.Arduino.ORDER_ATOMIC);
+            var gyro_x = Blockly.Arduino.valueToCode(this, 'GYRO_X', Blockly.Arduino.ORDER_ATOMIC);
+            var gyro_y = Blockly.Arduino.valueToCode(this, 'GYRO_Y', Blockly.Arduino.ORDER_ATOMIC);
+            var gyro_z = Blockly.Arduino.valueToCode(this, 'GYRO_Z', Blockly.Arduino.ORDER_ATOMIC);
+
+            var code = '';
+
+            code += JST['zum_mpu6050']({
+                'accel_x': accel_x,
+                'accel_y': accel_y,
+                'accel_z': accel_z,
+                'gyro_x': gyro_x,
+                'gyro_y': gyro_y,
+                'gyro_z': gyro_z,
+            });
+
+            return code;
+        };
+
+        /**
+         * mpu6050 block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.zum_mpu6050 = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+            tags: ['mpu6050'],
+            helpUrl: RoboBlocks.URL_MPU6050,
+            /**
+             * mpu6050 initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+                this.appendDummyInput()
+                    .appendField(RoboBlocks.locales.getKey('LANG_MPU6050'))
+                    .appendField(new Blockly.FieldImage(
+                        'img/blocks/mpu6050.png',
+                        208 * options.zoom,
+                        140 * options.zoom));
+                this.appendValueInput('ACCEL_X')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MPU6050_ACCEL_X'));
+                this.appendValueInput('ACCEL_Y')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MPU6050_ACCEL_Y'));
+                this.appendValueInput('ACCEL_Z')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MPU6050_ACCEL_Z'));
+                this.appendValueInput('GYRO_X')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MPU6050_GYRO_X'));
+                this.appendValueInput('GYRO_Y')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MPU6050_GYRO_Y'));
+                this.appendValueInput('GYRO_Z')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MPU6050_GYRO_Z'));
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MPU6050_TOOLTIP'));
             }
         };
 
