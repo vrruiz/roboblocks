@@ -6,9 +6,8 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.zum_bmp180 = function() {
-    Blockly.Arduino.definitions_['define_bmp180'] = '#include <Adafruit_BMP085.h>\n';
-    Blockly.Arduino.definitions_['var_bmp180'] = 'Adafruit_BMP085 BMP;\n';
-    Blockly.Arduino.setups_['setup_bmp180'] = JST['zum_bmp180_setups']();
+    Blockly.Arduino.definitions_['define_bmp180'] = '#include <Adafruit_BMP085.h>\nAdafruit_BMP085 BMP;\n';
+    Blockly.Arduino.setups_['setup_bmp180'] = 'BMP.begin()';
 
     var temperature  = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
     var altitude  = Blockly.Arduino.valueToCode(this, 'ALTITUDE', Blockly.Arduino.ORDER_ATOMIC);
