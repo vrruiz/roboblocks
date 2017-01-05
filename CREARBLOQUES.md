@@ -111,7 +111,7 @@ Blockly.Arduino.sensor_dht11 = function() {
  * @type {Object}
  */
 Blockly.Blocks.sensor_dht11 = {
-    category: RoboBlocks.locales.getKey('LANG_CATEGORY_SENSOR’),
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_SENSOR'),
     tags: ['dht11'],
     helpUrl: RoboBlocks.URL_dht11,
     /**
