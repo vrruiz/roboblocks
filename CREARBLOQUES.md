@@ -12,7 +12,7 @@ Primero, debemos comprobar que el módulo que queremos implementar tiene disponi
 ~/Arduino/libraries/
 ```
 
-Como nota importante, las librerías deben estar descomprimidas para ser usadas. Se puede descomprimir directamente en el directorio anteriormente mencionado, o bien usando el IDE de Arduino™.
+Como nota importante, las librerías deben estar descomprimidas para ser usadas. Se puede descomprimir manualmente en el directorio anteriormente mencionado, o bien usando el IDE de Arduino™.
 
 ```
 Sketch > Include Library > Add .ZIP Library…
@@ -20,7 +20,7 @@ Sketch > Include Library > Add .ZIP Library…
 
 ### Diagrama
 
-Visualino utiliza representaciones visuales de los módulos para que el usuario programe. Es por ello que debemos tener un diagrama o dibujo de los mismos – en formato PNG. Podemos hacerlos nosotros o utilizar la plataforma **Fritzing**™.
+Visualino utiliza representaciones visuales de los módulos para que el usuario programe. Es por ello que debemos tener un diagrama o dibujo de los mismos – en formato PNG. Podemos hacerlos nosotros mismos o utilizar la plataforma **Fritzing**™.
 
 Si decidimos utilizar Fritzing™, primeramente debemos acceder a www.fritzing.org y descargar la pieza deseada. De no encontrarla, podemos usar un proyecto adecuado que la contenga. Para obtener el diagrama de la pieza, abrimos el fichero descargado con Fritzing™ y buscamos la pieza en el menú titulado *Parts*. Si no la vemos y lo que tenemos es un proyecto, podemos buscarla en la vista *Breadboard*. Hacemos click derecho sobre ella y abrimos el *Part Editor*. Una vez ahí, exportamos la pieza como PNG:
 
@@ -54,7 +54,7 @@ Leemos y tratamos de entender el código del ejemplo para posteriormente cargarl
 
 ## Programar el bloque
 
-A partir de ahora, debemos tener acceso al proyecto *roboblocks* de Víctor R. Ruiz. Mediante *Git*, podemos clonar o hacer un *fork* a su repositorio – yo la he puesto en *Documents*, pero podemos escoger el directorio que prefiramos-.
+A partir de ahora, debemos tener acceso al proyecto *roboblocks* de Víctor R. Ruiz. Mediante *Git*, podemos clonar o hacer un *fork* a su repositorio – yo lo he puesto en *Documents*, pero podemos escoger el directorio que prefiramos-:
 
 ```shell
 cd ~/Documents
@@ -71,7 +71,7 @@ mkdir sensor_dht11
 cd sensor_dht11/
 ```
 
-A tener en cuenta, que para mantener cierto orden, es recomendable comenzar el nombre del módulo con la categoría a la corresponde. 
+A tener en cuenta que, para mantener cierto orden, es recomendable comenzar el nombre del módulo con la categoría a la corresponde. 
 
 Situados en el directorio del bloque, creamos dos archivos y un directorio que contendrá la imagen del bloque.
 
