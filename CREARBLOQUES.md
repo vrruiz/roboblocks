@@ -8,7 +8,7 @@ Una guía para añadir nuevos bloques al entorno Visualino.
 
 Primero, debemos comprobar que el módulo que queremos implementar tiene disponible una librería para Arduino™. De ser así, bastará con descargarla y **situarla** en el directorio donde el IDE de Arduino™ localiza sus librerías; en Linux, por defecto, este directorio está en:
 
-```shell
+```bash
 ~/Arduino/libraries/
 ```
 
@@ -32,13 +32,13 @@ Si no vemos la pieza al abrir el PNG, es posible que nuestro Fritzing™ tenga u
 
 Para instalar Inkscape™:
 
-```shell
+```bash
 sudo apt-get install inkscape
 ```
 
 Para convertir un fichero SVG a PNG:
 
-```shell
+```bash
 inkscape -z -e fichero.png fichero.svg
 ```
 
@@ -50,13 +50,13 @@ Este es el momento de comprobar que somos capaces de interactuar con el artilugi
 File > Examples
 ```
 
-Leemos y tratamos de entender el código del ejemplo para posteriormente cargarlo en la placa. Cuando todo funcione correctamente, podemos **retener del mismo código las partes que nos puedan interesar**: importaciones de librerías, *setup* necesario, llamadas a métodos, etc. También es posible que apreciemos la falta de funcionalidades que ofrece la librería; en ese caso tendremos que acudir a la documentación.
+Leemos y tratamos de entender el código del ejemplo para posteriormente cargarlo en la placa. Cuando todo funcione correctamente, podemos **retener del mismo código las partes que nos puedan interesar**: importaciones de librerías, *setup* necesario, llamadas a métodos, etc. También es posible que apreciemos que en el ejemplo falte alguna funcionalidad que ofrece la librería; en ese caso tendremos que acudir a la documentación.
 
 ## Programar el bloque
 
 A partir de ahora, debemos tener acceso al proyecto *roboblocks* de Víctor R. Ruiz. Mediante *Git*, podemos clonar o hacer un *fork* a su repositorio – yo lo he puesto en *Documents*, pero podemos escoger el directorio que prefiramos-:
 
-```shell
+```bash
 cd ~/Documents
 git clone https://github.com/vrruiz/roboblocks
 ```
@@ -65,7 +65,7 @@ git clone https://github.com/vrruiz/roboblocks
 
 Entramos en la carpeta que contiene los bloques y creamos el directorio para nuestro nuevo bloque –en este caso el hygrómetro DHT11–:
 
-```shell
+```bash
 cd ~/Documents/roboblocks/src/blocks
 mkdir sensor_dht11
 cd sensor_dht11/
@@ -75,7 +75,7 @@ A tener en cuenta que, para mantener cierto orden, es recomendable comenzar el n
 
 Situados en el directorio del bloque, creamos dos archivos y un directorio que contendrá la imagen del bloque.
 
-```shell
+```bash
 touch README.md sensor_dht11.js
 mkdir img
 ```
@@ -114,13 +114,14 @@ Blockly.Blocks.sensor_dht11 = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_SENSOR'),
     tags: ['dht11'],
     helpUrl: RoboBlocks.URL_dht11,
+
     /**
      * sensor_dht11 initialization
      */
     init: function() {
 	        
 
-	this.setPreviousStatement(true, null);
+        this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_SENSOR_DHT11_TOOLTIP'));
     }
@@ -133,7 +134,7 @@ En la función asignada a **Blockly.Arduino.**sensor_dht11 se generará el códi
 
 *En Blockly.Blocks…*
 
-Para asignar un color al bloque, utilizaremos el método setColour:
+Para asignar el color de la categoría al bloque, utilizaremos el método setColour:
 
 ```javascript
 this.setColour(RoboBlocks.LANG_COLOUR_SENSOR);
@@ -242,7 +243,7 @@ int dht11_{{ dropdown_pin }} = DHT.read11({{ dropdown_pin }});
 De vuelta al fichero .js, añadimos:
 
 ```javascript
-var code = JST['zum_dht11']({
+var code = JST['sensor_dht11']({
     'dropdown_pin': dropdown_pin,
     'temperature': temperature,
     'humidity': humidity
@@ -261,17 +262,17 @@ El código completo sería el siguiente:
 /* jshint sub:true */
 
 /**
- * zum_dht11 code generation
+ * sensor_dht11 code generation
  * @return {String} Code generated with block parameters
  */
-Blockly.Arduino.zum_dht11 = function() {
+Blockly.Arduino.sensor_dht11 = function() {
     Blockly.Arduino.definitions_['define_dht11'] = '#include <dht.h>\ndht DHT;\n';
 
     var dropdown_pin = this.getTitleValue('PIN');
     var temperature  = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
     var humidity = Blockly.Arduino.valueToCode(this, 'HUMIDITY', Blockly.Arduino.ORDER_ATOMIC);
 
-    var code = JST['zum_dht11']({
+    var code = JST['sensor_dht11']({
         'dropdown_pin': dropdown_pin,
         'temperature': temperature,
         'humidity': humidity
@@ -281,36 +282,36 @@ Blockly.Arduino.zum_dht11 = function() {
 };
 
 /**
- * zum_dht11 block definition
+ * sensor_dht11 block definition
  * @type {Object}
  */
-Blockly.Blocks.zum_dht11 = {
-    category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+Blockly.Blocks.sensor_dht11 = {
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_SENSOR'),
     tags: ['dht11'],
     helpUrl: RoboBlocks.URL_dht11,
 
     /**
-     * zum_dht11 initialization
+     * sensor_dht11 initialization
      */
     init: function() {
-        this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+        this.setColour(RoboBlocks.LANG_COLOUR_SENSOR);
         this.appendDummyInput()
-            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11'))
+            .appendField(RoboBlocks.locales.getKey('LANG_SENSOR_DHT11'))
             .appendField(new Blockly.FieldImage(
                 'img/blocks/dht11.png',
                 208 * options.zoom,
                 140 * options.zoom))
-            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_PIN'))
+            .appendField(RoboBlocks.locales.getKey('LANG_SENSOR_DHT11_PIN'))
             .appendTitle(new Blockly.FieldDropdown(profiles.default.digital), 'PIN');
         this.appendValueInput('TEMPERATURE')
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_TEMPERATURE'));
+            .appendField(RoboBlocks.locales.getKey('LANG_SENSOR_DHT11_TEMPERATURE'));
         this.appendValueInput('HUMIDITY')
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_HUMIDITY'));
+            .appendField(RoboBlocks.locales.getKey('LANG_SENSOR_DHT11_HUMIDITY'));
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.locales.getKey('LANG_ZUM_DHT11_TOOLTIP'));
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_SENSOR_DHT11_TOOLTIP'));
     }
 };
 ```
@@ -319,7 +320,7 @@ Blockly.Blocks.zum_dht11 = {
 
 A tener en cuenta, que hemos empleado el método *getKey* para definir etiquetas y otros contenidos en lugar de texto. Esto es porque RoboBlocks utiliza ficheros indexados para implementar varios idiomas. Localizaremos estos ficheros en:
 
-```shell
+```bash
 cd ~/Documents/roboblocks/lang/
 ```
 
@@ -329,13 +330,13 @@ Es importante definir todas las etiquetas empleadas con su nombre correspondient
 
 Ahora que tenemos todo elaborado, podemos probar nuestro bloque. Para compilar, bastará con ejecutar el siguiente comando en el directorio roboblocks:
 
-```shell
+```bash
 grunt
 ```
 
-Para poder ver en Visualino los cambios que hemos realizado existen dos posibilidades. La primera es cambiando una línea de código en el fichero que apunta a la distribución del Visualino; cambiando de la original a la recientemente compilada. Sin embargo, para simplificar, vamos a optar por la segunda opción, que es añadir los ficheros que hemos modificado al Visualino que tenemos instalado: el archivo dist/roboblocks.js y el directorio dist/img/blocks. En Linux podemos realizarlo con los siguientes comandos:
+Para poder ver en Visualino los cambios que hemos realizado existen dos posibilidades. La primera es modificando una línea de código en el fichero que apunta a la distribución del Visualino; cambiando de la original a la recientemente compilada. Sin embargo, para simplificar, vamos a optar por la segunda opción, que es añadir los ficheros que hemos modificado al Visualino que tenemos instalado: el archivo dist/roboblocks.js y el directorio dist/img/blocks. En Linux podemos realizarlo con los siguientes comandos:
 
-```shell
+```bash
 sudo cp dist/roboblocks.js /usr/share/visualino/html/
 sudo cp -r dist/img/blocks/ /usr/share/visualino/html/img/
 ```
