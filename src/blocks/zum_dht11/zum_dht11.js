@@ -1,6 +1,7 @@
 'use strict';
 /* global Blockly, profiles, options, JST, RoboBlocks */
 /* jshint sub:true */
+
 /**
  * zum_dht11 code generation
  * @return {String} Code generated with block parameters
@@ -10,7 +11,7 @@ Blockly.Arduino.zum_dht11 = function() {
 
     var dropdown_pin = this.getTitleValue('PIN');
     var temperature  = Blockly.Arduino.valueToCode(this, 'TEMPERATURE', Blockly.Arduino.ORDER_ATOMIC);
-    var humidity  = Blockly.Arduino.valueToCode(this, 'HUMIDITY', Blockly.Arduino.ORDER_ATOMIC);
+    var humidity = Blockly.Arduino.valueToCode(this, 'HUMIDITY', Blockly.Arduino.ORDER_ATOMIC);
 
     var code = JST['zum_dht11']({
         'dropdown_pin': dropdown_pin,
@@ -20,6 +21,7 @@ Blockly.Arduino.zum_dht11 = function() {
 
     return code;
 };
+
 /**
  * zum_dht11 block definition
  * @type {Object}
@@ -28,6 +30,7 @@ Blockly.Blocks.zum_dht11 = {
     category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
     tags: ['dht11'],
     helpUrl: RoboBlocks.URL_dht11,
+
     /**
      * zum_dht11 initialization
      */
