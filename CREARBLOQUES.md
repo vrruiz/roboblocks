@@ -44,7 +44,7 @@ inkscape -z -e fichero.png fichero.svg
 
 ## Funcionamiento
 
-Este es el momento de comprobar que somos capaces de interactuar con el artilugio. Realizamos las conexiones oportunas y mediante el IDE de Arduino™ cargamos el ejemplo que incorpora la librería que hemos descargado:
+Éste es el momento de comprobar que somos capaces de interactuar con el artilugio. Realizamos las conexiones oportunas y mediante el IDE de Arduino™ cargamos el ejemplo que incorpora la librería que hemos descargado:
 
 ```
 File > Examples
