@@ -148,8 +148,12 @@
         LANG_CATEGORY_CONTROLS: 'Sterujące',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Czekaj (ms)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Czeka przez czas określony w milisekundach (ms)',
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS: 'Wait [us]', //To translate
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS_TOOLTIP: 'Waits the specified time in microseconds (us)', //To translate
         LANG_CONTROLS_BASE_MILLIS: 'Czas od startu',
         LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Liczba milisekund od momentu startu programu (long integer)',
+        LANG_CONTROLS_BASE_MICROS: 'Time from start (us)', //To translate
+        LANG_CONTROLS_BASE_MICROS_TOOLTIP: 'Number of microseconds since the program started (long integer)', //To translate
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Rób',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'dopóki',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'Powtarzaj wykonanie bloku poleceń dopóki warunek jest spełniony.',
@@ -226,6 +230,15 @@
         LANG_ARRAY_GET_BRACKET2: ']',
         LANG_ARRAY_GET_TOOLTIP: 'Zwraca wartość wskazanego elementu tablicy.',
         LANG_MATH_MODULO_TOOLTIP: 'Zwraca resztę z dzielenia dwóch liczb wejściowych.',
+        LANG_MATH_MIN: 'Minimum value between', //To translate
+        LANG_MATH_MIN_PARAM2: 'and', //To translate
+        LANG_MATH_MIN_TOOLTIP: 'Returns the minimum value of the inputs.', //To translate
+        LANG_MATH_MAX: 'Maximum value between', //To translate
+        LANG_MATH_MAX_PARAM2: 'and', //To translate
+        LANG_MATH_MAX_TOOLTIP: 'Returns the maximum value of the inputs.', //To translate
+        LANG_MATH_POW: 'Value of', //To translate
+        LANG_MATH_POW_PARAM2: 'to the power of', //To translate
+        LANG_MATH_POW_TOOLTIP: 'Returns the value of the first input to the power of the second.', //To translate
         LANG_MATH_BASE_MAP: 'Skaluj ',
         LANG_MATH_BASE_MAP_VALUE_TO: 'Wartość na [0-',
         LANG_MATH_BASE_MAP_BRACKET: ']',
@@ -302,6 +315,8 @@
         LANG_ADVANCED_MATH_RANDOM: 'Losuj z zakresu',
         LANG_ADVANCED_MATH_RANDOM_AND: ' i ',
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Zwraca liczbę losową z zakresu podanych dwóch liczb ograniczających.',
+        LANG_ADVANCED_MATH_RANDOM_SEED: 'Initialize random generator from', //To translate
+        LANG_ADVANCED_MATH_RANDOM_SEED_TOOLTIP: 'Initializes random number generator. This prevents the random number generator to give the same random secuence. Recommenden to read the value from an unused analog pin using analogRead.', //To translate
         //bloki procedur:
         LANG_CATEGORY_PROCEDURES: 'Funkcje',
         LANG_PROCEDURES_RETURN: 'Zwróć',

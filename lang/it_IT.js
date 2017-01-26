@@ -148,8 +148,12 @@
         LANG_CATEGORY_CONTROLS: 'Controllo',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Attendi (ms)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Attende un determinato tempo in millisecondi (ms)',
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS: 'Wait [us]', //To translate
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS_TOOLTIP: 'Waits the specified time in microseconds (us)', //To translate
         LANG_CONTROLS_BASE_MILLIS: 'Time from start (ms)', // To translate
         LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program started (long integer)', // To translate
+        LANG_CONTROLS_BASE_MICROS: 'Time from start (us)', //To translate
+        LANG_CONTROLS_BASE_MICROS_TOOLTIP: 'Number of microseconds since the program started (long integer)', //To translate
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Do',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'while',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'While the condition is true, continue doing the statements.',
@@ -226,6 +230,15 @@
         LANG_ARRAY_GET_BRACKET2: ']',
         LANG_ARRAY_GET_TOOLTIP: 'Restituisce il valore di uno specifico elemento di un insieme.',
         LANG_MATH_MODULO_TOOLTIP: 'Restituisce la differenza di una divisione tra due numeri.',
+        LANG_MATH_MIN: 'Minimum value between', //To translate
+        LANG_MATH_MIN_PARAM2: 'and', //To translate
+        LANG_MATH_MIN_TOOLTIP: 'Returns the minimum value of the inputs.', //To translate
+        LANG_MATH_MAX: 'Maximum value between', //To translate
+        LANG_MATH_MAX_PARAM2: 'and', //To translate
+        LANG_MATH_MAX_TOOLTIP: 'Returns the maximum value of the inputs.', //To translate
+        LANG_MATH_POW: 'Value of', //To translate
+        LANG_MATH_POW_PARAM2: 'to the power of', //To translate
+        LANG_MATH_POW_TOOLTIP: 'Returns the value of the first input to the power of the second.', //To translate
         LANG_MATH_BASE_MAP: 'Mappa ',
         LANG_MATH_BASE_MAP_VALUE_TO: 'Valore da [0-',
         LANG_MATH_BASE_MAP_BRACKET: ']',
@@ -302,6 +315,8 @@
         LANG_ADVANCED_MATH_RANDOM: 'Numero casuale tra',
         LANG_ADVANCED_MATH_RANDOM_AND: ' e ',
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Restituisce un valore casuale tra i due estremi.',
+        LANG_ADVANCED_MATH_RANDOM_SEED: 'Initialize random generator from', //To translate
+        LANG_ADVANCED_MATH_RANDOM_SEED_TOOLTIP: 'Initializes random number generator. This prevents the random number generator to give the same random secuence. Recommenden to read the value from an unused analog pin using analogRead.', //To translate
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funzioni',
         LANG_PROCEDURES_RETURN: 'return',
