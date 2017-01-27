@@ -153,7 +153,7 @@
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Fes',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'mentre',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'Mentre la condició es compleix, continua fent les accions.',
-        LANG_CONTROLS_EXECUTE: 'Fes-ho',
+        LANG_CONTROLS_EXECUTE: 'Fes',
         LANG_CONTROLS_EXECUTE_TOOLTIP: 'Executa codic C/C++. Utilitza-ho amb cura, perquè pot trencar fàcilment el programa i evitar que es compili.',
         LANG_CONTROLS_IF_TOOLTIP_1: 'Si la condició es compleix, fa les accions dins del bloc.',
         LANG_CONTROLS_IF_TOOLTIP_2: 'Si la condició es compleix, fa el primer bloc d\'ordres. Si no, fa el segon bloc d\'ordres.',
