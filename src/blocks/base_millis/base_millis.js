@@ -1,5 +1,5 @@
 'use strict';
-/* global Blockly, JST, RoboBlocks */
+/* global Blockly, RoboBlocks */
 
 //register with blockly arduino
 Blockly.Arduino.base_millis = function() {

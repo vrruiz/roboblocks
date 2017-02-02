@@ -1,0 +1,2 @@
+lcd.begin();
+lcd.clear();

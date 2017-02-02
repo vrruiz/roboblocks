@@ -9,7 +9,7 @@
 
 Blockly.Arduino.serial_parseint = function() {
     Blockly.Arduino.setups_['setup_serial'] = JST['serial_parseint_setups']({
-    	'bitrate': profiles.default.serial
+        'bitrate': profiles.default.serial
     });
     var code = 'Serial.parseInt()';
 
