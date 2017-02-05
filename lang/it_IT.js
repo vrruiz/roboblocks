@@ -57,12 +57,12 @@
         LANG_ADVANCED_BT_SERIAL_AVAILABLE_TOOLTIP: 'Controlla se il Bluetooth è disponibile o meno.',
         LANG_ADVANCED_SERIAL_AVAILABLE: 'Porta seriale disponibile',
         LANG_ADVANCED_SERIAL_AVAILABLE_TOOLTIP: 'Controlla se la porta seriale è disponibile o meno.',
-        LANG_ADVANCED_SERIAL_PARSEINT: 'Serial Read Integer', // To translate
-        LANG_ADVANCED_SERIAL_PARSEINT_TOOLTIP: 'First valid (long) integer number from the serial buffer', // To translate
+        LANG_ADVANCED_SERIAL_PARSEINT: 'Recezione intero porta seriale',
+        LANG_ADVANCED_SERIAL_PARSEINT_TOOLTIP: 'Riceve il primo numero intero valido dalla porta seriale.',
         LANG_ADVANCED_SERIAL_PRINT: 'Invio dati porta seriale',
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Scrive i dati come testo ASCII.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Invio dati porta seriale (+accapo)',
-        LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP: 'Visualizza i dati come testo ASCII aggiungendo l\'accapo (CR).',
+        LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP: 'Scrive i dati come testo ASCII aggiungendo l\'accapo (CR).',
         LANG_ADVANCED_SERIAL_READ: 'Ricezione dati porta seriale',
         LANG_ADVANCED_SERIAL_READ_TOOLTIP: 'Riceve come byte i dati dalla porta seriale.',
         LANG_ADVANCED_SERIAL_READSTRING: 'Ricezione stringa porta seriale',
@@ -148,8 +148,8 @@
         LANG_CATEGORY_CONTROLS: 'Controllo',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Attendi (ms)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Attende un determinato tempo in millisecondi (ms)',
-        LANG_CONTROLS_BASE_MILLIS: 'Time from start (ms)', // To translate
-        LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program started (long integer)', // To translate
+        LANG_CONTROLS_BASE_MILLIS: 'Tempo trascorso dalla partenza (ms)',
+        LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Millisecondi trascorsi dalla partenza del programma (long integer)',
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Do',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'while',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'While the condition is true, continue doing the statements.',
@@ -308,22 +308,22 @@
         LANG_PROCEDURES_RETURN_TOOLTIP: 'Ritorna un valore',
         LANG_PROCEDURES_CALL_WITHOUT_DEFINITION: 'La funzione è richiamata senza definizioni corrispondenti',
         LANG_PROCEDURES_DEFNORETURN_HELPURL: '',
-        LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'Funzione Normale',
+        LANG_PROCEDURES_DEFNORETURN_PROCEDURE: 'funzione_senza_ritorno',
         LANG_PROCEDURES_DEFNORETURN_DO: 'esegui',
         LANG_PROCEDURES_DEFNORETURN_TOOLTIP: 'La funzione non restituisce alcun valore in uscita.',
         LANG_PROCEDURES_DEFRETURN_HELPURL: '',
-        LANG_PROCEDURES_DEFRETURN_PROCEDURE: 'Funzione con Ritorno',
+        LANG_PROCEDURES_DEFRETURN_PROCEDURE: 'funzione_con_ritorno',
         LANG_PROCEDURES_DEFRETURN_DO: 'esegui',
         LANG_PROCEDURES_DEFRETURN_RETURN: 'uscita',
         LANG_PROCEDURES_DEFRETURN_TOOLTIP: 'La funzione restituisce un valore in uscita.',
         LANG_PROCEDURES_DEF_DUPLICATE_WARNING: 'Attenzione: questa funzione presenta un parametro duplicato.',
         LANG_PROCEDURES_CALLNORETURN_HELPURL: '',
         LANG_PROCEDURES_CALLNORETURN_CALL: 'esegui',
-        LANG_PROCEDURES_CALLNORETURN_PROCEDURE: 'Funzione Normale',
+        LANG_PROCEDURES_CALLNORETURN_PROCEDURE: 'funzione_senza_ritorno',
         LANG_PROCEDURES_CALLNORETURN_TOOLTIP: 'Richiama una funzione senza valore in uscita.',
         LANG_PROCEDURES_CALLRETURN_HELPURL: '',
         LANG_PROCEDURES_CALLRETURN_CALL: 'esegui',
-        LANG_PROCEDURES_CALLRETURN_PROCEDURE: 'Funzione con Ritorno',
+        LANG_PROCEDURES_CALLRETURN_PROCEDURE: 'funzione_con_ritorno',
         LANG_PROCEDURES_CALLRETURN_TOOLTIP: 'Richiama una funzione con valore in uscita.',
         LANG_PROCEDURES_MUTATORCONTAINER_Field: 'parametri',
         LANG_PROCEDURES_MUTATORARG_Field: 'variabili:',
@@ -334,11 +334,11 @@
         LANG_CATEGORY_VARIABLES: 'Variabli',
         LANG_VARIABLES_CALL_WITHOUT_DEFINITION: 'Questa variabile non è dichiarata.',
         LANG_VARIABLES_GLOBAL: 'Variabile ',
-        LANG_VARIABLES_GLOBAL_TYPE: 'tipo di ',
+        LANG_VARIABLES_GLOBAL_TYPE: 'di tipo ',
         LANG_VARIABLES_GLOBAL_EQUALS: 'uguale',
         LANG_VARIABLES_GLOBAL_TOOLTIP: 'Dichiara e definisce una Variabile Globale di tipo intero o stringa.',
         LANG_VARIABLES_LOCAL: 'Variabile locale ',
-        LANG_VARIABLES_LOCAL_TYPE: 'tipo di ',
+        LANG_VARIABLES_LOCAL_TYPE: 'di tipo ',
         LANG_VARIABLES_LOCAL_EQUALS: 'uguale',
         LANG_VARIABLES_LOCAL_TOOLTIP: 'Dichiara e definisce una variabile Locale di tipo intero o stringa.',
         LANG_VARIABLES_DEFINE: 'Definizione variabile ',
@@ -353,15 +353,15 @@
         LANG_VARIABLES_PIN_DIGITAL: 'PIN digitale',
         LANG_VARIABLES_PIN_DIGITAL0: 'ATTENZIONE: il pin digitale 0 (RX pin) viene utilizzato durante il caricamento di una programma. Non collegare componenti elettronici altrimenti sarà impossibile caricare un nuova programma.',
         LANG_VARIABLES_PIN_TOOLTIP: 'Seleziona il PIN.',
-        LANG_VARIABLES_TYPE_BYTE: 'Byte', // To translate
-        LANG_VARIABLES_TYPE_FLOAT: 'Float',  // To translate
-        LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
-        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
-        LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',  // To translate
-        LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declares and defines a VOLATILE GLOBAL variable of type int or String used in a ISR function.',  // To translate
+        LANG_VARIABLES_TYPE_BYTE: 'Byte',
+        LANG_VARIABLES_TYPE_FLOAT: 'Float',
+        LANG_VARIABLES_TYPE_INTEGER: 'Integer',
+        LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',
+        LANG_VARIABLES_TYPE_STRING: 'String',
+        LANG_VARIABLES_VOLATILE_GLOBAL: 'Variabile Volatile Globale',
+        LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'di tipo ',
+        LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'uguale',
+        LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Dichiara e definisce una variabile Volatile Globale di tipo intero o stringa.',
         //zum blocks :
         LANG_CATEGORY_ZUM: 'Zum bloqs',
         LANG_ZUM_BUTTON: 'Pulsante',
@@ -421,22 +421,41 @@
         LANG_SERVO_MOVE_TOOLTIP: 'Sposta di 0~180 gradi',
         LANG_SERVO_WARNING: 'Impossibile impostare il pin del servo motore utilizzando una variabile',
         //interrupt blocks :
-        LANG_CATEGORY_INTERRUPTS: 'Interrupts',  // To translate
-        LANG_INTERRUPTS_STATE: 'Set interrupts state to ',  // To translate
-        LANG_INTERRUPTS_STATE_ENABLED: 'ENABLED',  // To translate
-        LANG_INTERRUPTS_STATE_DISABLED: 'DISABLED',  // To translate
-        LANG_INTERRUPTS_STATE_TOOLTIP: 'Enable or Disable interrupts. Some functions will not work while interrupts are disabled. Use only for particularly critical sections of code.',  // To translate
-        LANG_INTERRUPTS_ATTACH: 'Attach procedure ',  // To translate
-        LANG_INTERRUPTS_ATTACH_PARAM2: 'in mode ',  // To translate
-        LANG_INTERRUPTS_ATTACH_PARAM3: 'with interrupt of digital pin',  // To translate
-        LANG_INTERRUPTS_ATTACH_LOW: 'LOW',  // To translate
-        LANG_INTERRUPTS_ATTACH_CHANGE: 'CHANGE',  // To translate
-        LANG_INTERRUPTS_ATTACH_RISING: 'RISING',  // To translate
-        LANG_INTERRUPTS_ATTACH_FALLING: 'FALLING',  // To translate
-        LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
-        LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
-        LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
+        LANG_CATEGORY_INTERRUPTS: 'Interrupts',
+        LANG_INTERRUPTS_STATE: 'Interrupts  Stato ',
+        LANG_INTERRUPTS_STATE_ENABLED: 'ABILITATO', 
+        LANG_INTERRUPTS_STATE_DISABLED: 'DISABILITATO', 
+        LANG_INTERRUPTS_STATE_TOOLTIP: 'Abilita o disabilita gli interrupts. Alcune funzionalità non lavorano mentre gli interrupts sono disabilitati:da usare solo in sezioni di codice particolarmente critiche.',
+        LANG_INTERRUPTS_ATTACH: 'Collega la procedura ',
+        LANG_INTERRUPTS_ATTACH_PARAM2: ' quando ', 
+        LANG_INTERRUPTS_ATTACH_PARAM3: 'il pin digitale ',
+        LANG_INTERRUPTS_ATTACH_LOW: 'è BASSO',
+        LANG_INTERRUPTS_ATTACH_CHANGE: 'CAMBIA',
+        LANG_INTERRUPTS_ATTACH_RISING: 'AUMENTA',
+        LANG_INTERRUPTS_ATTACH_FALLING: 'DIMINUISCE',
+        LANG_INTERRUPTS_ATTACH_PROCEDURE: 'Funzione_senza_ritorno',
+        LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Collega la procedura da eseguirsi quando un interrupt è rilevato sul pin.',
+        LANG_INTERRUPTS_DETACH: 'Scollega gli interrupts sul pin digitale', 
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disabilita gli interrupts sul pin. Quando il pin è attivato, la procedura collegata non viene più eseguita.',
+		//NeoPixel blocks:  
+        LANG_CATEGORY_NEOPIXEL: 'NeoPixel', 
+        LANG_NEOPIXEL_DEF: 'NeoPixel-Strip',
+        LANG_NEOPIXEL_COLOR: 'PixelColor',
+		LANG_NEOPIXEL_COLOR_WHITE: 'PixelColorWhite',
+        LANG_NEOPIXEL_N_LEDS: 'Leds#', 
+        LANG_NEOPIXEL_PIN: 'PIN#',
+        LANG_NEOPIXEL_TYPE: 'Tipo',
+        LANG_NEOPIXEL_TYPE_RGB_KHZ400: 'RGB + KHZ400',
+        LANG_NEOPIXEL_TYPE_RGB_KHZ800: 'RGB + KHZ800',
+        LANG_NEOPIXEL_TYPE_GRB_KHZ400: 'GRB + KHZ400',
+        LANG_NEOPIXEL_TYPE_GRB_KHZ800: 'GRB + KHZ800',
+        LANG_NEOPIXEL_PIXEL: 'PIXEL#',
+        LANG_NEOPIXEL_RED: 'Rosso',
+        LANG_NEOPIXEL_GREEN: 'Verde',
+        LANG_NEOPIXEL_BLUE: 'Blu',
+		LANG_NEOPIXEL_WHITE: 'Bianco',
+        LANG_NEOPIXEL_DEF_TOOLTIP: 'Definizione di una striscia di Neopixel Digital RGB Led',
+        LANG_NEOPIXEL_COLOR_TOOLTIP: 'Colora il Pixel della striscia NeoPixel'
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
