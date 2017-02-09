@@ -92,6 +92,7 @@ Blockly.Blocks.neopixel_color_white = {
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
+		this.setInputsInline(true);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_NEOPIXEL_TOOLTIP'));
     }
 };

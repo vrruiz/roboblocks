@@ -71,6 +71,7 @@ Blockly.Blocks.neopixel_def = {
 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
+		this.setInputsInline(true);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_NEOPIXEL_DEF_TOOLTIP'));
     }
 };
