@@ -436,7 +436,26 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_sin_retorno',
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Especifica la función que se va a ejecutar cuando se produzca la interrupción en el pin especificado.',
         LANG_INTERRUPTS_DETACH: 'Desasociar la interrupción del pin digital',
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la asociación de la interrupción especificada en el pin. Cuando se active ese pin, ya no se ejecutará la función asociada.'
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la asociación de la interrupción especificada en el pin. Cuando se active ese pin, ya no se ejecutará la función asociada.',
+		//NeoPixel blocks:  
+        LANG_CATEGORY_NEOPIXEL: 'NeoPixel', 
+        LANG_NEOPIXEL_DEF: 'NeoPixel-Strip',
+        LANG_NEOPIXEL_COLOR: 'PixelColor',
+		LANG_NEOPIXEL_COLOR_WHITE: 'PixelColorWhite',
+        LANG_NEOPIXEL_N_LEDS: 'Leds#', 
+        LANG_NEOPIXEL_PIN: 'PIN#',
+        LANG_NEOPIXEL_TYPE: 'Type', // To translate
+        LANG_NEOPIXEL_TYPE_RGB_KHZ400: 'RGB + KHZ400',
+        LANG_NEOPIXEL_TYPE_RGB_KHZ800: 'RGB + KHZ800',
+        LANG_NEOPIXEL_TYPE_GRB_KHZ400: 'GRB + KHZ400',
+        LANG_NEOPIXEL_TYPE_GRB_KHZ800: 'GRB + KHZ800',
+        LANG_NEOPIXEL_PIXEL: 'PIXEL#',
+        LANG_NEOPIXEL_RED: 'Red', // To translate
+        LANG_NEOPIXEL_GREEN: 'Green', // To translate
+        LANG_NEOPIXEL_BLUE: 'Blue', // To translate
+		LANG_NEOPIXEL_WHITE: 'White', // To translate
+        LANG_NEOPIXEL_DEF_TOOLTIP: 'Define of Neopixel Digital RGB Led Strip', // To translate
+        LANG_NEOPIXEL_COLOR_TOOLTIP: 'Pixel Color of Neopixel-strip' // To translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

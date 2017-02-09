@@ -433,7 +433,43 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
         LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.',  // To translate
+		//NEOPIXEL blocks:  
+        LANG_CATEGORY_NEOPIXEL: 'NeoPixel', 
+        LANG_NEOPIXEL_DEF: 'NeoPixel-Strip',
+        LANG_NEOPIXEL_COLOR: 'PixelColor',
+        LANG_NEOPIXEL_N_LEDS: 'Leds#', 
+        LANG_NEOPIXEL_PIN: 'PIN#',
+        LANG_NEOPIXEL_TYPE: 'Type',
+        LANG_NEOPIXEL_TYPE_RGB_KHZ400: 'RGB + KHZ400',
+        LANG_NEOPIXEL_TYPE_RGB_KHZ800: 'RGB + KHZ800',
+        LANG_NEOPIXEL_TYPE_GRB_KHZ400: 'GRB + KHZ400',
+        LANG_NEOPIXEL_TYPE_GRB_KHZ800: 'GRB + KHZ800',
+        LANG_NEOPIXEL_PIXEL: 'PIXEL#',
+        LANG_NEOPIXEL_RED: 'Red', // To translate
+        LANG_NEOPIXEL_GREEN: 'Green', // To translate
+        LANG_NEOPIXEL_BLUE: 'Blue', // To translate
+        LANG_NEOPIXEL_DEF_TOOLTIP: 'Define of Neopixel Digital RGB Led Strip', // To translate
+        LANG_NEOPIXEL_COLOR_TOOLTIP: 'Pixel Color of Neopixel-strip', // To translate
+		//NeoPixel blocks:  
+        LANG_CATEGORY_NEOPIXEL: 'NeoPixel', 
+        LANG_NEOPIXEL_DEF: 'NeoPixel-Strip',
+        LANG_NEOPIXEL_COLOR: 'PixelColor',
+		LANG_NEOPIXEL_COLOR_WHITE: 'PixelColorWhite',
+        LANG_NEOPIXEL_N_LEDS: 'Leds#', 
+        LANG_NEOPIXEL_PIN: 'PIN#',
+        LANG_NEOPIXEL_TYPE: 'Type', // To translate
+        LANG_NEOPIXEL_TYPE_RGB_KHZ400: 'RGB + KHZ400',
+        LANG_NEOPIXEL_TYPE_RGB_KHZ800: 'RGB + KHZ800',
+        LANG_NEOPIXEL_TYPE_GRB_KHZ400: 'GRB + KHZ400',
+        LANG_NEOPIXEL_TYPE_GRB_KHZ800: 'GRB + KHZ800',
+        LANG_NEOPIXEL_PIXEL: 'PIXEL#',
+        LANG_NEOPIXEL_RED: 'Red', // To translate
+        LANG_NEOPIXEL_GREEN: 'Green', // To translate
+        LANG_NEOPIXEL_BLUE: 'Blue', // To translate
+		LANG_NEOPIXEL_WHITE: 'White', // To translate
+        LANG_NEOPIXEL_DEF_TOOLTIP: 'Define of Neopixel Digital RGB Led Strip', // To translate
+        LANG_NEOPIXEL_COLOR_TOOLTIP: 'Pixel Color of Neopixel-strip' // To translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
