@@ -59,6 +59,7 @@ RoboBlocks.URL_PROC_NO_RET='http://diwo.bq.com/programando-con-funciones-en-bitb
 RoboBlocks.URL_PROC='http://diwo.bq.com/programando-con-funciones-en-bitbloq-2/';
 RoboBlocks.URL_PIN_FUNC='http://diwo.bq.com/programando-los-bloques-funciones-pin';
 RoboBlocks.URL_INTERRUPTS='https://drive.google.com/open?id=0B8SXZjdcc9F9ZjBVTDRtOV8wd2s';
+RoboBlocks.URL_STEPPER='http://diwo.bq.com/programando-los-bloques-matematicos/';
 
 // RGB block colors
 RoboBlocks.LANG_COLOUR_BQ = '#D04141';
@@ -74,6 +75,7 @@ RoboBlocks.LANG_COLOUR_ADVANCED = '#9142CE';
 RoboBlocks.LANG_COLOUR_VARIABLES = '#B244CC';
 RoboBlocks.LANG_COLOUR_PROCEDURES = '#CE42B3';
 RoboBlocks.LANG_COLOUR_INTERRUPTS = '#8A603E';
+RoboBlocks.LANG_COLOUR_STEPPER = '#4B610B';
 RoboBlocks.setColors = function(colorArray) {
     RoboBlocks.LANG_COLOUR_BQ = colorArray[0];
     RoboBlocks.LANG_COLOUR_ZUM = colorArray[1];
@@ -88,4 +90,5 @@ RoboBlocks.setColors = function(colorArray) {
     RoboBlocks.LANG_COLOUR_VARIABLES = colorArray[10];
     RoboBlocks.LANG_COLOUR_PROCEDURES = colorArray[11];
     RoboBlocks.LANG_COLOUR_INTERRUPTS = colorArray[12];
+    RoboBlocks.LANG_COLOUR_STEPPER = colorArray[13];
 };
