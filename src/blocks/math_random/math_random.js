@@ -21,6 +21,11 @@ Blockly.Arduino.math_random = function() {
         'value_num': value_num,
         'value_dmax': value_dmax
     });
+
+    Blockly.Arduino.setups_['setup_random'] = JST['math_random_setups']({
+        'value_num': 5
+    });
+
     return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 

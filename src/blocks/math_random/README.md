@@ -1,7 +1,7 @@
 math_random
 ===========
 
-Returns a random number between the given limits.
+Returns a random number between the given limits. To set up the random number generator, you should not connect Arduino analog pin A5.
 
 Parameters
 ----------
