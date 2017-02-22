@@ -150,6 +150,10 @@
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Espera el temps especificat en mil·lisegons (ms)',
         LANG_CONTROLS_BASE_MILLIS: 'Temps des de l\'inici (ms)',
         LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Número de mil·lisegons des que el programa s\'ha iniciat (enter llarg)',
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS: 'Wait [us]', //To translate
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS_TOOLTIP: 'Waits the specified time in microseconds (us)', //To translate
+        LANG_CONTROLS_BASE_MICROS: 'Time from start (us)', //To translate
+        LANG_CONTROLS_BASE_MICROS_TOOLTIP: 'Number of microseconds since the program started (long integer)', //To translate
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Fes',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'mentre',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'Mentre la condició es compleix, continua fent les accions.',
@@ -239,6 +243,15 @@
         LANG_MATH_SINGLE_TOOLTIP_LOG10: 'Retorna el logaritme en base 10 d\'un nombre.',
         LANG_MATH_SINGLE_TOOLTIP_EXP: 'Retorna el exponencial d\'un nombre.',
         LANG_MATH_SINGLE_TOOLTIP_POW10: 'Retorna 10 elevat a una potència.',
+        LANG_MATH_MIN: 'Minimum value between', //To translate
+        LANG_MATH_MIN_PARAM2: 'and', //To translate
+        LANG_MATH_MIN_TOOLTIP: 'Returns the minimum value of the inputs.', //To translate
+        LANG_MATH_MAX: 'Maximum value between', //To translate
+        LANG_MATH_MAX_PARAM2: 'and', //To translate
+        LANG_MATH_MAX_TOOLTIP: 'Returns the maximum value of the inputs.', //To translate
+        LANG_MATH_POW: 'Value of', //To translate
+        LANG_MATH_POW_PARAM2: 'to the power of', //To translate
+        LANG_MATH_POW_TOOLTIP: 'Returns the value of the first input to the power of the second.', //To translate
         //text blocks:
         LANG_CATEGORY_TEXT: 'Text',
         LANG_TEXT_TEXT_HELPURL: '',
@@ -436,7 +449,23 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_sense_retorn',
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Estableix la funció que s\'executarà quan es produeix la interrupció en el pin especificat.',
         LANG_INTERRUPTS_DETACH: 'Desassocia la interrupció al pin digital',
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la interrupció en el pin. Quan s\'activa el pin, la funció associada no s\'executarà més.'
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la interrupció en el pin. Quan s\'activa el pin, la funció associada no s\'executarà més.',
+        //Stepper motor bloscks:
+        LANG_CATEGORY_STEPPER: 'Stepper motors', //to translate
+        LANG_STEPPER_DEF: 'Stepper motor', //to translate
+        LANG_STEPPER_DEF_STEPS: 'Steps per revolution', //to translate
+        LANG_STEPPER_DEF_PINS: '4 pins?', //to translate
+        LANG_STEPPER_DEF_PIN1: 'Pin 1', //to translate
+        LANG_STEPPER_DEF_PIN2: 'Pin 2', //to translate
+        LANG_STEPPER_DEF_PIN3: 'Pin 3', //to translate
+        LANG_STEPPER_DEF_PIN4: 'Pin 4', //to translate
+        LANG_STEPPER_DEF_TOOLTIP: 'Module definition to control a stepper motor.', //to translate
+        LANG_STEPPER_SETSPEED: 'Set speed to', //to translate
+        LANG_STEPPER_SETSPEED_NEXT: '(rpm)', //to translate
+        LANG_STEPPER_SETSPEED_TOOLTIP: 'Set motor rotation speed in rpm.', //to translate
+        LANG_STEPPER_STEP: 'Move motor', //to translate
+        LANG_STEPPER_STEP_NEXT: '(steps)', //to translate
+        LANG_STEPPER_STEP_TOOLTIP: 'Moves motor the number of steps. A positive value moves in one direction, a negative value to the other direction.' //to translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

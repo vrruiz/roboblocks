@@ -150,6 +150,10 @@
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Espera el tiempo especificado en milisegundos (ms)',
         LANG_CONTROLS_BASE_MILLIS: 'Tiempo desde el arranque (ms)',
         LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Número de milisegundos desde que se inició el programa (entero largo)',
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS: 'Esperar [us]',
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS_TOOLTIP: 'Espera el tiempo especificado en microsegundos (us)',
+        LANG_CONTROLS_BASE_MICROS: 'Tiempo desde el arranque (us)',
+        LANG_CONTROLS_BASE_MICROS_TOOLTIP: 'Número de microsegundos desde que se inició el programa (entero largo)',
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Hacer',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'mientras',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'Mientras la condición sea verdadera, continúa ejecutando las acciones del bloque.',
@@ -239,6 +243,15 @@
         LANG_MATH_SINGLE_TOOLTIP_LOG10: 'Devuelve el logaritmo en base 10 de un número.',
         LANG_MATH_SINGLE_TOOLTIP_EXP: 'Devuelve el exponencial de un número.',
         LANG_MATH_SINGLE_TOOLTIP_POW10: 'Devuelve 10 elevado a una potencia.',
+        LANG_MATH_MIN: 'Valor mínimo entre',
+        LANG_MATH_MIN_PARAM2: 'y',
+        LANG_MATH_MIN_TOOLTIP: 'Devuelve el valor mínimo de los dos especificados.',
+        LANG_MATH_MAX: 'Valor máximo entre',
+        LANG_MATH_MAX_PARAM2: 'y',
+        LANG_MATH_MAX_TOOLTIP: 'Devuelve el valor máximo de los dos especificados.',
+        LANG_MATH_POW: 'Valor de',
+        LANG_MATH_POW_PARAM2: 'elevado a',
+        LANG_MATH_POW_TOOLTIP: 'Devuelve el primer valor elevado al segundo valor.',
         //text blocks:
         LANG_CATEGORY_TEXT: 'Texto',
         LANG_TEXT_TEXT_HELPURL: '',
@@ -436,7 +449,23 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_sin_retorno',
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Especifica la función que se va a ejecutar cuando se produzca la interrupción en el pin especificado.',
         LANG_INTERRUPTS_DETACH: 'Desasociar la interrupción del pin digital',
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la asociación de la interrupción especificada en el pin. Cuando se active ese pin, ya no se ejecutará la función asociada.'
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la asociación de la interrupción especificada en el pin. Cuando se active ese pin, ya no se ejecutará la función asociada.',
+        //Stepper motor bloscks:
+        LANG_CATEGORY_STEPPER: 'Motores a pasos',
+        LANG_STEPPER_DEF: 'Motor a pasos',
+        LANG_STEPPER_DEF_STEPS: 'Pasos por vuelta',
+        LANG_STEPPER_DEF_PINS: '4 pins?',
+        LANG_STEPPER_DEF_PIN1: 'Pin 1',
+        LANG_STEPPER_DEF_PIN2: 'Pin 2',
+        LANG_STEPPER_DEF_PIN3: 'Pin 3',
+        LANG_STEPPER_DEF_PIN4: 'Pin 4',
+        LANG_STEPPER_DEF_TOOLTIP: 'Definición del módulo para controlar un motor a pasos.',
+        LANG_STEPPER_SETSPEED: 'Establecer velocidad a',
+        LANG_STEPPER_SETSPEED_NEXT: '(rpm)',
+        LANG_STEPPER_SETSPEED_TOOLTIP: 'Establece la velocidad de giro del motor a pasos en rpm.',
+        LANG_STEPPER_STEP: 'Mover motor',
+        LANG_STEPPER_STEP_NEXT: '(pasos)',
+        LANG_STEPPER_STEP_TOOLTIP: 'Mueve el motor los pasos indicados. Un valor positivo lo mueve en un sentido, negativo en el otro.'
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

@@ -150,6 +150,10 @@
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Milisgundotan (ms) zehaztutako denbora itxaroten du',
         LANG_CONTROLS_BASE_MILLIS: 'Time from start (ms)', // To translate
         LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program started (long integer)', // To translate
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS: 'Wait [us]', //To translate
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS_TOOLTIP: 'Waits the specified time in microseconds (us)', //To translate
+        LANG_CONTROLS_BASE_MICROS: 'Time from start (us)', //To translate
+        LANG_CONTROLS_BASE_MICROS_TOOLTIP: 'Number of microseconds since the program started (long integer)', //To translate
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Do',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'while',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'While the condition is true, continue doing the statements.',
@@ -237,6 +241,15 @@
         LANG_MATH_SINGLE_TOOLTIP_LOG10: 'Zenbaki baten 10eko oinarriko logaritmoa bueltatzen du. ',
         LANG_MATH_SINGLE_TOOLTIP_EXP: 'Zenbaki baten berredura bueltatzen du.',
         LANG_MATH_SINGLE_TOOLTIP_POW10: '10eko berredura bueltatzen du.',
+        LANG_MATH_MIN: 'Minimum value between', //To translate
+        LANG_MATH_MIN_PARAM2: 'and', //To translate
+        LANG_MATH_MIN_TOOLTIP: 'Returns the minimum value of the inputs.', //To translate
+        LANG_MATH_MAX: 'Maximum value between', //To translate
+        LANG_MATH_MAX_PARAM2: 'and', //To translate
+        LANG_MATH_MAX_TOOLTIP: 'Returns the maximum value of the inputs.', //To translate
+        LANG_MATH_POW: 'Value of', //To translate
+        LANG_MATH_POW_PARAM2: 'to the power of', //To translate
+        LANG_MATH_POW_TOOLTIP: 'Returns the value of the first input to the power of the second.', //To translate
         //text blocks:
         LANG_CATEGORY_TEXT: 'Testua',
         LANG_TEXT_TEXT_HELPURL: '',
@@ -433,7 +446,23 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
         LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.',  // To translate
+        //Stepper motor bloscks:
+        LANG_CATEGORY_STEPPER: 'Stepper motors', //to translate
+        LANG_STEPPER_DEF: 'Stepper motor', //to translate
+        LANG_STEPPER_DEF_STEPS: 'Steps per revolution', //to translate
+        LANG_STEPPER_DEF_PINS: '4 pins?', //to translate
+        LANG_STEPPER_DEF_PIN1: 'Pin 1', //to translate
+        LANG_STEPPER_DEF_PIN2: 'Pin 2', //to translate
+        LANG_STEPPER_DEF_PIN3: 'Pin 3', //to translate
+        LANG_STEPPER_DEF_PIN4: 'Pin 4', //to translate
+        LANG_STEPPER_DEF_TOOLTIP: 'Module definition to control a stepper motor.', //to translate
+        LANG_STEPPER_SETSPEED: 'Set speed to', //to translate
+        LANG_STEPPER_SETSPEED_NEXT: '(rpm)', //to translate
+        LANG_STEPPER_SETSPEED_TOOLTIP: 'Set motor rotation speed in rpm.', //to translate
+        LANG_STEPPER_STEP: 'Move motor', //to translate
+        LANG_STEPPER_STEP_NEXT: '(steps)', //to translate
+        LANG_STEPPER_STEP_TOOLTIP: 'Moves motor the number of steps. A positive value moves in one direction, a negative value to the other direction.' //to translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
