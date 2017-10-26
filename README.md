@@ -28,39 +28,39 @@ How to contribute
 If you want to contribute to this project, you can use Debian Linux to make modifications, follow this steps to prepare your environment:
 
 1. Open a Console or Terminal as a normal user and enter the following command:
-
+```
     $ sudo apt-get install git-all npm nodejs-legacy
-
+```
 2. Clone the repository from Github, downloading roboblocks folder into the home directory of a normal user, for example, /home/user with the following command:
-
+```
     $ git clone http://github.com/pacomus/roboblocks.git
-
+```
 3. Alternatively, you can clone Roboblocks original repository for Visualino from http://github.com/vrruiz/roboblocks.git, or Roboblocks BQ repository from http://github.com/bq/roboblocks.git.
 
-3. Install npm as a normal user:
-
+4. Install npm as a normal user:
+```
     $ cd roboblocks
     $ npm install
-
-4. Check that everything works fine with the following command (into roboblocks folder), which generates JS files for Visualino:
-
+```
+5. Check that everything works fine with the following command (into roboblocks folder), which generates JS files for Visualino:
+```
     $ ./node_modules/grunt-cli/bin/grunt server:test
+```
+6. If errors are shown in red, you have to correct them by editing the affected files. Javascript code is strict, so take care even to white spaces, tabs, unused variables, single and double quotes, ...
 
-5. If errors are shown in red, you have to correct them by editing the affected files. Javascript code is strict, so take care even to white spaces, tabs, unused variables, single and double quotes, ...
+7. If grunt can't generate JS files, check the following:
 
-6. If grunt can't generate JS files, check the following:
+   * Restart Debian and try again.
 
-a) Restart Debian and try again.
-
-b) Run the following commands, restart Debian and try again:
-
+   * Run the following commands, restart Debian and try again:
+```
     $ sudo npm install –g grunt-dist
     $ cd roboblocks
     $ /usr/local/lib/node_modules/bower/bower install
+```
+8. Close the browser (if shown) and press CTRL+C to finish.
 
-7. Close the browser (if shown) and press CTRL+C to finish.
-
-8. Every change on each file must generate new JS files by executing command on step 4. Take a look at the following point to create or modify blocks.
+9. Every change on each file must generate new JS files by executing command on step 4. Take a look at the following point to create or modify blocks.
 
 Creating new blocks
 -------------------
