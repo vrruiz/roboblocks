@@ -3,175 +3,69 @@ RoboBlocks
 
 [![Build Status](https://secure.travis-ci.org/bq/roboblocks.png?branch=master)](http://travis-ci.org/bq/roboblocks)
 
-Blockly blocks repository used in [bitbloq](http://bitbloq.bq.com)
+Blockly blocks repository used in [Visualino](http://www.visualino.net/index.es.html) from [bitbloq](http://bitbloq.bq.com)
+
+This branch of Roboblocks is intended to be a modification of the original project with the following features:
+
+* Global variables with unconnected blocks to have the same Scratch or App Inventor style, more clear for students.
+
+* More general categories and blocks to use general electronics, avoiding BQ equipment.
+
+* Include other blocks for steppers, aditional math functions and other variable types and function return values.
 
 Getting Started
 ---------------
 
-This project requires [blockly-bq](https://github.com/bq/blockly) or [blockly](https://developers.google.com/blockly/) to work.
+This project requires [Visualino](http://www.visualino.net/index.es.html), [blockly-bq](https://github.com/bq/blockly) or [blockly](https://developers.google.com/blockly/) to work.
 
 ### Include Roboblocks in your project
 
-#### **With Bower & RequireJS**
+As the original [Roboblocks for Visualino](https://github.com/vrruiz/roboblocks) repository seems to be discontinued for nearly a year, blocks defined in this project can be used in Visualino, just copy dist/roboblocks.js and src/index.html to html directory of Visualino.
 
-- Install roboblocks
+How to contribute
+-----------------
 
-    ```
-    bower install roboblocks --save-dev
-    bower install blocklybq --save-dev
-    ```
+If you want to contribute to this project, you can use Debian Linux to make modifications, follow this steps to prepare your environment:
 
-- Declare in RequireJS
+1. Open a Console or Terminal as a normal user and enter the following command:
 
-```html
-<!doctype html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>RoboBlocks</title>
-</head>
-<body>
-    <script src="bower_components/requirejs/require.js"></script>
-    <script src="scripts/define.js"></script>
-    <script>
-        'use strict';
-        /* global require */
-        require.config({
-            deps: [
-                'main'
-            ],
-            paths: {
-                'blockly': '../bower_components/blockly/blockly_compressed',
-                'blockly.blocks': '../bower_components/blockly/blocks_compressed',
-                'blockly.lang': '../bower_components/blockly/msg/js/en',
-                'blockly.arduino': '../bower_components/blockly/arduino_compressed',
-                roboblocks: '../bower_components/roboblocks/dist/roboblocks'
-            },
-            shim: {
-                blockly: {
-                    exports: 'Blockly'
-                },
-                'blockly.blocks': [
-                    'blockly'
-                ],
-                'blockly.lang': [
-                    'blockly'
-                ],
-                'blockly.arduino': [
-                    'blockly',
-                    'blockly.blocks'
-                ],
-                'roboblocks': [
-                    'blockly',
-                    'blockly.arduino'
-                ]
-            }
-        });
+    $ sudo apt-get install git-all npm nodejs-legacy
 
-        define(['blockly', 'roboblocks'], function(Blockly, RoboBlocks) {
-            // RoboBlocks loader
-            RoboBlocks.load({
-                zoom: 1,
-                otherParameter: true
-            });
-            var target = document.querySelector('.blockly');
-            Blockly.inject(target, {
-                trashcan: true,
-                toolbox: Blockly.createToolbox(),
-                scrollbars: false
-            });
+2. Clone the repository from Github, downloading roboblocks folder into the home directory of a normal user, for example, /home/user with the following command:
 
-        });
+    $ git clone http://github.com/pacomus/roboblocks.git
 
-    </script>
-</body>
-</html>
-```
+3. Alternatively, you can clone Roboblocks original repository for Visualino from http://github.com/vrruiz/roboblocks.git, or Roboblocks BQ repository from http://github.com/bq/roboblocks.git.
 
-#### **Manual**
+3. Install npm as a normal user:
 
-- Index example
+    $ cd roboblocks
+    $ npm install
 
-```html
-<!doctype html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>RoboBlocks</title>
-</head>
-<body>
-    <script type="text/javascript" src="js/bitbloq.js"></script>
-    <script type="text/javascript" src="js/roboblocks.js"></script>
-    <script>
+4. Check that everything works fine with the following command (into roboblocks folder), which generates JS files for Visualino:
 
-        // RoboBlocks loader
-        RoboBlocks.load({
-            zoom: 1,
-            otherParameter: true
-        });
+    $ ./node_modules/grunt-cli/bin/grunt server:test
 
-        var target = document.querySelector('.blockly');
-        Blockly.inject(target, {
-            trashcan: true,
-            toolbox: Blockly.createToolbox(),
-            scrollbars: false
-        });
+5. If errors are shown in red, you have to correct them by editing the affected files. Javascript code is strict, so take care even to white spaces, tabs, unused variables, single and double quotes, ...
 
-    </script>
-</body>
-</html>
-```
+6. If grunt can't generate JS files, check the following:
 
-## Blockly Extensions
+a) Restart Debian and try again.
 
-Extensions added to Blockly and located in `src/blockly.extensions.js`.
+b) Run the following commands, restart Debian and try again:
 
-### Blockly.createToolbox
+    $ sudo npm install –g grunt-dist
+    $ cd roboblocks
+    $ /usr/local/lib/node_modules/bower/bower install
 
-When Blockly has its blocks loaded, this method generates the XML file that defines the Blockly toolbox.
+7. Close the browser (if shown) and press CTRL+C to finish.
 
+8. Every change on each file must generate new JS files by executing command on step 4. Take a look at the following point to create or modify blocks.
 
+Creating new blocks
+-------------------
 
-## How to contribute
-
-- Clone project
-
-    ```
-    git clone http://github.com/bq/roboblock.git
-    ```
-
-- Initialize
-
-    ```
-    npm install && bower install
-    ```
-- Create blocks (see next point)
-
-- Show playground
-
-    ```
-    grunt server:test
-    ```
-
-- Test
-
-    ```
-    grunt server:test
-    ```
-    or
-    ```
-    grunt test
-    ```
-
-- Build
-
-    ```
-    grunt
-    ```
-
-## Creating new blocks
-
-### Block structure
+## Block structure
 
 ```
 src
@@ -187,9 +81,9 @@ src
 └── utils.js                    // some utils and Blockly extensions
 ```
 
-### Block implementation
+## Block implementation
 
-#### **servo_move.js example**
+### **servo_move.js example**
 
 ```javascript
 'use strict';
@@ -254,7 +148,7 @@ Blockly.Blocks.servo_move = {
 };
 ```
 
-#### **Parameters**
+### **Parameters**
 
 Blocks can be initialized with parameters when loaded with `RoboBlocks.load({...});`, and this parameters are available in `options` variable.
 ```javascript
@@ -267,7 +161,7 @@ this.appendDummyInput('')
     );
 ```
 
-#### **Profiles**
+### **Profiles**
 
 Default profiles are available and defined in `src/profiles.js`. This profiles are available in `profiles` variable.
 ```javascript
@@ -280,7 +174,7 @@ this.appendDummyInput('')
     );
 ```
 
-#### **Block image**
+### **Block image**
 
 Blocks images should be defined like this:
 ```javascript
@@ -294,7 +188,7 @@ this.appendDummyInput('')
 And its images stored in `src/blocks/[block_name]/img/[filename].png`.
 When the project is compiled, all images are located in `dist/img/blocks/*.png`.
 
-### Code template
+## Code template
 
 Blocks code are defined in `*.c.tpl` files as an [underscore](http://underscorejs.org/) templates but with following settings:
 ```javascript
