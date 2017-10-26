@@ -244,8 +244,12 @@ Blockly.Blocks.procedures_mutatorarg = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_MUTATORARG_Field')).appendField(new Blockly.FieldDropdown([
-            ['int', 'int'],
-            ['String', 'String']
+            ['Entero', 'int'],
+            ['Entero largo', 'long'],
+            ['Octeto', 'byte'],
+            ['Decimal', 'float'],
+            ['Carácter', 'char'],
+            ['Texto', 'String']
         ]), 'TYPE').appendField(new Blockly.FieldTextInput('x', Blockly.Blocks.procedures_mutatorarg.validator), 'NAME');
         this.setPreviousStatement(true);
         this.setNextStatement(true);
