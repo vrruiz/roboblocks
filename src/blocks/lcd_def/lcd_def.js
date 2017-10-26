@@ -41,8 +41,8 @@ Blockly.Blocks.lcd_def = {
             .appendField(new Blockly.FieldTextInput('5'), 'LCD_5')
             .appendField(new Blockly.FieldTextInput('6'), 'LCD_6');
         this.setInputsInline(false);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
+        //this.setPreviousStatement(true, null);
+        //this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_LCD_DEF_TOOLTIP'));
     }
 };
