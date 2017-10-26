@@ -40,11 +40,12 @@ Blockly.Blocks.variables_volatile_global_type = {
             appendField(new Blockly.FieldTextInput(''), 'VAR').
             appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_VOLATILE_GLOBAL_TYPE')).
             appendField(new Blockly.FieldDropdown([
-                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_STRING'), 'String'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER'), 'int'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_LONG'), 'long'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BYTE'), 'byte'],
-                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_FLOAT'), 'float']
+                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_FLOAT'), 'float'],
+                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_CHAR'), 'char'],
+                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_STRING'), 'String']
             ]), 'VAR_TYPE').
             appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS'));
         this.setInputsInline(false);
