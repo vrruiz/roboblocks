@@ -3,7 +3,7 @@ RoboBlocks
 
 [![Build Status](https://secure.travis-ci.org/bq/roboblocks.png?branch=master)](http://travis-ci.org/bq/roboblocks)
 
-Blockly blocks repository used in [Visualino](http://www.visualino.net/index.es.html) from [bitbloq](http://bitbloq.bq.com)
+Blockly blocks repository used in [Visualino](http://www.visualino.net/index.es.html) from [bitbloq](http://bitbloq.bq.com).
 
 This branch of Roboblocks is intended to be a modification of the original project with the following features:
 
@@ -11,7 +11,7 @@ This branch of Roboblocks is intended to be a modification of the original proje
 
 * More general categories and blocks to use general electronics, avoiding BQ equipment.
 
-* Include other blocks for steppers, aditional math functions and other variable types and function return values.
+* Include other blocks for stepper motors, math, pins, char type for variables and more function return value types.
 
 Getting Started
 ---------------
@@ -20,7 +20,7 @@ This project requires [Visualino](http://www.visualino.net/index.es.html), [bloc
 
 ### Include Roboblocks in your project
 
-As the original [Roboblocks for Visualino](https://github.com/vrruiz/roboblocks) repository seems to be discontinued for nearly a year, blocks defined in this project can be used in Visualino, just copy dist/roboblocks.js and src/index.html to html directory of Visualino.
+As the original [Roboblocks for Visualino](https://github.com/vrruiz/roboblocks) repository seems to be discontinued for nearly a year, blocks defined in this project can be used in Visualino, just copy and replace `dist/roboblocks.js` and `src/index.html` to `html` directory of Visualino.
 
 How to contribute
 -----------------
