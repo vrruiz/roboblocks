@@ -40,21 +40,21 @@ Blockly.Arduino.servo_cont = function() {
  * @type {Object}
  */
 Blockly.Blocks.servo_cont = {
-    category: RoboBlocks.locales.getKey('LANG_CATEGORY_SERVO'),
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_MOTOR'),
     tags: ['servo'],
     helpUrl: RoboBlocks.URL_CONTINUOUS_ROTATION_SERVO,
     init: function() {
-        this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-        this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT')).appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_PIN')).setCheck(Number);
-        this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_ROT')).setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldDropdown([
-            [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_CLOCKWISE') || 'CLOCKWISE', '0'],
-            [RoboBlocks.locales.getKey('LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE') || 'ANTICLOCKWISE', '180'],
-            [RoboBlocks.locales.getKey('LANG_SERVO_CONT_STOPPED') || 'STOPPED', '90']
+        this.setColour(RoboBlocks.LANG_COLOUR_MOTOR);
+        this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_CONT')).appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_CONT_PIN')).setCheck(Number);
+        this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_CONT_ROT')).setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldDropdown([
+            [RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_CONT_TURN_CLOCKWISE') || 'CLOCKWISE', '0'],
+            [RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_CONT_TURN_COUNTERCLOCKWISE') || 'ANTICLOCKWISE', '180'],
+            [RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_CONT_STOPPED') || 'STOPPED', '90']
         ]), 'ROT');
-        this.appendValueInput('DELAY_TIME', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_SERVO_CONT_DELAY'));
+        this.appendValueInput('DELAY_TIME', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_CONT_DELAY'));
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip(RoboBlocks.locales.getKey('LANG_SERVO_CONT_TOOLTIP'));
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_CONT_TOOLTIP'));
     },
     isVariable: function(varValue) {
         for (var i in Blockly.Variables.allVariables()) {
@@ -67,7 +67,7 @@ Blockly.Blocks.servo_cont = {
     onchange: function() {
         // try {
         //     if (this.isVariable(Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
-        //         this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+        //         this.setWarningText(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_WARNING'));
         //     } else {
         //         this.setWarningText(null);
         //     }
