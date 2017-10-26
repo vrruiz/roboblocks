@@ -48,11 +48,11 @@ Blockly.Arduino.bq_bat = function() {
  * @type {Object}
  */
 Blockly.Blocks.bq_bat = {
-    category: RoboBlocks.locales.getKey('LANG_CATEGORY_ZUM'),
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_SENSOR'),
     tags: ['bat'],
     helpUrl: RoboBlocks.URL_US,
     init: function() {
-        this.setColour(RoboBlocks.LANG_COLOUR_ZUM);
+        this.setColour(RoboBlocks.LANG_COLOUR_SENSOR);
         this.appendDummyInput('').appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT')).appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));
         this.appendValueInput('RED PIN').appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT_RED_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
         this.appendValueInput('BLUE PIN').appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT_BLUE_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);

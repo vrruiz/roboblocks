@@ -56,8 +56,8 @@ Blockly.Blocks.bq_bluetooth_def = {
         this.checkBT();
         this.last_toogle = this.getFieldValue('TOGGLE');
         this.setInputsInline(false);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
+        //this.setPreviousStatement(true, null);
+        //this.setNextStatement(true, null);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_BLUETOOTH_DEF_TOOLTIP'));
     },
     checkBT: function() {
