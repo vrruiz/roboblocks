@@ -18,6 +18,7 @@
         BLOCKLY_MSG_EXPAND_ALL: 'Blokeak Zabaldu',
         LANG_VARIABLES_SET_ITEM: 'elementu',
         LANG_RESERVED_WORDS: 'Erreserbatutako hitza: izen hau ez dago baimenduta..',
+        LANG_CHAR_LENGTH: 'A character must have length 0 or 1.', //to translate
         //logic blocks:
         LANG_CATEGORY_LOGIC: 'Logika',
         LANG_LOGIC_OPERATION_AND: 'eta',
@@ -72,61 +73,15 @@
         LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN: 'Orga-itzulera',
         LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Lerro-jauzia',
         LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Karaktere bereziak idatzi.',
-        //bq blocks :
-        LANG_CATEGORY_BQ: 'Octopus blokeak',
+        //Sensor blocks:
+        LANG_CATEGORY_SENSOR: 'Sentsore',
         LANG_BQ_BAT: 'BAT - Ultrasoinuen sentsorea',
         LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
         LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
         LANG_BQ_BAT_TOOLTIP: 'Sentsoreak neurtutako distantzia bueltatzen du.',
-        LANG_BQ_BUTTON: 'Botoia',
-        LANG_BQ_BUTTON_PIN: 'PIN#',
-        LANG_BQ_BUTTON_TOOLTIP: 'Botoia',
-        LANG_BQ_BUTTONS: 'Botoi-multzoa',
-        LANG_BQ_BUTTONS_PIN: 'PIN#',
-        LANG_BQ_BUTTONS_BUTTON_A: '#A botoia',
-        LANG_BQ_BUTTONS_BUTTON_B: '#B botoia',
-        LANG_BQ_BUTTONS_BUTTON_C: '#C botoia',
-        LANG_BQ_BUTTONS_BUTTON_D: '#D botoia',
-        LANG_BQ_BUTTONS_BUTTON_E: '#E botoia',
-        LANG_BQ_BUTTONS_TOOLTIP: 'Botoi-multzoa',
-        LANG_BQ_INFRARED: 'Infragorrien sentsorea',
-        LANG_BQ_INFRARED_PIN: 'PIN#',
-        LANG_BQ_INFRARED_TOOLTIP: 'Infragorrien sentsoreak neurtutako balio digitala bueltatzen du',
-        LANG_BQ_JOYSTICK: 'Joystick',
-        LANG_BQ_JOYSTICK_PIN_X: 'X ardatza PIN#',
-        LANG_BQ_JOYSTICK_PIN_Y: 'Y ardatza PIN#',
-        LANG_BQ_JOYSTICK_POSITION: 'Joystick-aren posizioa',
-        LANG_BQ_JOYSTICK_PIN_BUTTON: 'PIN# pultsadorea',
-        LANG_BQ_JOYSTICK_TOOLTIP: 'Joystick',
-        LANG_BQ_LED: 'LED',
-        LANG_BQ_LED_PIN: 'PIN#',
-        LANG_BQ_LED_STATE: '',
-        LANG_BQ_LED_ON: 'PIZTU',
-        LANG_BQ_LED_OFF: 'ITZALI',
-        LANG_BQ_LED_TOOLTIP: 'LED',
-        LANG_BQ_PHOTORESISTOR: 'Argi-sentsorea',
-        LANG_BQ_PHOTORESISTOR_PIN: 'PIN#',
-        LANG_BQ_PHOTORESISTOR_TOOLTIP: 'Fotorresistentziak neurtutako balio analogikoa bueltatzen du.',
-        LANG_BQ_PIEZO_BUZZER: 'Burrunbagailua',
-        LANG_BQ_PIEZO_BUZZER_PIN: 'PIN#',
-        LANG_BQ_PIEZO_BUZZER_TONE: 'TONUA',
-        LANG_BQ_PIEZO_BUZZER_DO: 'DO',
-        LANG_BQ_PIEZO_BUZZER_RE: 'RE',
-        LANG_BQ_PIEZO_BUZZER_MI: 'MI',
-        LANG_BQ_PIEZO_BUZZER_FA: 'FA',
-        LANG_BQ_PIEZO_BUZZER_SOL: 'SOL',
-        LANG_BQ_PIEZO_BUZZER_LA: 'LA',
-        LANG_BQ_PIEZO_BUZZER_SI: 'SI',
-        LANG_BQ_PIEZO_BUZZER_DURATION: 'Iraupena [ms]',
-        LANG_BQ_PIEZO_BUZZER_TOOLTIP: 'Burrunbagailu piezoeléctrikoa',
-        LANG_BQ_PIEZO_BUZZERAV: 'Burrunbagailu aurreratua',
-        LANG_BQ_PIEZO_BUZZERAV_PIN: 'PIN#',
-        LANG_BQ_PIEZO_BUZZERAV_TONE: 'TONUA',
-        LANG_BQ_PIEZO_BUZZERAV_DURATION: 'Iraupena [ms]',
-        LANG_BQ_PIEZO_BUZZERAV_TOOLTIP: 'Burrunbagailu aurreratua',
-        LANG_BQ_POTENTIOMETER: 'Potentziometroa',
-        LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
-        LANG_BQ_POTENTIOMETER_TOOLTIP: 'Potentziometroak neurtutako balio analogikoa bueltatzen du',
+        LANG_IR_READ: 'Reads from infrared receiver', //to translate
+        LANG_IR_READ_PIN: 'connected to PIN#', //to translate
+        LANG_IR_READ_TOOLTIP: 'Reads the value received from the infrared receiver', //to translate
         //LCD blocks:
         LANG_CATEGORY_LCD: 'LCD blokeak',
         LANG_LCD_DEF: 'LCD (2x16)',
@@ -144,6 +99,16 @@
         LANG_LCD_PRINT_TOOLTIP: 'String bat zehaztutako posizioan edo erabilgarri dagoen hurrengoan inprimatzen du LCD pantailan.',
         LANG_LCD_CLEAR: 'LCD ezabatu',
         LANG_LCD_CLEAR_TOOLTIP: 'LCD: Ezabatu',
+        LANG_LCD_HOME: 'LCD Go home', //to translate
+        LANG_LCD_HOME_TOOLTIP: 'LCD: Positions the cursor in the upper-left corner of the screen', //to translate
+        LANG_LCD_DISPLAY: 'LCD Show content', //to translate
+        LANG_LCD_DISPLAY_TOOLTIP: 'LCD: Turns on the LCD display and restore the text that was on the display', //to translate
+        LANG_LCD_NODISPLAY: 'LCD Hide content', //to translate
+        LANG_LCD_NODISPLAY_TOOLTIP: 'LCD: Turns off the LCD display, without losing the text currently shown on it', //to translate
+        LANG_LCD_SCROLLDISPLAYLEFT: 'LCD Scrolls to the left', //to translate
+        LANG_LCD_SCROLLDISPLAYLEFT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the left', //to translate
+        LANG_LCD_SCROLLDISPLAYRIGHT: 'LCD Scrolls to the right', //to translate
+        LANG_LCD_SCROLLDISPLAYRIGHT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the right', //to translate
         //controls blocks :
         LANG_CATEGORY_CONTROLS: 'Kontrola',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Itxaron [ms]',
@@ -254,6 +219,7 @@
         LANG_CATEGORY_TEXT: 'Testua',
         LANG_TEXT_TEXT_HELPURL: '',
         LANG_TEXT_TEXT_TOOLTIP: 'Hizki bat, hitz bat edo testu lerro bat.',
+        LANG_TEXT_CHAR_TOOLTIP: 'A simbol, letter or number, but just one character', //to translate
         LANG_TEXT_JOIN_HELPURL: '',
         LANG_TEXT_JOIN_Field_CREATEWITH: 'testua sortu honekin:',
         LANG_TEXT_JOIN_TOOLTIP: 'Sortu testua edozein elementu kopuru elkartuz.',
@@ -307,6 +273,9 @@
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH: 'ALTUA',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW: 'BAXUA',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP: 'Dagokion pin digitalean balio bat idatzi.',
+        LANG_ADVANCED_INOUT_PULSEIN: 'Time for digital pin PIN#', //to translate
+        LANG_ADVANCED_INOUT_PULSEIN_MODE: 'to change to', //to translate
+        LANG_ADVANCED_INOUT_PULSEIN_TOOLTIP: 'Returns the time for a digital pin to change to the state specified (in milliseconds).', //to translate
         LANG_ADVANCED_HIGHLOW_HIGH: 'ALTUA',
         LANG_ADVANCED_HIGHLOW_LOW: 'BAXUA',
         LANG_ADVANCED_HIGHLOW_TOOLTIP: 'Hautatutakoaren arabera idatzi "ALTUA" o "BAXUA".',
@@ -368,32 +337,13 @@
         LANG_VARIABLES_TYPE_INTEGER: 'Integer', // To translate
         LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer', // To translate
         LANG_VARIABLES_TYPE_STRING: 'String', // To translate
+        LANG_VARIABLES_TYPE_CHAR: 'Character', //to translate
         LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declares and defines a VOLATILE GLOBAL variable of type int or String used in a ISR function.',  // To translate
-        //zum blocks :
-        LANG_CATEGORY_ZUM: 'zum blokeak',
-        LANG_ZUM_BUTTON: 'Botoia',
-        LANG_ZUM_BUTTON_PIN: 'PIN#',
-        LANG_ZUM_BUTTON_TOOLTIP: 'zum botoia',
-        LANG_ZUM_FOLLOWER: 'Infragorrien sentsorea',
-        LANG_ZUM_FOLLOWER_PIN_LEFT: 'PIN EZKERRA#',
-        LANG_ZUM_FOLLOWER_PIN_RIGHT: 'PIN ESKUINA#',
-        LANG_ZUM_FOLLOWER_LEFT: 'Ezkerra',
-        LANG_ZUM_FOLLOWER_RIGHT: 'Eskuina',
-        LANG_ZUM_FOLLOWER_TOOLTIP: 'zum infragorrien sentsorearen balio digitala bueltatzen du.',
-        LANG_ZUM_INFRARED: 'Infragorrien sentsorea',
-        LANG_ZUM_INFRARED_PIN: 'PIN#',
-        LANG_ZUM_INFRARED_TOOLTIP: 'zum infragorrien sentsorearen balio digitala bueltatzen du.',
-        LANG_ZUM_LED: 'LED',
-        LANG_ZUM_LED_PIN: 'PIN#',
-        LANG_ZUM_LED_ON: 'PIZTU',
-        LANG_ZUM_LED_OFF: 'ITZALI',
-        LANG_ZUM_LED_TOOLTIP: 'zum LED',
-        LANG_ZUM_PHOTORESISTOR: 'Argi sentsorea',
-        LANG_ZUM_PHOTORESISTOR_PIN: 'PIN#',
-        LANG_ZUM_PHOTORESISTOR_TOOLTIP: 'Argi sentsorearen (fotorresistentzia) balio analogikoa bueltatzen du.',
+        //sound blocks (zum):
+        LANG_CATEGORY_ZUM: 'Soinuak',
         LANG_ZUM_PIEZO_BUZZER: 'Burrunbagailua',
         LANG_ZUM_PIEZO_BUZZER_PIN: 'PIN#',
         LANG_ZUM_PIEZO_BUZZER_TONE: 'TONUA',
@@ -411,25 +361,34 @@
         LANG_ZUM_PIEZO_BUZZERAV_TONE: 'TONUA',
         LANG_ZUM_PIEZO_BUZZERAV_DURATION: 'Iraupena [ms]',
         LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP: 'Burrunbagailu piezoelektriko aurreratua.',
-        LANG_ZUM_POTENTIOMETER: 'Potentziometroa',
-        LANG_ZUM_POTENTIOMETER_PIN: 'PIN#',
-        LANG_ZUM_POTENTIOMETER_TOOLTIP: 'zum potentziometroa.',
-        //servo blocks :
-        LANG_CATEGORY_SERVO: 'Serboa',
-        LANG_SERVO_CONT: 'Errotazio jarraiko serboa',
-        LANG_SERVO_CONT_PIN: 'PIN#',
-        LANG_SERVO_CONT_ROT: 'ROT',
-        LANG_SERVO_CONT_TURN_CLOCKWISE: 'ERLOJU-ORRATZEN ARABERA BIRATU',
-        LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'ERLOJU-ORRATZEN AURKA BIRATU',
-        LANG_SERVO_CONT_STOPPED: 'GELDITU',
-        LANG_SERVO_CONT_DELAY: 'Etena [ms]',
-        LANG_SERVO_CONT_TOOLTIP: 'Errotazio jarraiko serboa.',
-        LANG_SERVO_MOVE: 'Serboa',
-        LANG_SERVO_MOVE_PIN: 'PIN#',
-        LANG_SERVO_MOVE_DEGREES: 'Graduak (0~180)',
-        LANG_SERVO_MOVE_DELAY: 'Etena [ms]',
-        LANG_SERVO_MOVE_TOOLTIP: 'Serboa 0 eta 180 gradu artean biratu.',
-        LANG_SERVO_WARNING: 'Serboaren pinari ezin diozu aldagai bat esleitu',
+        //motor blocks (servo and stepper):
+        LANG_CATEGORY_MOTOR: 'Motors', //to translate
+        LANG_MOTOR_SERVO_CONT: 'Errotazio jarraiko serboa',
+        LANG_MOTOR_SERVO_CONT_PIN: 'PIN#',
+        LANG_MOTOR_SERVO_CONT_ROT: 'ROT',
+        LANG_MOTOR_SERVO_CONT_TURN_CLOCKWISE: 'ERLOJU-ORRATZEN ARABERA BIRATU',
+        LANG_MOTOR_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'ERLOJU-ORRATZEN AURKA BIRATU',
+        LANG_MOTOR_SERVO_CONT_STOPPED: 'GELDITU',
+        LANG_MOTOR_SERVO_CONT_DELAY: 'Etena [ms]',
+        LANG_MOTOR_SERVO_CONT_TOOLTIP: 'Errotazio jarraiko serboa.',
+        LANG_MOTOR_SERVO_MOVE: 'Serboa',
+        LANG_MOTOR_SERVO_MOVE_PIN: 'PIN#',
+        LANG_MOTOR_SERVO_MOVE_DEGREES: 'Graduak (0~180)',
+        LANG_MOTOR_SERVO_MOVE_DELAY: 'Etena [ms]',
+        LANG_MOTOR_SERVO_MOVE_TOOLTIP: 'Serboa 0 eta 180 gradu artean biratu.',
+        LANG_MOTOR_SERVO_WARNING: 'Serboaren pinari ezin diozu aldagai bat esleitu',
+        LANG_MOTOR_STEPPER_MOVE: 'Stepper motor', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SPR: 'Steps per revolution', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PINS: '4 pins?', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN1: 'Pin 1', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN2: 'Pin 2', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN3: 'Pin 3', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN4: 'Pin 4', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SETSPEED: 'Set speed to', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SETSPEED_NEXT: '(rpm)', //to translate
+        LANG_MOTOR_STEPPER_MOVE_STEP: 'Move motor', //to translate
+        LANG_MOTOR_STEPPER_MOVE_STEP_NEXT: '(steps)', //to translate
+        LANG_MOTOR_STEPPER_MOVE_TOOLTIP: 'Moves motor the number of steps. A positive steps value move in one direction, a negative value moves to the other direction.', //to translate
         //interrupt blocks :
         LANG_CATEGORY_INTERRUPTS: 'Interrupts',  // To translate
         LANG_INTERRUPTS_STATE: 'Set interrupts state to ',  // To translate
@@ -446,23 +405,7 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
         LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.',  // To translate
-        //Stepper motor bloscks:
-        LANG_CATEGORY_STEPPER: 'Stepper motors', //to translate
-        LANG_STEPPER_DEF: 'Stepper motor', //to translate
-        LANG_STEPPER_DEF_STEPS: 'Steps per revolution', //to translate
-        LANG_STEPPER_DEF_PINS: '4 pins?', //to translate
-        LANG_STEPPER_DEF_PIN1: 'Pin 1', //to translate
-        LANG_STEPPER_DEF_PIN2: 'Pin 2', //to translate
-        LANG_STEPPER_DEF_PIN3: 'Pin 3', //to translate
-        LANG_STEPPER_DEF_PIN4: 'Pin 4', //to translate
-        LANG_STEPPER_DEF_TOOLTIP: 'Module definition to control a stepper motor.', //to translate
-        LANG_STEPPER_SETSPEED: 'Set speed to', //to translate
-        LANG_STEPPER_SETSPEED_NEXT: '(rpm)', //to translate
-        LANG_STEPPER_SETSPEED_TOOLTIP: 'Set motor rotation speed in rpm.', //to translate
-        LANG_STEPPER_STEP: 'Move motor', //to translate
-        LANG_STEPPER_STEP_NEXT: '(steps)', //to translate
-        LANG_STEPPER_STEP_TOOLTIP: 'Moves motor the number of steps. A positive value moves in one direction, a negative value to the other direction.' //to translate
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

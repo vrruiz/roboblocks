@@ -18,6 +18,7 @@
         BLOCKLY_MSG_EXPAND_ALL: 'Espandi blocchi',
         LANG_VARIABLES_SET_ITEM: 'Oggetto',
         LANG_RESERVED_WORDS: 'Parola riservata: questo nome non è permesso.',
+        LANG_CHAR_LENGTH: 'A character must have length 0 or 1.', //to translate
         //logic blocks:
         LANG_CATEGORY_LOGIC: 'Logica',
         LANG_LOGIC_OPERATION_AND: 'e',
@@ -72,61 +73,15 @@
         LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN: 'Ritorno a capo',
         LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Avanzamento riga',
         LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Scrive caratt. speciali',
-        //bq blocks :
-        LANG_CATEGORY_BQ: 'Octopus bloqs',
+        //sensor blocks :
+        LANG_CATEGORY_SENSOR: 'Sensori',
         LANG_BQ_BAT: 'BAT - Sensore ad ultrasuoni',
         LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
         LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
         LANG_BQ_BAT_TOOLTIP: 'Restituisce la distanza misurata dal sensore ad ultrasuoni.',
-        LANG_BQ_BUTTON: 'Pulsante',
-        LANG_BQ_BUTTON_PIN: 'PIN#',
-        LANG_BQ_BUTTON_TOOLTIP: 'Pulsante',
-        LANG_BQ_BUTTONS: 'Pad dei pulsanti',
-        LANG_BQ_BUTTONS_PIN: 'PIN#',
-        LANG_BQ_BUTTONS_BUTTON_A: 'Pulsante #A',
-        LANG_BQ_BUTTONS_BUTTON_B: 'Pulsante #B',
-        LANG_BQ_BUTTONS_BUTTON_C: 'Pulsante #C',
-        LANG_BQ_BUTTONS_BUTTON_D: 'Pulsante #D',
-        LANG_BQ_BUTTONS_BUTTON_E: 'Pulsante #E',
-        LANG_BQ_BUTTONS_TOOLTIP: 'Pulsante Pad',
-        LANG_BQ_INFRARED: 'Sensore ad infrarossi',
-        LANG_BQ_INFRARED_PIN: 'PIN#',
-        LANG_BQ_INFRARED_TOOLTIP: 'Restituisce il valore digitale letto dal sensore ad infrarossi.',
-        LANG_BQ_JOYSTICK: 'Joystick',
-        LANG_BQ_JOYSTICK_PIN_X: 'Asse X PIN#',
-        LANG_BQ_JOYSTICK_PIN_Y: 'Asse Y PIN#',
-        LANG_BQ_JOYSTICK_PIN_BUTTON: 'Pulsante PIN#',
-        LANG_BQ_JOYSTICK_POSITION: 'Posizione joystick',
-        LANG_BQ_JOYSTICK_TOOLTIP: 'Joystick',
-        LANG_BQ_LED: 'LED',
-        LANG_BQ_LED_PIN: 'PIN#',
-        LANG_BQ_LED_STATE: '',
-        LANG_BQ_LED_ON: 'ACCESO',
-        LANG_BQ_LED_OFF: 'SPENTO',
-        LANG_BQ_LED_TOOLTIP: 'LED',
-        LANG_BQ_PHOTORESISTOR: 'Sensore di luce',
-        LANG_BQ_PHOTORESISTOR_PIN: 'PIN#',
-        LANG_BQ_PHOTORESISTOR_TOOLTIP: 'Restituisce il valore analogico misurato dal sensore di luce.',
-        LANG_BQ_PIEZO_BUZZER: 'Buzzer',
-        LANG_BQ_PIEZO_BUZZER_PIN: 'PIN#',
-        LANG_BQ_PIEZO_BUZZER_TONE: 'TONO',
-        LANG_BQ_PIEZO_BUZZER_DO: 'DO',
-        LANG_BQ_PIEZO_BUZZER_RE: 'RE',
-        LANG_BQ_PIEZO_BUZZER_MI: 'MI',
-        LANG_BQ_PIEZO_BUZZER_FA: 'FA',
-        LANG_BQ_PIEZO_BUZZER_SOL: 'SOL',
-        LANG_BQ_PIEZO_BUZZER_LA: 'LA',
-        LANG_BQ_PIEZO_BUZZER_SI: 'SI',
-        LANG_BQ_PIEZO_BUZZER_DURATION: 'Durata',
-        LANG_BQ_PIEZO_BUZZER_TOOLTIP: 'Buzzer',
-        LANG_BQ_PIEZO_BUZZERAV: 'Buzzer avanzato',
-        LANG_BQ_PIEZO_BUZZERAV_PIN: 'PIN#',
-        LANG_BQ_PIEZO_BUZZERAV_TONE: 'TONO',
-        LANG_BQ_PIEZO_BUZZERAV_DURATION: 'Durata',
-        LANG_BQ_PIEZO_BUZZERAV_TOOLTIP: 'Buzzer avanzato',
-        LANG_BQ_POTENTIOMETER: 'Potenziometro',
-        LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
-        LANG_BQ_POTENTIOMETER_TOOLTIP: 'Restituisce il valore analogico del potenziometro.',
+        LANG_IR_READ: 'Reads from infrared receiver', //to translate
+        LANG_IR_READ_PIN: 'connected to PIN#', //to translate
+        LANG_IR_READ_TOOLTIP: 'Reads the value received from the infrared receiver', //to translate
         //LCD blocks:
         LANG_CATEGORY_LCD: 'LCD bloqs',
         LANG_LCD_DEF: 'LCD (2x16)',
@@ -144,6 +99,16 @@
         LANG_LCD_PRINT_TOOLTIP: 'Visualizza una stringa sul display LCD ad una determinata posizione o alla successiva disponibile.',
         LANG_LCD_CLEAR: 'Pulisci LCD',
         LANG_LCD_CLEAR_TOOLTIP: 'Pulisce l\'LCD',
+        LANG_LCD_HOME: 'LCD Go home', //to translate
+        LANG_LCD_HOME_TOOLTIP: 'LCD: Positions the cursor in the upper-left corner of the screen', //to translate
+        LANG_LCD_DISPLAY: 'LCD Show content', //to translate
+        LANG_LCD_DISPLAY_TOOLTIP: 'LCD: Turns on the LCD display and restore the text that was on the display', //to translate
+        LANG_LCD_NODISPLAY: 'LCD Hide content', //to translate
+        LANG_LCD_NODISPLAY_TOOLTIP: 'LCD: Turns off the LCD display, without losing the text currently shown on it', //to translate
+        LANG_LCD_SCROLLDISPLAYLEFT: 'LCD Scrolls to the left', //to translate
+        LANG_LCD_SCROLLDISPLAYLEFT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the left', //to translate
+        LANG_LCD_SCROLLDISPLAYRIGHT: 'LCD Scrolls to the right', //to translate
+        LANG_LCD_SCROLLDISPLAYRIGHT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the right', //to translate
         //controls blocks :
         LANG_CATEGORY_CONTROLS: 'Controllo',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Attendi (ms)',
@@ -256,6 +221,7 @@
         LANG_CATEGORY_TEXT: 'Testo',
         LANG_TEXT_TEXT_HELPURL: '',
         LANG_TEXT_TEXT_TOOLTIP: 'A lettera, parola o linea di testo.',
+        LANG_TEXT_CHAR_TOOLTIP: 'A simbol, letter or number, but just one character', //to translate
         LANG_TEXT_JOIN_HELPURL: '',
         LANG_TEXT_JOIN_Field_CREATEWITH: 'Crea un testo con',
         LANG_TEXT_JOIN_TOOLTIP: 'Crea una porzione di testo unendo un numero qualsiasi di oggetti.',
@@ -309,6 +275,9 @@
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH: 'ACCESO',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW: 'SPENTO',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP: 'Scrive lo stato specifico ad un Pin Digitale',
+        LANG_ADVANCED_INOUT_PULSEIN: 'Time for digital pin PIN#', //to translate
+        LANG_ADVANCED_INOUT_PULSEIN_MODE: 'to change to', //to translate
+        LANG_ADVANCED_INOUT_PULSEIN_TOOLTIP: 'Returns the time for a digital pin to change to the state specified (in milliseconds).', //to translate
         LANG_ADVANCED_HIGHLOW_HIGH: 'ACCESO',
         LANG_ADVANCED_HIGHLOW_LOW: 'SPENTO',
         LANG_ADVANCED_HIGHLOW_TOOLTIP: 'ACCESO o SPENTO',
@@ -371,32 +340,13 @@
         LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
         LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
         LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
+        LANG_VARIABLES_TYPE_CHAR: 'Character', //to translate
         LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declares and defines a VOLATILE GLOBAL variable of type int or String used in a ISR function.',  // To translate
-        //zum blocks :
-        LANG_CATEGORY_ZUM: 'Zum bloqs',
-        LANG_ZUM_BUTTON: 'Pulsante',
-        LANG_ZUM_BUTTON_PIN: 'PIN#',
-        LANG_ZUM_BUTTON_TOOLTIP: 'Pulsante ZUM',
-        LANG_ZUM_FOLLOWER: 'Sensore a infrarossi',
-        LANG_ZUM_FOLLOWER_PIN_LEFT: 'PIN SINISTRO#',
-        LANG_ZUM_FOLLOWER_PIN_RIGHT: 'PIN DESTRO#',
-        LANG_ZUM_FOLLOWER_LEFT: 'Sinistra',
-        LANG_ZUM_FOLLOWER_RIGHT: 'Destra',
-        LANG_ZUM_FOLLOWER_TOOLTIP: 'Restituisce il valore digitale letto dal sensore ad infrarossi',
-        LANG_ZUM_INFRARED: 'Sensore ad infrarossi',
-        LANG_ZUM_INFRARED_PIN: 'PIN#',
-        LANG_ZUM_INFRARED_TOOLTIP: 'Restituisce il valore digitale letto dal sensore ad infrarossi',
-        LANG_ZUM_LED: 'LED',
-        LANG_ZUM_LED_PIN: 'PIN#',
-        LANG_ZUM_LED_ON: 'ACCESO',
-        LANG_ZUM_LED_OFF: 'SPENTO',
-        LANG_ZUM_LED_TOOLTIP: 'LED ZUM',
-        LANG_ZUM_PHOTORESISTOR: 'Sensore di luce',
-        LANG_ZUM_PHOTORESISTOR_PIN: 'PIN#',
-        LANG_ZUM_PHOTORESISTOR_TOOLTIP: 'Restituisce il valore analogico misurato dal sensore di luce.',
+        //sound blocks (zum):
+        LANG_CATEGORY_ZUM: 'Suoni',
         LANG_ZUM_PIEZO_BUZZER: 'Buzzer',
         LANG_ZUM_PIEZO_BUZZER_PIN: 'PIN#',
         LANG_ZUM_PIEZO_BUZZER_TONE: 'TONO',
@@ -414,25 +364,34 @@
         LANG_ZUM_PIEZO_BUZZERAV_TONE: 'TONO',
         LANG_ZUM_PIEZO_BUZZERAV_DURATION: 'Durata',
         LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP: 'Buzzer avanzato',
-        LANG_ZUM_POTENTIOMETER: 'Potenziometro',
-        LANG_ZUM_POTENTIOMETER_PIN: 'PIN#',
-        LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Restituisce il valore analogico del potenziometro.',
-        //servo blocks :
-        LANG_CATEGORY_SERVO: 'Servo',
-        LANG_SERVO_CONT: 'Servomotore a rotazione continua',
-        LANG_SERVO_CONT_PIN: 'PIN#',
-        LANG_SERVO_CONT_ROT: 'ROTAZIONE',
-        LANG_SERVO_CONT_TURN_CLOCKWISE: 'GIRA IN SENSO ORARIO',
-        LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'GIRA IN SENSO ANTI-ORARIO',
-        LANG_SERVO_CONT_STOPPED: 'FERMA',
-        LANG_SERVO_CONT_DELAY: 'Pausa',
-        LANG_SERVO_CONT_TOOLTIP: 'Servomotore a rotazione continua.',
-        LANG_SERVO_MOVE: 'Servo',
-        LANG_SERVO_MOVE_PIN: 'PIN#',
-        LANG_SERVO_MOVE_DEGREES: 'Gradi (0~180)',
-        LANG_SERVO_MOVE_DELAY: 'Pausa',
-        LANG_SERVO_MOVE_TOOLTIP: 'Sposta di 0~180 gradi',
-        LANG_SERVO_WARNING: 'Impossibile impostare il pin del servo motore utilizzando una variabile',
+        //motor blocks (servo and stepper):
+        LANG_CATEGORY_MOTOR: 'Motors', //to translate
+        LANG_MOTOR_SERVO_CONT: 'Servomotore a rotazione continua',
+        LANG_MOTOR_SERVO_CONT_PIN: 'PIN#',
+        LANG_MOTOR_SERVO_CONT_ROT: 'ROTAZIONE',
+        LANG_MOTOR_SERVO_CONT_TURN_CLOCKWISE: 'GIRA IN SENSO ORARIO',
+        LANG_MOTOR_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'GIRA IN SENSO ANTI-ORARIO',
+        LANG_MOTOR_SERVO_CONT_STOPPED: 'FERMA',
+        LANG_MOTOR_SERVO_CONT_DELAY: 'Pausa',
+        LANG_MOTOR_SERVO_CONT_TOOLTIP: 'Servomotore a rotazione continua.',
+        LANG_MOTOR_SERVO_MOVE: 'Servo',
+        LANG_MOTOR_SERVO_MOVE_PIN: 'PIN#',
+        LANG_MOTOR_SERVO_MOVE_DEGREES: 'Gradi (0~180)',
+        LANG_MOTOR_SERVO_MOVE_DELAY: 'Pausa',
+        LANG_MOTOR_SERVO_MOVE_TOOLTIP: 'Sposta di 0~180 gradi',
+        LANG_MOTOR_SERVO_WARNING: 'Impossibile impostare il pin del servo motore utilizzando una variabile',
+        LANG_MOTOR_STEPPER_MOVE: 'Stepper motor', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SPR: 'Steps per revolution', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PINS: '4 pins?', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN1: 'Pin 1', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN2: 'Pin 2', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN3: 'Pin 3', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN4: 'Pin 4', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SETSPEED: 'Set speed to', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SETSPEED_NEXT: '(rpm)', //to translate
+        LANG_MOTOR_STEPPER_MOVE_STEP: 'Move motor', //to translate
+        LANG_MOTOR_STEPPER_MOVE_STEP_NEXT: '(steps)', //to translate
+        LANG_MOTOR_STEPPER_MOVE_TOOLTIP: 'Moves motor the number of steps. A positive steps value move in one direction, a negative value moves to the other direction.', //to translate
         //interrupt blocks :
         LANG_CATEGORY_INTERRUPTS: 'Interrupts',  // To translate
         LANG_INTERRUPTS_STATE: 'Set interrupts state to ',  // To translate
@@ -449,23 +408,7 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
         LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.',  // To translate
-        //Stepper motor bloscks:
-        LANG_CATEGORY_STEPPER: 'Stepper motors', //to translate
-        LANG_STEPPER_DEF: 'Stepper motor', //to translate
-        LANG_STEPPER_DEF_STEPS: 'Steps per revolution', //to translate
-        LANG_STEPPER_DEF_PINS: '4 pins?', //to translate
-        LANG_STEPPER_DEF_PIN1: 'Pin 1', //to translate
-        LANG_STEPPER_DEF_PIN2: 'Pin 2', //to translate
-        LANG_STEPPER_DEF_PIN3: 'Pin 3', //to translate
-        LANG_STEPPER_DEF_PIN4: 'Pin 4', //to translate
-        LANG_STEPPER_DEF_TOOLTIP: 'Module definition to control a stepper motor.', //to translate
-        LANG_STEPPER_SETSPEED: 'Set speed to', //to translate
-        LANG_STEPPER_SETSPEED_NEXT: '(rpm)', //to translate
-        LANG_STEPPER_SETSPEED_TOOLTIP: 'Set motor rotation speed in rpm.', //to translate
-        LANG_STEPPER_STEP: 'Move motor', //to translate
-        LANG_STEPPER_STEP_NEXT: '(steps)', //to translate
-        LANG_STEPPER_STEP_TOOLTIP: 'Moves motor the number of steps. A positive value moves in one direction, a negative value to the other direction.' //to translate
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

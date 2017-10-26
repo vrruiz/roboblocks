@@ -18,6 +18,7 @@
         BLOCKLY_MSG_EXPAND_ALL: 'Развернуть все блоки',
         LANG_VARIABLES_SET_ITEM: 'элемент',
         LANG_RESERVED_WORDS: 'Зарезервированное слово: Это имя не допускается.',
+        LANG_CHAR_LENGTH: 'A character must have length 0 or 1.', //to translate
         //logic blocks:
         LANG_CATEGORY_LOGIC: 'Логические',
         LANG_LOGIC_OPERATION_AND: 'и',
@@ -72,61 +73,15 @@
         LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN: 'Возврат каретки',
         LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Линия',
         LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Написать специальные символы.',
-        // bq блоки:
-        LANG_CATEGORY_BQ: 'Блоки Octopus',
+        //sensor blocks:
+        LANG_CATEGORY_SENSOR: 'датчиков',
         LANG_BQ_BAT: 'BAT - ультразвуковой датчик',
         LANG_BQ_BAT_RED_PIN: 'ECHO PIN #',
         LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN #',
         LANG_BQ_BAT_TOOLTIP: 'Возвращает расстояние, измеренное датчиком.',
-        LANG_BQ_BUTTON: 'Кнопка',
-        LANG_BQ_BUTTON_PIN: 'PIN# ',
-        LANG_BQ_BUTTON_TOOLTIP: 'Кнопка',
-        LANG_BQ_BUTTONS: 'Кнопка',
-        LANG_BQ_BUTTONS_PIN: 'PIN# ',
-        LANG_BQ_BUTTONS_BUTTON_A: '#A Кнопка',
-        LANG_BQ_BUTTONS_BUTTON_B: '#B Кнопка',
-        LANG_BQ_BUTTONS_BUTTON_C: '#C Кнопка',
-        LANG_BQ_BUTTONS_BUTTON_D: '#D Кнопка',
-        LANG_BQ_BUTTONS_BUTTON_E: '#E Кнопка',
-        LANG_BQ_BUTTONS_TOOLTIP: 'Кнопка на базе аналогового порта',
-        LANG_BQ_INFRARED: 'Инфракрасный датчик',
-        LANG_BQ_INFRARED_PIN: 'PIN# ',
-        LANG_BQ_INFRARED_TOOLTIP: 'Возвращает цифровое значение, измеренное ИК-датчиком ',
-        LANG_BQ_JOYSTICK: 'Джойстик',
-        LANG_BQ_JOYSTICK_PIN_X: 'X ось PIN# ',
-        LANG_BQ_JOYSTICK_PIN_Y: 'У ось PIN# ',
-        LANG_BQ_JOYSTICK_POSITION: 'Позиция джойстика',
-        LANG_BQ_JOYSTICK_PIN_BUTTON: 'PIN# кнопки',
-        LANG_BQ_JOYSTICK_TOOLTIP: 'Джойстик',
-        LANG_BQ_LED: 'LED',
-        LANG_BQ_LED_PIN: 'PIN# ',
-        LANG_BQ_LED_STATE: '',
-        LANG_BQ_LED_ON: 'Включить',
-        LANG_BQ_LED_OFF: 'Выключить',
-        LANG_BQ_LED_TOOLTIP: 'Светодиод',
-        LANG_BQ_PHOTORESISTOR: 'Датчик света',
-        LANG_BQ_PHOTORESISTOR_PIN: 'PIN# ',
-        LANG_BQ_PHOTORESISTOR_TOOLTIP: 'Возвращает аналоговое значение, измеренное на фоторезисторе.',
-        LANG_BQ_PIEZO_BUZZER: 'Звукоизлучатель',
-        LANG_BQ_PIEZO_BUZZER_PIN: 'PIN # ',
-        LANG_BQ_PIEZO_BUZZER_TONE: 'Тон',
-        LANG_BQ_PIEZO_BUZZER_DO: 'ДО',
-        LANG_BQ_PIEZO_BUZZER_RE: 'РЕ',
-        LANG_BQ_PIEZO_BUZZER_MI: 'МИ',
-        LANG_BQ_PIEZO_BUZZER_FA: 'ФА',
-        LANG_BQ_PIEZO_BUZZER_SOL: 'СОЛЬ',
-        LANG_BQ_PIEZO_BUZZER_LA: 'ЛЯ',
-        LANG_BQ_PIEZO_BUZZER_SI: 'СИ',
-        LANG_BQ_PIEZO_BUZZER_DURATION: 'Продолжительность',
-        LANG_BQ_PIEZO_BUZZER_TOOLTIP: 'Звукоизлучатель - пьезоэлектрический элемент. Излучает звук фиксированной тональности.',
-        LANG_BQ_PIEZO_BUZZERAV: 'Расширенный звукоизлучатель',
-        LANG_BQ_PIEZO_BUZZERAV_PIN: 'PIN# ',
-        LANG_BQ_PIEZO_BUZZERAV_TONE: 'Тон',
-        LANG_BQ_PIEZO_BUZZERAV_DURATION: 'Продолжительность',
-        LANG_BQ_PIEZO_BUZZERAV_TOOLTIP: 'Звукоизлучатель - пьезоэлектрический элемент. Излучает звук заданной тональности.',
-        LANG_BQ_POTENTIOMETER: 'Потенциометр',
-        LANG_BQ_POTENTIOMETER_PIN: 'PIN# ',
-        LANG_BQ_POTENTIOMETER_TOOLTIP: 'Возвращает аналоговое значение, измеренное с помощью потенциометра ',
+        LANG_IR_READ: 'Reads from infrared receiver', //to translate
+        LANG_IR_READ_PIN: 'connected to PIN#', //to translate
+        LANG_IR_READ_TOOLTIP: 'Reads the value received from the infrared receiver', //to translate
         // ЖК блоки:
         LANG_CATEGORY_LCD: 'Блоки ЖК',
         LANG_LCD_DEF: 'ЖК-дисплей (2x16) ',
@@ -144,6 +99,16 @@
         LANG_LCD_PRINT_TOOLTIP: 'Печать фразы на ЖК-дисплее в указанной позиции или на следующей доступной.',
         LANG_LCD_CLEAR: 'ЖК очистить',
         LANG_LCD_CLEAR_TOOLTIP: 'ЖК: Удалить символы с экрана',
+        LANG_LCD_HOME: 'LCD Go home', //to translate
+        LANG_LCD_HOME_TOOLTIP: 'LCD: Positions the cursor in the upper-left corner of the screen', //to translate
+        LANG_LCD_DISPLAY: 'LCD Show content', //to translate
+        LANG_LCD_DISPLAY_TOOLTIP: 'LCD: Turns on the LCD display and restore the text that was on the display', //to translate
+        LANG_LCD_NODISPLAY: 'LCD Hide content', //to translate
+        LANG_LCD_NODISPLAY_TOOLTIP: 'LCD: Turns off the LCD display, without losing the text currently shown on it', //to translate
+        LANG_LCD_SCROLLDISPLAYLEFT: 'LCD Scrolls to the left', //to translate
+        LANG_LCD_SCROLLDISPLAYLEFT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the left', //to translate
+        LANG_LCD_SCROLLDISPLAYRIGHT: 'LCD Scrolls to the right', //to translate
+        LANG_LCD_SCROLLDISPLAYRIGHT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the right', //to translate
         // Управление блоками:
         LANG_CATEGORY_CONTROLS: 'Контроль',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Ждать (мс)',
@@ -256,6 +221,7 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_CATEGORY_TEXT: 'Текст',
         LANG_TEXT_TEXT_HELPURL: '',
         LANG_TEXT_TEXT_TOOLTIP: 'Письмо, одно слово или строка текста.',
+        LANG_TEXT_CHAR_TOOLTIP: 'A simbol, letter or number, but just one character', //to translate
         LANG_TEXT_JOIN_HELPURL: '',
         LANG_TEXT_JOIN_Field_CREATEWITH: 'создать текст',
         LANG_TEXT_JOIN_TOOLTIP: 'Создает текст, соединяющую любое количество элементов.',
@@ -309,6 +275,9 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH: 'ВКЛ',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW: 'ВЫКЛ',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP: 'Написать значение в конкретном цифровом выводе.',
+        LANG_ADVANCED_INOUT_PULSEIN: 'Time for digital pin PIN#', //to translate
+        LANG_ADVANCED_INOUT_PULSEIN_MODE: 'to change to', //to translate
+        LANG_ADVANCED_INOUT_PULSEIN_TOOLTIP: 'Returns the time for a digital pin to change to the state specified (in milliseconds).', //to translate
         LANG_ADVANCED_HIGHLOW_HIGH: 'ВКЛ',
         LANG_ADVANCED_HIGHLOW_LOW: 'ВЫКЛ',
         LANG_ADVANCED_HIGHLOW_TOOLTIP: 'Написать "ВКЛ" или "ВЫКЛ" в соответствии с выбором.',
@@ -371,32 +340,13 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
         LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
         LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
+        LANG_VARIABLES_TYPE_CHAR: 'Character', //to translate
         LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declares and defines a VOLATILE GLOBAL variable of type int or String used in a ISR function.',  // To translate
-        // Zum блоки:
-        LANG_CATEGORY_ZUM: 'Блоки Zum',
-        LANG_ZUM_BUTTON: 'Кнопка',
-        LANG_ZUM_BUTTON_PIN: 'PIN# ',
-        LANG_ZUM_BUTTON_TOOLTIP: 'Кнопка Zum ',
-        LANG_ZUM_FOLLOWER: 'инфракрасный датчик',
-        LANG_ZUM_FOLLOWER_PIN_LEFT: 'левый PIN # ',
-        LANG_ZUM_FOLLOWER_PIN_RIGHT: 'правый PIN #',
-        LANG_ZUM_FOLLOWER_LEFT: 'Cлева',
-        LANG_ZUM_FOLLOWER_RIGHT: 'Справа',
-        LANG_ZUM_FOLLOWER_TOOLTIP: 'Возвращает значение цифрового инфракрасного датчика ',
-        LANG_ZUM_INFRARED: 'инфракрасный датчик',
-        LANG_ZUM_INFRARED_PIN: 'PIN# ',
-        LANG_ZUM_INFRARED_TOOLTIP: 'Возвращает значение цифрового инфракрасного датчика ',
-        LANG_ZUM_LED: 'LED',
-        LANG_ZUM_LED_PIN: 'PIN# ',
-        LANG_ZUM_LED_ON: 'ВКЛ',
-        LANG_ZUM_LED_OFF: 'ВЫКЛ',
-        LANG_ZUM_LED_TOOLTIP: 'светодиодные излучатели Zum ',
-        LANG_ZUM_PHOTORESISTOR: 'Датчик света',
-        LANG_ZUM_PHOTORESISTOR_PIN: 'PIN# ',
-        LANG_ZUM_PHOTORESISTOR_TOOLTIP: 'Возвращает аналоговое значение датчика света (фоторезистора).',
+        //sound blocks (zum):
+        LANG_CATEGORY_ZUM: 'звуки',
         LANG_ZUM_PIEZO_BUZZER: 'Звукоизлучатель',
         LANG_ZUM_PIEZO_BUZZER_PIN: 'PIN# ',
         LANG_ZUM_PIEZO_BUZZER_TONE: 'Тон',
@@ -414,25 +364,34 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_ZUM_PIEZO_BUZZERAV_TONE: 'Тон',
         LANG_ZUM_PIEZO_BUZZERAV_DURATION: 'Продолжительность',
         LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP: 'Звукоизлучатель - пьезоэлектрический элемент.',
-        LANG_ZUM_POTENTIOMETER: 'Потенциометр',
-        LANG_ZUM_POTENTIOMETER_PIN: 'PIN# ',
-        LANG_ZUM_POTENTIOMETER_TOOLTIP: 'потенциометр Zum.',
-        // Серво блоки:
-        LANG_CATEGORY_SERVO: 'Сервоприводы',
-        LANG_SERVO_CONT: 'Сервопривод непрерывного вращения',
-        LANG_SERVO_CONT_PIN: 'PIN# ',
-        LANG_SERVO_CONT_ROT: 'Вращение',
-        LANG_SERVO_CONT_TURN_CLOCKWISE: 'Вращаться по часовой стрелке',
-        LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'вращаться против часовой стрелки',
-        LANG_SERVO_CONT_STOPPED: 'Стоп',
-        LANG_SERVO_CONT_DELAY: 'Пауза',
-        LANG_SERVO_CONT_TOOLTIP: 'Сервопривод непрерывного вращения.',
-        LANG_SERVO_MOVE: 'Сервопривод',
-        LANG_SERVO_MOVE_PIN: 'PIN# ',
-        LANG_SERVO_MOVE_DEGREES: '° (0 ~ 180)',
-        LANG_SERVO_MOVE_DELAY: 'Пауза',
-        LANG_SERVO_MOVE_TOOLTIP: 'Повернуть вал сервопривода между 0 и 180 градусов.',
-        LANG_SERVO_WARNING: 'Вы не можете установить управляющий PIN сервопривода с помощью переменной.',
+        //motor blocks (servo and stepper):
+        LANG_CATEGORY_MOTOR: 'Motors', //to translate
+        LANG_MOTOR_SERVO_CONT: 'Сервопривод непрерывного вращения',
+        LANG_MOTOR_SERVO_CONT_PIN: 'PIN# ',
+        LANG_MOTOR_SERVO_CONT_ROT: 'Вращение',
+        LANG_MOTOR_SERVO_CONT_TURN_CLOCKWISE: 'Вращаться по часовой стрелке',
+        LANG_MOTOR_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'вращаться против часовой стрелки',
+        LANG_MOTOR_SERVO_CONT_STOPPED: 'Стоп',
+        LANG_MOTOR_SERVO_CONT_DELAY: 'Пауза',
+        LANG_MOTOR_SERVO_CONT_TOOLTIP: 'Сервопривод непрерывного вращения.',
+        LANG_MOTOR_SERVO_MOVE: 'Сервопривод',
+        LANG_MOTOR_SERVO_MOVE_PIN: 'PIN# ',
+        LANG_MOTOR_SERVO_MOVE_DEGREES: '° (0 ~ 180)',
+        LANG_MOTOR_SERVO_MOVE_DELAY: 'Пауза',
+        LANG_MOTOR_SERVO_MOVE_TOOLTIP: 'Повернуть вал сервопривода между 0 и 180 градусов.',
+        LANG_MOTOR_SERVO_WARNING: 'Вы не можете установить управляющий PIN сервопривода с помощью переменной.',
+        LANG_MOTOR_STEPPER_MOVE: 'Stepper motor', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SPR: 'Steps per revolution', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PINS: '4 pins?', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN1: 'Pin 1', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN2: 'Pin 2', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN3: 'Pin 3', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN4: 'Pin 4', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SETSPEED: 'Set speed to', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SETSPEED_NEXT: '(rpm)', //to translate
+        LANG_MOTOR_STEPPER_MOVE_STEP: 'Move motor', //to translate
+        LANG_MOTOR_STEPPER_MOVE_STEP_NEXT: '(steps)', //to translate
+        LANG_MOTOR_STEPPER_MOVE_TOOLTIP: 'Moves motor the number of steps. A positive steps value move in one direction, a negative value moves to the other direction.', //to translate
         //interrupt blocks :
         LANG_CATEGORY_INTERRUPTS: 'Interrupts',  // To translate
         LANG_INTERRUPTS_STATE: 'Set interrupts state to ',  // To translate
@@ -449,23 +408,7 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
         LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.',  // To translate
-        //Stepper motor bloscks:
-        LANG_CATEGORY_STEPPER: 'Stepper motors', //to translate
-        LANG_STEPPER_DEF: 'Stepper motor', //to translate
-        LANG_STEPPER_DEF_STEPS: 'Steps per revolution', //to translate
-        LANG_STEPPER_DEF_PINS: '4 pins?', //to translate
-        LANG_STEPPER_DEF_PIN1: 'Pin 1', //to translate
-        LANG_STEPPER_DEF_PIN2: 'Pin 2', //to translate
-        LANG_STEPPER_DEF_PIN3: 'Pin 3', //to translate
-        LANG_STEPPER_DEF_PIN4: 'Pin 4', //to translate
-        LANG_STEPPER_DEF_TOOLTIP: 'Module definition to control a stepper motor.', //to translate
-        LANG_STEPPER_SETSPEED: 'Set speed to', //to translate
-        LANG_STEPPER_SETSPEED_NEXT: '(rpm)', //to translate
-        LANG_STEPPER_SETSPEED_TOOLTIP: 'Set motor rotation speed in rpm.', //to translate
-        LANG_STEPPER_STEP: 'Move motor', //to translate
-        LANG_STEPPER_STEP_NEXT: '(steps)', //to translate
-        LANG_STEPPER_STEP_TOOLTIP: 'Moves motor the number of steps. A positive value moves in one direction, a negative value to the other direction.' //to translate
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
