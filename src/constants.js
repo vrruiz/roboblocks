@@ -37,9 +37,9 @@ RoboBlocks.URL_LDR='http://diwo.bq.com/el-sensor-de-luz/';
 RoboBlocks.URL_BUTTON='http://diwo.bq.com/programando-el-pulsador-en-bitbloq/';
 RoboBlocks.URL_BUZZER='http://diwo.bq.com/programando-el-zumbador-en-bitbloq/';
 RoboBlocks.URL_POTENTIOMETER='http://diwo.bq.com/programando-un-potenciometro-en-bitbloq/';
-RoboBlocks.URL_IR='http://diwo.bq.com/programando-un-sensor-infrarrojo-en-bitbloq/';
+RoboBlocks.URL_SENSOR='http://diwo.bq.com/programando-un-sensor-infrarrojo-en-bitbloq/';
 RoboBlocks.URL_CONTINUOUS_ROTATION_SERVO='http://diwo.bq.com/programando-un-servo-en-bitbloq/';
-RoboBlocks.URL_SERVO='http://diwo.bq.com/programando-un-miniservo-en-bitbloq/';
+RoboBlocks.URL_MOTOR='http://diwo.bq.com/programando-un-miniservo-en-bitbloq/';
 RoboBlocks.URL_LCD='http://diwo.bq.com/programando-una-pantalla-lcd-en-bitbloq/';
 RoboBlocks.URL_US='http://diwo.bq.com/programando-el-sensor-ultrasonido-en-bitbloq/';
 RoboBlocks.URL_BUTTONS='http://diwo.bq.com/programando-la-botonera-en-bitbloq/';
@@ -59,12 +59,11 @@ RoboBlocks.URL_PROC_NO_RET='http://diwo.bq.com/programando-con-funciones-en-bitb
 RoboBlocks.URL_PROC='http://diwo.bq.com/programando-con-funciones-en-bitbloq-2/';
 RoboBlocks.URL_PIN_FUNC='http://diwo.bq.com/programando-los-bloques-funciones-pin';
 RoboBlocks.URL_INTERRUPTS='https://drive.google.com/open?id=0B8SXZjdcc9F9ZjBVTDRtOV8wd2s';
-RoboBlocks.URL_STEPPER='http://diwo.bq.com/programando-los-bloques-matematicos/';
 
 // RGB block colors
-RoboBlocks.LANG_COLOUR_BQ = '#D04141';
+RoboBlocks.LANG_COLOUR_SENSOR = '#D04141';
 RoboBlocks.LANG_COLOUR_ZUM = '#CC7B44';
-RoboBlocks.LANG_COLOUR_SERVO = '#CECE42';
+RoboBlocks.LANG_COLOUR_MOTOR = '#CECE42';
 RoboBlocks.LANG_COLOUR_LCD = '#ACCE42';
 RoboBlocks.LANG_COLOUR_CONTROL = '#44CC44';
 RoboBlocks.LANG_COLOUR_LOGIC = '#42CE91';
@@ -75,11 +74,10 @@ RoboBlocks.LANG_COLOUR_ADVANCED = '#9142CE';
 RoboBlocks.LANG_COLOUR_VARIABLES = '#B244CC';
 RoboBlocks.LANG_COLOUR_PROCEDURES = '#CE42B3';
 RoboBlocks.LANG_COLOUR_INTERRUPTS = '#8A603E';
-RoboBlocks.LANG_COLOUR_STEPPER = '#4B610B';
 RoboBlocks.setColors = function(colorArray) {
-    RoboBlocks.LANG_COLOUR_BQ = colorArray[0];
+    RoboBlocks.LANG_COLOUR_SENSOR = colorArray[0];
     RoboBlocks.LANG_COLOUR_ZUM = colorArray[1];
-    RoboBlocks.LANG_COLOUR_SERVO = colorArray[2];
+    RoboBlocks.LANG_COLOUR_MOTOR = colorArray[2];
     RoboBlocks.LANG_COLOUR_LCD = colorArray[3];
     RoboBlocks.LANG_COLOUR_CONTROL = colorArray[4];
     RoboBlocks.LANG_COLOUR_LOGIC = colorArray[5];
@@ -90,5 +88,4 @@ RoboBlocks.setColors = function(colorArray) {
     RoboBlocks.LANG_COLOUR_VARIABLES = colorArray[10];
     RoboBlocks.LANG_COLOUR_PROCEDURES = colorArray[11];
     RoboBlocks.LANG_COLOUR_INTERRUPTS = colorArray[12];
-    RoboBlocks.LANG_COLOUR_STEPPER = colorArray[13];
 };
