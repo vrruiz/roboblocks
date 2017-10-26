@@ -11,7 +11,7 @@ This branch of Roboblocks is intended to be a modification of the original proje
 
 * More general categories and blocks to use general electronics, avoiding BQ equipment.
 
-* Include other blocks for stepper motors, math, pins, char type for variables and more function return value types.
+* Include other blocks for stepper motors, math, pins, `char` type for variables and more function return value types.
 
 Getting Started
 ---------------
