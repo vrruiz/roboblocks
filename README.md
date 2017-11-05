@@ -20,7 +20,7 @@ This project requires [Visualino](http://www.visualino.net/index.es.html), [bloc
 
 ### Include Roboblocks in your project
 
-As the original [Roboblocks for Visualino](https://github.com/vrruiz/roboblocks) repository seems to be discontinued for nearly a year, blocks defined in this project can be used in Visualino, just copy and replace `dist/roboblocks.js` and `src/index.html` to `html` directory of Visualino.
+As the original [Roboblocks for Visualino](https://github.com/vrruiz/roboblocks) repository seems to be discontinued for nearly a year, blocks defined in this project can be used in Visualino, just copy and replace `dist/roboblocks.js` and `src/index.html` to `html` directory of Visualino. It may also be necessary to copy all image files from `dist/img/blocks` to `html/img/blocks` of Visualino.
 
 How to contribute
 -----------------
