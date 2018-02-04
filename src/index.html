@@ -25,7 +25,7 @@
     <script>
             if (window.roboblocksLanguage === undefined
                 || window.roboblocksLanguage == null) {
-                var roboblocksLanguage = 'en-GB';
+                var roboblocksLanguage = 'es-ES';
             }
 
             RoboBlocks.load({
@@ -56,9 +56,10 @@
                 RoboBlocks.LANG_COLOUR_ZUM,
                 RoboBlocks.LANG_COLOUR_BQ,
                 RoboBlocks.LANG_COLOUR_ADVANCED,
-                RoboBlocks.LANG_COLOUR_INTERRUPTS,
                 RoboBlocks.LANG_COLOUR_LCD,
                 RoboBlocks.LANG_COLOUR_SERVO,
+				RoboBlocks.LANG_COLOUR_EVOLUTION,
+				
             ];
             $('.blocklyTreeRow').each( function (i,e) {
                 $(e).prepend('<span class="treeLabelBlock" style="background-color:' + colors[i] + '"></span>');
