@@ -1,1 +1,1 @@
-//
+miRobot.home();

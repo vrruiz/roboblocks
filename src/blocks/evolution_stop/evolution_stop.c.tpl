@@ -1,1 +1,1 @@
-//
+miRobot.stop();

@@ -420,6 +420,51 @@
         LANG_SERVO_MOVE_DELAY: 'Pausa [ms]',
         LANG_SERVO_MOVE_TOOLTIP: 'Mover el servo entre 0 y 180 grados.',
         LANG_SERVO_WARNING:'No puedes asignar una variable al pin del servo',
+        				// Evolution bloqs :
+		LANG_CATEGORY_EVOLUTION: 'Evolution',
+		LANG_EVOLUTION_HOME: 'Inicio',
+		LANG_EVOLUTION_HOME_TOOLTIP: 'Pone variables de Evolution a cero',
+		LANG_EVOLUTION_STOP: 'Detener',
+    	LANG_EVOLUTION_STOP_TOOLTIP: 'Para al robot Evolution',				
+		LANG_EVOLUTION_TURNHEAD: 'Mira hacia',
+		LANG_EVOLUTION_TURNHEAD_ROT: 'ROT', // Realmente funciona igual que ROT
+		LANG_EVOLUTION_TURNHEAD_TOOLTIP: 'Mueve la cabeza hacia el lado que indiques',
+		LANG_EVOLUTION_MOVE: 'Mover hacia ',				
+		LANG_EVOLUTION_FORDWARD: 'Mover hacia adelante',
+		LANG_EVOLUTION_FORDWARD_SPEED:'Velocidad',
+		LANG_EVOLUTION_RIGHT:    'DERECHA',
+		LANG_EVOLUTION_RIGHT_SPEED: 'Velocidad',
+		LANG_EVOLUTION_RIGHT_TOOLTIP: 'Gira hacia la derecha con esta velocidad',				
+		LANG_EVOLUTION_LEFT:     'IZQUIERDA',
+		LANG_EVOLUTION_LEFT_SPEED: 'Velocidad',
+		LANG_EVOLUTION_LEFT_TOOLTIP: 'Gira hacia la izquierda con esta velocidad',
+		LANG_EVOLUTION_FRONT:'ALANTE',
+		LANG_EVOLUTION_BACK:'ATRÁS',				
+		LANG_EVOLUTION_DELAY:'Durante (ms):',				
+		LANG_EVOLUTION_GET_DISTANCE: 'Distancia',
+		LANG_EVOLUTION_GET_DISTANCE_TOOLTIP: 'Obtiene la distancia al obstaculo',
+		LANG_EVOLUTION_GET_LINE: 'Hay linea',
+		LANG_EVOLUTION_GET_LINE_SIDE: 'Lado',
+		LANG_EVOLUTION_GET_LINE_TOOLTIP: 'Indica si hay linea en el lado indicado',
+		LANG_EVOLUTION_GET_LINE_COLOR:'de color',
+		LANG_EVOLUTION_COLOR_WHITE:'BLANCO',
+		LANG_EVOLUTION_COLOR_BLACK:'NEGRO',
+		LANG_EVOLUTION_GET_LIGHT: 'Hay luz',
+		LANG_EVOLUTION_GET_LIGHT_INTENSITY:'con intensidad',
+		LANG_EVOLUTION_GET_LIGHT_SIDE: 'Lado',
+		LANG_EVOLUTION_GET_LIGHT_TOOLTIP: 'Indica si hay luz en el lado especificado',
+		LANG_EVOLUTION_GET_LIGHT_HIGH:'MUCHA',
+		LANG_EVOLUTION_GET_LIGHT_MEDIUM:'MEDIA',
+		LANG_EVOLUTION_GET_LIGHT_LOW:'POCA',				
+        LANG_EVOLUTION_SPEED:'con velocidad',
+        LANG_EVOLUTION_SPEED_FAST:'RAPIDA',
+        LANG_EVOLUTION_SPEED_MEDIUM:'MEDIA',
+        LANG_EVOLUTION_SPEED_LOW:'LENTA',
+        LANG_EVOLUTION_HEAD_RIGHT:'DERECHA',
+        LANG_EVOLUTION_HEAD_LEFT:'IZQUIERDA',
+        LANG_EVOLUTION_HEAD_CENTER:'CENTRO',
+        LANG_EVOLUTION_HEAD_STATE:'Mueve la cabeza hacia:'
+
         //interrupt blocks :
         LANG_CATEGORY_INTERRUPTS: 'Interrupciones',
         LANG_INTERRUPTS_STATE: 'Establece estado de las interrupciones a ',
@@ -437,6 +482,7 @@
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Especifica la función que se va a ejecutar cuando se produzca la interrupción en el pin especificado.',
         LANG_INTERRUPTS_DETACH: 'Desasociar la interrupción del pin digital',
         LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la asociación de la interrupción especificada en el pin. Cuando se active ese pin, ya no se ejecutará la función asociada.'
+        
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

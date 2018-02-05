@@ -9,4 +9,4 @@ Parameters
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| dropdown_stat     | Dropdown to select the side wich the servo will rotate | `Dropdown` |
+| STAT    | Dropdown to select the side wich the servo will rotate| `Dropdown` |
