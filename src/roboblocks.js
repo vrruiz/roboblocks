@@ -13528,13 +13528,13 @@
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_EVOLUTION_GET_LINE_TOOLTIP'));
             }
         };
-        Blockly.Arduino.Linecolor = function() {
+        Blockly.Arduino.linecolor = function() {
             // Boolean values true and false.
             var code = (this.getFieldValue('COLO') === 'WHITE') ? 'false' : 'true';
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
         
-        Blockly.Blocks.Linecolor = {
+        Blockly.Blocks.linecolor = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_EVOLUTION'),
             helpUrl: RoboBlocks.URL_LED,
             init: function() {
