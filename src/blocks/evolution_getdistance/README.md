@@ -1,11 +1,11 @@
-evolution_getlight
+evolution_getdistance
 ==================
 
-Returns if there are light on right or left
+Returns the distance
 
 Parameters
 ----------
 
 | Param name | Description | Type     |
  ------------|-------------|----------
-| NONE     |   |  |
+|none    |  |  |
