@@ -1,3 +1,10 @@
+'use strict';
+/* global Blockly, options,JST, RoboBlocks */
+/* jshint sub:true */
+/**
+ * evolution_lightintensity code generation
+  * @return {String} Code generated with block parameters
+ */
         
         // Source: src/blocks/base_millis/base_millis.js
         /* global Blockly, JST, RoboBlocks */
