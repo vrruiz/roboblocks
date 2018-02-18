@@ -7,8 +7,8 @@
  */
  
     Blockly.Arduino.evolution_move = function() {
-        Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_move_include']({});           
-        Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+        //Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_move_include']({});           
+        //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
         var a ='';
         var dropdown_speed = this.getFieldValue('SPEED');
         var dropdown_dire = this.getFieldValue('DIRE');

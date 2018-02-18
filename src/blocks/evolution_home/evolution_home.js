@@ -7,7 +7,7 @@
  */
 Blockly.Arduino.evolution_home = function() {
             
-    Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_include']({});
+    Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_home_definitions_include']({});
     Blockly.Arduino.setups_['setups_evolution_home'] = JST['evolution_home_setups']({});
     var code = ''; 
     //code += JST['evolution_home']({});

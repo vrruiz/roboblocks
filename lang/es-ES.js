@@ -463,7 +463,7 @@
         LANG_EVOLUTION_HEAD_RIGHT:'DERECHA',
         LANG_EVOLUTION_HEAD_LEFT:'IZQUIERDA',
         LANG_EVOLUTION_HEAD_CENTER:'CENTRO',
-        LANG_EVOLUTION_HEAD_STATE:'Mueve la cabeza hacia:'
+        LANG_EVOLUTION_HEAD_STATE:'Mueve la cabeza hacia:',
 
         //interrupt blocks :
         LANG_CATEGORY_INTERRUPTS: 'Interrupciones',
@@ -481,7 +481,7 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_sin_retorno',
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Especifica la función que se va a ejecutar cuando se produzca la interrupción en el pin especificado.',
         LANG_INTERRUPTS_DETACH: 'Desasociar la interrupción del pin digital',
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la asociación de la interrupción especificada en el pin. Cuando se active ese pin, ya no se ejecutará la función asociada.'
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la asociación de la interrupción especificada en el pin. Cuando se active ese pin, ya no se ejecutará la función asociada.',
         
     };
     // Node

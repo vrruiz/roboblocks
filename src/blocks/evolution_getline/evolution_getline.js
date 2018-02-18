@@ -2,6 +2,7 @@
         // Source: src/blocks/base_millis/base_millis.js
         /* global Blockly, JST, RoboBlocks */
         //register with blockly arduino
+        'use strict';
         Blockly.Arduino.getline = function() {
             // Boolean values true and false.
             var code = (this.getFieldValue('DIRE') === 'RIGHT') ? 'getLine(RIGHT)' : 'getLine(LEFT)';

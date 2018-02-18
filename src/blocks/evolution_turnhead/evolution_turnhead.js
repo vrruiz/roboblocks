@@ -8,8 +8,8 @@
 
 Blockly.Arduino.evolution_turnhead = function() {
         var dropdown_stat = this.getFieldValue('STAT');
-        Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_turnhead_include']({});
-        Blockly.Arduino.setups_['setups_evolution_turnhead'] = JST['evolution_turnhead_setups']({});
+        //Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_turnhead_include']({});
+        //Blockly.Arduino.setups_['setups_evolution_turnhead'] = JST['evolution_turnhead_setups']({});
             
         var code = JST['evolution_turnhead']({
             'dropdown_stat': dropdown_stat

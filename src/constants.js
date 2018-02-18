@@ -74,6 +74,9 @@ RoboBlocks.LANG_COLOUR_ADVANCED = '#9142CE';
 RoboBlocks.LANG_COLOUR_VARIABLES = '#B244CC';
 RoboBlocks.LANG_COLOUR_PROCEDURES = '#CE42B3';
 RoboBlocks.LANG_COLOUR_INTERRUPTS = '#8A603E';
+RoboBlocks.LANG_COLOUR_EVOLUTION = '#CEA3B3';
+RoboBlocks.LANG_COLOUR_ESCORNABOT = '#ff0000';
+
 RoboBlocks.setColors = function(colorArray) {
     RoboBlocks.LANG_COLOUR_BQ = colorArray[0];
     RoboBlocks.LANG_COLOUR_ZUM = colorArray[1];
@@ -88,4 +91,6 @@ RoboBlocks.setColors = function(colorArray) {
     RoboBlocks.LANG_COLOUR_VARIABLES = colorArray[10];
     RoboBlocks.LANG_COLOUR_PROCEDURES = colorArray[11];
     RoboBlocks.LANG_COLOUR_INTERRUPTS = colorArray[12];
+    RoboBlocks.LANG_COLOUR_EVOLUTION = colorArray[13];
+    RoboBlocks.LANG_COLOUR_ESCORNABOT = colorArray[14];
 };

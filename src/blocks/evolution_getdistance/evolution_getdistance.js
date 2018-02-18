@@ -1,6 +1,7 @@
         
     /* global Blockly, JST, RoboBlocks */
     //register with blockly arduino
+    'use strict';
     Blockly.Arduino.getdistance = function() {
 	var code = ''; 
     //code += JST['evolution_home']({});

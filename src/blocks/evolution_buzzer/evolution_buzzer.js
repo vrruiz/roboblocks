@@ -2,10 +2,11 @@
          * bq_piezo_buzzer code generation
          * @return {String} Code generated with block parameters
          */
+'use strict';
         Blockly.Arduino.evolution_buzzer = function() {
                    
-            Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_include']({});
-            Blockly.Arduino.setups_['setups_evolution_home'] = JST['evolution_home_setups']({});
+            //Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_include']({});
+            //Blockly.Arduino.setups_['setups_evolution_home'] = JST['evolution_home_setups']({});
 
             var dropdown_note = this.getFieldValue('NOTE') || '';
 			var sound_time = Blockly.Arduino.valueToCode(this, 'SOUND', Blockly.Arduino.ORDER_ATOMIC) || '';
