@@ -1,1 +1,1 @@
-miRobot.ledON({led});
+miRobot.ledON({{led}});

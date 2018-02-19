@@ -10,14 +10,13 @@
         //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_include']({});           
         //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
         var a ='';
-        var led = this.getFieldValue('LED');
+        var led =  Blockly.Arduino.valueToCode(this, 'LED', Blockly.Arduino.ORDER_ATOMIC);
         var code ='';
-		/**** MIRAR ESTO PUEDE ESTAR MAL *****
-        a = RoboBlocks.findPinMode(delay_time);
+       
+        a = RoboBlocks.findPinMode(led);
         code += a['code'];
-        delay_time = a['pin'];
-        *******HASTA AQUI */ 
-		
+        led = a['pin'];
+        
         var code = JST['escorna_led_off']({
             'led': led,
         });
@@ -29,7 +28,7 @@
  * move block definition
  * @type {Object}
  */
-    Blockly.Blocks.escorna_led_on = {
+    Blockly.Blocks.escorna_led_off = {
         category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
         helpUrl: RoboBlocks.URL_LED,
             /**

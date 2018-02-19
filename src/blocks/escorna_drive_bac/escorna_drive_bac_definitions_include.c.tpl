@@ -1,3 +1,3 @@
 #include <escornabot.h>
 
-Evolution miRobot;
+escornabot miRobot;

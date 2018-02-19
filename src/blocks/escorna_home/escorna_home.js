@@ -7,7 +7,7 @@
  */
 Blockly.Arduino.escorna_home = function() {
             
-    Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_home_home_definitions_include']({});
+    Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_home_definitions_include']({});
     //Blockly.Arduino.setups_['setups_escorna_home'] = JST['escorna_home_setups']({});
     var code = ''; 
     //code += JST['escorna_home']({});
@@ -20,7 +20,7 @@ Blockly.Arduino.escorna_home = function() {
 		Blockly.Blocks.escorna_home = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
             tags: ['escornabot'],
-            helpUrl:,
+            helpUrl: RoboBlocks.URL_LED,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
                 

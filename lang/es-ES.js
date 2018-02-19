@@ -467,8 +467,8 @@
 		
 		//escornabot blocks
 		LANG_CATEGORY_ESCORNABOT: 'Escornabot',
-		LANG_ESCORNABOT_SPPED:'Velocidad',
-		LANG_ESCORNABOT_TURNS:'Vueltas de la rueda',
+		LANG_ESCORNABOT_SPEED:'Velocidad',
+		LANG_ESCORNABOT_TURNS:'Vueltas',
 		LANG_ESCORNABOT_TURNS_LEFT:'Gira izquierda',
 		LANG_ESCORNABOT_TURNS_RIGHT:'Gira derecha',
 		LANG_ESCORNABOT_DRIVE_FORD:'Avanza',

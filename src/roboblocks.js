@@ -1425,6 +1425,26 @@
                 LANG_EVOLUTION_HEAD_CENTER: 'CENTRO',
                 LANG_EVOLUTION_HEAD_STATE: 'Mueve la cabeza hacia:',
 
+                //escornabot blocks
+                LANG_CATEGORY_ESCORNABOT: 'Escornabot',
+                LANG_ESCORNABOT_SPEED: 'Velocidad',
+                LANG_ESCORNABOT_TURNS: 'Vueltas',
+                LANG_ESCORNABOT_TURNS_LEFT: 'Gira izquierda',
+                LANG_ESCORNABOT_TURNS_RIGHT: 'Gira derecha',
+                LANG_ESCORNABOT_DRIVE_FORD: 'Avanza',
+                LANG_ESCORNABOT_DRIVE_BACK: 'Retrocede',
+                LANG_ESCORNABOT_DRIVE_TOOLTIP: 'Mueve el escornabot adelante o atrás',
+                LANG_ESCORNABOT_HOME: 'Inicio',
+                LANG_ESCORNABOT_HOME_TOOLTIP: 'Inicia el Escornabot',
+                LANG_ESCORNABOT_STOP: 'Parar',
+                LANG_ESCORNABOT_STOP_TOOLTIP: 'Para el Escornabot',
+                LANG_ESCORNABOT_TURN_TOOLTIP: 'Gira el escornabot a derecha o izquierda',
+                LANG_ESCORNABOT_LED_ON: 'Enciende el led',
+                LANG_ESCORNABOT_LED_OFF: 'Apaga el led',
+                LANG_ESCORNABOT_LED_TOOLTIP: 'Enciende o apaga el led indicado',
+                LANG_ESCORNABOT_BUZZER_OFF: 'Silencio',
+                LANG_ESCORNABOT_BUZZER_ON: 'Pitar',
+
                 //interrupt blocks :
                 LANG_CATEGORY_INTERRUPTS: 'Interrupciones',
                 LANG_INTERRUPTS_STATE: 'Establece estado de las interrupciones a ',
@@ -5840,6 +5860,197 @@
             return __p
         };
 
+        this["JST"]["escorna_buzzer_off"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'miRobot.buzzOFF();\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_buzzer_on"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'miRobot.buzzON();\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_drive_bac"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'miRobot.drive(' +
+                    ((__t = (turns)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (speed)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_drive_bac_definitions_include"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#include <escornabot.h>\n\nescornabot miRobot;\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_drive_for"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'miRobot.drive(' +
+                    ((__t = (turns)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (speed)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_drive_for_definitions_include"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#include <escornabot.h>\n\nescornabot miRobot;\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_home_definitions_include"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#include <escornabot.h>\n\nescornabot miRobot;\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_led_off"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'miRobot.ledOFF(' +
+                    ((__t = (led)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_led_on"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'miRobot.ledON(' +
+                    ((__t = (led)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_stop"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'miRobot.stop();\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_turn_lef"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'miRobot.turn(' +
+                    ((__t = (turns)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (speed)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_turn_lef_definitions_include"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#include <escornabot.h>\n\nescornabot miRobot;\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_turn_rig"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'miRobot.turn(' +
+                    ((__t = (turns)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (speed)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["escorna_turn_rig_definitions_include"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#include <escornabot.h>\n\nescornabot miRobot;\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["evolution_buzzer"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'miRobot._tone(' +
+                    ((__t = (dropdown_note)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (sound_time)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (silence_time)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
         this["JST"]["evolution_getdistance"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -9120,6 +9331,627 @@
             WHILE: RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TOOLTIP_WHILE'),
             UNTIL: RoboBlocks.locales.getKey('LANG_CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL')
         };
+        // Source: src/blocks/escorna_buzzer/evolution_buzzer.js
+        /**
+         * bq_piezo_buzzer code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.evolution_buzzer = function() {
+
+            //Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_include']({});
+            //Blockly.Arduino.setups_['setups_evolution_home'] = JST['evolution_home_setups']({});
+
+            var dropdown_note = this.getFieldValue('NOTE') || '';
+            var sound_time = Blockly.Arduino.valueToCode(this, 'SOUND', Blockly.Arduino.ORDER_ATOMIC) || '';
+
+            var silence_time = Blockly.Arduino.valueToCode(this, 'SILENCE', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var code = '';
+            /********* MIRAR ESTO QUE HACE
+            var a = RoboBlocks.findPinMode(dropdown_pin);
+            code += a['code'];
+            dropdown_pin = a['pin'];
+
+            a = RoboBlocks.findPinMode(delay_time);
+            code += a['code'];
+            delay_time = a['pin'];
+			****** hasta aqui */
+
+            code += JST['evolution_buzzer']({
+                'dropdown_note': dropdown_note,
+                'sound_time': sound_time,
+                'silence_time': silence_time
+            });
+
+            return code;
+        };
+
+
+        /**
+         * bq_piezo_buzzer block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.evolution_buzzer = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_EVOLUTION'),
+            tags: ['buzzer'],
+            helpUrl: RoboBlocks.URL_BUZZER,
+            /**
+             * bq_piezo_buzzer initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_EVOLUTION);
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER'))
+                    .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom));
+
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_TONE'))
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_DO') || 'DO', '261'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_RE') || 'RE', '293'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_MI') || 'MI', '329'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_FA') || 'FA', '349'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SOL') || 'SOL', '392'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_LA') || 'LA', '440'],
+                        [RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SI') || 'SI', '494']
+                    ]), 'NOTE') //523
+                    .setAlign(Blockly.ALIGN_RIGHT);
+
+                this.appendValueInput('SOUND', Number)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_DURATION'));
+                this.appendValueInput('SILENCE', Number)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SILENCE'));
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_TOOLTIP'));
+            }
+        }; //
+
+        // Source: src/blocks/escorna_buzzer_off/escorna_buzzer_off.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_move code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.escorna_buzzer_off = function() {
+            //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_include']({});           
+            //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+            var a = '';
+            //var led = this.getFieldValue('LED');
+            var code = '';
+            /**** MIRAR ESTO PUEDE ESTAR MAL *****
+        a = RoboBlocks.findPinMode(delay_time);
+        code += a['code'];
+        delay_time = a['pin'];
+        *******HASTA AQUI */
+
+            var code = JST['escorna_buzzer_off']({
+                //    'led': led,
+            });
+
+            return code;
+        };
+
+        /**
+         * move block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.escorna_buzzer_off = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_BUZZER_OFF'))
+
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ESCORNABOT_LED_TOOLTIP'));
+            }
+        };
+
+
+        // Source: src/blocks/escorna_buzzer_on/escorna_buzzer_on.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_move code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.escorna_buzzer_on = function() {
+            //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_include']({});           
+            //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+            var a = '';
+            //var led = this.getFieldValue('LED');
+            var code = '';
+            /**** MIRAR ESTO PUEDE ESTAR MAL *****
+        a = RoboBlocks.findPinMode(delay_time);
+        code += a['code'];
+        delay_time = a['pin'];
+        *******HASTA AQUI */
+
+            var code = JST['escorna_buzzer_on']({
+                //    'led': led,
+            });
+
+            return code;
+        };
+
+        /**
+         * move block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.escorna_buzzer_on = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_BUZZER_ON'))
+
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ESCORNABOT_LED_TOOLTIP'));
+            }
+        };
+
+
+        // Source: src/blocks/escorna_drive_bac/escorna_drive_bac.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * escornabot_move_bac code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.escorna_drive_bac = function() {
+            Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_bac_definitions_include']({});
+            //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+            var a = '';
+            var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var turns = Blockly.Arduino.valueToCode(this, 'TURNS', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var code = '';
+            a = RoboBlocks.findPinMode(speed);
+            code += a['code'];
+            speed = a['pin'];
+
+            a = RoboBlocks.findPinMode(turns);
+            code += a['code'];
+            turns = a['pin'];
+
+            if (turns > 0) {
+                turns = turns * (-1);
+            }
+
+            var code = JST['escorna_drive_bac']({
+                'turns': turns,
+                'speed': speed
+            });
+
+            return code;
+        };
+
+        /**
+         * drive block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.escorna_drive_bac = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_DRIVE_BACK'));
+
+                this.appendValueInput('TURNS', Number)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_TURNS'))
+                    .setCheck(Number);
+                this.appendValueInput('SPEED', Number)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_SPEED'))
+                    .setCheck(Number);
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ESCORNABOT_DRIVE_TOOLTIP'));
+            }
+        };
+
+
+        // Source: src/blocks/escorna_drive_for/escorna_drive_for.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_move code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.escorna_drive_for = function() {
+            Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_definitions_include']({});
+
+            var a = '';
+            var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC);
+            var turns = Blockly.Arduino.valueToCode(this, 'TURNS', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+            a = RoboBlocks.findPinMode(speed);
+            code += a['code'];
+            speed = a['pin'];
+
+            a = RoboBlocks.findPinMode(turns);
+            code += a['code'];
+            turns = a['pin'];
+
+            var code = JST['escorna_drive_for']({
+                'turns': turns,
+                'speed': speed
+            });
+
+            return code;
+        };
+
+        /**
+         * move block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.escorna_drive_for = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_DRIVE_FORD'));
+
+                this.appendValueInput('TURNS', Number)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_TURNS'))
+                    .setCheck(Number);
+                this.appendValueInput('SPEED', Number)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_SPEED'))
+                    .setCheck(Number);
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ESCORNABOT_DRIVE_TOOLTIP'));
+            }
+        };
+
+
+        // Source: src/blocks/escorna_home/escorna_home.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * escorna_home code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.escorna_home = function() {
+
+            Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_home_definitions_include']({});
+            //Blockly.Arduino.setups_['setups_escorna_home'] = JST['escorna_home_setups']({});
+            var code = '';
+            //code += JST['escorna_home']({});
+            return code;
+        };
+
+        /**
+         *  * @type {Object}
+         */
+        Blockly.Blocks.escorna_home = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
+            tags: ['escornabot'],
+            helpUrl: RoboBlocks.URL_LED,
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_HOME')) //.appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom));
+
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ESCORNABOT_HOME_TOOLTIP'));
+            },
+            isVariable: function(varValue) {
+                for (var i in Blockly.Variables.allVariables()) {
+                    if (Blockly.Variables.allVariables()[i] === varValue) {
+                        return true;
+                    }
+                }
+                return false;
+            },
+            onchange: function() {
+                // try {
+                //     if (this.isVariable(Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
+                //         this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+                //     } else {
+                //         this.setWarningText(null);
+                //     }
+                // } catch (e) {}
+            }
+        };
+
+
+        // Source: src/blocks/escorna_led_off/escorna_led_off.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_move code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.escorna_led_off = function() {
+            //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_include']({});           
+            //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+            var a = '';
+            var led = Blockly.Arduino.valueToCode(this, 'LED', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+
+            a = RoboBlocks.findPinMode(led);
+            code += a['code'];
+            led = a['pin'];
+
+            var code = JST['escorna_led_off']({
+                'led': led,
+            });
+
+            return code;
+        };
+
+        /**
+         * move block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.escorna_led_off = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_LED_OFF'))
+
+                this.appendValueInput('LED', Number)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_LED'))
+                    .setCheck(Number);
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ESCORNABOT_LED_TOOLTIP'));
+            }
+        };
+
+
+        // Source: src/blocks/escorna_led_on/escorna_led_on.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_move code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.escorna_led_on = function() {
+            //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_include']({});           
+            //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+            var a = '';
+            var led = Blockly.Arduino.valueToCode(this, 'LED', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+
+            a = RoboBlocks.findPinMode(led);
+            code += a['code'];
+            led = a['pin'];
+
+            var code = JST['escorna_led_on']({
+                'led': led,
+            });
+
+            return code;
+        };
+
+        /**
+         * move block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.escorna_led_on = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_LED_ON'))
+
+                this.appendValueInput('LED', Number)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_LED'))
+                    .setCheck(Number);
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ESCORNABOT_LED_TOOLTIP'));
+            }
+        };
+
+
+        // Source: src/blocks/escorna_stop/escorna_stop.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * escorna_stop code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.escorna_stop = function() {
+
+            var code = JST['escorna_stop']({});
+            return code;
+        };
+
+        Blockly.Blocks.escorna_stop = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
+            tags: ['escornabot'],
+            helpUrl: RoboBlocks.URL_CONTINUOUS_ROTATION_SERVO,
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_STOP')) //.appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom));
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ESCORNABOT_STOP_TOOLTIP'));
+            },
+            isVariable: function(varValue) {
+                for (var i in Blockly.Variables.allVariables()) {
+                    if (Blockly.Variables.allVariables()[i] === varValue) {
+                        return true;
+                    }
+                }
+                return false;
+            },
+            onchange: function() {
+                // try {
+                //     if (this.isVariable(Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
+                //         this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+                //     } else {
+                //         this.setWarningText(null);
+                //     }
+                // } catch (e) {}
+            }
+        };
+
+
+        // Source: src/blocks/escorna_turn_lef/escorna_turn_lef.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_move code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.escorna_turn_lef = function() {
+            Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_turn_lef_definitions_include']({});
+            //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+            var a = '';
+            var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC);
+            var turns = Blockly.Arduino.valueToCode(this, 'TURNS', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+            a = RoboBlocks.findPinMode(speed);
+            code += a['code'];
+            speed = a['pin'];
+
+            a = RoboBlocks.findPinMode(turns);
+            code += a['code'];
+            turns = a['pin'];
+
+            if (turns > 0) {
+                turns = turns * (-1);
+            }
+
+            var code = JST['escorna_turn_lef']({
+                'turns': turns,
+                'speed': speed,
+            });
+
+            return code;
+        };
+
+        /**
+         * move block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.escorna_turn_lef = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_TURNS_LEFT'))
+
+                this.appendValueInput('TURNS', Number)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_TURNS'))
+                    .setCheck(Number);
+                this.appendValueInput('SPEED', Number)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_SPEED'))
+                    .setCheck(Number);
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ESCORNABOT_TURN_TOOLTIP'));
+            }
+        };
+
+
+        // Source: src/blocks/escorna_turn_rig/escorna_turn_rig.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_move code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.escorna_turn_rig = function() {
+            Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_turn_rig_definitions_include']({});
+            //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+            var a = '';
+            var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC);
+            var turns = Blockly.Arduino.valueToCode(this, 'TURNS', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+            a = RoboBlocks.findPinMode(speed);
+            code += a['code'];
+            speed = a['pin'];
+
+            a = RoboBlocks.findPinMode(turns);
+            code += a['code'];
+            turns = a['pin'];
+
+            var code = JST['escorna_turn_rig']({
+                'turns': turns,
+                'speed': speed,
+            });
+
+            return code;
+        };
+
+        /**
+         * move block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.escorna_turn_rig = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_TURNS_RIGHT'))
+
+                this.appendValueInput('TURNS', Number)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_TURNS'))
+                    .setCheck(Number);
+                this.appendValueInput('SPEED', Number)
+                    .appendField(RoboBlocks.locales.getKey('LANG_ESCORNABOT_SPEED'))
+                    .setCheck(Number);
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_ESCORNABOT_TURN_TOOLTIP'));
+            }
+        };
+
+
         // Source: src/blocks/evolution_buzzer/evolution_buzzer.js
         /**
          * bq_piezo_buzzer code generation
@@ -9407,7 +10239,7 @@
         Blockly.Arduino.evolution_move = function() {
             //Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_move_include']({});           
             //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
-            var a = '';
+            //var a ='';
             var dropdown_speed = this.getFieldValue('SPEED');
             var dropdown_dire = this.getFieldValue('DIRE');
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '';

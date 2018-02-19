@@ -9,7 +9,7 @@
     Blockly.Arduino.evolution_move = function() {
         //Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_move_include']({});           
         //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
-        var a ='';
+        //var a ='';
         var dropdown_speed = this.getFieldValue('SPEED');
         var dropdown_dire = this.getFieldValue('DIRE');
         var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC)||'';

@@ -1,1 +1,1 @@
-miRobot.turn({tuns},{spped});
+miRobot.turn({{turns}},{{speed}});
