@@ -479,7 +479,12 @@
 		LANG_ESCORNABOT_STOP:'Parar',
 		LANG_ESCORNABOT_STOP_TOOLTIP:'Para el Escornabot',
 		LANG_ESCORNABOT_TURN_TOOLTIP:'Gira el escornabot a derecha o izquierda',
-
+		LANG_ESCORNABOT_LED_ON:'Enciende el led',
+		LANG_ESCORNABOT_LED_OFF:'Apaga el led',
+		LANG_ESCORNABOT_LED_TOOLTIP:'Enciende o apaga el led indicado',
+		LANG_ESCORNABOT_BUZZER_OFF: 'Silencio',
+		LANG_ESCORNABOT_BUZZER_ON: 'Pitar',
+		
         //interrupt blocks :
         LANG_CATEGORY_INTERRUPTS: 'Interrupciones',
         LANG_INTERRUPTS_STATE: 'Establece estado de las interrupciones a ',
