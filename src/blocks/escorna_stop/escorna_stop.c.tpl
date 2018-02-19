@@ -1,0 +1,1 @@
+miRobot.stop();

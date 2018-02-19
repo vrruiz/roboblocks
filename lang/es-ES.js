@@ -464,6 +464,21 @@
         LANG_EVOLUTION_HEAD_LEFT:'IZQUIERDA',
         LANG_EVOLUTION_HEAD_CENTER:'CENTRO',
         LANG_EVOLUTION_HEAD_STATE:'Mueve la cabeza hacia:',
+		
+		//escornabot blocks
+		LANG_CATEGORY_ESCORNABOT: 'Escornabot',
+		LANG_ESCORNABOT_SPPED:'Velocidad',
+		LANG_ESCORNABOT_TURNS:'Vueltas de la rueda',
+		LANG_ESCORNABOT_TURNS_LEFT:'Gira izquierda',
+		LANG_ESCORNABOT_TURNS_RIGHT:'Gira derecha',
+		LANG_ESCORNABOT_DRIVE_FORD:'Avanza',
+		LANG_ESCORNABOT_DRIVE_BACK:'Retrocede',
+		LANG_ESCORNABOT_DRIVE_TOOLTIP:'Mueve el escornabot adelante o atrás',
+		LANG_ESCORNABOT_HOME: 'Inicio',
+		LANG_ESCORNABOT_HOME_TOOLTIP:'Inicia el Escornabot',
+		LANG_ESCORNABOT_STOP:'Parar',
+		LANG_ESCORNABOT_STOP_TOOLTIP:'Para el Escornabot',
+		LANG_ESCORNABOT_TURN_TOOLTIP:'Gira el escornabot a derecha o izquierda',
 
         //interrupt blocks :
         LANG_CATEGORY_INTERRUPTS: 'Interrupciones',
