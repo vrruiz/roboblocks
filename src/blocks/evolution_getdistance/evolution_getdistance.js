@@ -1,11 +1,11 @@
-        
+'use strict';       
     /* global Blockly, JST, RoboBlocks */
     //register with blockly arduino
-    'use strict';
+
     Blockly.Arduino.getdistance = function() {
 	var code = ''; 
-    //code += JST['evolution_home']({});
-    return code;
+    var code = 'miRobot.getDistance()';
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
     };
 
     Blockly.Blocks.getdistance = {

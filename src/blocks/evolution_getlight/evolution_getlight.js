@@ -1,7 +1,7 @@
 'use strict';        
         Blockly.Arduino.getlight = function() {
             // Boolean values true and false.
-            var code = (this.getFieldValue('DIRE') === 'RIGHT') ? 'getLight(RIGHT)' : 'getLight(LEFT)';
+            var code = (this.getFieldValue('DIRE') === 'RIGHT') ? 'miRobot.getLight(RIGHT)' : 'miRobot.getLight(LEFT)';
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
         

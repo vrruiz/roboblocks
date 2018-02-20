@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2018-02-19
+/*! roboblocks - v0.2.3 - 2018-02-20
  * https://github.com/bq/roboblocks
  * Copyright (c) 2018 bq; Licensed  */
 
@@ -1424,6 +1424,8 @@
                 LANG_EVOLUTION_HEAD_LEFT: 'IZQUIERDA',
                 LANG_EVOLUTION_HEAD_CENTER: 'CENTRO',
                 LANG_EVOLUTION_HEAD_STATE: 'Mueve la cabeza hacia:',
+                LANG_EVOLUTION_BUZZER_DURATION: 'Duración [ms]',
+                LANG_EVOLUTION_BUZZER_SILENCE: 'Silencio [ms]',
 
                 //escornabot blocks
                 LANG_CATEGORY_ESCORNABOT: 'Escornabot',
@@ -6051,43 +6053,6 @@
             return __p
         };
 
-        this["JST"]["evolution_getdistance"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += 'getDistance();\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["evolution_getlight"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += 'miRobot.getLine(' +
-                    ((__t = (dropdown_dire)) == null ? '' : __t) +
-                    ');\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["evolution_getline"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += 'miRobot.getLine(' +
-                    ((__t = (dropdown_dire)) == null ? '' : __t) +
-                    ');\n';
-
-            }
-            return __p
-        };
-
         this["JST"]["evolution_home"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -6173,7 +6138,7 @@
                 __p += 'miRobot.' +
                     ((__t = (dropdown_dire)) == null ? '' : __t) +
                     '(' +
-                    ((__t = (dropdown_stat)) == null ? '' : __t) +
+                    ((__t = (dropdown_speed)) == null ? '' : __t) +
                     ')\ndelay(' +
                     ((__t = (delay_time)) == null ? '' : __t) +
                     ')\n';
@@ -10020,11 +9985,11 @@
                 this.appendValueInput('SOUND', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_DURATION'));
+                    .appendField(RoboBlocks.locales.getKey('LANG_EVOLUTION_BUZZER_DURATION'));
                 this.appendValueInput('SILENCE', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SILENCE'));
+                    .appendField(RoboBlocks.locales.getKey('LANG_EVOLUTION_BUZZER_SILENCE'));
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_TOOLTIP'));
@@ -10032,13 +9997,13 @@
         }; //
 
         // Source: src/blocks/evolution_getdistance/evolution_getdistance.js
-
         /* global Blockly, JST, RoboBlocks */
         //register with blockly arduino
+
         Blockly.Arduino.getdistance = function() {
             var code = '';
-            //code += JST['evolution_home']({});
-            return code;
+            var code = 'miRobot.getDistance()';
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
         Blockly.Blocks.getdistance = {
@@ -10055,7 +10020,7 @@
         // Source: src/blocks/evolution_getlight/evolution_getlight.js
         Blockly.Arduino.getlight = function() {
             // Boolean values true and false.
-            var code = (this.getFieldValue('DIRE') === 'RIGHT') ? 'getLight(RIGHT)' : 'getLight(LEFT)';
+            var code = (this.getFieldValue('DIRE') === 'RIGHT') ? 'miRobot.getLight(RIGHT)' : 'miRobot.getLight(LEFT)';
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
@@ -10083,7 +10048,7 @@
         //register with blockly arduino
         Blockly.Arduino.getline = function() {
             // Boolean values true and false.
-            var code = (this.getFieldValue('DIRE') === 'RIGHT') ? 'getLine(RIGHT)' : 'getLine(LEFT)';
+            var code = (this.getFieldValue('DIRE') === 'RIGHT') ? 'miRobot.getLine(RIGHT)' : 'miRobot.getLine(LEFT)';
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
 
@@ -10239,16 +10204,14 @@
         Blockly.Arduino.evolution_move = function() {
             //Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_move_include']({});           
             //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
-            //var a ='';
+            var a = '';
             var dropdown_speed = this.getFieldValue('SPEED');
             var dropdown_dire = this.getFieldValue('DIRE');
             var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '';
             var code = '';
-            /**** MIRAR ESTO PUEDE ESTAR MAL *****
-        a = RoboBlocks.findPinMode(delay_time);
-        code += a['code'];
-        delay_time = a['pin'];
-        *******HASTA AQUI */
+            a = RoboBlocks.findPinMode(delay_time);
+            code += a['code'];
+            delay_time = a['pin'];
 
             var code = JST['evolution_move']({
                 'dropdown_dire': dropdown_dire,

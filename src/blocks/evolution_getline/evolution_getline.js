@@ -5,7 +5,7 @@
         'use strict';
         Blockly.Arduino.getline = function() {
             // Boolean values true and false.
-            var code = (this.getFieldValue('DIRE') === 'RIGHT') ? 'getLine(RIGHT)' : 'getLine(LEFT)';
+            var code = (this.getFieldValue('DIRE') === 'RIGHT') ? 'miRobot.getLine(RIGHT)' : 'miRobot.getLine(LEFT)';
             return [code, Blockly.Arduino.ORDER_ATOMIC];
         };
         

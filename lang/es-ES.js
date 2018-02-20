@@ -464,6 +464,8 @@
         LANG_EVOLUTION_HEAD_LEFT:'IZQUIERDA',
         LANG_EVOLUTION_HEAD_CENTER:'CENTRO',
         LANG_EVOLUTION_HEAD_STATE:'Mueve la cabeza hacia:',
+        LANG_EVOLUTION_BUZZER_DURATION: 'Duración [ms]',
+        LANG_EVOLUTION_BUZZER_SILENCE: 'Silencio [ms]',
 		
 		//escornabot blocks
 		LANG_CATEGORY_ESCORNABOT: 'Escornabot',

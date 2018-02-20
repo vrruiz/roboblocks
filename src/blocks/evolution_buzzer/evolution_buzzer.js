@@ -66,11 +66,11 @@
                 this.appendValueInput('SOUND', Number)
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_DURATION'));
+                    .appendField(RoboBlocks.locales.getKey('LANG_EVOLUTION_BUZZER_DURATION'));
 				this.appendValueInput('SILENCE', Number)	
                     .setCheck(Number)
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_SILENCE'));
+                    .appendField(RoboBlocks.locales.getKey('LANG_EVOLUTION_BUZZER_SILENCE'));
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_BQ_PIEZO_BUZZER_TOOLTIP'));
