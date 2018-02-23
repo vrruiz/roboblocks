@@ -505,6 +505,24 @@
         LANG_INTERRUPTS_DETACH: 'Desasociar la interrupción del pin digital',
         LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la asociación de la interrupción especificada en el pin. Cuando se active ese pin, ya no se ejecutará la función asociada.',
         
+        LANG_CATEGORY_MFS:'Multi-function Shield',
+        LANG_MFS_GET_POTENTIOMETER:'Potenciometro',
+        LANG_MFS_GET_POTENTIOMETER_TOOLTIP:'Lee el valor del potenciometro',
+        LANG_MFS_HOME:'Inicio',
+        LANG_MFS_HOME_TOOLTIP: 'Inicia la Multi-function Shield',
+        LANG_MFS_WRITELED:'LED',
+        LANG_MFS_ACTION:'Acción',
+        LANG_MFS_WRITELED_TOOLTIP:'Enciende o apaga el led indicado',
+        LANG_MFS_ON:'ENCENDIDO',
+        LANG_MFS_OFF:'APAGADO',
+        LANG_MFS_BLINKLED:'Parpadear',
+        LANG_MFS_BLINKLED_TOOLTIP:'Hace que parpadee el led seleccionado',
+        LANG_MFS_LED_ALL:'TODOS',
+        LANG_MFS_WRITE:'Escribir',
+        LANG_MFS_TEXT:'Texto',
+        LANG_MFS_WRITE_TOOLTIP:'Escribe el texto en el digito led',
+        
+        
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
