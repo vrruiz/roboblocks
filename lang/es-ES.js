@@ -521,6 +521,24 @@
         LANG_MFS_WRITE:'Escribir',
         LANG_MFS_TEXT:'Texto',
         LANG_MFS_WRITE_TOOLTIP:'Escribe el texto en el digito led',
+        LANG_MFS_BEEP: 'Bip',
+        LANG_MFS_BEEP_DURATION: 'Duración [ms]',
+        LANG_MFS_BEEP_SILENCE: 'Silencio [ms]',
+        LANG_MFS_BEEP_REPEAT: 'Repetir lo anterior [ms]',
+        LANG_MFS_BEEP_LOOP: 'Repetir todo [ms]',
+        LANG_MFS_BEEP_WAIT: 'Silencio entre repeticiones [ms]',
+        LANG_MFS_BEEP_TOOLTIP: 'Emite un pitido',
+        LANG_MFS_BUTTONS: 'Botonera',
+        LANG_MFS_BUTTONS_BUTTON_A: 'Botón S1',
+        LANG_MFS_BUTTONS_BUTTON_B: 'Botón S2',
+        LANG_MFS_BUTTONS_BUTTON_C: 'Botón S3',
+        LANG_MFS_BUTTONS_TOOLTIP: 'Botonera',
+        LANG_MFS_PRESS: 'PULSADO',
+        LANG_MFS_RELEASE: 'SOLTADO',
+        LANG_MFS_LPRESS: 'PULSADO LARGO',
+        LANG_MFS_LRELEASE: 'SOLTADO LARGO',
+
+        
         
         
     };

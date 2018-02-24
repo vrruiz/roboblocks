@@ -35,7 +35,7 @@
              * inout_builtin_led initialization
              */
         init: function() {
-            this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
+            this.setColour(RoboBlocks.LANG_COLOUR_MFS);
 			this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_MFS_WRITE'))
 
             this.appendValueInput('TEXT', String)

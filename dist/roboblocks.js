@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2018-02-20
+/*! roboblocks - v0.2.3 - 2018-02-24
  * https://github.com/bq/roboblocks
  * Copyright (c) 2018 bq; Licensed  */
 
@@ -492,7 +492,73 @@
                 LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_sense_retorn',
                 LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Estableix la funció que s\'executarà quan es produeix la interrupció en el pin especificat.',
                 LANG_INTERRUPTS_DETACH: 'Desassocia la interrupció al pin digital',
-                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la interrupció en el pin. Quan s\'activa el pin, la funció associada no s\'executarà més.'
+                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la interrupció en el pin. Quan s\'activa el pin, la funció associada no s\'executarà més.',
+                LANG_CATEGORY_EVOLUTION: 'Evolució',
+                LANG_EVOLUTION_HOME: 'Inici',
+                LANG_EVOLUTION_HOME_TOOLTIP: 'Posa variables de Evolució a zero',
+                LANG_EVOLUTION_STOP: 'Detenir',
+                LANG_EVOLUTION_STOP_TOOLTIP: 'Atura el robot Evolució',
+                LANG_EVOLUTION_TURNHEAD: 'Mira cap a',
+                LANG_EVOLUTION_TURNHEAD_ROT: 'ROT', // Realment funciona igual que ROT
+                LANG_EVOLUTION_TURNHEAD_TOOLTIP: 'Mou el cap cap al costat que indiques',
+                LANG_EVOLUTION_MOVE: 'Moure cap a ',
+                LANG_EVOLUTION_FORDWARD: 'Moure cap a endavant',
+                LANG_EVOLUTION_FORDWARD_SPEED: 'Velocitat',
+                LANG_EVOLUTION_RIGHT: 'DRETA',
+                LANG_EVOLUTION_RIGHT_SPEED: 'Velocitat',
+                LANG_EVOLUTION_RIGHT_TOOLTIP: 'Gira cap a la dreta amb aquesta velocitat',
+                LANG_EVOLUTION_LEFT: 'ESQUERRA',
+                LANG_EVOLUTION_LEFT_SPEED: 'Velocitat',
+                LANG_EVOLUTION_LEFT_TOOLTIP: 'Gira cap a l\'esquerra amb aquesta velocitat',
+                LANG_EVOLUTION_FRONT: 'ENDAVANT',
+                LANG_EVOLUTION_BACK: 'ARRERE',
+                LANG_EVOLUTION_DELAY: 'Durant (ms):',
+                LANG_EVOLUTION_GET_DISTANCE: 'Distància',
+                LANG_EVOLUTION_GET_DISTANCE_TOOLTIP: 'Obté la distància a l\'obstacle',
+                LANG_EVOLUTION_GET_LINE: 'Hi ha línia',
+                LANG_EVOLUTION_GET_LINE_SIDE: 'Costat',
+                LANG_EVOLUTION_GET_LINE_TOOLTIP: 'Indica si hi ha Indica si hi ha línia en el costat indicat en el costat indicat',
+                LANG_EVOLUTION_GET_LINE_COLOR: 'de color',
+                LANG_EVOLUTION_COLOR_WHITE: 'BLANC',
+                LANG_EVOLUTION_COLOR_BLACK: 'NEGRE',
+                LANG_EVOLUTION_GET_LIGHT: 'Hi ha llum',
+                LANG_EVOLUTION_GET_LIGHT_INTENSITY: 'amb intensitat',
+                LANG_EVOLUTION_GET_LIGHT_SIDE: 'Costat',
+                LANG_EVOLUTION_GET_LIGHT_TOOLTIP: 'Indica si hi ha llum en el costat especificat',
+                LANG_EVOLUTION_GET_LIGHT_HIGH: 'MOLTA',
+                LANG_EVOLUTION_GET_LIGHT_MEDIUM: 'MITJA',
+                LANG_EVOLUTION_GET_LIGHT_LOW: 'POCA',
+                LANG_EVOLUTION_SPEED: 'amb velocitat',
+                LANG_EVOLUTION_SPEED_FAST: 'RÀPIDA',
+                LANG_EVOLUTION_SPEED_MEDIUM: 'MITJA',
+                LANG_EVOLUTION_SPEED_LOW: 'LENTA',
+                LANG_EVOLUTION_HEAD_RIGHT: 'DRETA',
+                LANG_EVOLUTION_HEAD_LEFT: 'ESQUERRA',
+                LANG_EVOLUTION_HEAD_CENTER: 'CENTRE',
+                LANG_EVOLUTION_HEAD_STATE: 'Mou el cap cap a	:',
+                LANG_EVOLUTION_BUZZER_DURATION: 'Duració [ms]',
+                LANG_EVOLUTION_BUZZER_SILENCE: 'Silenci [ms]',
+
+                //escornabot blocks
+                LANG_CATEGORY_ESCORNABOT: 'Escornabot',
+                LANG_ESCORNABOT_SPEED: 'Velocitat',
+                LANG_ESCORNABOT_TURNS: 'Voltes',
+                LANG_ESCORNABOT_TURNS_LEFT: 'Gira esquerra',
+                LANG_ESCORNABOT_TURNS_RIGHT: 'Gira dreta',
+                LANG_ESCORNABOT_DRIVE_FORD: 'Avanza',
+                LANG_ESCORNABOT_DRIVE_BACK: 'Retrocedeix',
+                LANG_ESCORNABOT_DRIVE_TOOLTIP: 'Mou l\'Escornabot avant o arrere',
+                LANG_ESCORNABOT_HOME: 'Inici',
+                LANG_ESCORNABOT_HOME_TOOLTIP: 'Inicia l\'Escornabot',
+                LANG_ESCORNABOT_STOP: 'Aturar',
+                LANG_ESCORNABOT_STOP_TOOLTIP: 'Atura l\'Escornabot',
+                LANG_ESCORNABOT_TURN_TOOLTIP: 'Gira l\'Escornabot a dreta o esquerra',
+                LANG_ESCORNABOT_LED_ON: 'Encén el led',
+                LANG_ESCORNABOT_LED_OFF: 'Apaga el led',
+                LANG_ESCORNABOT_LED_TOOLTIP: 'Encén o apaga el led indicat',
+                LANG_ESCORNABOT_BUZZER_OFF: 'Silenci',
+                LANG_ESCORNABOT_BUZZER_ON: 'Xiular'
+
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -1464,6 +1530,42 @@
                 LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Especifica la función que se va a ejecutar cuando se produzca la interrupción en el pin especificado.',
                 LANG_INTERRUPTS_DETACH: 'Desasociar la interrupción del pin digital',
                 LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la asociación de la interrupción especificada en el pin. Cuando se active ese pin, ya no se ejecutará la función asociada.',
+
+                LANG_CATEGORY_MFS: 'Multi-function Shield',
+                LANG_MFS_GET_POTENTIOMETER: 'Potenciometro',
+                LANG_MFS_GET_POTENTIOMETER_TOOLTIP: 'Lee el valor del potenciometro',
+                LANG_MFS_HOME: 'Inicio',
+                LANG_MFS_HOME_TOOLTIP: 'Inicia la Multi-function Shield',
+                LANG_MFS_WRITELED: 'LED',
+                LANG_MFS_ACTION: 'Acción',
+                LANG_MFS_WRITELED_TOOLTIP: 'Enciende o apaga el led indicado',
+                LANG_MFS_ON: 'ENCENDIDO',
+                LANG_MFS_OFF: 'APAGADO',
+                LANG_MFS_BLINKLED: 'Parpadear',
+                LANG_MFS_BLINKLED_TOOLTIP: 'Hace que parpadee el led seleccionado',
+                LANG_MFS_LED_ALL: 'TODOS',
+                LANG_MFS_WRITE: 'Escribir',
+                LANG_MFS_TEXT: 'Texto',
+                LANG_MFS_WRITE_TOOLTIP: 'Escribe el texto en el digito led',
+                LANG_MFS_BEEP: 'Bip',
+                LANG_MFS_BEEP_DURATION: 'Duración [ms]',
+                LANG_MFS_BEEP_SILENCE: 'Silencio [ms]',
+                LANG_MFS_BEEP_REPEAT: 'Repetir lo anterior [ms]',
+                LANG_MFS_BEEP_LOOP: 'Repetir todo [ms]',
+                LANG_MFS_BEEP_WAIT: 'Silencio entre repeticiones [ms]',
+                LANG_MFS_BEEP_TOOLTIP: 'Emite un pitido',
+                LANG_MFS_BUTTONS: 'Botonera',
+                LANG_MFS_BUTTONS_BUTTON_A: 'Botón S1',
+                LANG_MFS_BUTTONS_BUTTON_B: 'Botón S2',
+                LANG_MFS_BUTTONS_BUTTON_C: 'Botón S3',
+                LANG_MFS_BUTTONS_TOOLTIP: 'Botonera',
+                LANG_MFS_PRESS: 'PULSADO',
+                LANG_MFS_RELEASE: 'SOLTADO',
+                LANG_MFS_LPRESS: 'PULSADO LARGO',
+                LANG_MFS_LRELEASE: 'SOLTADO LARGO',
+
+
+
 
             };
             // Node
@@ -2817,7 +2919,73 @@
                 LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return', // To translate
                 LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.', // To translate
                 LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin', // To translate
-                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.' // To translate
+                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.', // To translate
+                LANG_CATEGORY_EVOLUTION: 'Evolution',
+                LANG_EVOLUTION_HOME: 'Inicio',
+                LANG_EVOLUTION_HOME_TOOLTIP: 'Pon variables de Evolution a cero',
+                LANG_EVOLUTION_STOP: 'Deter',
+                LANG_EVOLUTION_STOP_TOOLTIP: 'Para o robot Evolution',
+                LANG_EVOLUTION_TURNHEAD: 'Mira cara a',
+                LANG_EVOLUTION_TURNHEAD_ROT: 'ROT', // Realmente funciona igual que ROT
+                LANG_EVOLUTION_TURNHEAD_TOOLTIP: 'Move a cabeza o lado que indiques',
+                LANG_EVOLUTION_MOVE: 'Mover cara a ',
+                LANG_EVOLUTION_FORDWARD: 'Mover cara diante',
+                LANG_EVOLUTION_FORDWARD_SPEED: 'Velocidade',
+                LANG_EVOLUTION_RIGHT: 'DEREITA',
+                LANG_EVOLUTION_RIGHT_SPEED: 'Velocidade',
+                LANG_EVOLUTION_RIGHT_TOOLTIP: 'Xira a dereita con esta velocidade',
+                LANG_EVOLUTION_LEFT: 'ESQUERDA',
+                LANG_EVOLUTION_LEFT_SPEED: 'Velocidade',
+                LANG_EVOLUTION_LEFT_TOOLTIP: 'Xira a esquerda con esta velocidade',
+                LANG_EVOLUTION_FRONT: 'ADIANTE',
+                LANG_EVOLUTION_BACK: 'ATRÃS',
+                LANG_EVOLUTION_DELAY: 'Durante (ms):',
+                LANG_EVOLUTION_GET_DISTANCE: 'Distancia',
+                LANG_EVOLUTION_GET_DISTANCE_TOOLTIP: 'Obten a distancia o obstaculo',
+                LANG_EVOLUTION_GET_LINE: 'Hai liña',
+                LANG_EVOLUTION_GET_LINE_SIDE: 'Lado',
+                LANG_EVOLUTION_GET_LINE_TOOLTIP: 'Indica se hai liña no lado indicado',
+                LANG_EVOLUTION_GET_LINE_COLOR: 'de cor',
+                LANG_EVOLUTION_COLOR_WHITE: 'BRANCO',
+                LANG_EVOLUTION_COLOR_BLACK: 'NEGRO',
+                LANG_EVOLUTION_GET_LIGHT: 'Hai luz',
+                LANG_EVOLUTION_GET_LIGHT_INTENSITY: 'con intensidade',
+                LANG_EVOLUTION_GET_LIGHT_SIDE: 'Lado',
+                LANG_EVOLUTION_GET_LIGHT_TOOLTIP: 'Indica se hai luz no lado especificado',
+                LANG_EVOLUTION_GET_LIGHT_HIGH: 'MUITA',
+                LANG_EVOLUTION_GET_LIGHT_MEDIUM: 'MEDIA',
+                LANG_EVOLUTION_GET_LIGHT_LOW: 'POUCA',
+                LANG_EVOLUTION_SPEED: 'con velocidade',
+                LANG_EVOLUTION_SPEED_FAST: 'RAPIDA',
+                LANG_EVOLUTION_SPEED_MEDIUM: 'MEDIA',
+                LANG_EVOLUTION_SPEED_LOW: 'LENTA',
+                LANG_EVOLUTION_HEAD_RIGHT: 'DEREITA',
+                LANG_EVOLUTION_HEAD_LEFT: 'ESQUERDA',
+                LANG_EVOLUTION_HEAD_CENTER: 'CENTRO',
+                LANG_EVOLUTION_HEAD_STATE: 'Move a cabeza cara a:',
+                LANG_EVOLUTION_BUZZER_DURATION: 'DuraciÃ³n [ms]',
+                LANG_EVOLUTION_BUZZER_SILENCE: 'Silencio [ms]',
+
+                //escornabot blocks
+                LANG_CATEGORY_ESCORNABOT: 'Escornabot',
+                LANG_ESCORNABOT_SPEED: 'Velocidade',
+                LANG_ESCORNABOT_TURNS: 'Voltas',
+                LANG_ESCORNABOT_TURNS_LEFT: 'Xira esquerda',
+                LANG_ESCORNABOT_TURNS_RIGHT: 'Xira dereita',
+                LANG_ESCORNABOT_DRIVE_FORD: 'Avanza',
+                LANG_ESCORNABOT_DRIVE_BACK: 'Retrocede',
+                LANG_ESCORNABOT_DRIVE_TOOLTIP: 'Move o escornabot adiante ou atrÃ¡s',
+                LANG_ESCORNABOT_HOME: 'Inicio',
+                LANG_ESCORNABOT_HOME_TOOLTIP: 'Inicia o Escornabot',
+                LANG_ESCORNABOT_STOP: 'Parar',
+                LANG_ESCORNABOT_STOP_TOOLTIP: 'Para o Escornabot',
+                LANG_ESCORNABOT_TURN_TOOLTIP: 'Xira o escornabot a dereita ou esquerda',
+                LANG_ESCORNABOT_LED_ON: 'Acende o led',
+                LANG_ESCORNABOT_LED_OFF: 'Apaga o led',
+                LANG_ESCORNABOT_LED_TOOLTIP: 'Acende ou apaga o led indicado',
+                LANG_ESCORNABOT_BUZZER_OFF: 'Silencio',
+                LANG_ESCORNABOT_BUZZER_ON: 'Pitar'
+
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -5172,6 +5340,8 @@
         RoboBlocks.LANG_COLOUR_INTERRUPTS = '#8A603E';
         RoboBlocks.LANG_COLOUR_EVOLUTION = '#CEA3B3';
         RoboBlocks.LANG_COLOUR_ESCORNABOT = '#ff0000';
+        RoboBlocks.LANG_COLOUR_MFS = '#44DD44';
+
 
         RoboBlocks.setColors = function(colorArray) {
             RoboBlocks.LANG_COLOUR_BQ = colorArray[0];
@@ -5189,6 +5359,7 @@
             RoboBlocks.LANG_COLOUR_INTERRUPTS = colorArray[12];
             RoboBlocks.LANG_COLOUR_EVOLUTION = colorArray[13];
             RoboBlocks.LANG_COLOUR_ESCORNABOT = colorArray[14];
+            RoboBlocks.LANG_COLOUR_MFS = colorArray[15];
         };
 
         // Source: src/profiles.js
@@ -6139,9 +6310,9 @@
                     ((__t = (dropdown_dire)) == null ? '' : __t) +
                     '(' +
                     ((__t = (dropdown_speed)) == null ? '' : __t) +
-                    ')\ndelay(' +
+                    ');\ndelay(' +
                     ((__t = (delay_time)) == null ? '' : __t) +
-                    ')\n';
+                    ');\n';
 
             }
             return __p
@@ -6637,6 +6808,92 @@
                     ',' +
                     ((__t = (value_dmax)) == null ? '' : __t) +
                     ')';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_beep"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'MFS.beep(' +
+                    ((__t = (mfs_beep)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (mfs_silent)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (mfs_repeat)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (mfs_loop)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (mfs_wait)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_blinkled"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'MFS.blinkLeds(' +
+                    ((__t = (dropdown_led)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (dropdown_switch)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_home_definitions_include"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += '#include <TimerOne.h>\n#include <Wire.h>\n#include <MultiFunctionShield.h>\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_home_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'Timer1.initialize();\nMFS.initialize(&Timer1);\n\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_write"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'MFS.write(' +
+                    ((__t = (text)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_writeled"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'MFS.writeLeds(' +
+                    ((__t = (dropdown_led)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (dropdown_switch)) == null ? '' : __t) +
+                    ');\n';
 
             }
             return __p
@@ -11824,6 +12081,360 @@
             EXP: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_EXP'),
             POW10: RoboBlocks.locales.getKey('LANG_MATH_SINGLE_TOOLTIP_POW10')
         };
+
+        // Source: src/blocks/mfs_beep/mfs_beep.js
+        /**
+         * bq_piezo_buzzer code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.mfs_beep = function() {
+
+            //Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_include']({});
+            //Blockly.Arduino.setups_['setups_evolution_home'] = JST['evolution_home_setups']({});
+
+            var mfs_beep = Blockly.Arduino.valueToCode(this, 'BEEP', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var mfs_silent = Blockly.Arduino.valueToCode(this, 'SILENT', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var mfs_repeat = Blockly.Arduino.valueToCode(this, 'REPEAT', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var mfs_loop = Blockly.Arduino.valueToCode(this, 'LOOP', Blockly.Arduino.ORDER_ATOMIC) || '';
+            var mfs_wait = Blockly.Arduino.valueToCode(this, 'WAIT', Blockly.Arduino.ORDER_ATOMIC) || '';
+
+            var a;
+            var code = '';
+
+            a = RoboBlocks.findPinMode(mfs_beep);
+            code += a['code'];
+            mfs_beep = a['pin'];
+            a = RoboBlocks.findPinMode(mfs_silent);
+            code += a['code'];
+            mfs_silent = a['pin'];
+            a = RoboBlocks.findPinMode(mfs_repeat);
+            code += a['code'];
+            mfs_repeat = a['pin'];
+            a = RoboBlocks.findPinMode(mfs_loop);
+            code += a['code'];
+            mfs_loop = a['pin'];
+            a = RoboBlocks.findPinMode(mfs_wait);
+            code += a['code'];
+            mfs_wait = a['pin'];
+
+
+            code += JST['mfs_beep']({
+                'mfs_beep': mfs_beep / 10,
+                'mfs_silent': mfs_silent / 10,
+                'mfs_repeat': mfs_repeat,
+                'mfs_loop': mfs_loop,
+                'mfs_wait': mfs_wait / 10,
+            });
+
+            return code;
+        };
+
+
+        /**
+         * bq_piezo_buzzer block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.mfs_beep = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MFS'),
+            tags: ['buzzer'],
+            helpUrl: RoboBlocks.URL_BUZZER,
+            /**
+             * bq_piezo_buzzer initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BEEP'))
+                //        .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom));
+
+                this.appendValueInput('BEEP', Number)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BEEP_DURATION'));
+                this.appendValueInput('SILENT', Number)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BEEP_SILENCE'));
+                this.appendValueInput('REPEAT', Number)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BEEP_REPEAT'));
+                this.appendValueInput('LOOP', Number)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BEEP_LOOP'));
+                this.appendValueInput('WAIT', Number)
+                    .setCheck(Number)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BEEP_WAIT'));
+
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_BEEP_TOOLTIP'));
+            }
+        }; //
+
+        // Source: src/blocks/mfs_blinkled/mfs_blinkled.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_move code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.mfs_blinkled = function() {
+            //Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_move_include']({});           
+            //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+            var a = '';
+            var dropdown_led = this.getFieldValue('LED');
+            var dropdown_switch = this.getFieldValue('SWITCH');
+
+            var code = '';
+            a = RoboBlocks.findPinMode(dropdown_led);
+            code += a['code'];
+            dropdown_led = a['pin'];
+            var code = '';
+            a = RoboBlocks.findPinMode(dropdown_switch);
+            code += a['code'];
+            dropdown_switch = a['pin'];
+
+
+            var code = JST['mfs_blinkled']({
+                'dropdown_led': dropdown_led,
+                'dropdown_switch': dropdown_switch
+            });
+
+            return code;
+        };
+
+        /**
+         * move block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.mfs_blinkled = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MFS'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BLINKLED'))
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_MFS_LED1') || 'LED 1', 'LED_1'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_LED2') || 'LED 2', 'LED_2'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_LED3') || 'LED 3', 'LED_3'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_LED4') || 'LED 4', 'LED_4'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_LED_ALL') || 'ALL', 'LED_ALL']
+                    ]), 'LED');
+
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_ACTION'))
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_MFS_ON') || 'encendido', 'ON'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_OFF') || 'apagado', 'OFF']
+                    ]), 'SWITCH');
+
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_BLINKLED_TOOLTIP'));
+            }
+        };
+
+
+        // Source: src/blocks/mfs_home/mfs_home.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * escorna_home code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.escorna_home = function() {
+
+            Blockly.Arduino.definitions_['include_mfs_home'] = JST['mfs_home_definitions_include']({});
+            Blockly.Arduino.setups_['setups_mfs_home'] = JST['mfs_home_setups']({});
+            var code = '';
+            //code += JST['escorna_home']({});
+            return code;
+        };
+
+        /**
+         *  * @type {Object}
+         */
+        Blockly.Blocks.escorna_home = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MFS'),
+            tags: ['MultiFunctionShield'],
+            helpUrl: RoboBlocks.URL_LED,
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_MFS_HOME')) //.appendField(new Blockly.FieldImage('img/blocks/bqservo03.png', 208 * options.zoom, 126 * options.zoom));
+
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_HOME_TOOLTIP'));
+            },
+            isVariable: function(varValue) {
+                for (var i in Blockly.Variables.allVariables()) {
+                    if (Blockly.Variables.allVariables()[i] === varValue) {
+                        return true;
+                    }
+                }
+                return false;
+            },
+            onchange: function() {
+                // try {
+                //     if (this.isVariable(Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
+                //         this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+                //     } else {
+                //         this.setWarningText(null);
+                //     }
+                // } catch (e) {}
+            }
+        };
+
+
+        // Source: src/blocks/mfs_pot/mfs_pot.js
+        /* global Blockly, JST, RoboBlocks */
+        //register with blockly arduino
+
+        Blockly.Arduino.getpot = function() {
+            var code = 'analogRead(POT_PIN)';
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        Blockly.Blocks.getpot = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MFS'),
+            helpUrl: RoboBlocks.URL_LED,
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+                this.appendDummyInput('').appendField(RoboBlocks.locales.getKey('LANG_MFS_GET_POTENTIOMETER'));
+                this.setOutput(true, 'Number');
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_GET_POTENTIOMETER_TOOLTIP'));
+            }
+        };
+
+        // Source: src/blocks/mfs_write/mfs_write.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_move code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.mfs_write = function() {
+            //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_include']({});           
+            //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+            var a = '';
+            var pin = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+
+            a = RoboBlocks.findPinMode(pin);
+            code += a['code'];
+            text = a['pin'];
+
+            var code = JST['mfs_write']({
+                'text': text,
+            });
+
+            return code;
+        };
+
+        /**
+         * move block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.mfs_write = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MFS'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_MFS_WRITE'))
+
+                this.appendValueInput('TEXT', String)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_TEXT'))
+                    .setCheck(String);
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_WRITE_TOOLTIP'));
+            }
+        };
+
+
+        // Source: src/blocks/mfs_writeled/mfs_writeled.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_move code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        Blockly.Arduino.mfs_writeled = function() {
+            //Blockly.Arduino.definitions_['include_evolution'] = JST['evolution_move_include']({});           
+            //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
+            var a = '';
+            var dropdown_led = this.getFieldValue('LED');
+            var dropdown_switch = this.getFieldValue('SWITCH');
+
+            var code = '';
+            a = RoboBlocks.findPinMode(dropdown_led);
+            code += a['code'];
+            dropdown_led = a['pin'];
+            var code = '';
+            a = RoboBlocks.findPinMode(dropdown_switch);
+            code += a['code'];
+            dropdown_switch = a['pin'];
+
+            var code = JST['mfs_writeled']({
+                'dropdown_led': dropdown_led,
+                'dropdown_switch': dropdown_switch
+            });
+
+            return code;
+        };
+
+        /**
+         * move block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.mfs_writeled = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MFS'),
+            helpUrl: RoboBlocks.URL_LED,
+            /**
+             * inout_builtin_led initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_WRITELED'))
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_MFS_LED1') || 'LED 1', 'LED_1'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_LED2') || 'LED 2', 'LED_2'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_LED3') || 'LED 3', 'LED_3'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_LED4') || 'LED 4', 'LED_4'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_LED_ALL') || 'ALL', 'LED_ALL']
+                    ]), 'LED');
+
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_ACTION'))
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_MFS_ON') || 'encendido', 'ON'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_OFF') || 'apagado', 'OFF']
+                    ]), 'SWITCH');
+
+                this.setInputsInline(true);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_WRITELED_TOOLTIP'));
+            }
+        };
+
 
         // Source: src/blocks/pin_analog/pin_analog.js
         /* global Blockly, profiles, RoboBlocks */

@@ -14,9 +14,14 @@
         var dropdown_switch = this.getFieldValue('SWITCH');
 
         var code ='';
-        a = RoboBlocks.findPinMode(delay_time);
+        a = RoboBlocks.findPinMode(dropdown_led);
         code += a['code'];
-        delay_time = a['pin']; 
+        dropdown_led = a['pin']; 
+        var code ='';
+        a = RoboBlocks.findPinMode(dropdown_switch);
+        code += a['code'];
+        dropdown_switch = a['pin']; 
+		
 		
         var code = JST['mfs_blinkled']({
             'dropdown_led': dropdown_led,
@@ -41,11 +46,11 @@
             this.appendDummyInput('')
                 .appendField(RoboBlocks.locales.getKey('LANG_MFS_BLINKLED'))
                 .appendField(new Blockly.FieldDropdown([
-                    [RoboBlocks.locales.getKey('LED 1', 'LED_1'],
-                    [RoboBlocks.locales.getKey('LED 2', 'LED_2'],
-                    [RoboBlocks.locales.getKey('LED 3', 'LED_3'],
-                    [RoboBlocks.locales.getKey('LED 4', 'LED_4'],
-                    [RoboBlocks.locales.getKey(('LANG_MFS_LED_ALL') ||'ALL', 'LED_ALL']
+                    [RoboBlocks.locales.getKey('LANG_MFS_LED1') ||'LED 1', 'LED_1'],
+                    [RoboBlocks.locales.getKey('LANG_MFS_LED2') ||'LED 2', 'LED_2'],
+                    [RoboBlocks.locales.getKey('LANG_MFS_LED3') ||'LED 3', 'LED_3'],
+                    [RoboBlocks.locales.getKey('LANG_MFS_LED4') ||'LED 4', 'LED_4'],
+                    [RoboBlocks.locales.getKey('LANG_MFS_LED_ALL') ||'ALL', 'LED_ALL']
                 ]), 'LED');
                
             this.appendDummyInput('')
