@@ -537,8 +537,13 @@
         LANG_MFS_RELEASE: 'SOLTADO',
         LANG_MFS_LPRESS: 'PULSADO LARGO',
         LANG_MFS_LRELEASE: 'SOLTADO LARGO',
-
-        
+        LANG_MFS_SONAR: 'HC SR04 Sonar',
+        LANG_MFS_RADAR_STRONG:'Filtro fuerte',
+        LANG_MFS_RADAR_MODERATE:'Filto moderado',
+        LANG_MFS_RADAR_NONE:'Sin filtro',
+        LANG_MFS_RADAR_TOOLTIP:'Mide la distancia con el sensor de ultrasonidos',
+        LANG_MFS_TEMP:'Temperatura',
+        LANG_MFS_TEMP_TOOLTIP:'Mide la temperatura',
         
         
     };
