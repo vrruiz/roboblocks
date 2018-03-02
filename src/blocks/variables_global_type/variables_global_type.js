@@ -41,6 +41,7 @@ Blockly.Blocks.variables_global_type = {
             appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_TYPE')).
             appendField(new Blockly.FieldDropdown([
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_STRING'), 'String'],
+                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_CHAR'), 'char'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER'), 'int'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_LONG'), 'long'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BYTE'), 'byte'],

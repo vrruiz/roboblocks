@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2018-02-26
+/*! roboblocks - v0.2.3 - 2018-03-02
  * https://github.com/bq/roboblocks
  * Copyright (c) 2018 bq; Licensed  */
 
@@ -1384,6 +1384,7 @@
                 LANG_VARIABLES_TYPE_INTEGER: 'Entero',
                 LANG_VARIABLES_TYPE_INTEGER_LONG: 'Entero largo',
                 LANG_VARIABLES_TYPE_STRING: 'Texto',
+                LANG_VARIABLES_TYPE_CHAR: 'Caracter',
                 LANG_VARIABLES_VOLATILE_GLOBAL: 'Declarar variable VOLATIL GLOBAL ',
                 LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'de tipo ',
                 LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: '=',
@@ -1544,8 +1545,8 @@
                 LANG_MFS_BLINKLED: 'Parpadear',
                 LANG_MFS_BLINKLED_TOOLTIP: 'Hace que parpadee el led seleccionado',
                 LANG_MFS_LED_ALL: 'TODOS',
-                LANG_MFS_WRITE: 'Escribir',
-                LANG_MFS_TEXT: 'Texto',
+                LANG_MFS_WRITE: 'Escribir LCD',
+                LANG_MFS_TEXT: '',
                 LANG_MFS_WRITE_TOOLTIP: 'Escribe el texto en el digito led',
                 LANG_MFS_BEEP: 'Bip',
                 LANG_MFS_BEEP_DURATION: 'Duración [ms]',
@@ -1555,10 +1556,16 @@
                 LANG_MFS_BEEP_WAIT: 'Silencio entre repeticiones [ms]',
                 LANG_MFS_BEEP_TOOLTIP: 'Emite un pitido',
                 LANG_MFS_BUTTONS: 'Botonera',
-                LANG_MFS_BUTTONS_BUTTON_A: 'Botón S1',
-                LANG_MFS_BUTTONS_BUTTON_B: 'Botón S2',
-                LANG_MFS_BUTTONS_BUTTON_C: 'Botón S3',
+                LANG_MFS_BUTTON: 'Boton',
+                LANG_MFS_BUTTONS_BUTTON: 'Acciones',
+                LANG_MFS_BUTTONS_BUTTON_DO: 'haz',
                 LANG_MFS_BUTTONS_TOOLTIP: 'Botonera',
+                LANG_MFS_IF_BUTTONS: 'Si',
+                LANG_MFS_BUTTONS_DO: 'haz',
+                LANG_MFS_BUTTONS_IS: 'esta',
+                LANG_MFS_BUTTON1: 'boton S1',
+                LANG_MFS_BUTTON2: 'boton S2',
+                LANG_MFS_BUTTON3: 'boton S3',
                 LANG_MFS_PRESS: 'PULSADO',
                 LANG_MFS_RELEASE: 'SOLTADO',
                 LANG_MFS_LPRESS: 'PULSADO LARGO',
@@ -1567,9 +1574,15 @@
                 LANG_MFS_RADAR_STRONG: 'Filtro fuerte',
                 LANG_MFS_RADAR_MODERATE: 'Filto moderado',
                 LANG_MFS_RADAR_NONE: 'Sin filtro',
+                LANG_MFS_RADAR_MODE: 'Modo',
                 LANG_MFS_RADAR_TOOLTIP: 'Mide la distancia con el sensor de ultrasonidos',
                 LANG_MFS_TEMP: 'Temperatura',
                 LANG_MFS_TEMP_TOOLTIP: 'Mide la temperatura',
+                LANG_MFS_PULSECOUNTER: 'Contador',
+                LANG_MFS_PULSECOUNTER_TRIGGER: 'Flanco',
+                LANG_MFS_PULSE_UP: 'Subida',
+                LANG_MFS_PULSE_DOWN: 'Bajada',
+                LANG_MFS_PULSECOUNTER_WAIT: 'Espera [ms]',
 
 
             };
@@ -6854,6 +6867,30 @@
             return __p
         };
 
+        this["JST"]["mfs_buttons"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'btn = MFS.getButton();\n' +
+                    ((__t = (code_btn)) == null ? '' : __t) +
+                    '\n\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_buttons_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'byte btn;\n\n';
+
+            }
+            return __p
+        };
+
         this["JST"]["mfs_home_definitions_include"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -6871,6 +6908,132 @@
                 __e = _.escape;
             with(obj) {
                 __p += 'Timer1.initialize();\nMFS.initialize(&Timer1);\n\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_if_buttons"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'if (btn)\n{\n    buttonNumber = btn & B00111111;\n    buttonAction = btn & B11000000;\n    if (buttonNumber == ' +
+                    ((__t = (opt_button)) == null ? '' : __t) +
+                    ' && buttonAction == ' +
+                    ((__t = (mode_button)) == null ? '' : __t) +
+                    ') {\n        ' +
+                    ((__t = (code_btn)) == null ? '' : __t) +
+                    '\n    } \n\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_if_buttons_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'byte buttonNumber;\nbyte buttonAction;\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_pulseCounter"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'MFS.getPulseInPeriod();\n\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_pulseCounter_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'MFS.initPulseInCounter( );\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_pulseSetup"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'MFS.getPulseInPeriod();\n\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_pulseSetup_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'MFS.initPulseInCounter( );\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_sonar"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'MFS.getSonarDataCm(' +
+                    ((__t = (trigger_pin)) == null ? '' : __t) +
+                    ',' +
+                    ((__t = (echo_pin)) == null ? '' : __t) +
+                    ');\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_sonar_setups"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'MFS.initSonar(' +
+                    ((__t = (mode)) == null ? '' : __t) +
+                    ';\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_sonar_setups_echo"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'pinMode( ' +
+                    ((__t = (echo_pin)) == null ? '' : __t) +
+                    ' , INPUT );\n';
+
+            }
+            return __p
+        };
+
+        this["JST"]["mfs_sonar_setups_trigger"] = function(obj) {
+            obj || (obj = {});
+            var __t, __p = '',
+                __e = _.escape;
+            with(obj) {
+                __p += 'pinMode( ' +
+                    ((__t = (trigger_pin)) == null ? '' : __t) +
+                    ' , OUTPUT );\n';
 
             }
             return __p
@@ -12273,6 +12436,59 @@
         };
 
 
+        // Source: src/blocks/mfs_buttons/mfs_buttons.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * bq_buttons code generation
+         * @return {String} Code generated with block parameters
+         */
+
+
+        Blockly.Arduino.mfs_buttons = function() {
+
+            Blockly.Arduino.setups_['setups_mfs_buttons'] = JST['mfs_buttons_setups']({});
+
+            var code_btn = Blockly.Arduino.statementToCode(this, 'BUTN1');
+            code_btn = code_btn.replace(/&quot;/g, '"');
+            code_btn = code_btn.replace(/&amp;/g, '');
+            var code = '';
+
+            code = JST['mfs_buttons']({
+                'code_btn': code_btn
+            });
+
+            return code;
+        };
+
+        /**
+         * bq_buttons block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.mfs_buttons = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MFS'),
+            tags: ['buttons'],
+            helpUrl: RoboBlocks.URL_BUTTONS,
+            /**
+             * bq_buttons initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BUTTONS'))
+                    .appendField(new Blockly.FieldImage('img/blocks/mfs_key.png', 336 * options.zoom, 88 * options.zoom));
+
+                this.appendStatementInput('BUTN1')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BUTTONS_BUTTON'));
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_BUTTONS_TOOLTIP'));
+            }
+        };
+
         // Source: src/blocks/mfs_home/mfs_home.js
         /* global Blockly, options,JST, RoboBlocks */
         /* jshint sub:true */
@@ -12325,6 +12541,89 @@
         };
 
 
+        // Source: src/blocks/mfs_if_buttons/mfs_if_buttons.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+
+        /**
+         * bq_buttons code generation
+         * @return {String} Code generated with block parameters
+         */
+
+
+        Blockly.Arduino.mfs_if_buttons = function() {
+
+            Blockly.Arduino.setups_['setups_mfs_if_buttons'] = JST['mfs_if_buttons_setups']({});
+
+            var opt_button = this.getFieldValue('OPT_BTN');
+            var mode_button = this.getFieldValue('MODE_BTN');
+            var code_btn = Blockly.Arduino.statementToCode(this, 'COMMANDS');
+            code_btn = code_btn.replace(/&quot;/g, '"');
+            code_btn = code_btn.replace(/&amp;/g, '');
+
+            var code = '';
+
+
+            var a = RoboBlocks.findPinMode(opt_button);
+            code += a['code'];
+            opt_button = a['pin'];
+
+            var a = RoboBlocks.findPinMode(mode_button);
+            code += a['code'];
+            mode_button = a['pin'];
+
+            code = JST['mfs_if_buttons']({
+                'opt_button': opt_button,
+                'mode_button': mode_button,
+                'code_btn': code_btn
+            });
+
+            return code;
+        };
+
+        /**
+         * bq_buttons block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.mfs_if_buttons = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MFS'),
+            tags: ['buttons'],
+            helpUrl: RoboBlocks.URL_BUTTONS,
+            /**
+             * bq_buttons initialization
+             */
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+
+                this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_MFS_IF_BUTTONS'));
+                this.appendDummyInput('')
+                    //         .appendField(RoboBlocks.locales.getKey('LANG_MFS_BUTTON'))
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BUTTONS_IS'))
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_MFS_PRESS') || "Pulsado", "BUTTON_PRESSED_IND"],
+                        [RoboBlocks.locales.getKey('LANG_MFS_LPRESS') || "Pulsado largo", "BUTTON_LONG_PRESSED_IND"],
+                        [RoboBlocks.locales.getKey('LANG_MFS_RELEASE') || "Soltado", "BUTTON_SHORT_RELEASE_IND"],
+                        [RoboBlocks.locales.getKey('LANG_MFS_LRELEASE') || "Soltado largo", "BUTTON_LONG_RELEASE_IND"]
+                    ]), 'MODE_BTN');
+
+
+                this.appendStatementInput('COMMANDS')
+                    .setCheck(null)
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_MFS_BUTTON1') || "S1", "1"],
+                        [RoboBlocks.locales.getKey('LANG_MFS_BUTTON2') || "S2", "2"],
+                        [RoboBlocks.locales.getKey('LANG_MFS_BUTTON3') || "S3", "3"]
+                    ]), 'OPT_BTN')
+
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_BUTTONS_DO'));
+
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_BUTTONS_TOOLTIP'));
+            }
+        };
+
+
         // Source: src/blocks/mfs_pot/mfs_pot.js
         /* global Blockly, JST, RoboBlocks */
         //register with blockly arduino
@@ -12344,6 +12643,204 @@
                 this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_GET_POTENTIOMETER_TOOLTIP'));
             }
         };
+
+        // Source: src/blocks/mfs_pulseCounter/mfs_pulseCounter.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_lightintensity code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        // Source: src/blocks/base_millis/base_millis.js
+        /* global Blockly, JST, RoboBlocks */
+        //register with blockly arduino
+
+        Blockly.Arduino.lightintensity = function() {
+
+            Blockly.Arduino.setups_['setups_mfs_pulse_counter'] = JST['mfs_pulse_counter_setups']({});
+
+            var code = this.getFieldValue('COLO');
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        Blockly.Blocks.lightintensity = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_EVOLUTION'),
+            helpUrl: RoboBlocks.URL_LED,
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_EVOLUTION);
+                //  this.appendDummyInput('').appendField(RoboBlocks.locales.getKey('LANG_EVOLUTION_GET_LINE'));
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_EVOLUTION_GET_LIGHT_INTENSITY'))
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_EVOLUTION_GET_LIGHT_HIGH') || 'Alta', 'HIGH'],
+                        [RoboBlocks.locales.getKey('LANG_EVOLUTION_GET_LIGHT_MEDIUM') || 'Media', 'MEDIUM'],
+                        [RoboBlocks.locales.getKey('LANG_EVOLUTION_GET_LIGHT_LOW') || 'Baja', 'LOW']
+                    ]), 'COLO');
+                this.setOutput(true, 'Number');
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_EVOLUTION_GET_LIGHT_TOOLTIP'));
+            }
+        };
+
+
+        // Source: src/blocks/mfs_pulseSetup/mfs_pulseSetup.js
+        /* global Blockly, options,JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * evolution_lightintensity code generation
+         * @return {String} Code generated with block parameters
+         */
+
+        // Source: src/blocks/base_millis/base_millis.js
+        /* global Blockly, JST, RoboBlocks */
+        //register with blockly arduino
+
+        Blockly.Arduino.pulseSetup = function() {
+
+            Blockly.Arduino.setups_['setups_mfs_pulse_counter'] = JST['mfs_pulse_counter_setups']({});
+
+            var code = this.getFieldValue('COLO');
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+
+        Blockly.Blocks.pulseSetup = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MFS'),
+            helpUrl: RoboBlocks.URL_LED,
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+                this.appendValueInput("TIME")
+                    .setCheck("Number")
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_PULSECOUNTER'))
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_MFS_BUTTON1') || "BOTON1", "BUTTON_1_PIN"],
+                        [RoboBlocks.locales.getKey('LANG_MFS_BUTTON2') || "BOTON2", "BUTTON_2_PIN"],
+                        [RoboBlocks.locales.getKey('LANG_MFS_BUTTON3') || "BOTON3", "BUTTON_3_PIN"],
+                        ["PIN 3", "OPTIONNAME"],
+                        ["option", "OPTIONNAME"]
+                    ]), "MFS_INPUT")
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_PULSECOUNTER_TRIGGER'))
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_MFS_PULSE_UP') || "UP", "OPTIONNAME"],
+                        [RoboBlocks.locales.getKey('LANG_MFS_PULSE_DOWN') || "DOWN", "OPTIONNAME"]
+                    ]), "MFS_TYPE")
+
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_PULSECOUNTER_WAIT'));
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_EVOLUTION_GET_LIGHT_TOOLTIP'));
+
+            }
+        };
+
+
+
+        // Source: src/blocks/mfs_sonar/mfs_sonar.js
+        /* global Blockly, options, JST, RoboBlocks */
+        /* jshint sub:true */
+        /**
+         * bq_bat code generation
+         * @return {String} Code generated with block parameters
+         */
+        Blockly.Arduino.mfs_sonar = function() {
+            var mode = this.getFieldValue('MODO');
+            var echo_pin = Blockly.Arduino.valueToCode(this, 'RED PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var trigger_pin = Blockly.Arduino.valueToCode(this, 'BLUE PIN', Blockly.Arduino.ORDER_ATOMIC);
+            var code = '';
+
+            var a = RoboBlocks.findPinMode(mode);
+            code += a['code'];
+            mode = a['pin'];
+
+            var a = RoboBlocks.findPinMode(echo_pin);
+            code += a['code'];
+            echo_pin = a['pin'];
+
+            a = RoboBlocks.findPinMode(trigger_pin);
+            code += a['code'];
+            trigger_pin = a['pin'];
+
+            //Blockly.Arduino.definitions_['define_bq_bat_tp_init'] = JST['bq_bat_definitions_tp_init']({});
+            //Blockly.Arduino.definitions_['define_bq_bat_distance'] = JST['bq_bat_definitions_distance']({});
+
+            if (RoboBlocks.isVariable(mode)) {
+                code += JST['mfs_sonar_setups']({
+                    'mode': mode
+                });
+            } else {
+                Blockly.Arduino.setups_['setup_mfs_sonar_' + echo_pin + trigger_pin] = JST['mfs_sonar_setups']({
+                    'mode': mode
+                });
+            }
+
+            if (RoboBlocks.isVariable(echo_pin)) {
+                code += JST['mfs_sonar_setups_echo']({
+                    'echo_pin': echo_pin
+                });
+            } else {
+                Blockly.Arduino.setups_['setup_mfs_sonar_1' + echo_pin + trigger_pin] = JST['mfs_sonar_setups_echo']({
+                    'echo_pin': echo_pin
+                });
+            }
+
+            if (RoboBlocks.isVariable(trigger_pin)) {
+                code += JST['mfs_sonar_setups_trigger']({
+                    'trigger_pin': trigger_pin
+                });
+            } else {
+                Blockly.Arduino.setups_['setup_mfs_sonar_2' + trigger_pin + echo_pin] = JST['mfs_sonar_setups_trigger']({
+                    'trigger_pin': trigger_pin
+                });
+            }
+            code += JST['mfs_sonar']({
+                'mode': mode,
+                'trigger_pin': trigger_pin,
+                'echo_pin': echo_pin
+            });
+            return [code, Blockly.Arduino.ORDER_ATOMIC];
+        };
+        /**
+         * bq_bat block definition
+         * @type {Object}
+         */
+        Blockly.Blocks.mfs_sonar = {
+            category: RoboBlocks.locales.getKey('LANG_CATEGORY_MFS'),
+            tags: ['bat'],
+            helpUrl: RoboBlocks.URL_US,
+            init: function() {
+                this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+
+                this.appendDummyInput('').appendField(RoboBlocks.locales.getKey('LANG_MFS_SONAR')).appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));
+                /*        
+                        this.appendDummyInput('')
+                            .appendField(RoboBlocks.locales.getKey('LANG_EVOLUTION_GET_LIGHT_INTENSITY'))
+                            .appendField(new Blockly.FieldDropdown([
+                                [RoboBlocks.locales.getKey('LANG_MFS_RADAR_STRONG') || 'Fuerte', 'SMOOTHING_STRONG']
+                                [RoboBlocks.locales.getKey('LANG_MFS_RADAR_MODERATE') || 'Moderado', 'SMOOTHING_MODERATE'],
+                                [RoboBlocks.locales.getKey('LANG_MFS_RADAR_NONE') || 'Ninguno', 'SMOOTHING_NONE']
+                            ]), 'MODO');
+                */
+                this.appendDummyInput('')
+                    .appendField(RoboBlocks.locales.getKey('LANG_MFS_RADAR_MODE'))
+                    .appendField(new Blockly.FieldDropdown([
+                        [RoboBlocks.locales.getKey('LANG_MFS_RADAR_STRONG') || 'Fuerte', 'SMOOTHING_STRONG'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_RADAR_MODERATE') || 'Moderado', 'SMOOTHING_MODERATE'],
+                        [RoboBlocks.locales.getKey('LANG_MFS_RADAR_NONE') || 'Ninguno', 'SMOOTHING_NONE']
+                    ]), 'MODO');
+
+
+                this.appendValueInput('RED PIN').appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT_RED_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+
+                this.appendValueInput('BLUE PIN').appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT_BLUE_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+
+                this.setInputsInline(false);
+                this.setOutput(true, Number);
+                this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_RADAR_TOOLTIP'));
+            }
+        };
+
+
+
+
 
         // Source: src/blocks/mfs_temp/mfs_temp.js
         /* global Blockly, options, JST, RoboBlocks */
@@ -12445,7 +12942,7 @@
 
                 this.appendValueInput('TEXT', String)
                     .appendField(RoboBlocks.locales.getKey('LANG_MFS_TEXT'))
-                    .setCheck(String);
+                    .setCheck(null);
                 this.setInputsInline(true);
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
@@ -14822,6 +15319,7 @@
                 appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_TYPE')).
                 appendField(new Blockly.FieldDropdown([
                     [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_STRING'), 'String'],
+                    [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_CHAR'), 'char'],
                     [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER'), 'int'],
                     [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_LONG'), 'long'],
                     [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BYTE'), 'byte'],

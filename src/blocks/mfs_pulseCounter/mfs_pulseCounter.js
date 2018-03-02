@@ -11,6 +11,9 @@
         //register with blockly arduino
         
     Blockly.Arduino.lightintensity = function() {
+    
+        Blockly.Arduino.setups_['setups_mfs_pulse_counter'] = JST['mfs_pulse_counter_setups']({});
+
         var code = this.getFieldValue('COLO');                       
         return [code, Blockly.Arduino.ORDER_ATOMIC];
     };

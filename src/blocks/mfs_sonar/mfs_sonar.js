@@ -72,7 +72,9 @@ Blockly.Blocks.mfs_sonar = {
     helpUrl: RoboBlocks.URL_US,
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_MFS);
+        
         this.appendDummyInput('').appendField(RoboBlocks.locales.getKey('LANG_MFS_SONAR')).appendField(new Blockly.FieldImage('img/blocks/bqmod09.png', 208 * options.zoom, 140 * options.zoom));
+/*        
         this.appendDummyInput('')
             .appendField(RoboBlocks.locales.getKey('LANG_EVOLUTION_GET_LIGHT_INTENSITY'))
             .appendField(new Blockly.FieldDropdown([
@@ -80,8 +82,20 @@ Blockly.Blocks.mfs_sonar = {
                 [RoboBlocks.locales.getKey('LANG_MFS_RADAR_MODERATE') || 'Moderado', 'SMOOTHING_MODERATE'],
                 [RoboBlocks.locales.getKey('LANG_MFS_RADAR_NONE') || 'Ninguno', 'SMOOTHING_NONE']
             ]), 'MODO');
+*/
+        this.appendDummyInput('')
+            .appendField(RoboBlocks.locales.getKey('LANG_MFS_RADAR_MODE'))
+            .appendField(new Blockly.FieldDropdown([
+                [RoboBlocks.locales.getKey('LANG_MFS_RADAR_STRONG') || 'Fuerte', 'SMOOTHING_STRONG'],
+                [RoboBlocks.locales.getKey('LANG_MFS_RADAR_MODERATE') || 'Moderado', 'SMOOTHING_MODERATE'],
+                [RoboBlocks.locales.getKey('LANG_MFS_RADAR_NONE') || 'Ninguno', 'SMOOTHING_NONE']
+            ]), 'MODO');
+
+            
         this.appendValueInput('RED PIN').appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT_RED_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+        
         this.appendValueInput('BLUE PIN').appendField(RoboBlocks.locales.getKey('LANG_BQ_BAT_BLUE_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+        
         this.setInputsInline(false);
         this.setOutput(true, Number);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_MFS_RADAR_TOOLTIP'));

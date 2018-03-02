@@ -40,7 +40,7 @@
 
             this.appendValueInput('TEXT', String)
                 .appendField(RoboBlocks.locales.getKey('LANG_MFS_TEXT'))
-                .setCheck(String);
+                .setCheck(null);
             this.setInputsInline(true);
             this.setPreviousStatement(true, null);
             this.setNextStatement(true, null);
