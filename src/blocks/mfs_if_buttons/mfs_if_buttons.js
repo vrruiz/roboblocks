@@ -10,7 +10,8 @@
 
 Blockly.Arduino.mfs_if_buttons = function() {
 
-    Blockly.Arduino.setups_['setups_mfs_if_buttons'] = JST['mfs_if_buttons_setups']({});
+    Blockly.Arduino.definitions_['declare_var_bnum'] = 'byte buttonNumber' + ';\n';
+    Blockly.Arduino.definitions_['declare_var_bact'] = 'byte buttonAction' + ';\n';
     
     var opt_button = this.getFieldValue('OPT_BTN');    
     var mode_button = this.getFieldValue('MODE_BTN');

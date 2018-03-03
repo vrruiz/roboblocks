@@ -1,7 +1,7 @@
-escorna_home
+escornabot_home
 ==============
 
-Puts Escornabot robot in initial position
+Initialices escornabot robot in initial position
 
 Parameters
 ----------

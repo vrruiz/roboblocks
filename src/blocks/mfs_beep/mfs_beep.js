@@ -61,7 +61,7 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_MFS);
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.locales.getKey('LANG_MFS_BEEP'))
-            //        .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom));
+                    .appendField(new Blockly.FieldImage('img/blocks/mfs_buzzer.png', 100 * options.zoom, 57 * options.zoom));
 
                 this.appendValueInput('BEEP', Number)
                     .setCheck(Number)

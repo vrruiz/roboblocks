@@ -2,25 +2,26 @@
 /* global Blockly, options,JST, RoboBlocks */
 /* jshint sub:true */
 /**
- * escorna_home code generation
+ * evolution_home code generation
   * @return {String} Code generated with block parameters
  */
-Blockly.Arduino.escorna_home = function() {
+Blockly.Arduino.escornabot_home = function() {
             
-    Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_home_definitions_include']({});
+    Blockly.Arduino.definitions_['include_escorna_home'] = JST['escorna_home_definitions_include']({});
     //Blockly.Arduino.setups_['setups_escorna_home'] = JST['escorna_home_setups']({});
     var code = ''; 
-    //code += JST['escorna_home']({});
+    //code += JST['evolution_home']({});
     return code;
 };
 
 /**
- *  * @type {Object}
+ * servo_cont block definition
+ * @type {Object}
  */
-		Blockly.Blocks.escorna_home = {
+		Blockly.Blocks.escornabot_home = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
-            tags: ['escornabot'],
-            helpUrl: RoboBlocks.URL_LED,
+            tags: ['evolution'],
+            helpUrl: RoboBlocks.URL_ESCORNABOT,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
                 

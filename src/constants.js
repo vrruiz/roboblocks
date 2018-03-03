@@ -59,6 +59,7 @@ RoboBlocks.URL_PROC_NO_RET='http://diwo.bq.com/programando-con-funciones-en-bitb
 RoboBlocks.URL_PROC='http://diwo.bq.com/programando-con-funciones-en-bitbloq-2/';
 RoboBlocks.URL_PIN_FUNC='http://diwo.bq.com/programando-los-bloques-funciones-pin';
 RoboBlocks.URL_INTERRUPTS='https://drive.google.com/open?id=0B8SXZjdcc9F9ZjBVTDRtOV8wd2s';
+RoboBlocks.URL_ESCORNABOT='https://github.com/escornabot/libreria-arduino/blob/master/escornabot.zip';
 
 // RGB block colors
 RoboBlocks.LANG_COLOUR_BQ = '#D04141';
@@ -76,7 +77,7 @@ RoboBlocks.LANG_COLOUR_PROCEDURES = '#CE42B3';
 RoboBlocks.LANG_COLOUR_INTERRUPTS = '#8A603E';
 RoboBlocks.LANG_COLOUR_EVOLUTION = '#BE93A3';
 RoboBlocks.LANG_COLOUR_ESCORNABOT = '#ff0000';
-RoboBlocks.LANG_COLOUR_MFS = '#44DD44';
+RoboBlocks.LANG_COLOUR_MFS = '#44FF44';
 
 
 RoboBlocks.setColors = function(colorArray) {

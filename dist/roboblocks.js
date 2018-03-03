@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2018-03-02
+/*! roboblocks - v0.2.3 - 2018-03-03
  * https://github.com/bq/roboblocks
  * Copyright (c) 2018 bq; Licensed  */
 
@@ -1535,7 +1535,7 @@
                 LANG_CATEGORY_MFS: 'Multi-function Shield',
                 LANG_MFS_GET_POTENTIOMETER: 'Potenciometro',
                 LANG_MFS_GET_POTENTIOMETER_TOOLTIP: 'Lee el valor del potenciometro',
-                LANG_MFS_HOME: 'Inicio',
+                LANG_MFS_HOME: 'Iniciar',
                 LANG_MFS_HOME_TOOLTIP: 'Inicia la Multi-function Shield',
                 LANG_MFS_WRITELED: 'LED',
                 LANG_MFS_ACTION: 'Acción',
@@ -1548,7 +1548,7 @@
                 LANG_MFS_WRITE: 'Escribir LCD',
                 LANG_MFS_TEXT: '',
                 LANG_MFS_WRITE_TOOLTIP: 'Escribe el texto en el digito led',
-                LANG_MFS_BEEP: 'Bip',
+                LANG_MFS_BEEP: 'Zumbador',
                 LANG_MFS_BEEP_DURATION: 'Duración [ms]',
                 LANG_MFS_BEEP_SILENCE: 'Silencio [ms]',
                 LANG_MFS_BEEP_REPEAT: 'Repetir lo anterior [ms]',
@@ -5341,6 +5341,7 @@
         RoboBlocks.URL_PROC = 'http://diwo.bq.com/programando-con-funciones-en-bitbloq-2/';
         RoboBlocks.URL_PIN_FUNC = 'http://diwo.bq.com/programando-los-bloques-funciones-pin';
         RoboBlocks.URL_INTERRUPTS = 'https://drive.google.com/open?id=0B8SXZjdcc9F9ZjBVTDRtOV8wd2s';
+        RoboBlocks.URL_ESCORNABOT = 'https://github.com/escornabot/libreria-arduino/blob/master/escornabot.zip';
 
         // RGB block colors
         RoboBlocks.LANG_COLOUR_BQ = '#D04141';
@@ -5358,7 +5359,7 @@
         RoboBlocks.LANG_COLOUR_INTERRUPTS = '#8A603E';
         RoboBlocks.LANG_COLOUR_EVOLUTION = '#BE93A3';
         RoboBlocks.LANG_COLOUR_ESCORNABOT = '#ff0000';
-        RoboBlocks.LANG_COLOUR_MFS = '#44DD44';
+        RoboBlocks.LANG_COLOUR_MFS = '#44FF44';
 
 
         RoboBlocks.setColors = function(colorArray) {
@@ -6130,7 +6131,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '#include <escornabot.h>\n\nescornabot miRobot;\n';
+                __p += '#include <escornabot.h>\nescornabot miRobot;\n';
 
             }
             return __p
@@ -6880,12 +6881,12 @@
             return __p
         };
 
-        this["JST"]["mfs_buttons_setups"] = function(obj) {
+        this["JST"]["mfs_buttons_definitions_include"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += 'byte btn;\n\n';
+                __p += 'byte btn;\n';
 
             }
             return __p
@@ -6896,7 +6897,7 @@
             var __t, __p = '',
                 __e = _.escape;
             with(obj) {
-                __p += '#include <TimerOne.h>\n#include <Wire.h>\n#include <MultiFunctionShield.h>\n';
+                __p += '#include <TimerOne.h>\n#include <Wire.h>\n#include <MultiFuncShield.h>\n// #include <MPU6050.h>\n// #include <I2C.h>\n// #include <II2C.h>\n\n';
 
             }
             return __p
@@ -6924,13 +6925,13 @@
                     ((__t = (mode_button)) == null ? '' : __t) +
                     ') {\n        ' +
                     ((__t = (code_btn)) == null ? '' : __t) +
-                    '\n    } \n\n';
+                    '\n    } \n}\n';
 
             }
             return __p
         };
 
-        this["JST"]["mfs_if_buttons_setups"] = function(obj) {
+        this["JST"]["mfs_if_buttons_definitions_include"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
                 __e = _.escape;
@@ -10048,25 +10049,26 @@
         /* global Blockly, options,JST, RoboBlocks */
         /* jshint sub:true */
         /**
-         * escorna_home code generation
+         * evolution_home code generation
          * @return {String} Code generated with block parameters
          */
-        Blockly.Arduino.escorna_home = function() {
+        Blockly.Arduino.escornabot_home = function() {
 
-            Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_home_definitions_include']({});
+            Blockly.Arduino.definitions_['include_escorna_home'] = JST['escorna_home_definitions_include']({});
             //Blockly.Arduino.setups_['setups_escorna_home'] = JST['escorna_home_setups']({});
             var code = '';
-            //code += JST['escorna_home']({});
+            //code += JST['evolution_home']({});
             return code;
         };
 
         /**
-         *  * @type {Object}
+         * servo_cont block definition
+         * @type {Object}
          */
-        Blockly.Blocks.escorna_home = {
+        Blockly.Blocks.escornabot_home = {
             category: RoboBlocks.locales.getKey('LANG_CATEGORY_ESCORNABOT'),
-            tags: ['escornabot'],
-            helpUrl: RoboBlocks.URL_LED,
+            tags: ['evolution'],
+            helpUrl: RoboBlocks.URL_ESCORNABOT,
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_ESCORNABOT);
 
@@ -12337,7 +12339,7 @@
                 this.setColour(RoboBlocks.LANG_COLOUR_MFS);
                 this.appendDummyInput('')
                     .appendField(RoboBlocks.locales.getKey('LANG_MFS_BEEP'))
-                //        .appendField(new Blockly.FieldImage('img/blocks/bqmod07.png', 208 * options.zoom, 140 * options.zoom));
+                    .appendField(new Blockly.FieldImage('img/blocks/mfs_buzzer.png', 100 * options.zoom, 57 * options.zoom));
 
                 this.appendValueInput('BEEP', Number)
                     .setCheck(Number)
@@ -12448,7 +12450,11 @@
 
         Blockly.Arduino.mfs_buttons = function() {
 
-            Blockly.Arduino.setups_['setups_mfs_buttons'] = JST['mfs_buttons_setups']({});
+            //Blockly.Arduino.setups_['setups_mfs_buttons'] = JST['mfs_buttons_setups']({});
+            //   Blockly.Arduino.definitions_['include_mfs_buttons'] = JST['mfs_buttons_definitions_include']({});
+            Blockly.Arduino.definitions_['declare_var_btn'] = 'byte btn' + ';\n';
+
+
 
             var code_btn = Blockly.Arduino.statementToCode(this, 'BUTN1');
             code_btn = code_btn.replace(/&quot;/g, '"');
@@ -12553,7 +12559,8 @@
 
         Blockly.Arduino.mfs_if_buttons = function() {
 
-            Blockly.Arduino.setups_['setups_mfs_if_buttons'] = JST['mfs_if_buttons_setups']({});
+            Blockly.Arduino.definitions_['declare_var_bnum'] = 'byte buttonNumber' + ';\n';
+            Blockly.Arduino.definitions_['declare_var_bact'] = 'byte buttonAction' + ';\n';
 
             var opt_button = this.getFieldValue('OPT_BTN');
             var mode_button = this.getFieldValue('MODE_BTN');
@@ -12939,6 +12946,8 @@
             init: function() {
                 this.setColour(RoboBlocks.LANG_COLOUR_MFS);
                 this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_MFS_WRITE'))
+                    .appendField(new Blockly.FieldImage('img/blocks/mfs_digit.png', 336 * options.zoom, 88 * options.zoom));
+
 
                 this.appendValueInput('TEXT', String)
                     .appendField(RoboBlocks.locales.getKey('LANG_MFS_TEXT'))

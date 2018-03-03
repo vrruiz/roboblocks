@@ -10,7 +10,11 @@
 
 Blockly.Arduino.mfs_buttons = function() {
 
-    Blockly.Arduino.setups_['setups_mfs_buttons'] = JST['mfs_buttons_setups']({});
+    //Blockly.Arduino.setups_['setups_mfs_buttons'] = JST['mfs_buttons_setups']({});
+ //   Blockly.Arduino.definitions_['include_mfs_buttons'] = JST['mfs_buttons_definitions_include']({});
+    Blockly.Arduino.definitions_['declare_var_btn'] = 'byte btn' + ';\n';
+
+
 
     var code_btn = Blockly.Arduino.statementToCode(this, 'BUTN1');
     code_btn=code_btn.replace(/&quot;/g,'"');

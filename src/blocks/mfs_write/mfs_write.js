@@ -37,6 +37,8 @@
         init: function() {
             this.setColour(RoboBlocks.LANG_COLOUR_MFS);
 			this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_MFS_WRITE'))
+			    .appendField(new Blockly.FieldImage('img/blocks/mfs_digit.png', 336*options.zoom, 88*options.zoom));
+
 
             this.appendValueInput('TEXT', String)
                 .appendField(RoboBlocks.locales.getKey('LANG_MFS_TEXT'))
