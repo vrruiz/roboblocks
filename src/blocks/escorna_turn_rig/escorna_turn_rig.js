@@ -7,7 +7,7 @@
  */
  
     Blockly.Arduino.escorna_turn_rig = function() {
-        Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_turn_rig_definitions_include']({});           
+        //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_turn_rig_definitions_include']({});           
         //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
         var a ='';
         var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC);

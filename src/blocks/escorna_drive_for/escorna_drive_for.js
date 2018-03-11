@@ -7,7 +7,7 @@
  */
  
     Blockly.Arduino.escorna_drive_for = function() {
-        Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_definitions_include']({});           
+        //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_definitions_include']({});           
           
         var a ='';
         var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC);

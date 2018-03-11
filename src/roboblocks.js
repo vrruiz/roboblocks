@@ -1,4 +1,4 @@
-/*! roboblocks - v0.2.3 - 2018-03-03
+/*! roboblocks - v0.2.3 - 2018-03-11
  * https://github.com/bq/roboblocks
  * Copyright (c) 2018 bq; Licensed  */
 
@@ -557,7 +557,60 @@
                 LANG_ESCORNABOT_LED_OFF: 'Apaga el led',
                 LANG_ESCORNABOT_LED_TOOLTIP: 'Encén o apaga el led indicat',
                 LANG_ESCORNABOT_BUZZER_OFF: 'Silenci',
-                LANG_ESCORNABOT_BUZZER_ON: 'Xiular'
+                LANG_ESCORNABOT_BUZZER_ON: 'Xiular',
+
+                LANG_CATEGORY_MFS: 'Multi-function Shield',
+                LANG_MFS_GET_POTENTIOMETER: 'Potenciometro',
+                LANG_MFS_GET_POTENTIOMETER_TOOLTIP: 'Lee el valor del potenciometro',
+                LANG_MFS_HOME: 'Iniciar',
+                LANG_MFS_HOME_TOOLTIP: 'Inicia la Multi-function Shield',
+                LANG_MFS_WRITELED: 'LED',
+                LANG_MFS_ACTION: 'Acción',
+                LANG_MFS_WRITELED_TOOLTIP: 'Enciende o apaga el led indicado',
+                LANG_MFS_ON: 'ENCENDIDO',
+                LANG_MFS_OFF: 'APAGADO',
+                LANG_MFS_BLINKLED: 'Parpadear',
+                LANG_MFS_BLINKLED_TOOLTIP: 'Hace que parpadee el led seleccionado',
+                LANG_MFS_LED_ALL: 'TODOS',
+                LANG_MFS_WRITE: 'Escribir LCD',
+                LANG_MFS_TEXT: '',
+                LANG_MFS_WRITE_TOOLTIP: 'Escribe el texto en el digito led',
+                LANG_MFS_BEEP: 'Zumbador',
+                LANG_MFS_BEEP_DURATION: 'Duración [ms]',
+                LANG_MFS_BEEP_SILENCE: 'Silencio [ms]',
+                LANG_MFS_BEEP_REPEAT: 'Repetir lo anterior [ms]',
+                LANG_MFS_BEEP_LOOP: 'Repetir todo [ms]',
+                LANG_MFS_BEEP_WAIT: 'Silencio entre repeticiones [ms]',
+                LANG_MFS_BEEP_TOOLTIP: 'Emite un pitido',
+                LANG_MFS_BUTTONS: 'Botonera',
+                LANG_MFS_BUTTON: 'Boton',
+                LANG_MFS_BUTTONS_BUTTON: 'Acciones',
+                LANG_MFS_BUTTONS_BUTTON_DO: 'haz',
+                LANG_MFS_BUTTONS_TOOLTIP: 'Botonera',
+                LANG_MFS_IF_BUTTONS: 'Si',
+                LANG_MFS_BUTTONS_DO: 'haz',
+                LANG_MFS_BUTTONS_IS: 'esta',
+                LANG_MFS_BUTTON1: 'boton S1',
+                LANG_MFS_BUTTON2: 'boton S2',
+                LANG_MFS_BUTTON3: 'boton S3',
+                LANG_MFS_PRESS: 'PULSADO',
+                LANG_MFS_RELEASE: 'SOLTADO',
+                LANG_MFS_LPRESS: 'PULSADO LARGO',
+                LANG_MFS_LRELEASE: 'SOLTADO LARGO',
+                LANG_MFS_SONAR: 'HC SR04 Sonar',
+                LANG_MFS_RADAR_STRONG: 'Filtro fuerte',
+                LANG_MFS_RADAR_MODERATE: 'Filto moderado',
+                LANG_MFS_RADAR_NONE: 'Sin filtro',
+                LANG_MFS_RADAR_MODE: 'Modo',
+                LANG_MFS_RADAR_TOOLTIP: 'Mide la distancia con el sensor de ultrasonidos',
+                LANG_MFS_TEMP: 'Temperatura',
+                LANG_MFS_TEMP_TOOLTIP: 'Mide la temperatura',
+                LANG_MFS_PULSECOUNTER: 'Contador',
+                LANG_MFS_PULSECOUNTER_TRIGGER: 'Flanco',
+                LANG_MFS_PULSE_UP: 'Subida',
+                LANG_MFS_PULSE_DOWN: 'Bajada',
+                LANG_MFS_PULSECOUNTER_WAIT: 'Espera [ms]',
+
 
             };
             // Node
@@ -1010,7 +1063,126 @@
                 LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',
                 LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',
                 LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',
-                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'
+                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.',
+                LANG_CATEGORY_EVOLUTION: 'Evolution',
+                LANG_EVOLUTION_HOME: 'Inicio',
+                LANG_EVOLUTION_HOME_TOOLTIP: 'Pone variables de Evolution a cero',
+                LANG_EVOLUTION_STOP: 'Detener',
+                LANG_EVOLUTION_STOP_TOOLTIP: 'Para al robot Evolution',
+                LANG_EVOLUTION_TURNHEAD: 'Mira hacia',
+                LANG_EVOLUTION_TURNHEAD_ROT: 'ROT', // Realmente funciona igual que ROT
+                LANG_EVOLUTION_TURNHEAD_TOOLTIP: 'Mueve la cabeza hacia el lado que indiques',
+                LANG_EVOLUTION_MOVE: 'Mover hacia ',
+                LANG_EVOLUTION_FORDWARD: 'Mover hacia adelante',
+                LANG_EVOLUTION_FORDWARD_SPEED: 'Velocidad',
+                LANG_EVOLUTION_RIGHT: 'DERECHA',
+                LANG_EVOLUTION_RIGHT_SPEED: 'Velocidad',
+                LANG_EVOLUTION_RIGHT_TOOLTIP: 'Gira hacia la derecha con esta velocidad',
+                LANG_EVOLUTION_LEFT: 'IZQUIERDA',
+                LANG_EVOLUTION_LEFT_SPEED: 'Velocidad',
+                LANG_EVOLUTION_LEFT_TOOLTIP: 'Gira hacia la izquierda con esta velocidad',
+                LANG_EVOLUTION_FRONT: 'ALANTE',
+                LANG_EVOLUTION_BACK: 'ATRÁS',
+                LANG_EVOLUTION_DELAY: 'Durante (ms):',
+                LANG_EVOLUTION_GET_DISTANCE: 'Distancia',
+                LANG_EVOLUTION_GET_DISTANCE_TOOLTIP: 'Obtiene la distancia al obstaculo',
+                LANG_EVOLUTION_GET_LINE: 'Hay linea',
+                LANG_EVOLUTION_GET_LINE_SIDE: 'Lado',
+                LANG_EVOLUTION_GET_LINE_TOOLTIP: 'Indica si hay linea en el lado indicado',
+                LANG_EVOLUTION_GET_LINE_COLOR: 'de color',
+                LANG_EVOLUTION_COLOR_WHITE: 'BLANCO',
+                LANG_EVOLUTION_COLOR_BLACK: 'NEGRO',
+                LANG_EVOLUTION_GET_LIGHT: 'Hay luz',
+                LANG_EVOLUTION_GET_LIGHT_INTENSITY: 'con intensidad',
+                LANG_EVOLUTION_GET_LIGHT_SIDE: 'Lado',
+                LANG_EVOLUTION_GET_LIGHT_TOOLTIP: 'Indica si hay luz en el lado especificado',
+                LANG_EVOLUTION_GET_LIGHT_HIGH: 'MUCHA',
+                LANG_EVOLUTION_GET_LIGHT_MEDIUM: 'MEDIA',
+                LANG_EVOLUTION_GET_LIGHT_LOW: 'POCA',
+                LANG_EVOLUTION_SPEED: 'con velocidad',
+                LANG_EVOLUTION_SPEED_FAST: 'RAPIDA',
+                LANG_EVOLUTION_SPEED_MEDIUM: 'MEDIA',
+                LANG_EVOLUTION_SPEED_LOW: 'LENTA',
+                LANG_EVOLUTION_HEAD_RIGHT: 'DERECHA',
+                LANG_EVOLUTION_HEAD_LEFT: 'IZQUIERDA',
+                LANG_EVOLUTION_HEAD_CENTER: 'CENTRO',
+                LANG_EVOLUTION_HEAD_STATE: 'Mueve la cabeza hacia:',
+                LANG_EVOLUTION_BUZZER_DURATION: 'Duración [ms]',
+                LANG_EVOLUTION_BUZZER_SILENCE: 'Silencio [ms]',
+
+                //escornabot blocks
+                LANG_CATEGORY_ESCORNABOT: 'Escornabot',
+                LANG_ESCORNABOT_SPEED: 'Velocidad',
+                LANG_ESCORNABOT_TURNS: 'Vueltas',
+                LANG_ESCORNABOT_TURNS_LEFT: 'Gira izquierda',
+                LANG_ESCORNABOT_TURNS_RIGHT: 'Gira derecha',
+                LANG_ESCORNABOT_DRIVE_FORD: 'Avanza',
+                LANG_ESCORNABOT_DRIVE_BACK: 'Retrocede',
+                LANG_ESCORNABOT_DRIVE_TOOLTIP: 'Mueve el escornabot adelante o atrás',
+                LANG_ESCORNABOT_HOME: 'Inicio',
+                LANG_ESCORNABOT_HOME_TOOLTIP: 'Inicia el Escornabot',
+                LANG_ESCORNABOT_STOP: 'Parar',
+                LANG_ESCORNABOT_STOP_TOOLTIP: 'Para el Escornabot',
+                LANG_ESCORNABOT_TURN_TOOLTIP: 'Gira el escornabot a derecha o izquierda',
+                LANG_ESCORNABOT_LED_ON: 'Enciende el led',
+                LANG_ESCORNABOT_LED_OFF: 'Apaga el led',
+                LANG_ESCORNABOT_LED_TOOLTIP: 'Enciende o apaga el led indicado',
+                LANG_ESCORNABOT_BUZZER_OFF: 'Silencio',
+                LANG_ESCORNABOT_BUZZER_ON: 'Pitar',
+
+
+                LANG_CATEGORY_MFS: 'Multi-function Shield',
+                LANG_MFS_GET_POTENTIOMETER: 'Potenciometro',
+                LANG_MFS_GET_POTENTIOMETER_TOOLTIP: 'Lee el valor del potenciometro',
+                LANG_MFS_HOME: 'Iniciar',
+                LANG_MFS_HOME_TOOLTIP: 'Inicia la Multi-function Shield',
+                LANG_MFS_WRITELED: 'LED',
+                LANG_MFS_ACTION: 'Acción',
+                LANG_MFS_WRITELED_TOOLTIP: 'Enciende o apaga el led indicado',
+                LANG_MFS_ON: 'ENCENDIDO',
+                LANG_MFS_OFF: 'APAGADO',
+                LANG_MFS_BLINKLED: 'Parpadear',
+                LANG_MFS_BLINKLED_TOOLTIP: 'Hace que parpadee el led seleccionado',
+                LANG_MFS_LED_ALL: 'TODOS',
+                LANG_MFS_WRITE: 'Escribir LCD',
+                LANG_MFS_TEXT: '',
+                LANG_MFS_WRITE_TOOLTIP: 'Escribe el texto en el digito led',
+                LANG_MFS_BEEP: 'Zumbador',
+                LANG_MFS_BEEP_DURATION: 'Duración [ms]',
+                LANG_MFS_BEEP_SILENCE: 'Silencio [ms]',
+                LANG_MFS_BEEP_REPEAT: 'Repetir lo anterior [ms]',
+                LANG_MFS_BEEP_LOOP: 'Repetir todo [ms]',
+                LANG_MFS_BEEP_WAIT: 'Silencio entre repeticiones [ms]',
+                LANG_MFS_BEEP_TOOLTIP: 'Emite un pitido',
+                LANG_MFS_BUTTONS: 'Botonera',
+                LANG_MFS_BUTTON: 'Boton',
+                LANG_MFS_BUTTONS_BUTTON: 'Acciones',
+                LANG_MFS_BUTTONS_BUTTON_DO: 'haz',
+                LANG_MFS_BUTTONS_TOOLTIP: 'Botonera',
+                LANG_MFS_IF_BUTTONS: 'Si',
+                LANG_MFS_BUTTONS_DO: 'haz',
+                LANG_MFS_BUTTONS_IS: 'esta',
+                LANG_MFS_BUTTON1: 'boton S1',
+                LANG_MFS_BUTTON2: 'boton S2',
+                LANG_MFS_BUTTON3: 'boton S3',
+                LANG_MFS_PRESS: 'PULSADO',
+                LANG_MFS_RELEASE: 'SOLTADO',
+                LANG_MFS_LPRESS: 'PULSADO LARGO',
+                LANG_MFS_LRELEASE: 'SOLTADO LARGO',
+                LANG_MFS_SONAR: 'HC SR04 Sonar',
+                LANG_MFS_RADAR_STRONG: 'Filtro fuerte',
+                LANG_MFS_RADAR_MODERATE: 'Filto moderado',
+                LANG_MFS_RADAR_NONE: 'Sin filtro',
+                LANG_MFS_RADAR_MODE: 'Modo',
+                LANG_MFS_RADAR_TOOLTIP: 'Mide la distancia con el sensor de ultrasonidos',
+                LANG_MFS_TEMP: 'Temperatura',
+                LANG_MFS_TEMP_TOOLTIP: 'Mide la temperatura',
+                LANG_MFS_PULSECOUNTER: 'Contador',
+                LANG_MFS_PULSECOUNTER_TRIGGER: 'Flanco',
+                LANG_MFS_PULSE_UP: 'Subida',
+                LANG_MFS_PULSE_DOWN: 'Bajada',
+                LANG_MFS_PULSECOUNTER_WAIT: 'Espera [ms]',
+
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -2485,7 +2657,126 @@
                 LANG_INTERRUPTS_ATTACH_PROCEDURE: 'fonction_sans_retour',
                 LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Régler la procédure qui doit être exécutée quand une interruption apparait dans la broche spécifiée.',
                 LANG_INTERRUPTS_DETACH: 'Détacher l interruption sur la broche digitale',
-                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Annuler l interruption sur la broche. Quand la broche est activée, la procédure associée n est plus exécuter.'
+                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Annuler l interruption sur la broche. Quand la broche est activée, la procédure associée n est plus exécuter.',
+                LANG_CATEGORY_EVOLUTION: 'Evolution',
+                LANG_EVOLUTION_HOME: 'Inicio',
+                LANG_EVOLUTION_HOME_TOOLTIP: 'Pone variables de Evolution a cero',
+                LANG_EVOLUTION_STOP: 'Detener',
+                LANG_EVOLUTION_STOP_TOOLTIP: 'Para al robot Evolution',
+                LANG_EVOLUTION_TURNHEAD: 'Mira hacia',
+                LANG_EVOLUTION_TURNHEAD_ROT: 'ROT', // Realmente funciona igual que ROT
+                LANG_EVOLUTION_TURNHEAD_TOOLTIP: 'Mueve la cabeza hacia el lado que indiques',
+                LANG_EVOLUTION_MOVE: 'Mover hacia ',
+                LANG_EVOLUTION_FORDWARD: 'Mover hacia adelante',
+                LANG_EVOLUTION_FORDWARD_SPEED: 'Velocidad',
+                LANG_EVOLUTION_RIGHT: 'DERECHA',
+                LANG_EVOLUTION_RIGHT_SPEED: 'Velocidad',
+                LANG_EVOLUTION_RIGHT_TOOLTIP: 'Gira hacia la derecha con esta velocidad',
+                LANG_EVOLUTION_LEFT: 'IZQUIERDA',
+                LANG_EVOLUTION_LEFT_SPEED: 'Velocidad',
+                LANG_EVOLUTION_LEFT_TOOLTIP: 'Gira hacia la izquierda con esta velocidad',
+                LANG_EVOLUTION_FRONT: 'ALANTE',
+                LANG_EVOLUTION_BACK: 'ATRÁS',
+                LANG_EVOLUTION_DELAY: 'Durante (ms):',
+                LANG_EVOLUTION_GET_DISTANCE: 'Distancia',
+                LANG_EVOLUTION_GET_DISTANCE_TOOLTIP: 'Obtiene la distancia al obstaculo',
+                LANG_EVOLUTION_GET_LINE: 'Hay linea',
+                LANG_EVOLUTION_GET_LINE_SIDE: 'Lado',
+                LANG_EVOLUTION_GET_LINE_TOOLTIP: 'Indica si hay linea en el lado indicado',
+                LANG_EVOLUTION_GET_LINE_COLOR: 'de color',
+                LANG_EVOLUTION_COLOR_WHITE: 'BLANCO',
+                LANG_EVOLUTION_COLOR_BLACK: 'NEGRO',
+                LANG_EVOLUTION_GET_LIGHT: 'Hay luz',
+                LANG_EVOLUTION_GET_LIGHT_INTENSITY: 'con intensidad',
+                LANG_EVOLUTION_GET_LIGHT_SIDE: 'Lado',
+                LANG_EVOLUTION_GET_LIGHT_TOOLTIP: 'Indica si hay luz en el lado especificado',
+                LANG_EVOLUTION_GET_LIGHT_HIGH: 'MUCHA',
+                LANG_EVOLUTION_GET_LIGHT_MEDIUM: 'MEDIA',
+                LANG_EVOLUTION_GET_LIGHT_LOW: 'POCA',
+                LANG_EVOLUTION_SPEED: 'con velocidad',
+                LANG_EVOLUTION_SPEED_FAST: 'RAPIDA',
+                LANG_EVOLUTION_SPEED_MEDIUM: 'MEDIA',
+                LANG_EVOLUTION_SPEED_LOW: 'LENTA',
+                LANG_EVOLUTION_HEAD_RIGHT: 'DERECHA',
+                LANG_EVOLUTION_HEAD_LEFT: 'IZQUIERDA',
+                LANG_EVOLUTION_HEAD_CENTER: 'CENTRO',
+                LANG_EVOLUTION_HEAD_STATE: 'Mueve la cabeza hacia:',
+                LANG_EVOLUTION_BUZZER_DURATION: 'Duración [ms]',
+                LANG_EVOLUTION_BUZZER_SILENCE: 'Silencio [ms]',
+
+                //escornabot blocks
+                LANG_CATEGORY_ESCORNABOT: 'Escornabot',
+                LANG_ESCORNABOT_SPEED: 'Velocidad',
+                LANG_ESCORNABOT_TURNS: 'Vueltas',
+                LANG_ESCORNABOT_TURNS_LEFT: 'Gira izquierda',
+                LANG_ESCORNABOT_TURNS_RIGHT: 'Gira derecha',
+                LANG_ESCORNABOT_DRIVE_FORD: 'Avanza',
+                LANG_ESCORNABOT_DRIVE_BACK: 'Retrocede',
+                LANG_ESCORNABOT_DRIVE_TOOLTIP: 'Mueve el escornabot adelante o atrás',
+                LANG_ESCORNABOT_HOME: 'Inicio',
+                LANG_ESCORNABOT_HOME_TOOLTIP: 'Inicia el Escornabot',
+                LANG_ESCORNABOT_STOP: 'Parar',
+                LANG_ESCORNABOT_STOP_TOOLTIP: 'Para el Escornabot',
+                LANG_ESCORNABOT_TURN_TOOLTIP: 'Gira el escornabot a derecha o izquierda',
+                LANG_ESCORNABOT_LED_ON: 'Enciende el led',
+                LANG_ESCORNABOT_LED_OFF: 'Apaga el led',
+                LANG_ESCORNABOT_LED_TOOLTIP: 'Enciende o apaga el led indicado',
+                LANG_ESCORNABOT_BUZZER_OFF: 'Silencio',
+                LANG_ESCORNABOT_BUZZER_ON: 'Pitar',
+
+
+                LANG_CATEGORY_MFS: 'Multi-function Shield',
+                LANG_MFS_GET_POTENTIOMETER: 'Potenciometro',
+                LANG_MFS_GET_POTENTIOMETER_TOOLTIP: 'Lee el valor del potenciometro',
+                LANG_MFS_HOME: 'Iniciar',
+                LANG_MFS_HOME_TOOLTIP: 'Inicia la Multi-function Shield',
+                LANG_MFS_WRITELED: 'LED',
+                LANG_MFS_ACTION: 'Acción',
+                LANG_MFS_WRITELED_TOOLTIP: 'Enciende o apaga el led indicado',
+                LANG_MFS_ON: 'ENCENDIDO',
+                LANG_MFS_OFF: 'APAGADO',
+                LANG_MFS_BLINKLED: 'Parpadear',
+                LANG_MFS_BLINKLED_TOOLTIP: 'Hace que parpadee el led seleccionado',
+                LANG_MFS_LED_ALL: 'TODOS',
+                LANG_MFS_WRITE: 'Escribir LCD',
+                LANG_MFS_TEXT: '',
+                LANG_MFS_WRITE_TOOLTIP: 'Escribe el texto en el digito led',
+                LANG_MFS_BEEP: 'Zumbador',
+                LANG_MFS_BEEP_DURATION: 'Duración [ms]',
+                LANG_MFS_BEEP_SILENCE: 'Silencio [ms]',
+                LANG_MFS_BEEP_REPEAT: 'Repetir lo anterior [ms]',
+                LANG_MFS_BEEP_LOOP: 'Repetir todo [ms]',
+                LANG_MFS_BEEP_WAIT: 'Silencio entre repeticiones [ms]',
+                LANG_MFS_BEEP_TOOLTIP: 'Emite un pitido',
+                LANG_MFS_BUTTONS: 'Botonera',
+                LANG_MFS_BUTTON: 'Boton',
+                LANG_MFS_BUTTONS_BUTTON: 'Acciones',
+                LANG_MFS_BUTTONS_BUTTON_DO: 'haz',
+                LANG_MFS_BUTTONS_TOOLTIP: 'Botonera',
+                LANG_MFS_IF_BUTTONS: 'Si',
+                LANG_MFS_BUTTONS_DO: 'haz',
+                LANG_MFS_BUTTONS_IS: 'esta',
+                LANG_MFS_BUTTON1: 'boton S1',
+                LANG_MFS_BUTTON2: 'boton S2',
+                LANG_MFS_BUTTON3: 'boton S3',
+                LANG_MFS_PRESS: 'PULSADO',
+                LANG_MFS_RELEASE: 'SOLTADO',
+                LANG_MFS_LPRESS: 'PULSADO LARGO',
+                LANG_MFS_LRELEASE: 'SOLTADO LARGO',
+                LANG_MFS_SONAR: 'HC SR04 Sonar',
+                LANG_MFS_RADAR_STRONG: 'Filtro fuerte',
+                LANG_MFS_RADAR_MODERATE: 'Filto moderado',
+                LANG_MFS_RADAR_NONE: 'Sin filtro',
+                LANG_MFS_RADAR_MODE: 'Modo',
+                LANG_MFS_RADAR_TOOLTIP: 'Mide la distancia con el sensor de ultrasonidos',
+                LANG_MFS_TEMP: 'Temperatura',
+                LANG_MFS_TEMP_TOOLTIP: 'Mide la temperatura',
+                LANG_MFS_PULSECOUNTER: 'Contador',
+                LANG_MFS_PULSECOUNTER_TRIGGER: 'Flanco',
+                LANG_MFS_PULSE_UP: 'Subida',
+                LANG_MFS_PULSE_DOWN: 'Bajada',
+                LANG_MFS_PULSECOUNTER_WAIT: 'Espera [ms]',
+
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -3002,7 +3293,60 @@
                 LANG_ESCORNABOT_LED_OFF: 'Apaga o led',
                 LANG_ESCORNABOT_LED_TOOLTIP: 'Acende ou apaga o led indicado',
                 LANG_ESCORNABOT_BUZZER_OFF: 'Silencio',
-                LANG_ESCORNABOT_BUZZER_ON: 'Pitar'
+                LANG_ESCORNABOT_BUZZER_ON: 'Pitar',
+
+                LANG_CATEGORY_MFS: 'Multi-function Shield',
+                LANG_MFS_GET_POTENTIOMETER: 'Potenciometro',
+                LANG_MFS_GET_POTENTIOMETER_TOOLTIP: 'Lee el valor del potenciometro',
+                LANG_MFS_HOME: 'Iniciar',
+                LANG_MFS_HOME_TOOLTIP: 'Inicia la Multi-function Shield',
+                LANG_MFS_WRITELED: 'LED',
+                LANG_MFS_ACTION: 'Acción',
+                LANG_MFS_WRITELED_TOOLTIP: 'Enciende o apaga el led indicado',
+                LANG_MFS_ON: 'ENCENDIDO',
+                LANG_MFS_OFF: 'APAGADO',
+                LANG_MFS_BLINKLED: 'Parpadear',
+                LANG_MFS_BLINKLED_TOOLTIP: 'Hace que parpadee el led seleccionado',
+                LANG_MFS_LED_ALL: 'TODOS',
+                LANG_MFS_WRITE: 'Escribir LCD',
+                LANG_MFS_TEXT: '',
+                LANG_MFS_WRITE_TOOLTIP: 'Escribe el texto en el digito led',
+                LANG_MFS_BEEP: 'Zumbador',
+                LANG_MFS_BEEP_DURATION: 'Duración [ms]',
+                LANG_MFS_BEEP_SILENCE: 'Silencio [ms]',
+                LANG_MFS_BEEP_REPEAT: 'Repetir lo anterior [ms]',
+                LANG_MFS_BEEP_LOOP: 'Repetir todo [ms]',
+                LANG_MFS_BEEP_WAIT: 'Silencio entre repeticiones [ms]',
+                LANG_MFS_BEEP_TOOLTIP: 'Emite un pitido',
+                LANG_MFS_BUTTONS: 'Botonera',
+                LANG_MFS_BUTTON: 'Boton',
+                LANG_MFS_BUTTONS_BUTTON: 'Acciones',
+                LANG_MFS_BUTTONS_BUTTON_DO: 'haz',
+                LANG_MFS_BUTTONS_TOOLTIP: 'Botonera',
+                LANG_MFS_IF_BUTTONS: 'Si',
+                LANG_MFS_BUTTONS_DO: 'haz',
+                LANG_MFS_BUTTONS_IS: 'esta',
+                LANG_MFS_BUTTON1: 'boton S1',
+                LANG_MFS_BUTTON2: 'boton S2',
+                LANG_MFS_BUTTON3: 'boton S3',
+                LANG_MFS_PRESS: 'PULSADO',
+                LANG_MFS_RELEASE: 'SOLTADO',
+                LANG_MFS_LPRESS: 'PULSADO LARGO',
+                LANG_MFS_LRELEASE: 'SOLTADO LARGO',
+                LANG_MFS_SONAR: 'HC SR04 Sonar',
+                LANG_MFS_RADAR_STRONG: 'Filtro fuerte',
+                LANG_MFS_RADAR_MODERATE: 'Filto moderado',
+                LANG_MFS_RADAR_NONE: 'Sin filtro',
+                LANG_MFS_RADAR_MODE: 'Modo',
+                LANG_MFS_RADAR_TOOLTIP: 'Mide la distancia con el sensor de ultrasonidos',
+                LANG_MFS_TEMP: 'Temperatura',
+                LANG_MFS_TEMP_TOOLTIP: 'Mide la temperatura',
+                LANG_MFS_PULSECOUNTER: 'Contador',
+                LANG_MFS_PULSECOUNTER_TRIGGER: 'Flanco',
+                LANG_MFS_PULSE_UP: 'Subida',
+                LANG_MFS_PULSE_DOWN: 'Bajada',
+                LANG_MFS_PULSECOUNTER_WAIT: 'Espera [ms]',
+
 
             };
             // Node
@@ -4359,7 +4703,125 @@
                 LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return', // To translate
                 LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.', // To translate
                 LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin', // To translate
-                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.' // To translate
+                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.', // To translate
+                LANG_CATEGORY_EVOLUTION: 'Evolution',
+                LANG_EVOLUTION_HOME: 'Inicio',
+                LANG_EVOLUTION_HOME_TOOLTIP: 'Pon variables de Evolution a cero',
+                LANG_EVOLUTION_STOP: 'Deter',
+                LANG_EVOLUTION_STOP_TOOLTIP: 'Para o robot Evolution',
+                LANG_EVOLUTION_TURNHEAD: 'Mira cara a',
+                LANG_EVOLUTION_TURNHEAD_ROT: 'ROT', // Realmente funciona igual que ROT
+                LANG_EVOLUTION_TURNHEAD_TOOLTIP: 'Move a cabeza o lado que indiques',
+                LANG_EVOLUTION_MOVE: 'Mover cara a ',
+                LANG_EVOLUTION_FORDWARD: 'Mover cara diante',
+                LANG_EVOLUTION_FORDWARD_SPEED: 'Velocidade',
+                LANG_EVOLUTION_RIGHT: 'DEREITA',
+                LANG_EVOLUTION_RIGHT_SPEED: 'Velocidade',
+                LANG_EVOLUTION_RIGHT_TOOLTIP: 'Xira a dereita con esta velocidade',
+                LANG_EVOLUTION_LEFT: 'ESQUERDA',
+                LANG_EVOLUTION_LEFT_SPEED: 'Velocidade',
+                LANG_EVOLUTION_LEFT_TOOLTIP: 'Xira a esquerda con esta velocidade',
+                LANG_EVOLUTION_FRONT: 'ADIANTE',
+                LANG_EVOLUTION_BACK: 'ATRÃS',
+                LANG_EVOLUTION_DELAY: 'Durante (ms):',
+                LANG_EVOLUTION_GET_DISTANCE: 'Distancia',
+                LANG_EVOLUTION_GET_DISTANCE_TOOLTIP: 'Obten a distancia o obstaculo',
+                LANG_EVOLUTION_GET_LINE: 'Hai liña',
+                LANG_EVOLUTION_GET_LINE_SIDE: 'Lado',
+                LANG_EVOLUTION_GET_LINE_TOOLTIP: 'Indica se hai liña no lado indicado',
+                LANG_EVOLUTION_GET_LINE_COLOR: 'de cor',
+                LANG_EVOLUTION_COLOR_WHITE: 'BRANCO',
+                LANG_EVOLUTION_COLOR_BLACK: 'NEGRO',
+                LANG_EVOLUTION_GET_LIGHT: 'Hai luz',
+                LANG_EVOLUTION_GET_LIGHT_INTENSITY: 'con intensidade',
+                LANG_EVOLUTION_GET_LIGHT_SIDE: 'Lado',
+                LANG_EVOLUTION_GET_LIGHT_TOOLTIP: 'Indica se hai luz no lado especificado',
+                LANG_EVOLUTION_GET_LIGHT_HIGH: 'MUITA',
+                LANG_EVOLUTION_GET_LIGHT_MEDIUM: 'MEDIA',
+                LANG_EVOLUTION_GET_LIGHT_LOW: 'POUCA',
+                LANG_EVOLUTION_SPEED: 'con velocidade',
+                LANG_EVOLUTION_SPEED_FAST: 'RAPIDA',
+                LANG_EVOLUTION_SPEED_MEDIUM: 'MEDIA',
+                LANG_EVOLUTION_SPEED_LOW: 'LENTA',
+                LANG_EVOLUTION_HEAD_RIGHT: 'DEREITA',
+                LANG_EVOLUTION_HEAD_LEFT: 'ESQUERDA',
+                LANG_EVOLUTION_HEAD_CENTER: 'CENTRO',
+                LANG_EVOLUTION_HEAD_STATE: 'Move a cabeza cara a:',
+                LANG_EVOLUTION_BUZZER_DURATION: 'DuraciÃ³n [ms]',
+                LANG_EVOLUTION_BUZZER_SILENCE: 'Silencio [ms]',
+
+                //escornabot blocks
+                LANG_CATEGORY_ESCORNABOT: 'Escornabot',
+                LANG_ESCORNABOT_SPEED: 'Velocidade',
+                LANG_ESCORNABOT_TURNS: 'Voltas',
+                LANG_ESCORNABOT_TURNS_LEFT: 'Xira esquerda',
+                LANG_ESCORNABOT_TURNS_RIGHT: 'Xira dereita',
+                LANG_ESCORNABOT_DRIVE_FORD: 'Avanza',
+                LANG_ESCORNABOT_DRIVE_BACK: 'Retrocede',
+                LANG_ESCORNABOT_DRIVE_TOOLTIP: 'Move o escornabot adiante ou atrÃ¡s',
+                LANG_ESCORNABOT_HOME: 'Inicio',
+                LANG_ESCORNABOT_HOME_TOOLTIP: 'Inicia o Escornabot',
+                LANG_ESCORNABOT_STOP: 'Parar',
+                LANG_ESCORNABOT_STOP_TOOLTIP: 'Para o Escornabot',
+                LANG_ESCORNABOT_TURN_TOOLTIP: 'Xira o escornabot a dereita ou esquerda',
+                LANG_ESCORNABOT_LED_ON: 'Acende o led',
+                LANG_ESCORNABOT_LED_OFF: 'Apaga o led',
+                LANG_ESCORNABOT_LED_TOOLTIP: 'Acende ou apaga o led indicado',
+                LANG_ESCORNABOT_BUZZER_OFF: 'Silencio',
+                LANG_ESCORNABOT_BUZZER_ON: 'Pitar',
+
+                LANG_CATEGORY_MFS: 'Multi-function Shield',
+                LANG_MFS_GET_POTENTIOMETER: 'Potenciometro',
+                LANG_MFS_GET_POTENTIOMETER_TOOLTIP: 'Lee el valor del potenciometro',
+                LANG_MFS_HOME: 'Iniciar',
+                LANG_MFS_HOME_TOOLTIP: 'Inicia la Multi-function Shield',
+                LANG_MFS_WRITELED: 'LED',
+                LANG_MFS_ACTION: 'Acción',
+                LANG_MFS_WRITELED_TOOLTIP: 'Enciende o apaga el led indicado',
+                LANG_MFS_ON: 'ENCENDIDO',
+                LANG_MFS_OFF: 'APAGADO',
+                LANG_MFS_BLINKLED: 'Parpadear',
+                LANG_MFS_BLINKLED_TOOLTIP: 'Hace que parpadee el led seleccionado',
+                LANG_MFS_LED_ALL: 'TODOS',
+                LANG_MFS_WRITE: 'Escribir LCD',
+                LANG_MFS_TEXT: '',
+                LANG_MFS_WRITE_TOOLTIP: 'Escribe el texto en el digito led',
+                LANG_MFS_BEEP: 'Zumbador',
+                LANG_MFS_BEEP_DURATION: 'Duración [ms]',
+                LANG_MFS_BEEP_SILENCE: 'Silencio [ms]',
+                LANG_MFS_BEEP_REPEAT: 'Repetir lo anterior [ms]',
+                LANG_MFS_BEEP_LOOP: 'Repetir todo [ms]',
+                LANG_MFS_BEEP_WAIT: 'Silencio entre repeticiones [ms]',
+                LANG_MFS_BEEP_TOOLTIP: 'Emite un pitido',
+                LANG_MFS_BUTTONS: 'Botonera',
+                LANG_MFS_BUTTON: 'Boton',
+                LANG_MFS_BUTTONS_BUTTON: 'Acciones',
+                LANG_MFS_BUTTONS_BUTTON_DO: 'haz',
+                LANG_MFS_BUTTONS_TOOLTIP: 'Botonera',
+                LANG_MFS_IF_BUTTONS: 'Si',
+                LANG_MFS_BUTTONS_DO: 'haz',
+                LANG_MFS_BUTTONS_IS: 'esta',
+                LANG_MFS_BUTTON1: 'boton S1',
+                LANG_MFS_BUTTON2: 'boton S2',
+                LANG_MFS_BUTTON3: 'boton S3',
+                LANG_MFS_PRESS: 'PULSADO',
+                LANG_MFS_RELEASE: 'SOLTADO',
+                LANG_MFS_LPRESS: 'PULSADO LARGO',
+                LANG_MFS_LRELEASE: 'SOLTADO LARGO',
+                LANG_MFS_SONAR: 'HC SR04 Sonar',
+                LANG_MFS_RADAR_STRONG: 'Filtro fuerte',
+                LANG_MFS_RADAR_MODERATE: 'Filto moderado',
+                LANG_MFS_RADAR_NONE: 'Sin filtro',
+                LANG_MFS_RADAR_MODE: 'Modo',
+                LANG_MFS_RADAR_TOOLTIP: 'Mide la distancia con el sensor de ultrasonidos',
+                LANG_MFS_TEMP: 'Temperatura',
+                LANG_MFS_TEMP_TOOLTIP: 'Mide la temperatura',
+                LANG_MFS_PULSECOUNTER: 'Contador',
+                LANG_MFS_PULSECOUNTER_TRIGGER: 'Flanco',
+                LANG_MFS_PULSE_UP: 'Subida',
+                LANG_MFS_PULSE_DOWN: 'Bajada',
+                LANG_MFS_PULSECOUNTER_WAIT: 'Espera [ms]',
+
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -4811,7 +5273,74 @@
                 LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return', // To translate
                 LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.', // To translate
                 LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin', // To translate
-                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.' // To translate
+                LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.', // To translate
+                LANG_CATEGORY_EVOLUTION: 'Evolution',
+                LANG_EVOLUTION_HOME: 'Inicio',
+                LANG_EVOLUTION_HOME_TOOLTIP: 'Pon variables de Evolution a cero',
+                LANG_EVOLUTION_STOP: 'Deter',
+                LANG_EVOLUTION_STOP_TOOLTIP: 'Para o robot Evolution',
+                LANG_EVOLUTION_TURNHEAD: 'Mira cara a',
+                LANG_EVOLUTION_TURNHEAD_ROT: 'ROT', // Realmente funciona igual que ROT
+                LANG_EVOLUTION_TURNHEAD_TOOLTIP: 'Move a cabeza o lado que indiques',
+                LANG_EVOLUTION_MOVE: 'Mover cara a ',
+                LANG_EVOLUTION_FORDWARD: 'Mover cara diante',
+                LANG_EVOLUTION_FORDWARD_SPEED: 'Velocidade',
+                LANG_EVOLUTION_RIGHT: 'DEREITA',
+                LANG_EVOLUTION_RIGHT_SPEED: 'Velocidade',
+                LANG_EVOLUTION_RIGHT_TOOLTIP: 'Xira a dereita con esta velocidade',
+                LANG_EVOLUTION_LEFT: 'ESQUERDA',
+                LANG_EVOLUTION_LEFT_SPEED: 'Velocidade',
+                LANG_EVOLUTION_LEFT_TOOLTIP: 'Xira a esquerda con esta velocidade',
+                LANG_EVOLUTION_FRONT: 'ADIANTE',
+                LANG_EVOLUTION_BACK: 'ATRÃS',
+                LANG_EVOLUTION_DELAY: 'Durante (ms):',
+                LANG_EVOLUTION_GET_DISTANCE: 'Distancia',
+                LANG_EVOLUTION_GET_DISTANCE_TOOLTIP: 'Obten a distancia o obstaculo',
+                LANG_EVOLUTION_GET_LINE: 'Hai liña',
+                LANG_EVOLUTION_GET_LINE_SIDE: 'Lado',
+                LANG_EVOLUTION_GET_LINE_TOOLTIP: 'Indica se hai liña no lado indicado',
+                LANG_EVOLUTION_GET_LINE_COLOR: 'de cor',
+                LANG_EVOLUTION_COLOR_WHITE: 'BRANCO',
+                LANG_EVOLUTION_COLOR_BLACK: 'NEGRO',
+                LANG_EVOLUTION_GET_LIGHT: 'Hai luz',
+                LANG_EVOLUTION_GET_LIGHT_INTENSITY: 'con intensidade',
+                LANG_EVOLUTION_GET_LIGHT_SIDE: 'Lado',
+                LANG_EVOLUTION_GET_LIGHT_TOOLTIP: 'Indica se hai luz no lado especificado',
+                LANG_EVOLUTION_GET_LIGHT_HIGH: 'MUITA',
+                LANG_EVOLUTION_GET_LIGHT_MEDIUM: 'MEDIA',
+                LANG_EVOLUTION_GET_LIGHT_LOW: 'POUCA',
+                LANG_EVOLUTION_SPEED: 'con velocidade',
+                LANG_EVOLUTION_SPEED_FAST: 'RAPIDA',
+                LANG_EVOLUTION_SPEED_MEDIUM: 'MEDIA',
+                LANG_EVOLUTION_SPEED_LOW: 'LENTA',
+                LANG_EVOLUTION_HEAD_RIGHT: 'DEREITA',
+                LANG_EVOLUTION_HEAD_LEFT: 'ESQUERDA',
+                LANG_EVOLUTION_HEAD_CENTER: 'CENTRO',
+                LANG_EVOLUTION_HEAD_STATE: 'Move a cabeza cara a:',
+                LANG_EVOLUTION_BUZZER_DURATION: 'DuraciÃ³n [ms]',
+                LANG_EVOLUTION_BUZZER_SILENCE: 'Silencio [ms]',
+
+                //escornabot blocks
+                LANG_CATEGORY_ESCORNABOT: 'Escornabot',
+                LANG_ESCORNABOT_SPEED: 'Velocidade',
+                LANG_ESCORNABOT_TURNS: 'Voltas',
+                LANG_ESCORNABOT_TURNS_LEFT: 'Xira esquerda',
+                LANG_ESCORNABOT_TURNS_RIGHT: 'Xira dereita',
+                LANG_ESCORNABOT_DRIVE_FORD: 'Avanza',
+                LANG_ESCORNABOT_DRIVE_BACK: 'Retrocede',
+                LANG_ESCORNABOT_DRIVE_TOOLTIP: 'Move o escornabot adiante ou atrÃ¡s',
+                LANG_ESCORNABOT_HOME: 'Inicio',
+                LANG_ESCORNABOT_HOME_TOOLTIP: 'Inicia o Escornabot',
+                LANG_ESCORNABOT_STOP: 'Parar',
+                LANG_ESCORNABOT_STOP_TOOLTIP: 'Para o Escornabot',
+                LANG_ESCORNABOT_TURN_TOOLTIP: 'Xira o escornabot a dereita ou esquerda',
+                LANG_ESCORNABOT_LED_ON: 'Acende o led',
+                LANG_ESCORNABOT_LED_OFF: 'Apaga o led',
+                LANG_ESCORNABOT_LED_TOOLTIP: 'Acende ou apaga o led indicado',
+                LANG_ESCORNABOT_BUZZER_OFF: 'Silencio',
+                LANG_ESCORNABOT_BUZZER_ON: 'Pitar'
+
+
             };
             // Node
             if (typeof module !== 'undefined' && module.exports) {
@@ -6089,17 +6618,6 @@
             return __p
         };
 
-        this["JST"]["escorna_drive_bac_definitions_include"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '#include <escornabot.h>\n\nescornabot miRobot;\n';
-
-            }
-            return __p
-        };
-
         this["JST"]["escorna_drive_for"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -6110,17 +6628,6 @@
                     ',' +
                     ((__t = (speed)) == null ? '' : __t) +
                     ');\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["escorna_drive_for_definitions_include"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '#include <escornabot.h>\n\nescornabot miRobot;\n';
 
             }
             return __p
@@ -6189,17 +6696,6 @@
             return __p
         };
 
-        this["JST"]["escorna_turn_lef_definitions_include"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '#include <escornabot.h>\n\nescornabot miRobot;\n';
-
-            }
-            return __p
-        };
-
         this["JST"]["escorna_turn_rig"] = function(obj) {
             obj || (obj = {});
             var __t, __p = '',
@@ -6210,17 +6706,6 @@
                     ',' +
                     ((__t = (speed)) == null ? '' : __t) +
                     ');\n';
-
-            }
-            return __p
-        };
-
-        this["JST"]["escorna_turn_rig_definitions_include"] = function(obj) {
-            obj || (obj = {});
-            var __t, __p = '',
-                __e = _.escape;
-            with(obj) {
-                __p += '#include <escornabot.h>\n\nescornabot miRobot;\n';
 
             }
             return __p
@@ -9932,7 +10417,7 @@
          */
 
         Blockly.Arduino.escorna_drive_bac = function() {
-            Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_bac_definitions_include']({});
+            //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_bac_definitions_include']({});           
             //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
             var a = '';
             var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC) || '';
@@ -9995,7 +10480,7 @@
          */
 
         Blockly.Arduino.escorna_drive_for = function() {
-            Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_definitions_include']({});
+            //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_drive_for_definitions_include']({});           
 
             var a = '';
             var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC);
@@ -10255,7 +10740,7 @@
          */
 
         Blockly.Arduino.escorna_turn_lef = function() {
-            Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_turn_lef_definitions_include']({});
+            //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_turn_lef_definitions_include']({});           
             //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
             var a = '';
             var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC);
@@ -10318,7 +10803,7 @@
          */
 
         Blockly.Arduino.escorna_turn_rig = function() {
-            Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_turn_rig_definitions_include']({});
+            //Blockly.Arduino.definitions_['include_escornabot'] = JST['escorna_turn_rig_definitions_include']({});           
             //Blockly.Arduino.setups_['setups_evolution_move'] = JST['evolution_move_setups']({});
             var a = '';
             var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC);
