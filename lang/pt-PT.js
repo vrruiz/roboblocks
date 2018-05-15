@@ -436,7 +436,74 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
         LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.',  // To translate
+        LANG_CATEGORY_EVOLUTION: 'Evolution',
+		LANG_EVOLUTION_HOME: 'Inicio',
+		LANG_EVOLUTION_HOME_TOOLTIP: 'Pon variables de Evolution a cero',
+		LANG_EVOLUTION_STOP: 'Deter',
+    	LANG_EVOLUTION_STOP_TOOLTIP: 'Para o robot Evolution',
+		LANG_EVOLUTION_TURNHEAD: 'Mira cara a',
+		LANG_EVOLUTION_TURNHEAD_ROT: 'ROT', // Realmente funciona igual que ROT
+		LANG_EVOLUTION_TURNHEAD_TOOLTIP: 'Move a cabeza o lado que indiques',
+		LANG_EVOLUTION_MOVE: 'Mover cara a ',
+		LANG_EVOLUTION_FORDWARD: 'Mover cara diante',
+		LANG_EVOLUTION_FORDWARD_SPEED:'Velocidade',
+		LANG_EVOLUTION_RIGHT:    'DEREITA',
+		LANG_EVOLUTION_RIGHT_SPEED: 'Velocidade',
+		LANG_EVOLUTION_RIGHT_TOOLTIP: 'Xira a dereita con esta velocidade',
+		LANG_EVOLUTION_LEFT:     'ESQUERDA',
+		LANG_EVOLUTION_LEFT_SPEED: 'Velocidade',
+		LANG_EVOLUTION_LEFT_TOOLTIP: 'Xira a esquerda con esta velocidade',
+		LANG_EVOLUTION_FRONT:'ADIANTE',
+		LANG_EVOLUTION_BACK:'ATRÃS',
+		LANG_EVOLUTION_DELAY:'Durante (ms):',
+		LANG_EVOLUTION_GET_DISTANCE: 'Distancia',
+		LANG_EVOLUTION_GET_DISTANCE_TOOLTIP: 'Obten a distancia o obstaculo',
+		LANG_EVOLUTION_GET_LINE: 'Hai liña',
+		LANG_EVOLUTION_GET_LINE_SIDE: 'Lado',
+		LANG_EVOLUTION_GET_LINE_TOOLTIP: 'Indica se hai liña no lado indicado',
+		LANG_EVOLUTION_GET_LINE_COLOR:'de cor',
+		LANG_EVOLUTION_COLOR_WHITE:'BRANCO',
+		LANG_EVOLUTION_COLOR_BLACK:'NEGRO',
+		LANG_EVOLUTION_GET_LIGHT: 'Hai luz',
+		LANG_EVOLUTION_GET_LIGHT_INTENSITY:'con intensidade',
+		LANG_EVOLUTION_GET_LIGHT_SIDE: 'Lado',
+		LANG_EVOLUTION_GET_LIGHT_TOOLTIP: 'Indica se hai luz no lado especificado',
+		LANG_EVOLUTION_GET_LIGHT_HIGH:'MUITA',
+		LANG_EVOLUTION_GET_LIGHT_MEDIUM:'MEDIA',
+		LANG_EVOLUTION_GET_LIGHT_LOW:'POUCA',
+        LANG_EVOLUTION_SPEED:'con velocidade',
+        LANG_EVOLUTION_SPEED_FAST:'RAPIDA',
+        LANG_EVOLUTION_SPEED_MEDIUM:'MEDIA',
+        LANG_EVOLUTION_SPEED_LOW:'LENTA',
+        LANG_EVOLUTION_HEAD_RIGHT:'DEREITA',
+        LANG_EVOLUTION_HEAD_LEFT:'ESQUERDA',
+        LANG_EVOLUTION_HEAD_CENTER:'CENTRO',
+        LANG_EVOLUTION_HEAD_STATE:'Move a cabeza cara a:',
+        LANG_EVOLUTION_BUZZER_DURATION: 'DuraciÃ³n [ms]',
+        LANG_EVOLUTION_BUZZER_SILENCE: 'Silencio [ms]',
+
+		//escornabot blocks
+		LANG_CATEGORY_ESCORNABOT: 'Escornabot',
+		LANG_ESCORNABOT_SPEED:'Velocidade',
+		LANG_ESCORNABOT_TURNS:'Voltas',
+		LANG_ESCORNABOT_TURNS_LEFT:'Xira esquerda',
+		LANG_ESCORNABOT_TURNS_RIGHT:'Xira dereita',
+		LANG_ESCORNABOT_DRIVE_FORD:'Avanza',
+		LANG_ESCORNABOT_DRIVE_BACK:'Retrocede',
+		LANG_ESCORNABOT_DRIVE_TOOLTIP:'Move o escornabot adiante ou atrÃ¡s',
+		LANG_ESCORNABOT_HOME: 'Inicio',
+		LANG_ESCORNABOT_HOME_TOOLTIP:'Inicia o Escornabot',
+		LANG_ESCORNABOT_STOP:'Parar',
+		LANG_ESCORNABOT_STOP_TOOLTIP:'Para o Escornabot',
+		LANG_ESCORNABOT_TURN_TOOLTIP:'Xira o escornabot a dereita ou esquerda',
+		LANG_ESCORNABOT_LED_ON:'Acende o led',
+		LANG_ESCORNABOT_LED_OFF:'Apaga o led',
+		LANG_ESCORNABOT_LED_TOOLTIP:'Acende ou apaga o led indicado',
+		LANG_ESCORNABOT_BUZZER_OFF: 'Silencio',
+		LANG_ESCORNABOT_BUZZER_ON: 'Pitar'
+
+
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

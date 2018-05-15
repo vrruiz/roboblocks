@@ -1,0 +1,1 @@
+MFS.initSonar({{mode}};

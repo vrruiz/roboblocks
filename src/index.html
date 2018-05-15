@@ -12,8 +12,8 @@
         <block type="controls_setupLoop" deletable="false"></block>
     </xml>
     <div id="wrap">
-        <div id="blockly" style="float: left; width: 66%;"></div>
-        <div id="code" style="float: right; width: 34%;"></div>
+        <div id="blockly" style="float: left; width: 66%;"> Bloques</div>
+        <div id="code" style="float: right; width: 34%;"> Codigo</div>
     </div>
     <script src="javascript/jquery/dist/jquery.min.js"></script>
     <script src="javascript/underscore/underscore.js"></script>
@@ -25,7 +25,7 @@
     <script>
             if (window.roboblocksLanguage === undefined
                 || window.roboblocksLanguage == null) {
-                var roboblocksLanguage = 'en-GB';
+                var roboblocksLanguage = 'es-ES';
             }
 
             RoboBlocks.load({
@@ -55,10 +55,16 @@
                 RoboBlocks.LANG_COLOUR_COMMUNICATION,
                 RoboBlocks.LANG_COLOUR_ZUM,
                 RoboBlocks.LANG_COLOUR_BQ,
-                RoboBlocks.LANG_COLOUR_ADVANCED,
-                RoboBlocks.LANG_COLOUR_INTERRUPTS,
+                RoboBlocks.LANG_COLOUR_EVOLUTION,
+				RoboBlocks.LANG_COLOUR_ESCORNABOT,
+				RoboBlocks.LANG_COLOUR_MFS,				
+				RoboBlocks.LANG_COLOUR_ADVANCED,
+				RoboBlocks.LANG_COLOUR_INTERRUPTS,
                 RoboBlocks.LANG_COLOUR_LCD,
-                RoboBlocks.LANG_COLOUR_SERVO,
+                RoboBlocks.LANG_COLOUR_SERVO
+
+				
+				
             ];
             $('.blocklyTreeRow').each( function (i,e) {
                 $(e).prepend('<span class="treeLabelBlock" style="background-color:' + colors[i] + '"></span>');
