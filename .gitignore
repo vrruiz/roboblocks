@@ -8,12 +8,12 @@ bower_components
 *.sublime-workspace
 .idea/
 
+src/index.html
 src/bower_components/
 src/javascript/
 src/img/
 src/media/
 src/dist/
-src/roboblocks.js
-src/roboblocks.min.js
+
 
 dist/

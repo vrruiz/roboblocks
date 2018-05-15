@@ -1,0 +1,2 @@
+miRobot.init();
+
