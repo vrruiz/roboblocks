@@ -244,12 +244,14 @@ Blockly.Blocks.procedures_mutatorarg = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_PROCEDURES);
         this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_PROCEDURES_MUTATORARG_Field')).appendField(new Blockly.FieldDropdown([
-            ['Entero', 'int'],
-            ['Entero largo', 'long'],
-            ['Octeto', 'byte'],
-            ['Decimal', 'float'],
-            ['Carácter', 'char'],
-            ['Texto', 'String']
+            [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER'), 'int'],
+            [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_LONG'), 'long'],
+            [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_ULONG'), 'unsigned long'],
+            [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BYTE'), 'byte'],
+            [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_FLOAT'), 'float'],
+            [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_CHAR'), 'char'],
+            [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BOOLEAN'), 'boolean'],
+            [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_STRING'), 'String']
         ]), 'TYPE').appendField(new Blockly.FieldTextInput('x', Blockly.Blocks.procedures_mutatorarg.validator), 'NAME');
         this.setPreviousStatement(true);
         this.setNextStatement(true);
