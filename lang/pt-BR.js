@@ -64,15 +64,28 @@
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Imprime os dados como texto ASCII.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Imprimir pela porta série com salto de linha',
         LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP: 'Imprime os dados como texto ASCII e con retorno de carro (RC).',
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT: 'Prints value with format', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_1: 'Binary', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_2: 'Octal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_3: 'Decimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_4: 'Hexadecimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_5: 'Without decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_6: 'One decimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_7: 'Two decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_8: 'Three decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_9: 'Four decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_TOOLTIP: 'Prints value with specified format', //to translate
+        LANG_ADVANCED_SERIAL_PRINTLN_FORMAT: 'Send value with format and CR', //To translate
+        LANG_ADVANCED_SERIAL_PRINTLN_FORMAT_TOOLTIP: 'Send a number to serial port with specified format and carriage return (CR).', //To translate
         LANG_ADVANCED_SERIAL_READ: 'Ler a porta série',
         LANG_ADVANCED_SERIAL_READ_TOOLTIP: 'Lê os dados recebidos pela porta série como bytes.',
         LANG_ADVANCED_SERIAL_READSTRING: 'Ler seqüência a porta série',
         LANG_ADVANCED_SERIAL_READSTRING_TOOLTIP: 'Lê os dados recebidos pela porta série como texto ASCII.',
-        LANG_ADVANCED_SERIAL_SPECIAL: 'Caracteres especiais',
-        LANG_ADVANCED_SERIAL_SPECIAL_TAB: 'Tabulador',
-        LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN: 'Retorno de carro',
-        LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Salto de linha',
-        LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Escreve caracteres especiais.',
+        LANG_TEXT_SPECIAL: 'Caracteres especiais',
+        LANG_TEXT_SPECIAL_TAB: 'Tabulador',
+        LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Retorno de carro',
+        LANG_TEXT_SPECIAL_LINE_FEED: 'Salto de linha',
+        LANG_TEXT_SPECIAL_TOOLTIP: 'Escreve caracteres especiais.',
         //sensor blocks :
         LANG_CATEGORY_SENSOR: 'Sensores',
         LANG_BQ_BAT: 'BAT - Sensor de Ultrasons',
@@ -85,7 +98,16 @@
         //LCD blocks:
         LANG_CATEGORY_LCD: 'LCD bloqs',
         LANG_LCD_DEF: 'LCD (2x16)',
-        LANG_LCD_PINS: 'LCD Pins',
+        LANG_LCD_DEF_CONNECTION: 'Connection type',  //to translate
+        LANG_LCD_DEF_CONNECTION_PARALLEL: 'Parallel (6 pins)',  //to translate
+        LANG_LCD_DEF_CONNECTION_I2C: 'I2C (4 wires)',  //to translate
+        LANG_LCD_DEF_ADDRESS: 'Address of the component', //to translate
+        LANG_LCD_DEF_PIN_1: 'RS Pin',  //to translate
+        LANG_LCD_DEF_PIN_2: 'Enable Pin',  //to translate
+        LANG_LCD_DEF_PIN_3: 'Data4 Pin',  //to translate
+        LANG_LCD_DEF_PIN_4: 'Data5 Pin',  //to translate
+        LANG_LCD_DEF_PIN_5: 'Data6 Pin',  //to translate
+        LANG_LCD_DEF_PIN_6: 'Data7 Pin',  //to translate
         LANG_LCD_DEF_TOOLTIP: 'Define o LCD',
         LANG_LCD_ADVANCED_DEF: 'LCD avançado',
         LANG_LCD_ADVANCED_ROWS: 'Linhas',
@@ -140,10 +162,12 @@
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Adiciona uma condição final ao bloco "se" para capturar o resto das opções.',
         LANG_CONTROLS_FOR_FROM_WARNING: 'Não é possível definir uma variável como o valor inicial do bloco.',
         LANG_CONTROLS_FOR_TO_WARNING: 'Não é possível definir uma variável como o valor inicial do bloco.',
+        LANG_CONTROLS_FOR_INCREMENT_WARNING:'It is not possible to set a variable as the increment value of the for block', //to translate
         LANG_CONTROLS_FOR_INPUT_WITH: 'Contar com',
         LANG_CONTROLS_FOR_INPUT_VAR: 'x',
         LANG_CONTROLS_FOR_INPUT_FROM: 'desde',
         LANG_CONTROLS_FOR_INPUT_TO: 'até',
+        LANG_CONTROLS_FOR_INPUT_INCREMENT: 'increment', //to translate
         LANG_CONTROLS_FOR_INPUT_DO: 'executar',
         LANG_CONTROLS_FOR_TOOLTIP: 'Contar desde de início até ao final. Cada vez que se incrementa o valor, a variável fica com esse valor e são executadas as ações.',
         LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE: 'enquanto',
@@ -247,15 +271,16 @@
         LANG_TEXT_SUBSTRING_FROM: 'de',
         LANG_TEXT_SUBSTRING_TO: 'até',
         LANG_TEXT_SUBSTRING_TOOLTIP: 'Recorta os caracteres do texto introduzido que se encontrem entre os dois índices e cria com eles um novo texto.',
+        LANG_TEXT_CHARAT: 'Character of text', //To translate
+        LANG_TEXT_CHARAT_POSITION: 'in position', //To translate
+        LANG_TEXT_CHARAT_TOOLTIP: 'Returns character in the position of the text (beginning with 0).', //To translate
+        LANG_TEXT_SPECIAL: 'Caracteres especiais',
+        LANG_TEXT_SPECIAL_TAB: 'Tabulador',
+        LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Retorno de carro',
+        LANG_TEXT_SPECIAL_LINE_FEED: 'Salto de linha',
+        LANG_TEXT_SPECIAL_TOOLTIP: 'Escreve caracteres especiais.',
         //advanced blocks :
         LANG_CATEGORY_ADVANCED: 'Funções PIN',
-        LANG_ADVANCED_CONVERSION_CONVERT: 'Converter',
-        LANG_ADVANCED_CONVERSION_DECIMAL: 'Decimal',
-        LANG_ADVANCED_CONVERSION_HEXADECIMAL: 'Hexadecimal',
-        LANG_ADVANCED_CONVERSION_OCTAL: 'Octal',
-        LANG_ADVANCED_CONVERSION_BINARY: 'Binário',
-        LANG_ADVANCED_CONVERSION_VALUE: 'valor',
-        LANG_ADVANCED_CONVERSION_TOOLTIP: 'Converter a base de um número.',
         LANG_ADVANCED_INOUT_ANALOG_READ: 'Ler o pino analógico PIN#',
         LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP: 'Lê o valor de um pino analógico específico.',
         LANG_ADVANCED_INOUT_ANALOG_WRITE: 'Escrever no pino analógico PIN#',
@@ -339,8 +364,10 @@
         LANG_VARIABLES_TYPE_FLOAT: 'Float',  // To translate
         LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
         LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
+        LANG_VARIABLES_TYPE_INTEGER_ULONG: 'Unsigned Long Integer', //To translate
         LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
         LANG_VARIABLES_TYPE_CHAR: 'Character', //to translate
+        LANG_VARIABLES_TYPE_BOOLEAN: 'Boolean', //to translate
         LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',  // To translate
@@ -408,7 +435,44 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
         LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.',  // To translate
+        LANG_WIFI_CONNECT: 'Wifi:', //To translate
+        LANG_WIFI_CONNECT_STATION: 'connect', //To translate
+        LANG_WIFI_CONNECT_SOFTAP: 'create network', //To translate
+        LANG_WIFI_CONNECT_SSID: 'SSID', //To translate
+        LANG_WIFI_CONNECT_PASSWORD: 'password', //To translate
+        LANG_WIFI_CONNECT_CHANNEL: 'channel', //To translate
+        LANG_WIFI_CONNECT_RX_PIN: 'Rx pin', //To translate
+        LANG_WIFI_CONNECT_TX_PIN: 'Tx pin', //To translate
+        LANG_WIFI_CONNECT_BAUD: 'baud rate', //To translate
+        LANG_WIFI_CONNECT_TOOLTIP: 'Connects or creates a wifi using a ESP8266 adapter, and returns true on success.', //To translate
+        LANG_WIFI_DISCONNECT: 'Wifi:disconnect', //To translate
+        LANG_WIFI_DISCONNECT_TOOLTIP: 'Disconnects from the current wifi network.', //To translate
+        LANG_WIFI_CLIENT: 'Wifi:connect to server', //To translate
+        LANG_WIFI_CLIENT_IP: 'IP address', //To translate
+        LANG_WIFI_CLIENT_PORT: 'Port', //To translate
+        LANG_WIFI_CLIENT_TOOLTIP: 'Connects to a TCP server.', //To translate
+        LANG_WIFI_SERVER: 'Wifi:start server', //To translate
+        LANG_WIFI_SERVER_PORT: 'Port', //To translate
+        LANG_WIFI_SERVER_TOOLTIP: 'Create a TCP server to accept connections from clients.', //To translate
+        LANG_WIFI_GETIP: 'Wifi:get IP address', //To translate
+        LANG_WIFI_GETIP_TOOLTIP: 'Returns IP address of the adapter.', //To translate
+        LANG_WIFI_SEND_SERVER: 'Wifi:send to server', //To translate
+        LANG_WIFI_SEND_SERVER_DATA: 'Text', //To translate
+        LANG_WIFI_SEND_SERVER_TOOLTIP: 'Send text to the TCP server.', //To translate
+        LANG_WIFI_SEND_CLIENT: 'Wifi:send to client', //To translate
+        LANG_WIFI_SEND_CLIENT_ID: 'ID', //To translate
+        LANG_WIFI_SEND_CLIENT_DATA: 'Data', //To translate
+        LANG_WIFI_SEND_CLIENT_TOOLTIP: 'Send text to specified client (ID).', //To translate
+        LANG_WIFI_RECEIVE_CLIENT: 'Wifi:receive from client', //To translate
+        LANG_WIFI_RECEIVE_CLIENT_TOOLTIP: 'Receives a text from client, begining with id number and a colon (:). If timeout is reached, returns an empty string.', //To translate
+        LANG_WIFI_RECEIVE_SERVER: 'Wifi:receive from server', //To translate
+        LANG_WIFI_RECEIVE_SERVER_TIMEOUT: 'Timeout', //To translate
+        LANG_WIFI_RECEIVE_SERVER_TOOLTIP: 'Receives a string from TCP server or empty string if timeout reached.', //To translate
+        LANG_WIFI_CLOSE_SERVER: 'Wifi:stop server', //To translate
+        LANG_WIFI_CLOSE_SERVER_TOOLTIP: 'Shutdown TCP server.', //To translate
+        LANG_WIFI_CLOSE_CLIENT: 'Wifi:stop connection', //To translate
+        LANG_WIFI_CLOSE_CLIENT_TOOLTIP: 'Shutdown connection with TCP server.' //To translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

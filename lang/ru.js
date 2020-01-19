@@ -64,15 +64,23 @@
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Отправляет данные в последовательный порт в кодировке ASCII.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Отправляет данные в последовательный порт одной строкой',
         LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP: 'Отправляет данные в последовательный порт в кодировке ASCII, заканчивая посылку кодом перевода строки.',
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT: 'Prints value with format', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_1: 'Binary', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_2: 'Octal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_3: 'Decimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_4: 'Hexadecimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_5: 'Without decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_6: 'One decimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_7: 'Two decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_8: 'Three decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_9: 'Four decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_TOOLTIP: 'Prints value with specified format', //to translate
+        LANG_ADVANCED_SERIAL_PRINTLN_FORMAT: 'Send value with format and CR', //To translate
+        LANG_ADVANCED_SERIAL_PRINTLN_FORMAT_TOOLTIP: 'Send a number to serial port with specified format and carriage return (CR).', //To translate
         LANG_ADVANCED_SERIAL_READ: 'Читать последовательный порт',
         LANG_ADVANCED_SERIAL_READ_TOOLTIP: 'Прочитать данные, полученные через последовательный порт, как байт.',
         LANG_ADVANCED_SERIAL_READSTRING: 'Читать строку символов из последовательного порта',
         LANG_ADVANCED_SERIAL_READSTRING_TOOLTIP: 'Прочитать данные, полученные через последовательный порт в виде текста ASCII.',
-        LANG_ADVANCED_SERIAL_SPECIAL: 'Специальные символы ',
-        LANG_ADVANCED_SERIAL_SPECIAL_TAB: 'Табулятор',
-        LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN: 'Возврат каретки',
-        LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Линия',
-        LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Написать специальные символы.',
         //sensor blocks:
         LANG_CATEGORY_SENSOR: 'датчиков',
         LANG_BQ_BAT: 'BAT - ультразвуковой датчик',
@@ -85,7 +93,16 @@
         // ЖК блоки:
         LANG_CATEGORY_LCD: 'Блоки ЖК',
         LANG_LCD_DEF: 'ЖК-дисплей (2x16) ',
-        LANG_LCD_PINS: 'LCD Pins',
+        LANG_LCD_DEF_CONNECTION: 'Connection type',  //to translate
+        LANG_LCD_DEF_CONNECTION_PARALLEL: 'Parallel (6 pins)',  //to translate
+        LANG_LCD_DEF_CONNECTION_I2C: 'I2C (4 wires)',  //to translate
+        LANG_LCD_DEF_ADDRESS: 'Address of the component', //to translate
+        LANG_LCD_DEF_PIN_1: 'RS Pin',  //to translate
+        LANG_LCD_DEF_PIN_2: 'Enable Pin',  //to translate
+        LANG_LCD_DEF_PIN_3: 'Data4 Pin',  //to translate
+        LANG_LCD_DEF_PIN_4: 'Data5 Pin',  //to translate
+        LANG_LCD_DEF_PIN_5: 'Data6 Pin',  //to translate
+        LANG_LCD_DEF_PIN_6: 'Data7 Pin',  //to translate
         LANG_LCD_DEF_TOOLTIP: 'Установка ЖК',
         LANG_LCD_ADVANCED_DEF: 'расширенный ЖК ',
         LANG_LCD_ADVANCED_ROWS: 'Линии',
@@ -140,10 +157,12 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Добавляет окончательное состояние блока, если соответствует  остальная часть параметров',
         LANG_CONTROLS_FOR_FROM_WARNING: 'Вы не можете установить переменную в качестве начального значения блока.',
         LANG_CONTROLS_FOR_TO_WARNING: 'Вы не можете установить переменную в начальное значение блока.',
+        LANG_CONTROLS_FOR_INCREMENT_WARNING:'It is not possible to set a variable as the increment value of the for block', //to translate
         LANG_CONTROLS_FOR_INPUT_WITH: 'Введите значение ',
         LANG_CONTROLS_FOR_INPUT_VAR: 'х',
         LANG_CONTROLS_FOR_INPUT_FROM: 'от',
         LANG_CONTROLS_FOR_INPUT_TO: 'до ',
+        LANG_CONTROLS_FOR_INPUT_INCREMENT: 'increment', //to translate
         LANG_CONTROLS_FOR_INPUT_DO: 'Выполнить',
         LANG_CONTROLS_FOR_TOOLTIP: 'Считая от начала до конца. Каждый раз, когда вы увеличить значение, переменная получает это значение и действия выполняются.',
         LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE: 'пока',
@@ -247,15 +266,16 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_TEXT_SUBSTRING_FROM: 'из',
         LANG_TEXT_SUBSTRING_TO: 'до',
         LANG_TEXT_SUBSTRING_TOOLTIP: 'Вырезает текстовые символы из указанных позиций начала и конца,  и создает с ними новый текст.',
+        LANG_TEXT_CHARAT: 'Character of text', //To translate
+        LANG_TEXT_CHARAT_POSITION: 'in position', //To translate
+        LANG_TEXT_CHARAT_TOOLTIP: 'Returns character in the position of the text (beginning with 0).', //To translate
+        LANG_TEXT_SPECIAL: 'Специальные символы ',
+        LANG_TEXT_SPECIAL_TAB: 'Табулятор',
+        LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Возврат каретки',
+        LANG_TEXT_SPECIAL_LINE_FEED: 'Линия',
+        LANG_TEXT_SPECIAL_TOOLTIP: 'Написать специальные символы.',
         // Расширенные блоки:
         LANG_CATEGORY_ADVANCED: 'Функции портов',
-        LANG_ADVANCED_CONVERSION_CONVERT: 'Конвертировать',
-        LANG_ADVANCED_CONVERSION_DECIMAL: 'Десятичные ',
-        LANG_ADVANCED_CONVERSION_HEXADECIMAL: 'Шеснадцатиричные',
-        LANG_ADVANCED_CONVERSION_OCTAL: 'Восьмеричные',
-        LANG_ADVANCED_CONVERSION_BINARY: 'Двоичные',
-        LANG_ADVANCED_CONVERSION_VALUE: 'значение',
-        LANG_ADVANCED_CONVERSION_TOOLTIP: 'Преобразование в число по основанию.',
         LANG_ADVANCED_INOUT_ANALOG_READ: 'Читать значение аналогового PIN # ',
         LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP: 'Читает значение заданного аналогового входа.',
         LANG_ADVANCED_INOUT_ANALOG_WRITE: 'Писать значение в аналоговый PIN #',
@@ -339,8 +359,10 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_VARIABLES_TYPE_FLOAT: 'Float',  // To translate
         LANG_VARIABLES_TYPE_INTEGER: 'Integer',  // To translate
         LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer',  // To translate
+        LANG_VARIABLES_TYPE_INTEGER_ULONG: 'Unsigned Long Integer', //To translate
         LANG_VARIABLES_TYPE_STRING: 'String',  // To translate
         LANG_VARIABLES_TYPE_CHAR: 'Character', //to translate
+        LANG_VARIABLES_TYPE_BOOLEAN: 'Boolean', //to translate
         LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',  // To translate
@@ -408,7 +430,44 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
         LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.',  // To translate
+        LANG_WIFI_CONNECT: 'Wifi:', //To translate
+        LANG_WIFI_CONNECT_STATION: 'connect', //To translate
+        LANG_WIFI_CONNECT_SOFTAP: 'create network', //To translate
+        LANG_WIFI_CONNECT_SSID: 'SSID', //To translate
+        LANG_WIFI_CONNECT_PASSWORD: 'password', //To translate
+        LANG_WIFI_CONNECT_CHANNEL: 'channel', //To translate
+        LANG_WIFI_CONNECT_RX_PIN: 'Rx pin', //To translate
+        LANG_WIFI_CONNECT_TX_PIN: 'Tx pin', //To translate
+        LANG_WIFI_CONNECT_BAUD: 'baud rate', //To translate
+        LANG_WIFI_CONNECT_TOOLTIP: 'Connects or creates a wifi using a ESP8266 adapter, and returns true on success.', //To translate
+        LANG_WIFI_DISCONNECT: 'Wifi:disconnect', //To translate
+        LANG_WIFI_DISCONNECT_TOOLTIP: 'Disconnects from the current wifi network.', //To translate
+        LANG_WIFI_CLIENT: 'Wifi:connect to server', //To translate
+        LANG_WIFI_CLIENT_IP: 'IP address', //To translate
+        LANG_WIFI_CLIENT_PORT: 'Port', //To translate
+        LANG_WIFI_CLIENT_TOOLTIP: 'Connects to a TCP server.', //To translate
+        LANG_WIFI_SERVER: 'Wifi:start server', //To translate
+        LANG_WIFI_SERVER_PORT: 'Port', //To translate
+        LANG_WIFI_SERVER_TOOLTIP: 'Create a TCP server to accept connections from clients.', //To translate
+        LANG_WIFI_GETIP: 'Wifi:get IP address', //To translate
+        LANG_WIFI_GETIP_TOOLTIP: 'Returns IP address of the adapter.', //To translate
+        LANG_WIFI_SEND_SERVER: 'Wifi:send to server', //To translate
+        LANG_WIFI_SEND_SERVER_DATA: 'Text', //To translate
+        LANG_WIFI_SEND_SERVER_TOOLTIP: 'Send text to the TCP server.', //To translate
+        LANG_WIFI_SEND_CLIENT: 'Wifi:send to client', //To translate
+        LANG_WIFI_SEND_CLIENT_ID: 'ID', //To translate
+        LANG_WIFI_SEND_CLIENT_DATA: 'Data', //To translate
+        LANG_WIFI_SEND_CLIENT_TOOLTIP: 'Send text to specified client (ID).', //To translate
+        LANG_WIFI_RECEIVE_CLIENT: 'Wifi:receive from client', //To translate
+        LANG_WIFI_RECEIVE_CLIENT_TOOLTIP: 'Receives a text from client, begining with id number and a colon (:). If timeout is reached, returns an empty string.', //To translate
+        LANG_WIFI_RECEIVE_SERVER: 'Wifi:receive from server', //To translate
+        LANG_WIFI_RECEIVE_SERVER_TIMEOUT: 'Timeout', //To translate
+        LANG_WIFI_RECEIVE_SERVER_TOOLTIP: 'Receives a string from TCP server or empty string if timeout reached.', //To translate
+        LANG_WIFI_CLOSE_SERVER: 'Wifi:stop server', //To translate
+        LANG_WIFI_CLOSE_SERVER_TOOLTIP: 'Shutdown TCP server.', //To translate
+        LANG_WIFI_CLOSE_CLIENT: 'Wifi:stop connection', //To translate
+        LANG_WIFI_CLOSE_CLIENT_TOOLTIP: 'Shutdown connection with TCP server.' //To translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {
