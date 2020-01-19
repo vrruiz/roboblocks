@@ -1,7 +1,7 @@
 lcd_def
 ===========
 
-LCD definition.
+LCD definition with parallel or I2C connection.
 
 Parameters
 ----------
