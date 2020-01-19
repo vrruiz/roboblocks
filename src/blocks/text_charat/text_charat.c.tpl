@@ -1,0 +1,1 @@
+{{string1}}.charAt({{position}})
