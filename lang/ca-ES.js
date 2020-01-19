@@ -274,6 +274,8 @@
         LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Retorn de carro',
         LANG_TEXT_SPECIAL_LINE_FEED: 'Salt de línia',
         LANG_TEXT_SPECIAL_TOOLTIP: 'Escriu caràcters especials.',
+        LANG_TEXT_COMMENT: 'Comment', //to translate
+        LANG_TEXT_COMMENT_TOOLTIP: 'Inserts a comment of one line in the program.', //to translate
         //advanced blocks :
         LANG_CATEGORY_ADVANCED: 'Funcions PIN',
         LANG_ADVANCED_CONVERSION_CONVERT: 'Converteix',

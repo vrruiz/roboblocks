@@ -274,6 +274,8 @@ LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program sta
         LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Возврат каретки',
         LANG_TEXT_SPECIAL_LINE_FEED: 'Линия',
         LANG_TEXT_SPECIAL_TOOLTIP: 'Написать специальные символы.',
+        LANG_TEXT_COMMENT: 'Comment', //to translate
+        LANG_TEXT_COMMENT_TOOLTIP: 'Inserts a comment of one line in the program.', //to translate
         // Расширенные блоки:
         LANG_CATEGORY_ADVANCED: 'Функции портов',
         LANG_ADVANCED_INOUT_ANALOG_READ: 'Читать значение аналогового PIN # ',

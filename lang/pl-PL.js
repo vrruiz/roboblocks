@@ -272,6 +272,8 @@
         LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Znak powrotu karetki (CR)',
         LANG_TEXT_SPECIAL_LINE_FEED: 'Znak następnej linii (LF)',
         LANG_TEXT_SPECIAL_TOOLTIP: 'Wpisuje znaki specjalne.',
+        LANG_TEXT_COMMENT: 'Comment', //to translate
+        LANG_TEXT_COMMENT_TOOLTIP: 'Inserts a comment of one line in the program.', //to translate
         //bloki zaawansowane:
         LANG_CATEGORY_ADVANCED: 'Funkcje portów',
         LANG_ADVANCED_INOUT_ANALOG_READ: 'Odczyt analogowy PIN#',

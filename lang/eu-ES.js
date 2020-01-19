@@ -274,6 +274,8 @@
         LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Orga-itzulera',
         LANG_TEXT_SPECIAL_LINE_FEED: 'Lerro-jauzia',
         LANG_TEXT_SPECIAL_TOOLTIP: 'Karaktere bereziak idatzi.',
+        LANG_TEXT_COMMENT: 'Comment', //to translate
+        LANG_TEXT_COMMENT_TOOLTIP: 'Inserts a comment of one line in the program.', //to translate
         //advanced blocks :
         LANG_CATEGORY_ADVANCED: 'PIN Funtzioak',
         LANG_ADVANCED_INOUT_ANALOG_READ: 'PIN# pin analogikoa irakurri',

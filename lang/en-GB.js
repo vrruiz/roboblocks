@@ -274,6 +274,8 @@
         LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Carriage Return',
         LANG_TEXT_SPECIAL_LINE_FEED: 'Line Feed',
         LANG_TEXT_SPECIAL_TOOLTIP: 'Writes special Chars.',
+        LANG_TEXT_COMMENT: 'Comment',
+        LANG_TEXT_COMMENT_TOOLTIP: 'Inserts a comment of one line in the program.',
         //advanced blocks :
         LANG_CATEGORY_ADVANCED: 'Pin functions',
         LANG_ADVANCED_INOUT_ANALOG_READ: 'AnalogRead PIN#',

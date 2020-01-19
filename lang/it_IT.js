@@ -274,6 +274,8 @@
         LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Ritorno a capo',
         LANG_TEXT_SPECIAL_LINE_FEED: 'Avanzamento riga',
         LANG_TEXT_SPECIAL_TOOLTIP: 'Scrive caratt. speciali',
+        LANG_TEXT_COMMENT: 'Comment', //to translate
+        LANG_TEXT_COMMENT_TOOLTIP: 'Inserts a comment of one line in the program.', //to translate
         //advanced blocks :
         LANG_CATEGORY_ADVANCED: 'Funzioni Pin',
         LANG_ADVANCED_INOUT_ANALOG_READ: 'Lettura Analogica PIN#',

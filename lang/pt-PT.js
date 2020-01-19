@@ -274,6 +274,8 @@
         LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Retorno de carro',
         LANG_TEXT_SPECIAL_LINE_FEED: 'Salto de linha',
         LANG_TEXT_SPECIAL_TOOLTIP: 'Escreve caracteres especiais.',
+        LANG_TEXT_COMMENT: 'Comment', //to translate
+        LANG_TEXT_COMMENT_TOOLTIP: 'Inserts a comment of one line in the program.', //to translate
         //advanced blocks :
         LANG_CATEGORY_ADVANCED: 'Funções PIN',
         LANG_ADVANCED_INOUT_ANALOG_READ: 'Ler o pino analógico PIN#',

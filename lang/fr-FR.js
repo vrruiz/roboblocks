@@ -274,6 +274,8 @@
         LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Retour chariot',
         LANG_TEXT_SPECIAL_LINE_FEED: 'Saut de ligne',
         LANG_TEXT_SPECIAL_TOOLTIP: 'Utilise des caractères spéciaux.',
+        LANG_TEXT_COMMENT: 'Comment', //to translate
+        LANG_TEXT_COMMENT_TOOLTIP: 'Inserts a comment of one line in the program.', //to translate
         //advanced blocks :
         LANG_CATEGORY_ADVANCED: 'Fonctions broche',
         LANG_ADVANCED_INOUT_ANALOG_READ: 'Lire broche analogique#',
