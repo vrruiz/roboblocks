@@ -1,0 +1,1 @@
+dht_{{dropdown_pin}}.read{{value_type}}()
