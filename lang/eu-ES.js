@@ -306,6 +306,8 @@
         LANG_ADVANCED_MATH_RANDOM: 'Ausaz hauen artean',
         LANG_ADVANCED_MATH_RANDOM_AND: ' eta ',
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Zehaztutako bi mugen artean ausazko zenbaki bat sortzen du.',
+        LANG_ADVANCED_MATH_RANDOM_SEED: 'Set random seed to', //to translate
+        LANG_ADVANCED_MATH_RANDOM_SEED_TOOLTIP: 'Sets seed for random number generator. For a random seed, read from an unconnected analog pin; to repeat the same sequence, use a fixed number.', //to translate
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funtzioak',
         LANG_PROCEDURES_RETURN: 'itzuli',
@@ -387,6 +389,11 @@
         LANG_ZUM_PIEZO_BUZZERAV_TONE: 'TONUA',
         LANG_ZUM_PIEZO_BUZZERAV_DURATION: 'Iraupena [ms]',
         LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP: 'Burrunbagailu piezoelektriko aurreratua.',
+        LANG_ZUM_DHT11_VALUE: 'Get', //to translate
+        LANG_ZUM_DHT11_VALUE1: 'Temperature', //to translate
+        LANG_ZUM_DHT11_VALUE2: 'Humidity', //to translate
+        LANG_ZUM_DHT11_PIN: 'PIN', //to translate
+        LANG_ZUM_DHT11_TOOLTIP: 'Get temperature or humidity from a DHT11, DHT21 or DHT22 sensor.', //to translate
         //motor blocks (servo and stepper):
         LANG_CATEGORY_MOTOR: 'Motors', //to translate
         LANG_MOTOR_SERVO_CONT: 'Errotazio jarraiko serboa',

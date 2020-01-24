@@ -306,6 +306,8 @@
         LANG_ADVANCED_MATH_RANDOM: 'Aleatorio entre',
         LANG_ADVANCED_MATH_RANDOM_AND: ' y ',
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Crea un número aleatorio entre los dos límites introducidos.',
+        LANG_ADVANCED_MATH_RANDOM_SEED: 'Establece semilla aleatorios a',
+        LANG_ADVANCED_MATH_RANDOM_SEED_TOOLTIP: 'Establece la semilla del generador de números aleatorios. Para una semilla aleatoria, leer de un pin analógico no conectado; para repetir la misma secuencia, usar un valor fijo.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funciones',
         LANG_PROCEDURES_RETURN: 'devuelve',
@@ -388,6 +390,11 @@
         LANG_ZUM_PIEZO_BUZZERAV_TONE: 'TONO',
         LANG_ZUM_PIEZO_BUZZERAV_DURATION: 'Duración [ms]',
         LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP: 'Zumbador piezoeléctrico avanzado.',
+        LANG_ZUM_DHT11_VALUE: 'Obtener',
+        LANG_ZUM_DHT11_VALUE1: 'Temperatura',
+        LANG_ZUM_DHT11_VALUE2: 'Humedad',
+        LANG_ZUM_DHT11_PIN: 'PIN',
+        LANG_ZUM_DHT11_TOOLTIP: 'Obtiene el valor de temperatura o humedad de un sensor DHT11, DHT21 o DHT22.',
         //motor blocks (servo and stepper):
         LANG_CATEGORY_MOTOR: 'Motores',
         LANG_MOTOR_SERVO_CONT: 'Servo rotación continua',

@@ -306,6 +306,8 @@
         LANG_ADVANCED_MATH_RANDOM: 'Random between',
         LANG_ADVANCED_MATH_RANDOM_AND: ' and ',
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Returns a random number between the two limits.',
+        LANG_ADVANCED_MATH_RANDOM_SEED: 'Set random seed to',
+        LANG_ADVANCED_MATH_RANDOM_SEED_TOOLTIP: 'Sets seed for random number generator. For a random seed, read from an unconnected analog pin; to repeat the same sequence, use a fixed number.',
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Functions',
         LANG_PROCEDURES_RETURN: 'return',
@@ -388,6 +390,11 @@
         LANG_ZUM_PIEZO_BUZZERAV_TONE: 'TONE',
         LANG_ZUM_PIEZO_BUZZERAV_DURATION: 'Duration [ms]',
         LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP: 'Piezo Buzzer Advanced',
+        LANG_ZUM_DHT11_VALUE: 'Get',
+        LANG_ZUM_DHT11_VALUE1: 'Temperature',
+        LANG_ZUM_DHT11_VALUE2: 'Humidity',
+        LANG_ZUM_DHT11_PIN: 'PIN',
+        LANG_ZUM_DHT11_TOOLTIP: 'Get temperature or humidity from a DHT11, DHT21 or DHT22 sensor.',
         //motor blocks (servo and stepper):
         LANG_CATEGORY_MOTOR: 'Motors',
         LANG_MOTOR_SERVO_CONT: 'Continuous rotation servo',
