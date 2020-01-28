@@ -75,27 +75,33 @@ Blockly.Blocks.wifi_connect = {
         ]), 'CONN_TYPE');
         this.appendValueInput('SSID',String).setCheck(String).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_SSID')).setAlign(Blockly.ALIGN_RIGHT);
         this.appendValueInput('PASSWORD',String).setCheck(String).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_PASSWORD')).setAlign(Blockly.ALIGN_RIGHT);
-        this.appendValueInput('CHANNEL').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_CHANNEL')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
         this.appendValueInput('RX_PIN').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_RX_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
         this.appendValueInput('TX_PIN').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_TX_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
         this.appendValueInput('BAUD').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_BAUD')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
-        this.check_conn_type();
         this.last_conn_type = this.getFieldValue('CONN_TYPE');
+        this.check_conn_type();
         this.setInputsInline(false);
         this.setOutput(true, Boolean);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_TOOLTIP'));
     },
     check_conn_type: function() {
-        if (this.getFieldValue('CONN_TYPE') === '1') {
-            try {
-                this.removeInput('CHANNEL');
-            } catch (e) {}
+        if (this.getInput('CHANNEL')) {
+            this.removeInput('CHANNEL');
+        }
+        if (this.getInput('RX_PIN')) {
+            this.removeInput('RX_PIN');
+        }
+        if (this.getInput('TX_PIN')) {
+            this.removeInput('TX_PIN');
+        }
+        if (this.getInput('BAUD')) {
+            this.removeInput('BAUD');
+        }
+        if (this.last_conn_type === '1') {
+            this.appendValueInput('RX_PIN').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_RX_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+            this.appendValueInput('TX_PIN').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_TX_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+            this.appendValueInput('BAUD').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_BAUD')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
         } else {
-            try {
-                this.removeInput('RX_PIN');
-                this.removeInput('TX_PIN');
-                this.removeInput('BAUD');
-            } catch (e) {}
             this.appendValueInput('CHANNEL').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_CHANNEL')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
             this.appendValueInput('RX_PIN').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_RX_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
             this.appendValueInput('TX_PIN').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_WIFI_CONNECT_TX_PIN')).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
@@ -107,5 +113,17 @@ Blockly.Blocks.wifi_connect = {
             this.check_conn_type();
             this.last_conn_type = this.getFieldValue('CONN_TYPE');
         }
+    },
+    mutationToDom: function () {
+        var container = document.createElement('mutation');
+        container.setAttribute('connection_type', this.last_conn_type);
+        return container;
+    },
+    domToMutation: function (xmlElement) {
+        var connectionType = xmlElement.getAttribute('connection_type');
+        if(connectionType && connectionType !== 'undefined') {
+            this.last_conn_type = connectionType;
+        }
+        this.check_conn_type();
     }
 };
