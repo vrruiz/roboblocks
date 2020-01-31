@@ -422,9 +422,7 @@
         LANG_MOTOR_STEPPER_MOVE_STEP_NEXT: '(steps)', //to translate
         LANG_MOTOR_STEPPER_MOVE_TOOLTIP: 'Moves motor the number of steps. A positive steps value move in one direction, a negative value moves to the other direction.', //to translate
         LANG_MOTOR_PCA9685_DEF: 'PCA9685', //to translate
-        LANG_MOTOR_PCA9685_DEF_FREQ: 'Servo: Frequency', //to translate
-        LANG_MOTOR_PCA9685_DEF_MIN: 'Min.', //to translate
-        LANG_MOTOR_PCA9685_DEF_MAX: 'Max.', //to translate
+        LANG_MOTOR_PCA9685_DEF_SERVO: 'Servo', //to translate
         LANG_MOTOR_PCA9685_DEF_ADDRESS: 'Address of the component', //to translate
         LANG_MOTOR_PCA9685_DEF_TOOLTIP: 'Defines a PCA9685 connected to Arduino over I2C.', //to translate
         LANG_MOTOR_PCA9685_SET_PWM: 'PCA9685 Move servo', //to translate
