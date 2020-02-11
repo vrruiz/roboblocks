@@ -112,6 +112,10 @@
         LANG_LCD_SETBACKLIGHT_CLOSE: ')',
         LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Définit le rétroéclairage de l’écran LCD.',
         LANG_LCD_PRINT: 'LCD : imprimer ',
+        LANG_LCD_PRINT_TEXT: 'Text or value', //to translate
+        LANG_LCD_PRINT_SPECIAL: 'Defined character', //to translate
+        LANG_LCD_PRINT_ROW: 'Row', //to translate
+        LANG_LCD_PRINT_COL: 'Col', //to translate
         LANG_LCD_PRINT_POSITION: 'Définir la position du texte ?',
         LANG_LCD_PRINT_TOOLTIP: 'Affiche une chaîne de caractères sur l’écran LCD à l’endroit défini ou au prochain endroit disponible.',
         LANG_LCD_CLEAR: 'LCD : effacer',
@@ -126,6 +130,17 @@
         LANG_LCD_SCROLLDISPLAYLEFT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the left', //to translate
         LANG_LCD_SCROLLDISPLAYRIGHT: 'LCD Scrolls to the right', //to translate
         LANG_LCD_SCROLLDISPLAYRIGHT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the right', //to translate
+        LANG_LCD_CREATECHAR: 'LCD Create character in index', //to translate
+        LANG_LCD_CREATECHAR_ROW1: 'Row 1', //to translate
+        LANG_LCD_CREATECHAR_ROW2: 'Row 2', //to translate
+        LANG_LCD_CREATECHAR_ROW3: 'Row 3', //to translate
+        LANG_LCD_CREATECHAR_ROW4: 'Row 4', //to translate
+        LANG_LCD_CREATECHAR_ROW5: 'Row 5', //to translate
+        LANG_LCD_CREATECHAR_ROW6: 'Row 6', //to translate
+        LANG_LCD_CREATECHAR_ROW7: 'Row 7', //to translate
+        LANG_LCD_CREATECHAR_ROW8: 'Row 8', //to translate
+        LANG_LCD_CREATECHAR_LENGTH: 'Each row must have five values, zero or one.', //to translate
+        LANG_LCD_CREATECHAR_TOOLTIP: 'Creates a special char for LCD and stores it in the specified index.', //to translate
         //controls blocks :
         LANG_CATEGORY_CONTROLS: 'Contrôle',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Attendre (ms)',
