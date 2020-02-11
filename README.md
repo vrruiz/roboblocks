@@ -13,9 +13,9 @@ The main aim of this branch of Roboblocks is to have blocks for Visualino more a
 
 * Aditional data types, including `char`, `long int`, `unsigned long int` and `boolean`, for variable definitions and return values in functions.
 
-* Modifications in some blocks: for loop with user defined increment, LCD definition to support I2C connections and a more firendly definition for Serial.print() functions (using words like "send" instead of "print").
+* Modifications in some blocks: for loop with user defined increment, LCD definition to support I2C connections and a more firendly definition for `Serial.print()` functions (using words like "send" instead of "print").
 
-* Blocks for extended features: stepper motors, IR devices, ESP8266 Wifi connections, DHT11 sensors and more.
+* Blocks for extended features: LCD `createChar`, stepper motors, IR devices, ESP8266 Wifi connections, DHT11 sensors, PCA9685 and more.
 
 * Aditional blocks for controlling time: `delay_us`, `millis` and `micros`.
 
