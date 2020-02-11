@@ -1,0 +1,1 @@
+byte lcd_char_{{index}}[8];
