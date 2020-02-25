@@ -1,1 +1,1 @@
-SoftwareSerial serialwifi({{rx_pin}},{{tx_pin}});
+SoftwareSerial serialwifi({{tx_pin}},{{rx_pin}});
