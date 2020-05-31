@@ -10,9 +10,9 @@ Blockly.Arduino.variables_global_type = function() {
     var varType = this.getFieldValue('VAR_TYPE');
     var varValue = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ASSIGNMENT);
     var varName = this.getFieldValue('VAR') || '';
-    var isFunction = false;
+    //var isFunction = false;
 
-    var varName = this.getFieldValue('VAR') || '';
+    //var varName = this.getFieldValue('VAR') || '';
     var code ='';
 
     var a=RoboBlocks.findPinMode(varValue);
@@ -21,7 +21,7 @@ Blockly.Arduino.variables_global_type = function() {
 
     Blockly.Arduino.definitions_['declare_var' + varName] = varType + ' ' + varName + ';\n';
     Blockly.Arduino.setups_['define_var' + varName] = varName + '=' + varValue + ';\n';
-
+    
     RoboBlocks.variables[varName] = [varType, 'global'];
     RoboBlocks.variables['analogRead('+varName+')'] = [varType, 'global'];
     RoboBlocks.variables['digitalRead('+varName+')'] = [varType, 'global'];
@@ -40,16 +40,19 @@ Blockly.Blocks.variables_global_type = {
             appendField(new Blockly.FieldTextInput(''), 'VAR').
             appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_TYPE')).
             appendField(new Blockly.FieldDropdown([
-                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_STRING'), 'String'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER'), 'int'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_LONG'), 'long'],
+                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_INTEGER_ULONG'), 'unsigned long'],
                 [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BYTE'), 'byte'],
-                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_FLOAT'), 'float']
-            ]), "VAR_TYPE").
+                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_FLOAT'), 'float'],
+                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_CHAR'), 'char'],
+                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_BOOLEAN'), 'boolean'],
+                [RoboBlocks.locales.getKey('LANG_VARIABLES_TYPE_STRING'), 'String'],
+            ]), 'VAR_TYPE').
             appendField(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_EQUALS'));
         this.setInputsInline(false);
-        this.setPreviousStatement(true);
-        this.setNextStatement(true);
+        //this.setPreviousStatement(true);
+        //this.setNextStatement(true);
         this.setTooltip(RoboBlocks.locales.getKey('LANG_VARIABLES_GLOBAL_TOOLTIP'));
     },
     getVars: function() {

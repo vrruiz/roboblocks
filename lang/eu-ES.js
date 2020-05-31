@@ -18,6 +18,7 @@
         BLOCKLY_MSG_EXPAND_ALL: 'Blokeak Zabaldu',
         LANG_VARIABLES_SET_ITEM: 'elementu',
         LANG_RESERVED_WORDS: 'Erreserbatutako hitza: izen hau ez dago baimenduta..',
+        LANG_CHAR_LENGTH: 'A character must have length 0 or 1.', //to translate
         //logic blocks:
         LANG_CATEGORY_LOGIC: 'Logika',
         LANG_LOGIC_OPERATION_AND: 'eta',
@@ -63,74 +64,45 @@
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Datuak ASCII testu bezala inprimatu.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Serieko Atakatik inprimatu lerro-jauziarekin',
         LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP: 'Serieko Atakatik inprimatu lerro-jauziarekin eta orga-itzulerarekin.',
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT: 'Prints value with format', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_1: 'Binary', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_2: 'Octal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_3: 'Decimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_4: 'Hexadecimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_5: 'Without decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_6: 'One decimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_7: 'Two decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_8: 'Three decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_9: 'Four decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_TOOLTIP: 'Prints value with specified format', //to translate
+        LANG_ADVANCED_SERIAL_PRINTLN_FORMAT: 'Send value with format and CR', //To translate
+        LANG_ADVANCED_SERIAL_PRINTLN_FORMAT_TOOLTIP: 'Send a number to serial port with specified format and carriage return (CR).', //To translate
         LANG_ADVANCED_SERIAL_READ: 'Serieko Atakatik irakurri',
         LANG_ADVANCED_SERIAL_READ_TOOLTIP: 'Serieko Atakatik jasotzen diren datuak ASCII testu bezala irakurtzen ditu.',
         LANG_ADVANCED_SERIAL_READSTRING: 'Serieko Atakatik irakurri',
         LANG_ADVANCED_SERIAL_READSTRING_TOOLTIP: 'Serieko Atakatik jasotzen diren datuak ASCII testu bezala irakurtzen ditu.',
-        LANG_ADVANCED_SERIAL_SPECIAL: 'Karaktere bereziak',
-        LANG_ADVANCED_SERIAL_SPECIAL_TAB: 'Tabuladorea',
-        LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN: 'Orga-itzulera',
-        LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Lerro-jauzia',
-        LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Karaktere bereziak idatzi.',
-        //bq blocks :
-        LANG_CATEGORY_BQ: 'Octopus blokeak',
+        //Sensor blocks:
+        LANG_CATEGORY_SENSOR: 'Sentsore',
         LANG_BQ_BAT: 'BAT - Ultrasoinuen sentsorea',
         LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
         LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
         LANG_BQ_BAT_TOOLTIP: 'Sentsoreak neurtutako distantzia bueltatzen du.',
-        LANG_BQ_BUTTON: 'Botoia',
-        LANG_BQ_BUTTON_PIN: 'PIN#',
-        LANG_BQ_BUTTON_TOOLTIP: 'Botoia',
-        LANG_BQ_BUTTONS: 'Botoi-multzoa',
-        LANG_BQ_BUTTONS_PIN: 'PIN#',
-        LANG_BQ_BUTTONS_BUTTON_A: '#A botoia',
-        LANG_BQ_BUTTONS_BUTTON_B: '#B botoia',
-        LANG_BQ_BUTTONS_BUTTON_C: '#C botoia',
-        LANG_BQ_BUTTONS_BUTTON_D: '#D botoia',
-        LANG_BQ_BUTTONS_BUTTON_E: '#E botoia',
-        LANG_BQ_BUTTONS_TOOLTIP: 'Botoi-multzoa',
-        LANG_BQ_INFRARED: 'Infragorrien sentsorea',
-        LANG_BQ_INFRARED_PIN: 'PIN#',
-        LANG_BQ_INFRARED_TOOLTIP: 'Infragorrien sentsoreak neurtutako balio digitala bueltatzen du',
-        LANG_BQ_JOYSTICK: 'Joystick',
-        LANG_BQ_JOYSTICK_PIN_X: 'X ardatza PIN#',
-        LANG_BQ_JOYSTICK_PIN_Y: 'Y ardatza PIN#',
-        LANG_BQ_JOYSTICK_POSITION: 'Joystick-aren posizioa',
-        LANG_BQ_JOYSTICK_PIN_BUTTON: 'PIN# pultsadorea',
-        LANG_BQ_JOYSTICK_TOOLTIP: 'Joystick',
-        LANG_BQ_LED: 'LED',
-        LANG_BQ_LED_PIN: 'PIN#',
-        LANG_BQ_LED_STATE: '',
-        LANG_BQ_LED_ON: 'PIZTU',
-        LANG_BQ_LED_OFF: 'ITZALI',
-        LANG_BQ_LED_TOOLTIP: 'LED',
-        LANG_BQ_PHOTORESISTOR: 'Argi-sentsorea',
-        LANG_BQ_PHOTORESISTOR_PIN: 'PIN#',
-        LANG_BQ_PHOTORESISTOR_TOOLTIP: 'Fotorresistentziak neurtutako balio analogikoa bueltatzen du.',
-        LANG_BQ_PIEZO_BUZZER: 'Burrunbagailua',
-        LANG_BQ_PIEZO_BUZZER_PIN: 'PIN#',
-        LANG_BQ_PIEZO_BUZZER_TONE: 'TONUA',
-        LANG_BQ_PIEZO_BUZZER_DO: 'DO',
-        LANG_BQ_PIEZO_BUZZER_RE: 'RE',
-        LANG_BQ_PIEZO_BUZZER_MI: 'MI',
-        LANG_BQ_PIEZO_BUZZER_FA: 'FA',
-        LANG_BQ_PIEZO_BUZZER_SOL: 'SOL',
-        LANG_BQ_PIEZO_BUZZER_LA: 'LA',
-        LANG_BQ_PIEZO_BUZZER_SI: 'SI',
-        LANG_BQ_PIEZO_BUZZER_DURATION: 'Iraupena [ms]',
-        LANG_BQ_PIEZO_BUZZER_TOOLTIP: 'Burrunbagailu piezoeléctrikoa',
-        LANG_BQ_PIEZO_BUZZERAV: 'Burrunbagailu aurreratua',
-        LANG_BQ_PIEZO_BUZZERAV_PIN: 'PIN#',
-        LANG_BQ_PIEZO_BUZZERAV_TONE: 'TONUA',
-        LANG_BQ_PIEZO_BUZZERAV_DURATION: 'Iraupena [ms]',
-        LANG_BQ_PIEZO_BUZZERAV_TOOLTIP: 'Burrunbagailu aurreratua',
-        LANG_BQ_POTENTIOMETER: 'Potentziometroa',
-        LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
-        LANG_BQ_POTENTIOMETER_TOOLTIP: 'Potentziometroak neurtutako balio analogikoa bueltatzen du',
+        LANG_IR_READ: 'Reads from infrared receiver', //to translate
+        LANG_IR_READ_PIN: 'connected to PIN#', //to translate
+        LANG_IR_READ_TOOLTIP: 'Reads the value received from the infrared receiver', //to translate
         //LCD blocks:
         LANG_CATEGORY_LCD: 'LCD blokeak',
         LANG_LCD_DEF: 'LCD (2x16)',
-        LANG_LCD_PINS: 'LCD Pins',
+        LANG_LCD_DEF_CONNECTION: 'Connection type',  //to translate
+        LANG_LCD_DEF_CONNECTION_PARALLEL: 'Parallel (6 pins)',  //to translate
+        LANG_LCD_DEF_CONNECTION_I2C: 'I2C (4 wires)',  //to translate
+        LANG_LCD_DEF_ADDRESS: 'Address of the component', //to translate
+        LANG_LCD_DEF_PIN_1: 'RS Pin',  //to translate
+        LANG_LCD_DEF_PIN_2: 'Enable Pin',  //to translate
+        LANG_LCD_DEF_PIN_3: 'Data4 Pin',  //to translate
+        LANG_LCD_DEF_PIN_4: 'Data5 Pin',  //to translate
+        LANG_LCD_DEF_PIN_5: 'Data6 Pin',  //to translate
+        LANG_LCD_DEF_PIN_6: 'Data7 Pin',  //to translate
         LANG_LCD_DEF_TOOLTIP: 'LCDa definitu',
         LANG_LCD_ADVANCED_DEF: 'Advanced LCD',
         LANG_LCD_ADVANCED_ROWS: 'Rows',
@@ -140,16 +112,45 @@
         LANG_LCD_SETBACKLIGHT_CLOSE: '',
         LANG_LCD_SETBACKLIGHT_TOOLTIP: 'LCD pantailaren atzeko iluminazioa doitu',
         LANG_LCD_PRINT: 'LCD: Inprimatu ',
+        LANG_LCD_PRINT_TEXT: 'Text or value', //to translate
+        LANG_LCD_PRINT_SPECIAL: 'Defined character', //to translate
+        LANG_LCD_PRINT_ROW: 'Row', //to translate
+        LANG_LCD_PRINT_COL: 'Col', //to translate
         LANG_LCD_PRINT_POSITION: 'Testuaren posizioa finkatu?',
         LANG_LCD_PRINT_TOOLTIP: 'String bat zehaztutako posizioan edo erabilgarri dagoen hurrengoan inprimatzen du LCD pantailan.',
         LANG_LCD_CLEAR: 'LCD ezabatu',
         LANG_LCD_CLEAR_TOOLTIP: 'LCD: Ezabatu',
+        LANG_LCD_HOME: 'LCD Go home', //to translate
+        LANG_LCD_HOME_TOOLTIP: 'LCD: Positions the cursor in the upper-left corner of the screen', //to translate
+        LANG_LCD_DISPLAY: 'LCD Show content', //to translate
+        LANG_LCD_DISPLAY_TOOLTIP: 'LCD: Turns on the LCD display and restore the text that was on the display', //to translate
+        LANG_LCD_NODISPLAY: 'LCD Hide content', //to translate
+        LANG_LCD_NODISPLAY_TOOLTIP: 'LCD: Turns off the LCD display, without losing the text currently shown on it', //to translate
+        LANG_LCD_SCROLLDISPLAYLEFT: 'LCD Scrolls to the left', //to translate
+        LANG_LCD_SCROLLDISPLAYLEFT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the left', //to translate
+        LANG_LCD_SCROLLDISPLAYRIGHT: 'LCD Scrolls to the right', //to translate
+        LANG_LCD_SCROLLDISPLAYRIGHT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the right', //to translate
+        LANG_LCD_CREATECHAR: 'LCD Create character in index', //to translate
+        LANG_LCD_CREATECHAR_ROW1: 'Row 1', //to translate
+        LANG_LCD_CREATECHAR_ROW2: 'Row 2', //to translate
+        LANG_LCD_CREATECHAR_ROW3: 'Row 3', //to translate
+        LANG_LCD_CREATECHAR_ROW4: 'Row 4', //to translate
+        LANG_LCD_CREATECHAR_ROW5: 'Row 5', //to translate
+        LANG_LCD_CREATECHAR_ROW6: 'Row 6', //to translate
+        LANG_LCD_CREATECHAR_ROW7: 'Row 7', //to translate
+        LANG_LCD_CREATECHAR_ROW8: 'Row 8', //to translate
+        LANG_LCD_CREATECHAR_LENGTH: 'Each row must have five values, zero or one.', //to translate
+        LANG_LCD_CREATECHAR_TOOLTIP: 'Creates a special char for LCD and stores it in the specified index.', //to translate
         //controls blocks :
         LANG_CATEGORY_CONTROLS: 'Kontrola',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Itxaron [ms]',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Milisgundotan (ms) zehaztutako denbora itxaroten du',
         LANG_CONTROLS_BASE_MILLIS: 'Time from start (ms)', // To translate
         LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Number of milliseconds since the program started (long integer)', // To translate
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS: 'Wait [us]', //To translate
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS_TOOLTIP: 'Waits the specified time in microseconds (us)', //To translate
+        LANG_CONTROLS_BASE_MICROS: 'Time from start (us)', //To translate
+        LANG_CONTROLS_BASE_MICROS_TOOLTIP: 'Number of microseconds since the program started (long integer)', //To translate
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Do',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'while',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'While the condition is true, continue doing the statements.',
@@ -169,10 +170,14 @@
         LANG_CONTROLS_IF_ELSEIF_TOOLTIP: '"baldin" blokeari baldintza bat gehitu.',
         LANG_CONTROLS_IF_ELSE_Field_ELSE: 'bestela',
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Gehitu azken baldintza bat "baldin" blokeari gainontzeko aukerak atzitzeko.',
+        LANG_CONTROLS_FOR_FROM_WARNING:'It is not possible to set a variable as the initial value of the for block.', //to translate
+        LANG_CONTROLS_FOR_TO_WARNING:'It is not possible to set a variable as the final value of the for block.', //to translate
+        LANG_CONTROLS_FOR_INCREMENT_WARNING:'It is not possible to set a variable as the increment value of the for block', //to translate
         LANG_CONTROLS_FOR_INPUT_WITH: 'Zenbatu honekin:',
         LANG_CONTROLS_FOR_INPUT_VAR: 'x',
         LANG_CONTROLS_FOR_INPUT_FROM: 'hemendik',
         LANG_CONTROLS_FOR_INPUT_TO: 'honaino',
+        LANG_CONTROLS_FOR_INPUT_INCREMENT: 'increment', //to translate
         LANG_CONTROLS_FOR_INPUT_DO: 'exekutatu',
         LANG_CONTROLS_FOR_TOOLTIP: 'Hasierako zenbaki batetik amaierako zenbaki baterarte zenbatu. Kontua batean handitzen den bakoitzean, aldagaiak balio hori hartu eta akzioak exekutatzen dira.',
         LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE: 'bitartean',
@@ -237,10 +242,20 @@
         LANG_MATH_SINGLE_TOOLTIP_LOG10: 'Zenbaki baten 10eko oinarriko logaritmoa bueltatzen du. ',
         LANG_MATH_SINGLE_TOOLTIP_EXP: 'Zenbaki baten berredura bueltatzen du.',
         LANG_MATH_SINGLE_TOOLTIP_POW10: '10eko berredura bueltatzen du.',
+        LANG_MATH_MIN: 'Minimum value between', //To translate
+        LANG_MATH_MIN_PARAM2: 'and', //To translate
+        LANG_MATH_MIN_TOOLTIP: 'Returns the minimum value of the inputs.', //To translate
+        LANG_MATH_MAX: 'Maximum value between', //To translate
+        LANG_MATH_MAX_PARAM2: 'and', //To translate
+        LANG_MATH_MAX_TOOLTIP: 'Returns the maximum value of the inputs.', //To translate
+        LANG_MATH_POW: 'Value of', //To translate
+        LANG_MATH_POW_PARAM2: 'to the power of', //To translate
+        LANG_MATH_POW_TOOLTIP: 'Returns the value of the first input to the power of the second.', //To translate
         //text blocks:
         LANG_CATEGORY_TEXT: 'Testua',
         LANG_TEXT_TEXT_HELPURL: '',
         LANG_TEXT_TEXT_TOOLTIP: 'Hizki bat, hitz bat edo testu lerro bat.',
+        LANG_TEXT_CHAR_TOOLTIP: 'A simbol, letter or number, but just one character', //to translate
         LANG_TEXT_JOIN_HELPURL: '',
         LANG_TEXT_JOIN_Field_CREATEWITH: 'testua sortu honekin:',
         LANG_TEXT_JOIN_TOOLTIP: 'Sortu testua edozein elementu kopuru elkartuz.',
@@ -266,15 +281,18 @@
         LANG_TEXT_SUBSTRING_FROM: 'hemendik',
         LANG_TEXT_SUBSTRING_TO: 'honaino',
         LANG_TEXT_SUBSTRING_TOOLTIP: 'Bi indizeen artean agertzen diren testu karaktereak mozten ditu eta testu berri bat sortzen du beraiekin.',
+        LANG_TEXT_CHARAT: 'Character of text', //To translate
+        LANG_TEXT_CHARAT_POSITION: 'in position', //To translate
+        LANG_TEXT_CHARAT_TOOLTIP: 'Returns character in the position of the text (beginning with 0).', //To translate
+        LANG_TEXT_SPECIAL: 'Karaktere bereziak',
+        LANG_TEXT_SPECIAL_TAB: 'Tabuladorea',
+        LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Orga-itzulera',
+        LANG_TEXT_SPECIAL_LINE_FEED: 'Lerro-jauzia',
+        LANG_TEXT_SPECIAL_TOOLTIP: 'Karaktere bereziak idatzi.',
+        LANG_TEXT_COMMENT: 'Comment', //to translate
+        LANG_TEXT_COMMENT_TOOLTIP: 'Inserts a comment of one line in the program.', //to translate
         //advanced blocks :
         LANG_CATEGORY_ADVANCED: 'PIN Funtzioak',
-        LANG_ADVANCED_CONVERSION_CONVERT: 'Bihurtu',
-        LANG_ADVANCED_CONVERSION_DECIMAL: 'Hamartarra',
-        LANG_ADVANCED_CONVERSION_HEXADECIMAL: 'Hamaseitarra',
-        LANG_ADVANCED_CONVERSION_OCTAL: 'Zortzitarra',
-        LANG_ADVANCED_CONVERSION_BINARY: 'Bitarra',
-        LANG_ADVANCED_CONVERSION_VALUE: 'balioa',
-        LANG_ADVANCED_CONVERSION_TOOLTIP: 'Zenbaki baten oinarria bihurtu.',
         LANG_ADVANCED_INOUT_ANALOG_READ: 'PIN# pin analogikoa irakurri',
         LANG_ADVANCED_INOUT_ANALOG_READ_TOOLTIP: 'Dagokion pin analogiko baten balioa irakurtzen du.',
         LANG_ADVANCED_INOUT_ANALOG_WRITE: 'PIN digitalean idatzi',
@@ -294,12 +312,17 @@
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH: 'ALTUA',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW: 'BAXUA',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP: 'Dagokion pin digitalean balio bat idatzi.',
+        LANG_ADVANCED_INOUT_PULSEIN: 'Time for digital pin PIN#', //to translate
+        LANG_ADVANCED_INOUT_PULSEIN_MODE: 'to change to', //to translate
+        LANG_ADVANCED_INOUT_PULSEIN_TOOLTIP: 'Returns the time for a digital pin to change to the state specified (in milliseconds).', //to translate
         LANG_ADVANCED_HIGHLOW_HIGH: 'ALTUA',
         LANG_ADVANCED_HIGHLOW_LOW: 'BAXUA',
         LANG_ADVANCED_HIGHLOW_TOOLTIP: 'Hautatutakoaren arabera idatzi "ALTUA" o "BAXUA".',
         LANG_ADVANCED_MATH_RANDOM: 'Ausaz hauen artean',
         LANG_ADVANCED_MATH_RANDOM_AND: ' eta ',
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Zehaztutako bi mugen artean ausazko zenbaki bat sortzen du.',
+        LANG_ADVANCED_MATH_RANDOM_SEED: 'Set random seed to', //to translate
+        LANG_ADVANCED_MATH_RANDOM_SEED_TOOLTIP: 'Sets seed for random number generator. For a random seed, read from an unconnected analog pin; to repeat the same sequence, use a fixed number.', //to translate
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funtzioak',
         LANG_PROCEDURES_RETURN: 'itzuli',
@@ -354,33 +377,16 @@
         LANG_VARIABLES_TYPE_FLOAT: 'Float', // To translate
         LANG_VARIABLES_TYPE_INTEGER: 'Integer', // To translate
         LANG_VARIABLES_TYPE_INTEGER_LONG: 'Long Integer', // To translate
+        LANG_VARIABLES_TYPE_INTEGER_ULONG: 'Unsigned Long Integer', //To translate
         LANG_VARIABLES_TYPE_STRING: 'String', // To translate
+        LANG_VARIABLES_TYPE_CHAR: 'Character', //to translate
+        LANG_VARIABLES_TYPE_BOOLEAN: 'Boolean', //to translate
         LANG_VARIABLES_VOLATILE_GLOBAL: 'Declare VOLATILE GLOBAL variable ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'of type ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'equals ',  // To translate
         LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declares and defines a VOLATILE GLOBAL variable of type int or String used in a ISR function.',  // To translate
-        //zum blocks :
-        LANG_CATEGORY_ZUM: 'zum blokeak',
-        LANG_ZUM_BUTTON: 'Botoia',
-        LANG_ZUM_BUTTON_PIN: 'PIN#',
-        LANG_ZUM_BUTTON_TOOLTIP: 'zum botoia',
-        LANG_ZUM_FOLLOWER: 'Infragorrien sentsorea',
-        LANG_ZUM_FOLLOWER_PIN_LEFT: 'PIN EZKERRA#',
-        LANG_ZUM_FOLLOWER_PIN_RIGHT: 'PIN ESKUINA#',
-        LANG_ZUM_FOLLOWER_LEFT: 'Ezkerra',
-        LANG_ZUM_FOLLOWER_RIGHT: 'Eskuina',
-        LANG_ZUM_FOLLOWER_TOOLTIP: 'zum infragorrien sentsorearen balio digitala bueltatzen du.',
-        LANG_ZUM_INFRARED: 'Infragorrien sentsorea',
-        LANG_ZUM_INFRARED_PIN: 'PIN#',
-        LANG_ZUM_INFRARED_TOOLTIP: 'zum infragorrien sentsorearen balio digitala bueltatzen du.',
-        LANG_ZUM_LED: 'LED',
-        LANG_ZUM_LED_PIN: 'PIN#',
-        LANG_ZUM_LED_ON: 'PIZTU',
-        LANG_ZUM_LED_OFF: 'ITZALI',
-        LANG_ZUM_LED_TOOLTIP: 'zum LED',
-        LANG_ZUM_PHOTORESISTOR: 'Argi sentsorea',
-        LANG_ZUM_PHOTORESISTOR_PIN: 'PIN#',
-        LANG_ZUM_PHOTORESISTOR_TOOLTIP: 'Argi sentsorearen (fotorresistentzia) balio analogikoa bueltatzen du.',
+        //sound blocks (zum):
+        LANG_CATEGORY_ZUM: 'Soinuak',
         LANG_ZUM_PIEZO_BUZZER: 'Burrunbagailua',
         LANG_ZUM_PIEZO_BUZZER_PIN: 'PIN#',
         LANG_ZUM_PIEZO_BUZZER_TONE: 'TONUA',
@@ -398,25 +404,46 @@
         LANG_ZUM_PIEZO_BUZZERAV_TONE: 'TONUA',
         LANG_ZUM_PIEZO_BUZZERAV_DURATION: 'Iraupena [ms]',
         LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP: 'Burrunbagailu piezoelektriko aurreratua.',
-        LANG_ZUM_POTENTIOMETER: 'Potentziometroa',
-        LANG_ZUM_POTENTIOMETER_PIN: 'PIN#',
-        LANG_ZUM_POTENTIOMETER_TOOLTIP: 'zum potentziometroa.',
-        //servo blocks :
-        LANG_CATEGORY_SERVO: 'Serboa',
-        LANG_SERVO_CONT: 'Errotazio jarraiko serboa',
-        LANG_SERVO_CONT_PIN: 'PIN#',
-        LANG_SERVO_CONT_ROT: 'ROT',
-        LANG_SERVO_CONT_TURN_CLOCKWISE: 'ERLOJU-ORRATZEN ARABERA BIRATU',
-        LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'ERLOJU-ORRATZEN AURKA BIRATU',
-        LANG_SERVO_CONT_STOPPED: 'GELDITU',
-        LANG_SERVO_CONT_DELAY: 'Etena [ms]',
-        LANG_SERVO_CONT_TOOLTIP: 'Errotazio jarraiko serboa.',
-        LANG_SERVO_MOVE: 'Serboa',
-        LANG_SERVO_MOVE_PIN: 'PIN#',
-        LANG_SERVO_MOVE_DEGREES: 'Graduak (0~180)',
-        LANG_SERVO_MOVE_DELAY: 'Etena [ms]',
-        LANG_SERVO_MOVE_TOOLTIP: 'Serboa 0 eta 180 gradu artean biratu.',
-        LANG_SERVO_WARNING: 'Serboaren pinari ezin diozu aldagai bat esleitu',
+        LANG_ZUM_DHT11_VALUE: 'Get', //to translate
+        LANG_ZUM_DHT11_VALUE1: 'Temperature', //to translate
+        LANG_ZUM_DHT11_VALUE2: 'Humidity', //to translate
+        LANG_ZUM_DHT11_PIN: 'PIN', //to translate
+        LANG_ZUM_DHT11_TOOLTIP: 'Get temperature or humidity from a DHT11, DHT21 or DHT22 sensor.', //to translate
+        //motor blocks (servo and stepper):
+        LANG_CATEGORY_MOTOR: 'Motors', //to translate
+        LANG_MOTOR_SERVO_CONT: 'Errotazio jarraiko serboa',
+        LANG_MOTOR_SERVO_CONT_PIN: 'PIN#',
+        LANG_MOTOR_SERVO_CONT_ROT: 'ROT',
+        LANG_MOTOR_SERVO_CONT_TURN_CLOCKWISE: 'ERLOJU-ORRATZEN ARABERA BIRATU',
+        LANG_MOTOR_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'ERLOJU-ORRATZEN AURKA BIRATU',
+        LANG_MOTOR_SERVO_CONT_STOPPED: 'GELDITU',
+        LANG_MOTOR_SERVO_CONT_DELAY: 'Etena [ms]',
+        LANG_MOTOR_SERVO_CONT_TOOLTIP: 'Errotazio jarraiko serboa.',
+        LANG_MOTOR_SERVO_MOVE: 'Serboa',
+        LANG_MOTOR_SERVO_MOVE_PIN: 'PIN#',
+        LANG_MOTOR_SERVO_MOVE_DEGREES: 'Graduak (0~180)',
+        LANG_MOTOR_SERVO_MOVE_DELAY: 'Etena [ms]',
+        LANG_MOTOR_SERVO_MOVE_TOOLTIP: 'Serboa 0 eta 180 gradu artean biratu.',
+        LANG_MOTOR_SERVO_WARNING: 'Serboaren pinari ezin diozu aldagai bat esleitu',
+        LANG_MOTOR_STEPPER_MOVE: 'Stepper motor', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SPR: 'Steps per revolution', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PINS: '4 pins?', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN1: 'Pin 1', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN2: 'Pin 2', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN3: 'Pin 3', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN4: 'Pin 4', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SETSPEED: 'Set speed to', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SETSPEED_NEXT: '(rpm)', //to translate
+        LANG_MOTOR_STEPPER_MOVE_STEP: 'Move motor', //to translate
+        LANG_MOTOR_STEPPER_MOVE_STEP_NEXT: '(steps)', //to translate
+        LANG_MOTOR_STEPPER_MOVE_TOOLTIP: 'Moves motor the number of steps. A positive steps value move in one direction, a negative value moves to the other direction.', //to translate
+        LANG_MOTOR_PCA9685_DEF: 'PCA9685', //to translate
+        LANG_MOTOR_PCA9685_DEF_SERVO: 'Servo', //to translate
+        LANG_MOTOR_PCA9685_DEF_ADDRESS: 'Address of the component', //to translate
+        LANG_MOTOR_PCA9685_DEF_TOOLTIP: 'Defines a PCA9685 connected to Arduino over I2C.', //to translate
+        LANG_MOTOR_PCA9685_SET_PWM: 'PCA9685 Move servo', //to translate
+        LANG_MOTOR_PCA9685_SET_PWM_ANGLE: 'angle', //to translate
+        LANG_MOTOR_PCA9685_SET_PWM_TOOLTIP: 'Moves servo connected to PCA9685 the specified angle in degrees.', //to translate
         //interrupt blocks :
         LANG_CATEGORY_INTERRUPTS: 'Interrupts',  // To translate
         LANG_INTERRUPTS_STATE: 'Set interrupts state to ',  // To translate
@@ -433,7 +460,44 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_without_return',  // To translate
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Set the procedure to be executed when an interrupt is raised in the specified pin.',  // To translate
         LANG_INTERRUPTS_DETACH: 'Detach interrupt on digital pin',  // To translate
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.'  // To translate
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Disables the interrupt on the pin. When the pin is activated, the procedure associated is no longer executed.',  // To translate
+        LANG_WIFI_CONNECT: 'Wifi:', //To translate
+        LANG_WIFI_CONNECT_STATION: 'connect', //To translate
+        LANG_WIFI_CONNECT_SOFTAP: 'create network', //To translate
+        LANG_WIFI_CONNECT_SSID: 'SSID', //To translate
+        LANG_WIFI_CONNECT_PASSWORD: 'password', //To translate
+        LANG_WIFI_CONNECT_CHANNEL: 'channel', //To translate
+        LANG_WIFI_CONNECT_RX_PIN: 'Rx pin', //To translate
+        LANG_WIFI_CONNECT_TX_PIN: 'Tx pin', //To translate
+        LANG_WIFI_CONNECT_BAUD: 'baud rate', //To translate
+        LANG_WIFI_CONNECT_TOOLTIP: 'Connects or creates a wifi using a ESP8266 adapter, and returns true on success.', //To translate
+        LANG_WIFI_DISCONNECT: 'Wifi:disconnect', //To translate
+        LANG_WIFI_DISCONNECT_TOOLTIP: 'Disconnects from the current wifi network.', //To translate
+        LANG_WIFI_CLIENT: 'Wifi:connect to server', //To translate
+        LANG_WIFI_CLIENT_IP: 'IP address', //To translate
+        LANG_WIFI_CLIENT_PORT: 'Port', //To translate
+        LANG_WIFI_CLIENT_TOOLTIP: 'Connects to a TCP server.', //To translate
+        LANG_WIFI_SERVER: 'Wifi:start server', //To translate
+        LANG_WIFI_SERVER_PORT: 'Port', //To translate
+        LANG_WIFI_SERVER_TOOLTIP: 'Create a TCP server to accept connections from clients.', //To translate
+        LANG_WIFI_GETIP: 'Wifi:get IP address', //To translate
+        LANG_WIFI_GETIP_TOOLTIP: 'Returns IP address of the adapter.', //To translate
+        LANG_WIFI_SEND_SERVER: 'Wifi:send to server', //To translate
+        LANG_WIFI_SEND_SERVER_DATA: 'Text', //To translate
+        LANG_WIFI_SEND_SERVER_TOOLTIP: 'Send text to the TCP server.', //To translate
+        LANG_WIFI_SEND_CLIENT: 'Wifi:send to client', //To translate
+        LANG_WIFI_SEND_CLIENT_ID: 'ID', //To translate
+        LANG_WIFI_SEND_CLIENT_DATA: 'Data', //To translate
+        LANG_WIFI_SEND_CLIENT_TOOLTIP: 'Send text to specified client (ID).', //To translate
+        LANG_WIFI_RECEIVE_CLIENT: 'Wifi:receive from client', //To translate
+        LANG_WIFI_RECEIVE_CLIENT_TOOLTIP: 'Receives a text from client, begining with id number and a colon (:). If timeout is reached, returns an empty string.', //To translate
+        LANG_WIFI_RECEIVE_SERVER: 'Wifi:receive from server', //To translate
+        LANG_WIFI_RECEIVE_SERVER_TIMEOUT: 'Timeout', //To translate
+        LANG_WIFI_RECEIVE_SERVER_TOOLTIP: 'Receives a string from TCP server or empty string if timeout reached.', //To translate
+        LANG_WIFI_CLOSE_SERVER: 'Wifi:stop server', //To translate
+        LANG_WIFI_CLOSE_SERVER_TOOLTIP: 'Shutdown TCP server.', //To translate
+        LANG_WIFI_CLOSE_CLIENT: 'Wifi:stop connection', //To translate
+        LANG_WIFI_CLOSE_CLIENT_TOOLTIP: 'Shutdown connection with TCP server.' //To translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

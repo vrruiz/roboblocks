@@ -6,31 +6,39 @@
  * @return {String} Code generated with block parameters
  */
 Blockly.Arduino.lcd_print = function() {
+    var print_type = this.getFieldValue('PRINT_TYPE');
     var val = Blockly.Arduino.valueToCode(this, 'VAL', Blockly.Arduino.ORDER_ATOMIC);
     var xcoor = Blockly.Arduino.valueToCode(this, 'XCOOR', Blockly.Arduino.ORDER_ATOMIC);
     var ycoor = Blockly.Arduino.valueToCode(this, 'YCOOR', Blockly.Arduino.ORDER_ATOMIC);
     var code='';
-
+    /*
     var a=RoboBlocks.findPinMode(xcoor);
     code+=a['code'];
     xcoor=a['pin'];
-
     a=RoboBlocks.findPinMode(ycoor);
     code+=a['code'];
     ycoor=a['pin'];
-
     a=RoboBlocks.findPinMode(val);
     code+=a['code'];
     val=a['pin'];
+    */
+    if ( print_type === '1') {
+        print_type = 'print';
+    } else {
+        print_type = 'write';
+        val = 'byte(' + val + ')';
+    }
 
     if (this.getFieldValue('POS') === 'TRUE') {
         code += JST['lcd_print_pos']({
+            'print_type': print_type,
             'val': val,
             'xcoor': xcoor,
             'ycoor': ycoor
         });
     } else {
         code += JST['lcd_print']({
+            'print_type': print_type,
             'val': val
         });
     }
@@ -50,8 +58,11 @@ Blockly.Blocks.lcd_print = {
      */
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_LCD);
-        this.appendValueInput('VAL').appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT'));
-        // .appendField(new Blockly.FieldImage('img/blocks/bqmod03.png', 208 * options.zoom, 100 * options.zoom));
+        this.appendValueInput('VAL').appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT'))
+            .appendField(new Blockly.FieldDropdown([
+                [RoboBlocks.locales.getKey('LANG_LCD_PRINT_TEXT')||'Text', '1'],
+                [RoboBlocks.locales.getKey('LANG_LCD_PRINT_SPECIAL')||'Defined', '2']
+            ]), 'PRINT_TYPE');
         this.appendDummyInput().appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT_POSITION')).appendField(new Blockly.FieldCheckbox('TRUE'), 'POS').setAlign(Blockly.ALIGN_RIGHT);
         this.last_pos = this.getFieldValue('POS');
         this.getPosition();
@@ -66,8 +77,8 @@ Blockly.Blocks.lcd_print = {
             this.removeInput('YCOOR');
         } catch (e) {}
         if (this.getFieldValue('POS') === 'TRUE') {
-            this.appendValueInput('XCOOR').appendField('row').setAlign(Blockly.ALIGN_RIGHT);
-            this.appendValueInput('YCOOR').appendField('column').setAlign(Blockly.ALIGN_RIGHT);
+            this.appendValueInput('XCOOR').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT_ROW')).setAlign(Blockly.ALIGN_RIGHT);
+            this.appendValueInput('YCOOR').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT_COL')).setAlign(Blockly.ALIGN_RIGHT);
         }
     },
     onchange: function() {
@@ -88,8 +99,8 @@ Blockly.Blocks.lcd_print = {
     domToMutation: function(xmlElement) {
         this.setFieldValue(xmlElement.getAttribute('fixed'), 'POS');
         if (this.getFieldValue('POS') === 'TRUE') {
-            this.appendValueInput('XCOOR').appendField('row').setAlign(Blockly.ALIGN_RIGHT);
-            this.appendValueInput('YCOOR').appendField('column').setAlign(Blockly.ALIGN_RIGHT);
+            this.appendValueInput('XCOOR').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT_ROW')).setAlign(Blockly.ALIGN_RIGHT);
+            this.appendValueInput('YCOOR').setCheck(Number).appendField(RoboBlocks.locales.getKey('LANG_LCD_PRINT_COL')).setAlign(Blockly.ALIGN_RIGHT);
         }
     }
 };

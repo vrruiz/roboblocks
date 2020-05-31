@@ -1,1 +1,1 @@
-LiquidCrystal lcd({{lcd_1}}, {{lcd_2}}, {{lcd_3}}, {{lcd_4}}, {{lcd_5}}, {{lcd_6}});
+LiquidCrystal lcd({{pin1}}, {{pin2}}, {{pin3}}, {{pin4}}, {{pin5}}, {{pin6}});

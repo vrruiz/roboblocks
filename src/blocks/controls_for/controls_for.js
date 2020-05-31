@@ -9,6 +9,7 @@ Blockly.Arduino.controls_for = function() {
     var variable0 = Blockly.Arduino.valueToCode(this, 'VAR', Blockly.Arduino.ORDER_NONE) || '';
     var argument0 = Blockly.Arduino.valueToCode(this, 'FROM', Blockly.Arduino.ORDER_ASSIGNMENT) || '';
     var argument1 = Blockly.Arduino.valueToCode(this, 'TO', Blockly.Arduino.ORDER_ASSIGNMENT) || '';
+    var argument2 = Blockly.Arduino.valueToCode(this, 'INCREMENT', Blockly.Arduino.ORDER_ASSIGNMENT) || '';
     var branch = Blockly.Arduino.statementToCode(this, 'DO');
     if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
         branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g, '\'' + this.id + '\'') + branch;
@@ -27,8 +28,12 @@ Blockly.Arduino.controls_for = function() {
     code+=a['code'];
     argument1=a['pin'];
 
-    var up = parseFloat(argument0) <= parseFloat(argument1);
-    code += 'for (' + variable0 + ' = ' + argument0 + '; ' + variable0 + (up ? ' <= ' : ' >= ') + argument1 + '; ' + variable0 + (up ? '++' : '--') + ') {\n' + branch + '}\n';
+    a=RoboBlocks.findPinMode(argument2);
+    code+=a['code'];
+    argument2=a['pin'];
+
+    //var up = parseFloat(argument0) <= parseFloat(argument1);
+    code += 'for (' + variable0 + ' = ' + argument0 + '; ' + variable0 + (argument2>0 ? ' <= ' : ' >= ') + argument1 + '; ' + variable0 + '=' + variable0 + (argument2>0 ? '+' : '') + argument2 + ') {\n' + branch + '}\n';
     return code;
 };
 Blockly.Blocks.controls_for = {
@@ -41,6 +46,7 @@ Blockly.Blocks.controls_for = {
         // .appendField(new Blockly.FieldVariable(' '), 'VAR');
         this.appendValueInput('FROM').setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_FROM'));
         this.appendValueInput('TO').setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_TO'));
+        this.appendValueInput('INCREMENT').setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_INCREMENT'));
         this.appendStatementInput('DO').appendField(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INPUT_DO'));
         this.setPreviousStatement(true);
         this.setNextStatement(true);
@@ -76,11 +82,14 @@ Blockly.Blocks.controls_for = {
     },
     onchange: function() {
         try {
-            if (this.isVariable(Blockly.Arduino.valueToCode(this, 'FROM', Blockly.Arduino.ORDER_ATOMIC))) {
-                this.setWarningText(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_FROM_WARNING'));
-            }
-            else if ( this.isVariable(Blockly.Arduino.valueToCode(this, 'TO', Blockly.Arduino.ORDER_ATOMIC))) {
-                this.setWarningText(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_TO_WARNING'));
+            if (this.isVariable(Blockly.Arduino.valueToCode(this, 'INCREMENT', Blockly.Arduino.ORDER_ATOMIC))) {
+                this.setWarningText(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_INCREMENT_WARNING'));
+        //    }
+        //    else if (this.isVariable(Blockly.Arduino.valueToCode(this, 'FROM', Blockly.Arduino.ORDER_ATOMIC))) {
+        //        this.setWarningText(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_FROM_WARNING'));
+        //    }
+        //    else if ( this.isVariable(Blockly.Arduino.valueToCode(this, 'TO', Blockly.Arduino.ORDER_ATOMIC))) {
+        //        this.setWarningText(RoboBlocks.locales.getKey('LANG_CONTROLS_FOR_TO_WARNING'));
             } else {
                 this.setWarningText(null);
             }

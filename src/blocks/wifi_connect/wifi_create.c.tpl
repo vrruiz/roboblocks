@@ -1,0 +1,1 @@
+wifi.setSoftAPParam({{ssid}},{{password}},{{channel}})

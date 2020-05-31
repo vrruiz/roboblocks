@@ -1,0 +1,1 @@
+wifi_enviarCliente({{id_client}},{{data}})

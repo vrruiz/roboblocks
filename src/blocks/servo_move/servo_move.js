@@ -45,20 +45,20 @@ Blockly.Arduino.servo_move = function() {
  * @type {Object}
  */
 Blockly.Blocks.servo_move = {
-    category: RoboBlocks.locales.getKey('LANG_CATEGORY_SERVO'),
+    category: RoboBlocks.locales.getKey('LANG_CATEGORY_MOTOR'),
     tags: ['servo'],
     helpUrl: RoboBlocks.URL_SERVO,
     /**
      * servo_move initialization
      */
     init: function() {
-        this.setColour(RoboBlocks.LANG_COLOUR_SERVO);
-        this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE')).appendField(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_PIN')).setCheck(Number);
-        this.appendValueInput('DEGREE', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_DEGREES'));
-        this.appendValueInput('DELAY_TIME', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_DELAY'));
+        this.setColour(RoboBlocks.LANG_COLOUR_MOTOR);
+        this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_MOVE')).appendField(new Blockly.FieldImage('img/blocks/bqservo01.png', 208 * options.zoom, 126 * options.zoom)).appendField(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_MOVE_PIN')).setCheck(Number);
+        this.appendValueInput('DEGREE', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_MOVE_DEGREES'));
+        this.appendValueInput('DELAY_TIME', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_MOVE_DELAY'));
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip(RoboBlocks.locales.getKey('LANG_SERVO_MOVE_TOOLTIP'));
+        this.setTooltip(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_MOVE_TOOLTIP'));
     },
     isVariable: function(varValue) {
         for (var i in Blockly.Variables.allVariables()) {
@@ -71,7 +71,7 @@ Blockly.Blocks.servo_move = {
     onchange: function() {
         // try {
         //     if (this.isVariable(Blockly.Arduino.valueToCode(this,'PIN', Blockly.Arduino.ORDER_ATOMIC))) {
-        //         this.setWarningText(RoboBlocks.locales.getKey('LANG_SERVO_WARNING'));
+        //         this.setWarningText(RoboBlocks.locales.getKey('LANG_MOTOR_SERVO_WARNING'));
         //     } else {
         //         this.setWarningText(null);
         //     }

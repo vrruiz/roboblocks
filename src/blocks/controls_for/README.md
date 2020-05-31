@@ -11,3 +11,4 @@ Parameters
 | VARIABLE     | Variable that is going to be incremented | `Number` |
 | FROM     | Initial value of the variable | `Number` |
 | TO     | Final value of the variable | `Number` |
+| INCREMENT | Increment of the variable each time the loop executes | `Number` |

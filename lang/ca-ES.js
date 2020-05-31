@@ -18,6 +18,7 @@
         BLOCKLY_MSG_EXPAND_ALL: 'Desplega els blocs',
         LANG_VARIABLES_SET_ITEM: 'element',
         LANG_RESERVED_WORDS: 'Paraula reservada: aquest nom no està permès.',
+        LANG_CHAR_LENGTH: 'A character must have length 0 or 1.', //to translate
         //logic blocks:
         LANG_CATEGORY_LOGIC: 'Lògica',
         LANG_LOGIC_OPERATION_AND: 'i',
@@ -63,74 +64,45 @@
         LANG_ADVANCED_SERIAL_PRINT_TOOLTIP: 'Imprimeix les dades com a text ASCII.',
         LANG_ADVANCED_SERIAL_PRINTLN: 'Imprimeix pel port sèrie amb salt de línia',
         LANG_ADVANCED_SERIAL_PRINTLN_TOOLTIP: 'Imprimeix les dades com a text ASCII i amb retorn de carro (RC).',
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT: 'Prints value with format', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_1: 'Binary', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_2: 'Octal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_3: 'Decimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_4: 'Hexadecimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_5: 'Without decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_6: 'One decimal', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_7: 'Two decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_8: 'Three decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_9: 'Four decimals', //to translate
+        LANG_ADVANCED_SERIAL_PRINT_FORMAT_TOOLTIP: 'Prints value with specified format', //to translate
+        LANG_ADVANCED_SERIAL_PRINTLN_FORMAT: 'Send value with format and CR', //To translate
+        LANG_ADVANCED_SERIAL_PRINTLN_FORMAT_TOOLTIP: 'Send a number to serial port with specified format and carriage return (CR).', //To translate
         LANG_ADVANCED_SERIAL_READ: 'Llegeix des del port sèrie',
         LANG_ADVANCED_SERIAL_READ_TOOLTIP: 'Llegeix les dades que es reben pel port sèrie com a bytes.',
         LANG_ADVANCED_SERIAL_READSTRING: 'Llegeix text des del port sèrie',
         LANG_ADVANCED_SERIAL_READSTRING_TOOLTIP: 'Llegeix les dades que es reben pel port sèrie com a text ASCII.',
-        LANG_ADVANCED_SERIAL_SPECIAL: 'Caràcters especials',
-        LANG_ADVANCED_SERIAL_SPECIAL_TAB: 'Tabulador',
-        LANG_ADVANCED_SERIAL_SPECIAL_CARRIAGE_RETURN: 'Retorn de carro',
-        LANG_ADVANCED_SERIAL_SPECIAL_LINE_FEED: 'Salt de línia',
-        LANG_ADVANCED_SERIAL_SPECIAL_TOOLTIP: 'Escriu caràcters especials.',
-        //bq blocks :
-        LANG_CATEGORY_BQ: 'Blocs Octopus',
+        //Sensor blocks:
+        LANG_CATEGORY_SENSOR: 'Sensors',
         LANG_BQ_BAT: 'BAT - Sensor d\'ultrasons',
         LANG_BQ_BAT_RED_PIN: 'ECHO PIN#',
         LANG_BQ_BAT_BLUE_PIN: 'TRIGGER PIN#',
         LANG_BQ_BAT_TOOLTIP: 'Retorna la distància mesurada pel sensor.',
-        LANG_BQ_BUTTON: 'Botó',
-        LANG_BQ_BUTTON_PIN: 'PIN#',
-        LANG_BQ_BUTTON_TOOLTIP: 'Botó',
-        LANG_BQ_BUTTONS: 'Botonera',
-        LANG_BQ_BUTTONS_PIN: 'PIN#',
-        LANG_BQ_BUTTONS_BUTTON_A: 'Botó #A',
-        LANG_BQ_BUTTONS_BUTTON_B: 'Botó #B',
-        LANG_BQ_BUTTONS_BUTTON_C: 'Botó #C',
-        LANG_BQ_BUTTONS_BUTTON_D: 'Botó #D',
-        LANG_BQ_BUTTONS_BUTTON_E: 'Botó #E',
-        LANG_BQ_BUTTONS_TOOLTIP: 'Botonera',
-        LANG_BQ_INFRARED: 'Sensor infraroig',
-        LANG_BQ_INFRARED_PIN: 'PIN#',
-        LANG_BQ_INFRARED_TOOLTIP: 'Retorna el valor digital mesurat pel sensor infraroig',
-        LANG_BQ_JOYSTICK: 'Palanca de control',
-        LANG_BQ_JOYSTICK_PIN_X: 'Eix X PIN#',
-        LANG_BQ_JOYSTICK_PIN_Y: 'Eix Y PIN#',
-        LANG_BQ_JOYSTICK_POSITION: 'Posició de la palanca de control',
-        LANG_BQ_JOYSTICK_PIN_BUTTON: 'Polsador PIN#',
-        LANG_BQ_JOYSTICK_TOOLTIP: 'Palanca de control',
-        LANG_BQ_LED: 'LED',
-        LANG_BQ_LED_PIN: 'PIN#',
-        LANG_BQ_LED_STATE: '',
-        LANG_BQ_LED_ON: 'ENCÉN',
-        LANG_BQ_LED_OFF: 'APAGA',
-        LANG_BQ_LED_TOOLTIP: 'LED',
-        LANG_BQ_PHOTORESISTOR: 'Sensor de llum',
-        LANG_BQ_PHOTORESISTOR_PIN: 'PIN#',
-        LANG_BQ_PHOTORESISTOR_TOOLTIP: 'Retorna el valor analògic mesurat per la fotorresistència.',
-        LANG_BQ_PIEZO_BUZZER: 'Brunzidor',
-        LANG_BQ_PIEZO_BUZZER_PIN: 'PIN#',
-        LANG_BQ_PIEZO_BUZZER_TONE: 'TO',
-        LANG_BQ_PIEZO_BUZZER_DO: 'DO',
-        LANG_BQ_PIEZO_BUZZER_RE: 'RE',
-        LANG_BQ_PIEZO_BUZZER_MI: 'MI',
-        LANG_BQ_PIEZO_BUZZER_FA: 'FA',
-        LANG_BQ_PIEZO_BUZZER_SOL: 'SOL',
-        LANG_BQ_PIEZO_BUZZER_LA: 'LA',
-        LANG_BQ_PIEZO_BUZZER_SI: 'SI',
-        LANG_BQ_PIEZO_BUZZER_DURATION: 'Durada',
-        LANG_BQ_PIEZO_BUZZER_TOOLTIP: 'Brunzidor Piezoelèctric',
-        LANG_BQ_PIEZO_BUZZERAV: 'Brunzidor avançat',
-        LANG_BQ_PIEZO_BUZZERAV_PIN: 'PIN#',
-        LANG_BQ_PIEZO_BUZZERAV_TONE: 'TO',
-        LANG_BQ_PIEZO_BUZZERAV_DURATION: 'Durada',
-        LANG_BQ_PIEZO_BUZZERAV_TOOLTIP: 'Brunzidor avançat',
-        LANG_BQ_POTENTIOMETER: 'Potenciòmetre',
-        LANG_BQ_POTENTIOMETER_PIN: 'PIN#',
-        LANG_BQ_POTENTIOMETER_TOOLTIP: 'Retorna el valor analògic mesurat pel potenciòmetre',
+        LANG_IR_READ: 'Reads from infrared receiver', //to translate
+        LANG_IR_READ_PIN: 'connected to PIN#', //to translate
+        LANG_IR_READ_TOOLTIP: 'Reads the value received from the infrared receiver', //to translate
         //LCD blocks:
         LANG_CATEGORY_LCD: 'Blocs de la LCD',
         LANG_LCD_DEF: 'LCD (2x16)',
-        LANG_LCD_PINS: 'Pins de la LCD',
+        LANG_LCD_DEF_CONNECTION: 'Connection type',  //to translate
+        LANG_LCD_DEF_CONNECTION_PARALLEL: 'Parallel (6 pins)',  //to translate
+        LANG_LCD_DEF_CONNECTION_I2C: 'I2C (4 wires)',  //to translate
+        LANG_LCD_DEF_ADDRESS: 'Address of the component', //to translate
+        LANG_LCD_DEF_PIN_1: 'RS Pin',  //to translate
+        LANG_LCD_DEF_PIN_2: 'Enable Pin',  //to translate
+        LANG_LCD_DEF_PIN_3: 'Data4 Pin',  //to translate
+        LANG_LCD_DEF_PIN_4: 'Data5 Pin',  //to translate
+        LANG_LCD_DEF_PIN_5: 'Data6 Pin',  //to translate
+        LANG_LCD_DEF_PIN_6: 'Data7 Pin',  //to translate
         LANG_LCD_DEF_TOOLTIP: 'Defineix la LCD',
         LANG_LCD_ADVANCED_DEF: 'LCD avançada',
         LANG_LCD_ADVANCED_ROWS: 'Files',
@@ -140,16 +112,45 @@
         LANG_LCD_SETBACKLIGHT_CLOSE: '',
         LANG_LCD_SETBACKLIGHT_TOOLTIP: 'Ajusta la retroiluminació de la LCD',
         LANG_LCD_PRINT: 'LCD: Imprimir ',
+        LANG_LCD_PRINT_TEXT: 'Text or value', //to translate
+        LANG_LCD_PRINT_SPECIAL: 'Defined character', //to translate
+        LANG_LCD_PRINT_ROW: 'Row', //to translate
+        LANG_LCD_PRINT_COL: 'Col', //to translate
         LANG_LCD_PRINT_POSITION: 'Vols fifxar la posició del text?',
         LANG_LCD_PRINT_TOOLTIP: 'Imprimeix una cadena a la LCD en la posició especificada o en la següent disponible.',
         LANG_LCD_CLEAR: 'Esborra la LCD',
         LANG_LCD_CLEAR_TOOLTIP: 'LCD: Esborra',
+        LANG_LCD_HOME: 'LCD Go home', //to translate
+        LANG_LCD_HOME_TOOLTIP: 'LCD: Positions the cursor in the upper-left corner of the screen', //to translate
+        LANG_LCD_DISPLAY: 'LCD Show content', //to translate
+        LANG_LCD_DISPLAY_TOOLTIP: 'LCD: Turns on the LCD display and restore the text that was on the display', //to translate
+        LANG_LCD_NODISPLAY: 'LCD Hide content', //to translate
+        LANG_LCD_NODISPLAY_TOOLTIP: 'LCD: Turns off the LCD display, without losing the text currently shown on it', //to translate
+        LANG_LCD_SCROLLDISPLAYLEFT: 'LCD Scrolls to the left', //to translate
+        LANG_LCD_SCROLLDISPLAYLEFT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the left', //to translate
+        LANG_LCD_SCROLLDISPLAYRIGHT: 'LCD Scrolls to the right', //to translate
+        LANG_LCD_SCROLLDISPLAYRIGHT_TOOLTIP: 'LCD: Scrolls the contents of the display one space to the right', //to translate
+        LANG_LCD_CREATECHAR: 'LCD Create character in index', //to translate
+        LANG_LCD_CREATECHAR_ROW1: 'Row 1', //to translate
+        LANG_LCD_CREATECHAR_ROW2: 'Row 2', //to translate
+        LANG_LCD_CREATECHAR_ROW3: 'Row 3', //to translate
+        LANG_LCD_CREATECHAR_ROW4: 'Row 4', //to translate
+        LANG_LCD_CREATECHAR_ROW5: 'Row 5', //to translate
+        LANG_LCD_CREATECHAR_ROW6: 'Row 6', //to translate
+        LANG_LCD_CREATECHAR_ROW7: 'Row 7', //to translate
+        LANG_LCD_CREATECHAR_ROW8: 'Row 8', //to translate
+        LANG_LCD_CREATECHAR_LENGTH: 'Each row must have five values, zero or one.', //to translate
+        LANG_LCD_CREATECHAR_TOOLTIP: 'Creates a special char for LCD and stores it in the specified index.', //to translate
         //controls blocks :
         LANG_CATEGORY_CONTROLS: 'Control',
         LANG_CONTROLS_BASE_DELAY_WAIT: 'Espera (ms)',
         LANG_CONTROLS_BASE_DELAY_TOOLTIP: 'Espera el temps especificat en mil·lisegons (ms)',
         LANG_CONTROLS_BASE_MILLIS: 'Temps des de l\'inici (ms)',
         LANG_CONTROLS_BASE_MILLIS_TOOLTIP: 'Número de mil·lisegons des que el programa s\'ha iniciat (enter llarg)',
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS: 'Wait [us]', //To translate
+        LANG_CONTROLS_BASE_DELAY_MICROSECONDS_TOOLTIP: 'Waits the specified time in microseconds (us)', //To translate
+        LANG_CONTROLS_BASE_MICROS: 'Time from start (us)', //To translate
+        LANG_CONTROLS_BASE_MICROS_TOOLTIP: 'Number of microseconds since the program started (long integer)', //To translate
         LANG_CONTROLS_DOWHILE_OPERATOR_DO: 'Fes',
         LANG_CONTROLS_DOWHILE_OPERATOR_WHILE: 'mentre',
         LANG_CONTROLS_DOWHILE_TOOLTIP: 'Mentre la condició es compleix, continua fent les accions.',
@@ -171,10 +172,12 @@
         LANG_CONTROLS_IF_ELSE_TOOLTIP: 'Afegeix una condició final al bloc "si" per capturar la resta d\'opcions.',
         LANG_CONTROLS_FOR_FROM_WARNING: 'No és possible establir una variable com a valor inicial pel bloc «per».',
         LANG_CONTROLS_FOR_TO_WARNING: 'No és possible establir una variable com a valor final pel bloc «per».',
+        LANG_CONTROLS_FOR_INCREMENT_WARNING:'No puedes asignar una variable al valor de incremento del for', //to translate
         LANG_CONTROLS_FOR_INPUT_WITH: 'compta amb',
         LANG_CONTROLS_FOR_INPUT_VAR: 'x',
         LANG_CONTROLS_FOR_INPUT_FROM: 'des de',
         LANG_CONTROLS_FOR_INPUT_TO: 'fins',
+        LANG_CONTROLS_FOR_INPUT_INCREMENT: 'increment', //to translate
         LANG_CONTROLS_FOR_INPUT_DO: 'fes',
         LANG_CONTROLS_FOR_TOOLTIP: 'Compta des d\'un nombre d\'inici fins un de final. Cada vegada que s\'incrementa en un el compte, la variable pren aquest valor i s\'executen les accions.',
         LANG_CONTROLS_WHILEUNTIL_OPERATOR_WHILE: 'mentre',
@@ -239,10 +242,20 @@
         LANG_MATH_SINGLE_TOOLTIP_LOG10: 'Retorna el logaritme en base 10 d\'un nombre.',
         LANG_MATH_SINGLE_TOOLTIP_EXP: 'Retorna el exponencial d\'un nombre.',
         LANG_MATH_SINGLE_TOOLTIP_POW10: 'Retorna 10 elevat a una potència.',
+        LANG_MATH_MIN: 'Minimum value between', //To translate
+        LANG_MATH_MIN_PARAM2: 'and', //To translate
+        LANG_MATH_MIN_TOOLTIP: 'Returns the minimum value of the inputs.', //To translate
+        LANG_MATH_MAX: 'Maximum value between', //To translate
+        LANG_MATH_MAX_PARAM2: 'and', //To translate
+        LANG_MATH_MAX_TOOLTIP: 'Returns the maximum value of the inputs.', //To translate
+        LANG_MATH_POW: 'Value of', //To translate
+        LANG_MATH_POW_PARAM2: 'to the power of', //To translate
+        LANG_MATH_POW_TOOLTIP: 'Returns the value of the first input to the power of the second.', //To translate
         //text blocks:
         LANG_CATEGORY_TEXT: 'Text',
         LANG_TEXT_TEXT_HELPURL: '',
         LANG_TEXT_TEXT_TOOLTIP: 'Una lletra, una paraula o una línia de text.',
+        LANG_TEXT_CHAR_TOOLTIP: 'A simbol, letter or number, but just one character', //to translate
         LANG_TEXT_JOIN_HELPURL: '',
         LANG_TEXT_JOIN_Field_CREATEWITH: 'crea text amb',
         LANG_TEXT_JOIN_TOOLTIP: 'Crea text ajuntant qualsevol nombre d\'elements.',
@@ -268,6 +281,16 @@
         LANG_TEXT_SUBSTRING_FROM: 'des de',
         LANG_TEXT_SUBSTRING_TO: 'fins',
         LANG_TEXT_SUBSTRING_TOOLTIP: 'Retalla els caràcters del text introduït que es trobin entre els dos índexs i crea amb ells un nou text.',
+        LANG_TEXT_CHARAT: 'Character of text', //To translate
+        LANG_TEXT_CHARAT_POSITION: 'in position', //To translate
+        LANG_TEXT_CHARAT_TOOLTIP: 'Returns character in the position of the text (beginning with 0).', //To translate
+        LANG_TEXT_SPECIAL: 'Caràcters especials',
+        LANG_TEXT_SPECIAL_TAB: 'Tabulador',
+        LANG_TEXT_SPECIAL_CARRIAGE_RETURN: 'Retorn de carro',
+        LANG_TEXT_SPECIAL_LINE_FEED: 'Salt de línia',
+        LANG_TEXT_SPECIAL_TOOLTIP: 'Escriu caràcters especials.',
+        LANG_TEXT_COMMENT: 'Comment', //to translate
+        LANG_TEXT_COMMENT_TOOLTIP: 'Inserts a comment of one line in the program.', //to translate
         //advanced blocks :
         LANG_CATEGORY_ADVANCED: 'Funcions PIN',
         LANG_ADVANCED_CONVERSION_CONVERT: 'Converteix',
@@ -296,12 +319,17 @@
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_HIGH: 'ALT',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_LOW: 'BAIX',
         LANG_ADVANCED_INOUT_DIGITAL_WRITE_TOOLTIP: 'Escriu un valor al pin digital específic.',
+        LANG_ADVANCED_INOUT_PULSEIN: 'Time for digital pin PIN#', //to translate
+        LANG_ADVANCED_INOUT_PULSEIN_MODE: 'to change to', //to translate
+        LANG_ADVANCED_INOUT_PULSEIN_TOOLTIP: 'Returns the time for a digital pin to change to the state specified (in milliseconds).', //to translate
         LANG_ADVANCED_HIGHLOW_HIGH: 'ALT',
         LANG_ADVANCED_HIGHLOW_LOW: 'BAIX',
         LANG_ADVANCED_HIGHLOW_TOOLTIP: 'Escriu "ALT" o "BAIX" en funció del seleccionat.',
         LANG_ADVANCED_MATH_RANDOM: 'Aleatori entre',
         LANG_ADVANCED_MATH_RANDOM_AND: ' I ',
         LANG_ADVANCED_MATH_RANDOM_TOOLTIP: 'Crea un nombre aleatori entre els dos límits introduïts.',
+        LANG_ADVANCED_MATH_RANDOM_SEED: 'Set random seed to', //to translate
+        LANG_ADVANCED_MATH_RANDOM_SEED_TOOLTIP: 'Sets seed for random number generator. For a random seed, read from an unconnected analog pin; to repeat the same sequence, use a fixed number.', //to translate
         //procedures blocks
         LANG_CATEGORY_PROCEDURES: 'Funcions',
         LANG_PROCEDURES_RETURN: 'retorna',
@@ -357,33 +385,16 @@
         LANG_VARIABLES_TYPE_FLOAT: 'Coma flotant',
         LANG_VARIABLES_TYPE_INTEGER: 'Enter',
         LANG_VARIABLES_TYPE_INTEGER_LONG: 'Enter llarg',
+        LANG_VARIABLES_TYPE_INTEGER_ULONG: 'Unsigned Long Integer', //To translate
         LANG_VARIABLES_TYPE_STRING: 'Cadena',
+        LANG_VARIABLES_TYPE_CHAR: 'Character', //to translate
+        LANG_VARIABLES_TYPE_BOOLEAN: 'Boolean', //to translate
         LANG_VARIABLES_VOLATILE_GLOBAL: 'Declara una variable GLOBAL VOLÀTIL ',
         LANG_VARIABLES_VOLATILE_GLOBAL_TYPE: 'del tipus ',
         LANG_VARIABLES_VOLATILE_GLOBAL_EQUALS: 'igual ',
         LANG_VARIABLES_VOLATILE_GLOBAL_TOOLTIP: 'Declara i defineix una variable GLOBAL VOLÀTIL de tipus enter o cadena utilitzada en una funció ISR.',  // To translate
-        //zum blocks :
-        LANG_CATEGORY_ZUM: 'Blocs Zum',
-        LANG_ZUM_BUTTON: 'Botó',
-        LANG_ZUM_BUTTON_PIN: 'PIN#',
-        LANG_ZUM_BUTTON_TOOLTIP: 'Botó zum',
-        LANG_ZUM_FOLLOWER: 'Sensor infraroig',
-        LANG_ZUM_FOLLOWER_PIN_LEFT: 'PIN ESQUERRA#',
-        LANG_ZUM_FOLLOWER_PIN_RIGHT: 'PIN DRETA#',
-        LANG_ZUM_FOLLOWER_LEFT: 'Esquerra',
-        LANG_ZUM_FOLLOWER_RIGHT: 'Dreta',
-        LANG_ZUM_FOLLOWER_TOOLTIP: 'Retorna el valor digital del sensor infraroig zum',
-        LANG_ZUM_INFRARED: 'Sensor infraroig',
-        LANG_ZUM_INFRARED_PIN: 'PIN#',
-        LANG_ZUM_INFRARED_TOOLTIP: 'Retorna el valor digital del sensor infraroig zum',
-        LANG_ZUM_LED: 'LED',
-        LANG_ZUM_LED_PIN: 'PIN#',
-        LANG_ZUM_LED_ON: 'ENCÉN',
-        LANG_ZUM_LED_OFF: 'APAGA',
-        LANG_ZUM_LED_TOOLTIP: 'LED zum',
-        LANG_ZUM_PHOTORESISTOR: 'Sensor de llum',
-        LANG_ZUM_PHOTORESISTOR_PIN: 'PIN#',
-        LANG_ZUM_PHOTORESISTOR_TOOLTIP: 'Retorna el valor analògic del sensor de llum (fotorresistència).',
+        //sound blocks (zum):
+        LANG_CATEGORY_ZUM: 'Sons',
         LANG_ZUM_PIEZO_BUZZER: 'Brunzidor',
         LANG_ZUM_PIEZO_BUZZER_PIN: 'PIN#',
         LANG_ZUM_PIEZO_BUZZER_TONE: 'TO',
@@ -401,25 +412,46 @@
         LANG_ZUM_PIEZO_BUZZERAV_TONE: 'TO',
         LANG_ZUM_PIEZO_BUZZERAV_DURATION: 'Durada',
         LANG_ZUM_PIEZO_BUZZERAV_TOOLTIP: 'Brunzidor piezoelèctric avançat.',
-        LANG_ZUM_POTENTIOMETER: 'Potenciòmetre',
-        LANG_ZUM_POTENTIOMETER_PIN: 'PIN#',
-        LANG_ZUM_POTENTIOMETER_TOOLTIP: 'Potenciòmetre zum.',
-        //servo blocks :
-        LANG_CATEGORY_SERVO: 'Servo',
-        LANG_SERVO_CONT: 'Servo de rotació contínua',
-        LANG_SERVO_CONT_PIN: 'PIN#',
-        LANG_SERVO_CONT_ROT: 'ROT',
-        LANG_SERVO_CONT_TURN_CLOCKWISE: 'GIRA EN SENTIT HORARI',
-        LANG_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'GIRA EN SENTIT ANTIHORARI',
-        LANG_SERVO_CONT_STOPPED: 'ATURA',
-        LANG_SERVO_CONT_DELAY: 'Pausa [ms]',
-        LANG_SERVO_CONT_TOOLTIP: 'Servo de rotació contínua.',
-        LANG_SERVO_MOVE: 'Servo',
-        LANG_SERVO_MOVE_PIN: 'PIN#',
-        LANG_SERVO_MOVE_DEGREES: 'Graus (0~180)',
-        LANG_SERVO_MOVE_DELAY: 'Pausa [ms]',
-        LANG_SERVO_MOVE_TOOLTIP: 'Mou el servo entre 0 i 180 graus.',
-        LANG_SERVO_WARNING: 'No es possible establir el pin del servo utilitzant una variable',
+        LANG_ZUM_DHT11_VALUE: 'Get', //to translate
+        LANG_ZUM_DHT11_VALUE1: 'Temperature', //to translate
+        LANG_ZUM_DHT11_VALUE2: 'Humidity', //to translate
+        LANG_ZUM_DHT11_PIN: 'PIN', //to translate
+        LANG_ZUM_DHT11_TOOLTIP: 'Get temperature or humidity from a DHT11, DHT21 or DHT22 sensor.', //to translate
+        //motor blocks (servo and stepper):
+        LANG_CATEGORY_MOTOR: 'Motors', //to translate
+        LANG_MOTOR_SERVO_CONT: 'Servo de rotació contínua',
+        LANG_MOTOR_SERVO_CONT_PIN: 'PIN#',
+        LANG_MOTOR_SERVO_CONT_ROT: 'ROT',
+        LANG_MOTOR_SERVO_CONT_TURN_CLOCKWISE: 'GIRA EN SENTIT HORARI',
+        LANG_MOTOR_SERVO_CONT_TURN_COUNTERCLOCKWISE: 'GIRA EN SENTIT ANTIHORARI',
+        LANG_MOTOR_SERVO_CONT_STOPPED: 'ATURA',
+        LANG_MOTOR_SERVO_CONT_DELAY: 'Pausa [ms]',
+        LANG_MOTOR_SERVO_CONT_TOOLTIP: 'Servo de rotació contínua.',
+        LANG_MOTOR_SERVO_MOVE: 'Servo',
+        LANG_MOTOR_SERVO_MOVE_PIN: 'PIN#',
+        LANG_MOTOR_SERVO_MOVE_DEGREES: 'Graus (0~180)',
+        LANG_MOTOR_SERVO_MOVE_DELAY: 'Pausa [ms]',
+        LANG_MOTOR_SERVO_MOVE_TOOLTIP: 'Mou el servo entre 0 i 180 graus.',
+        LANG_MOTOR_SERVO_WARNING: 'No es possible establir el pin del servo utilitzant una variable',
+        LANG_MOTOR_STEPPER_MOVE: 'Stepper motor', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SPR: 'Steps per revolution', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PINS: '4 pins?', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN1: 'Pin 1', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN2: 'Pin 2', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN3: 'Pin 3', //to translate
+        LANG_MOTOR_STEPPER_MOVE_PIN4: 'Pin 4', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SETSPEED: 'Set speed to', //to translate
+        LANG_MOTOR_STEPPER_MOVE_SETSPEED_NEXT: '(rpm)', //to translate
+        LANG_MOTOR_STEPPER_MOVE_STEP: 'Move motor', //to translate
+        LANG_MOTOR_STEPPER_MOVE_STEP_NEXT: '(steps)', //to translate
+        LANG_MOTOR_STEPPER_MOVE_TOOLTIP: 'Moves motor the number of steps. A positive steps value move in one direction, a negative value moves to the other direction.', //to translate
+        LANG_MOTOR_PCA9685_DEF: 'PCA9685', //to translate
+        LANG_MOTOR_PCA9685_DEF_SERVO: 'Servo', //to translate
+        LANG_MOTOR_PCA9685_DEF_ADDRESS: 'Address of the component', //to translate
+        LANG_MOTOR_PCA9685_DEF_TOOLTIP: 'Defines a PCA9685 connected to Arduino over I2C.', //to translate
+        LANG_MOTOR_PCA9685_SET_PWM: 'PCA9685 Move servo', //to translate
+        LANG_MOTOR_PCA9685_SET_PWM_ANGLE: 'angle', //to translate
+        LANG_MOTOR_PCA9685_SET_PWM_TOOLTIP: 'Moves servo connected to PCA9685 the specified angle in degrees.', //to translate
         //interrupt blocks :
         LANG_CATEGORY_INTERRUPTS: 'Interrupcions',
         LANG_INTERRUPTS_STATE: 'Estableix l\'estat de les interrupcions a ',
@@ -436,7 +468,44 @@
         LANG_INTERRUPTS_ATTACH_PROCEDURE: 'func_sense_retorn',
         LANG_INTERRUPTS_ATTACH_TOOLTIP: 'Estableix la funció que s\'executarà quan es produeix la interrupció en el pin especificat.',
         LANG_INTERRUPTS_DETACH: 'Desassocia la interrupció al pin digital',
-        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la interrupció en el pin. Quan s\'activa el pin, la funció associada no s\'executarà més.'
+        LANG_INTERRUPTS_DETACH_TOOLTIP: 'Desactiva la interrupció en el pin. Quan s\'activa el pin, la funció associada no s\'executarà més.',
+        LANG_WIFI_CONNECT: 'Wifi:', //To translate
+        LANG_WIFI_CONNECT_STATION: 'connect', //To translate
+        LANG_WIFI_CONNECT_SOFTAP: 'create network', //To translate
+        LANG_WIFI_CONNECT_SSID: 'SSID', //To translate
+        LANG_WIFI_CONNECT_PASSWORD: 'password', //To translate
+        LANG_WIFI_CONNECT_CHANNEL: 'channel', //To translate
+        LANG_WIFI_CONNECT_RX_PIN: 'Rx pin', //To translate
+        LANG_WIFI_CONNECT_TX_PIN: 'Tx pin', //To translate
+        LANG_WIFI_CONNECT_BAUD: 'baud rate', //To translate
+        LANG_WIFI_CONNECT_TOOLTIP: 'Connects or creates a wifi using a ESP8266 adapter, and returns true on success.', //To translate
+        LANG_WIFI_DISCONNECT: 'Wifi:disconnect', //To translate
+        LANG_WIFI_DISCONNECT_TOOLTIP: 'Disconnects from the current wifi network.', //To translate
+        LANG_WIFI_CLIENT: 'Wifi:connect to server', //To translate
+        LANG_WIFI_CLIENT_IP: 'IP address', //To translate
+        LANG_WIFI_CLIENT_PORT: 'Port', //To translate
+        LANG_WIFI_CLIENT_TOOLTIP: 'Connects to a TCP server.', //To translate
+        LANG_WIFI_SERVER: 'Wifi:start server', //To translate
+        LANG_WIFI_SERVER_PORT: 'Port', //To translate
+        LANG_WIFI_SERVER_TOOLTIP: 'Create a TCP server to accept connections from clients.', //To translate
+        LANG_WIFI_GETIP: 'Wifi:get IP address', //To translate
+        LANG_WIFI_GETIP_TOOLTIP: 'Returns IP address of the adapter.', //To translate
+        LANG_WIFI_SEND_SERVER: 'Wifi:send to server', //To translate
+        LANG_WIFI_SEND_SERVER_DATA: 'Text', //To translate
+        LANG_WIFI_SEND_SERVER_TOOLTIP: 'Send text to the TCP server.', //To translate
+        LANG_WIFI_SEND_CLIENT: 'Wifi:send to client', //To translate
+        LANG_WIFI_SEND_CLIENT_ID: 'ID', //To translate
+        LANG_WIFI_SEND_CLIENT_DATA: 'Data', //To translate
+        LANG_WIFI_SEND_CLIENT_TOOLTIP: 'Send text to specified client (ID).', //To translate
+        LANG_WIFI_RECEIVE_CLIENT: 'Wifi:receive from client', //To translate
+        LANG_WIFI_RECEIVE_CLIENT_TOOLTIP: 'Receives a text from client, begining with id number and a colon (:). If timeout is reached, returns an empty string.', //To translate
+        LANG_WIFI_RECEIVE_SERVER: 'Wifi:receive from server', //To translate
+        LANG_WIFI_RECEIVE_SERVER_TIMEOUT: 'Timeout', //To translate
+        LANG_WIFI_RECEIVE_SERVER_TOOLTIP: 'Receives a string from TCP server or empty string if timeout reached.', //To translate
+        LANG_WIFI_CLOSE_SERVER: 'Wifi:stop server', //To translate
+        LANG_WIFI_CLOSE_SERVER_TOOLTIP: 'Shutdown TCP server.', //To translate
+        LANG_WIFI_CLOSE_CLIENT: 'Wifi:stop connection', //To translate
+        LANG_WIFI_CLOSE_CLIENT_TOOLTIP: 'Shutdown connection with TCP server.' //To translate
     };
     // Node
     if (typeof module !== 'undefined' && module.exports) {

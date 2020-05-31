@@ -1,1 +1,1 @@
-lcd.print({{val}});
+lcd.{{print_type}}({{val}});

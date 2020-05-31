@@ -18,7 +18,7 @@ Blockly.Arduino.inout_digital_write_var = function() {
     code += b['code'];
     value_num = b['pin'];
     
-    /* Parece que actúa sobre el setup  */  
+    /* Parece que actúa sobre el setup  */
     if (RoboBlocks.isVariable(dropdown_pin)) {
         code += JST['inout_digital_write_var_setups']({
             'dropdown_pin': dropdown_pin,
@@ -51,7 +51,7 @@ Blockly.Blocks.inout_digital_write_var = {
     init: function() {
         this.setColour(RoboBlocks.LANG_COLOUR_ADVANCED);
         this.appendValueInput('PIN').appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE')).appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_PIN'));
-        this.appendValueInput('NUM', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_GET_VAR')).appendField("[0,1]");
+        this.appendValueInput('NUM', Number).setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(RoboBlocks.locales.getKey('LANG_ADVANCED_INOUT_DIGITAL_WRITE_GET_VAR')).appendField('[0,1]');
         this.setPreviousStatement(true, null);
         this.setInputsInline(true);
         this.setNextStatement(true, null);

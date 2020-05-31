@@ -21,6 +21,7 @@ Blockly.Arduino.math_random = function() {
         'value_num': value_num,
         'value_dmax': value_dmax
     });
+
     return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
